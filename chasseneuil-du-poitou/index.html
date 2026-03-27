@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,13 +32,12 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/eff24603e5ee486c87c7cd2ceb0664f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Futuroscope: 1-Day Access" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Futuroscope: 1-Day Access</h3>
-        <p class="venue">📍 Futuroscope</p>
-        <p>Visit Futuroscope theme park and enjoy more than 40 attractions, shows, and activities for all ages.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/eff24603e5ee486c87c7cd2ceb0664f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Futuroscope: 1-Day Access" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Futuroscope: 1-Day Access</h3>
+          <p class="venue">📍 Futuroscope</p>
+          <p>Visit Futuroscope theme park and enjoy more than 40 attractions, shows, and activities for all ages.
 
 Your ticket includes unlimited access to all rides and experiences.
 
@@ -47,20 +46,20 @@ Try the new Mission Bermuda ride, where you travel through rapids by boat before
 Ride The Extraordinary Voyage and fly over locations such as the Sahara, Dubai, the Himalayas, and the Ganges with your feet suspended.
 
 Experience Objectif Mars, an indoor and outdoor roller coaster that reaches speeds of up to 55 kmph. It was named Best New Roller Coaster at the 'European Star Awards 2020'.</p>
-        <div class="card-footer">
-         <span class="price">From €47</span>
-         <span class="rating">⭐ 4.4 (1203)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-futuroscope-1-day-access-p975611/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €47</span>
+            <span class="rating">⭐ 4.4 (1203)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-futuroscope-1-day-access-p975611/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2cef268637f9442fb5a101c739b5a4e6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Futuroscope: 2-Day Access" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Futuroscope: 2-Day Access</h3>
-        <p class="venue">📍 Futuroscope</p>
-        <p>Visit Futuroscope and explore more than 40 attractions, shows, and activities for all ages. Your ticket includes unlimited access for two days.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2cef268637f9442fb5a101c739b5a4e6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Futuroscope: 2-Day Access" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Futuroscope: 2-Day Access</h3>
+          <p class="venue">📍 Futuroscope</p>
+          <p>Visit Futuroscope and explore more than 40 attractions, shows, and activities for all ages. Your ticket includes unlimited access for two days.
 
 Ride Danse avec les Robots, featuring music by Martin Solveig. Enjoy a drink at The Aerobar (not included), where you sit at an elevated bar with your feet off the ground.
 
@@ -69,20 +68,20 @@ Try the new Mission Bermuda ride, where you travel through rapids by boat before
 Board The Extraordinary Voyage and fly over locations such as the Sahara, Dubai, the Himalayas, and the Ganges. This attraction received the 'Best European Attraction' award at the 'Parksmania Awards' in 2017.
 
 Take part in the Open Air Games, including a 20-foot rope dome and play areas inspired by the Minimoys.</p>
-        <div class="card-footer">
-         <span class="price">From €81</span>
-         <span class="rating">⭐ 4.4 (339)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-futuroscope-two-day-access-p1002689/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €81</span>
+            <span class="rating">⭐ 4.4 (339)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-futuroscope-two-day-access-p1002689/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/d03f2693625343c190f14402acf2ea20.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Futuroscope: Last-Minute 1-Day Access" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Futuroscope: Last-Minute 1-Day Access</h3>
-        <p class="venue">📍 Futuroscope</p>
-        <p>Visit Futuroscope and explore more than 40 attractions and activities for all ages. This last-minute ticket is valid for the same day you book it and includes one-day access.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d03f2693625343c190f14402acf2ea20.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Futuroscope: Last-Minute 1-Day Access" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Futuroscope: Last-Minute 1-Day Access</h3>
+          <p class="venue">📍 Futuroscope</p>
+          <p>Visit Futuroscope and explore more than 40 attractions and activities for all ages. This last-minute ticket is valid for the same day you book it and includes one-day access.
 
 Your ticket gives you unlimited access to rides, shows, and experiences throughout the park.
 
@@ -91,20 +90,20 @@ Try the new Mission Bermuda ride, where you travel through rapids by boat before
 Ride The Extraordinary Voyage and fly over locations such as the Sahara, Dubai, the Himalayas, and the Ganges. This attraction received the 'Best European Attraction' award at the 'Parksmania Awards' in 2017.
 
 Try Objectif Mars, an indoor and outdoor roller coaster that reaches speeds of up to 55 kmph. It was named Best New Roller Coaster at the 'European Star Awards' in 2020.</p>
-        <div class="card-footer">
-         <span class="price">From €59</span>
-         <span class="rating">⭐ 4.1 (55)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-futuroscope-last-minute-ticket-p996188/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €59</span>
+            <span class="rating">⭐ 4.1 (55)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-futuroscope-last-minute-ticket-p996188/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2d98949b87b2496aa913b475fa245696.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Futuroscope: Last-Minute 2-Day Access" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Futuroscope: Last-Minute 2-Day Access</h3>
-        <p class="venue">📍 Futuroscope</p>
-        <p>Visit Futuroscope and explore more than 40 attractions and experiences. This last-minute ticket gives you two-day access to all rides, activities, and shows in the park.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2d98949b87b2496aa913b475fa245696.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Futuroscope: Last-Minute 2-Day Access" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Futuroscope: Last-Minute 2-Day Access</h3>
+          <p class="venue">📍 Futuroscope</p>
+          <p>Visit Futuroscope and explore more than 40 attractions and experiences. This last-minute ticket gives you two-day access to all rides, activities, and shows in the park.
 
 Ride Danse avec les Robots, featuring music by Martin Solveig. Have a drink at the Aerobar, where you sit at an elevated bar with your feet off the ground.
 
@@ -113,34 +112,33 @@ Try the new Mission Bermuda ride, where you travel through rapids by boat before
 Board The Extraordinary Voyage and fly over locations such as the Sahara, Dubai, the Himalayas, and the Ganges. This attraction received the 'Best European Attraction' award at the 'Parksmania Awards' in 2017.
 
 Ride Objectif Mars, an indoor and outdoor roller coaster that reaches speeds of up to 55 kmph. It was named Best New Roller Coaster at the 'European Star Awards' in 2020.</p>
-        <div class="card-footer">
-         <span class="price">From €102</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-futuroscope-two-day-access-last-minute-p1002623/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €102</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-futuroscope-two-day-access-last-minute-p1002623/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/283570fb513343109a081a3da688cfa7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Futuroscope: 3-Day Access" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Futuroscope: 3-Day Access</h3>
-        <p class="venue">📍 Futuroscope</p>
-        <p>Visit Futuroscope and see a theme park with over 40 unique experiences for all ages. Access all rides, activities, and shows for three consecutive days.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/283570fb513343109a081a3da688cfa7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Futuroscope: 3-Day Access" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Futuroscope: 3-Day Access</h3>
+          <p class="venue">📍 Futuroscope</p>
+          <p>Visit Futuroscope and see a theme park with over 40 unique experiences for all ages. Access all rides, activities, and shows for three consecutive days.
 
 Blast across the cosmos and time-travel to far-flung locales with quirky characters on high-tech attractions. Join Danse avec les Robots with tracks by DJ Martin Solveig. Get a drink at the sky-high Aerobar (not included).
 
 Try the new Mission Bermuda ride, where you travel through rapids by boat before a final drop. The attraction received several awards in 2025, including, 'Best Attraction and Innovation', and 'Best European Attraction'.
 
 Board the Voyage Extraordinaire and fly over five continents. Tackle the new Mission Bermuda attraction and navigate rapids aboard a boat before the final drop.</p>
-        <div class="card-footer">
-         <span class="price">From €102</span>
-         <span class="rating">⭐ 4 (6)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-futuroscope-3-day-access-p1116504/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €102</span>
+            <span class="rating">⭐ 4 (6)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-futuroscope-3-day-access-p1116504/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

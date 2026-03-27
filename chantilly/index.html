@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,43 +32,41 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4f40e5dbe9464c7ab2cba3bca4ef015e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château de Chantilly: Skip The Line Castle Ticket + Gardens Entry" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Château de Chantilly: Skip The Line Castle Ticket + Gardens Entry</h3>
-        <p class="venue">📍 Château de Chantilly</p>
-        <p>The Château de Chantilly is a haven of peace and tranquility, not far from Paris. Pack a picnic, bring the whole family, and give yourself the whole day to explore one of the biggest forests in the area as well as a real prince's castle.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4f40e5dbe9464c7ab2cba3bca4ef015e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château de Chantilly: Skip The Line Castle Ticket + Gardens Entry" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Château de Chantilly: Skip The Line Castle Ticket + Gardens Entry</h3>
+          <p class="venue">📍 Château de Chantilly</p>
+          <p>The Château de Chantilly is a haven of peace and tranquility, not far from Paris. Pack a picnic, bring the whole family, and give yourself the whole day to explore one of the biggest forests in the area as well as a real prince's castle.
 
 Horse lovers will get a kick out of the museum dedicated to all things equestrian. You'll also find over 800 masterpieces by artists including Poussin, Delacroix, Botticelli, and Raphael.
 
 An excursion fit for a prince!</p>
-        <div class="card-footer">
-         <span class="price">From €18</span>
-         <span class="rating">⭐ 4.6 (948)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-de-chantilly-skip-the-line-p977985/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €18</span>
+            <span class="rating">⭐ 4.6 (948)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-de-chantilly-skip-the-line-p977985/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4f40e5dbe9464c7ab2cba3bca4ef015e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château de Chantilly: Gardens Entry Only" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Château de Chantilly: Gardens Entry Only</h3>
-        <p class="venue">📍 Château de Chantilly</p>
-        <p>The gardens at Château de Chantilly are something truly spectacular. With a ticket to the gardens, you can explore three unique areas, including an Anglo-Chinese garden that served as inspiration for Marie Antoinette's hamlet at Versailles. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4f40e5dbe9464c7ab2cba3bca4ef015e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château de Chantilly: Gardens Entry Only" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Château de Chantilly: Gardens Entry Only</h3>
+          <p class="venue">📍 Château de Chantilly</p>
+          <p>The gardens at Château de Chantilly are something truly spectacular. With a ticket to the gardens, you can explore three unique areas, including an Anglo-Chinese garden that served as inspiration for Marie Antoinette's hamlet at Versailles. 
 
 After you've walked by the rustic houses that exist in simpatico with the plants in the Chinese garden, take a leisurely stroll through your next stop – the English garden. Perfect for a romantic walk, you can stop at the Temple of Venus, breathe in the beauty of nature at the Beauvais Waterfall, and entrench yourself in the peace that highlights the wilderness of nature.
 
 Perhaps the most stunning elements at the Château are the French-style flower beds. Designed by André Le Nôtre, who also worked on the gardens at Versailles, reminisced that this was his proudest achievement. Immaculately manicured lawns stand beside the mirror-like grand canal, while statues and water features entertain the eye and show order amongst wilderness.</p>
-        <div class="card-footer">
-         <span class="price">From €9</span>
-         <span class="rating">⭐ 4.6 (91)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-de-chantilly-gardens-entrance-p1012530/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €9</span>
+            <span class="rating">⭐ 4.6 (91)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-de-chantilly-gardens-entrance-p1012530/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

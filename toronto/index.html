@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,33 +32,32 @@
     <p>37 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/740a543f61c344018380ae270557c811.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Aquarium of Canada: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Ripley's Aquarium of Canada: Entry Ticket</h3>
-        <p class="venue">📍 Ripley's Aquarium of Canada</p>
-        <p>Watch as these impressive creatures devour bonito, herring, and squid. Despite their intimidating appearance, they're surprisingly gentle.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/740a543f61c344018380ae270557c811.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Aquarium of Canada: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Ripley's Aquarium of Canada: Entry Ticket</h3>
+          <p class="venue">📍 Ripley's Aquarium of Canada</p>
+          <p>Watch as these impressive creatures devour bonito, herring, and squid. Despite their intimidating appearance, they're surprisingly gentle.
 
 Explore the Canadian Waters gallery, bustling with Giant Pacific Octopi, paddlefish, American lobsters, wolf eels, and more. 
 
 At Ray Bay, watch sleek stingrays skim the sandy bottom. Be mesmerized by the weightless dance of jellyfish in Planet Jellies.
 
 Lastly, visit the Rainbow Reef to marvel at fish darting through colorful coral, from Picasso triggerfish to Harlequin Tuskfish and unicorn surgeonfish.</p>
-        <div class="card-footer">
-         <span class="price">From €32.54</span>
-         <span class="rating">⭐ 4.4 (244)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-ripley-s-aquarium-of-canada-p1089717/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €32.54</span>
+            <span class="rating">⭐ 4.4 (244)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-ripley-s-aquarium-of-canada-p1089717/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/740a543f61c344018380ae270557c811.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Aquarium of Canada: Sharks After Dark" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Ripley's Aquarium of Canada: Sharks After Dark</h3>
-        <p class="venue">📍 Ripley's Aquarium of Canada</p>
-        <p>Walk through the glass sea tunnel alongside sawfish and sea turtles. Take a peek into caves to spot moray eels as they navigate the night.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/740a543f61c344018380ae270557c811.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Aquarium of Canada: Sharks After Dark" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Ripley's Aquarium of Canada: Sharks After Dark</h3>
+          <p class="venue">📍 Ripley's Aquarium of Canada</p>
+          <p>Walk through the glass sea tunnel alongside sawfish and sea turtles. Take a peek into caves to spot moray eels as they navigate the night.
 
 In the Canadian Waters gallery, say goodnight to the Giant Pacific octopuses, paddlefish, American lobsters, cod, wolf eels, and other local wildlife. 
 
@@ -67,530 +66,530 @@ Visit Ray Bay to watch the graceful movements of stingrays, and observe jellyfis
 The Rainbow Reef, bursting with vibrant exotic fish among radiant coral, lives up to its name. 
 
 See the Picasso triggerfish, harlequin tuskfish, unicorn surgeonfish, and other colorful marine marvels.</p>
-        <div class="card-footer">
-         <span class="price">From €29</span>
-         <span class="rating">⭐ 4.3 (202)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-ripley-s-aquarium-of-canada-sharks-after-dark-p1089718/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €29</span>
+            <span class="rating">⭐ 4.3 (202)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-ripley-s-aquarium-of-canada-sharks-after-dark-p1089718/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/12ed4442e38d4299b4baa910758576bb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Royal Ontario Museum: General Admission Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Royal Ontario Museum: General Admission Ticket</h3>
-        <p class="venue">📍 Royal Ontario Museum</p>
-        <p>The Royal Ontario Museum is a massive museum in central Toronto focused on the world of art, culture and nature. From _The Bat Cave_ to the _Gallery of Birds_, there's enough natural history in here to film a Hollywood blockbuster. Explore world cultures, dinosaurs, mining, meteors, and a fun hands-on gallery to keep the kids amused.</p>
-        <div class="card-footer">
-         <span class="price">From €16.28</span>
-         <span class="rating">⭐ 4.8 (319)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-royal-ontario-museum-general-admission-p976391/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/12ed4442e38d4299b4baa910758576bb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Royal Ontario Museum: General Admission Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Royal Ontario Museum: General Admission Ticket</h3>
+          <p class="venue">📍 Royal Ontario Museum</p>
+          <p>The Royal Ontario Museum is a massive museum in central Toronto focused on the world of art, culture and nature. From _The Bat Cave_ to the _Gallery of Birds_, there's enough natural history in here to film a Hollywood blockbuster. Explore world cultures, dinosaurs, mining, meteors, and a fun hands-on gallery to keep the kids amused.</p>
+          <div class="card-footer">
+            <span class="price">From €16.28</span>
+            <span class="rating">⭐ 4.8 (319)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-royal-ontario-museum-general-admission-p976391/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/12ed4442e38d4299b4baa910758576bb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Art Gallery of Ontario: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Art Gallery of Ontario: Entry Ticket</h3>
-        <p class="venue">📍 Art Gallery of Ontario</p>
-        <p>Located in downtown Toronto, the Art Gallery of Ontario (AGO) is one of the city’s premier cultural attractions that is fully accessible to all.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/12ed4442e38d4299b4baa910758576bb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Art Gallery of Ontario: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Art Gallery of Ontario: Entry Ticket</h3>
+          <p class="venue">📍 Art Gallery of Ontario</p>
+          <p>Located in downtown Toronto, the Art Gallery of Ontario (AGO) is one of the city’s premier cultural attractions that is fully accessible to all.
 
 Discover a collection of more than 120,000 artworks, from contemporary works to powerful art by Indigenous and Canadian artists, alongside renowned European masterpieces.
 
 Beyond the galleries, enjoy exhibitions, programs, and experiences that reflect diverse voices and global perspectives.
 
 Visit to the AGO Bistro, featuring seasonal, locally inspired cuisine, and explore shopAGO for art books, gifts, and souvenirs.</p>
-        <div class="card-footer">
-         <span class="price">From €18.78</span>
-         <span class="rating">⭐ 4.4 (56)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-art-gallery-of-ontario-p1036651/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €18.78</span>
+            <span class="rating">⭐ 4.4 (56)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-art-gallery-of-ontario-p1036651/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3476754dfbd4e4f9a77db3914030deb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Illusions Toronto: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Museum of Illusions Toronto: Entry Ticket</h3>
-        <p class="venue">📍 Museum of Illusions Toronto</p>
-        <p>Visit the Museum of Illusions Toronto and see a collection of perspective-changing rooms, intriguing installations, and thought-provoking images. Learn how illusions can play tricks on the mind and alter perceptions.</p>
-        <div class="card-footer">
-         <span class="price">From €21.91</span>
-         <span class="rating">⭐ 4.3 (13)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-illusions-toronto-p1104100/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3476754dfbd4e4f9a77db3914030deb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Illusions Toronto: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Museum of Illusions Toronto: Entry Ticket</h3>
+          <p class="venue">📍 Museum of Illusions Toronto</p>
+          <p>Visit the Museum of Illusions Toronto and see a collection of perspective-changing rooms, intriguing installations, and thought-provoking images. Learn how illusions can play tricks on the mind and alter perceptions.</p>
+          <div class="card-footer">
+            <span class="price">From €21.91</span>
+            <span class="rating">⭐ 4.3 (13)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-illusions-toronto-p1104100/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/12ed4442e38d4299b4baa910758576bb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Little Canada: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Little Canada: Skip The Line Ticket</h3>
-        <p class="venue">📍 Little Canada</p>
-        <p>You could spend a lifetime exploring all of Canada, but luckily for you Little Canada has shrunk the country down so you can see the best it has to offer in one miniature whistle-stop tour.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/12ed4442e38d4299b4baa910758576bb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Little Canada: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Little Canada: Skip The Line Ticket</h3>
+          <p class="venue">📍 Little Canada</p>
+          <p>You could spend a lifetime exploring all of Canada, but luckily for you Little Canada has shrunk the country down so you can see the best it has to offer in one miniature whistle-stop tour.
 
 Skip the line with these tickets and tap back into your childlike wonder as you explore tiny townscapes, and discover this vast land with a small-town feel. The best of Canada is covered, from the beauty of nature to famous landmarks. 
 
 You can even become a citizen of Little Canada by stepping into the Littlization Station and getting a 3D printed miniature of you! You'll get to choose what scene to drop your _mini-me_ into. (Note, this is not included with your regular ticket price).</p>
-        <div class="card-footer">
-         <span class="price">From €28.3</span>
-         <span class="rating">⭐ 4.9 (95)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-little-canada-p1017704/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €28.3</span>
+            <span class="rating">⭐ 4.9 (95)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-little-canada-p1017704/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/12ed4442e38d4299b4baa910758576bb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Arcadia Earth Toronto: Anytime Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Arcadia Earth Toronto: Anytime Entry Ticket</h3>
-        <p class="venue">📍 Arcadia Earth Toronto</p>
-        <p>Visit a 17,000 ft2 exhibit with interactive art installations and technology that shows the beauty of the planet and the effects of human actions on the environment.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/12ed4442e38d4299b4baa910758576bb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Arcadia Earth Toronto: Anytime Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Arcadia Earth Toronto: Anytime Entry Ticket</h3>
+          <p class="venue">📍 Arcadia Earth Toronto</p>
+          <p>Visit a 17,000 ft2 exhibit with interactive art installations and technology that shows the beauty of the planet and the effects of human actions on the environment.
 
 Walk through 10 different rooms suitable for all ages to learn about these important topics, and be inspired to be part of the solution for creating a better world.</p>
-        <div class="card-footer">
-         <span class="price">From €34.14</span>
-         <span class="rating">⭐ 4.2 (5)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-arcadia-earth-toronto-entry-p1106982/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €34.14</span>
+            <span class="rating">⭐ 4.2 (5)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-arcadia-earth-toronto-entry-p1106982/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/77994d8ae7934114976aadf042464872.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aga Khan Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Aga Khan Museum: Entry Ticket</h3>
-        <p class="venue">📍 Aga Khan Museum</p>
-        <p>Visit the Aga Khan Museum to learn about the artistic, intellectual, and scientific contributions of Muslim civilizations and their connections with other cultures around the world.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/77994d8ae7934114976aadf042464872.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aga Khan Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Aga Khan Museum: Entry Ticket</h3>
+          <p class="venue">📍 Aga Khan Museum</p>
+          <p>Visit the Aga Khan Museum to learn about the artistic, intellectual, and scientific contributions of Muslim civilizations and their connections with other cultures around the world.
 
 The museum aims to build understanding and encourage dialogue through its collection of manuscripts, paintings, ceramics, and textiles, as well as through its exhibitions, performances, talks, and workshops.</p>
-        <div class="card-footer">
-         <span class="price">From €6.26</span>
-         <span class="rating">⭐ 4.3 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-aga-khan-museum-entry-p1122651/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €6.26</span>
+            <span class="rating">⭐ 4.3 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-aga-khan-museum-entry-p1122651/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/bc7e7ae346fe42dc82d8546631498acf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara Falls: Day Trip from Toronto with Hotel Transfer" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Niagara Falls: Day Trip from Toronto with Hotel Transfer</h3>
-        <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
-        <p>This dynamic day trip showcases the finest of Niagara Falls and the Niagara Peninsula, including Niagara-on-the-Lake, hailed as Ontario's most enchanting town.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bc7e7ae346fe42dc82d8546631498acf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara Falls: Day Trip from Toronto with Hotel Transfer" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Niagara Falls: Day Trip from Toronto with Hotel Transfer</h3>
+          <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
+          <p>This dynamic day trip showcases the finest of Niagara Falls and the Niagara Peninsula, including Niagara-on-the-Lake, hailed as Ontario's most enchanting town.
 
 The itinerary is a wanderer's fantasy brought to life. It offers a generous three hours to revel in the awe-inspiring vista of the Falls. Opt for the Hornblower Niagara Cruise and embrace the tingling sensation of the mist on your skin.
 
 Next, the tour whisks you off to the charming hamlet of Niagara-on-the-Lake. Spend a delightful hour strolling its charming avenues and capturing memorable snapshots.
 
 Also included in the tour is a visit to a local winery and a tasting of ice wines. The day culminates with a picturesque voyage back to Toronto.</p>
-        <div class="card-footer">
-         <span class="price">From €75.12</span>
-         <span class="rating">⭐ 4.8 (13)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-niagara-falls-day-trip-from-toronto-p1076013/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €75.12</span>
+            <span class="rating">⭐ 4.8 (13)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-niagara-falls-day-trip-from-toronto-p1076013/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/6a330fb84f5342cba4b19711c52467ba.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bata Shoe Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Bata Shoe Museum: Entry Ticket</h3>
-        <p class="venue">📍 Bata Shoe Museum</p>
-        <p>Discover the treasures of North America’s charming and surprising shoe museum in Toronto, Canada. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6a330fb84f5342cba4b19711c52467ba.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bata Shoe Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Bata Shoe Museum: Entry Ticket</h3>
+          <p class="venue">📍 Bata Shoe Museum</p>
+          <p>Discover the treasures of North America’s charming and surprising shoe museum in Toronto, Canada. 
 
 Walk a mile in someone else's shoes with a ticket to Bata Shoe Museum, dedicated solely to shoes! Explore impressive exhibitions that will inspire and thrill visitors and shoe-lovers of all ages in architect Raymond Moriyama’s iconic, award-winning building. 
 
 The museum uses shoes to show the shape-shifting social fabrics of cultures around the world – past and present. See French chestnut-crushing boots alongside delicately embroidered Chinese silk shoes, moose-skin moccasins, and footwear made from human hair!</p>
-        <div class="card-footer">
-         <span class="price">From €10.02</span>
-         <span class="rating">⭐ 4.6 (39)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-bata-shoe-museum-p981834/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €10.02</span>
+            <span class="rating">⭐ 4.6 (39)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-bata-shoe-museum-p981834/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/12ed4442e38d4299b4baa910758576bb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto Harbour Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto Harbour Cruise</h3>
-        <p class="venue">📍 Toronto Cruises</p>
-        <p>Ready for picture postcard-perfect shots of Toronto from a different angle? See those towering skyscrapers from the water on a Toronto Harbour Cruise, plus The Queens Quay Terminal, HTO Park, The Harbourfront Centre, the famous Toronto Islands, and more.</p>
-        <div class="card-footer">
-         <span class="price">From €24.73</span>
-         <span class="rating">⭐ 4.6 (83)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-harbor-cruise-p974976/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/12ed4442e38d4299b4baa910758576bb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto Harbour Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto Harbour Cruise</h3>
+          <p class="venue">📍 Toronto Cruises</p>
+          <p>Ready for picture postcard-perfect shots of Toronto from a different angle? See those towering skyscrapers from the water on a Toronto Harbour Cruise, plus The Queens Quay Terminal, HTO Park, The Harbourfront Centre, the famous Toronto Islands, and more.</p>
+          <div class="card-footer">
+            <span class="price">From €24.73</span>
+            <span class="rating">⭐ 4.6 (83)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-harbor-cruise-p974976/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/9f5e3bbd36db4b5f80af0f88e88838bf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto Hop-on Hop-off Tour: 24 or 48 Hour Pass" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto Hop-on Hop-off Tour: 24 or 48 Hour Pass</h3>
-        <p class="venue">📍 Toronto City Tours</p>
-        <p>Brush up on your knowledge of hockey pucks and Tim Hortons as you tour Toronto on a big red Hop-on Hop-off bus! Cruise through 16 stops for 24 or 48 hours of unlimited use and get 360º panoramic views of Ontario's capital.</p>
-        <div class="card-footer">
-         <span class="price">From €42.68</span>
-         <span class="rating">⭐ 4.4 (17)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-2-or-3-day-pass-toronto-p1001238/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9f5e3bbd36db4b5f80af0f88e88838bf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto Hop-on Hop-off Tour: 24 or 48 Hour Pass" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto Hop-on Hop-off Tour: 24 or 48 Hour Pass</h3>
+          <p class="venue">📍 Toronto City Tours</p>
+          <p>Brush up on your knowledge of hockey pucks and Tim Hortons as you tour Toronto on a big red Hop-on Hop-off bus! Cruise through 16 stops for 24 or 48 hours of unlimited use and get 360º panoramic views of Ontario's capital.</p>
+          <div class="card-footer">
+            <span class="price">From €42.68</span>
+            <span class="rating">⭐ 4.4 (17)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-2-or-3-day-pass-toronto-p1001238/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/119afc3583a64668a73d64aa4c6007b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Tall Ship Boat Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto: Tall Ship Boat Cruise</h3>
-        <p class="venue">📍 Tall Ship Kajama</p>
-        <p>Hop onboard one of Toronto's best attractions and sail the *Kajama*, a traditional 165-foot schooner boat. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/119afc3583a64668a73d64aa4c6007b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Tall Ship Boat Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto: Tall Ship Boat Cruise</h3>
+          <p class="venue">📍 Tall Ship Kajama</p>
+          <p>Hop onboard one of Toronto's best attractions and sail the *Kajama*, a traditional 165-foot schooner boat. 
 
 Toronto's only tall ship boat cruise sails daily from downtown Toronto. Sit back and relax with a cold drink from a fully-licensed bar, as you set sail around Toronto Harbour and beautiful Lake Ontario.</p>
-        <div class="card-footer">
-         <span class="price">From €26.88</span>
-         <span class="rating">⭐ 4.6 (13)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-kajama-cruise-p1095941/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €26.88</span>
+            <span class="rating">⭐ 4.6 (13)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-kajama-cruise-p1095941/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Heart of Downtown Toronto Bike Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Heart of Downtown Toronto Bike Tour</h3>
-        <p class="venue">📍 Toronto City Tours</p>
-        <p>Get a real feel for the layout of downtown Toronto and discover the highlights of the city as you pedal around with a local.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Heart of Downtown Toronto Bike Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Heart of Downtown Toronto Bike Tour</h3>
+          <p class="venue">📍 Toronto City Tours</p>
+          <p>Get a real feel for the layout of downtown Toronto and discover the highlights of the city as you pedal around with a local.
 
 This Toronto bike tour includes must-see cultural and historical landmarks, major attractions and great views. You’ll be entertained by stories of Toronto’s people, culture, history and food, and when the tour is over you might be inspired to check out the places you’ve learned about.
 
 This bike tour is offered in English, Spanish or French, and whether you're a beginner or advanced rider, you'll move at an easy pace and will make plenty of stops to take in the sights. 
 
 Your local guides are experts. They know the city well, and will be happy to point you in the direction of their favourite spots, so you can make the most of your trip to Toronto after the tour!</p>
-        <div class="card-footer">
-         <span class="price">From €77.81</span>
-         <span class="rating">⭐ 5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-heart-of-downtown-toronto-bike-tour-p1049352/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €77.81</span>
+            <span class="rating">⭐ 5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-heart-of-downtown-toronto-bike-tour-p1049352/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Guided Bus Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto: Guided Bus Tour</h3>
-        <p class="venue">📍 Toronto City Tours</p>
-        <p>Take a guided bus tour highlighting key sites and neighborhoods in Toronto, suitable for individuals visiting for the first time or those with limited time.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Guided Bus Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto: Guided Bus Tour</h3>
+          <p class="venue">📍 Toronto City Tours</p>
+          <p>Take a guided bus tour highlighting key sites and neighborhoods in Toronto, suitable for individuals visiting for the first time or those with limited time.
 
 Begin from the Entertainment District on a modern coach and view notable landmarks such as the CN Tower, sports arenas, St. Lawrence Market, Chinatown, and Avenue Road leading to Yorkville's shopping area.
 
 Learn significant historical and cultural facts from your guide along the journey, and recognize locations from popular films.
 
 The route includes a stop for a photograph at the Toronto City Hall with its well-known public sign. Gain an overview of the notable aspects of Toronto during this short and informative outing.</p>
-        <div class="card-footer">
-         <span class="price">From €50.87</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-guided-bus-tour-p1129123/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €50.87</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-guided-bus-tour-p1129123/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/740a543f61c344018380ae270557c811.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Premier Brunch Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto: Premier Brunch Cruise</h3>
-        <p class="venue">📍 Toronto Cruises</p>
-        <p>Take part in a brunch cruise in Toronto aboard the recently updated Toronto Odyssey. This vessel offers a buffet, drinks, attentive service, and panoramic views of the city skyline from its interior and rooftop deck. While on this excursion, you will traverse Toronto Harbour and observe its landmarks and attractions. The cruise is suited for gatherings of varying sizes or occasions, presenting a dining and sightseeing opportunity afloat Toronto's waters.</p>
-        <div class="card-footer">
-         <span class="price">From €42.31</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-premier-brunch-cruise-p1127481/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/740a543f61c344018380ae270557c811.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Premier Brunch Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto: Premier Brunch Cruise</h3>
+          <p class="venue">📍 Toronto Cruises</p>
+          <p>Take part in a brunch cruise in Toronto aboard the recently updated Toronto Odyssey. This vessel offers a buffet, drinks, attentive service, and panoramic views of the city skyline from its interior and rooftop deck. While on this excursion, you will traverse Toronto Harbour and observe its landmarks and attractions. The cruise is suited for gatherings of varying sizes or occasions, presenting a dining and sightseeing opportunity afloat Toronto's waters.</p>
+          <div class="card-footer">
+            <span class="price">From €42.31</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-premier-brunch-cruise-p1127481/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1251da8def542d498eb141ac2c36994.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Original Haunted Walk of Toronto" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Original Haunted Walk of Toronto</h3>
-        <p class="venue">📍 Toronto City Tours</p>
-        <p>You'll never look at Toronto the same way again after this spine-tingling tour!
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1251da8def542d498eb141ac2c36994.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Original Haunted Walk of Toronto" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Original Haunted Walk of Toronto</h3>
+          <p class="venue">📍 Toronto City Tours</p>
+          <p>You'll never look at Toronto the same way again after this spine-tingling tour!
 
 Meet your cloaked guide at the Hockey Hall of Fame, where a restless spirit with a broken heart resides. Your guide will lead you through the streets by lantern-light, sharing dark tales from Toronto's early days, and its most famous paranormal encounters.
 
 End your evening outside one of the city's most haunted locations: Mackenzie House. Be warned – its unsettling story might just keep you up at night!</p>
-        <div class="card-footer">
-         <span class="price">From €23.09</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-original-haunted-walk-of-toronto-p980319/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €23.09</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-original-haunted-walk-of-toronto-p980319/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Guided Neighbourhoods E-bike Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto: Guided Neighbourhoods E-bike Tour</h3>
-        <p class="venue">📍 Toronto City Tours</p>
-        <p>Discover Toronto’s changing streets and local stories on a guided e-bike tour. See lively neighborhoods, hidden green spaces, and unique streets that show the city’s evolving character.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Guided Neighbourhoods E-bike Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto: Guided Neighbourhoods E-bike Tour</h3>
+          <p class="venue">📍 Toronto City Tours</p>
+          <p>Discover Toronto’s changing streets and local stories on a guided e-bike tour. See lively neighborhoods, hidden green spaces, and unique streets that show the city’s evolving character.
 
 Visit neighborhoods, each highlighting a different aspect of Toronto. Go from trendy areas to historic districts. Note how Toronto is becoming more livable, diverse, and sustainable.
 
 Enjoy the ride without traffic jams and see how the locals live and move through the city.</p>
-        <div class="card-footer">
-         <span class="price">From €91.96</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-guided-neighbourhoods-ebike-tour-p1118536/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €91.96</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-guided-neighbourhoods-ebike-tour-p1118536/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/119afc3583a64668a73d64aa4c6007b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Guided Harbour & Islands Cruise + Drink" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto: Guided Harbour & Islands Cruise + Drink</h3>
-        <p class="venue">📍 Toronto Cruises</p>
-        <p>See the Toronto skyline and relax with a drink on a sightseeing cruise. Look at the Toronto Islands while listening to live commentary from the onboard guide.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/119afc3583a64668a73d64aa4c6007b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Guided Harbour & Islands Cruise + Drink" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto: Guided Harbour & Islands Cruise + Drink</h3>
+          <p class="venue">📍 Toronto Cruises</p>
+          <p>See the Toronto skyline and relax with a drink on a sightseeing cruise. Look at the Toronto Islands while listening to live commentary from the onboard guide.
 
 Choose indoor or outdoor seating and bring a camera. The boat offers 360° views from the upper level, great for taking photos.</p>
-        <div class="card-footer">
-         <span class="price">From €17.69</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-guided-harbour-islands-cruise-drink-p1118399/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €17.69</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-guided-harbour-islands-cruise-drink-p1118399/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Discovery District Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto: Discovery District Guided Walking Tour</h3>
-        <p class="venue">📍 Toronto City Tours</p>
-        <p>Learn about a century of development on a guided walking tour of Toronto.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Discovery District Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto: Discovery District Guided Walking Tour</h3>
+          <p class="venue">📍 Toronto City Tours</p>
+          <p>Learn about a century of development on a guided walking tour of Toronto.
 
 Follow a knowledgeable guide through downtown and discover historical locations showcasing significant events, art, and technological progress. 
 
 Listen to stories about the individuals and communities that have influenced the area over the years.</p>
-        <div class="card-footer">
-         <span class="price">From €30.17</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-discovery-district-guided-walking-tour-p1125069/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €30.17</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-discovery-district-guided-walking-tour-p1125069/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Guided Film & TV Sites Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto: Guided Film & TV Sites Tour</h3>
-        <p class="venue">📍 Toronto City Tours</p>
-        <p>Take a 2.5-hour walking tour through Toronto's film and TV industry. Along the way, see notable architecture, learn about the city's history, and visit cultural landmarks.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Guided Film & TV Sites Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto: Guided Film & TV Sites Tour</h3>
+          <p class="venue">📍 Toronto City Tours</p>
+          <p>Take a 2.5-hour walking tour through Toronto's film and TV industry. Along the way, see notable architecture, learn about the city's history, and visit cultural landmarks.
 
 Visit filming locations from popular productions like *Suits*, *The Boys*, *Suicide Squad*, *American Psycho*, *The Handmaid’s Tale*, *The Umbrella Academy*, *Degrassi*, and more. See where memorable scenes were filmed and watch clips that highlight Toronto's role in these movies and shows.
 
 A working actor guides the tour, sharing how Toronto stands in for various cities around the world, explaining movie-making tricks, and telling behind-the-scenes stories from the industry.</p>
-        <div class="card-footer">
-         <span class="price">From €34.66</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-guided-film-tv-sites-tour-p1121820/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €34.66</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-guided-film-tv-sites-tour-p1121820/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/740a543f61c344018380ae270557c811.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="THT Inc. Water Taxi: One-Way Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>THT Inc. Water Taxi: One-Way Ticket</h3>
-        <p class="venue">📍 Toronto Cruises</p>
-        <p>Skip the ferry lines and cruise straight to the Toronto Islands using a water taxi service. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/740a543f61c344018380ae270557c811.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="THT Inc. Water Taxi: One-Way Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>THT Inc. Water Taxi: One-Way Ticket</h3>
+          <p class="venue">📍 Toronto Cruises</p>
+          <p>Skip the ferry lines and cruise straight to the Toronto Islands using a water taxi service. 
 
 With frequent departures all summer long, getting there has never been easier — just hop on and enjoy the ride! 
 
 The regular service runs to Centre Island; trips to Hanlan’s Point and Ward’s Island are also available upon request, depending on demand.</p>
-        <div class="card-footer">
-         <span class="price">From €8.14</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-harbor-water-taxi-p1116192/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €8.14</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-harbor-water-taxi-p1116192/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Hop-on Hop-off Bus Tour with Harbour Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto: Hop-on Hop-off Bus Tour with Harbour Cruise</h3>
-        <p class="venue">📍 Toronto City Tours</p>
-        <p>Take a tour of Toronto with a hop-on hop-off double-decker bus that includes a boat cruise. Whether new to the city or seeking a new perspective, see top sights with ease.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Hop-on Hop-off Bus Tour with Harbour Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto: Hop-on Hop-off Bus Tour with Harbour Cruise</h3>
+          <p class="venue">📍 Toronto City Tours</p>
+          <p>Take a tour of Toronto with a hop-on hop-off double-decker bus that includes a boat cruise. Whether new to the city or seeking a new perspective, see top sights with ease.
 
 Board an open-top bus for a 360° view of Toronto’s landmarks, including the CN Tower, Casa Loma, and the Distillery District. Hear live guides and multilingual commentary with local stories.
 
 Visit neighborhoods like Kensington Market, Chinatown, and Nathan Phillips Square by getting on and off the bus as needed. Then, hop on a Harbour & Islands Cruise to see the skyline and waterfront up close.</p>
-        <div class="card-footer">
-         <span class="price">From €49.46</span>
-         <span class="rating">⭐ 5 (4)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-hop-on-hop-off-bus-tour-with-harbour-cruise-p1111071/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €49.46</span>
+            <span class="rating">⭐ 5 (4)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-hop-on-hop-off-bus-tour-with-harbour-cruise-p1111071/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/6627cd8a87b148c5a403be97c873d8c2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara-on-the-Lake, Market & Winery Visit: Guided Tour from Toronto" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Niagara-on-the-Lake, Market & Winery Visit: Guided Tour from Toronto</h3>
-        <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
-        <p>Get pickup from 12 central locations in Toronto and Mississauga in the morning. Travel approximately 1.5 hours to reach the Niagara region. Spend a full day in Niagara-on-the-Lake, known for its wine, chocolate, and scenic nature.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6627cd8a87b148c5a403be97c873d8c2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara-on-the-Lake, Market & Winery Visit: Guided Tour from Toronto" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Niagara-on-the-Lake, Market & Winery Visit: Guided Tour from Toronto</h3>
+          <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
+          <p>Get pickup from 12 central locations in Toronto and Mississauga in the morning. Travel approximately 1.5 hours to reach the Niagara region. Spend a full day in Niagara-on-the-Lake, known for its wine, chocolate, and scenic nature.
 
 Check out Walker's Country Market and browse maple syrup, fruit pies, and fresh produce. Take photo after photo at the Living Water Wayside Chapel, known as the "world’s smallest chapel."
 
 Spend 2 hours of free time in the historic town of Niagara-on-the-Lake.
 
 Afterward, go on a guided tour of the Jackson-Triggs Estate Winery with wine tasting, including five wines and icewine. Drive back to your original location in about 2 hours, returning in time for a full evening in the city.</p>
-        <div class="card-footer">
-         <span class="price">From €80.76</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-niagara-on-the-lake-market-winery-guided-tour-from-toronto-p1108964/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €80.76</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-niagara-on-the-lake-market-winery-guided-tour-from-toronto-p1108964/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/bc7e7ae346fe42dc82d8546631498acf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara Falls: Tour from Toronto + Boat Cruise  + Journey Behind the Falls" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Niagara Falls: Tour from Toronto + Boat Cruise  + Journey Behind the Falls</h3>
-        <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
-        <p>Take a guided day tour of Niagara Falls from Downtown Toronto or Mississauga. Learn about Niagara's history and things to do during the drive.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bc7e7ae346fe42dc82d8546631498acf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara Falls: Tour from Toronto + Boat Cruise  + Journey Behind the Falls" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Niagara Falls: Tour from Toronto + Boat Cruise  + Journey Behind the Falls</h3>
+          <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
+          <p>Take a guided day tour of Niagara Falls from Downtown Toronto or Mississauga. Learn about Niagara's history and things to do during the drive.
 
 Enjoy two popular activities: the Hornblower boat cruise and Journey Behind the Falls. Take a 25-minute Hornblower cruise into the mist of the Canadian Horseshoe Falls.
 
 Walk through the tunnels behind the Canadian Horseshoe Falls and stand on a balcony next to the waterfalls. Take photos of Niagara Falls from these spots. Enjoy some free time to explore Niagara Falls and eat at a local restaurant.
 
 Stop at the Floral Clock, and Niagara Whirlpool, and enjoy a maple syrup tour with tasting. Try three types of Canadian maple syrup. Return to your hotel in the early evening.</p>
-        <div class="card-footer">
-         <span class="price">From €147.83</span>
-         <span class="rating">⭐ 5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-niagara-falls-guided-trip-from-toronto-boat-ride-journey-behind-the-falls-p1108687/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €147.83</span>
+            <span class="rating">⭐ 5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-niagara-falls-guided-trip-from-toronto-boat-ride-journey-behind-the-falls-p1108687/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/bc7e7ae346fe42dc82d8546631498acf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara Falls: Day & Evening Guided Tour + Boat, Dinner & Illumination Options" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Niagara Falls: Day & Evening Guided Tour + Boat, Dinner & Illumination Options</h3>
-        <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
-        <p>Join a day and evening tour of Niagara Falls. Learn about Niagara Falls from a licensed tour guide. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bc7e7ae346fe42dc82d8546631498acf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara Falls: Day & Evening Guided Tour + Boat, Dinner & Illumination Options" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Niagara Falls: Day & Evening Guided Tour + Boat, Dinner & Illumination Options</h3>
+          <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
+          <p>Join a day and evening tour of Niagara Falls. Learn about Niagara Falls from a licensed tour guide. 
 
 Take photos at designated viewing points. Participate in seasonal events like the Summer Fireworks Display and the Winter Festival of Lights.
 
 Choose the attractions package for skip-the-line tickets to popular spots like the Hornblower boat cruise and the Journey Behind the Falls. 
 
 Opt for the all-inclusive package to include a three-course dinner with a view of the waterfalls. Also included is access to Illumination Tower, where you can change the colors of the waterfalls at night using control buttons.</p>
-        <div class="card-footer">
-         <span class="price">From €77.11</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-niagara-falls-day-evening-guided-tour-boat-dinner-illumination-options-p1108470/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €77.11</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-niagara-falls-day-evening-guided-tour-boat-dinner-illumination-options-p1108470/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7553ec0365454710a0bbd994accbd604.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Night Bus Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto: Night Bus Tour</h3>
-        <p class="venue">📍 Toronto City Tours</p>
-        <p>Experience Toronto's magic after dark on a night bus tour. See the city's iconic landmarks, including the CN Tower and Art Gallery of Ontario, illuminated against the night sky. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7553ec0365454710a0bbd994accbd604.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Night Bus Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto: Night Bus Tour</h3>
+          <p class="venue">📍 Toronto City Tours</p>
+          <p>Experience Toronto's magic after dark on a night bus tour. See the city's iconic landmarks, including the CN Tower and Art Gallery of Ontario, illuminated against the night sky. 
 
 Explore vibrant areas like the Entertainment District, Queen West, and Yonge-Dundas Square, see the Financial District's gleaming towers and the historic St. Lawrence market.</p>
-        <div class="card-footer">
-         <span class="price">From €31.3</span>
-         <span class="rating">⭐ 4.5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-night-bus-tour-p1098093/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €31.3</span>
+            <span class="rating">⭐ 4.5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-night-bus-tour-p1098093/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/bc7e7ae346fe42dc82d8546631498acf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara Falls: Tour from Toronto + Optional Cruise or Journey Behind the Falls" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Niagara Falls: Tour from Toronto + Optional Cruise or Journey Behind the Falls</h3>
-        <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
-        <p>Join an exciting day trip to Niagara Falls. Hop aboard a comfortable, climate-controlled mini-coach for a transfer starting at 8 AM, with pick-up spots in Downtown Toronto and Mississauga.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bc7e7ae346fe42dc82d8546631498acf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara Falls: Tour from Toronto + Optional Cruise or Journey Behind the Falls" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Niagara Falls: Tour from Toronto + Optional Cruise or Journey Behind the Falls</h3>
+          <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
+          <p>Join an exciting day trip to Niagara Falls. Hop aboard a comfortable, climate-controlled mini-coach for a transfer starting at 8 AM, with pick-up spots in Downtown Toronto and Mississauga.
 
 The experienced tour guide will share intriguing historical facts, fun stories, and useful tips along the way. After a 1.5-hour drive, stop at a Maple Syrup shop where you can taste three different syrups and eat local chocolates.
 
 Then it's off to the magnificent Niagara Falls. Spend 3 to 4 hours exploring, taking photos, enjoying a leisurely lunch, and even opting for skip-the-line tickets for a boat cruise or Journey Behind the Falls.
 
 As you travel along the scenic Niagara Parkway, the guide will keep you entertained with stories and point out seasonal photo opportunities at landmarks like the Niagara Whirlpool, Niagara Power Station, and the floral clock. Finally, wrap up the tour back at the starting point with lots of good memories.</p>
-        <div class="card-footer">
-         <span class="price">From €70.03</span>
-         <span class="rating">⭐ 4.2 (6)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-niagara-falls-day-tour-from-toronto-skip-the-line-boat-cruise-p1091848/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €70.03</span>
+            <span class="rating">⭐ 4.2 (6)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-niagara-falls-day-tour-from-toronto-skip-the-line-boat-cruise-p1091848/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Classic Distillery District Walking Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Classic Distillery District Walking Tour</h3>
-        <p class="venue">📍 Toronto City Tours</p>
-        <p>Discover the fascinating story of the Gooderham and Worts Distillery's ascent to stardom and its modern-day transformation into the Distillery District. As one of Toronto's Top 10 Walking Tours, recognized by BlogTO, this tour is a must-try!
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Classic Distillery District Walking Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Classic Distillery District Walking Tour</h3>
+          <p class="venue">📍 Toronto City Tours</p>
+          <p>Discover the fascinating story of the Gooderham and Worts Distillery's ascent to stardom and its modern-day transformation into the Distillery District. As one of Toronto's Top 10 Walking Tours, recognized by BlogTO, this tour is a must-try!
 
 Accompanied by an expert guide, you'll delve into the secrets of a city that was once soaked in booze, business rivalry, and the rise of the world's largest distillery. Be amazed as you unravel the intriguing history of this iconic Toronto landmark.
 
 But that's not all! The tour also includes a visit to some of the Distillery District's hidden gems and prime photo spots. Get ready to capture some picture-perfect moments that you'll cherish forever.
 
 And here's the best part- the tour is fully accessible! Just request an accessible route, and your guide will take care of the rest. So what are you waiting for? Book your tour today and get ready to explore the Gooderham and Worts Distillery District like never before!</p>
-        <div class="card-footer">
-         <span class="price">From €17.69</span>
-         <span class="rating">⭐ 3 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-classic-distillery-district-walking-tour-p1066281/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €17.69</span>
+            <span class="rating">⭐ 3 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-classic-distillery-district-walking-tour-p1066281/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto Islands: Morning or Twilight Bike Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto Islands: Morning or Twilight Bike Tour</h3>
-        <p class="venue">📍 Toronto City Tours</p>
-        <p>Just minutes from the busy, bustling downtown core of the city, you’ll find the Toronto Islands, a five-kilometre oasis of 15 interconnected islands that locals have been escaping to for fun, relaxation and tranquility for over 200 years. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7148490fdea4b1a8ab0531410ea7e29.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto Islands: Morning or Twilight Bike Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto Islands: Morning or Twilight Bike Tour</h3>
+          <p class="venue">📍 Toronto City Tours</p>
+          <p>Just minutes from the busy, bustling downtown core of the city, you’ll find the Toronto Islands, a five-kilometre oasis of 15 interconnected islands that locals have been escaping to for fun, relaxation and tranquility for over 200 years. 
 
 Embark on this Toronto Islands bike tour and explore the beauty, history and attractions of this quaint cottage enclave, which is the largest car-free community in North America, with stunning views of the city skyline.
 
 As evening falls, the daytime crowds and tourists retreat back across the water to the city. On this Twilight Islands Tour, you will get to experience the islands after dusk, including a beautiful sunset and magical views of the twinkling Toronto skyline as it lights up in the evening.</p>
-        <div class="card-footer">
-         <span class="price">From €84.89</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-islands-morning-or-twilight-bike-tour-p1049591/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €84.89</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-islands-morning-or-twilight-bike-tour-p1049591/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/bc7e7ae346fe42dc82d8546631498acf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara Falls Day Tour from Toronto + Hornblower Cruise & Niagara-on-the-Lake" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Niagara Falls Day Tour from Toronto + Hornblower Cruise & Niagara-on-the-Lake</h3>
-        <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
-        <p>With decades of experience, you could say this **Niagara Falls day trip from Toronto** knows how to get around. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bc7e7ae346fe42dc82d8546631498acf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara Falls Day Tour from Toronto + Hornblower Cruise & Niagara-on-the-Lake" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Niagara Falls Day Tour from Toronto + Hornblower Cruise & Niagara-on-the-Lake</h3>
+          <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
+          <p>With decades of experience, you could say this **Niagara Falls day trip from Toronto** knows how to get around. 
 
 Skip the souvenir shops and get to know the real **Canadian Niagara Falls** with a entertaining **tour guide** who will explain everything you need to know about the history and significance of Niagara Falls. 
 
 With **scheduled free time** built into your day trip, you'll find plenty of ways to explore and capture the beauty of the cascading waterfalls, including **Niagara River Parkway, Niagara Gorge, Whirlpool Rapids**, and **Tablerock Welcome Center.**</p>
-        <div class="card-footer">
-         <span class="price">From €91.26</span>
-         <span class="rating">⭐ 4.6 (7)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-from-toronto-niagara-falls-day-trip-with-roundtrip-transport-p1049124/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €91.26</span>
+            <span class="rating">⭐ 4.6 (7)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-from-toronto-niagara-falls-day-trip-with-roundtrip-transport-p1049124/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/a2a0100deb704c84b44c03000632a564.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Small Group City Tour + Hotel Pickup" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto: Small Group City Tour + Hotel Pickup</h3>
-        <p class="venue">📍 Toronto City Tours</p>
-        <p>The first stop on your small group tour is the city's iconic CN Tower. Be whooshed up to the observation deck in a glass elevator and treat your gaze to a panoramic view of the cityscape.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a2a0100deb704c84b44c03000632a564.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Small Group City Tour + Hotel Pickup" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto: Small Group City Tour + Hotel Pickup</h3>
+          <p class="venue">📍 Toronto City Tours</p>
+          <p>The first stop on your small group tour is the city's iconic CN Tower. Be whooshed up to the observation deck in a glass elevator and treat your gaze to a panoramic view of the cityscape.
 
 Enjoy a fully narrated and guided driving tour through the city. Pass by top Toronto highlights, including Nathan Phillips Square, Toronto's Old City Hall, the Toronto Waterfront, the University of Toronto, Queens Park and Dundas Square. 
 
@@ -599,20 +598,20 @@ At Nathan Philips Square, snap a picture with the famous "Toronto" sign and lear
 Then, enjoy some free time to explore another famous Toronto icon, the St. Lawrence Market, before boarding your cruise boat at Toronto Harbour. 
 
 The Toronto Harbour Cruise is seasonal and will be replaced by a visit to Casa Loma during the off-season from November through March.</p>
-        <div class="card-footer">
-         <span class="price">From €131.17</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-best-of-toronto-small-group-city-tour-p1049082/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €131.17</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-best-of-toronto-small-group-city-tour-p1049082/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/00142a3b7dbd4aae8a6164549d1137da.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Beers, Bacon, & Butter Tarts Food Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto: Beers, Bacon, & Butter Tarts Food Tour</h3>
-        <p class="venue">📍 Toronto Food & Drink Tours</p>
-        <p>Start your tour with a local guide and a **cup of locally roasted coffee**, a staple that fueled the city’s early workforce. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/00142a3b7dbd4aae8a6164549d1137da.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto: Beers, Bacon, & Butter Tarts Food Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto: Beers, Bacon, & Butter Tarts Food Tour</h3>
+          <p class="venue">📍 Toronto Food & Drink Tours</p>
+          <p>Start your tour with a local guide and a **cup of locally roasted coffee**, a staple that fueled the city’s early workforce. 
 
 Walk through Old Town’s original 19th-century streets, stopping for a peameal **bacon sandwich** (vegetarian option available) at the historic St. Lawrence Market.
 
@@ -625,78 +624,77 @@ Along the route, try a classic **Canadian butter tart**, with a few variations t
 Hear about some of Toronto’s lesser-known history, such as the beginnings of Canada Dry ginger ale and its popularity during Prohibition.
 
 The tour ends at a local pub, where you can **buy a craft beer and relax**.</p>
-        <div class="card-footer">
-         <span class="price">From €55.72</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-local-food-and-beer-tour-p1034488/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €55.72</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-local-food-and-beer-tour-p1034488/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/9ce05185d588405790b6c0166deb4b25.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto Walking Tour: Kensington Market & Chinatown" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto Walking Tour: Kensington Market & Chinatown</h3>
-        <p class="venue">📍 Kensington Market</p>
-        <p>See a new side of Toronto on this guided visit of the city's Chinatown and acclaimed Kensington Market. If you're a foodie, then you have plenty to look forward to! Try out local delicacies and learn more about the city's history en route.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9ce05185d588405790b6c0166deb4b25.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto Walking Tour: Kensington Market & Chinatown" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto Walking Tour: Kensington Market & Chinatown</h3>
+          <p class="venue">📍 Kensington Market</p>
+          <p>See a new side of Toronto on this guided visit of the city's Chinatown and acclaimed Kensington Market. If you're a foodie, then you have plenty to look forward to! Try out local delicacies and learn more about the city's history en route.
 
 Your ticket comes with tea or coffee included, as well as a snack at one of your guide's favorite vendors. Make sure to take notes along the way, because you'll want to come back for more once it's over.</p>
-        <div class="card-footer">
-         <span class="price">From €53.21</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-walking-tour-kensington-market-chinatown-p1001898/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €53.21</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-walking-tour-kensington-market-chinatown-p1001898/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/6627cd8a87b148c5a403be97c873d8c2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara Falls Small-Group Day Tour from Toronto" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Niagara Falls Small-Group Day Tour from Toronto</h3>
-        <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
-        <p>Escape from the city and hear the crash of Niagara Falls on this Niagara Falls Small-Group Day Tour from Toronto. It's a fun-packed roundtrip with enough activities to fill the day from start to finish. Alongside a narrated tour from Toronto to Niagara, you'll also be able to get the best view around at Skylon Tower, and feel the splash as you cruise to the falls' plunge pool.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6627cd8a87b148c5a403be97c873d8c2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara Falls Small-Group Day Tour from Toronto" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Niagara Falls Small-Group Day Tour from Toronto</h3>
+          <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
+          <p>Escape from the city and hear the crash of Niagara Falls on this Niagara Falls Small-Group Day Tour from Toronto. It's a fun-packed roundtrip with enough activities to fill the day from start to finish. Alongside a narrated tour from Toronto to Niagara, you'll also be able to get the best view around at Skylon Tower, and feel the splash as you cruise to the falls' plunge pool.
 
 Ponchos are provided, because you'll be close enough to feel the spray of the mist on a Hornblower cruise! Finish the day at the caves behind the falls for a unique perspective.</p>
-        <div class="card-footer">
-         <span class="price">From €193.44</span>
-         <span class="rating">⭐ 4.8 (11)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-niagara-falls-day-tour-from-toronto-p1001502/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €193.44</span>
+            <span class="rating">⭐ 4.8 (11)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-niagara-falls-day-tour-from-toronto-p1001502/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/9ce05185d588405790b6c0166deb4b25.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto Walking Tour: Kensington Market & Chinatown" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Toronto Walking Tour: Kensington Market & Chinatown</h3>
-        <p class="venue">📍 Kensington Market</p>
-        <p>See a new side of Toronto on this guided visit of the city's Chinatown and acclaimed Kensington Market. If you're a foodie, then you have plenty to look forward to! Try out local delicacies and learn more about the city's history en route.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9ce05185d588405790b6c0166deb4b25.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toronto Walking Tour: Kensington Market & Chinatown" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Toronto Walking Tour: Kensington Market & Chinatown</h3>
+          <p class="venue">📍 Kensington Market</p>
+          <p>See a new side of Toronto on this guided visit of the city's Chinatown and acclaimed Kensington Market. If you're a foodie, then you have plenty to look forward to! Try out local delicacies and learn more about the city's history en route.
 
 Your ticket comes with tea or coffee included, as well as a snack at one of your guide's favorite vendors. Make sure to take notes along the way, because you'll want to come back for more once it's over.</p>
-        <div class="card-footer">
-         <span class="price">From €53.21</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-walking-tour-kensington-market-chinatown-p1001898/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €53.21</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-toronto-walking-tour-kensington-market-chinatown-p1001898/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/6627cd8a87b148c5a403be97c873d8c2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara Falls Small-Group Day Tour from Toronto" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Niagara Falls Small-Group Day Tour from Toronto</h3>
-        <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
-        <p>Escape from the city and hear the crash of Niagara Falls on this Niagara Falls Small-Group Day Tour from Toronto. It's a fun-packed roundtrip with enough activities to fill the day from start to finish. Alongside a narrated tour from Toronto to Niagara, you'll also be able to get the best view around at Skylon Tower, and feel the splash as you cruise to the falls' plunge pool.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6627cd8a87b148c5a403be97c873d8c2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Niagara Falls Small-Group Day Tour from Toronto" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Niagara Falls Small-Group Day Tour from Toronto</h3>
+          <p class="venue">📍 Niagara Falls Day Trips from Toronto</p>
+          <p>Escape from the city and hear the crash of Niagara Falls on this Niagara Falls Small-Group Day Tour from Toronto. It's a fun-packed roundtrip with enough activities to fill the day from start to finish. Alongside a narrated tour from Toronto to Niagara, you'll also be able to get the best view around at Skylon Tower, and feel the splash as you cruise to the falls' plunge pool.
 
 Ponchos are provided, because you'll be close enough to feel the spray of the mist on a Hornblower cruise! Finish the day at the caves behind the falls for a unique perspective.</p>
-        <div class="card-footer">
-         <span class="price">From €193.44</span>
-         <span class="rating">⭐ 4.8 (11)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-niagara-falls-day-tour-from-toronto-p1001502/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €193.44</span>
+            <span class="rating">⭐ 4.8 (11)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-niagara-falls-day-tour-from-toronto-p1001502/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

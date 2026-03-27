@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,47 +32,46 @@
     <p>72 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7cbfab95216547d097d9813fadd97ff3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Guided Amphibious Bus Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Guided Amphibious Bus Tour</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>Join the amphibious city cruise through Hamburg's historic Speicherstadt, exclusive HafenCity, and hidden spots in Rothenburgsort.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7cbfab95216547d097d9813fadd97ff3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Guided Amphibious Bus Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Guided Amphibious Bus Tour</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>Join the amphibious city cruise through Hamburg's historic Speicherstadt, exclusive HafenCity, and hidden spots in Rothenburgsort.
 
 This experience combines a land and water tour. In one vehicle, you travel through city streets and sail through the harbor. The highlight is the water entry into the Elbe, where the bus turns into a boat and continues upstream.
 
 The harbor tour heads towards Tiefstack, passing through Germany's second-largest storm surge barrier. You'll visit Billwerder Bay, which is full of historical and maritime industrial sites.</p>
-        <div class="card-footer">
-         <span class="price">From €42</span>
-         <span class="rating">⭐ 4.7 (243)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-guided-amphibious-bus-tour-p1112586/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €42</span>
+            <span class="rating">⭐ 4.7 (243)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-guided-amphibious-bus-tour-p1112586/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/07521e3176954681a5493a4904354ef0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg Dungeon: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg Dungeon: Guided Tour</h3>
-        <p class="venue">📍 Hamburg Dungeon</p>
-        <p>Medieval torture devices, the Inquisition, and a city up in flames! Hamburg's history has been more than horrible, and you'll experience it all yourself inside the Hamburg Dungeon. Character-actors bring the past to life with laughs and fun in this interactive history lesson.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/07521e3176954681a5493a4904354ef0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg Dungeon: Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg Dungeon: Guided Tour</h3>
+          <p class="venue">📍 Hamburg Dungeon</p>
+          <p>Medieval torture devices, the Inquisition, and a city up in flames! Hamburg's history has been more than horrible, and you'll experience it all yourself inside the Hamburg Dungeon. Character-actors bring the past to life with laughs and fun in this interactive history lesson.
 
 This walk through the past comes complete with jump scares and facts that will make your skin crawl – if you can make it out of the labyrinth in the middle of the tour. Expect thrills and kills before you get out.</p>
-        <div class="card-footer">
-         <span class="price">From €28</span>
-         <span class="rating">⭐ 4.5 (382)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-dungeon-p1000578/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €28</span>
+            <span class="rating">⭐ 4.5 (382)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-dungeon-p1000578/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7c889e98890c4b8cb9824c521f923b07.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg CARD: Public Transport + Airport Transfer" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg CARD: Public Transport + Airport Transfer</h3>
-        <p class="venue">📍 Hamburg City Cards</p>
-        <p>The Hamburg CARD makes it easy to explore the city, and save money at the same time! 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7c889e98890c4b8cb9824c521f923b07.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg CARD: Public Transport + Airport Transfer" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg CARD: Public Transport + Airport Transfer</h3>
+          <p class="venue">📍 Hamburg City Cards</p>
+          <p>The Hamburg CARD makes it easy to explore the city, and save money at the same time! 
 
 Travel comfortably by bus, U-Bahn, S-Bahn or harbor ferry through the city and enter the highlights and main attractions at a discounted price. 
 
@@ -82,342 +81,342 @@ Choose between:
 =
 Day Card: Valid for 1 person and 3 children (6 to 14 years)
 Group Card: Valid for 5 persons</p>
-        <div class="card-footer">
-         <span class="price">From €12.9</span>
-         <span class="rating">⭐ 4.5 (604)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-card-the-city-card-with-included-public-transport-and-over-150-discounts-p1064951/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €12.9</span>
+            <span class="rating">⭐ 4.5 (604)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-card-the-city-card-with-included-public-transport-and-over-150-discounts-p1064951/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LEGO© Discovery Centre Hamburg: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>LEGO© Discovery Centre Hamburg: Entry Ticket</h3>
-        <p class="venue">📍 LEGO© Discovery Centre Hamburg</p>
-        <p>Visit the LEGO® Discovery Centre Hamburg, newly opened in 2025. Explore over two million LEGO bricks across 3,000 square meters, designed for families with children aged 2 to 12. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LEGO© Discovery Centre Hamburg: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>LEGO© Discovery Centre Hamburg: Entry Ticket</h3>
+          <p class="venue">📍 LEGO© Discovery Centre Hamburg</p>
+          <p>Visit the LEGO® Discovery Centre Hamburg, newly opened in 2025. Explore over two million LEGO bricks across 3,000 square meters, designed for families with children aged 2 to 12. 
 
 Enjoy twelve interactive areas such as Mini World, the Imagination Express, and the galactic space mission, offering fun for both little and big builders. Take part in guided workshops where master model builders share their top tips and help you build like a pro. It's an ideal spot for family activities and hands-on learning.
 
 Please note, adults must be accompanied by at least one child to enter.</p>
-        <div class="card-footer">
-         <span class="price">From €23.5</span>
-         <span class="rating">⭐ 4 (82)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-lego-discovery-centre-hamburg-entry-ticket-p1118959/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €23.5</span>
+            <span class="rating">⭐ 4 (82)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-lego-discovery-centre-hamburg-entry-ticket-p1118959/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Port des Lumières: Prehistoric Planet" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Port des Lumières: Prehistoric Planet</h3>
-        <p class="venue">📍 Port des Lumières</p>
-        <p>Engage with a presentation about dinosaurs in Prehistoric Planet - The Immersive Experience, featuring comprehensive 360° video projections and spatial audio setups that depict life 66 million years ago.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Port des Lumières: Prehistoric Planet" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Port des Lumières: Prehistoric Planet</h3>
+          <p class="venue">📍 Port des Lumières</p>
+          <p>Engage with a presentation about dinosaurs in Prehistoric Planet - The Immersive Experience, featuring comprehensive 360° video projections and spatial audio setups that depict life 66 million years ago.
 
 Observe representations of T-Rexes on plains, Pterosaurs above coastlines, and Mosasaurs in the oceans.
 
 The experience utilizes an expansive 3,200 m2 projection area at the Port des Lumières, providing immersive visuals.
 
 Learn about prehistoric life through this educational audiovisual presentation.</p>
-        <div class="card-footer">
-         <span class="price">From €22</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-port-des-lumieres-prehistoric-planet-p1129136/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €22</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-port-des-lumieres-prehistoric-planet-p1129136/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Port des Lumières: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Port des Lumières: Entry Ticket</h3>
-        <p class="venue">📍 Port des Lumières</p>
-        <p>Visit Port des Lumières in Hamburg to see immersive and digital art exhibitions. Spread across more than 1,700 m² of space, view art in a whole new way with large-scale projections, music, and motion.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Port des Lumières: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Port des Lumières: Entry Ticket</h3>
+          <p class="venue">📍 Port des Lumières</p>
+          <p>Visit Port des Lumières in Hamburg to see immersive and digital art exhibitions. Spread across more than 1,700 m² of space, view art in a whole new way with large-scale projections, music, and motion.
 
 In addition, explore the Kids' Studio, Infinity Room, Harbour History, and Selfie Station.</p>
-        <div class="card-footer">
-         <span class="price">From €19</span>
-         <span class="rating">⭐ 4.5 (190)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-port-des-lumieres-entry-p1123238/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €19</span>
+            <span class="rating">⭐ 4.5 (190)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-port-des-lumieres-entry-p1123238/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/07521e3176954681a5493a4904354ef0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Elbphilharmonie: Guided Tour & Plaza Access (excluding concert halls)" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Elbphilharmonie: Guided Tour & Plaza Access (excluding concert halls)</h3>
-        <p class="venue">📍 Elbphilharmonie Hamburg</p>
-        <p>Dart past the queues and get in quick to the Elbphilharmonie. This huge, modern concert building in Hamburg towers over the Elbe River and reflects the water in its unique, iceberg-shaped architecture. Meet your guide and explore one of the largest and most acoustically-advanced concert venues in the world! Special outdoor terrace access is included.</p>
-        <div class="card-footer">
-         <span class="price">From €19</span>
-         <span class="rating">⭐ 4.3 (660)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-elbphilharmonie-guided-tour-plaza-access-excluding-concert-halls-p976791/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/07521e3176954681a5493a4904354ef0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Elbphilharmonie: Guided Tour & Plaza Access (excluding concert halls)" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Elbphilharmonie: Guided Tour & Plaza Access (excluding concert halls)</h3>
+          <p class="venue">📍 Elbphilharmonie Hamburg</p>
+          <p>Dart past the queues and get in quick to the Elbphilharmonie. This huge, modern concert building in Hamburg towers over the Elbe River and reflects the water in its unique, iceberg-shaped architecture. Meet your guide and explore one of the largest and most acoustically-advanced concert venues in the world! Special outdoor terrace access is included.</p>
+          <div class="card-footer">
+            <span class="price">From €19</span>
+            <span class="rating">⭐ 4.3 (660)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-elbphilharmonie-guided-tour-plaza-access-excluding-concert-halls-p976791/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradox Museum Hamburg: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Paradox Museum Hamburg: Entry Ticket</h3>
-        <p class="venue">📍 Paradox Museum Hamburg</p>
-        <p>Visit the Paradox Museum Hamburg and explore the world of optical illusions and interactive art. Covering over 1,300 m2, it features 14 rooms with more than 50 exhibits that will surprise and challenge you. Capture each moment with your smartphone and share it on social media.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradox Museum Hamburg: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Paradox Museum Hamburg: Entry Ticket</h3>
+          <p class="venue">📍 Paradox Museum Hamburg</p>
+          <p>Visit the Paradox Museum Hamburg and explore the world of optical illusions and interactive art. Covering over 1,300 m2, it features 14 rooms with more than 50 exhibits that will surprise and challenge you. Capture each moment with your smartphone and share it on social media.
 
 The Paradox Museum Hamburg is a space for interaction and creativity. It's perfect for families, art enthusiasts, and anyone looking to see the world differently.</p>
-        <div class="card-footer">
-         <span class="price">From €23.5</span>
-         <span class="rating">⭐ 4.2 (32)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-paradox-museum-hamburg-p1117648/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €23.5</span>
+            <span class="rating">⭐ 4.2 (32)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-paradox-museum-hamburg-p1117648/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/6d3fbc3c032840a4b32b3d21f4745cc4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburger Kunsthalle: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburger Kunsthalle: Skip The Line Ticket</h3>
-        <p class="venue">📍 Hamburger Kunsthalle</p>
-        <p>This huge art museum has something for every art lover, and even those not accustomed to admiring art may well become a fan. Start in the 14th century and browse your way through to the modern day in spacious, well-designed galleries.</p>
-        <div class="card-footer">
-         <span class="price">From €18</span>
-         <span class="rating">⭐ 4.2 (834)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburger-kunsthalle-skip-the-line-p976728/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6d3fbc3c032840a4b32b3d21f4745cc4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburger Kunsthalle: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburger Kunsthalle: Skip The Line Ticket</h3>
+          <p class="venue">📍 Hamburger Kunsthalle</p>
+          <p>This huge art museum has something for every art lover, and even those not accustomed to admiring art may well become a fan. Start in the 14th century and browse your way through to the modern day in spacious, well-designed galleries.</p>
+          <div class="card-footer">
+            <span class="price">From €18</span>
+            <span class="rating">⭐ 4.2 (834)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburger-kunsthalle-skip-the-line-p976728/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a01eaf4afea4c94a7630cb5332cfd36.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Wax Museum Panoptikum" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Wax Museum Panoptikum</h3>
-        <p class="venue">📍 Wachsfigurenkabinett Panoptikum</p>
-        <p>Head to a world where Queen Elizabeth II never ages, Marilyn Monroe still poses for photos, and Obama still has no grey hair! At 130 years old, Panoptikum is Germany's oldest wax museum, which in itself makes it something special.</p>
-        <div class="card-footer">
-         <span class="price">From €9.5</span>
-         <span class="rating">⭐ 4.4 (211)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-wax-museum-panoptikum-skip-the-line-p975829/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a01eaf4afea4c94a7630cb5332cfd36.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Wax Museum Panoptikum" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Wax Museum Panoptikum</h3>
+          <p class="venue">📍 Wachsfigurenkabinett Panoptikum</p>
+          <p>Head to a world where Queen Elizabeth II never ages, Marilyn Monroe still poses for photos, and Obama still has no grey hair! At 130 years old, Panoptikum is Germany's oldest wax museum, which in itself makes it something special.</p>
+          <div class="card-footer">
+            <span class="price">From €9.5</span>
+            <span class="rating">⭐ 4.4 (211)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-wax-museum-panoptikum-skip-the-line-p975829/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Hamburg" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hop-on Hop-off Bus Hamburg</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>Planning a visit to the bridge capital of the world? Meander your way around the beautiful waterways, handsome architecture, and cultural hotspots of Hamburg with this Hop-on Hop-off sightseeing bus tour. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Hamburg" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hop-on Hop-off Bus Hamburg</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>Planning a visit to the bridge capital of the world? Meander your way around the beautiful waterways, handsome architecture, and cultural hotspots of Hamburg with this Hop-on Hop-off sightseeing bus tour. 
 
 Let the city's history spring to life in your mind as audio commentary colors in the scenery around you. The bus route is clever! Taking in all the city's top attractions, you're free to hop off at any point to feed your appetite for culture. Feel like exploring more? Just hop back on.</p>
-        <div class="card-footer">
-         <span class="price">From €21</span>
-         <span class="rating">⭐ 4.6 (317)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-hamburg-p976803/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €21</span>
+            <span class="rating">⭐ 4.6 (317)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-hamburg-p976803/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e2a2dbf2bd044119c76d9b26403334b.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: 1.5-Hour Night Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: 1.5-Hour Night Cruise</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>Take to the Elbe at night and watch the city lights dance on Hamburg's countless canals. On this guided tour, you'll have the chance to admire the history of the city's famous UNESCO World Heritage Speicherstadt, and the Port of Hamburg.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e2a2dbf2bd044119c76d9b26403334b.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: 1.5-Hour Night Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: 1.5-Hour Night Cruise</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>Take to the Elbe at night and watch the city lights dance on Hamburg's countless canals. On this guided tour, you'll have the chance to admire the history of the city's famous UNESCO World Heritage Speicherstadt, and the Port of Hamburg.
 
 Get a sense of the city's beauty as lights from shipping containers and historic buildings bounce off the midnight blue of the Elbe after sunset.</p>
-        <div class="card-footer">
-         <span class="price">From €29</span>
-         <span class="rating">⭐ 4.6 (26)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-harbor-90-minute-night-light-cruise-p998402/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €29</span>
+            <span class="rating">⭐ 4.6 (26)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-harbor-90-minute-night-light-cruise-p998402/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1821dda107e4e008ecdafc8994aea7d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dialogue in the Dark & Dialogue Lab: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Dialogue in the Dark & Dialogue Lab: Guided Tour</h3>
-        <p class="venue">📍 Dialoghaus Hamburg</p>
-        <p>It's literally the blind leading the blind at this memorable, multi-sensory experience in Hamburg. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1821dda107e4e008ecdafc8994aea7d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dialogue in the Dark & Dialogue Lab: Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Dialogue in the Dark & Dialogue Lab: Guided Tour</h3>
+          <p class="venue">📍 Dialoghaus Hamburg</p>
+          <p>It's literally the blind leading the blind at this memorable, multi-sensory experience in Hamburg. 
 
 Here, you only have your ears, nose, and hands to rely on, the whole way through. Your blind host will guide you through a completely darkened exhibition space in a small group (maximum eight people). Feel your remaining senses heighten as you discover a world you might usually take for granted. 
 
 Don't miss a soft drink at the Dark Bar at the end, where you can chat and ask questions about your recent "dark times" with your guide. This experience will stay with you for a long time, proving you don't necessarily need vision for things to live colorfully in your memories.</p>
-        <div class="card-footer">
-         <span class="price">From €26</span>
-         <span class="rating">⭐ 4.8 (133)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dialogue-in-the-dark-guided-tour-p1012594/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €26</span>
+            <span class="rating">⭐ 4.8 (133)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dialogue-in-the-dark-guided-tour-p1012594/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7cbfab95216547d097d9813fadd97ff3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: 2-Hour Harbor Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: 2-Hour Harbor Cruise</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>Did you know the entire city of Cologne would fit snugly into Hamburg's harbor? If this tidbit of Teutonic trivia has got your sailor sense tingling, then you can't miss this extended tour of one of Europe's premier ports. The buzzing metropolis that Hamburg has become owes a lot to its lifeblood port, and you'll find out why throughout this fascinating two-hour cruise.</p>
-        <div class="card-footer">
-         <span class="price">From €40</span>
-         <span class="rating">⭐ 4.7 (68)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-2-hour-harbor-cruise-p977144/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7cbfab95216547d097d9813fadd97ff3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: 2-Hour Harbor Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: 2-Hour Harbor Cruise</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>Did you know the entire city of Cologne would fit snugly into Hamburg's harbor? If this tidbit of Teutonic trivia has got your sailor sense tingling, then you can't miss this extended tour of one of Europe's premier ports. The buzzing metropolis that Hamburg has become owes a lot to its lifeblood port, and you'll find out why throughout this fascinating two-hour cruise.</p>
+          <div class="card-footer">
+            <span class="price">From €40</span>
+            <span class="rating">⭐ 4.7 (68)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-2-hour-harbor-cruise-p977144/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1c3c3a4e2754b5fa9286dbc5d308925.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dialogue in Silence & Dialogue Lab: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Dialogue in Silence & Dialogue Lab: Guided Tour</h3>
-        <p class="venue">📍 Dialoghaus Hamburg</p>
-        <p>What's it like to hear nothing? Most of us don't really know. At Dialogue in Silence, you can experience what it's like to rely on non-verbal communication, like so many around the world. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1c3c3a4e2754b5fa9286dbc5d308925.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dialogue in Silence & Dialogue Lab: Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Dialogue in Silence & Dialogue Lab: Guided Tour</h3>
+          <p class="venue">📍 Dialoghaus Hamburg</p>
+          <p>What's it like to hear nothing? Most of us don't really know. At Dialogue in Silence, you can experience what it's like to rely on non-verbal communication, like so many around the world. 
 
 Don a pair of noise-cancelling headphones and move through a series of sound-proofed exhibition rooms, where deaf guides introduce you to a variety of situations they experience every day.
 
 Learn to speak with your hands and hear with your eyes – this is a brilliant way to break down the barriers between the world of deaf people and your own.
 
 The tour is conducted in sign language, and at the end, questions can be asked in German and English to the professional deaf guide with the help of an interpreter.</p>
-        <div class="card-footer">
-         <span class="price">From €22.5</span>
-         <span class="rating">⭐ 4.9 (23)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dialogue-in-silence-p1015500/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €22.5</span>
+            <span class="rating">⭐ 4.9 (23)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dialogue-in-silence-p1015500/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c02e5ee12f8c4de7901bcb77d854eb18.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum Ship Rickmer Rickmers: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Museum Ship Rickmer Rickmers: Entry Ticket</h3>
-        <p class="venue">📍 Museum Ship RICKMER RICKMERS</p>
-        <p>Ever wondered about life on a windjammer? Drop your anchors at the Museum Ship RICKMER RICKMERS and explore the life of the good ship RICKMER RICKMERS, built in 1896. Learn about its voyages, see what life was like on board and channel your inner sailor for a voyage back in time!</p>
-        <div class="card-footer">
-         <span class="price">From €7</span>
-         <span class="rating">⭐ 4.6 (255)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-ship-rickmer-rickmers-p976583/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c02e5ee12f8c4de7901bcb77d854eb18.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum Ship Rickmer Rickmers: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Museum Ship Rickmer Rickmers: Entry Ticket</h3>
+          <p class="venue">📍 Museum Ship RICKMER RICKMERS</p>
+          <p>Ever wondered about life on a windjammer? Drop your anchors at the Museum Ship RICKMER RICKMERS and explore the life of the good ship RICKMER RICKMERS, built in 1896. Learn about its voyages, see what life was like on board and channel your inner sailor for a voyage back in time!</p>
+          <div class="card-footer">
+            <span class="price">From €7</span>
+            <span class="rating">⭐ 4.6 (255)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-ship-rickmer-rickmers-p976583/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: St. Pauli Green Bunker Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: St. Pauli Green Bunker Guided Tour</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>Visit the large gray flak bunker built during World War II that served as an emergency shelter, storage, vaccination station, and Cold War bunker for many decades. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: St. Pauli Green Bunker Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: St. Pauli Green Bunker Guided Tour</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>Visit the large gray flak bunker built during World War II that served as an emergency shelter, storage, vaccination station, and Cold War bunker for many decades. 
 
 After reunification, the concrete giant found new life. Join a knowledgeable tour guide on a journey through the bunker's history, from its construction to modern days. Hear stories from the "Heiligengeistfeld" studio, learn about its sustainable greenery concept, and discover the bunker's recent transformation.</p>
-        <div class="card-footer">
-         <span class="price">From €23</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-st-pauli-green-bunker-guided-tour-p1123350/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €23</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-pauli-green-bunker-guided-tour-p1123350/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sex & Crime Tour in St. Pauli" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Sex & Crime Tour in St. Pauli</h3>
-        <p class="venue">📍 Zur Ritze</p>
-        <p>The Nutella Gang of St. Pauli were not a group of sugar-rushed kids stealing hazelnut spreads. They had a penchant for something far less sweet. _Crime_.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sex & Crime Tour in St. Pauli" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Sex & Crime Tour in St. Pauli</h3>
+          <p class="venue">📍 Zur Ritze</p>
+          <p>The Nutella Gang of St. Pauli were not a group of sugar-rushed kids stealing hazelnut spreads. They had a penchant for something far less sweet. _Crime_.
 
 This is just one part of Hamburg's shadowy past and present, which you'll learn all about on this Sex & Crime Tour of St. Pauli. 
 
 Find out from an expert guide how the legendary "Die Ritze" pub got its name, and discuss the ins and outs of the red light district. This special visit is a rare treat, as it's not typically open to tourists. So buying a drink is expected as a show of appreciation for this unique cultural experience! Sip on a refreshing drink amidst the boxing ring, and surround yourself in the captivating atmosphere of this legendary establishment.
 
 It's a fun, fascinating, and humorous intro to the world's most sinful mile.</p>
-        <div class="card-footer">
-         <span class="price">From €25</span>
-         <span class="rating">⭐ 4.7 (50)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-sex-crime-tour-in-st-pauli-p997838/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €25</span>
+            <span class="rating">⭐ 4.7 (50)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-sex-crime-tour-in-st-pauli-p997838/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: 1-Hour Harbor Cruise + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: 1-Hour Harbor Cruise + Audio Guide</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>Not even Venice has as many bridges as Hamburg! See how many you can count as you cruise along in style for one hour. See the bustling harbor in action, the busy container ports, giant ships, and the historic Speicherstadt district from a unique perspective on the water.</p>
-        <div class="card-footer">
-         <span class="price">From €26</span>
-         <span class="rating">⭐ 4.6 (31)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-1-hour-harbor-cruise-audio-guide-p977142/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: 1-Hour Harbor Cruise + Audio Guide" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: 1-Hour Harbor Cruise + Audio Guide</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>Not even Venice has as many bridges as Hamburg! See how many you can count as you cruise along in style for one hour. See the bustling harbor in action, the busy container ports, giant ships, and the historic Speicherstadt district from a unique perspective on the water.</p>
+          <div class="card-footer">
+            <span class="price">From €26</span>
+            <span class="rating">⭐ 4.6 (31)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-1-hour-harbor-cruise-audio-guide-p977142/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/5359a2de36bd4fbe95a2638dc466dc72.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bucerius Kunst Forum Hamburg: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Bucerius Kunst Forum Hamburg: Entry Ticket</h3>
-        <p class="venue">📍 Bucerius Art Forum</p>
-        <p>The Bucerius Kunst Forum offers both art connoisseurs and newcomers an exciting encounter with art. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5359a2de36bd4fbe95a2638dc466dc72.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bucerius Kunst Forum Hamburg: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Bucerius Kunst Forum Hamburg: Entry Ticket</h3>
+          <p class="venue">📍 Bucerius Art Forum</p>
+          <p>The Bucerius Kunst Forum offers both art connoisseurs and newcomers an exciting encounter with art. 
 
 The focus is always on a specific theme, an era or an artist, so you can can deep-dive and become an expert in an afternoon.
 
 Grab a ticket and get admission to current exhibition on display at the museum.</p>
-        <div class="card-footer">
-         <span class="price">From €6</span>
-         <span class="rating">⭐ 4.4 (50)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-Bucerius-Kunst-Forum-p1048635/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €6</span>
+            <span class="rating">⭐ 4.4 (50)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-Bucerius-Kunst-Forum-p1048635/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: 1-Hour Evening Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: 1-Hour Evening Cruise</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>Hamburg's famous port bustles with action all day and all night! Join this special evening cruise and witness the sparkling lights around the historic Speicherstadt from a comfy boat. Cruise along the modern HafenCity, and witness an evening hive of activity around the container terminals. A must-do experience in Hamburg!</p>
-        <div class="card-footer">
-         <span class="price">From €24</span>
-         <span class="rating">⭐ 4.4 (81)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-evening-cruise-p977145/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: 1-Hour Evening Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: 1-Hour Evening Cruise</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>Hamburg's famous port bustles with action all day and all night! Join this special evening cruise and witness the sparkling lights around the historic Speicherstadt from a comfy boat. Cruise along the modern HafenCity, and witness an evening hive of activity around the container terminals. A must-do experience in Hamburg!</p>
+          <div class="card-footer">
+            <span class="price">From €24</span>
+            <span class="rating">⭐ 4.4 (81)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-evening-cruise-p977145/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/aacbd1902ddb493ea767a5ecb4470d58.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Emigration Museum BallinStadt Hamburg" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Emigration Museum BallinStadt Hamburg</h3>
-        <p class="venue">📍 Emigration Museum Hamburg</p>
-        <p>Hamburg has more bridges than any city in the world, but the longest and most important bridge is its link to the New World. Dubbed the Port of Dreams, the city's harbor was the last stop made by millions of migrants before traveling to the Americas. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/aacbd1902ddb493ea767a5ecb4470d58.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Emigration Museum BallinStadt Hamburg" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Emigration Museum BallinStadt Hamburg</h3>
+          <p class="venue">📍 Emigration Museum Hamburg</p>
+          <p>Hamburg has more bridges than any city in the world, but the longest and most important bridge is its link to the New World. Dubbed the Port of Dreams, the city's harbor was the last stop made by millions of migrants before traveling to the Americas. 
 
 Trace the footsteps of Europe's emigrants and discover a treasure trove of moving personal stories, genealogical records, and immersive historical exhibits at the incredible BallinStadt Emigration Museum in Hamburg.</p>
-        <div class="card-footer">
-         <span class="price">From €12</span>
-         <span class="rating">⭐ 4.3 (59)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-emigration-museum-ballinstadt-hamburg-p976630/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €12</span>
+            <span class="rating">⭐ 4.3 (59)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-emigration-museum-ballinstadt-hamburg-p976630/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/327e115d08fd4659bdeeaabbd8ce0c3d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kunstmeile Hamburg: 1 Pass, 6 Museums" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Kunstmeile Hamburg: 1 Pass, 6 Museums</h3>
-        <p class="venue">📍 Kunstverein in Hamburg</p>
-        <p>Got the urge for a culture splurge? This 3-day pass gets you unlimited admission to 6 museums, including exhibitions! Visit the Hamburger Kunsthalle, Bucerius Kunst Forum, Deichtorhallen Hamburg, Kunstverein and Museum für Kunst und Gewerbe Hamburg.</p>
-        <div class="card-footer">
-         <span class="price">From €35</span>
-         <span class="rating">⭐ 3.9 (28)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-kunstmeile-hamburg-1-pass-6-museums-p976855/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/327e115d08fd4659bdeeaabbd8ce0c3d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kunstmeile Hamburg: 1 Pass, 6 Museums" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Kunstmeile Hamburg: 1 Pass, 6 Museums</h3>
+          <p class="venue">📍 Kunstverein in Hamburg</p>
+          <p>Got the urge for a culture splurge? This 3-day pass gets you unlimited admission to 6 museums, including exhibitions! Visit the Hamburger Kunsthalle, Bucerius Kunst Forum, Deichtorhallen Hamburg, Kunstverein and Museum für Kunst und Gewerbe Hamburg.</p>
+          <div class="card-footer">
+            <span class="price">From €35</span>
+            <span class="rating">⭐ 3.9 (28)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-kunstmeile-hamburg-1-pass-6-museums-p976855/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/35bad6477ced4a2ea87552585fc7ae2c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg Spice Museum: Entry Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg Spice Museum: Entry Ticket + Audio Guide</h3>
-        <p class="venue">📍 Spicy's Spice Museum</p>
-        <p>The spice trade has a long and rich history, which is neatly laid out for you at Spicy's Spice Museum. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/35bad6477ced4a2ea87552585fc7ae2c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg Spice Museum: Entry Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg Spice Museum: Entry Ticket + Audio Guide</h3>
+          <p class="venue">📍 Spicy's Spice Museum</p>
+          <p>The spice trade has a long and rich history, which is neatly laid out for you at Spicy's Spice Museum. 
 
 With over 900 exhibits spanning the last five centuries, you can smell, and even taste the sacks of herbs and spices. Get ready for your tastebuds to tingle! 
 
@@ -426,616 +425,616 @@ Travel the world through a variety of exhibitions designed to represent bazaars 
 Take advantage of the free audio guide and explore the museum at your own pace.
 
 You'll definitely be inspired to season your meals better after using your Spice Museum tickets.</p>
-        <div class="card-footer">
-         <span class="price">From €7</span>
-         <span class="rating">⭐ 3.9 (11)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-spice-museum-p1054152/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €7</span>
+            <span class="rating">⭐ 3.9 (11)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-spice-museum-p1054152/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/07521e3176954681a5493a4904354ef0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Premium Elphi Plaza Guided Tour with Franzbrötchen and coffee" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Premium Elphi Plaza Guided Tour with Franzbrötchen and coffee</h3>
-        <p class="venue">📍 Elbphilharmonie Hamburg</p>
-        <p>Join a guide for this tasty one-hour tour of the Elbphilharmonie, and you'll get an extra sweet treat. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/07521e3176954681a5493a4904354ef0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Premium Elphi Plaza Guided Tour with Franzbrötchen and coffee" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Premium Elphi Plaza Guided Tour with Franzbrötchen and coffee</h3>
+          <p class="venue">📍 Elbphilharmonie Hamburg</p>
+          <p>Join a guide for this tasty one-hour tour of the Elbphilharmonie, and you'll get an extra sweet treat. 
 
 From the plaza of the UNESCO World Heritage Site, feast your eyes on unforgettable views over Hamburg. Your cheerful guide will also regale you with exciting anecdotes and background information about the turbulent construction phase, the futuristic architecture, and the legendary history of this place. 
 
 Ride Europe's longest curved escalator up to the Störtebeker Restaurant, where you'll be served a ubiquitous Franzbrötchen bun, as well as a cup of coffee. It'll be music to your tastebuds!</p>
-        <div class="card-footer">
-         <span class="price">From €29.99</span>
-         <span class="rating">⭐ 4.5 (53)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-elphi-premium-tour-with-french-bun-coffee-p1052478/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €29.99</span>
+            <span class="rating">⭐ 4.5 (53)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-elphi-premium-tour-with-french-bun-coffee-p1052478/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/75394dfd52894e06aa36eae2a14604a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: 1-Hour Harbor Cruise + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: 1-Hour Harbor Cruise + Audio Guide</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>A visit to the 'Hansestadt' (Hanseatic City) of Hamburg wouldn't be complete without a tour around its bustling, atmospheric harbor. Board your boat and follow along with your audio guide to get the lowdown on Hamburg's history and ever-changing harbor.</p>
-        <div class="card-footer">
-         <span class="price">From €25</span>
-         <span class="rating">⭐ 3.8 (4)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-harbour-the-classic-1-hour-tour-audio-guide-p977057/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/75394dfd52894e06aa36eae2a14604a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: 1-Hour Harbor Cruise + Audio Guide" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: 1-Hour Harbor Cruise + Audio Guide</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>A visit to the 'Hansestadt' (Hanseatic City) of Hamburg wouldn't be complete without a tour around its bustling, atmospheric harbor. Board your boat and follow along with your audio guide to get the lowdown on Hamburg's history and ever-changing harbor.</p>
+          <div class="card-footer">
+            <span class="price">From €25</span>
+            <span class="rating">⭐ 3.8 (4)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-harbour-the-classic-1-hour-tour-audio-guide-p977057/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Winter Alster River Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Winter Alster River Cruise</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>What could be more magical than an atmospheric cruise on one of Hamburg's serene rivers while you warm your hands on a cup of Glühwein or a hot mug of cocoa? 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Winter Alster River Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Winter Alster River Cruise</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>What could be more magical than an atmospheric cruise on one of Hamburg's serene rivers while you warm your hands on a cup of Glühwein or a hot mug of cocoa? 
 
 Banish the winter chill and enjoy a well-deserved break, with a golden hour of peaceful relaxation in a cozy boat. Cruise across the Alster and take a moment to savor the spectacle of Hamburg's lights shimmering across the water.</p>
-        <div class="card-footer">
-         <span class="price">From €20</span>
-         <span class="rating">⭐ 4.5 (4)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-winter-alster-river-cruise-p976788/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €20</span>
+            <span class="rating">⭐ 4.5 (4)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-winter-alster-river-cruise-p976788/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: 1-Hour Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: 1-Hour Cruise</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>Add a splash of downtime to your stay in Hamburg, and spend an hour on a shoreline cruise around the lapping banks of the Alster. Take in the city's leafy parks, baroque bridges, and Gothic spires as you drift along the outer edges of the peaceful river. This bite-sized floating tour is the perfect way to escape the urban hustle and bustle, while adding some tranquility and fresh air sightseeing into your city break.</p>
-        <div class="card-footer">
-         <span class="price">From €25</span>
-         <span class="rating">⭐ 4 (12)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-1-hour-cruise-p977064/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: 1-Hour Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: 1-Hour Cruise</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>Add a splash of downtime to your stay in Hamburg, and spend an hour on a shoreline cruise around the lapping banks of the Alster. Take in the city's leafy parks, baroque bridges, and Gothic spires as you drift along the outer edges of the peaceful river. This bite-sized floating tour is the perfect way to escape the urban hustle and bustle, while adding some tranquility and fresh air sightseeing into your city break.</p>
+          <div class="card-footer">
+            <span class="price">From €25</span>
+            <span class="rating">⭐ 4 (12)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-1-hour-cruise-p977064/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6f1c93454424cdfbf5239f47adc567f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: 2-Hour Cruise + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: 2-Hour Cruise + Audio Guide</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>Hamburg is a city of many bridges. In fact, it has more bridges than any other city in the world - sorry Amsterdam; too bad Venice! All those bridges mean one thing: lots of water. Discover the incredible story of Hamburg's harbour and how it sustains the city on this 2-hour guided cruise.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6f1c93454424cdfbf5239f47adc567f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: 2-Hour Cruise + Audio Guide" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: 2-Hour Cruise + Audio Guide</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>Hamburg is a city of many bridges. In fact, it has more bridges than any other city in the world - sorry Amsterdam; too bad Venice! All those bridges mean one thing: lots of water. Discover the incredible story of Hamburg's harbour and how it sustains the city on this 2-hour guided cruise.
 
 A trusty open-top launch boat will take you sailing on a voyage of cultural discovery, while your encyclopedic local guide dispenses valuable nuggets of maritime wisdom like only a real sea captain can!</p>
-        <div class="card-footer">
-         <span class="price">From €36</span>
-         <span class="rating">⭐ 4 (4)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-harbor-cruise-audio-guide-p977050/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €36</span>
+            <span class="rating">⭐ 4 (4)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-harbor-cruise-audio-guide-p977050/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Alster River Hop-on Hop-off Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Alster River Hop-on Hop-off Cruise</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>One of Europe's prettiest cities, you can't spend a day in Hamburg without admiring the city's scenic waterways. See it all at a pace that suits you, with a relaxing Hop-on Hop-off Alster river cruise.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Alster River Hop-on Hop-off Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Alster River Hop-on Hop-off Cruise</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>One of Europe's prettiest cities, you can't spend a day in Hamburg without admiring the city's scenic waterways. See it all at a pace that suits you, with a relaxing Hop-on Hop-off Alster river cruise.
 
 Board a boat at any of the nine docking points and hop off as often as you please. Enjoy a lakeside stroll in the fresh northern air, watch the world go by, and tuck into a tasty snack - a hamburger in Hamburg is a profile picture waiting to happen!</p>
-        <div class="card-footer">
-         <span class="price">From €20</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-alster-river-hop-on-hop-off-cruise-p977024/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €20</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-alster-river-hop-on-hop-off-cruise-p977024/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/0071732af4204d64b96222e568b1976d.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Harbor Tour Hamburg" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hop-on Hop-off Harbor Tour Hamburg</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>History comes to life in Hamburg as you cruise the land and water. At Bridge 10, discover the famous and notorious Reeperbahn which is located within a 5-minute walk, or try a fish sandwich at Brücke 10 restaurant. Browse historic artifacts at Elbinsel Wilhelmsburg, or head to BallinStadt to learn about the people who left the port of Hamburg on a journey into the New World!</p>
-        <div class="card-footer">
-         <span class="price">From €22</span>
-         <span class="rating">⭐ 4 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-harbor-tour-hamburg-p976888/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0071732af4204d64b96222e568b1976d.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Harbor Tour Hamburg" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hop-on Hop-off Harbor Tour Hamburg</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>History comes to life in Hamburg as you cruise the land and water. At Bridge 10, discover the famous and notorious Reeperbahn which is located within a 5-minute walk, or try a fish sandwich at Brücke 10 restaurant. Browse historic artifacts at Elbinsel Wilhelmsburg, or head to BallinStadt to learn about the people who left the port of Hamburg on a journey into the New World!</p>
+          <div class="card-footer">
+            <span class="price">From €22</span>
+            <span class="rating">⭐ 4 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-harbor-tour-hamburg-p976888/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Elphi Plaza Guided Tour and Harbour Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Elphi Plaza Guided Tour and Harbour Cruise</h3>
-        <p class="venue">📍 Hamburg Walking Tours</p>
-        <p>Exerience Hamburg from all perspectives on this combination tour on land and by boat! 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Elphi Plaza Guided Tour and Harbour Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Elphi Plaza Guided Tour and Harbour Cruise</h3>
+          <p class="venue">📍 Hamburg Walking Tours</p>
+          <p>Exerience Hamburg from all perspectives on this combination tour on land and by boat! 
 
 Tour the Elbphilharmonie with your professional guide and listen to exciting anecdotes and exclusive insider tips about this impressive structure. Then, climb the longest curved escalator in the world up to the observation deck and enjoy breathtaking views of Hamburg and its historic harbor. 
 
 Climb aboard a barge for a traditional cruise of Hamburg's harbor. Listen to live commentary as you take in the sights of one of Germany's most important port cities from the water.</p>
-        <div class="card-footer">
-         <span class="price">From €53</span>
-         <span class="rating">⭐ 4.4 (45)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-combo-elbphilharmonie-tour-and-harbor-tour-p1052132/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €53</span>
+            <span class="rating">⭐ 4.4 (45)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-combo-elbphilharmonie-tour-and-harbor-tour-p1052132/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/74dcfb8e03e447d581089c28c11b896d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Hop-on Hop-off Harbor Cruise + Cap San Diego Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Hop-on Hop-off Harbor Cruise + Cap San Diego Entry Ticket</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>This ticket for the Hop-on Hop-off Harbor Tour and Cap San Diego museum ship will save you time and money in Hamburg.  
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/74dcfb8e03e447d581089c28c11b896d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Hop-on Hop-off Harbor Cruise + Cap San Diego Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Hop-on Hop-off Harbor Cruise + Cap San Diego Entry Ticket</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>This ticket for the Hop-on Hop-off Harbor Tour and Cap San Diego museum ship will save you time and money in Hamburg.  
 
 See the HafenCity, the Elbphilharmonie, the St. Pauli Piers, and more as your guide regales you with stories of Hamburg's historic port. Uncover the city's maritime past at Cap San Diego, the world's largest seaworthy cargo ship/museum. See where the officers ate and slept, peek into the engine room, and see the routes this grand 159-meter-long vessel sailed!</p>
-        <div class="card-footer">
-         <span class="price">From €27</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-harbor-tour-hamburg-cap-san-diego-p997444/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €27</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-harbor-tour-hamburg-cap-san-diego-p997444/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Self-Guided Audio Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Self-Guided Audio Tour</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>Take a self-guided tour to learn about Hamburg's history, culture, and traditions. Visit numerous points of interest at your own pace. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Self-Guided Audio Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Self-Guided Audio Tour</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>Take a self-guided tour to learn about Hamburg's history, culture, and traditions. Visit numerous points of interest at your own pace. 
 
 Walk through important city areas and take in landmarks such as the historic Town Hall, the bustling port, and the vibrant Reeperbahn district. 
 
 Wander through Speicherstadt, the largest warehouse district in the world, and see its red-brick buildings and waterways. 
 
 Check out the Elbphilharmonie, a modern concert hall with impressive architecture. This tour allows you to move freely and spend as much time as you like at each site.</p>
-        <div class="card-footer">
-         <span class="price">From €5</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-self-guided-audio-tour-p1120208/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €5</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-self-guided-audio-tour-p1120208/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Riverfront Guided Walking Tour in German" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Riverfront Guided Walking Tour in German</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>Begin the tour at the Jan-Fedder Promenade near the Überseebrücke, with a view of the Elbphilharmonie. See museum ships, dry docks, and the container port. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Riverfront Guided Walking Tour in German" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Riverfront Guided Walking Tour in German</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>Begin the tour at the Jan-Fedder Promenade near the Überseebrücke, with a view of the Elbphilharmonie. See museum ships, dry docks, and the container port. 
 
 Walk through the lively Portuguese Quarter, pass by the Michel church, and see the musical theaters across the Elbe. Cross the historic Elbe Tunnel. 
 
 Conclude by climbing the Hamburger Berg via the Matrosenroute for a comprehensive view of the Hamburg port. Only a short walk separates this area from the St. Pauli nightlife district.</p>
-        <div class="card-footer">
-         <span class="price">From €23</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-riverfront-guided-walking-tour-in-german-p1120185/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €23</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-riverfront-guided-walking-tour-in-german-p1120185/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1c3c3a4e2754b5fa9286dbc5d308925.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dialoghaus Hamburg: TimeShift - Journey into Tomorrow Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Dialoghaus Hamburg: TimeShift - Journey into Tomorrow Guided Tour</h3>
-        <p class="venue">📍 Dialoghaus Hamburg</p>
-        <p>Enjoy a group experience in the dark and participate in a light-free simulation. Consider what future life would be like without modern gadgets and technology.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1c3c3a4e2754b5fa9286dbc5d308925.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dialoghaus Hamburg: TimeShift - Journey into Tomorrow Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Dialoghaus Hamburg: TimeShift - Journey into Tomorrow Guided Tour</h3>
+          <p class="venue">📍 Dialoghaus Hamburg</p>
+          <p>Enjoy a group experience in the dark and participate in a light-free simulation. Consider what future life would be like without modern gadgets and technology.
 
 TimeShift presents a future-focused interactive puzzle activity. Navigate through darkness in a team of minimum 3 people, using storytelling, creativity, and teamwork.
 
 Designed by the creators of "Dialogue in the Dark" for families, friends, and work events, this new dark experience takes you into an imaginative narrative about a hopeful future.</p>
-        <div class="card-footer">
-         <span class="price">From €30</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dialoghaus-hamburg-timeshift-journey-into-tomorrow-guided-tour-p1118725/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €30</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dialoghaus-hamburg-timeshift-journey-into-tomorrow-guided-tour-p1118725/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7cbfab95216547d097d9813fadd97ff3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Elbe River Saturday Night Boat Party" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Elbe River Saturday Night Boat Party</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>Join a 3-hour boat party on the Elbe River in Hamburg, held every Saturday for over 20 years. Come aboard and enjoy a buffet, drinks, and a lively party atmosphere.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7cbfab95216547d097d9813fadd97ff3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Elbe River Saturday Night Boat Party" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Elbe River Saturday Night Boat Party</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>Join a 3-hour boat party on the Elbe River in Hamburg, held every Saturday for over 20 years. Come aboard and enjoy a buffet, drinks, and a lively party atmosphere.
 
 Take in the evening view over the Elbe and the city of Hamburg. DJs will play music to set the mood for a great night. Perfect for company events, bachelor or bachelorette parties, club outings, or a fun evening with friends.</p>
-        <div class="card-footer">
-         <span class="price">From €99</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-saturday-night-boat-party-p1115022/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €99</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-saturday-night-boat-party-p1115022/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Reeperbahn Hamburg: Guided Tour with Drink" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Reeperbahn Hamburg: Guided Tour with Drink</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>Explore the Reeperbahn in Hamburg-St. Pauli and learn about its history and current scene. Walk through the district's streets and discover insights into its red-light district, including the structures, rules, and ongoing debates. Understand the evolution of the area's clubs, pubs, and eateries through an informative tour.</p>
-        <div class="card-footer">
-         <span class="price">From €19</span>
-         <span class="rating">⭐ 4.8 (5)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-reeperbahn-hamburg-guided-tour-with-drinks-p1100515/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Reeperbahn Hamburg: Guided Tour with Drink" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Reeperbahn Hamburg: Guided Tour with Drink</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>Explore the Reeperbahn in Hamburg-St. Pauli and learn about its history and current scene. Walk through the district's streets and discover insights into its red-light district, including the structures, rules, and ongoing debates. Understand the evolution of the area's clubs, pubs, and eateries through an informative tour.</p>
+          <div class="card-footer">
+            <span class="price">From €19</span>
+            <span class="rating">⭐ 4.8 (5)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-reeperbahn-hamburg-guided-tour-with-drinks-p1100515/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: St. Pauli Queertour – 100 Years of Pride in St. Pauli" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: St. Pauli Queertour – 100 Years of Pride in St. Pauli</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>Discover the rich history of St. Pauli, a suburb of Hamburg known for its unconventional spirit. Once a bustling port and entertainment hub, this neighborhood welcomed those who didn't quite fit within the city walls, including the vibrant LGBTQI+ community.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: St. Pauli Queertour – 100 Years of Pride in St. Pauli" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: St. Pauli Queertour – 100 Years of Pride in St. Pauli</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>Discover the rich history of St. Pauli, a suburb of Hamburg known for its unconventional spirit. Once a bustling port and entertainment hub, this neighborhood welcomed those who didn't quite fit within the city walls, including the vibrant LGBTQI+ community.
 
 The guided tour delves into the challenges faced by the queer community during the enforcement of Paragraph 175, a period of persecution. Explore the poignant stories behind Stolpersteine, the stumbling stones that tell tales of hardship, creative resistance, and community strength. 
 
 Learn how, in the face of discrimination, the community established meeting places and creatively navigated challenges.</p>
-        <div class="card-footer">
-         <span class="price">From €23</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-st-pauli-queertour-100-years-of-pride-in-st-pauli-p1087651/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €23</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-st-pauli-queertour-100-years-of-pride-in-st-pauli-p1087651/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: True Crime Quiz Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: True Crime Quiz Tour</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>Set off for an exciting neighborhood tour of St. Pauli, laser-focused on the spine-tingling crimes of the past century. The tour guide doubles as a quizmaster, making every step a suspense-filled game.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: True Crime Quiz Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: True Crime Quiz Tour</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>Set off for an exciting neighborhood tour of St. Pauli, laser-focused on the spine-tingling crimes of the past century. The tour guide doubles as a quizmaster, making every step a suspense-filled game.
 
 From serial killings and fraud to real estate speculation, the group will navigate St. Pauli’s criminal history through an interactive quiz. This tour is a must for crime enthusiasts, promising a heart-racing expedition through the city's shadowy past, getting everyone home in time for the crime scene.</p>
-        <div class="card-footer">
-         <span class="price">From €23</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-true-crime-quiz-tour-p1087650/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €23</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-true-crime-quiz-tour-p1087650/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/65cb6971bd73417aa4fb940710a1b02a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: St. Pauli Culinary District Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: St. Pauli Culinary District Tour</h3>
-        <p class="venue">📍 Food & Drinks Hamburg</p>
-        <p>Unlock the flavorful secrets of St. Pauli with its passionate locals. Brace yourself for a taste-bud-tingling adventure with the culinary district tour.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/65cb6971bd73417aa4fb940710a1b02a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: St. Pauli Culinary District Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: St. Pauli Culinary District Tour</h3>
+          <p class="venue">📍 Food & Drinks Hamburg</p>
+          <p>Unlock the flavorful secrets of St. Pauli with its passionate locals. Brace yourself for a taste-bud-tingling adventure with the culinary district tour.
 
 St. Pauli is no stranger to irresistible surprises, especially when it comes to its culinary scene. The tour unveils the hidden gastronomic gems of the district.
 
 Whether basking under the summer sun or lodging in the winter warmth, the trip kicks off in the cozy St. Pauli Office. But who better to guide you through this delicious district than its own inhabitants? All tours are led by the very locals who call this vibrant neighborhood home.</p>
-        <div class="card-footer">
-         <span class="price">From €40</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-st-pauli-culinary-district-tour-p1087649/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €40</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-st-pauli-culinary-district-tour-p1087649/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Reeperbahn Guided Tour + 1 Drink" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Reeperbahn Guided Tour + 1 Drink</h3>
-        <p class="venue">📍 Hamburg Walking Tours</p>
-        <p>One of Hamburg's most infamous streets, the Reeperbahn, is on the agenda! This tour ventures into the city's most vibrant nightlife hub, exploring the red-light district and infamous street walk. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Reeperbahn Guided Tour + 1 Drink" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Reeperbahn Guided Tour + 1 Drink</h3>
+          <p class="venue">📍 Hamburg Walking Tours</p>
+          <p>One of Hamburg's most infamous streets, the Reeperbahn, is on the agenda! This tour ventures into the city's most vibrant nightlife hub, exploring the red-light district and infamous street walk. 
 
 After an exploration of the iconic pubs and clubs, alongside the musical and theatrical mile of St. Pauli, the tour takes a breather for a quick beverage break. 
 
 Here, everyone raises a glass to an incredible evening. With a cool beer in hand, it's straight back into the action on the "Awesome Mile".
 
 The journey concludes on the Great Freedom, the perfect launching pad for further nocturnal exploration.</p>
-        <div class="card-footer">
-         <span class="price">From €26</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-reeperbahn-guided-tour-and-one-drink-p1087062/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €26</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-reeperbahn-guided-tour-and-one-drink-p1087062/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/46135ae89dfb47a48b6793876f1137c3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Private Transfer between Hamburg Airport and City Center" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Private Transfer between Hamburg Airport and City Center</h3>
-        <p class="venue">📍 Hamburg Airport Transfers</p>
-        <p>Take off from the airport and start your Hamburg adventure with a premium private transfer that whisks you from Hamburg Airport (HAM) straight to the city center.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/46135ae89dfb47a48b6793876f1137c3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Private Transfer between Hamburg Airport and City Center" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Private Transfer between Hamburg Airport and City Center</h3>
+          <p class="venue">📍 Hamburg Airport Transfers</p>
+          <p>Take off from the airport and start your Hamburg adventure with a premium private transfer that whisks you from Hamburg Airport (HAM) straight to the city center.
 
 Head to the HAM Airport by ensuring a smooth, private transfer from the city's vibrant hub to the airport.
 
 This transfer service offers an array of vehicle options to suit every pocket and preference. In addition, it promises stress-free transit at both the beginning and conclusion of your tour.</p>
-        <div class="card-footer">
-         <span class="price">From €140</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-private-transfer-between-hamburg-airport-and-city-center-p1086734/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €140</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-private-transfer-between-hamburg-airport-and-city-center-p1086734/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/65cb6971bd73417aa4fb940710a1b02a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Safari Tour on St. Pauli with Fish Sandwich" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Safari Tour on St. Pauli with Fish Sandwich</h3>
-        <p class="venue">📍 Food & Drinks Hamburg</p>
-        <p>Step right up for the ultimate exploration of Hamburg's unique St. Pauli district! As exclusive partners with one of the most renowned pubs in the neighborhood, this tour guides you through the shadowy alleys and illuminated streets of St. Pauli. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/65cb6971bd73417aa4fb940710a1b02a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Safari Tour on St. Pauli with Fish Sandwich" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Safari Tour on St. Pauli with Fish Sandwich</h3>
+          <p class="venue">📍 Food & Drinks Hamburg</p>
+          <p>Step right up for the ultimate exploration of Hamburg's unique St. Pauli district! As exclusive partners with one of the most renowned pubs in the neighborhood, this tour guides you through the shadowy alleys and illuminated streets of St. Pauli. 
 
 Your journey uncovers not only famous landmarks like the Davidwache and Herbertstraße, but also the culinary delights of the district, most notably, the legendary fish sandwich!
 
 The tour includes a pit stop at one of the district's top fish stalls, where you'll get to savor this mouth-watering dish. Packed with fascinating facts about St. Pauli's history and culture, this intriguing tour is designed for guests aged 18 and up.</p>
-        <div class="card-footer">
-         <span class="price">From €29.9</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-safari-tour-on-st-pauli-with-fish-sandwich-p1076246/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €29.9</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-safari-tour-on-st-pauli-with-fish-sandwich-p1076246/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/6d3fbc3c032840a4b32b3d21f4745cc4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Harbor Cruise + Cheese & Wine" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Harbor Cruise + Cheese & Wine</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>Immerse yourself in the charming harbor atmosphere of Hamburg on a delightful 90-minute journey, brimming with culture and a rich trading history. Aboard the indulgent Genießen ship, you'll be treated to an array of cheeses and wines, served amidst the cozy ambiance of the vessel. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6d3fbc3c032840a4b32b3d21f4745cc4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Harbor Cruise + Cheese & Wine" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Harbor Cruise + Cheese & Wine</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>Immerse yourself in the charming harbor atmosphere of Hamburg on a delightful 90-minute journey, brimming with culture and a rich trading history. Aboard the indulgent Genießen ship, you'll be treated to an array of cheeses and wines, served amidst the cozy ambiance of the vessel. 
 
 Lean back and unwind as you embark on a harbor tour, acquainting you with the city's famous landmarks and vibrant culture. The journey entertains with captivating tales of the city's illustrious trading past.
 
 Discover Hamburg from the comfort of a covered barge, complete with a heated salon – undoubtedly the best way to explore one of Europe's most intriguing cities. Allow the ship's skipper to guide you through the harbor's many highlights. Sit back, relax, and saver the delightful beverages and a selection of delectable cheeses.</p>
-        <div class="card-footer">
-         <span class="price">From €42</span>
-         <span class="rating">⭐ 3 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-harbor-cruise-cheese-wine-p1071512/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €42</span>
+            <span class="rating">⭐ 3 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-harbor-cruise-cheese-wine-p1071512/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/327e115d08fd4659bdeeaabbd8ce0c3d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg City Pass: Your All-Inclusive Pass" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg City Pass: Your All-Inclusive Pass</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>Embark on an unforgettable Hamburg adventure with the all-inclusive Hamburg City Pass! With access to over 35 exciting attractions, you'll dive into a world of ship museums, war museums, guided tours, and a fabulous hop-on-hop-off bus tour. Plus, indulge in a complimentary harbour cruise and score delightful discounts at selected restaurants.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/327e115d08fd4659bdeeaabbd8ce0c3d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg City Pass: Your All-Inclusive Pass" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg City Pass: Your All-Inclusive Pass</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>Embark on an unforgettable Hamburg adventure with the all-inclusive Hamburg City Pass! With access to over 35 exciting attractions, you'll dive into a world of ship museums, war museums, guided tours, and a fabulous hop-on-hop-off bus tour. Plus, indulge in a complimentary harbour cruise and score delightful discounts at selected restaurants.
 
 Say goodbye to the stress of planning and embrace the opportunity to discover Hamburg's rich history, captivating culture, and electrifying atmosphere through a diverse range of museums, tours, gastronomy, and games. Explore the city at a leisurely pace and take up to 3 days to soak in all the wonders.
 
 The pass proudly boasts free admission to iconic landmarks such as the St. Michaelis Church, the Panoptikum, and an enchanting harbour cruise. Opt to include public transportation and unlock exclusive discounts with selected partners.
 
 Why wait? Book the Hamburg City Pass for 1, 2, or 3 days and embark on the experience of a lifetime!</p>
-        <div class="card-footer">
-         <span class="price">From €45</span>
-         <span class="rating">⭐ 4.4 (5)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-city-pass-your-all-inclusive-pass-p1068506/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €45</span>
+            <span class="rating">⭐ 4.4 (5)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-city-pass-your-all-inclusive-pass-p1068506/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/46135ae89dfb47a48b6793876f1137c3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg Airport Taxi Transfer to City Center" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg Airport Taxi Transfer to City Center</h3>
-        <p class="venue">📍 Hamburg Airport Transfers</p>
-        <p>Experience a ride that is truly tailored to your needs, with the exceptional service from the experts. Get ready to embark on a journey that's just for you! With a sterling reputation in the airport transfer market, you can trust the team to deliver a top-notch service that's second to none. Why settle for anything less when you can compare prices from a diverse range of vehicles that cater to your specific needs? 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/46135ae89dfb47a48b6793876f1137c3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg Airport Taxi Transfer to City Center" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg Airport Taxi Transfer to City Center</h3>
+          <p class="venue">📍 Hamburg Airport Transfers</p>
+          <p>Experience a ride that is truly tailored to your needs, with the exceptional service from the experts. Get ready to embark on a journey that's just for you! With a sterling reputation in the airport transfer market, you can trust the team to deliver a top-notch service that's second to none. Why settle for anything less when you can compare prices from a diverse range of vehicles that cater to your specific needs? 
 
 The team is committed to making your journey as special as possible, and will go above and beyond to ensure your satisfaction. Their vision is crystal clear - flawless, timely, convenient, and friendly airport transfers that make the last leg of your journey an absolute breeze. 
 
 Their mission is to constantly push the boundaries and innovate with the latest technology, knowledge, and expertise, all in the name of making every traveler happy! So sit back, relax, and enjoy the ride, knowing that you're in the best hands possible.</p>
-        <div class="card-footer">
-         <span class="price">From €110</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-airport-taxi-transfer-to-city-center-p1066101/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €110</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-airport-taxi-transfer-to-city-center-p1066101/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/e62f29879fdf4f2ab8500c882220c913.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg City Cycles: Hamburg Compact" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg City Cycles: Hamburg Compact</h3>
-        <p class="venue">📍 Hamburg Bike Tours</p>
-        <p>Kick off your adventure in the vibrant district of St. Pauli, known for its bohemian flair and infamous Reeperbahn. Pedal your way through the bustling streets and soak in the unique energy of this cultural hub, all the way to the landing bridges, where you'll be treated to breathtaking views of the harbor. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e62f29879fdf4f2ab8500c882220c913.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg City Cycles: Hamburg Compact" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg City Cycles: Hamburg Compact</h3>
+          <p class="venue">📍 Hamburg Bike Tours</p>
+          <p>Kick off your adventure in the vibrant district of St. Pauli, known for its bohemian flair and infamous Reeperbahn. Pedal your way through the bustling streets and soak in the unique energy of this cultural hub, all the way to the landing bridges, where you'll be treated to breathtaking views of the harbor. 
 
 With ships of all shapes and sizes passing by, you'll feel the pulse of this historic port city as you continue along the waterways of the Fleeten.
 
 Arriving in Hamburg City, take a break to admire the awe-inspiring St. Michaelis church, locally known as the "Michel." From there, explore the tranquil Alster lake, where the serene surroundings make for some fab photos.
 
 Next up, head to the magnificent town hall and the charming Jungfernstieg, where you can experience the romantic side of Hamburg firsthand. And, of course, no tour of Hamburg would be complete without a visit to the iconic old warehouse district and the modern HafenCity, Hamburg's youngest district.</p>
-        <div class="card-footer">
-         <span class="price">From €39</span>
-         <span class="rating">⭐ 4.5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-compact-p1063150/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €39</span>
+            <span class="rating">⭐ 4.5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-compact-p1063150/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/88cb6641d224476995896ae9aa109af7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Pauli Beer Tour - Beer and District" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>St. Pauli Beer Tour - Beer and District</h3>
-        <p class="venue">📍 Food & Drinks Hamburg</p>
-        <p>Hamburg was once famous as a beer capital with over 750 varieties. Of course, a lot of beer was drunk in the entertainment district of St. Pauli. Until a few years ago, there were almost only the same industrially produced varieties. In the meantime there is a colorful beer landscape. On this tour you will learn all about beer and St. Pauli. Both historical, why the children used to drink beer here, as well as a lot of news. We start in the cozy salon in the St. Pauli Office, visit the trendy new craft beer hotspots as well as quaint old beer pubs. But beware: this is not a drink tour, but a sophisticated, humorous and beer-swept tour through St. Pauli. Drunk people without manners are not allowed.</p>
-        <div class="card-footer">
-         <span class="price">From €39</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-st-pauli-beer-tour-beer-and-district-p1062181/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/88cb6641d224476995896ae9aa109af7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Pauli Beer Tour - Beer and District" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>St. Pauli Beer Tour - Beer and District</h3>
+          <p class="venue">📍 Food & Drinks Hamburg</p>
+          <p>Hamburg was once famous as a beer capital with over 750 varieties. Of course, a lot of beer was drunk in the entertainment district of St. Pauli. Until a few years ago, there were almost only the same industrially produced varieties. In the meantime there is a colorful beer landscape. On this tour you will learn all about beer and St. Pauli. Both historical, why the children used to drink beer here, as well as a lot of news. We start in the cozy salon in the St. Pauli Office, visit the trendy new craft beer hotspots as well as quaint old beer pubs. But beware: this is not a drink tour, but a sophisticated, humorous and beer-swept tour through St. Pauli. Drunk people without manners are not allowed.</p>
+          <div class="card-footer">
+            <span class="price">From €39</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-pauli-beer-tour-beer-and-district-p1062181/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Pauli Crime Tour: On The Trail Of Crime" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>St. Pauli Crime Tour: On The Trail Of Crime</h3>
-        <p class="venue">📍 Hamburg Walking Tours</p>
-        <p>The Reeperbahn and its dark side streets have always been the scene of violence, crime and sinister business. You'll discover it all, and more, on this unique walking tour.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Pauli Crime Tour: On The Trail Of Crime" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>St. Pauli Crime Tour: On The Trail Of Crime</h3>
+          <p class="venue">📍 Hamburg Walking Tours</p>
+          <p>The Reeperbahn and its dark side streets have always been the scene of violence, crime and sinister business. You'll discover it all, and more, on this unique walking tour.
 
 The historical crime tour leads you through a century of highly criminal events that many people can no longer remember – or simply don't want to remember! 
 
 Find out where the psychopathic serial killer Fritz Honka searched for his victims. Walk in the footsteps of the brutal pimp wars of the 1980s and hear about the evil machinations with which greedy real estate sharks cover the neighborhood today. 
 
 Your tour guide will guide you to crime scenes and give you a frighteningly real view of researched cases. All guides are local residents and have a huge love for, and a great knowledge of the district. Ask them anything!</p>
-        <div class="card-footer">
-         <span class="price">From €23</span>
-         <span class="rating">⭐ 5 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-st-pauli-crime-tour-on-the-trail-of-crime-p1062180/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €23</span>
+            <span class="rating">⭐ 5 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-pauli-crime-tour-on-the-trail-of-crime-p1062180/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/70e0c7d841fb40568a75f7735dd8eca1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: St. Pauli Kieztour + Reeperbahn Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: St. Pauli Kieztour + Reeperbahn Tour</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>Get to know and experience St. Pauli with local residents on this top tour of Hamburg's notorious nightlife and red-light district.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70e0c7d841fb40568a75f7735dd8eca1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: St. Pauli Kieztour + Reeperbahn Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: St. Pauli Kieztour + Reeperbahn Tour</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>Get to know and experience St. Pauli with local residents on this top tour of Hamburg's notorious nightlife and red-light district.
 
 Join your local guide and explore Davidwache, Hans-Albers-Platz, Herbertstraße and Spielbudenplatz, and enjoy a quaint pub stop for a drink on the way. The vibrant Reeperbahn will soon reel you in.
 
 This tour is historically based, original, unvarnished and individual. Hear about the exciting 400-year history of St. Pauli and its present social policy developments, and get top tips from your guide on where to go out in Hamburg!</p>
-        <div class="card-footer">
-         <span class="price">From €25</span>
-         <span class="rating">⭐ 5 (4)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-st-pauli-kieztour-reeperbahn-tour-p1060933/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €25</span>
+            <span class="rating">⭐ 5 (4)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-st-pauli-kieztour-reeperbahn-tour-p1060933/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1c3c3a4e2754b5fa9286dbc5d308925.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Virtual Reality Show: Erotic Art in Cyberspace" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Virtual Reality Show: Erotic Art in Cyberspace</h3>
-        <p class="venue">📍 Erotic Art Museum Hamburg</p>
-        <p>Have we got an arousing tour for you! Get ready for this ticket to turn you onto a whole new world of eroticism.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1c3c3a4e2754b5fa9286dbc5d308925.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Virtual Reality Show: Erotic Art in Cyberspace" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Virtual Reality Show: Erotic Art in Cyberspace</h3>
+          <p class="venue">📍 Erotic Art Museum Hamburg</p>
+          <p>Have we got an arousing tour for you! Get ready for this ticket to turn you onto a whole new world of eroticism.
 
 In the Erotic Art Museum 2.0, take an exciting excursion into the erotic past of art and into the provocative art worlds of the future in cyberspace. 
 
 Head to the virtual rooms of the Hamburg NFT Museum, where digital designers have worked with artists and photographers on 360-degree experiences using VR glasses. 
 
 Explore Cancel Culture and the cultural-historical history of eroticism. Fly through a wonderland filled with motifs of beautiful bodies. Float over a gigantic roller coaster featuring countless erotic photos, or visit the rooms of the Erotic Art Museum in the multiverse of Marc Zuckerberg, where you might meet a few avatars.</p>
-        <div class="card-footer">
-         <span class="price">From €18</span>
-         <span class="rating">⭐ 1 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-virtual-reality-show-erotic-art-in-cyberspace-p1056143/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €18</span>
+            <span class="rating">⭐ 1 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-virtual-reality-show-erotic-art-in-cyberspace-p1056143/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Erotica 2023 - Erotic Neighborhood Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Erotica 2023 - Erotic Neighborhood Tour</h3>
-        <p class="venue">📍 Hamburg Walking Tours</p>
-        <p>Time to get kinky! This Erotic Neighborhood Tour walks you through eroticism from classic to ultra-modern in Hamburg's famous red light district.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Erotica 2023 - Erotic Neighborhood Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Erotica 2023 - Erotic Neighborhood Tour</h3>
+          <p class="venue">📍 Hamburg Walking Tours</p>
+          <p>Time to get kinky! This Erotic Neighborhood Tour walks you through eroticism from classic to ultra-modern in Hamburg's famous red light district.
 
 You'll walk along Reeperbahn with your guide, and enter the small Erotic Art Museum, which explores the hot history of sex toys and even features a kinky club, a bunker with a kinky exhibition, and new worlds to discover via virtual reality. 
 
 You will learn about the red light district, BDSM, sex toys and places loved by the LGBTQ scene. At the end, you can prove your erotic expertise in a quiz, enjoy a gin, beer or soft drink, and take away a free postcard of your choice.</p>
-        <div class="card-footer">
-         <span class="price">From €39</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-erotica-2023-erotic-neighborhood-tour-p1056138/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €39</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-erotica-2023-erotic-neighborhood-tour-p1056138/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Private Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Private Guided Walking Tour</h3>
-        <p class="venue">📍 Hamburg Walking Tours</p>
-        <p>Discover top city attractions and famous landmarks in Hamburg on this private, three-hour guided tour. Discover historic streets of Hamburg and gain insight into the city's rich history. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Private Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Private Guided Walking Tour</h3>
+          <p class="venue">📍 Hamburg Walking Tours</p>
+          <p>Discover top city attractions and famous landmarks in Hamburg on this private, three-hour guided tour. Discover historic streets of Hamburg and gain insight into the city's rich history. 
 
 You'll walk, travel by public bus, and float around on or ferry, taking in the sites of interest such as Philharmonic Hall, Old Elbe Tunnel, the red brick buildings from the warehouse district (Speicherstadt). Take in views of the entire city from the hilltop as you gaze at the beautiful baroque church, St. Michel's.</p>
-        <div class="card-footer">
-         <span class="price">From €245</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-private-guided-tour-in-hamburg-a-bit-of-everything-p1054674/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €245</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-private-guided-tour-in-hamburg-a-bit-of-everything-p1054674/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Blankenese District Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Blankenese District Guided Tour</h3>
-        <p class="venue">📍 Hamburg Walking Tours</p>
-        <p>Discover the little thatched cottages, half-timbered houses, and larger villas on the banks of the River Elbe on this **2-hour tour of Blankenese in Hamburg**. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Blankenese District Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Blankenese District Guided Tour</h3>
+          <p class="venue">📍 Hamburg Walking Tours</p>
+          <p>Discover the little thatched cottages, half-timbered houses, and larger villas on the banks of the River Elbe on this **2-hour tour of Blankenese in Hamburg**. 
 
 Start this unforgettable walk through the old quarter at the Blankenese suburban station. Admire the **Goßlerhaus** in one of the specious parks, walk along the main street in Blankenese to the **“Stairs Neighborhood”**, and wander over the staircases to the beach.
 
 Your **professional guide** will tell you stories about Brahms on his summer holidays, where to find the smallest house in Blankenese, and about the fisherman who brought down the pirate Störtebeker.
 
 After a short break in the sand, continue uphill for a rewarding view of the sea and ships leisurely cruising the harbor.</p>
-        <div class="card-footer">
-         <span class="price">From €235</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-blankenese-the-old-fisherman-s-village-p1054636/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €235</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-blankenese-the-old-fisherman-s-village-p1054636/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg Red Light District Private Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg Red Light District Private Tour</h3>
-        <p class="venue">📍 Hamburg Walking Tours</p>
-        <p>Come tour St. Pauli's "party mile" with tickets for a private walking tour of Hamburg's Reeperbahn. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg Red Light District Private Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg Red Light District Private Tour</h3>
+          <p class="venue">📍 Hamburg Walking Tours</p>
+          <p>Come tour St. Pauli's "party mile" with tickets for a private walking tour of Hamburg's Reeperbahn. 
 
 Many people consider St. Pauli to be the most sinful district of Hamburg due to the number of bars and sex shops, but this waterfront neighborhood has so much more to offer than just red lights!
 
 Get to know another side of Hamburg as a professional guide tells you the myths and true stories of the area. 
 
 Trace the borders between Hamburg and the Danish town of Altona, pass by Herbertstrasse, and see the famous police station Davidwache.</p>
-        <div class="card-footer">
-         <span class="price">From €250</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-private-hamburg-red-light-district-tour-p1054635/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €250</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-private-hamburg-red-light-district-tour-p1054635/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: St. Pauli Highlights Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: St. Pauli Highlights Tour</h3>
-        <p class="venue">📍 Hamburg Walking Tours</p>
-        <p>Immerse yourself in the vibrant district of St. Pauli with an expert guide as your compass. Explore the beating heart of local life, unearthing tales of powerful gangs, infamous streets, and the legendary Reeperbahn.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: St. Pauli Highlights Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: St. Pauli Highlights Tour</h3>
+          <p class="venue">📍 Hamburg Walking Tours</p>
+          <p>Immerse yourself in the vibrant district of St. Pauli with an expert guide as your compass. Explore the beating heart of local life, unearthing tales of powerful gangs, infamous streets, and the legendary Reeperbahn.
 
 Embark on a truly exclusive experience with access to the renowned "Zur Ritze" boxing gym. This special visit is a rare treat, as it's not typically open to tourists. So buying a drink is expected as a show of appreciation for this unique cultural experience! Sip on a refreshing drink amidst the boxing ring, and surround yourself in the captivating atmosphere of this legendary establishment.
 
 Unlock the mysteries of the Reeperbahn, experiencing its pulsating energy long after the clock strikes midnight. Learn the secrets of the elusive "Hamburger Berg" and witness the nocturnal wonders that animate this lively area.</p>
-        <div class="card-footer">
-         <span class="price">From €25</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-st-pauli-highlights-tour-p1052776/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €25</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-st-pauli-highlights-tour-p1052776/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/07521e3176954681a5493a4904354ef0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Elphi Plaza – Guided Tour with Störtebeker Beer" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Elphi Plaza – Guided Tour with Störtebeker Beer</h3>
-        <p class="venue">📍 Elbphilharmonie Hamburg</p>
-        <p>There's so much more to Hamburg than its historic port – find out with this guided tour of the UNESCO-listed Elbphilharmonie and enjoy a typical Hamburg beer afterwards. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/07521e3176954681a5493a4904354ef0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Elphi Plaza – Guided Tour with Störtebeker Beer" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Elphi Plaza – Guided Tour with Störtebeker Beer</h3>
+          <p class="venue">📍 Elbphilharmonie Hamburg</p>
+          <p>There's so much more to Hamburg than its historic port – find out with this guided tour of the UNESCO-listed Elbphilharmonie and enjoy a typical Hamburg beer afterwards. 
 
 This one-hour tour gets you up close to the iconic curved structure of the Elbphilharmonie, which has defined the Hamburg skyline for decades. 
 
 Hop on the longest curved escalator in the world and trek to the top of the Elbphilharmonie for incredible views over Hamburg and its harbor.
 
 Conclude your tour with a refreshing German-brewed beer, and browse the products available at the Störtebeker Taste and Shop.</p>
-        <div class="card-footer">
-         <span class="price">From €29</span>
-         <span class="rating">⭐ 4.7 (14)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-elbphilharmonie-tour-with-stortebeker-beer-p1052172/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €29</span>
+            <span class="rating">⭐ 4.7 (14)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-elbphilharmonie-tour-with-stortebeker-beer-p1052172/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/65cb6971bd73417aa4fb940710a1b02a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Pauli Culinary Food Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>St. Pauli Culinary Food Tour</h3>
-        <p class="venue">📍 Food & Drinks Hamburg</p>
-        <p>To the Reeperbahn, Herbertstraße, Davidwache and beyond, it's high time to get the real inside scoop on Hamburg's hip St. Pauli neighborhood! 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/65cb6971bd73417aa4fb940710a1b02a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Pauli Culinary Food Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>St. Pauli Culinary Food Tour</h3>
+          <p class="venue">📍 Food & Drinks Hamburg</p>
+          <p>To the Reeperbahn, Herbertstraße, Davidwache and beyond, it's high time to get the real inside scoop on Hamburg's hip St. Pauli neighborhood! 
 
 Join a qualified guided and insider and discover St. Pauli from a completely new perspective as you walk around between visits to five different international and typically 'Hamburg' restaurants. There are delicious treats to be had in each one.
 
@@ -1043,20 +1042,20 @@ Learn the gritty history of the sailors and traders who enjoyed a rampant nightl
 
 Explore small alleys, peek into beautiful old buildings, run your fingers up amazing facades and feel the peace of its quiet backyards. 
 Discover where and why there were real Indians here, and even find out how to smuggle a handgun through a police interrogation!</p>
-        <div class="card-footer">
-         <span class="price">From €49</span>
-         <span class="rating">⭐ 5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-st-pauli-culinary-food-tour-p1051580/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €49</span>
+            <span class="rating">⭐ 5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-pauli-culinary-food-tour-p1051580/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Speicherstadt Tour with Coffee Tasting" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Speicherstadt Tour with Coffee Tasting</h3>
-        <p class="venue">📍 Hamburg Walking Tours</p>
-        <p>This tour includes everything you need to know about Hamburg's warehouses for tea, coffee, spices and oriental carpets. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Speicherstadt Tour with Coffee Tasting" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Speicherstadt Tour with Coffee Tasting</h3>
+          <p class="venue">📍 Hamburg Walking Tours</p>
+          <p>This tour includes everything you need to know about Hamburg's warehouses for tea, coffee, spices and oriental carpets. 
 
 Quench your fascination of spices, tea, coffee and cocoa in the world-famous warehouses of the Speicherstadt.
 
@@ -1065,234 +1064,233 @@ Find out how the rare and expensive has been traded here for centuries, from rar
 The tour ends at a coffee roasters, where you will experience a professional coffee tasting. 
 
 There, you will learn many new things about one of Germany's most popular drinks as you taste your way through a variety of coffees. Get ready to spoil your senses and become a coffee expert!</p>
-        <div class="card-footer">
-         <span class="price">From €34</span>
-         <span class="rating">⭐ 4.8 (5)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-speicherstadt-tour-with-coffee-tasting-p1047675/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €34</span>
+            <span class="rating">⭐ 4.8 (5)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-speicherstadt-tour-with-coffee-tasting-p1047675/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Big Reeperbahn Tour with the Kiezjungs" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Big Reeperbahn Tour with the Kiezjungs</h3>
-        <p class="venue">📍 Hamburg Walking Tours</p>
-        <p>On this tour you will learn everything about St. Pauli, including its eventful and exciting history. Get to know Hamburg's nightlife district with its pulsing clubs and atmospheric restaurants. See how the neighborhood has changed over the years, and hear anecdotes about the whores and the "Uddeln". 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d568a229d344f6dbbb23e3fb1913581.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Big Reeperbahn Tour with the Kiezjungs" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Big Reeperbahn Tour with the Kiezjungs</h3>
+          <p class="venue">📍 Hamburg Walking Tours</p>
+          <p>On this tour you will learn everything about St. Pauli, including its eventful and exciting history. Get to know Hamburg's nightlife district with its pulsing clubs and atmospheric restaurants. See how the neighborhood has changed over the years, and hear anecdotes about the whores and the "Uddeln". 
 
 Learn some strange rules that affect its people, and discover why, for example, women are not allowed in the Herbertstraße. Visit the boxing cellar of the "Ritze," but be warned, the landlord expects you to drink when you get there!
 
 Ask your guide anything on this tour. Nobody knows more about the neighborhood than them, your Kiezjungs.</p>
-        <div class="card-footer">
-         <span class="price">From €25</span>
-         <span class="rating">⭐ 4.8 (13)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-big-reeperbahn-tour-with-the-kiezjungs-p1047666/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €25</span>
+            <span class="rating">⭐ 4.8 (13)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-big-reeperbahn-tour-with-the-kiezjungs-p1047666/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/46135ae89dfb47a48b6793876f1137c3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luicella's Ice Cream Workshop: Beginners" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Luicella's Ice Cream Workshop: Beginners</h3>
-        <p class="venue">📍 Luicella's Ice Cream Easter Road</p>
-        <p>Each group of two will make their own ice cream creation in this fun workshop, exploring the world of your favourite chilled dessert. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/46135ae89dfb47a48b6793876f1137c3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luicella's Ice Cream Workshop: Beginners" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Luicella's Ice Cream Workshop: Beginners</h3>
+          <p class="venue">📍 Luicella's Ice Cream Easter Road</p>
+          <p>Each group of two will make their own ice cream creation in this fun workshop, exploring the world of your favourite chilled dessert. 
 
 Luicella's makes 100% natural, unadulterated ice cream from carefully selected ingredients in their perfectionist's ice cream kitchen in Hamburg, and they want to get you involved!
 
 All the equipment and ingredients you need to make your dream ice cream are included. There are also vegan and lactose-free options. Toppings and sauces taste even better once you get the inside scoop on how they're made - *mmmm*.
 
 Each participant gets to choose two scoops of ice cream from the display case. Plus, a hot drink is included.</p>
-        <div class="card-footer">
-         <span class="price">From €54.9</span>
-         <span class="rating">⭐ 4.5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-Luicellas-ice-workshop-beginners-p1044207/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €54.9</span>
+            <span class="rating">⭐ 4.5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-Luicellas-ice-workshop-beginners-p1044207/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/65cb6971bd73417aa4fb940710a1b02a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Georg Culinary - The Food Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>St. Georg Culinary - The Food Tour</h3>
-        <p class="venue">📍 Food & Drinks Hamburg</p>
-        <p>On this culinary discovery tour, you'll be guided through one of Hamburg's most diverse and colorful neighborhoods, which despite all its popularity has still remained a real hidden gem.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/65cb6971bd73417aa4fb940710a1b02a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Georg Culinary - The Food Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>St. Georg Culinary - The Food Tour</h3>
+          <p class="venue">📍 Food & Drinks Hamburg</p>
+          <p>On this culinary discovery tour, you'll be guided through one of Hamburg's most diverse and colorful neighborhoods, which despite all its popularity has still remained a real hidden gem.
 
 With qualified guides at your side, you will experience Hamburg's rainbow stronghold up close - between the gloomy past and the colorful present. You will learn exciting anecdotes and lots of interesting facts and in between, you will taste five specialties in selected restaurants.</p>
-        <div class="card-footer">
-         <span class="price">From €49</span>
-         <span class="rating">⭐ 4.5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-st-george-culinary-the-food-tour-p1040876/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €49</span>
+            <span class="rating">⭐ 4.5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-george-culinary-the-food-tour-p1040876/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/97f8137bd04c42c1b6966a84afae181a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Speicherstadt & Hafen City Experience Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Speicherstadt & Hafen City Experience Tour</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>Experience a unique tour of Hamburg's modernity and world heritage, with a guided visit to the Speicherstadt and the HafenCity. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/97f8137bd04c42c1b6966a84afae181a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Speicherstadt & Hafen City Experience Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Speicherstadt & Hafen City Experience Tour</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>Experience a unique tour of Hamburg's modernity and world heritage, with a guided visit to the Speicherstadt and the HafenCity. 
 
 On this experience tour in Hamburg, you will get insider knowledge about the city's storied harbour district and its world-famous Elbphilharmonie concert hall. 
 
 Afterwards, you will dive into the Speicherstadt and get incomparable views of the beautiful redbrick architecture, the warehouses and the castles. Quiet courtyards await you here, where time seems to have stood still. 
 
 Your guide will reveal the secrets of these Hamburg originals from bygone times. Finally, visit the Kontorhaus quarter with its famous Chilehaus and its breathtaking architecture.</p>
-        <div class="card-footer">
-         <span class="price">From €23</span>
-         <span class="rating">⭐ 4.8 (5)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-speicherstadt-hafencity-experience-tour-p1039739/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €23</span>
+            <span class="rating">⭐ 4.8 (5)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-speicherstadt-hafencity-experience-tour-p1039739/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/65cb6971bd73417aa4fb940710a1b02a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Sternschanze Food Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Sternschanze Food Tour</h3>
-        <p class="venue">📍 Food & Drinks Hamburg</p>
-        <p>Take a deep dive into the culinary traditions of Germany with tickets for a guided tour of Sternschanze, a trendy neighborhood in Hamburg. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/65cb6971bd73417aa4fb940710a1b02a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Sternschanze Food Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Sternschanze Food Tour</h3>
+          <p class="venue">📍 Food & Drinks Hamburg</p>
+          <p>Take a deep dive into the culinary traditions of Germany with tickets for a guided tour of Sternschanze, a trendy neighborhood in Hamburg. 
 
 Together with your expert foodie guide, you'll discover the alternative heart of Hamburg. With its colorful buildings, cozy restaurants, and trendy cocktail bars, there's something new to see (and taste) around every corner.</p>
-        <div class="card-footer">
-         <span class="price">From €49</span>
-         <span class="rating">⭐ 4.7 (7)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-sternschanze-food-tour-p1039204/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €49</span>
+            <span class="rating">⭐ 4.7 (7)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-sternschanze-food-tour-p1039204/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Reeperbahn St. Pauli Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Reeperbahn St. Pauli Guided Walking Tour</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>Join a guided tour that explores the Reeperbahn area and its well-known streets, venues, and courtyards. Along the way, you will learn about the area’s history and hear stories about its past and culture.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Reeperbahn St. Pauli Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Reeperbahn St. Pauli Guided Walking Tour</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>Join a guided tour that explores the Reeperbahn area and its well-known streets, venues, and courtyards. Along the way, you will learn about the area’s history and hear stories about its past and culture.
 
 The tour includes stops near pubs, cult theaters, music clubs, and other places that are part of the neighborhood. It also covers the district’s nightlife and entertainment history.</p>
-        <div class="card-footer">
-         <span class="price">From €30</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-reeperbahn-st-pauli-guided-walking-tour-p1038072/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €30</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-reeperbahn-st-pauli-guided-walking-tour-p1038072/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/e62f29879fdf4f2ab8500c882220c913.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg Bike Tour: Outer Alster Lake" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg Bike Tour: Outer Alster Lake</h3>
-        <p class="venue">📍 Hamburg Bike Tours</p>
-        <p>Get out of the city center for a day and explore a different side of Hamburg with tickets for a bike tour around Alster Lake.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e62f29879fdf4f2ab8500c882220c913.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg Bike Tour: Outer Alster Lake" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg Bike Tour: Outer Alster Lake</h3>
+          <p class="venue">📍 Hamburg Bike Tours</p>
+          <p>Get out of the city center for a day and explore a different side of Hamburg with tickets for a bike tour around Alster Lake.
 
 With your professional tour guide, you'll ride through residential neighborhoods that other city tours skip. Snap photo after photo of the gorgeous green parks and picturesque bridges over the Alster River. 
 
 Then, cycle to the Blue Mosque for a unique peek of Hamburg's city skyline from a distance. Conclude your 3.5-hour bike tour of Hamburg at the Kennedy Bridge for beautiful views of the Alster Lake.</p>
-        <div class="card-footer">
-         <span class="price">From €36</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-bike-tour-outer-alster-lake-p1036030/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €36</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-bike-tour-outer-alster-lake-p1036030/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Reeperbahn "Red Light" Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg: Reeperbahn "Red Light" Guided Tour</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>Wander through one of Hamburg's most famous neighborhoods – the Reeperbahn – with a local expert as your guide.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41bd00229c3e45c2a84528e7a2352466.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg: Reeperbahn "Red Light" Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg: Reeperbahn "Red Light" Guided Tour</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>Wander through one of Hamburg's most famous neighborhoods – the Reeperbahn – with a local expert as your guide.
 
 On this 2-hour tour, you'll discover the history and stories of Herbertstraße, Hamburg's most interesting and controversial district. 
 
 Stop in for a drink at the cult bar Zue Ritze, see where the boxing Klitschko brothers trained, and visit the Davidswache Police Station where Paul McCartney and David Best once spent a legendary night. 
 
 There's one thing for sure – this Hamburg Red Light tour is one you'll definitely remember.</p>
-        <div class="card-footer">
-         <span class="price">From €30</span>
-         <span class="rating">⭐ 3 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-reeperbahn-red-light-guided-tour-p1035919/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €30</span>
+            <span class="rating">⭐ 3 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-reeperbahn-red-light-guided-tour-p1035919/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/8c7e88c959c24bb99a0fa6ce8d66c359.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Harbor Tour Hamburg + International Maritime Museum" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hop-on Hop-off Harbor Tour Hamburg + International Maritime Museum</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>Want to see Hamburg, but short on time? This 90-minute harbor tour is the answer. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8c7e88c959c24bb99a0fa6ce8d66c359.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Harbor Tour Hamburg + International Maritime Museum" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hop-on Hop-off Harbor Tour Hamburg + International Maritime Museum</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>Want to see Hamburg, but short on time? This 90-minute harbor tour is the answer. 
 
 Stay on board for the full tour and get the lowdown on what you're looking at with the free live narration. Or hop off and explore a host of tourist attractions and city highlights yourself. 
 
 Your ticket also gets you into the International Maritime Museum Hamburg, the world’s largest maritime collection!</p>
-        <div class="card-footer">
-         <span class="price">From €27</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-harbor-tour-hamburg-international-maritime-museum-p1006947/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €27</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-harbor-tour-hamburg-international-maritime-museum-p1006947/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg Pass" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg Pass</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>Discover Hamburg with the ultimate package, combining the convenience of unlimited public transport and discounted access to top attractions with the Hamburg CARD, and a 1-hour evening lights cruise through the Speicherstadt and HafenCity. Enjoy easy city travel and immerse yourself in Hamburg’s vibrant culture by day, then unwind with an evening boat tour that highlights the city’s nighttime allure. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg Pass" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg Pass</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>Discover Hamburg with the ultimate package, combining the convenience of unlimited public transport and discounted access to top attractions with the Hamburg CARD, and a 1-hour evening lights cruise through the Speicherstadt and HafenCity. Enjoy easy city travel and immerse yourself in Hamburg’s vibrant culture by day, then unwind with an evening boat tour that highlights the city’s nighttime allure. 
 
 **Hamburg CARD: Public Transport + Airport Transfer**
 Explore Hamburg with ease, enjoying unlimited public transport and discounted entry to top attractions, including harbor tours, the Michel, and musicals.
 
 **Hamburg: 1-Hour Evening Lights Cruise**
 Experience Hamburg's illuminated harbor and historic Speicherstadt on a romantic evening cruise, highlighting the Elbphilharmonie and HafenCity.</p>
-        <div class="card-footer">
-         <span class="price">From €43.5</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-pass-p1114143/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €43.5</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-pass-p1114143/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/8c7e88c959c24bb99a0fa6ce8d66c359.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Harbor Tour Hamburg + International Maritime Museum" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hop-on Hop-off Harbor Tour Hamburg + International Maritime Museum</h3>
-        <p class="venue">📍 Hamburg City Tours</p>
-        <p>Want to see Hamburg, but short on time? This 90-minute harbor tour is the answer. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8c7e88c959c24bb99a0fa6ce8d66c359.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Harbor Tour Hamburg + International Maritime Museum" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hop-on Hop-off Harbor Tour Hamburg + International Maritime Museum</h3>
+          <p class="venue">📍 Hamburg City Tours</p>
+          <p>Want to see Hamburg, but short on time? This 90-minute harbor tour is the answer. 
 
 Stay on board for the full tour and get the lowdown on what you're looking at with the free live narration. Or hop off and explore a host of tourist attractions and city highlights yourself. 
 
 Your ticket also gets you into the International Maritime Museum Hamburg, the world’s largest maritime collection!</p>
-        <div class="card-footer">
-         <span class="price">From €27</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-harbor-tour-hamburg-international-maritime-museum-p1006947/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €27</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-harbor-tour-hamburg-international-maritime-museum-p1006947/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg Pass" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hamburg Pass</h3>
-        <p class="venue">📍 Hamburg Boat Tours</p>
-        <p>Discover Hamburg with the ultimate package, combining the convenience of unlimited public transport and discounted access to top attractions with the Hamburg CARD, and a 1-hour evening lights cruise through the Speicherstadt and HafenCity. Enjoy easy city travel and immerse yourself in Hamburg’s vibrant culture by day, then unwind with an evening boat tour that highlights the city’s nighttime allure. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/50f5b30d0de04fcaaf2b0ec69e288460.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hamburg Pass" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hamburg Pass</h3>
+          <p class="venue">📍 Hamburg Boat Tours</p>
+          <p>Discover Hamburg with the ultimate package, combining the convenience of unlimited public transport and discounted access to top attractions with the Hamburg CARD, and a 1-hour evening lights cruise through the Speicherstadt and HafenCity. Enjoy easy city travel and immerse yourself in Hamburg’s vibrant culture by day, then unwind with an evening boat tour that highlights the city’s nighttime allure. 
 
 **Hamburg CARD: Public Transport + Airport Transfer**
 Explore Hamburg with ease, enjoying unlimited public transport and discounted entry to top attractions, including harbor tours, the Michel, and musicals.
 
 **Hamburg: 1-Hour Evening Lights Cruise**
 Experience Hamburg's illuminated harbor and historic Speicherstadt on a romantic evening cruise, highlighting the Elbphilharmonie and HafenCity.</p>
-        <div class="card-footer">
-         <span class="price">From €43.5</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-pass-p1114143/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €43.5</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hamburg-pass-p1114143/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,153 +32,152 @@
     <p>9 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein Castle: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Neuschwanstein Castle: Entry Ticket</h3>
-        <p class="venue">📍 Neuschwanstein Castle</p>
-        <p>Visit Neuschwanstein Castle with an entry ticket and enjoy a guided tour using an audio device. Explore the stunning limestone façades and the interiors of this 19th-century palace. Discover the fairy-tale architecture and learn about King Ludwig II's enchanting retreat while taking in the breathtaking Bavarian landscapes.</p>
-        <div class="card-footer">
-         <span class="price">From €44</span>
-         <span class="rating">⭐ 3.9 (47)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-neuschwanstein-ticket-tour-guide-p1111186/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein Castle: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Neuschwanstein Castle: Entry Ticket</h3>
+          <p class="venue">📍 Neuschwanstein Castle</p>
+          <p>Visit Neuschwanstein Castle with an entry ticket and enjoy a guided tour using an audio device. Explore the stunning limestone façades and the interiors of this 19th-century palace. Discover the fairy-tale architecture and learn about King Ludwig II's enchanting retreat while taking in the breathtaking Bavarian landscapes.</p>
+          <div class="card-footer">
+            <span class="price">From €44</span>
+            <span class="rating">⭐ 3.9 (47)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-neuschwanstein-ticket-tour-guide-p1111186/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein Castle: Skip The Line Ticket + Guided Tour + Horse Carriage Ride" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Neuschwanstein Castle: Skip The Line Ticket + Guided Tour + Horse Carriage Ride</h3>
-        <p class="venue">📍 Neuschwanstein Castle</p>
-        <p>Grab your Neuschwanstein Castle tickets and take a guided stroll around this quintessential fairy-tale castle. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein Castle: Skip The Line Ticket + Guided Tour + Horse Carriage Ride" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Neuschwanstein Castle: Skip The Line Ticket + Guided Tour + Horse Carriage Ride</h3>
+          <p class="venue">📍 Neuschwanstein Castle</p>
+          <p>Grab your Neuschwanstein Castle tickets and take a guided stroll around this quintessential fairy-tale castle. 
 
 Set high upon a Bavarian hill and surrounded by an ocean of conifers, Neuschwanstein Castle, with its spires and towers, is the stuff of daydreams.
 
 Skip the ticket line and make your way up to the castle grounds with your expert guide. Learn about the “Disney Castle”, Bavarian history, and the life of King Ludwig II. In the summertime, visit Marienbrücke (Mary's Bridge), the castle's famous bridge, for one of the most impressive views of this Romantic German masterpiece!</p>
-        <div class="card-footer">
-         <span class="price">From €60</span>
-         <span class="rating">⭐ 4.6 (1026)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-neuschwanstein-castle-skip-the-line-guided-tour-horse-carriage-ride-p1010620/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €60</span>
+            <span class="rating">⭐ 4.6 (1026)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-neuschwanstein-castle-skip-the-line-guided-tour-horse-carriage-ride-p1010620/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein Castle: Entry Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Neuschwanstein Castle: Entry Ticket + Audio Guide</h3>
-        <p class="venue">📍 Neuschwanstein Castle</p>
-        <p>Secure your visit to Neuschwanstein Castle with a guaranteed entry time and professional local service. Avoid uncertainty and enjoy a smooth, well-organized experience from start to finish.  
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein Castle: Entry Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Neuschwanstein Castle: Entry Ticket + Audio Guide</h3>
+          <p class="venue">📍 Neuschwanstein Castle</p>
+          <p>Secure your visit to Neuschwanstein Castle with a guaranteed entry time and professional local service. Avoid uncertainty and enjoy a smooth, well-organized experience from start to finish.  
 
 Step inside King Ludwig II’s fairy-tale masterpiece on a 30-minute audio-guided tour in your chosen language. Discover the magnificent Throne Hall, the Singer’s Hall, and the lavish royal chambers that have inspired visitors from around the world.  
 
 With secured ticket allocation, clear instructions, a detailed map, and insider tips from an experienced local team, you can relax and focus entirely on enjoying one of Germany’s most iconic landmarks.</p>
-        <div class="card-footer">
-         <span class="price">From €43.5</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-neuschwanstein-castle-skip-the-line-ticket-p1107188/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €43.5</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-neuschwanstein-castle-skip-the-line-ticket-p1107188/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b5d7ce39889447418c7cad3a938f5064.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Royal Castles Neuschwanstein & Linderhof: Day Trip from Munich" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Royal Castles Neuschwanstein & Linderhof: Day Trip from Munich</h3>
-        <p class="venue">📍 Neuschwanstein Castle</p>
-        <p>Steal away into a fairytale with a day trip to Neuschwanstein & Linderhof Castles, one of the UNESCO World Heritage Sites. See the castle that inspired Disney's _Sleeping Beauty_, in the calm seclusion of the Bavarian countryside, and get a sense of King Ludwig II's deep pockets and his obvious struggles with subtlety!</p>
-        <div class="card-footer">
-         <span class="price">From €72</span>
-         <span class="rating">⭐ 4.6 (160)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-royal-castles-neuschwanstein-linderhof-daytrip-from-munich-p976040/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b5d7ce39889447418c7cad3a938f5064.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Royal Castles Neuschwanstein & Linderhof: Day Trip from Munich" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Royal Castles Neuschwanstein & Linderhof: Day Trip from Munich</h3>
+          <p class="venue">📍 Neuschwanstein Castle</p>
+          <p>Steal away into a fairytale with a day trip to Neuschwanstein & Linderhof Castles, one of the UNESCO World Heritage Sites. See the castle that inspired Disney's _Sleeping Beauty_, in the calm seclusion of the Bavarian countryside, and get a sense of King Ludwig II's deep pockets and his obvious struggles with subtlety!</p>
+          <div class="card-footer">
+            <span class="price">From €72</span>
+            <span class="rating">⭐ 4.6 (160)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-royal-castles-neuschwanstein-linderhof-daytrip-from-munich-p976040/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein Castle: Skip The Line Ticket + Bike Rental" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Neuschwanstein Castle: Skip The Line Ticket + Bike Rental</h3>
-        <p class="venue">📍 Neuschwanstein Castle</p>
-        <p>Visit Neuschwanstein Castle, enjoy the area around it, and ride through the beautiful regions of the Alps and Austria. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein Castle: Skip The Line Ticket + Bike Rental" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Neuschwanstein Castle: Skip The Line Ticket + Bike Rental</h3>
+          <p class="venue">📍 Neuschwanstein Castle</p>
+          <p>Visit Neuschwanstein Castle, enjoy the area around it, and ride through the beautiful regions of the Alps and Austria. 
 
 The bike tour from Füssen starts at 09:00 and goes directly to Castle Neuschwanstein and Hohenschwangau, passing through the beautiful scenery along the Alps. 
 
 From the castles, bike to the historical pilgrim church of Coloman, and back to Füssen. The tour includes a city bike and a map of the region.</p>
-        <div class="card-footer">
-         <span class="price">From €55</span>
-         <span class="rating">⭐ 5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-neuschwanstein-castle-skip-the-line-bike-rental-p1112894/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €55</span>
+            <span class="rating">⭐ 5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-neuschwanstein-castle-skip-the-line-bike-rental-p1112894/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein Castle & Hohenschwangau Castle entry Tickets" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Neuschwanstein Castle & Hohenschwangau Castle entry Tickets</h3>
-        <p class="venue">📍 Neuschwanstein Castle</p>
-        <p>Discover the historic sites near Füssen, Germany with a combination ticket to Neuschwanstein Castle and Hohenschwangau Castle. Purchase tickets and collect them at the Füssen Train Station. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein Castle & Hohenschwangau Castle entry Tickets" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Neuschwanstein Castle & Hohenschwangau Castle entry Tickets</h3>
+          <p class="venue">📍 Neuschwanstein Castle</p>
+          <p>Discover the historic sites near Füssen, Germany with a combination ticket to Neuschwanstein Castle and Hohenschwangau Castle. Purchase tickets and collect them at the Füssen Train Station. 
 
 Neuschwanstein Castle, a world-famous fairy-tale fortress, was built in the late 19th century as King Ludwig II's dream retreat. Inspired by Wagner's operas, it features lavish rooms with murals and depictions of German legends. Highlights include the Throne Room's intricate mosaics, the Music Hall, along with its iconic towers, and views of forests, mountains, and Alpsee Lake.
 
 Nearby, Hohenschwangau Castle, with its bright yellow exterior, stands brightly against the Bavarian landscape. Rebuilt in the 19th century by King Maximilian II, it was the childhood home of King Ludwig II. Inside, murals narrate heroic tales, and you can explore the king's quarters. The walk to Hohenschwangau is easy and offers views of the mountains and lakes.</p>
-        <div class="card-footer">
-         <span class="price">From €79.9</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-neuschwanstein-castle-hohenschwangau-castle-p1107344/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €79.9</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-neuschwanstein-castle-hohenschwangau-castle-p1107344/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein Castle, Hohenschwangau Castle & Museum of Kings: Entry Tickets" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Neuschwanstein Castle, Hohenschwangau Castle & Museum of Kings: Entry Tickets</h3>
-        <p class="venue">📍 Neuschwanstein Castle</p>
-        <p>Visit Neuschwanstein Castle, Hohenschwangau Castle, and the Museum of the Bavarian Kings. Collect tickets at the office near Füssen train station, then travel by bus or car to Hohenschwangau village. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein Castle, Hohenschwangau Castle & Museum of Kings: Entry Tickets" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Neuschwanstein Castle, Hohenschwangau Castle & Museum of Kings: Entry Tickets</h3>
+          <p class="venue">📍 Neuschwanstein Castle</p>
+          <p>Visit Neuschwanstein Castle, Hohenschwangau Castle, and the Museum of the Bavarian Kings. Collect tickets at the office near Füssen train station, then travel by bus or car to Hohenschwangau village. 
 
 Start at Hohenschwangau Castle, the 19th-century residence of King Ludwig II of Bavaria. Visit the Hall of Heroes and Knights and the Oriental Room, which has detailed murals.
 
 A short walk leads to Neuschwanstein Castle with its gardens and views. Key sights include the oratory, grotto, conservatory, and Throne Hall. End the tour at the Museum of the Bavarian Kings to learn about Bavaria's royal history. The Museum ticket is valid all day for a flexible visit.
 
 Please note: The guided tours of Hohenschwangau Castle and Neuschwanstein Castle will begin at 11:00 and 13:00, respectively.</p>
-        <div class="card-footer">
-         <span class="price">From €89</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-neuschwanstein-castle-hohenschwangau-castle-museum-of-kings-entry-tickets-p1107275/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €89</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-neuschwanstein-castle-hohenschwangau-castle-museum-of-kings-entry-tickets-p1107275/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein Castle & Museum of the Bavarian Kings" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Neuschwanstein Castle & Museum of the Bavarian Kings</h3>
-        <p class="venue">📍 Neuschwanstein Castle</p>
-        <p>Visit Neuschwanstein Castle and the Museum of the Bavarian Kings.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein Castle & Museum of the Bavarian Kings" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Neuschwanstein Castle & Museum of the Bavarian Kings</h3>
+          <p class="venue">📍 Neuschwanstein Castle</p>
+          <p>Visit Neuschwanstein Castle and the Museum of the Bavarian Kings.
 
 Neuschwanstein Castle is a top destination in Europe. Its tall spires, detailed design, and large limestone facades make it stand out. The castle has a long history with many details to learn during your tour.
 
 The Museum of the Bavarian Kings was once a luxury hotel but now focuses on the history of an important European dynasty. 
 
 You will have a specific time to visit the inside of Neuschwanstein Castle. You can visit the museum at any time throughout the day.</p>
-        <div class="card-footer">
-         <span class="price">From €55</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-neuschwanstein-castle-museum-of-the-bavarian-kings-p1107147/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €55</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-neuschwanstein-castle-museum-of-the-bavarian-kings-p1107147/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein & Linderhof Castles: Guided Tour from Munich" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Neuschwanstein & Linderhof Castles: Guided Tour from Munich</h3>
-        <p class="venue">📍 Neuschwanstein Castle</p>
-        <p>**Tour itinerary:**
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e2cae73aede46ab8c0b5be9894a320b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Neuschwanstein & Linderhof Castles: Guided Tour from Munich" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Neuschwanstein & Linderhof Castles: Guided Tour from Munich</h3>
+          <p class="venue">📍 Neuschwanstein Castle</p>
+          <p>**Tour itinerary:**
 
 10.5-hour tour from Munich to Neuschwanstein and Linderhof Castles.
 
@@ -201,14 +200,13 @@ Enjoy a stop on the Marienbrücke (Mary's Bridge), a famous photography spot wit
 **Your coach comes equipped with:**
 
 Comfortable seats with extra legroom, panoramic windows, a toilet, air conditioning, free snacks and drinks, and WiFi.</p>
-        <div class="card-footer">
-         <span class="price">From €194</span>
-         <span class="rating">⭐ 4.9 (20)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-munich-to-neuschwanstein-linderhof-guided-tour-p1036873/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €194</span>
+            <span class="rating">⭐ 4.9 (20)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-munich-to-neuschwanstein-linderhof-guided-tour-p1036873/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

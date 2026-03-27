@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,27 +32,26 @@
     <p>17 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/db333204202140f398c2277a37d4cf31.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo Pass: Entry to Museums + Public Transport" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oslo Pass: Entry to Museums + Public Transport</h3>
-        <p class="venue">📍 Oslo Pass</p>
-        <p>Oslo is your playground with this money-saving pass to tons of museums and attractions across the city. Ride the public transport for free and get discounts to shops, restaurants, entertainment venues, and more. It's the easiest way to make the most of your trip!</p>
-        <div class="card-footer">
-         <span class="price">From €51.49</span>
-         <span class="rating">⭐ 3.8 (521)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-pass-p976675/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/db333204202140f398c2277a37d4cf31.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo Pass: Entry to Museums + Public Transport" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oslo Pass: Entry to Museums + Public Transport</h3>
+          <p class="venue">📍 Oslo Pass</p>
+          <p>Oslo is your playground with this money-saving pass to tons of museums and attractions across the city. Ride the public transport for free and get discounts to shops, restaurants, entertainment venues, and more. It's the easiest way to make the most of your trip!</p>
+          <div class="card-footer">
+            <span class="price">From €51.49</span>
+            <span class="rating">⭐ 3.8 (521)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-pass-p976675/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b06724e87d4a48688b3ffd941fd95e59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Viking Planet: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Viking Planet: Entry Ticket</h3>
-        <p class="venue">📍 The Viking Planet</p>
-        <p>The Viking Planet is the world’s first digital Viking museum, offering a wide selection of engaging exhibitions centered around the Viking Age, allowing you to experience the life of the Vikings.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b06724e87d4a48688b3ffd941fd95e59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Viking Planet: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Viking Planet: Entry Ticket</h3>
+          <p class="venue">📍 The Viking Planet</p>
+          <p>The Viking Planet is the world’s first digital Viking museum, offering a wide selection of engaging exhibitions centered around the Viking Age, allowing you to experience the life of the Vikings.
 
 Climb aboard a longship, defend your village, and feel the thrill of virtual time travel. Come face-to-face with life-sized holograms and explore interactive 3D artifacts.
 
@@ -60,274 +59,274 @@ Discover some of the most important aspects of the Viking Age through interactiv
 
 
 All exhibitions are available in 12 different languages.</p>
-        <div class="card-footer">
-         <span class="price">From €25.3</span>
-         <span class="rating">⭐ 4.7 (19)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-viking-planet-entry-p1018633/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €25.3</span>
+            <span class="rating">⭐ 4.7 (19)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-viking-planet-entry-p1018633/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/49a3e0a1fbba48aa83577281ca24f82b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslofjord Sightseeing Yacht Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oslofjord Sightseeing Yacht Cruise</h3>
-        <p class="venue">📍 Oslo City Tours</p>
-        <p>This electric-powered boat is designed to give you the best sightseeing experience possible, with panoramic views, while being much better for the environment. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/49a3e0a1fbba48aa83577281ca24f82b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslofjord Sightseeing Yacht Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oslofjord Sightseeing Yacht Cruise</h3>
+          <p class="venue">📍 Oslo City Tours</p>
+          <p>This electric-powered boat is designed to give you the best sightseeing experience possible, with panoramic views, while being much better for the environment. 
 
 Sail the guilt-free way as you explore the spacious outside decks, and enjoy snacks and hot and cold beverages as you listen to an audio guide downloaded right to your smartphone. You'll learn about Oslo and the nature and countryside that surrounds it, and you'll disembark with a greater understanding of the city's history and geography. 
 
 You will sail past Hovedøya with its canons pointing over the fjord, and Bygdøy with the iconic Fram Museum, the Oslofjord’s idyllic islands, numerous islets and inlets and the picturesque Dyna Lighthouse.</p>
-        <div class="card-footer">
-         <span class="price">From €39.86</span>
-         <span class="rating">⭐ 4.4 (31)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oslofjord-sightseeing-p1041446/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €39.86</span>
+            <span class="rating">⭐ 4.4 (31)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oslofjord-sightseeing-p1041446/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/02cef3daac064af8ab93f1e9ad813d52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-On Hop-Off Bus Oslo" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hop-On Hop-Off Bus Oslo</h3>
-        <p class="venue">📍 Oslo City Tours</p>
-        <p>Visiting Oslo and want to get the lay of the land? Get your tickets for the Oslo hop-on hop-off bus and start discovering Norway’s capital city.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/02cef3daac064af8ab93f1e9ad813d52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-On Hop-Off Bus Oslo" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hop-On Hop-Off Bus Oslo</h3>
+          <p class="venue">📍 Oslo City Tours</p>
+          <p>Visiting Oslo and want to get the lay of the land? Get your tickets for the Oslo hop-on hop-off bus and start discovering Norway’s capital city.
 
 Pass by landmark locations like Karl Johans gate, the Royal Palace, and the Norwegian Parliament, and travel to a number of the city’s top attractions like the Vigeland Sculpture Park, the Norwegian Museum of Cultural History, the Viking Ship Museum, the Nobel Peace Center, the National Opera House of Oslo, and Oslo Cathedral.</p>
-        <div class="card-footer">
-         <span class="price">From €39.95</span>
-         <span class="rating">⭐ 4 (48)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-oslo-p1016355/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €39.95</span>
+            <span class="rating">⭐ 4 (48)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-oslo-p1016355/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/02cef3daac064af8ab93f1e9ad813d52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Nobel Peace Center: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Nobel Peace Center: Entry Ticket</h3>
-        <p class="venue">📍 Nobel Peace Center</p>
-        <p>With a ticket for the Nobel Peace Center, you can get to know the ideas and work of the Peace Prize winners and leave inspired to create a more peaceful world.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/02cef3daac064af8ab93f1e9ad813d52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Nobel Peace Center: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Nobel Peace Center: Entry Ticket</h3>
+          <p class="venue">📍 Nobel Peace Center</p>
+          <p>With a ticket for the Nobel Peace Center, you can get to know the ideas and work of the Peace Prize winners and leave inspired to create a more peaceful world.
 
 Explore the museum's interactive exhibits about Alfred Nobel, prize winners, and the organisation's history. The Nobel Peace Center has also been recognized for its commitment to documentary photography and has developed into an important arena for public debate and conversations about peace, human rights and conflict resolution.
 
 The Nobel Peace Center has several permanent exhibitions, the Nobel Garden, the Peace Prize winners and the Nobel Chamber. 
 
 The Nobel Garden presents all the peace prize winners on their own screens, surrounded by a thousand small candles. Inside the Nobel Chamber, you'll have the chance to see a Nobel Peace with your own eyes.</p>
-        <div class="card-footer">
-         <span class="price">From €15.09</span>
-         <span class="rating">⭐ 4.8 (21)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-nobel-peace-center-p1025986/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €15.09</span>
+            <span class="rating">⭐ 4.8 (21)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-nobel-peace-center-p1025986/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/02cef3daac064af8ab93f1e9ad813d52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradox Museum Oslo: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Paradox Museum Oslo: Entry Ticket</h3>
-        <p class="venue">📍 Paradox Museum Oslo</p>
-        <p>Paradox Museum Oslo is a fun and interactive place where you can explore how the mind works. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/02cef3daac064af8ab93f1e9ad813d52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradox Museum Oslo: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Paradox Museum Oslo: Entry Ticket</h3>
+          <p class="venue">📍 Paradox Museum Oslo</p>
+          <p>Paradox Museum Oslo is a fun and interactive place where you can explore how the mind works. 
 
 Walk through rooms and exhibits that play with perception and show how easily the brain can be tricked using science, art, physics, and psychology.
 
 You can touch, try, and take photos throughout the museum. It’s a great experience for all ages, combining learning and play in a hands-on way.</p>
-        <div class="card-footer">
-         <span class="price">From €24.77</span>
-         <span class="rating">⭐ 4.1 (30)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-paradox-museum-admission-ticket-p1029946/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €24.77</span>
+            <span class="rating">⭐ 4.1 (30)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-paradox-museum-admission-ticket-p1029946/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/49a3e0a1fbba48aa83577281ca24f82b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo Panorama Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oslo Panorama Tour</h3>
-        <p class="venue">📍 Oslo City Tours</p>
-        <p>Short on time in Oslo? Try this panoramic tour of the Norwegian capital, and learn all about its most famous locations. Rain or shine, there's a history lesson in it for you!</p>
-        <div class="card-footer">
-         <span class="price">From €48.83</span>
-         <span class="rating">⭐ 4 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-panorama-tour-p976723/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/49a3e0a1fbba48aa83577281ca24f82b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo Panorama Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oslo Panorama Tour</h3>
+          <p class="venue">📍 Oslo City Tours</p>
+          <p>Short on time in Oslo? Try this panoramic tour of the Norwegian capital, and learn all about its most famous locations. Rain or shine, there's a history lesson in it for you!</p>
+          <div class="card-footer">
+            <span class="price">From €48.83</span>
+            <span class="rating">⭐ 4 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-panorama-tour-p976723/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b06724e87d4a48688b3ffd941fd95e59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Fjord Cruise + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oslo: Fjord Cruise + Audio Guide</h3>
-        <p class="venue">📍 Oslofjord Cruises</p>
-        <p>Take a tour of Oslo's art, architecture, and fjord on a silent electric boat for one hour and fifteen minutes.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b06724e87d4a48688b3ffd941fd95e59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Fjord Cruise + Audio Guide" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oslo: Fjord Cruise + Audio Guide</h3>
+          <p class="venue">📍 Oslofjord Cruises</p>
+          <p>Take a tour of Oslo's art, architecture, and fjord on a silent electric boat for one hour and fifteen minutes.
 
 See the sunset view from Ekeberg that inspired Edvard Munch’s *The Scream*. View fjordside art such as *She Lies* and *The Mother*.
 
 Pass by the Opera House, Munch Museum, and SALT cultural arena. Enjoy a Norwegian cookie.</p>
-        <div class="card-footer">
-         <span class="price">From €26.19</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-fjord-cruise-audio-guide-p1124706/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €26.19</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-fjord-cruise-audio-guide-p1124706/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b06724e87d4a48688b3ffd941fd95e59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Silent Fjord Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oslo: Silent Fjord Cruise</h3>
-        <p class="venue">📍 Oslofjord Cruises</p>
-        <p>Join an electric cruise to see Oslo from the fjord. Pass by many landmarks and gain new views on the city’s culture, nature, and history. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b06724e87d4a48688b3ffd941fd95e59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Silent Fjord Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oslo: Silent Fjord Cruise</h3>
+          <p class="venue">📍 Oslofjord Cruises</p>
+          <p>Join an electric cruise to see Oslo from the fjord. Pass by many landmarks and gain new views on the city’s culture, nature, and history. 
 
 Start at Rådhusbrygge, near the Town Hall, known for the Nobel Peace Prize ceremonies. First, see the Oslo Opera House and the Munch Museum. Then, head between the Oslo fjord islands, lined with colorful Norwegian homes. Pass the shore of Nesodden to see Norwegian cottages and bathhouses. Next, spot the Dyna Fyr lighthouse, with its notable story. 
 
 Stop at Bygdøy, the "museum island," where you can choose to get off or end the trip at Oslo City Town Hall.</p>
-        <div class="card-footer">
-         <span class="price">From €61.25</span>
-         <span class="rating">⭐ 4.3 (9)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-silent-fjord-cruise-p1114890/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €61.25</span>
+            <span class="rating">⭐ 4.3 (9)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-silent-fjord-cruise-p1114890/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/3961b1001d4b44a1a00c23b3531af753.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo Discovery Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oslo Discovery Tour</h3>
-        <p class="venue">📍 Viking Ship Museum (Oslo)</p>
-        <p>Oslo: the Tiger City. Don't be fooled by the nickname, there are no big cats roaming the streets. But that doesn't mean you can't have a roaring good time!
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3961b1001d4b44a1a00c23b3531af753.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo Discovery Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oslo Discovery Tour</h3>
+          <p class="venue">📍 Viking Ship Museum (Oslo)</p>
+          <p>Oslo: the Tiger City. Don't be fooled by the nickname, there are no big cats roaming the streets. But that doesn't mean you can't have a roaring good time!
 
 This fun bus tour takes in some classic attractions. Stroll around the city with a local guide, and enjoy the crisp Scandinavian air as you admire Oslo from Holmenkollen Ski Jump.
 
 You'll stop by Vigeland Park, home to Gustav Vigeland's unique sculptures, as well as two fascinating museums – Fram Museum and the Norwegian Museum of Cultural History (Norsk Folkemuseum).</p>
-        <div class="card-footer">
-         <span class="price">From €84.33</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-discovery-tour-p991769/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €84.33</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-discovery-tour-p991769/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b06724e87d4a48688b3ffd941fd95e59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Viking Planet: Entry Ticket + VR Game" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Viking Planet: Entry Ticket + VR Game</h3>
-        <p class="venue">📍 The Viking Planet</p>
-        <p>Visit The Viking Planet with a combination ticket including admission to the museum and the VR game.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b06724e87d4a48688b3ffd941fd95e59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Viking Planet: Entry Ticket + VR Game" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Viking Planet: Entry Ticket + VR Game</h3>
+          <p class="venue">📍 The Viking Planet</p>
+          <p>Visit The Viking Planet with a combination ticket including admission to the museum and the VR game.
 
 FERÐ game environments feature terrain modeled on authentic elevation data from Norwegian mountains. In the game, participants navigate through levels reminiscent of Nordic landscapes as Vikings might have done. 
 
 Begin the game with a guided tutorial, then progress through three distinct levels using a simple control mechanism with two buttons. 
 
 The game incorporates design considerations to minimize VR-induced discomfort and is suitable for anyone with an interest in Viking culture.</p>
-        <div class="card-footer">
-         <span class="price">From €42.17</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-viking-planet-entry-vr-game-p1127029/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €42.17</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-viking-planet-entry-vr-game-p1127029/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/3514d705f5e448f297bda4bfc909a687.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Vigelandsparken Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oslo: Vigelandsparken Guided Walking Tour</h3>
-        <p class="venue">📍 Oslo City Tours</p>
-        <p>Visit the Vigelandsparken (Vigeland Park) in Oslo on a 90-minute walking tour. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3514d705f5e448f297bda4bfc909a687.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Vigelandsparken Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oslo: Vigelandsparken Guided Walking Tour</h3>
+          <p class="venue">📍 Oslo City Tours</p>
+          <p>Visit the Vigelandsparken (Vigeland Park) in Oslo on a 90-minute walking tour. 
 
 Navigate winding paths with over 200 sculptures made of bronze, granite, and wrought iron. These sculptures depict life, relationships, and humanity.
 
 See the *Angry Boy* statue on the bridge, the central fountain, and the tall granite Monolith. Each piece contributes to the park's unique cultural significance in Oslo. 
 
 Vigeland Park offers a glimpse into Oslo's cultural and daily life.</p>
-        <div class="card-footer">
-         <span class="price">From €50</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-vigelandsparken-guided-walking-tour-p1122198/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €50</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-vigelandsparken-guided-walking-tour-p1122198/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b06724e87d4a48688b3ffd941fd95e59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Guided Walking Tour + Lunch + Tram Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oslo: Guided Walking Tour + Lunch + Tram Ticket</h3>
-        <p class="venue">📍 Oslo Food & Drinks</p>
-        <p>Start your visit to Oslo to discover Norwegian culture with lesser-known spots and authentic food.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b06724e87d4a48688b3ffd941fd95e59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Guided Walking Tour + Lunch + Tram Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oslo: Guided Walking Tour + Lunch + Tram Ticket</h3>
+          <p class="venue">📍 Oslo Food & Drinks</p>
+          <p>Start your visit to Oslo to discover Norwegian culture with lesser-known spots and authentic food.
 
 Walk through charming streets, cross historic bridges, and see traditional wooden houses. 
 
 Follow a scenic river through the city and view a waterfall. 
 
 Learn about the city's history and get useful tips. Taste local cuisine, which is crafted from typical Norwegian ingredients.</p>
-        <div class="card-footer">
-         <span class="price">From €129.33</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-guide-walking-tour-lunch-tram-p1121944/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €129.33</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-guide-walking-tour-lunch-tram-p1121944/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b06724e87d4a48688b3ffd941fd95e59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Dinner Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oslo: Dinner Cruise</h3>
-        <p class="venue">📍 Oslofjord Cruises</p>
-        <p>Dine while cruising past Oslo's skyline and landmarks. See the city and the Oslofjord from the water.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b06724e87d4a48688b3ffd941fd95e59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Dinner Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oslo: Dinner Cruise</h3>
+          <p class="venue">📍 Oslofjord Cruises</p>
+          <p>Dine while cruising past Oslo's skyline and landmarks. See the city and the Oslofjord from the water.
 
 This trip includes a three-course dinner prepared by chefs from "Einer," a restaurant focused on quality and sustainability. Sail through Oslofjord and taste traditional Norwegian dishes with a modern twist.
 
 This dinner is a way to sample Norway's flavors, organized by "Einer" and "Brim Explorer."</p>
-        <div class="card-footer">
-         <span class="price">From €132.27</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-dinner-cruise-p1116242/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €132.27</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-dinner-cruise-p1116242/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b06724e87d4a48688b3ffd941fd95e59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Oslofjord Dinner Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oslo: Oslofjord Dinner Cruise</h3>
-        <p class="venue">📍 Oslofjord Cruises</p>
-        <p>Join a voyage that combines beautiful nature with delicious food. Enjoy scenic views of the surroundings with a delicious meal. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b06724e87d4a48688b3ffd941fd95e59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Oslofjord Dinner Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oslo: Oslofjord Dinner Cruise</h3>
+          <p class="venue">📍 Oslofjord Cruises</p>
+          <p>Join a voyage that combines beautiful nature with delicious food. Enjoy scenic views of the surroundings with a delicious meal. 
 
 Enjoy a Fjord-style seafood buffet with plenty of shrimp, fresh and soft bread, butter, mayonnaise, aioli, and lemon.
 
 The highlight is the shrimp buffet, perfect for seafood lovers and anyone wanting to try Norwegian Fjord-style delicacies.</p>
-        <div class="card-footer">
-         <span class="price">From €60.37</span>
-         <span class="rating">⭐ 4.4 (5)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-oslofjord-dinner-cruise-p1092282/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €60.37</span>
+            <span class="rating">⭐ 4.4 (5)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-oslofjord-dinner-cruise-p1092282/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/3514d705f5e448f297bda4bfc909a687.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Hipstoric Grünerløkka Private Walking Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oslo: Hipstoric Grünerløkka Private Walking Tour</h3>
-        <p class="venue">📍 Oslo City Tours</p>
-        <p>It's not just historic, it's *hipstoric* in the district of Grünerløkka, Oslo's trendy and bohemian inner-city neighbourhood! Join the Hipstoric Grünerløkka Walk and soak up the hipster vibes as you learn the history of this charming area from your guide.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3514d705f5e448f297bda4bfc909a687.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Hipstoric Grünerløkka Private Walking Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oslo: Hipstoric Grünerløkka Private Walking Tour</h3>
+          <p class="venue">📍 Oslo City Tours</p>
+          <p>It's not just historic, it's *hipstoric* in the district of Grünerløkka, Oslo's trendy and bohemian inner-city neighbourhood! Join the Hipstoric Grünerløkka Walk and soak up the hipster vibes as you learn the history of this charming area from your guide.
 
 Imagine a river surrounded by old industrial buildings and parklands. You can almost hear the sounds of the factories at work, mixed in with the splashing of the river as you stroll along the path. The colourful residential area brightens the mood, even on a cloudy day (you're in the north after all!). 
 
 See a giant chandelier, a collection of old wooden houses from the 1800s and facades covered in street art. It's so cute you'll want a thousand photos.</p>
-        <div class="card-footer">
-         <span class="price">From €26.37</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hipstoric-grunerlokka-p1033624/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €26.37</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hipstoric-grunerlokka-p1033624/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/3514d705f5e448f297bda4bfc909a687.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Must-Sees – Private Walking Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oslo: Must-Sees – Private Walking Tour</h3>
-        <p class="venue">📍 Oslo City Tours</p>
-        <p>Start exploring Oslo with an expert and discover the city's top sights during this three-hour private walking tour.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3514d705f5e448f297bda4bfc909a687.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oslo: Must-Sees – Private Walking Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oslo: Must-Sees – Private Walking Tour</h3>
+          <p class="venue">📍 Oslo City Tours</p>
+          <p>Start exploring Oslo with an expert and discover the city's top sights during this three-hour private walking tour.
 
 With stories from your guide, you'll have a picture painted of the history of Oslo. Start your adventure at the Nobel Peace Center and enjoy a stunning view of the first of many must-sees – Akershus Fortress which stands guard over Oslo's waterfront. 
 
@@ -336,14 +335,13 @@ Next, you'll find out the former name for Oslo at Christiania Torv; see the Oslo
 With central sights taken care of, it's time for a tram ride. Venture toward Vigeland Park and hear the enchanting story of how one man alone could build what today is the world's largest sculpture park. Your jaw will drop once you reach the pride and joy of Vigeland Park, _The Monolith_. 
 
 Don't worry about being rushed out of the park – you can finish the tour here and explore the rest of the sculptures inside.</p>
-        <div class="card-footer">
-         <span class="price">From €381.46</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-must-sees-p1031764/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €381.46</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oslo-must-sees-p1031764/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

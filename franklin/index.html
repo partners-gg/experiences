@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,13 +32,12 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/07ed62143ec543e5ba6839f5e5a94f3d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Franklin Drive Thru Safari: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Franklin Drive Thru Safari: Entry Ticket</h3>
-        <p class="venue">📍 Franklin Drive Thru Safari</p>
-        <p>There's more than 500 exotic animals at Franklin Drive Thru Safari and many of the animals are just as happy to see you, as you are to see them.  
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/07ed62143ec543e5ba6839f5e5a94f3d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Franklin Drive Thru Safari: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Franklin Drive Thru Safari: Entry Ticket</h3>
+          <p class="venue">📍 Franklin Drive Thru Safari</p>
+          <p>There's more than 500 exotic animals at Franklin Drive Thru Safari and many of the animals are just as happy to see you, as you are to see them.  
 
 The safari is always adopting more exciting animals to their petting zoo and 100+ acre drive through animal adventure park, so you'll want to come back time and time again.
 
@@ -57,32 +56,31 @@ Want to hand feed giraffes or monkeys and lemurs as you walk around? There's als
 Enjoy the beauty and sounds of these exotic birds from all over the world.  
 
 There's all kinds of different birds, including flamingos, macaws, and toucans.</p>
-        <div class="card-footer">
-         <span class="price">From €17.24</span>
-         <span class="rating">⭐ 4.8 (41)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-franklin-drive-thru-safari-p1037505/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €17.24</span>
+            <span class="rating">⭐ 4.8 (41)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-franklin-drive-thru-safari-p1037505/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/1e11b1cd2da74bd88a6a933d5413ed6a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lotz House Museum: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Lotz House Museum: Guided Tour</h3>
-        <p class="venue">📍 Lotz House Museum</p>
-        <p>For 60 minutes during this guided tour of Lotz House, you'll feel like you've travelled back to 1864.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1e11b1cd2da74bd88a6a933d5413ed6a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lotz House Museum: Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Lotz House Museum: Guided Tour</h3>
+          <p class="venue">📍 Lotz House Museum</p>
+          <p>For 60 minutes during this guided tour of Lotz House, you'll feel like you've travelled back to 1864.
 
 Lotz House is an American Civil War museum, but it's also a time capsule – an old family home full of authentic, eclectic antiques and furnishings. With your host leading the way, you'll move from room to room as they put the building in its Civil War context. 
 
 Learn about the Lotz family and the home's place at the epicenter of the Battle of Franklin, as you pore over personal items, artworks, and battlefield relics within the whispering walls of this once besieged mansion.</p>
-        <div class="card-footer">
-         <span class="price">From €10.35</span>
-         <span class="rating">⭐ 4.9 (25)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-lotz-house-admission-ticket-p1014604/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €10.35</span>
+            <span class="rating">⭐ 4.9 (25)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-lotz-house-admission-ticket-p1014604/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

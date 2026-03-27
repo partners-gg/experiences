@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,13 +32,12 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of the Roman Theatre of Cartagena: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Museum of the Roman Theatre of Cartagena: Entry Ticket</h3>
-        <p class="venue">📍 Museum of the Roman Theatre of Cartagena</p>
-        <p>Visit the Museum of the Roman Theatre and get into one of the most amazing discoveries of the city in recent decades. Begin your visit to the Palacio de Riquelme, the first building of the museum, thanks to the great conception of the architect Rafael Moneo,
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of the Roman Theatre of Cartagena: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Museum of the Roman Theatre of Cartagena: Entry Ticket</h3>
+          <p class="venue">📍 Museum of the Roman Theatre of Cartagena</p>
+          <p>Visit the Museum of the Roman Theatre and get into one of the most amazing discoveries of the city in recent decades. Begin your visit to the Palacio de Riquelme, the first building of the museum, thanks to the great conception of the architect Rafael Moneo,
 
 Continue along the corridor of history located under the street and move on to the new space that collects the most emblematic pieces of all those found in the excavations. 
 
@@ -47,34 +46,33 @@ Climbing up modern stairs you will reach the second tunnel, this time under the 
 After this second corridor, you will reach the most important piece of the entire museum, the Roman Theater, one of the largest in Roman Hispania with a capacity for 7,000 people.
 
 Make the world your stage and feast your eyes on the stunning Museum of Roman Theatre of Cartagena!</p>
-        <div class="card-footer">
-         <span class="price">From €7</span>
-         <span class="rating">⭐ 4.6 (111)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-the-roman-theatre-of-cartagena-p1066782/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €7</span>
+            <span class="rating">⭐ 4.6 (111)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-the-roman-theatre-of-cartagena-p1066782/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/bf84045f9bc94152ae506ae55d5e4382.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Roman Forum Museum Molinete" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Roman Forum Museum Molinete</h3>
-        <p class="venue">📍 Roman Forum Museum</p>
-        <p>The Roman Forum Museum stands as the entrance to one of the largest urban archaeological parks in Spain. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bf84045f9bc94152ae506ae55d5e4382.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Roman Forum Museum Molinete" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Roman Forum Museum Molinete</h3>
+          <p class="venue">📍 Roman Forum Museum</p>
+          <p>The Roman Forum Museum stands as the entrance to one of the largest urban archaeological parks in Spain. 
 
 The rooms inside showcase a careful selection of pieces where you can learn about the long history of the hill of the Molinete, from present day to the ancient Cartagena. 
 
 Tour the important vestiges of the glorious Roman era, including: the Curia, or local senate, with its richly decorated marble pavement; the colonial forum, the nerve centre of the city, whose distribution on several levels symbolised the hierarchy between the divine and the human; and the Sanctuary of Isis where the mystical cults to the Egyptian gods were celebrated.
 
 There's also ancient roads with chariot tracks, the Baths of the Port with their magnificent entrance portico that preserves the original floor, and finally the Atrium Building with its high walls and pictorial decorations that transport you back to the great banquets of the Roman Empire.</p>
-        <div class="card-footer">
-         <span class="price">From €7</span>
-         <span class="rating">⭐ 3.6 (8)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-roman-forum-museum-molinete-p1025734/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €7</span>
+            <span class="rating">⭐ 3.6 (8)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-roman-forum-museum-molinete-p1025734/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

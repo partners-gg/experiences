@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,129 +32,127 @@
     <p>7 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/e2e3f4538db74e50b77c68a555ab67f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Frankfurt Card Voucher" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Frankfurt Card Voucher</h3>
-        <p class="venue">📍 Frankfurt City Cards</p>
-        <p>The Frankfurt Card offers free travel on all public transport in Frankfurt including Frankfurt International Airport (FRA). 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e2e3f4538db74e50b77c68a555ab67f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Frankfurt Card Voucher" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Frankfurt Card Voucher</h3>
+          <p class="venue">📍 Frankfurt City Cards</p>
+          <p>The Frankfurt Card offers free travel on all public transport in Frankfurt including Frankfurt International Airport (FRA). 
 
 This travel card is available for one or two days and offers up to  50 % discount on city tours, museum admissions, theaters,  operas and further attractions.
 
 The Frankfurt Card enables visitors to take advantage of the city's well-developed public transport system while offering reduced-price admission and discounts on other services throughout the Main metropolis.</p>
-        <div class="card-footer">
-         <span class="price">From €13</span>
-         <span class="rating">⭐ 3.8 (267)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-frankfurt-card-p976407/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €13</span>
+            <span class="rating">⭐ 3.8 (267)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-frankfurt-card-p976407/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5c17383c9334ec7bf94b36c171acfbb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Frankfurt" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hop-on Hop-off Bus Frankfurt</h3>
-        <p class="venue">📍 St. Paul's Church</p>
-        <p>One easy ticket to all the fun in Frankfurt? Coming right up. Just flash this pass on the hop-on hop-off bus and you can stop at up to 16 points of interest around Frankfurt. There's an audio tour on the bus to describe the sights and two different tours to keep you busy!</p>
-        <div class="card-footer">
-         <span class="price">From €21</span>
-         <span class="rating">⭐ 3.5 (15)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-frankfurt-p976062/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5c17383c9334ec7bf94b36c171acfbb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Frankfurt" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hop-on Hop-off Bus Frankfurt</h3>
+          <p class="venue">📍 St. Paul's Church</p>
+          <p>One easy ticket to all the fun in Frankfurt? Coming right up. Just flash this pass on the hop-on hop-off bus and you can stop at up to 16 points of interest around Frankfurt. There's an audio tour on the bus to describe the sights and two different tours to keep you busy!</p>
+          <div class="card-footer">
+            <span class="price">From €21</span>
+            <span class="rating">⭐ 3.5 (15)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-frankfurt-p976062/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2314cbfc09bf42dabdebc5a1502ba8c2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="TimeRide Frankfurt: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>TimeRide Frankfurt: Entry Ticket</h3>
-        <p class="venue">📍 TimeRide Frankfurt</p>
-        <p>Travel back to 19th-century Frankfurt with TimeRide Frankfurt. This VR experience takes you through three stops to show what life was like in the city two centuries ago.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2314cbfc09bf42dabdebc5a1502ba8c2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="TimeRide Frankfurt: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>TimeRide Frankfurt: Entry Ticket</h3>
+          <p class="venue">📍 TimeRide Frankfurt</p>
+          <p>Travel back to 19th-century Frankfurt with TimeRide Frankfurt. This VR experience takes you through three stops to show what life was like in the city two centuries ago.
 
 First stop, visit a colonial goods store from around 1830, where you’ll learn about the trade and products of the time.
 
 The second stop is the Riedel family study, a Biedermeier salon with pictures, portraits, and a historical narrative about industrialization, revolution, and democracy.
 
 At the final stop, put on a VR headset and ride through the city in a replica carriage. You’ll hear city sounds and see scenes from daily life, guided by a fictional merchant, Theodor Riedel, on the way to an electrotechnical exhibition.</p>
-        <div class="card-footer">
-         <span class="price">From €21.9</span>
-         <span class="rating">⭐ 4.7 (151)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-timeride-frankfurt-p1010413/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €21.9</span>
+            <span class="rating">⭐ 4.7 (151)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-timeride-frankfurt-p1010413/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/d4286fc9ceef49dc91b0523ede7fc1b8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Frankfurt Hahn Airport: Bus Transfer To/From City Center" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Frankfurt Hahn Airport: Bus Transfer To/From City Center</h3>
-        <p class="venue">📍 Frankfurt Airport Transfer</p>
-        <p>Take the direct bus service between Frankfurt and Hahn Airport with Flibco. This service ensures a smooth ride in about 2 hours and 10 minutes. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d4286fc9ceef49dc91b0523ede7fc1b8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Frankfurt Hahn Airport: Bus Transfer To/From City Center" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Frankfurt Hahn Airport: Bus Transfer To/From City Center</h3>
+          <p class="venue">📍 Frankfurt Airport Transfer</p>
+          <p>Take the direct bus service between Frankfurt and Hahn Airport with Flibco. This service ensures a smooth ride in about 2 hours and 10 minutes. 
 
 Hahn Airport, 115 kilometers southeast of Frankfurt, is a busy hub for travelers. The shuttle bus service offers a reliable and budget-friendly way to get to and from Hahn Airport. 
 
 On the bus, you can relax in comfortable seats with plenty of legroom. Free Wi-Fi is available for you to watch a movie, work, or plan your trip.</p>
-        <div class="card-footer">
-         <span class="price">From €20.99</span>
-         <span class="rating">⭐ 4 (4)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-frankfurt-hahn-airport-bus-transfer-from-to-city-center-p1092705/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €20.99</span>
+            <span class="rating">⭐ 4 (4)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-frankfurt-hahn-airport-bus-transfer-from-to-city-center-p1092705/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2cec03c0c1b74ab6b0274129bf65140c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Frankfurt" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hop-on Hop-off Bus Frankfurt</h3>
-        <p class="venue">📍 Frankfurt Bus Tours</p>
-        <p>This sightseeing tour provides flexible hop-on and hop-off opportunities that allow you to visit all of Frankfurt's major attractions.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2cec03c0c1b74ab6b0274129bf65140c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Frankfurt" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hop-on Hop-off Bus Frankfurt</h3>
+          <p class="venue">📍 Frankfurt Bus Tours</p>
+          <p>This sightseeing tour provides flexible hop-on and hop-off opportunities that allow you to visit all of Frankfurt's major attractions.
 
 Depending on the tour, you can get off and on the buses at 16 stations. Check **additional info** to see all stops. 
 
 Once validated, your ticket is valid for 24 hours.</p>
-        <div class="card-footer">
-         <span class="price">From €21</span>
-         <span class="rating">⭐ 3.2 (10)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-frankfurt-hop-on-hop-off-bus-p1037398/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €21</span>
+            <span class="rating">⭐ 3.2 (10)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-frankfurt-hop-on-hop-off-bus-p1037398/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2cec03c0c1b74ab6b0274129bf65140c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Frankfurt: Skyline Special" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hop-on Hop-off Bus Frankfurt: Skyline Special</h3>
-        <p class="venue">📍 Frankfurt Bus Tours</p>
-        <p>This sightseeing tour provides flexible hop-on and hop-off opportunities that allow you to visit all of Frankfurt's major attractions.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2cec03c0c1b74ab6b0274129bf65140c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Frankfurt: Skyline Special" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hop-on Hop-off Bus Frankfurt: Skyline Special</h3>
+          <p class="venue">📍 Frankfurt Bus Tours</p>
+          <p>This sightseeing tour provides flexible hop-on and hop-off opportunities that allow you to visit all of Frankfurt's major attractions.
 
 Depending on the tour, you can get off and on the buses at 16 stations. Check **additional info** to see all stops. 
 
 Once validated, your ticket is valid for 24 hours.</p>
-        <div class="card-footer">
-         <span class="price">From €26</span>
-         <span class="rating">⭐ 3.8 (5)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-frankfurt-hop-on-hop-off-bus-skyline-p1037399/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €26</span>
+            <span class="rating">⭐ 3.8 (5)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-frankfurt-hop-on-hop-off-bus-skyline-p1037399/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/d4286fc9ceef49dc91b0523ede7fc1b8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Frankfurt: Bus Transfer To/From Hahn Airport and Mainz" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Frankfurt: Bus Transfer To/From Hahn Airport and Mainz</h3>
-        <p class="venue">📍 Frankfurt Airport Transfer</p>
-        <p>Take a spin on the quickest bus service between Frankfurt Hahn Airport and Mainz, courtesy of Flibco. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d4286fc9ceef49dc91b0523ede7fc1b8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Frankfurt: Bus Transfer To/From Hahn Airport and Mainz" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Frankfurt: Bus Transfer To/From Hahn Airport and Mainz</h3>
+          <p class="venue">📍 Frankfurt Airport Transfer</p>
+          <p>Take a spin on the quickest bus service between Frankfurt Hahn Airport and Mainz, courtesy of Flibco. 
 
 Glide seamlessly from the bustling airport to the charming city center and back again in just under 90 minutes.</p>
-        <div class="card-footer">
-         <span class="price">From €18.99</span>
-         <span class="rating">⭐ 4.5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-frankfurt-bus-transfer-to-from-hahn-airport-and-mainz-p1093161/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €18.99</span>
+            <span class="rating">⭐ 4.5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-frankfurt-bus-transfer-to-from-hahn-airport-and-mainz-p1093161/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

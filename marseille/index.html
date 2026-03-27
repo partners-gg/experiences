@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,95 +32,94 @@
     <p>9 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/a8184546d1134187a1bf69eab8c6d2f3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mucem - Museum of European and Mediterranean Civilizations: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Mucem - Museum of European and Mediterranean Civilizations: Fast Track Ticket</h3>
-        <p class="venue">📍 Mucem</p>
-        <p>You could go to Mucem in Marseille twice and have two entirely different experiences. The stunning museum of European and Mediterranean Civilizations is home to one of the most extensive collections of Mediterranean art and culture anywhere in the world. See early illustrations, photographs, paintings, sculptures, and audio recordings.</p>
-        <div class="card-footer">
-         <span class="price">From €11</span>
-         <span class="rating">⭐ 4.4 (488)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-mucem-museum-of-european-mediterranean-civilizations-fast-track-p976518/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a8184546d1134187a1bf69eab8c6d2f3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mucem - Museum of European and Mediterranean Civilizations: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Mucem - Museum of European and Mediterranean Civilizations: Fast Track Ticket</h3>
+          <p class="venue">📍 Mucem</p>
+          <p>You could go to Mucem in Marseille twice and have two entirely different experiences. The stunning museum of European and Mediterranean Civilizations is home to one of the most extensive collections of Mediterranean art and culture anywhere in the world. See early illustrations, photographs, paintings, sculptures, and audio recordings.</p>
+          <div class="card-footer">
+            <span class="price">From €11</span>
+            <span class="rating">⭐ 4.4 (488)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-mucem-museum-of-european-mediterranean-civilizations-fast-track-p976518/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/8d9441cdfcc9492aaa1bcdc29d8e4cb6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château d’If: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Château d’If: Entry Ticket</h3>
-        <p class="venue">📍 Château d’If</p>
-        <p>Step inside a literary classic when you visit the island fortress prison Château d’If, which was the inspiration for Alexandre Dumas’ 1844 novel _The Count of Monte Cristo_. Learn about the prisoners incarcerated here and get amazing views of the Vieux Port!</p>
-        <div class="card-footer">
-         <span class="price">From €7</span>
-         <span class="rating">⭐ 4.2 (339)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-dif-admission-ticket-p974828/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8d9441cdfcc9492aaa1bcdc29d8e4cb6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château d’If: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Château d’If: Entry Ticket</h3>
+          <p class="venue">📍 Château d’If</p>
+          <p>Step inside a literary classic when you visit the island fortress prison Château d’If, which was the inspiration for Alexandre Dumas’ 1844 novel _The Count of Monte Cristo_. Learn about the prisoners incarcerated here and get amazing views of the Vieux Port!</p>
+          <div class="card-footer">
+            <span class="price">From €7</span>
+            <span class="rating">⭐ 4.2 (339)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-dif-admission-ticket-p974828/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/77b139ea6d4c43c3ad5ef176bbe1d8f3.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orange Vélodrome Stadium: Fast Track + Self-Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Orange Vélodrome Stadium: Fast Track + Self-Guided Tour</h3>
-        <p class="venue">📍 Orange Vélodrome</p>
-        <p>Step into the hidden world of the Orange Vélodrome, where Olympique de Marseille's story beats with myth and legend. Take a self-guided tour through this unique destination filled with interesting tales and original content.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/77b139ea6d4c43c3ad5ef176bbe1d8f3.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orange Vélodrome Stadium: Fast Track + Self-Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Orange Vélodrome Stadium: Fast Track + Self-Guided Tour</h3>
+          <p class="venue">📍 Orange Vélodrome</p>
+          <p>Step into the hidden world of the Orange Vélodrome, where Olympique de Marseille's story beats with myth and legend. Take a self-guided tour through this unique destination filled with interesting tales and original content.
 
 This special experience provides exclusive access to hidden corners of the stadium, including the players' dressing room and the edge of the field. The Orange Vélodrome welcomes you to explore the rich history and unique spirit of Olympique de Marseille.</p>
-        <div class="card-footer">
-         <span class="price">From €21</span>
-         <span class="rating">⭐ 4.7 (69)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-orange-velodrome-fast-track-self-guided-tour-p1090399/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €21</span>
+            <span class="rating">⭐ 4.7 (69)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-orange-velodrome-fast-track-self-guided-tour-p1090399/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2f0d5962452e43c39133321e83dd00d0.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marseille: Cosquer Cave Entry Ticket + City Audio Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Marseille: Cosquer Cave Entry Ticket + City Audio Tour</h3>
-        <p class="venue">📍 Cosquer Cave</p>
-        <p>Visit the Cosquer Cave to learn about early humans and view prehistoric cave paintings.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2f0d5962452e43c39133321e83dd00d0.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marseille: Cosquer Cave Entry Ticket + City Audio Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Marseille: Cosquer Cave Entry Ticket + City Audio Tour</h3>
+          <p class="venue">📍 Cosquer Cave</p>
+          <p>Visit the Cosquer Cave to learn about early humans and view prehistoric cave paintings.
 
 Begin your tour on a floating walkway and see the diving gear used to find the cave. Then, enter the recreated cave and ride an exploratory vehicle.
 
 Use an audio guide to hear about early human life, cave art, and the cave's discovery. Visit the Mediterranean Gallery to see what the world looked like during prehistoric times.
 
 After the cave visit, use a sightseeing app on your smartphone for a self-guided audio tour of Marseille. Hear stories and facts about the city's history as you explore at your own pace.</p>
-        <div class="card-footer">
-         <span class="price">From €24</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-marseille-cosquer-cave-entry-city-audio-tour-p1104978/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €24</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-marseille-cosquer-cave-entry-city-audio-tour-p1104978/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e6eebee20804cacab6d5cb9ecac49c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marseille: Guided Sunset Street Food Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Marseille: Guided Sunset Street Food Tour</h3>
-        <p class="venue">📍 Marseille Food and Wine Tours</p>
-        <p>Join the guided street food tour of Marseille to experience the city like a local.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e6eebee20804cacab6d5cb9ecac49c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marseille: Guided Sunset Street Food Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Marseille: Guided Sunset Street Food Tour</h3>
+          <p class="venue">📍 Marseille Food and Wine Tours</p>
+          <p>Join the guided street food tour of Marseille to experience the city like a local.
 
 A food expert will guide you to taste the best traditional dishes at carefully selected venues. At least one serving of food is included at each stop.
 
 A variety of tastings are offered, depending on ingredient and seasonal availability. These may include a selection of cheeses, local wine served in a traditional Marseillaise cellar, and an assortment of Marseillaise tapas, such as panisses, joels, or other dishes that reflect the city's culinary influences and cultural heritage.</p>
-        <div class="card-footer">
-         <span class="price">From €81</span>
-         <span class="rating">⭐ 4 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-marseille-guided-sunset-street-food-tour-p1118823/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €81</span>
+            <span class="rating">⭐ 4 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-marseille-guided-sunset-street-food-tour-p1118823/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2f0d5962452e43c39133321e83dd00d0.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sky Centre Marseille: 30th Floor Access" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Sky Centre Marseille: 30th Floor Access</h3>
-        <p class="venue">📍 Sky Centre Marseille</p>
-        <p>Visit the top of the La Marseillaise Tower for a deep look into Marseille's culture. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2f0d5962452e43c39133321e83dd00d0.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sky Centre Marseille: 30th Floor Access" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Sky Centre Marseille: 30th Floor Access</h3>
+          <p class="venue">📍 Sky Centre Marseille</p>
+          <p>Visit the top of the La Marseillaise Tower for a deep look into Marseille's culture. 
 
 Head to the terrace on the 30th floor for a 180° view of the city, designed by Jean Nouvel, capturing the Old Port and the calanques. 
 
@@ -129,20 +128,20 @@ Use an interactive robot and a mobile app to learn about the city. Kids can enjo
 Play a game of pétanque on the highest court in the city (boules provided). Explore sensory booths with different smells and sounds. 
 
 Afterward, try Mediterranean dishes like tapenade, panisses, anchoïade, cheeses, and charcuterie, with optional wine from Provence or pastis (not included in this ticket).</p>
-        <div class="card-footer">
-         <span class="price">From €17</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-sky-center-marseille-30th-floor-access-p1122850/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €17</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-sky-center-marseille-30th-floor-access-p1122850/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2f0d5962452e43c39133321e83dd00d0.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cassis & Aix-en-Provence: Guided Tour from Marseille" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Cassis & Aix-en-Provence: Guided Tour from Marseille</h3>
-        <p class="venue">📍 Day Trip from Marseille</p>
-        <p>Visit Cassis, its calanques, and Aix-en-Provence during your stay in Provence.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2f0d5962452e43c39133321e83dd00d0.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cassis & Aix-en-Provence: Guided Tour from Marseille" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Cassis & Aix-en-Provence: Guided Tour from Marseille</h3>
+          <p class="venue">📍 Day Trip from Marseille</p>
+          <p>Visit Cassis, its calanques, and Aix-en-Provence during your stay in Provence.
 
 Start your journey in Marseille and visit Cassis. Take photos from Cap Canaille, one of the highest sea cliffs in Europe. Enjoy free time in the fishing port, where you can have lunch or sunbathe.
 
@@ -151,48 +150,47 @@ Take a cruise through the calanques (not included in this ticket) and see the na
 Continue to Aix-en-Provence for the rest of the afternoon. Walk along Cours Mirabeau with its fountains and 17th and 18th-century mansions.
 
 Return to Marseille in the minivan.</p>
-        <div class="card-footer">
-         <span class="price">From €135</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-cassis-aix-en-provence-guided-tour-from-marseille-p1118963/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €135</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-cassis-aix-en-provence-guided-tour-from-marseille-p1118963/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e6eebee20804cacab6d5cb9ecac49c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marseille: Cours Julien Guided Food Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Marseille: Cours Julien Guided Food Tour</h3>
-        <p class="venue">📍 Marseille Food and Wine Tours</p>
-        <p>Visit the creative district of Cours Julien, known for its unique atmosphere, for a guided food tour with tastings included. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e6eebee20804cacab6d5cb9ecac49c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marseille: Cours Julien Guided Food Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Marseille: Cours Julien Guided Food Tour</h3>
+          <p class="venue">📍 Marseille Food and Wine Tours</p>
+          <p>Visit the creative district of Cours Julien, known for its unique atmosphere, for a guided food tour with tastings included. 
 
 Cours Julien holds the title of "coolest neighborhood in the world" and is home to some of the best food spots. A guide will show you key local highlights and top eateries. 
 
 Learn about the street graffiti and get personalized recommendations to explore the city further.</p>
-        <div class="card-footer">
-         <span class="price">From €64</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-marseille-cours-julien-guided-food-tour-p1117899/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €64</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-marseille-cours-julien-guided-food-tour-p1117899/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/a5d8482a56a941feac24d25eafb9068b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marseille: Half-Day Small Group Sailing Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Marseille: Half-Day Small Group Sailing Cruise</h3>
-        <p class="venue">📍 Marseille Boat Tours</p>
-        <p>Join a half-day sailing trip from Marseille to a cool hidden cove in the Friuli Islands. Learn the basics of sailing with your skipper, swim, snorkel and marvel at the awe-inspiring scenery and cove rock formations!
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a5d8482a56a941feac24d25eafb9068b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marseille: Half-Day Small Group Sailing Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Marseille: Half-Day Small Group Sailing Cruise</h3>
+          <p class="venue">📍 Marseille Boat Tours</p>
+          <p>Join a half-day sailing trip from Marseille to a cool hidden cove in the Friuli Islands. Learn the basics of sailing with your skipper, swim, snorkel and marvel at the awe-inspiring scenery and cove rock formations!
 
 From the islands of Friuli, there are many coves to see, and great views back to the coast of Marseille. Take the opportunity to cool off, snorkel and say hi to the fishies, or just relax and catch some sun on board.</p>
-        <div class="card-footer">
-         <span class="price">From €94</span>
-         <span class="rating">⭐ 4.8 (5)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-from-marseille-half-day-sailing-trip-p1065110/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €94</span>
+            <span class="rating">⭐ 4.8 (5)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-from-marseille-half-day-sailing-trip-p1065110/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

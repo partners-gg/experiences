@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,13 +32,12 @@
     <p>38 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/95acdc566889420f89473283fd0283d1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Zoo Flexible Any-Day Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio Zoo Flexible Any-Day Entry Ticket</h3>
-        <p class="venue">📍 San Antonio Zoo®</p>
-        <p>Get up close to more than 750 animal species and learn about efforts to protect endangered wildlife with San Antonio Zoo tickets.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/95acdc566889420f89473283fd0283d1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Zoo Flexible Any-Day Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio Zoo Flexible Any-Day Entry Ticket</h3>
+          <p class="venue">📍 San Antonio Zoo®</p>
+          <p>Get up close to more than 750 animal species and learn about efforts to protect endangered wildlife with San Antonio Zoo tickets.
 
 Visit the Cat Grotto, see flamingos and lemurs in Pride Plaza, and explore the Reptile House to view snakes, turtles, and lizards from around the world.
 
@@ -47,218 +46,218 @@ You can also ride the train, visit America’s oldest kiddie park, and take part
 Your ticket gives you access to a wide range of habitat zones, including:
 
 **Africa Live:** Explore the African savanna and see lions, giraffes, zebras, and ostriches in habitats that reflect their natural environment. Learn about these animals and how they live in the wild.</p>
-        <div class="card-footer">
-         <span class="price">From €28.44</span>
-         <span class="rating">⭐ 4.5 (535)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-zoo-p1033702/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €28.44</span>
+            <span class="rating">⭐ 4.5 (535)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-zoo-p1033702/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/44a295c4eb0145d195172076cd09236c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Aquarium: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio Aquarium: Entry Ticket</h3>
-        <p class="venue">📍 San Antonio Aquarium</p>
-        <p>Since 2014, San Antonio Aquarium has been inspiring a new generation of oceanic conservationists through education and interactions with incredible sea creatures.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/44a295c4eb0145d195172076cd09236c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Aquarium: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio Aquarium: Entry Ticket</h3>
+          <p class="venue">📍 San Antonio Aquarium</p>
+          <p>Since 2014, San Antonio Aquarium has been inspiring a new generation of oceanic conservationists through education and interactions with incredible sea creatures.
 
 Your San Antonio Aquarium tickets give you access to an underwater kingdom that's home to over 8,000 animals, representing habitats from the shores of Oregon to small Indonesian islands. And it's not just marine animals – the aquarium is also home to lemurs, sloths, reptiles, and more!</p>
-        <div class="card-footer">
-         <span class="price">From €21.51</span>
-         <span class="rating">⭐ 4.3 (89)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-aquarium-p1014606/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €21.51</span>
+            <span class="rating">⭐ 4.3 (89)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-aquarium-p1014606/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/71c4f285a9df4e278899eaac643e3258.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hopscotch San Antonio: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hopscotch San Antonio: Entry Ticket</h3>
-        <p class="venue">📍 Hopscotch San Antonio</p>
-        <p>Visit Hopscotch to see permanent art installations by artists from around the world. Participate in interactive exhibits that go beyond daily experiences and engage in playful activities within the curated spaces.</p>
-        <div class="card-footer">
-         <span class="price">From €20.69</span>
-         <span class="rating">⭐ 4.7 (15)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hopscotch-san-antonio-entry-p1115851/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/71c4f285a9df4e278899eaac643e3258.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hopscotch San Antonio: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hopscotch San Antonio: Entry Ticket</h3>
+          <p class="venue">📍 Hopscotch San Antonio</p>
+          <p>Visit Hopscotch to see permanent art installations by artists from around the world. Participate in interactive exhibits that go beyond daily experiences and engage in playful activities within the curated spaces.</p>
+          <div class="card-footer">
+            <span class="price">From €20.69</span>
+            <span class="rating">⭐ 4.7 (15)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hopscotch-san-antonio-entry-p1115851/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/982eb66ffaec4596a074c5ae4bccb5d9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Botanical Garden: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio Botanical Garden: Entry Ticket</h3>
-        <p class="venue">📍 San Antonio Botanical Garden</p>
-        <p>Visit the San Antonio Botanical Garden, a 38-acre site with native and imported plant life. Established in 1980, it allows you to see various botanical displays.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/982eb66ffaec4596a074c5ae4bccb5d9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Botanical Garden: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio Botanical Garden: Entry Ticket</h3>
+          <p class="venue">📍 San Antonio Botanical Garden</p>
+          <p>Visit the San Antonio Botanical Garden, a 38-acre site with native and imported plant life. Established in 1980, it allows you to see various botanical displays.
 
 Start by exploring the formal gardens and Texas native plant collections. Learn about 35 endangered and rare species under the garden's care. Walk through themed areas, each presenting different horticultural displays.
 
 Participate in educational programs, which engage over 28,000 people annually. Attend special events with more than 21,000 visitors each year.
 
 Finish your visit by relaxing in a quiet spot or joining a guided tour to understand more about the plant collections and conservation efforts.</p>
-        <div class="card-footer">
-         <span class="price">From €17.24</span>
-         <span class="rating">⭐ 3.8 (6)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-botanical-garden-p1110594/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €17.24</span>
+            <span class="rating">⭐ 3.8 (6)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-botanical-garden-p1110594/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/daf7fc102dae4b54b9774da3dd34c824.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld San Antonio: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>SeaWorld San Antonio: Fast Track Ticket</h3>
-        <p class="venue">📍 SeaWorld San Antonio</p>
-        <p>Discover a world of watery adventure at the world's largest marine life theme park. Epic live shows combine with thrillingly inventive rides and attractions to ensure an educational and exciting day out. You can't miss the brand new _Wave Breaker_ rescue adventure and lightning-quick _Steel Eel_ hypercoaster - and nothing beats getting up close and personal with the majestic orcas!</p>
-        <div class="card-footer">
-         <span class="price">From €41.21</span>
-         <span class="rating">⭐ 4.6 (47)</span>
-         <a href="https://www.tiqets.com/en/checkout/seaworld-san-antonio-fast-track-ticket-p975187/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/daf7fc102dae4b54b9774da3dd34c824.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld San Antonio: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>SeaWorld San Antonio: Fast Track Ticket</h3>
+          <p class="venue">📍 SeaWorld San Antonio</p>
+          <p>Discover a world of watery adventure at the world's largest marine life theme park. Epic live shows combine with thrillingly inventive rides and attractions to ensure an educational and exciting day out. You can't miss the brand new _Wave Breaker_ rescue adventure and lightning-quick _Steel Eel_ hypercoaster - and nothing beats getting up close and personal with the majestic orcas!</p>
+          <div class="card-footer">
+            <span class="price">From €41.21</span>
+            <span class="rating">⭐ 4.6 (47)</span>
+            <a href="https://www.tiqets.com/en/checkout/seaworld-san-antonio-fast-track-ticket-p975187/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/5380588a61314d35a567515994fd2a5a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Alamo: Exhibit Entry" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Alamo: Exhibit Entry</h3>
-        <p class="venue">📍 The Alamo</p>
-        <p>Explore the Collector's Journey at the new Alamo exhibit in the Ralston Family Collections Center, dedicated to preservation in a modern curatorial environment.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5380588a61314d35a567515994fd2a5a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Alamo: Exhibit Entry" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Alamo: Exhibit Entry</h3>
+          <p class="venue">📍 The Alamo</p>
+          <p>Explore the Collector's Journey at the new Alamo exhibit in the Ralston Family Collections Center, dedicated to preservation in a modern curatorial environment.
 
 See priceless artifacts donated by musician and historian Phil Collins, including the Battle of the Alamo Diorama with his narration. Discover artifacts from the Donald and Louise Yena, Spanish Colonial Collection, Alamo Collection, interactive exhibits, and more.
 
 Discover over 10,000 square feet of new gallery space showcasing over 500 artifacts, many on display for the first time.</p>
-        <div class="card-footer">
-         <span class="price">From €12.07</span>
-         <span class="rating">⭐ 4.4 (7)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-alamo-exhibition-entry-p1095921/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €12.07</span>
+            <span class="rating">⭐ 4.4 (7)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-alamo-exhibition-entry-p1095921/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/71c4f285a9df4e278899eaac643e3258.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio: Narrated River Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio: Narrated River Cruise</h3>
-        <p class="venue">📍 San Antonio Cruises</p>
-        <p>GO RIO! offers a fleet of eco-friendly electric river boats, painted in vibrant hues inspired by Mexican folk art, all set to take you along the iconic San Antonio River Walk. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/71c4f285a9df4e278899eaac643e3258.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio: Narrated River Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio: Narrated River Cruise</h3>
+          <p class="venue">📍 San Antonio Cruises</p>
+          <p>GO RIO! offers a fleet of eco-friendly electric river boats, painted in vibrant hues inspired by Mexican folk art, all set to take you along the iconic San Antonio River Walk. 
 
 This 35-minute narrated cruise will teach you about San Antonio's rich history, from La Villita, the Old Mill Crossing, and Selena's Bridge. 
 
 With its German, Mexican, French, Irish, and American roots, San Antonio is a city full of intersecting cultures.</p>
-        <div class="card-footer">
-         <span class="price">From €14.47</span>
-         <span class="rating">⭐ 4.6 (88)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-narrated-river-cruise-p1079689/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €14.47</span>
+            <span class="rating">⭐ 4.6 (88)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-narrated-river-cruise-p1079689/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/9a9394e41d404523af68ccbb2723c334.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tower of the Americas: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Tower of the Americas: Entry Ticket</h3>
-        <p class="venue">📍 Tower of the Americas</p>
-        <p>Experience the Tower of the Americas in all its grandeur with a stop at the Flags Over Texas Observation Deck. Soak up the panoramic views that stretch out below. The deck's helpful photos will help you identify the city's landmarks. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9a9394e41d404523af68ccbb2723c334.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tower of the Americas: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Tower of the Americas: Entry Ticket</h3>
+          <p class="venue">📍 Tower of the Americas</p>
+          <p>Experience the Tower of the Americas in all its grandeur with a stop at the Flags Over Texas Observation Deck. Soak up the panoramic views that stretch out below. The deck's helpful photos will help you identify the city's landmarks. 
 
 You won't want to miss the Skies Over Texas 4D theater ride! This experience will take you on a virtual journey across the Lone Star State, featuring a Friday-night high school football game and an up-close encounter with a NASA space shuttle.
 
 Wrap up the visit with a tour of the extensive gift shop at the base of the Tower, a treasure trove of keepsakes.</p>
-        <div class="card-footer">
-         <span class="price">From €18.2</span>
-         <span class="rating">⭐ 4.1 (19)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-tower-of-the-americas-p1082282/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €18.2</span>
+            <span class="rating">⭐ 4.1 (19)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-tower-of-the-americas-p1082282/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/44a295c4eb0145d195172076cd09236c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Natural Bridge Caverns: Hidden Wonders Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Natural Bridge Caverns: Hidden Wonders Tour</h3>
-        <p class="venue">📍 Natural Bridge Caverns</p>
-        <p>The Hidden Wonders Tour takes you through newly discovered underground chambers with incredible formations and a natural ballroom available for events.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/44a295c4eb0145d195172076cd09236c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Natural Bridge Caverns: Hidden Wonders Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Natural Bridge Caverns: Hidden Wonders Tour</h3>
+          <p class="venue">📍 Natural Bridge Caverns</p>
+          <p>The Hidden Wonders Tour takes you through newly discovered underground chambers with incredible formations and a natural ballroom available for events.
 
 The tour features the BAT – the world's only conveyor system ride out of a cavern – and a sound and light show that explains the cavern's geological history. Led by knowledgeable guides, you'll be impressed by the beauty and size of the formations created by rock, water, and time.</p>
-        <div class="card-footer">
-         <span class="price">From €19.18</span>
-         <span class="rating">⭐ 4.5 (24)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-natural-bridge-caverns-hidden-wonders-tour-p1092210/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €19.18</span>
+            <span class="rating">⭐ 4.5 (24)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-natural-bridge-caverns-hidden-wonders-tour-p1092210/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/71c4f285a9df4e278899eaac643e3258.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Witte Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Witte Museum: Entry Ticket</h3>
-        <p class="venue">📍 Witte Museum</p>
-        <p>Discover the Witte Museum, located on a beautiful riverside campus. It's a blend of nature, science, and culture. The spacious galleries invite you to explore the history of Texas, spanning thousands to millions of years.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/71c4f285a9df4e278899eaac643e3258.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Witte Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Witte Museum: Entry Ticket</h3>
+          <p class="venue">📍 Witte Museum</p>
+          <p>Discover the Witte Museum, located on a beautiful riverside campus. It's a blend of nature, science, and culture. The spacious galleries invite you to explore the history of Texas, spanning thousands to millions of years.
 
 Each exhibit unfolds a chapter of the Lone Star State's story. Indoors or outdoors, the museum's exhibitions take you from the depths of the ocean to the vastness of the sky, offering an entertaining exploration through Texas's diverse landscapes.</p>
-        <div class="card-footer">
-         <span class="price">From €14.66</span>
-         <span class="rating">⭐ 4.8 (6)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-witte-museum-entry-p1088723/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €14.66</span>
+            <span class="rating">⭐ 4.8 (6)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-witte-museum-entry-p1088723/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/d266302638e6418ab59c06970b58dbb1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquatica San Antonio: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Aquatica San Antonio: Fast Track Ticket</h3>
-        <p class="venue">📍 Aquatica San Antonio</p>
-        <p>Need some relief from the Texan heat? Cool off with a dose of swimmingly good fun, and smile your way across Aquatica's tangle of waterslides, wave pools, lazy rivers, and rapids. You're sure to have a whale of a time!</p>
-        <div class="card-footer">
-         <span class="price">From €41.21</span>
-         <span class="rating">⭐ 3.7 (21)</span>
-         <a href="https://www.tiqets.com/en/checkout/aquatica-san-antonio-fast-track-ticket-p977433/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d266302638e6418ab59c06970b58dbb1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquatica San Antonio: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Aquatica San Antonio: Fast Track Ticket</h3>
+          <p class="venue">📍 Aquatica San Antonio</p>
+          <p>Need some relief from the Texan heat? Cool off with a dose of swimmingly good fun, and smile your way across Aquatica's tangle of waterslides, wave pools, lazy rivers, and rapids. You're sure to have a whale of a time!</p>
+          <div class="card-footer">
+            <span class="price">From €41.21</span>
+            <span class="rating">⭐ 3.7 (21)</span>
+            <a href="https://www.tiqets.com/en/checkout/aquatica-san-antonio-fast-track-ticket-p977433/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/44a295c4eb0145d195172076cd09236c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Twisted Trails at Natural Bridge Caverns: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Twisted Trails at Natural Bridge Caverns: Entry Ticket</h3>
-        <p class="venue">📍 Natural Bridge Caverns</p>
-        <p>They say everything's bigger in Texas, and that goes for ropes courses too. Rustle up some Twisted Trails Tickets and bring the family for some high-altitude fun on the World’s largest Zip Rails and Ropes Course, right here in San Antonio.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/44a295c4eb0145d195172076cd09236c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Twisted Trails at Natural Bridge Caverns: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Twisted Trails at Natural Bridge Caverns: Entry Ticket</h3>
+          <p class="venue">📍 Natural Bridge Caverns</p>
+          <p>They say everything's bigger in Texas, and that goes for ropes courses too. Rustle up some Twisted Trails Tickets and bring the family for some high-altitude fun on the World’s largest Zip Rails and Ropes Course, right here in San Antonio.
 
 Safely harnessed 60 feet above the ground, you'll have 45 minutes to test your agility and balance on a four-level ropes course. Scramble up vertical rope ladders, bound over double beams, and leap across lily pads. Test your might on the weave walk, squid steps, and twisted ropes.
 
 The best part? You get to glide between the platforms and soar over the treetops on seven zip rails spanning 685 feet of suspended track. It's like riding a zip line, only with more twists and turns!</p>
-        <div class="card-footer">
-         <span class="price">From €27.18</span>
-         <span class="rating">⭐ 4.3 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-natural-bridge-caverns-twisted-trails-p1009784/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €27.18</span>
+            <span class="rating">⭐ 4.3 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-natural-bridge-caverns-twisted-trails-p1009784/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/547530d6e30840888125902b6e49edd7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LEGOLAND® Discovery Center San Antonio: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>LEGOLAND® Discovery Center San Antonio: Entry Ticket</h3>
-        <p class="venue">📍 LEGOLAND® Discovery Center San Antonio</p>
-        <p>Leave your brickwork creations at home for the day and let loose in a LEGO® universe in the heart of San Antonio.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/547530d6e30840888125902b6e49edd7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LEGOLAND® Discovery Center San Antonio: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>LEGOLAND® Discovery Center San Antonio: Entry Ticket</h3>
+          <p class="venue">📍 LEGOLAND® Discovery Center San Antonio</p>
+          <p>Leave your brickwork creations at home for the day and let loose in a LEGO® universe in the heart of San Antonio.
 
 There are 10 family-fun rides, attractions, and activities to be explored. Fight off trolls and skeletons to save the princess on the Kingdom Quest laser ride, and journey to the stars on Merlin's Apprentice. Got the mind of an engineer? Build tall towers and see if they can survive the rumbling tumbling Earthquake Tables!</p>
-        <div class="card-footer">
-         <span class="price">From €26.13</span>
-         <span class="rating">⭐ 4 (25)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-legoland-r-discovery-center-san-antonio-p978533/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €26.13</span>
+            <span class="rating">⭐ 4 (25)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-legoland-r-discovery-center-san-antonio-p978533/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/6372bc53a5484a4482d8abd6e071a812.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LEGOLAND® Discovery Center & SEA LIFE San Antonio Combo Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>LEGOLAND® Discovery Center & SEA LIFE San Antonio Combo Ticket</h3>
-        <p class="venue">📍 LEGOLAND® Discovery Center San Antonio</p>
-        <p>**LEGOLAND® Discovery Center San Antonio**
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6372bc53a5484a4482d8abd6e071a812.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LEGOLAND® Discovery Center & SEA LIFE San Antonio Combo Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>LEGOLAND® Discovery Center & SEA LIFE San Antonio Combo Ticket</h3>
+          <p class="venue">📍 LEGOLAND® Discovery Center San Antonio</p>
+          <p>**LEGOLAND® Discovery Center San Antonio**
 
 This ultimate indoor LEGO® playground has rides, a 4D cinema, attractions, and millions of LEGO bricks for an exciting family adventure. Ride on Merlin's Apprentice, blast skeletons on Kingdom Quest, see your favorite characters in the LEGO 4D Theater, and build your own LEGO creations alongside expert builders!
 
@@ -267,74 +266,74 @@ This ultimate indoor LEGO® playground has rides, a 4D cinema, attractions, and 
 SEA LIFE San Antonio is home to the city's only underwater ocean tunnel! See sharks, a rescued sea turtle, experience what an anemone feels like, and explore over 20 breathtaking exhibits. No flippers required!
 
 Immerse yourself in a tropical sea where sharks and rays swim overhead in 155,000 gallons of water-filled wonder! See the aquarium’s largest sharks and fish swimming directly above you, then reach in and touch a chocolate chip sea star, sea anemones, hermit crabs and more. You can even dive into a shipwreck to spot some of the most unique creatures at SEA LIFE San Antonio!</p>
-        <div class="card-footer">
-         <span class="price">From €27.07</span>
-         <span class="rating">⭐ 4.3 (26)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-legoland-r-discovery-center-sea-life-san-antonio-combo-ticket-p1015923/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €27.07</span>
+            <span class="rating">⭐ 4.3 (26)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-legoland-r-discovery-center-sea-life-san-antonio-combo-ticket-p1015923/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/84847d1fd37f4de8b7ef37a2a8b7fb16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Missions: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio Missions: Guided Tour</h3>
-        <p class="venue">📍 San Antonio Missions</p>
-        <p>On this tour of the San Antonio Missions National Historical Park, a UNESCO World Heritage Site, you'll get a glimpse into a number of missions that shaped Texas and the border states.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/84847d1fd37f4de8b7ef37a2a8b7fb16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Missions: Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio Missions: Guided Tour</h3>
+          <p class="venue">📍 San Antonio Missions</p>
+          <p>On this tour of the San Antonio Missions National Historical Park, a UNESCO World Heritage Site, you'll get a glimpse into a number of missions that shaped Texas and the border states.
 
 Alongside visiting these historic buildings and admiring the art and architecture – including Mission San Jose's rare Baroque Rose Window – you'll get to watch the award-winning film 'Gente de Razon'.</p>
-        <div class="card-footer">
-         <span class="price">From €56.04</span>
-         <span class="rating">⭐ 4 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-missions-unesco-world-heritage-site-p1003284/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €56.04</span>
+            <span class="rating">⭐ 4 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-missions-unesco-world-heritage-site-p1003284/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b7294f0b7487484c8fd2acad5695c8cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Briscoe Western Art Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Briscoe Western Art Museum: Entry Ticket</h3>
-        <p class="venue">📍 Briscoe Western Art Museum</p>
-        <p>Visit the Briscoe Western Art Museum on the historic San Antonio River Walk. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b7294f0b7487484c8fd2acad5695c8cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Briscoe Western Art Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Briscoe Western Art Museum: Entry Ticket</h3>
+          <p class="venue">📍 Briscoe Western Art Museum</p>
+          <p>Visit the Briscoe Western Art Museum on the historic San Antonio River Walk. 
 
 See its permanent collection showcasing artifacts and artworks related to the American West. 
 
 Learn about the cultures of the American cowboy, the Vaquero, Native Americans, and others who contributed to the development of the Western United States. 
 
 The museum acts as a bridge to understanding the rich narratives of this fascinating region.</p>
-        <div class="card-footer">
-         <span class="price">From €13.8</span>
-         <span class="rating">⭐ 5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-briscoe-western-art-museum-entry-p1125714/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €13.8</span>
+            <span class="rating">⭐ 5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-briscoe-western-art-museum-entry-p1125714/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/fec73eb7eb28496c8c438ebb9cd33415.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Amazing Mirror Maze: Escape Experience" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Amazing Mirror Maze: Escape Experience</h3>
-        <p class="venue">📍 The Amazing Mirror Maze</p>
-        <p>Find The Amazing Mirror Maze just steps from the Alamo, where you can navigate twisting pathways, race against time, and test your problem-solving skills. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fec73eb7eb28496c8c438ebb9cd33415.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Amazing Mirror Maze: Escape Experience" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Amazing Mirror Maze: Escape Experience</h3>
+          <p class="venue">📍 The Amazing Mirror Maze</p>
+          <p>Find The Amazing Mirror Maze just steps from the Alamo, where you can navigate twisting pathways, race against time, and test your problem-solving skills. 
 
 This multi-level adventure features laser challenges and mind-bending illusions. Explore Escape Street, offering 10-minute escape room adventures, which are included in your ticket.
 
 Work together to solve puzzles, decode clues, and unlock codes as each clue leads to another, guiding you toward the exit.</p>
-        <div class="card-footer">
-         <span class="price">From €24.25</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-amazing-mirror-maze-escape-experience-p1112542/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €24.25</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-amazing-mirror-maze-escape-experience-p1112542/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/8dd3cfd9fc394d8999154cfd593e3635.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio CityPASS®" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio CityPASS®</h3>
-        <p class="venue">📍 San Antonio City Cards</p>
-        <p>Let the San Antonio CityPASS® be the magic carpet ride whisking you away to explore the city's treasure troves. Take a narrated cruise navigating the veins of the Riverwalk area, or venture into the wild at the San Antonio Zoo, locking eyes with creatures from across the globe. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8dd3cfd9fc394d8999154cfd593e3635.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio CityPASS®" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio CityPASS®</h3>
+          <p class="venue">📍 San Antonio City Cards</p>
+          <p>Let the San Antonio CityPASS® be the magic carpet ride whisking you away to explore the city's treasure troves. Take a narrated cruise navigating the veins of the Riverwalk area, or venture into the wild at the San Antonio Zoo, locking eyes with creatures from across the globe. 
 
 Alternatively, immerse in the lush greenery of the San Antonio Botanical Garden, a colourful canvas of blooming flora and fauna.
 
@@ -343,20 +342,20 @@ For the culture vultures, the San Antonio Museum of Art boasts a labyrinth of va
 And when it’s time to perch and reflect, climb the Tower of Americas. Standing tall at 750-ft, this observation deck offers a bird's eye perspective of the city to wow you!
 
 Visit the My CityPASS® App to secure attraction reservations and other important attraction information.</p>
-        <div class="card-footer">
-         <span class="price">From €54.32</span>
-         <span class="rating">⭐ 4.8 (6)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-citypass-p1076483/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €54.32</span>
+            <span class="rating">⭐ 4.8 (6)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-citypass-p1076483/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/8dd3cfd9fc394d8999154cfd593e3635.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Go City San Antonio: Explorer Pass" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Go City San Antonio: Explorer Pass</h3>
-        <p class="venue">📍 San Antonio City Cards</p>
-        <p>Choose 2, 3, 4, or 5 attractions and tours from over 20 options.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8dd3cfd9fc394d8999154cfd593e3635.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Go City San Antonio: Explorer Pass" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Go City San Antonio: Explorer Pass</h3>
+          <p class="venue">📍 San Antonio City Cards</p>
+          <p>Choose 2, 3, 4, or 5 attractions and tours from over 20 options.
 
 First off, choose one of the premium attractions included in your pass. 
 
@@ -367,36 +366,36 @@ Then pick the rest of your River City activities. Wave to sea lions at SeaWorld 
 Feel the wind in your hair on a Go Rio San Antonio river cruise, or swing by the San Antonio Zoo and see the monkeys.
 
 Show your smartphone pass at any of the included attractions for seamless entry.</p>
-        <div class="card-footer">
-         <span class="price">From €89.67</span>
-         <span class="rating">⭐ 5 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-go-city-san-antonio-explorer-pass-p975492/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €89.67</span>
+            <span class="rating">⭐ 5 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-go-city-san-antonio-explorer-pass-p975492/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio: Gruene & River Road Polaris Slingshot Self-Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio: Gruene & River Road Polaris Slingshot Self-Guided Tour</h3>
-        <p class="venue">📍 Outdoor Activities in San Antonio</p>
-        <p>Take a self-guided ride through the Texas Hill Country via Gruene and River Road on a Polaris Slingshot. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio: Gruene & River Road Polaris Slingshot Self-Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio: Gruene & River Road Polaris Slingshot Self-Guided Tour</h3>
+          <p class="venue">📍 Outdoor Activities in San Antonio</p>
+          <p>Take a self-guided ride through the Texas Hill Country via Gruene and River Road on a Polaris Slingshot. 
 
 This route offers 75 miles of roads featuring gentle curves and open hills. You can expect river views, local food stops, and scenic overlooks.</p>
-        <div class="card-footer">
-         <span class="price">From €140.69</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-gruene-river-road-polaris-slingshot-self-guided-tour-p1129010/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €140.69</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-gruene-river-road-polaris-slingshot-self-guided-tour-p1129010/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/5380588a61314d35a567515994fd2a5a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld San Antonio: Fast Track Ticket (US & CA Only)" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>SeaWorld San Antonio: Fast Track Ticket (US & CA Only)</h3>
-        <p class="venue">📍 SeaWorld San Antonio</p>
-        <p>At 250 acres, SeaWorld San Antonio is a real giant. And that's just as well, because it contains some of nature's biggest marine animals, world-class thrill rides and dozens of conservation exhibitions and hands-on (or flippers-on) animal encounters.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5380588a61314d35a567515994fd2a5a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld San Antonio: Fast Track Ticket (US & CA Only)" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>SeaWorld San Antonio: Fast Track Ticket (US & CA Only)</h3>
+          <p class="venue">📍 SeaWorld San Antonio</p>
+          <p>At 250 acres, SeaWorld San Antonio is a real giant. And that's just as well, because it contains some of nature's biggest marine animals, world-class thrill rides and dozens of conservation exhibitions and hands-on (or flippers-on) animal encounters.
 
 The latest _Wave Breaker: Rescue Coaster_ is a double-launch that has you riding jet skis all over the park on a high-stakes animal rescue mission, while the _Steel Eel_ hypercoaster tops out at an eye-watering 70 mph. 
 
@@ -405,176 +404,176 @@ Kids can take it easy on the _Shamu Express_ and _Journey to Atlantis_ log flume
 Of course, the animals are the main attraction – and they're every bit as exciting as their mechanical counterparts. 
 
 Whether it's penguins, sea lions or stingrays, prepare to see these charismatic ocean-dwellers like never before. But it's the orcas that are the real headliners with world-famous shows that will wow you with the power and grace of these majestic creatures.</p>
-        <div class="card-footer">
-         <span class="price">From €1.72</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-seaworld-san-antonio-fast-track-ticket-us-residents-only-p1127110/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €1.72</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-seaworld-san-antonio-fast-track-ticket-us-residents-only-p1127110/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/982eb66ffaec4596a074c5ae4bccb5d9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Classic Christmas San Antonio: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Classic Christmas San Antonio: Entry Ticket</h3>
-        <p class="venue">📍 Classic Christmas San Antonio</p>
-        <p>See holiday magic begin at Coca-Cola's Classic Christmas in San Antonio this November, featuring a new Alpine Adventure theme. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/982eb66ffaec4596a074c5ae4bccb5d9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Classic Christmas San Antonio: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Classic Christmas San Antonio: Entry Ticket</h3>
+          <p class="venue">📍 Classic Christmas San Antonio</p>
+          <p>See holiday magic begin at Coca-Cola's Classic Christmas in San Antonio this November, featuring a new Alpine Adventure theme. 
 
 Visit Santa and Mrs. Claus's mountain hideaway at Toyota Field from November 28 to December 28, 2025. Enjoy millions of lights, snow, snow slides, outdoor ice skating, and themed treats.</p>
-        <div class="card-footer">
-         <span class="price">From €30.18</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-classic-christmas-san-antonio-p1124869/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €30.18</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-classic-christmas-san-antonio-p1124869/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/06f89b2938ba411d967e4aca38fad1fc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquatica San Antonio: Fast Track Ticket (US & CAN Only)" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Aquatica San Antonio: Fast Track Ticket (US & CAN Only)</h3>
-        <p class="venue">📍 Aquatica San Antonio</p>
-        <p>Slide down all 8 of Aquatica San Antonio's waterslides, try Stingray Falls, where you ride a large yellow raft down river rapids into an underground tunnel surrounded by stingrays and various fish.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/06f89b2938ba411d967e4aca38fad1fc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquatica San Antonio: Fast Track Ticket (US & CAN Only)" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Aquatica San Antonio: Fast Track Ticket (US & CAN Only)</h3>
+          <p class="venue">📍 Aquatica San Antonio</p>
+          <p>Slide down all 8 of Aquatica San Antonio's waterslides, try Stingray Falls, where you ride a large yellow raft down river rapids into an underground tunnel surrounded by stingrays and various fish.
 
 Surf in the giant wave pool or relax on a lazy river. Enjoy the pools designed for toddlers.</p>
-        <div class="card-footer">
-         <span class="price">From €36.06</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-aquatica-san-antonio-fast-track-ticket-us-can-only-p1122267/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €36.06</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-aquatica-san-antonio-fast-track-ticket-us-can-only-p1122267/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio: 1.5-Hr Guided City Lights Night Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio: 1.5-Hr Guided City Lights Night Tour</h3>
-        <p class="venue">📍 San Antonio City Tours</p>
-        <p>Join the San Antonio City Lights Night Tour once the sun sets and learn about the city's history, culture, and landmarks.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio: 1.5-Hr Guided City Lights Night Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio: 1.5-Hr Guided City Lights Night Tour</h3>
+          <p class="venue">📍 San Antonio City Tours</p>
+          <p>Join the San Antonio City Lights Night Tour once the sun sets and learn about the city's history, culture, and landmarks.
 
 Ride an open-air trolley for an evening tour with knowledgeable guides. The 90-minute trip takes you past San Antonio’s important sights, all glowing at night. At the end, stop for a photo of the downtown skyline.</p>
-        <div class="card-footer">
-         <span class="price">From €32.62</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-guided-city-lights-night-tour-p1117173/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €32.62</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-guided-city-lights-night-tour-p1117173/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/fec73eb7eb28496c8c438ebb9cd33415.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LiggettVille San Antonio: Fast Track + High Ropes Course, Zip Rail & Wall Climb" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>LiggettVille San Antonio: Fast Track + High Ropes Course, Zip Rail & Wall Climb</h3>
-        <p class="venue">📍 LiggettVille Adventure Center</p>
-        <p>Visit LiggettVille in downtown San Antonio, Texas, by the Riverwalk lagoon. This indoor playground offers attractions for all ages, making it suitable for families and friends. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fec73eb7eb28496c8c438ebb9cd33415.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LiggettVille San Antonio: Fast Track + High Ropes Course, Zip Rail & Wall Climb" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>LiggettVille San Antonio: Fast Track + High Ropes Course, Zip Rail & Wall Climb</h3>
+          <p class="venue">📍 LiggettVille Adventure Center</p>
+          <p>Visit LiggettVille in downtown San Antonio, Texas, by the Riverwalk lagoon. This indoor playground offers attractions for all ages, making it suitable for families and friends. 
 
 Try climbing, zip-lining, or exploring the fun activities available.</p>
-        <div class="card-footer">
-         <span class="price">From €27.76</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-liggettville-san-antonio-fast-track-high-ropes-course-zip-rail-wall-climb-p1116562/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €27.76</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-liggettville-san-antonio-fast-track-high-ropes-course-zip-rail-wall-climb-p1116562/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Buckhorn Saloon & Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Buckhorn Saloon & Museum: Entry Ticket</h3>
-        <p class="venue">📍 The Buckhorn Saloon & Museum</p>
-        <p>Visit the Buckhorn Saloon & Museum in San Antonio for a complete Texas experience.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Buckhorn Saloon & Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Buckhorn Saloon & Museum: Entry Ticket</h3>
+          <p class="venue">📍 The Buckhorn Saloon & Museum</p>
+          <p>Visit the Buckhorn Saloon & Museum in San Antonio for a complete Texas experience.
 
 See the exotic animal collection and the Texas Ranger Museum. Enjoy the saloon and cafe, then browse the gift shop. The private event space is also available.
 
 Spend the day exploring one of downtown San Antonio's top attractions. Learn about Texas history and culture in this unique venue.</p>
-        <div class="card-footer">
-         <span class="price">From €21.46</span>
-         <span class="rating">⭐ 5 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-buckhorn-saloon-museum-p1115411/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €21.46</span>
+            <span class="rating">⭐ 5 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-buckhorn-saloon-museum-p1115411/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="River Walk San Antonio: Guided Food Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>River Walk San Antonio: Guided Food Tour</h3>
-        <p class="venue">📍 San Antonio City Tours</p>
-        <p>Start the tour at a central meeting point in downtown **San Antonio** and meet the guide before making **multiple Riverwalk food stops**. Walk to the **Torch of Friendship Monument**, a symbol of cultural ties between nations. Follow the scenic riverfront with historic walkways and architecture to the first stop for a warm and flavorful dish.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="River Walk San Antonio: Guided Food Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>River Walk San Antonio: Guided Food Tour</h3>
+          <p class="venue">📍 San Antonio City Tours</p>
+          <p>Start the tour at a central meeting point in downtown **San Antonio** and meet the guide before making **multiple Riverwalk food stops**. Walk to the **Torch of Friendship Monument**, a symbol of cultural ties between nations. Follow the scenic riverfront with historic walkways and architecture to the first stop for a warm and flavorful dish.
 
 Head to one of the city’s oldest neighborhoods, passing several notable sites including a historic village and bridge. Continue along the river and enjoy a fresh dish inspired by the area's culinary traditions. Finish the tour with a sweet treat, enjoying the city's vibrant atmosphere.
 
 Some other highlights along the way are the **San Fernando Cathedral** and the **Love Lock Bridge**.</p>
-        <div class="card-footer">
-         <span class="price">From €111.23</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-river-walk-san-antonio-guided-food-tour-p1113523/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €111.23</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-river-walk-san-antonio-guided-food-tour-p1113523/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Old Town Trolley: Hop-on Hop-off" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio Old Town Trolley: Hop-on Hop-off</h3>
-        <p class="venue">📍 San Antonio City Tours</p>
-        <p>Take a sightseeing tour around San Antonio with the Old Town Trolley. It's a city with a mix of history, culture, and new developments. A good place to start is the famous Alamo, which takes you back to the Texas Revolution. You'll also learn about other sites that are part of a UNESCO World Heritage Site, including the San Jose Mission.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Old Town Trolley: Hop-on Hop-off" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio Old Town Trolley: Hop-on Hop-off</h3>
+          <p class="venue">📍 San Antonio City Tours</p>
+          <p>Take a sightseeing tour around San Antonio with the Old Town Trolley. It's a city with a mix of history, culture, and new developments. A good place to start is the famous Alamo, which takes you back to the Texas Revolution. You'll also learn about other sites that are part of a UNESCO World Heritage Site, including the San Jose Mission.
 
 During your tour, you'll find the River Walk, a beautiful waterway surrounded by cafes and shops. Take a break from the Old Town Trolley and climb the Tower of the Americas for an amazing city view. 
 
 With 12 stops along the route, you can start and stop your tour whenever it suits you!</p>
-        <div class="card-footer">
-         <span class="price">From €46.62</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-old-town-trolley-hop-on-hop-off-p1095075/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €46.62</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-old-town-trolley-hop-on-hop-off-p1095075/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/982eb66ffaec4596a074c5ae4bccb5d9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Believe It or Not! San Antonio: 4-Attraction Pass" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Ripley's Believe It or Not! San Antonio: 4-Attraction Pass</h3>
-        <p class="venue">📍 Ripley's Believe It or Not!</p>
-        <p>Experience the world of the strange and extraordinary at Ripley's Believe it or Not! Explore oddities like genuine shrunken heads, incredible human feats, and nature's weirdest creations.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/982eb66ffaec4596a074c5ae4bccb5d9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Believe It or Not! San Antonio: 4-Attraction Pass" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Ripley's Believe It or Not! San Antonio: 4-Attraction Pass</h3>
+          <p class="venue">📍 Ripley's Believe It or Not!</p>
+          <p>Experience the world of the strange and extraordinary at Ripley's Believe it or Not! Explore oddities like genuine shrunken heads, incredible human feats, and nature's weirdest creations.
 
 Rub shoulders with your favorite stars at Louis Tussaud’s Waxworks, boasting over 200 lifelike wax figures. Snap a selfie with iconic actors, musicians, and heroic figures.
 
 Dive into Ripley's Illusion Lab for a mind-bending experience where perception meets reality. Interact with optical, photographic, and illusions that will leave you questioning what you see.
 
 Hold on tight for a unique cinematic adventure at Ripley's Moving Theater. Experience movies like never before on a four-dimensional motion simulator ride.</p>
-        <div class="card-footer">
-         <span class="price">From €41.99</span>
-         <span class="rating">⭐ 1 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-ripley-s-believe-it-or-not-and-attractions-p1089726/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €41.99</span>
+            <span class="rating">⭐ 1 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-ripley-s-believe-it-or-not-and-attractions-p1089726/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio: Small Group Walking Tour + River Cruise + Tower of the Americas" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio: Small Group Walking Tour + River Cruise + Tower of the Americas</h3>
-        <p class="venue">📍 San Antonio City Tours</p>
-        <p>Kick off a day of adventure right at the iconic Alamo's front entrance, where a friendly is waiting to retrace the heroics of yesteryear. You will take a tranquil 35-minute River Walk Cruise, travelling the stunning 15-mile urban waterway which showcases the city's rich culture, history, and architectural splendor.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio: Small Group Walking Tour + River Cruise + Tower of the Americas" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio: Small Group Walking Tour + River Cruise + Tower of the Americas</h3>
+          <p class="venue">📍 San Antonio City Tours</p>
+          <p>Kick off a day of adventure right at the iconic Alamo's front entrance, where a friendly is waiting to retrace the heroics of yesteryear. You will take a tranquil 35-minute River Walk Cruise, travelling the stunning 15-mile urban waterway which showcases the city's rich culture, history, and architectural splendor.
 
 Next, dry land beckons, leading you to the colorful Historic La Villita District, pulsating with life and effervescent culture. Check out the awe-inspiring Spanish Colonial architecture of the San Fernando Cathedral, standing tall and proud for over three centuries.
 
 Then, your heart will skip a beat as an elevator whisks you 623 feet skyward to the Texas' tallest observation deck atop the Tower of the Americas. Hold your breath as the city of San Antonio unfolds in a jaw-dropping panorama beneath.</p>
-        <div class="card-footer">
-         <span class="price">From €111.23</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-small-group-walking-tour-river-cruise-tower-of-the-americas-p1073666/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €111.23</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-small-group-walking-tour-river-cruise-tower-of-the-americas-p1073666/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio: Small Group Night Tour + River Cruise + Tower of the Americas Entry" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio: Small Group Night Tour + River Cruise + Tower of the Americas Entry</h3>
-        <p class="venue">📍 San Antonio City Tours</p>
-        <p>Your night out will begin with your tour guide greeting you directly at your downtown hotel before heading out to your first stop on our exciting night tour of San Antonio - The River City.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio: Small Group Night Tour + River Cruise + Tower of the Americas Entry" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio: Small Group Night Tour + River Cruise + Tower of the Americas Entry</h3>
+          <p class="venue">📍 San Antonio City Tours</p>
+          <p>Your night out will begin with your tour guide greeting you directly at your downtown hotel before heading out to your first stop on our exciting night tour of San Antonio - The River City.
 
 The first stop will take your view of San Antonio to new heights. See the stunning illuminated city skyline from the Tower of the Americas Observation Deck, the tallest observation tower in Texas.
 
@@ -583,138 +582,137 @@ Explore the 1836 battlefield where heroes fell, walk among legends and explore t
 Next, your tour guide will take you to an enchanting River Night Cruise, passing multiple points of interest such as the historical marker Old Mill Crossing, the city’s first neighborhood illuminated at night.
 
 Your tour guide will safely take you back to your downtown hotel, or arranged destination.</p>
-        <div class="card-footer">
-         <span class="price">From €102.6</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-small-group-night-tour-river-cruise-tower-of-the-americas-entry-p1073632/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €102.6</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-small-group-night-tour-river-cruise-tower-of-the-americas-entry-p1073632/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hard Rock Cafe San Antonio Dining Experience" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hard Rock Cafe San Antonio Dining Experience</h3>
-        <p class="venue">📍 Hard Rock Cafe San Antonio</p>
-        <p>Got a Texas-sized appetite in the Lone Star State? Drop by the Hard Rock Cafe San Antonio and fill up on all-American classics from a mouthwatering menu. Choose from an array of steakhouse burgers, epic sandwiches, and incredible sides and tuck into a two- or three-course meal.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hard Rock Cafe San Antonio Dining Experience" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hard Rock Cafe San Antonio Dining Experience</h3>
+          <p class="venue">📍 Hard Rock Cafe San Antonio</p>
+          <p>Got a Texas-sized appetite in the Lone Star State? Drop by the Hard Rock Cafe San Antonio and fill up on all-American classics from a mouthwatering menu. Choose from an array of steakhouse burgers, epic sandwiches, and incredible sides and tuck into a two- or three-course meal.
 
 Don't forget to check out the spectacular attractions the Cafe offers to guests of all ages. Once your hunger and thirst are satisfied, peruse the collection of music memorabilia and shop for collectible Hard Rock Cafe merchandise at the Rock Shop.
 
 Situated along the city’s famous River Walk, the number one tourist destination in Texas, Hard Rock Cafe San Antonio has three floors of patios and balconies, making it easy to relax and enjoy the great Texas weather and picturesque views of the San Antonio River.</p>
-        <div class="card-footer">
-         <span class="price">From €32.46</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hard-rock-cafe-san-antonio-dining-experience-p1054754/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €32.46</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hard-rock-cafe-san-antonio-dining-experience-p1054754/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="iFLY San Antonio" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>iFLY San Antonio</h3>
-        <p class="venue">📍 iFLY Indoor Skydiving: San Antonio</p>
-        <p>There’s no other feeling in the world quite like indoor skydiving! iFLY’s state-of-the-art wind tunnels are designed to provide a safe - and thrilling - flight experience for everyone. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/caff39432bed4e9cb0aeb4a4c3f10b38.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="iFLY San Antonio" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>iFLY San Antonio</h3>
+          <p class="venue">📍 iFLY Indoor Skydiving: San Antonio</p>
+          <p>There’s no other feeling in the world quite like indoor skydiving! iFLY’s state-of-the-art wind tunnels are designed to provide a safe - and thrilling - flight experience for everyone. 
 
 Make memories that will last a lifetime, and leave with a unique story to tell - there aren't many people other than superheroes who can say they've flown without an airplane!
 
 Flyers ages 3 to 103 can indoor skydive. From beginners to seasoned pros, people of all shapes, sizes, and abilities can take flight. You don’t need to be an athlete or in perfect shape — iFLY's world-class instructors are experts at making flying fun for everyone.</p>
-        <div class="card-footer">
-         <span class="price">From €92.4</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-ifly-san-antonio-p1036922/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €92.4</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-ifly-san-antonio-p1036922/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/5380588a61314d35a567515994fd2a5a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio: Highlights + Alamo Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio: Highlights + Alamo Guided Tour</h3>
-        <p class="venue">📍 The Alamo</p>
-        <p>This tour is an exciting half-day adventure of San Antonio - the River City. The first stop is an exciting visit to a local cultural icon, the Alamo, where you'll stand in the footsteps of heroes. Walk among legends as you enjoy a guided tour revealing the story of the 1836 Battle of the Alamo. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5380588a61314d35a567515994fd2a5a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio: Highlights + Alamo Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio: Highlights + Alamo Guided Tour</h3>
+          <p class="venue">📍 The Alamo</p>
+          <p>This tour is an exciting half-day adventure of San Antonio - the River City. The first stop is an exciting visit to a local cultural icon, the Alamo, where you'll stand in the footsteps of heroes. Walk among legends as you enjoy a guided tour revealing the story of the 1836 Battle of the Alamo. 
 Enjoy free time to see the beautiful Spanish colonial missions that transformed local ways of life at that time. While en-route to your next stop, view the city’s skyline accompanied by a narrated city history of San Antonio. Then, a relaxing 35-minute river walk cruise will immerse you in the city’s culture, history, and architecture as you pass major points of interest.
 Finally, take an elevator ride up 623 ft to the top of Tower of the Americas for a magnificent view of San Antonio.</p>
-        <div class="card-footer">
-         <span class="price">From €137.09</span>
-         <span class="rating">⭐ 4.8 (17)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-best-of-san-antonio-guided-tour-p1022595/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €137.09</span>
+            <span class="rating">⭐ 4.8 (17)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-best-of-san-antonio-guided-tour-p1022595/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/982eb66ffaec4596a074c5ae4bccb5d9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Family Fun Pass" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio Family Fun Pass</h3>
-        <p class="venue">📍 San Antonio Aquarium</p>
-        <p>The combo ticket offers an unforgettable journey through LEGOLAND® Discovery Center, SEA LIFE San Antonio, and the San Antonio Aquarium, providing endless fun and exploration for the whole family. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/982eb66ffaec4596a074c5ae4bccb5d9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Family Fun Pass" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio Family Fun Pass</h3>
+          <p class="venue">📍 San Antonio Aquarium</p>
+          <p>The combo ticket offers an unforgettable journey through LEGOLAND® Discovery Center, SEA LIFE San Antonio, and the San Antonio Aquarium, providing endless fun and exploration for the whole family. 
 
 Explore the hidden chambers of the Natural Bridge Caverns, dive into an oceanic adventure with over 8,000 marine animals, and ignite your creativity with millions of LEGO bricks. Get your combo ticket today and start your San Antonio adventure!</p>
-        <div class="card-footer">
-         <span class="price">From €63.37</span>
-         <span class="rating">⭐ 4.5 (4)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-family-fun-pass-p1098403/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €63.37</span>
+            <span class="rating">⭐ 4.5 (4)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-family-fun-pass-p1098403/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f3823cebb2fc4f36884aa4cab2312246.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Summer Pass" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio Summer Pass</h3>
-        <p class="venue">📍 San Antonio City Cards</p>
-        <p>Discover the variety of marine life, get close to the animal kingdom, and visit ancient caves with this adventure package.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f3823cebb2fc4f36884aa4cab2312246.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Summer Pass" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio Summer Pass</h3>
+          <p class="venue">📍 San Antonio City Cards</p>
+          <p>Discover the variety of marine life, get close to the animal kingdom, and visit ancient caves with this adventure package.
 
 Start with the San Antonio Aquarium, with a ticket that lets you interact with over 8,000 animals from different regions, including lemurs, sloths, and reptiles.
 
 Then, use the San Antonio Zoo Any-Day Entry Ticket to explore African savannas, Amazon rainforests, Big Cat Valley, Gibbon Forest, Friedrich Aquarium, and Kronkosky's Tiny Tot Nature Spot, home to over 750 animal species.
 
 Finally, take a tour of the ancient cave formations at Natural Bridge Caverns lit up by over 2,500 LED lights.</p>
-        <div class="card-footer">
-         <span class="price">From €53.46</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-summer-pass-p1097303/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €53.46</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-summer-pass-p1097303/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/982eb66ffaec4596a074c5ae4bccb5d9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Family Fun Pass" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio Family Fun Pass</h3>
-        <p class="venue">📍 San Antonio Aquarium</p>
-        <p>The combo ticket offers an unforgettable journey through LEGOLAND® Discovery Center, SEA LIFE San Antonio, and the San Antonio Aquarium, providing endless fun and exploration for the whole family. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/982eb66ffaec4596a074c5ae4bccb5d9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Family Fun Pass" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio Family Fun Pass</h3>
+          <p class="venue">📍 San Antonio Aquarium</p>
+          <p>The combo ticket offers an unforgettable journey through LEGOLAND® Discovery Center, SEA LIFE San Antonio, and the San Antonio Aquarium, providing endless fun and exploration for the whole family. 
 
 Explore the hidden chambers of the Natural Bridge Caverns, dive into an oceanic adventure with over 8,000 marine animals, and ignite your creativity with millions of LEGO bricks. Get your combo ticket today and start your San Antonio adventure!</p>
-        <div class="card-footer">
-         <span class="price">From €63.37</span>
-         <span class="rating">⭐ 4.5 (4)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-family-fun-pass-p1098403/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €63.37</span>
+            <span class="rating">⭐ 4.5 (4)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-family-fun-pass-p1098403/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f3823cebb2fc4f36884aa4cab2312246.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Summer Pass" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>San Antonio Summer Pass</h3>
-        <p class="venue">📍 San Antonio City Cards</p>
-        <p>Discover the variety of marine life, get close to the animal kingdom, and visit ancient caves with this adventure package.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f3823cebb2fc4f36884aa4cab2312246.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Antonio Summer Pass" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>San Antonio Summer Pass</h3>
+          <p class="venue">📍 San Antonio City Cards</p>
+          <p>Discover the variety of marine life, get close to the animal kingdom, and visit ancient caves with this adventure package.
 
 Start with the San Antonio Aquarium, with a ticket that lets you interact with over 8,000 animals from different regions, including lemurs, sloths, and reptiles.
 
 Then, use the San Antonio Zoo Any-Day Entry Ticket to explore African savannas, Amazon rainforests, Big Cat Valley, Gibbon Forest, Friedrich Aquarium, and Kronkosky's Tiny Tot Nature Spot, home to over 750 animal species.
 
 Finally, take a tour of the ancient cave formations at Natural Bridge Caverns lit up by over 2,500 LED lights.</p>
-        <div class="card-footer">
-         <span class="price">From €53.46</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-summer-pass-p1097303/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €53.46</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-antonio-summer-pass-p1097303/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

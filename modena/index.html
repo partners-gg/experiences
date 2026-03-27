@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,43 +32,42 @@
     <p>6 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b10d7362a8904b068adb7d0bf5fd6062.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Enzo Ferrari Museums Modena: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Enzo Ferrari Museums Modena: Entry Ticket</h3>
-        <p class="venue">📍 Enzo Ferrari Museum</p>
-        <p>Start your engines and prepare for a breakneck tour through the life and work of maverick racing driver and entrepreneur Enzo Ferrari, father of the Ferrari empire. Inside the sleekly designed building, you'll see some of the most beautiful performance cars ever made, and learn all about the man who made his dreams into a high-speed reality.</p>
-        <div class="card-footer">
-         <span class="price">From €27</span>
-         <span class="rating">⭐ 4.6 (334)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-enzo-ferrari-museum-p975157/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b10d7362a8904b068adb7d0bf5fd6062.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Enzo Ferrari Museums Modena: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Enzo Ferrari Museums Modena: Entry Ticket</h3>
+          <p class="venue">📍 Enzo Ferrari Museum</p>
+          <p>Start your engines and prepare for a breakneck tour through the life and work of maverick racing driver and entrepreneur Enzo Ferrari, father of the Ferrari empire. Inside the sleekly designed building, you'll see some of the most beautiful performance cars ever made, and learn all about the man who made his dreams into a high-speed reality.</p>
+          <div class="card-footer">
+            <span class="price">From €27</span>
+            <span class="rating">⭐ 4.6 (334)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-enzo-ferrari-museum-p975157/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/367dc0bbb4634bc29188e9611cda3726.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Enzo Ferrari Museum + Ferrari Museum Maranello + F1 Simulator" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Enzo Ferrari Museum + Ferrari Museum Maranello + F1 Simulator</h3>
-        <p class="venue">📍 Enzo Ferrari Museum</p>
-        <p>Experience speed and luxury at two Ferrari museums: the Ferrari Museum in Maranello and the Enzo Ferrari Museum in Modena. Discover the world's most renowned vehicles and the engineering behind them.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/367dc0bbb4634bc29188e9611cda3726.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Enzo Ferrari Museum + Ferrari Museum Maranello + F1 Simulator" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Enzo Ferrari Museum + Ferrari Museum Maranello + F1 Simulator</h3>
+          <p class="venue">📍 Enzo Ferrari Museum</p>
+          <p>Experience speed and luxury at two Ferrari museums: the Ferrari Museum in Maranello and the Enzo Ferrari Museum in Modena. Discover the world's most renowned vehicles and the engineering behind them.
 
 In addition, feel the excitement of driving a Formula One with the Ferrari F1 simulator, all included in the ticket price.</p>
-        <div class="card-footer">
-         <span class="price">From €95</span>
-         <span class="rating">⭐ 3.9 (8)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-enzo-ferrari-museum-ferrari-museum-maranello-f1-simulator-p1090621/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €95</span>
+            <span class="rating">⭐ 3.9 (8)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-enzo-ferrari-museum-ferrari-museum-maranello-f1-simulator-p1090621/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e578efcc7b64fbca96cf240c8ca5038.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Modena: Guided Tour + Balsamic Vinegar Tasting" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Modena: Guided Tour + Balsamic Vinegar Tasting</h3>
-        <p class="venue">📍 Modena Food Tours</p>
-        <p>Visit Acetaia Marchi, located just outside Modena. This family business has been producing balsamic vinegar since 1910. The estate uses only native grape varieties, like Trebbiano Modenese and various Lambrusco types. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e578efcc7b64fbca96cf240c8ca5038.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Modena: Guided Tour + Balsamic Vinegar Tasting" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Modena: Guided Tour + Balsamic Vinegar Tasting</h3>
+          <p class="venue">📍 Modena Food Tours</p>
+          <p>Visit Acetaia Marchi, located just outside Modena. This family business has been producing balsamic vinegar since 1910. The estate uses only native grape varieties, like Trebbiano Modenese and various Lambrusco types. 
 
 Take a guided tour to see the aging rooms, where Balsamic Vinegar of Modena IGP ages in wooden barrels. Learn to distinguish artisanal products from industrial ones while viewing rows of barrels where vinegar ages for 12 to 25 years. Visit the onsite shop offering local specialties.
 
@@ -76,68 +75,67 @@ Take a guided tour to see the aging rooms, where Balsamic Vinegar of Modena IGP 
 
 * Classic Tasting: Includes four types of Modena PGI Balsamic Vinegar (one aged and one reserve), two types of traditional Modena PDO Balsamic Vinegar aged 12 and 25 years, and two toppings with different aging periods.
 * Prestige Tasting: Includes everything offered in the classic tasting, along with Parmigiano Reggiano, sweet and sour jams made with Balsamic Vinegar, Balsamic Pearls, and a liqueur or glass of wine.</p>
-        <div class="card-footer">
-         <span class="price">From €18</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-modena-guided-tour-and-tasting-of-balsamic-vinegar-p1119653/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €18</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-modena-guided-tour-and-tasting-of-balsamic-vinegar-p1119653/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e578efcc7b64fbca96cf240c8ca5038.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Emilia-Romagna: Pasta Making Class + Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Emilia-Romagna: Pasta Making Class + Wine Tasting</h3>
-        <p class="venue">📍 Modena Food Tours</p>
-        <p>Join Chef Massimiliano in a hands-on cooking class to learn traditional fresh pasta from Romagna. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e578efcc7b64fbca96cf240c8ca5038.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Emilia-Romagna: Pasta Making Class + Wine Tasting" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Emilia-Romagna: Pasta Making Class + Wine Tasting</h3>
+          <p class="venue">📍 Modena Food Tours</p>
+          <p>Join Chef Massimiliano in a hands-on cooking class to learn traditional fresh pasta from Romagna. 
 
 Follow step-by-step guidance to create long pastas like tagliatelle, tagliolini, and spaghetti alla chitarra, along with stuffed varieties such as ravioli, tortelli, and cappellacci. 
 
 Roll the dough, shape it, and fill it using locally sourced ingredients. After cooking, enjoy the meal with a local wine. 
 
 Gain practical pasta-making skills and an understanding of Romagna’s culinary traditions.</p>
-        <div class="card-footer">
-         <span class="price">From €170</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-emilia-romagna-pasta-making-class-wine-tasting-p1122353/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €170</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-emilia-romagna-pasta-making-class-wine-tasting-p1122353/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Modena Tasting Experiences: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Modena Tasting Experiences: Guided Tour</h3>
-        <p class="venue">📍 Modena Tasting Experiences</p>
-        <p>Discover the world of balsamic vinegar! This unique condiment, rich in tradition, is waiting for you to explore. You'll be guided by either Claudio or his grandfather Franco through the Acetaia, where this special vinegar is made.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Modena Tasting Experiences: Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Modena Tasting Experiences: Guided Tour</h3>
+          <p class="venue">📍 Modena Tasting Experiences</p>
+          <p>Discover the world of balsamic vinegar! This unique condiment, rich in tradition, is waiting for you to explore. You'll be guided by either Claudio or his grandfather Franco through the Acetaia, where this special vinegar is made.
 
 The tour includes a walk through the 10-hectare vineyard, with five hectares dedicated to Trebbiano Modenese grapes. These grapes are key to making the excellent balsamic vinegar here. Tasting this vinegar will show you the difference between traditional and commercial balsamic, offering a new perspective on this delicious product.</p>
-        <div class="card-footer">
-         <span class="price">From €15</span>
-         <span class="rating">⭐ 4 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-modena-guided-tour-of-balsamic-vinegar-cellar-p1095876/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €15</span>
+            <span class="rating">⭐ 4 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-modena-guided-tour-of-balsamic-vinegar-cellar-p1095876/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e578efcc7b64fbca96cf240c8ca5038.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Casa Museo Luciano Pavarotti: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Casa Museo Luciano Pavarotti: Entry Ticket</h3>
-        <p class="venue">📍 Casa Museo Luciano Pavarotti</p>
-        <p>He had a voice. A big voice, so big it will move us forever. With Casa Museo Luciano Pavarotti tickets, take a behind-the-scenes look at the famous Luciano Pavarotti, through everyday items and objects that reflect the personality of the world-renowned opera singer. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e578efcc7b64fbca96cf240c8ca5038.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Casa Museo Luciano Pavarotti: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Casa Museo Luciano Pavarotti: Entry Ticket</h3>
+          <p class="venue">📍 Casa Museo Luciano Pavarotti</p>
+          <p>He had a voice. A big voice, so big it will move us forever. With Casa Museo Luciano Pavarotti tickets, take a behind-the-scenes look at the famous Luciano Pavarotti, through everyday items and objects that reflect the personality of the world-renowned opera singer. 
 
 Get up close to costumes and letters exchanged with friends; some of whom are Frank Sinatra and Bono.
 
 See fascinating memorabilia, the awards Pavarotti received during his long career, and relive his revered work, which left an indelible mark on the world of opera music.</p>
-        <div class="card-footer">
-         <span class="price">From €15</span>
-         <span class="rating">⭐ 4.7 (18)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-casa-museo-luciano-pavarotti-p1036833/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €15</span>
+            <span class="rating">⭐ 4.7 (18)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-casa-museo-luciano-pavarotti-p1036833/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

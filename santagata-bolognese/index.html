@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,29 +32,28 @@
     <p>7 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b10d7362a8904b068adb7d0bf5fd6062.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lamborghini Automobile Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Lamborghini Automobile Museum: Entry Ticket</h3>
-        <p class="venue">📍 Lamborghini Automobile Museum</p>
-        <p>The Lamborghini Automobile Museum is much more than a car display. You'll see a wide range of Lamborghini models that demonstrate the evolution of design and technology. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b10d7362a8904b068adb7d0bf5fd6062.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lamborghini Automobile Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Lamborghini Automobile Museum: Entry Ticket</h3>
+          <p class="venue">📍 Lamborghini Automobile Museum</p>
+          <p>The Lamborghini Automobile Museum is much more than a car display. You'll see a wide range of Lamborghini models that demonstrate the evolution of design and technology. 
 
 Beyond the cars themselves, the history of the Lamborghini brand is also a focal point of the museum. The main attraction? It just might be the opportunity to test some of their unmissable prototype vehicles for yourself!</p>
-        <div class="card-footer">
-         <span class="price">From €20</span>
-         <span class="rating">⭐ 4.3 (122)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-lamborghini-automobile-museum-entry-ticket-p1095491/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €20</span>
+            <span class="rating">⭐ 4.3 (122)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-lamborghini-automobile-museum-entry-ticket-p1095491/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lamborghini and Ferrari Museum Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Lamborghini and Ferrari Museum Entry Ticket</h3>
-        <p class="venue">📍 Lamborghini Automobile Museum</p>
-        <p>Get ready for a journey through automotive history with a combo ticket. Start at the Maranello Ferrari Museum to explore Ferrari's history and innovations. See the famous cars that made Ferrari a top brand.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lamborghini and Ferrari Museum Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Lamborghini and Ferrari Museum Entry Ticket</h3>
+          <p class="venue">📍 Lamborghini Automobile Museum</p>
+          <p>Get ready for a journey through automotive history with a combo ticket. Start at the Maranello Ferrari Museum to explore Ferrari's history and innovations. See the famous cars that made Ferrari a top brand.
 
 Next, visit the Lamborghini Museum in Bologna. Check out iconic Lamborghini models and tour the production lines. 
 
@@ -63,38 +62,38 @@ Enjoy the interactive driving simulator at the Lamborghini Museum to feel the th
 Admire the visionary creations of Ferruccio Lamborghini, such as the Miura and Countach, alongside recent supercars like the Huracán Performante, Aventador SVJ, and exclusive models like the Centenario, Sesto Elemento, and Veneno. 
 
 The museum also features Lamborghini's first hybrid cars, including the Sian and Countach LPI 800-4.</p>
-        <div class="card-footer">
-         <span class="price">From €44</span>
-         <span class="rating">⭐ 4.5 (50)</span>
-         <a href="https://www.tiqets.com/en/checkout/lamborghini-and-ferrari-museum-entry-ticket-p1098084/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €44</span>
+            <span class="rating">⭐ 4.5 (50)</span>
+            <a href="https://www.tiqets.com/en/checkout/lamborghini-and-ferrari-museum-entry-ticket-p1098084/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lamborghini Automobile Museum: Entry Ticket + Driving Simulation" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Lamborghini Automobile Museum: Entry Ticket + Driving Simulation</h3>
-        <p class="venue">📍 Lamborghini Automobile Museum</p>
-        <p>See legendary models like the Miura and Countach up close, tracing the brand’s evolution from Ferruccio Lamborghini’s earliest masterpieces to today’s state-of-the-art hybrids such as the Sian and Countach LPI 800-4. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lamborghini Automobile Museum: Entry Ticket + Driving Simulation" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Lamborghini Automobile Museum: Entry Ticket + Driving Simulation</h3>
+          <p class="venue">📍 Lamborghini Automobile Museum</p>
+          <p>See legendary models like the Miura and Countach up close, tracing the brand’s evolution from Ferruccio Lamborghini’s earliest masterpieces to today’s state-of-the-art hybrids such as the Sian and Countach LPI 800-4. 
 
 Learn about past racing and Formula 1 cars, along with technological innovations like the 4x4, aluminum, carbon, and hybrid models.
 
 Interactive displays and the advanced driving simulator put you right behind the wheel, letting you get a feel for Lamborghini’s performance yourself.</p>
-        <div class="card-footer">
-         <span class="price">From €38.5</span>
-         <span class="rating">⭐ 3.7 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-lamborghini-museum-entrance-and-driving-simulation-p1118617/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €38.5</span>
+            <span class="rating">⭐ 3.7 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-lamborghini-museum-entrance-and-driving-simulation-p1118617/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Automobili Lamborghini, Ferruccio Lamborghini, Ferrari & Enzo Ferrari Museums" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Automobili Lamborghini, Ferruccio Lamborghini, Ferrari & Enzo Ferrari Museums</h3>
-        <p class="venue">📍 Lamborghini Automobile Museum</p>
-        <p>At the Automobili Lamborghini Museum, you can explore 60 years of Lamborghini models and learn about the brand's history and innovations.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Automobili Lamborghini, Ferruccio Lamborghini, Ferrari & Enzo Ferrari Museums" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Automobili Lamborghini, Ferruccio Lamborghini, Ferrari & Enzo Ferrari Museums</h3>
+          <p class="venue">📍 Lamborghini Automobile Museum</p>
+          <p>At the Automobili Lamborghini Museum, you can explore 60 years of Lamborghini models and learn about the brand's history and innovations.
 
 In the Ferruccio Lamborghini Museum, see the evolution of Lamborghini engineering, from the first Carioca tractor in 1947 to models from the 1950s, 60s, and 70s.
 
@@ -103,68 +102,67 @@ The Ferrari Museum in Maranello showcases classic and modern Ferrari cars. Enjoy
 The Enzo Ferrari Museum in Modena offers a look at legendary Ferraris and the brand's heritage. It's a key destination for car enthusiasts.
 
 This combined entry ticket gives you access to all four museums over two days.</p>
-        <div class="card-footer">
-         <span class="price">From €78</span>
-         <span class="rating">⭐ 4.3 (9)</span>
-         <a href="https://www.tiqets.com/en/checkout/lamborghini-and-ferrari-museums-entry-ticket-p1102730/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €78</span>
+            <span class="rating">⭐ 4.3 (9)</span>
+            <a href="https://www.tiqets.com/en/checkout/lamborghini-and-ferrari-museums-entry-ticket-p1102730/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lamborghini Automobile Museum: Entry Ticket + Factory Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Lamborghini Automobile Museum: Entry Ticket + Factory Tour</h3>
-        <p class="venue">📍 Lamborghini Automobile Museum</p>
-        <p>Join a guided tour of Lamborghini’s museum and production facilities. Your visit begins with access to the museum and the Factory 4.0 production area, where you can watch luxury supercars being built. Skilled workers and advanced technology handle each step with precision.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lamborghini Automobile Museum: Entry Ticket + Factory Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Lamborghini Automobile Museum: Entry Ticket + Factory Tour</h3>
+          <p class="venue">📍 Lamborghini Automobile Museum</p>
+          <p>Join a guided tour of Lamborghini’s museum and production facilities. Your visit begins with access to the museum and the Factory 4.0 production area, where you can watch luxury supercars being built. Skilled workers and advanced technology handle each step with precision.
 
 During the tour, find out how craftsmanship, automated vehicles, and collaborative robots help the assembly line run smoothly. Staff explain how Lamborghini blends tradition with modern methods to build its cars.
 
 A shuttle helps you move easily between different areas of the site.
 
 Spend about 45 minutes in the assembly lines, observing key stages of the process. Then, explore the museum for around an hour to see rare concept cars, unique models, and learn how the brand’s design has changed over time.</p>
-        <div class="card-footer">
-         <span class="price">From €93</span>
-         <span class="rating">⭐ 4.2 (6)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-bologna-lamborghini-museum-entry-ticket-and-factory-tour-p1118281/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €93</span>
+            <span class="rating">⭐ 4.2 (6)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-bologna-lamborghini-museum-entry-ticket-and-factory-tour-p1118281/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bologna: Lamborghini Museum Guided Tour + Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Bologna: Lamborghini Museum Guided Tour + Entry Ticket</h3>
-        <p class="venue">📍 Lamborghini Automobile Museum</p>
-        <p>Visit the Lamborghini Museum in Sant’Agata Bolognese to see the evolution of this famous automotive brand. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bologna: Lamborghini Museum Guided Tour + Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Bologna: Lamborghini Museum Guided Tour + Entry Ticket</h3>
+          <p class="venue">📍 Lamborghini Automobile Museum</p>
+          <p>Visit the Lamborghini Museum in Sant’Agata Bolognese to see the evolution of this famous automotive brand. 
 
 See legendary models such as the 350 GT, Miura, Countach, and LM 002, alongside the latest supercars. Find rare editions like the Centenario, Sesto Elemento, and Veneno, known for their impressive designs and engineering.
 
 Learn about Lamborghini’s history, innovations, and technologies through the guided tour. Exhibits cover Lamborghini's story from its early days to the present.</p>
-        <div class="card-footer">
-         <span class="price">From €25</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-bologna-lamborghini-museum-guided-tour-entry-ticket-p1119604/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €25</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-bologna-lamborghini-museum-guided-tour-entry-ticket-p1119604/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lamborghini Museum & Ferruccio Lamborghini Museum: Combined Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Lamborghini Museum & Ferruccio Lamborghini Museum: Combined Entry Ticket</h3>
-        <p class="venue">📍 Lamborghini Automobile Museum</p>
-        <p>Visit the Automobili Lamborghini Museum and explore the heritage of Lamborghini. You can see iconic models and tour the production lines that have been operating for over 60 years. Get close to the latest super sports cars like the Huracán Performante, and the Aventador SVJ, and limited-edition cars like the Centenario, Sesto Elemento, and Veneno. Also, see the newest hybrid models, the Sian and Countach LPI 800-4.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lamborghini Museum & Ferruccio Lamborghini Museum: Combined Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Lamborghini Museum & Ferruccio Lamborghini Museum: Combined Entry Ticket</h3>
+          <p class="venue">📍 Lamborghini Automobile Museum</p>
+          <p>Visit the Automobili Lamborghini Museum and explore the heritage of Lamborghini. You can see iconic models and tour the production lines that have been operating for over 60 years. Get close to the latest super sports cars like the Huracán Performante, and the Aventador SVJ, and limited-edition cars like the Centenario, Sesto Elemento, and Veneno. Also, see the newest hybrid models, the Sian and Countach LPI 800-4.
 
 At the Ferruccio Lamborghini Museum, spread over 9000 square meters, you will find the full history of Ferruccio Lamborghini's work. From the first Carioca tractor in 1947 to key models from the 50s, 60s, and 70s, this museum is a must-see for car enthusiasts. Don't miss the prototype helicopter and the offshore Fast 45 Diablo Class 1, featuring a world-champion Lamborghini engine.</p>
-        <div class="card-footer">
-         <span class="price">From €36</span>
-         <span class="rating">⭐ 4 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-bologna-combined-lamborghini-museums-entry-ticket-p1098091/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €36</span>
+            <span class="rating">⭐ 4 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-bologna-combined-lamborghini-museums-entry-ticket-p1098091/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>
