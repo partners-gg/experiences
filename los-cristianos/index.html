@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Los Cristianos | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Los Cristianos. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,129 +131,206 @@
     <p>7 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3b1bdf2302014b4a895102e1fd7d4915.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Los Cristianos: Guided Whale Watching Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Los Cristianos: Guided Whale Watching Cruise</h3>
-          <p class="venue">📍 Los Cristianos Cruises</p>
-          <p>Sail on a Portuguese schooner from the harbor in Los Cristianos. This cruise takes you along the southwest coast of Tenerife. Watch for whales, snorkel, or relax on deck during the trip.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3b1bdf2302014b4a895102e1fd7d4915.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Los Cristianos: Guided Whale Watching Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LOS CRISTIANOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LOS CRISTIANOS CRUISES</span>
+        </div>
+        <div class="tq-card-title">Los Cristianos: Guided Whale Watching Cruise</div>
+        <div class="tq-card-desc">Sail on a Portuguese schooner from the harbor in Los Cristianos. This cruise takes you along the southwest coast of Tenerife. Watch for whales, snorkel, or relax on deck during the trip.
 
 The traditional Peter Pan boat has an onboard bar where you can buy drinks. Enjoy the views from the upper deck or sit at the large table on the main deck. There are two bathrooms below the deck for your convenience.
 
-Returns to the Los Cristianos harbor at the end of the cruise.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 4.5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-los-cristianos-guided-whale-watching-cruise-p1115092/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Returns to the Los Cristianos harbor at the end of the cruise.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-los-cristianos-guided-whale-watching-cruise-p1115092/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3b1bdf2302014b4a895102e1fd7d4915.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Los Cristianos: Viking Tenerife Ragnarok Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Los Cristianos: Viking Tenerife Ragnarok Cruise</h3>
-          <p class="venue">📍 Los Cristianos Cruises</p>
-          <p>Visit Viking Tenerife Ragnarok in the Canary Islands, operating since 2018. This Viking-themed boat can accommodate nearly 100 people and is accessible for people with disabilities.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3b1bdf2302014b4a895102e1fd7d4915.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Los Cristianos: Viking Tenerife Ragnarok Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LOS CRISTIANOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LOS CRISTIANOS CRUISES</span>
+        </div>
+        <div class="tq-card-title">Los Cristianos: Viking Tenerife Ragnarok Cruise</div>
+        <div class="tq-card-desc">Visit Viking Tenerife Ragnarok in the Canary Islands, operating since 2018. This Viking-themed boat can accommodate nearly 100 people and is accessible for people with disabilities.
 
-Sail from Los Cristianos port toward the cliffs above the blue ocean. Head out to see dolphins and whales. The location and climate between La Gomera and Tenerife offer almost guaranteed sightings. Photographers have a unique chance to capture these marine animals up close.</p>
-          <div class="card-footer">
-            <span class="price">From €20</span>
-            <span class="rating">⭐ 5 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-los-cristianos-viking-tenerife-ragnarok-boat-tour-p1112543/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Sail from Los Cristianos port toward the cliffs above the blue ocean. Head out to see dolphins and whales. The location and climate between La Gomera and Tenerife offer almost guaranteed sightings. Photographers have a unique chance to capture these marine animals up close.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-los-cristianos-viking-tenerife-ragnarok-boat-tour-p1112543/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3b1bdf2302014b4a895102e1fd7d4915.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: Dolphin & Whale Watching Catamaran Tour + Lunch + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tenerife: Dolphin & Whale Watching Catamaran Tour + Lunch + Transfers</h3>
-          <p class="venue">📍 Los Cristianos Cruises</p>
-          <p>Depart from Puerto Colón on the Maxicat catamaran and sail through the waters of Tenerife. See dolphins, whales, and migratory birds in their natural habitat. Attend a briefing to learn about marine life.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3b1bdf2302014b4a895102e1fd7d4915.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: Dolphin & Whale Watching Catamaran Tour + Lunch + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LOS CRISTIANOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LOS CRISTIANOS CRUISES</span>
+        </div>
+        <div class="tq-card-title">Tenerife: Dolphin & Whale Watching Catamaran Tour + Lunch + Transfers</div>
+        <div class="tq-card-desc">Depart from Puerto Colón on the Maxicat catamaran and sail through the waters of Tenerife. See dolphins, whales, and migratory birds in their natural habitat. Attend a briefing to learn about marine life.
 
-Stop at Diego Hernández Bay to swim, snorkel, and relax in the sun. Enjoy lunch with unlimited drinks. End the trip by cruising along Costa Adeje with clear views of Teide. For convenience, a pickup and drop-off service is included.</p>
-          <div class="card-footer">
-            <span class="price">From €39</span>
-            <span class="rating">⭐ 4.2 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tenerife-dolphin-whale-watching-catamaran-tour-lunch-transfers-p1114836/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Stop at Diego Hernández Bay to swim, snorkel, and relax in the sun. Enjoy lunch with unlimited drinks. End the trip by cruising along Costa Adeje with clear views of Teide. For convenience, a pickup and drop-off service is included.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tenerife-dolphin-whale-watching-catamaran-tour-lunch-transfers-p1114836/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3b1bdf2302014b4a895102e1fd7d4915.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Los Cristianos: Guided Yacht Cruise + Whale Watching + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Los Cristianos: Guided Yacht Cruise + Whale Watching + Lunch</h3>
-          <p class="venue">📍 Los Cristianos Cruises</p>
-          <p>Take a whale-watching cruise off the coast of Los Cristianos on a yacht for up to 22 passengers. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3b1bdf2302014b4a895102e1fd7d4915.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Los Cristianos: Guided Yacht Cruise + Whale Watching + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LOS CRISTIANOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LOS CRISTIANOS CRUISES</span>
+        </div>
+        <div class="tq-card-title">Los Cristianos: Guided Yacht Cruise + Whale Watching + Lunch</div>
+        <div class="tq-card-desc">Take a whale-watching cruise off the coast of Los Cristianos on a yacht for up to 22 passengers. 
 
 The tour includes a short stop for swimming and lunch with rice, vegetables, roasted chicken, meatballs, and salad. Drinks such as wine and beer are also included. 
 
 Watch whales and other marine animals in their natural habitat without disturbing them. The yacht, Neptuno, allows for close but respectful observation. The upper deck offers clear views, and there is also a bathroom below deck. 
 
-All boats are certified with the "Blue Flag" from local governments, indicating suitability for these excursions.</p>
-          <div class="card-footer">
-            <span class="price">From €63</span>
-            <span class="rating">⭐ 4.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-los-cristianos-guided-yacht-cruise-whale-watching-lunch-p1115094/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+All boats are certified with the "Blue Flag" from local governments, indicating suitability for these excursions.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€63.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-los-cristianos-guided-yacht-cruise-whale-watching-lunch-p1115094/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3b1bdf2302014b4a895102e1fd7d4915.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Los Gigantes: 5-Hr Guided Whale Watching Cruise from Costa Adeje + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Los Gigantes: 5-Hr Guided Whale Watching Cruise from Costa Adeje + Lunch</h3>
-          <p class="venue">📍 Los Cristianos Cruises</p>
-          <p>Join a 5-hour trip to see whales and dolphins along the cliffs of Los Gigantes.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3b1bdf2302014b4a895102e1fd7d4915.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Los Gigantes: 5-Hr Guided Whale Watching Cruise from Costa Adeje + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LOS CRISTIANOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LOS CRISTIANOS CRUISES</span>
+        </div>
+        <div class="tq-card-title">Los Gigantes: 5-Hr Guided Whale Watching Cruise from Costa Adeje + Lunch</div>
+        <div class="tq-card-desc">Join a 5-hour trip to see whales and dolphins along the cliffs of Los Gigantes.
 
 Depart from Puerto Colon and search for whales and dolphins. Visit the cliff of Los Gigantes, where the boat moves to an area with a good chance of spotting pilot whales.
 
-Stop for 30 minutes to view the whales in their natural habitat. Afterward, sail to the cliffs of Los Gigantes, where the boat anchors in a bay. Have a delicious lunch and swim in the waters before returning to Puerto Colón along Tenerife’s southwestern coast.</p>
-          <div class="card-footer">
-            <span class="price">From €61</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-los-gigantes-5-hr-guided-whale-watching-cruise-from-costa-adeje-lunch-p1115093/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Stop for 30 minutes to view the whales in their natural habitat. Afterward, sail to the cliffs of Los Gigantes, where the boat anchors in a bay. Have a delicious lunch and swim in the waters before returning to Puerto Colón along Tenerife’s southwestern coast.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€61.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-los-gigantes-5-hr-guided-whale-watching-cruise-from-costa-adeje-lunch-p1115093/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3b1bdf2302014b4a895102e1fd7d4915.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Costa Adeje: 2-Hr Guided Whale & Dolphin Watching Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Costa Adeje: 2-Hr Guided Whale & Dolphin Watching Cruise</h3>
-          <p class="venue">📍 Los Cristianos Cruises</p>
-          <p>Join a 2-hour tour to watch whales off the southern Tenerife west coast, starting from Puerto Colón. Learn from a knowledgeable guide on this educational journey in Tenerife.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3b1bdf2302014b4a895102e1fd7d4915.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Costa Adeje: 2-Hr Guided Whale & Dolphin Watching Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LOS CRISTIANOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LOS CRISTIANOS CRUISES</span>
+        </div>
+        <div class="tq-card-title">Costa Adeje: 2-Hr Guided Whale & Dolphin Watching Cruise</div>
+        <div class="tq-card-desc">Join a 2-hour tour to watch whales off the southern Tenerife west coast, starting from Puerto Colón. Learn from a knowledgeable guide on this educational journey in Tenerife.
 
 Board an oriental sailboat made from teak for the private use of an Arabian Sheikh. Purchase a drink at the bar or relax on the boat while visiting local dolphin and pilot whale populations.
 
-Enjoy the views from the upper deck and find bathrooms both below and on the main deck. Later, return to the Puerto Colón harbor to conclude the tour.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-costa-adeje-2-hr-guided-whale-dolphin-watching-cruise-p1112887/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy the views from the upper deck and find bathrooms both below and on the main deck. Later, return to the Puerto Colón harbor to conclude the tour.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-costa-adeje-2-hr-guided-whale-dolphin-watching-cruise-p1112887/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3b1bdf2302014b4a895102e1fd7d4915.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Los Cristianos: Guided Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Los Cristianos: Guided Boat Tour</h3>
-          <p class="venue">📍 Los Cristianos Cruises</p>
-          <p>Start the trip on the Viking Tenerife Ragnarok, a Viking-themed boat in the Canary Islands that began its tours in 2018. With space for almost 100 people and accessible for people with disabilities, it's a unique vessel in the region.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3b1bdf2302014b4a895102e1fd7d4915.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Los Cristianos: Guided Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LOS CRISTIANOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LOS CRISTIANOS CRUISES</span>
+        </div>
+        <div class="tq-card-title">Los Cristianos: Guided Boat Tour</div>
+        <div class="tq-card-desc">Start the trip on the Viking Tenerife Ragnarok, a Viking-themed boat in the Canary Islands that began its tours in 2018. With space for almost 100 people and accessible for people with disabilities, it's a unique vessel in the region.
 
 Set sail from Los Cristianos port toward the towering cliffs above the ocean. Head towards areas rich with dolphins and whales. The favorable location and climate between La Gomera and Tenerife provide almost a 100% chance of sightings. 
 
-Get close to these sea creatures, offering photographers an excellent opportunity for unique shots.</p>
-          <div class="card-footer">
-            <span class="price">From €44.5</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-los-cristianos-guided-boat-tour-p1113695/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get close to these sea creatures, offering photographers an excellent opportunity for unique shots.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€44.50</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-los-cristianos-guided-boat-tour-p1113695/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

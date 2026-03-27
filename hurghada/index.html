@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Hurghada | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Hurghada. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,174 +131,278 @@
     <p>20 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orange Bay Island: Snorkeling Tour from Hurghada + Water Sports + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Orange Bay Island: Snorkeling Tour from Hurghada + Water Sports + Lunch</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>Start your day with a convenient pickup from Hurghada. Board a boat and head out on the Red Sea towards Orange Bay.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orange Bay Island: Snorkeling Tour from Hurghada + Water Sports + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Orange Bay Island: Snorkeling Tour from Hurghada + Water Sports + Lunch</div>
+        <div class="tq-card-desc">Start your day with a convenient pickup from Hurghada. Board a boat and head out on the Red Sea towards Orange Bay.
 
 Spend the day snorkeling with the provided equipment. When allowed, you can jump off the boat to explore coral reefs and sea life.
 
-Explore Orange Island and eat a buffet lunch on the boat. At the end of the day, the boat will return to shore, and you will be dropped off at your hotel in Hurghada.</p>
-          <div class="card-footer">
-            <span class="price">From €18.97</span>
-            <span class="rating">⭐ 3 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-orange-bay-island-snorkeling-tour-from-hurghada-with-water-sports-and-lunch-p1103011/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore Orange Island and eat a buffet lunch on the boat. At the end of the day, the boat will return to shore, and you will be dropped off at your hotel in Hurghada.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.97</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-orange-bay-island-snorkeling-tour-from-hurghada-with-water-sports-and-lunch-p1103011/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sharm El Naga National Park: Guided Day Tour from Hurghada + Snorkeling + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sharm El Naga National Park: Guided Day Tour from Hurghada + Snorkeling + Lunch</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>Start your day with a trip from your hotel to Sharm El Naga Bay.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sharm El Naga National Park: Guided Day Tour from Hurghada + Snorkeling + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Sharm El Naga National Park: Guided Day Tour from Hurghada + Snorkeling + Lunch</div>
+        <div class="tq-card-desc">Start your day with a trip from your hotel to Sharm El Naga Bay.
 
 Once there, receive snorkeling equipment and enter the clear water. Alongside a guide, explore a coral reef filled with tropical fish and marine plants.
 
 Spend the rest of the day on the beach. Relax under a parasol, play beach games like volleyball and darts, or take a camel ride along the coast. Diving is available for an extra charge.
 
-Enjoy a buffet lunch and then return to your hotel in Hurghada.</p>
-          <div class="card-footer">
-            <span class="price">From €43.11</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sharm-el-naga-national-park-guided-day-tour-from-hurghada-snorkeling-lunch-p1119790/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a buffet lunch and then return to your hotel in Hurghada.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€43.11</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sharm-el-naga-national-park-guided-day-tour-from-hurghada-snorkeling-lunch-p1119790/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Guided Subwing & Water Ski Adventure + Private Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hurghada: Guided Subwing & Water Ski Adventure + Private Transfer</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>Join this adventure that combines subwinging and water skiing in Hurghada.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Guided Subwing & Water Ski Adventure + Private Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Hurghada: Guided Subwing & Water Ski Adventure + Private Transfer</div>
+        <div class="tq-card-desc">Join this adventure that combines subwinging and water skiing in Hurghada.
 
 Fly underwater with a subwing, where you can view coral reefs and spot various sea creatures. Then, try water skiing and glide across the water. 
 
-Instructors provide guidance for all skill levels. With private transfer included, there's no need to worry about getting there and back.</p>
-          <div class="card-footer">
-            <span class="price">From €24.14</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-guided-subwing-water-ski-adventure-private-transfer-p1119748/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Instructors provide guidance for all skill levels. With private transfer included, there's no need to worry about getting there and back.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€24.14</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-guided-subwing-water-ski-adventure-private-transfer-p1119748/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/def413743ccf4b1fac5bb4049dbdeacb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Guided Parasailing Experience + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hurghada: Guided Parasailing Experience + Roundtrip Transfer</h3>
-          <p class="venue">📍 Hurghada Outdoor Activities</p>
-          <p>Experience flying above the Red Sea with parasailing adventure in Hurghada. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/def413743ccf4b1fac5bb4049dbdeacb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Guided Parasailing Experience + Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Hurghada: Guided Parasailing Experience + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Experience flying above the Red Sea with parasailing adventure in Hurghada. 
 
 This activity offers you views of the coastline, clear waters, and beaches below, as you're gently lifted into the sky.
 
-All equipment is provided, with guidance from experienced instructors. No prior experience is needed.</p>
-          <div class="card-footer">
-            <span class="price">From €17.24</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-guided-parasailing-experience-roundtrip-transfer-p1119747/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+All equipment is provided, with guidance from experienced instructors. No prior experience is needed.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.24</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-guided-parasailing-experience-roundtrip-transfer-p1119747/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Guided Scuba Diving + Transfers + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hurghada: Guided Scuba Diving + Transfers + Lunch</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>Dive in clear waters with experienced instructors. Daily dives start in the morning and end in the afternoon. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Guided Scuba Diving + Transfers + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Hurghada: Guided Scuba Diving + Transfers + Lunch</div>
+        <div class="tq-card-desc">Dive in clear waters with experienced instructors. Daily dives start in the morning and end in the afternoon. 
 
 You'll start your dive with clear explanations and support from instructors. This trip is adaptable for both advanced certified divers and beginners, with multiple instructors on board to help.
 
-If you want to skip diving, you can also choose to go snorkeling instead, with all equipment provided. After your first dive, you get lunch on the boat and a break for up to two hours to relax or sunbathe before the last dive of the day.</p>
-          <div class="card-footer">
-            <span class="price">From €25.87</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-guided-scuba-diving-transfers-lunch-p1119745/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+If you want to skip diving, you can also choose to go snorkeling instead, with all equipment provided. After your first dive, you get lunch on the boat and a break for up to two hours to relax or sunbathe before the last dive of the day.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.87</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-guided-scuba-diving-transfers-lunch-p1119745/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/def413743ccf4b1fac5bb4049dbdeacb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: 1-Hr Guided Camel Ride + Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hurghada: 1-Hr Guided Camel Ride + Transfer</h3>
-          <p class="venue">📍 Hurghada Outdoor Activities</p>
-          <p>Ride camels in one of Egypt's top destinations for camel riding.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/def413743ccf4b1fac5bb4049dbdeacb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: 1-Hr Guided Camel Ride + Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Hurghada: 1-Hr Guided Camel Ride + Transfer</div>
+        <div class="tq-card-desc">Ride camels in one of Egypt's top destinations for camel riding.
 
-Experience Egypt's ancient camel culture in Hurghada with well-trained camels and skilled trainers. Receive pre-ride coaching and assistance throughout your ride.</p>
-          <div class="card-footer">
-            <span class="price">From €12.07</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-1-hr-guided-camel-ride-transfer-p1119744/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Experience Egypt's ancient camel culture in Hurghada with well-trained camels and skilled trainers. Receive pre-ride coaching and assistance throughout your ride.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-1-hr-guided-camel-ride-transfer-p1119744/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Guided Semi-Submarine Tour + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hurghada: Guided Semi-Submarine Tour + Transfers</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>Take a guided tour from Hurghada to explore the underwater world of the Red Sea.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Guided Semi-Submarine Tour + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Hurghada: Guided Semi-Submarine Tour + Transfers</div>
+        <div class="tq-card-desc">Take a guided tour from Hurghada to explore the underwater world of the Red Sea.
 
 Board the *Royal Seascope* semi-submarine equipped with a lower deck featuring large viewing windows. Observe the surrounding marine environment from an underwater perspective during the journey to a coral reef.
 
-View the aquatic landscape through glass panels in a climate-controlled seating area. Afterwards, participate in a snorkeling session near the coral reef before returning to the marina.</p>
-          <div class="card-footer">
-            <span class="price">From €20</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-guided-semi-submarine-tour-transfers-p1125800/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+View the aquatic landscape through glass panels in a climate-controlled seating area. Afterwards, participate in a snorkeling session near the coral reef before returning to the marina.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-guided-semi-submarine-tour-transfers-p1125800/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/def413743ccf4b1fac5bb4049dbdeacb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Makadi Water World Hurghada: Entry Ticket + Roundtrip Transport + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Makadi Water World Hurghada: Entry Ticket + Roundtrip Transport + Lunch</h3>
-          <p class="venue">📍 Makadi Water World Hurghada</p>
-          <p>Spend a day at the largest water park on the Red Sea coast. Join water games, swim in huge pools, ride the waves, and go rafting with a full-day pass.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/def413743ccf4b1fac5bb4049dbdeacb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Makadi Water World Hurghada: Entry Ticket + Roundtrip Transport + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MAKADI WATER WORLD HURGHADA</span>
+        </div>
+        <div class="tq-card-title">Makadi Water World Hurghada: Entry Ticket + Roundtrip Transport + Lunch</div>
+        <div class="tq-card-desc">Spend a day at the largest water park on the Red Sea coast. Join water games, swim in huge pools, ride the waves, and go rafting with a full-day pass.
 
 A representative will pick you up from your hotel and drive you to the park. Enjoy the wide range of water sports and social activities with your family and friends.
 
-Makadi Water World Aqua Park features 35 water slides, 14 outdoor pools, a heated pool, water lakes, poolside umbrellas, and sun beds. It is located just 25 minutes by car from downtown Hurghada. At the end of your visit, you’ll be taken back to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €62.08</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-makadi-water-world-hurghada-entry-roundtrip-transport-lunch-p1115759/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Makadi Water World Aqua Park features 35 water slides, 14 outdoor pools, a heated pool, water lakes, poolside umbrellas, and sun beds. It is located just 25 minutes by car from downtown Hurghada. At the end of your visit, you’ll be taken back to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€62.08</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-makadi-water-world-hurghada-entry-roundtrip-transport-lunch-p1115759/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orange Bay: Guided Boat Tour + Snorkeling & Water Sports + Transfer + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Orange Bay: Guided Boat Tour + Snorkeling & Water Sports + Transfer + Lunch</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>Spend the day on the Red Sea with a boat trip from Hurghada to Orange Bay.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orange Bay: Guided Boat Tour + Snorkeling & Water Sports + Transfer + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Orange Bay: Guided Boat Tour + Snorkeling & Water Sports + Transfer + Lunch</div>
+        <div class="tq-card-desc">Spend the day on the Red Sea with a boat trip from Hurghada to Orange Bay.
 
 After hotel pickup, transfer to the marina and board your boat. Head to Orange Bay for two hours to snorkel, relax on the beach, play volleyball, or visit the juice bar.
 
-Return to the boat for a buffet lunch, then continue with two snorkeling stops. You’ll also have the option to try parasailing. In the afternoon, return to the harbor and transfer back to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €32.76</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-orange-bay-guided-boat-tour-snorkeling-water-sports-transfer-lunch-p1115657/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Return to the boat for a buffet lunch, then continue with two snorkeling stops. You’ll also have the option to try parasailing. In the afternoon, return to the harbor and transfer back to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€32.76</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-orange-bay-guided-boat-tour-snorkeling-water-sports-transfer-lunch-p1115657/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Horse Riding Tour: Sea and Desert with Transfer - Hurghada" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Horse Riding Tour: Sea and Desert with Transfer - Hurghada</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>Take part in one of Egypt's unique horseback riding tours, known for its affordability. Egypt's long-standing horse culture is unmatched elsewhere.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Horse Riding Tour: Sea and Desert with Transfer - Hurghada" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Horse Riding Tour: Sea and Desert with Transfer - Hurghada</div>
+        <div class="tq-card-desc">Take part in one of Egypt's unique horseback riding tours, known for its affordability. Egypt's long-standing horse culture is unmatched elsewhere.
 
 Ride some of the finest horses, guided by expert trainers. Trainers will provide pre-ride instructions and assist throughout the ride.
 
@@ -210,194 +413,310 @@ Safety Information:
 • Helmets provided for all riders
 • Pregnant women cannot ride
 • Sign a disclaimer for personal injury and damage before the tour
-• Ride through the desert and along the beach</p>
-          <div class="card-footer">
-            <span class="price">From €12.93</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-horse-riding-tour-sea-and-desert-with-transfer-hurghada-p1107621/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+• Ride through the desert and along the beach</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.93</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-horse-riding-tour-sea-and-desert-with-transfer-hurghada-p1107621/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Scuba Diving Adventure + Transfers + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hurghada: Scuba Diving Adventure + Transfers + Lunch</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>Prepare for a 7-hour scuba diving trip in the Red Sea, suitable for beginners and experienced divers alike. You will be picked up from your hotel in Hurghada and taken on a boat ride to your first dive site. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Scuba Diving Adventure + Transfers + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Hurghada: Scuba Diving Adventure + Transfers + Lunch</div>
+        <div class="tq-card-desc">Prepare for a 7-hour scuba diving trip in the Red Sea, suitable for beginners and experienced divers alike. You will be picked up from your hotel in Hurghada and taken on a boat ride to your first dive site. 
 
 Instructors will guide you through the dive and the marine environment of the Red Sea. After the dive, enjoy a buffet lunch on the boat. 
 
-Travel to another dive spot to see more marine life and if you prefer, you can snorkel, swim, or relax with a drink. Return to your hotel in Hurghada in the late afternoon, completing your day on the water.</p>
-          <div class="card-footer">
-            <span class="price">From €22.42</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-scuba-diving-adventure-transfers-lunch-p1107614/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Travel to another dive spot to see more marine life and if you prefer, you can snorkel, swim, or relax with a drink. Return to your hotel in Hurghada in the late afternoon, completing your day on the water.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-scuba-diving-adventure-transfers-lunch-p1107614/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hula Hula Island: Guided Cruise from Hurghada + Snorkeling + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hula Hula Island: Guided Cruise from Hurghada + Snorkeling + Lunch</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>Enjoy convenient transportation from your hotel to the dock and head out on a cruise to Hula Hula Island. See the underwater reefs and beaches. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hula Hula Island: Guided Cruise from Hurghada + Snorkeling + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Hula Hula Island: Guided Cruise from Hurghada + Snorkeling + Lunch</div>
+        <div class="tq-card-desc">Enjoy convenient transportation from your hotel to the dock and head out on a cruise to Hula Hula Island. See the underwater reefs and beaches. 
 
 Sail in Hurghada's warm weather towards Hula Hula Island, where you can relax, snorkel, and walk around.
 
 Use your snorkel gear to view the colorful fish and diverse sea life and have lunch on the boat.
 
-Visit two of the Red Sea’s best snorkeling spots before returning to Hula Hula Island. Participate in various water activities and end the trip with a transfer back to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €17.24</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hula-hula-island-guided-cruise-from-hurghada-snorkeling-lunch-p1107613/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit two of the Red Sea’s best snorkeling spots before returning to Hula Hula Island. Participate in various water activities and end the trip with a transfer back to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.24</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hula-hula-island-guided-cruise-from-hurghada-snorkeling-lunch-p1107613/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Guided Scuba Diving Experience + Roundtrip Transfer + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hurghada: Guided Scuba Diving Experience + Roundtrip Transfer + Lunch</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>Prepare for the diving experience in the Red Sea with two guided dives to see colorful coral reefs and marine animals. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Guided Scuba Diving Experience + Roundtrip Transfer + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Hurghada: Guided Scuba Diving Experience + Roundtrip Transfer + Lunch</div>
+        <div class="tq-card-desc">Prepare for the diving experience in the Red Sea with two guided dives to see colorful coral reefs and marine animals. 
 
 Benefit from roundtrip transfer from your accommodation and enjoy lunch onboard with a mix of local and international dishes to keep you energized between dives. 
 
-The experienced team ensures safety and caters to all skill levels, from beginners to advanced divers. Whether new to diving or experienced, spend a relaxed day underwater.</p>
-          <div class="card-footer">
-            <span class="price">From €25.87</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-guided-scuba-diving-experience-roundtrip-transfer-lunch-p1107612/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The experienced team ensures safety and caters to all skill levels, from beginners to advanced divers. Whether new to diving or experienced, spend a relaxed day underwater.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.87</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-guided-scuba-diving-experience-roundtrip-transfer-lunch-p1107612/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradise Island Hurghada: Snorkeling + Lunch + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Paradise Island Hurghada: Snorkeling + Lunch + Transfers</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>Start your day with a transfer from your hotel to the marina. Board a boat and head to Paradise Island. Along the way, stop at a coral reef for snorkeling.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradise Island Hurghada: Snorkeling + Lunch + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Paradise Island Hurghada: Snorkeling + Lunch + Transfers</div>
+        <div class="tq-card-desc">Start your day with a transfer from your hotel to the marina. Board a boat and head to Paradise Island. Along the way, stop at a coral reef for snorkeling.
 
 See colorful fish and coral. Spend a few hours on the sandy beach. Play beach volleyball, swim, or explore the island.
 
 Enjoy a buffet lunch on the island, with seafood, grilled meats, salads, and vegetarian options.
 
-Continue to relax, sunbathe, or enjoy more water activities. Later, return to your hotel after a day full of excitement.</p>
-          <div class="card-footer">
-            <span class="price">From €26</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-paradise-island-hurghada-snorkeling-lunch-transfers-p1107089/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Continue to relax, sunbathe, or enjoy more water activities. Later, return to your hotel after a day full of excitement.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-paradise-island-hurghada-snorkeling-lunch-transfers-p1107089/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolphin House Hurghada: Guided Snorkeling Tour + Roundtrip Transfer + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Dolphin House Hurghada: Guided Snorkeling Tour + Roundtrip Transfer + Lunch</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>Go on a Dolphin House boat trip for an exciting water adventure that begins with transportation to the departure point. Once on the boat, sail to the Dolphin House and see dolphins in their natural habitat.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolphin House Hurghada: Guided Snorkeling Tour + Roundtrip Transfer + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Dolphin House Hurghada: Guided Snorkeling Tour + Roundtrip Transfer + Lunch</div>
+        <div class="tq-card-desc">Go on a Dolphin House boat trip for an exciting water adventure that begins with transportation to the departure point. Once on the boat, sail to the Dolphin House and see dolphins in their natural habitat.
 
 Along the way, snorkel at two stops in clear waters with diverse underwater life. After snorkeling, eat a lunch onboard, providing a break during the day.
 
-The trip includes various water sports activities for fun and excitement. Whether you want to relax or seek activity, this trip offers something for everyone.</p>
-          <div class="card-footer">
-            <span class="price">From €14.66</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-dolphin-house-hurghada-guided-snorkeling-tour-roundtrip-transfer-lunch-p1107054/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The trip includes various water sports activities for fun and excitement. Whether you want to relax or seek activity, this trip offers something for everyone.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.66</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-dolphin-house-hurghada-guided-snorkeling-tour-roundtrip-transfer-lunch-p1107054/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ab7baf1c76d24820aaaec36feb50e6a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Quad Bike Safari & Camel Ride + BBQ Dinner with Bedouin" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hurghada: Quad Bike Safari & Camel Ride + BBQ Dinner with Bedouin</h3>
-          <p class="venue">📍 Desert Safari Hurghada</p>
-          <p>Go on Hurghada Super Safari with a guided ride on quad bikes across the sands of the eastern Sahara. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ab7baf1c76d24820aaaec36feb50e6a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Quad Bike Safari & Camel Ride + BBQ Dinner with Bedouin" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DESERT SAFARI HURGHADA</span>
+        </div>
+        <div class="tq-card-title">Hurghada: Quad Bike Safari & Camel Ride + BBQ Dinner with Bedouin</div>
+        <div class="tq-card-desc">Go on Hurghada Super Safari with a guided ride on quad bikes across the sands of the eastern Sahara. 
 
 Visit a Bedouin village and try BBQ dinner with the locals, watching the desert sunset. Ride a camel on the desert sands for an hour and learn about the Bedouin way of life from your hosts. 
 
-End the evening with a local celebration under the evening sky before returning to your hotel in Hurghada.</p>
-          <div class="card-footer">
-            <span class="price">From €29</span>
-            <span class="rating">⭐ 4.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-quad-bike-safari-camel-ride-bbq-dinner-with-bedouin-p1104403/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End the evening with a local celebration under the evening sky before returning to your hotel in Hurghada.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-quad-bike-safari-camel-ride-bbq-dinner-with-bedouin-p1104403/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ebcb953f1555482d8657d1af98ab8046.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Submarine Tour with Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hurghada: Submarine Tour with Roundtrip Transfer</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>You will be picked up from your hotel in Hurghada for a 45-minute underwater trip in the Sindbad submarine to discover the marine life of the Red Sea.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ebcb953f1555482d8657d1af98ab8046.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Submarine Tour with Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Hurghada: Submarine Tour with Roundtrip Transfer</div>
+        <div class="tq-card-desc">You will be picked up from your hotel in Hurghada for a 45-minute underwater trip in the Sindbad submarine to discover the marine life of the Red Sea.
 
 The only submarine in the Middle East, it carries 44 passengers and has a crew of two pilots for an underwater trip on the Red Sea.
 
-The submarine will descend to a depth of 22 meters, where you can see different kinds of coral reefs and colored fish. It is not necessary to be a scuba diver.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-submarine-tour-with-roundtrip-transfer-p1103101/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The submarine will descend to a depth of 22 meters, where you can see different kinds of coral reefs and colored fish. It is not necessary to be a scuba diver.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-submarine-tour-with-roundtrip-transfer-p1103101/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/def413743ccf4b1fac5bb4049dbdeacb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada Museum: Entry Ticket + Guided Tour + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hurghada Museum: Entry Ticket + Guided Tour + Roundtrip Transfer</h3>
-          <p class="venue">📍 Hurghada Museum</p>
-          <p>Explore the Hurghada Museum and dive into Egypt’s rich history.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/def413743ccf4b1fac5bb4049dbdeacb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada Museum: Entry Ticket + Guided Tour + Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Hurghada Museum: Entry Ticket + Guided Tour + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Explore the Hurghada Museum and dive into Egypt’s rich history.
 
-See 2,000 relics covering ancient Egyptian, Greco-Roman, Jewish, Christian, Islamic, and modern eras. The museum’s displays offer a comprehensive view of Egypt’s past, from pyramids to modern-day Cairo.</p>
-          <div class="card-footer">
-            <span class="price">From €44.84</span>
-            <span class="rating">⭐ 3 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-museum-entry-ticket-guided-tour-roundtrip-transfer-p1095320/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See 2,000 relics covering ancient Egyptian, Greco-Roman, Jewish, Christian, Islamic, and modern eras. The museum’s displays offer a comprehensive view of Egypt’s past, from pyramids to modern-day Cairo.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€44.84</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-museum-entry-ticket-guided-tour-roundtrip-transfer-p1095320/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Dolphin House Snorkeling Trip" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hurghada: Dolphin House Snorkeling Trip</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>Dive into an extraordinary experience at the Hurghada Dolphin House. Watch dolphins frolicking in their natural habitat, swim alongside them in a once-in-a-lifetime encounter, and revel in the pure joy of these playful creatures. The excursion also includes a delightful buffet lunch, featuring gourmet meats, fresh salads, and seasonal fruits. Plus, quench your thirst with a variety of drinks available throughout the trip. The adventure begins at 9:00 AM and concludes around 4:00 PM.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Dolphin House Snorkeling Trip" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Hurghada: Dolphin House Snorkeling Trip</div>
+        <div class="tq-card-desc">Dive into an extraordinary experience at the Hurghada Dolphin House. Watch dolphins frolicking in their natural habitat, swim alongside them in a once-in-a-lifetime encounter, and revel in the pure joy of these playful creatures. The excursion also includes a delightful buffet lunch, featuring gourmet meats, fresh salads, and seasonal fruits. Plus, quench your thirst with a variety of drinks available throughout the trip. The adventure begins at 9:00 AM and concludes around 4:00 PM.
 
-Spend a day snorkeling in the crystal-clear waters at the Hurghada Dolphin House. After an air-conditioned hotel pick-up, hop aboard a boat that will take you to a dreamy dolphin haven. There, immerse yourself for an hour in the underwater world, swimming alongside friendly dolphins.</p>
-          <div class="card-footer">
-            <span class="price">From €49.58</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-dolphin-house-snorkeling-trip-p1093728/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Spend a day snorkeling in the crystal-clear waters at the Hurghada Dolphin House. After an air-conditioned hotel pick-up, hop aboard a boat that will take you to a dreamy dolphin haven. There, immerse yourself for an hour in the underwater world, swimming alongside friendly dolphins.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€49.58</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-dolphin-house-snorkeling-trip-p1093728/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Orange Bay Island Cruise + Snorkeling + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hurghada: Orange Bay Island Cruise + Snorkeling + Lunch</h3>
-          <p class="venue">📍 Hurghada Diving & Snorkeling</p>
-          <p>Start the day with a hotel pickup and transfer to the pier for a cruise trip to Orange Bay Island. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hurghada: Orange Bay Island Cruise + Snorkeling + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HURGHADA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HURGHADA DIVING & SNORKELING</span>
+        </div>
+        <div class="tq-card-title">Hurghada: Orange Bay Island Cruise + Snorkeling + Lunch</div>
+        <div class="tq-card-desc">Start the day with a hotel pickup and transfer to the pier for a cruise trip to Orange Bay Island. 
 
 Snorkel in the Red Sea's colorful coral reefs and enjoy time on the island's sandy beaches. 
 
-Have lunch onboard and snorkel again before returning to the pier for the ride back to the hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €28</span>
-            <span class="rating">⭐ 4 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-orange-bay-island-cruise-snorkeling-lunch-p1093470/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Have lunch onboard and snorkel again before returning to the pier for the ride back to the hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€28.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hurghada-orange-bay-island-cruise-snorkeling-lunch-p1093470/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

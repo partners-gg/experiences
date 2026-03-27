@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Montalcino | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Montalcino. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,286 +131,456 @@
     <p>17 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a06d09fa01c84273baac65b16e924551.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museo Civico e Diocesano in Montalcino" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museo Civico e Diocesano in Montalcino</h3>
-          <p class="venue">📍 Museo Civico e Diocesano</p>
-          <p>The Civic Museum and the Diocesan Museum of Sacred Art come together here, in the atmospheric former convent of Sant'Agostino. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a06d09fa01c84273baac65b16e924551.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museo Civico e Diocesano in Montalcino" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEO CIVICO E DIOCESANO</span>
+        </div>
+        <div class="tq-card-title">Museo Civico e Diocesano in Montalcino</div>
+        <div class="tq-card-desc">The Civic Museum and the Diocesan Museum of Sacred Art come together here, in the atmospheric former convent of Sant'Agostino. 
 
 Browse a collection of religious and medieval art that's been brought to this cozy location from all over this historic town and its surrounding region. It's a real treasure trove, not a typical tourist attraction. It won't take long to see, but it will leave a lasting impression.
 
-The cellar houses some impressive archaeological finds, including Etruscan pieces.</p>
-          <div class="card-footer">
-            <span class="price">From €14</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-museo-civico-e-diocesano-in-montalcino-p992261/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The cellar houses some impressive archaeological finds, including Etruscan pieces.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-museo-civico-e-diocesano-in-montalcino-p992261/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c608012a010245478b7e10a3865b9967.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tuscany: Guided Tour + Lunch & Drinks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tuscany: Guided Tour + Lunch & Drinks</h3>
-          <p class="venue">📍 Tuscany Wine Tasting</p>
-          <p>Join a tour designed for families, that highlights Tuscany’s countryside and traditional farms, with an emphasis on food tastings and farm visits.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c608012a010245478b7e10a3865b9967.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tuscany: Guided Tour + Lunch & Drinks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TUSCANY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Tuscany: Guided Tour + Lunch & Drinks</div>
+        <div class="tq-card-desc">Join a tour designed for families, that highlights Tuscany’s countryside and traditional farms, with an emphasis on food tastings and farm visits.
 
 Visit the Chianti countryside and explore a farm near San Gimignano to taste locally-produced honey, cheeses, and fresh bruschetta prepared with seasonal ingredients.
 
 Proceed to a traditional winery for a light meal, and taste three aged balsamic vinegars and extra virgin olive oil. Adults can sample three regional wines (optional), while alternative drinks such as grape juice or soft drinks are available for minors and non-drinkers.
 
-End the tour with time to walk through the streets and attractions of San Gimignano before heading back to the meeting point.</p>
-          <div class="card-footer">
-            <span class="price">From €180</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tuscany-guided-tour-lunch-drinks-p1126110/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End the tour with time to walk through the streets and attractions of San Gimignano before heading back to the meeting point.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€180.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tuscany-guided-tour-lunch-drinks-p1126110/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montalcino: Vineyard Guided Tour + Wine Tasting in the Castle" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montalcino: Vineyard Guided Tour + Wine Tasting in the Castle</h3>
-          <p class="venue">📍 Tuscany Wine Tasting</p>
-          <p>Join a Tuscan wine tasting and lunch at a medieval castle in Montalcino. Walk through the vineyard with a sommelier, admiring the Tuscan landscape and learning about the Brunello region.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montalcino: Vineyard Guided Tour + Wine Tasting in the Castle" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TUSCANY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Montalcino: Vineyard Guided Tour + Wine Tasting in the Castle</div>
+        <div class="tq-card-desc">Join a Tuscan wine tasting and lunch at a medieval castle in Montalcino. Walk through the vineyard with a sommelier, admiring the Tuscan landscape and learning about the Brunello region.
 
 Discover the castle's history and wine production methods during the tour. Learn about the tradition of making Brunello di Montalcino.
 
-Taste three local wines, including Sangiovese IGT and Brunello di Montalcino, with insights from a sommelier. End the exploration with a Tuscan lunch featuring charcuterie, cheeses, and a main course.</p>
-          <div class="card-footer">
-            <span class="price">From €58.9</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montalcino-vineyard-guided-tour-wine-tasting-in-the-castle-p1094492/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Taste three local wines, including Sangiovese IGT and Brunello di Montalcino, with insights from a sommelier. End the exploration with a Tuscan lunch featuring charcuterie, cheeses, and a main course.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€58.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montalcino-vineyard-guided-tour-wine-tasting-in-the-castle-p1094492/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montepulciano: Vineyard Guided Tour + Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montepulciano: Vineyard Guided Tour + Wine Tasting</h3>
-          <p class="venue">📍 Tuscany Wine Tasting</p>
-          <p>Explore the Tuscan wine world with a one-hour tasting in a historic cellar in Montepulciano. Follow a sommelier through the 16th-century underground cellar, known for its vaults and galleries from the Etruscan civilization.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montepulciano: Vineyard Guided Tour + Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TUSCANY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Montepulciano: Vineyard Guided Tour + Wine Tasting</div>
+        <div class="tq-card-desc">Explore the Tuscan wine world with a one-hour tasting in a historic cellar in Montepulciano. Follow a sommelier through the 16th-century underground cellar, known for its vaults and galleries from the Etruscan civilization.
 
 Learn about the cellar's history and Tuscan wine production techniques. Next, witness the private collection of the oldest wine bottles and be amazed by the Etruscan tomb in the cellar's nooks.
 
-Taste four of the finest wines produced in Montepulciano, including Rosso di Montepulciano DOCG and Nobile di Montepulciano DOCG, paired with traditional Tuscan food.</p>
-          <div class="card-footer">
-            <span class="price">From €34.9</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montepulciano-vineyard-guided-tour-wine-tasting-p1094490/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Taste four of the finest wines produced in Montepulciano, including Rosso di Montepulciano DOCG and Nobile di Montepulciano DOCG, paired with traditional Tuscan food.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€34.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montepulciano-vineyard-guided-tour-wine-tasting-p1094490/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Arezzo: Wine Tasting in Val di Chiana" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Arezzo: Wine Tasting in Val di Chiana</h3>
-          <p class="venue">📍 Tuscany Wine Tasting</p>
-          <p>Prepare for a 2-hour wine-tasting experience at an ancient Tuscan villa in Val di Chiana.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Arezzo: Wine Tasting in Val di Chiana" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TUSCANY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Arezzo: Wine Tasting in Val di Chiana</div>
+        <div class="tq-card-desc">Prepare for a 2-hour wine-tasting experience at an ancient Tuscan villa in Val di Chiana.
 
 Admire the Tuscan countryside as you walk through the vineyards with a guide who will share the winery's history and production techniques.
 
-Taste three of Tuscany's best wines with insights from a sommelier. Red and white wine samples are served alongside local specialties such as cheeses and cured meats. Moreover, the experience includes water, wine, bread, and appetizers.</p>
-          <div class="card-footer">
-            <span class="price">From €39.9</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-arezzo-wine-tasting-in-val-di-chiana-p1093483/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Taste three of Tuscany's best wines with insights from a sommelier. Red and white wine samples are served alongside local specialties such as cheeses and cured meats. Moreover, the experience includes water, wine, bread, and appetizers.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-arezzo-wine-tasting-in-val-di-chiana-p1093483/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montalcino: Vineyard Tour + Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montalcino: Vineyard Tour + Wine Tasting</h3>
-          <p class="venue">📍 Tuscany Wine Tasting</p>
-          <p>Join an expert guide on a leisurely stroll through the sun-drenched Tuscan vineyards, where the the landscape looks just like a Renaissance painting. The castle, steeped in history, invites you to explore its expansive grounds and cellars.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montalcino: Vineyard Tour + Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TUSCANY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Montalcino: Vineyard Tour + Wine Tasting</div>
+        <div class="tq-card-desc">Join an expert guide on a leisurely stroll through the sun-drenched Tuscan vineyards, where the the landscape looks just like a Renaissance painting. The castle, steeped in history, invites you to explore its expansive grounds and cellars.
 
 On this epicurean journey, a professional sommelier uncovers the distinctive traits of these Italian wines, transforming every sip into a story.
 
-The grand finale? A wine tasting in the cellar, accompanied by fluffy, delectable pizzette bianche. Sample three of the region's most revered wines, including the globally acclaimed Sangiovese IGT and Brunello di Montalcino.</p>
-          <div class="card-footer">
-            <span class="price">From €32.5</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montalcino-vineyard-tour-and-tasting-p1093481/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The grand finale? A wine tasting in the cellar, accompanied by fluffy, delectable pizzette bianche. Sample three of the region's most revered wines, including the globally acclaimed Sangiovese IGT and Brunello di Montalcino.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€32.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montalcino-vineyard-tour-and-tasting-p1093481/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tuscany: Chianti Tour + Medici Villa Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tuscany: Chianti Tour + Medici Villa Wine Tasting</h3>
-          <p class="venue">📍 Tuscany Wine Tasting</p>
-          <p>Join an engaging trip behind the scenes of a lush vineyard and busy winery. The adventure starts in the courtyard of a grand villa and continues on a scenic Medicean terrace overlooking Florence and its Renaissance garden.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tuscany: Chianti Tour + Medici Villa Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TUSCANY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Tuscany: Chianti Tour + Medici Villa Wine Tasting</div>
+        <div class="tq-card-desc">Join an engaging trip behind the scenes of a lush vineyard and busy winery. The adventure starts in the courtyard of a grand villa and continues on a scenic Medicean terrace overlooking Florence and its Renaissance garden.
 
 Guides will take you through the wine-making cellars and aging rooms, including a 17th-century orciaia, where the real magic happens. The tour wraps up with a delicious tasting session featuring three interpretations of Sangiovese, the renowned grape variety of Tuscany.
 
-To complete the experience, don't miss the chance to taste the vineyard's own extra virgin olive oil paired with a board of Tuscan delights.</p>
-          <div class="card-footer">
-            <span class="price">From €49</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-tuscany-wine-tasting-in-a-medici-villa-p1090630/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+To complete the experience, don't miss the chance to taste the vineyard's own extra virgin olive oil paired with a board of Tuscan delights.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€49.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-tuscany-wine-tasting-in-a-medici-villa-p1090630/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Maremma: Sangiovese Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Maremma: Sangiovese Wine Tasting</h3>
-          <p class="venue">📍 Tuscany Wine Tasting</p>
-          <p>Enjoy special access to a local winery in the heart of Tuscany's grape-growing region. Taste three unique red wines that highlight different blends and production methods. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Maremma: Sangiovese Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TUSCANY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Maremma: Sangiovese Wine Tasting</div>
+        <div class="tq-card-desc">Enjoy special access to a local winery in the heart of Tuscany's grape-growing region. Taste three unique red wines that highlight different blends and production methods. 
 
-Let knowledgeable guides lead you through the tasting, helping you discover aromas and flavors.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-maremma-sangiovese-wine-tasting-p1088275/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Let knowledgeable guides lead you through the tasting, helping you discover aromas and flavors.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-maremma-sangiovese-wine-tasting-p1088275/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montepulciano: Roundtrip Guided Tour of Two Wine Estates + Wine & Food Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montepulciano: Roundtrip Guided Tour of Two Wine Estates + Wine & Food Tasting</h3>
-          <p class="venue">📍 Tuscany Wine Tasting</p>
-          <p>Discover the two architectural souls of Montepulciano through a guided tour. On the one hand, visit the historic cellars tucked away in the basements of Renaissance palaces, standing as a testament to a millennia-old tradition. On the other, witness the modern winemaking beyond the ancient city walls, showcasing a blend of design and innovation.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montepulciano: Roundtrip Guided Tour of Two Wine Estates + Wine & Food Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TUSCANY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Montepulciano: Roundtrip Guided Tour of Two Wine Estates + Wine & Food Tasting</div>
+        <div class="tq-card-desc">Discover the two architectural souls of Montepulciano through a guided tour. On the one hand, visit the historic cellars tucked away in the basements of Renaissance palaces, standing as a testament to a millennia-old tradition. On the other, witness the modern winemaking beyond the ancient city walls, showcasing a blend of design and innovation.
 
 This tour begins at a contemporary winery set amidst the open countryside. Here, gaze at the sprawling vineyards and learn about the intricate process of producing the renowned Vino Nobile di Montepulciano DOCG.
 
 After a wine-tasting session, the tour transports you back to the historic city center, bringing you to an underground cellar.
 
-Delight your taste buds with a delicious selection of locally sourced flavors, from Tuscan cold cuts and Pecorino di Pienza cheese to tasty bruschetta, all perfectly paired with the cellar's finest wines.</p>
-          <div class="card-footer">
-            <span class="price">From €139</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montepulciano-roundtrip-guided-tour-of-two-wine-estates-wine-food-tasting-p1087319/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Delight your taste buds with a delicious selection of locally sourced flavors, from Tuscan cold cuts and Pecorino di Pienza cheese to tasty bruschetta, all perfectly paired with the cellar's finest wines.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€139.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montepulciano-roundtrip-guided-tour-of-two-wine-estates-wine-food-tasting-p1087319/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Corte Pavone Winery Estate: Guided Winery Tour with Montalcino Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Corte Pavone Winery Estate: Guided Winery Tour with Montalcino Wine Tasting</h3>
-          <p class="venue">📍 Tuscany Wine Tasting</p>
-          <p>Go on a tour of the Montalcino winery, guided by a team of experts passionate about winemaking. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Corte Pavone Winery Estate: Guided Winery Tour with Montalcino Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TUSCANY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Corte Pavone Winery Estate: Guided Winery Tour with Montalcino Wine Tasting</div>
+        <div class="tq-card-desc">Go on a tour of the Montalcino winery, guided by a team of experts passionate about winemaking. 
 
 As the group goes down the Brunello Cru Path, stunning views of the wine town come to life, providing a backdrop for all those wine-related questions that have been *fermenting* in your mind.
 
 The journey continues in a wine cellar to learn about the process of transforming grapes into exquisite wine. 
 
-Now, it is time for the grand event- the wine tasting! In a tasting room or on a terrace, the group will sample six wines in three flights. After a brief introduction to each flight, it's time to savor the wines at a leisurely pace.</p>
-          <div class="card-footer">
-            <span class="price">From €10</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montalcino-guided-winery-tour-with-wine-tasting-p1080140/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Now, it is time for the grand event- the wine tasting! In a tasting room or on a terrace, the group will sample six wines in three flights. After a brief introduction to each flight, it's time to savor the wines at a leisurely pace.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€10.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montalcino-guided-winery-tour-with-wine-tasting-p1080140/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Corte Pavone Winery Estate: Backstage Brunello Tour + Gourmet Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Corte Pavone Winery Estate: Backstage Brunello Tour + Gourmet Tasting</h3>
-          <p class="venue">📍 Tuscany Wine Tasting</p>
-          <p>On this exclusive wine experience, the head winemaker will guide you through the tasting of various Brunellos straight from the barrel as they share the estate's philosophy and methods.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Corte Pavone Winery Estate: Backstage Brunello Tour + Gourmet Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TUSCANY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Corte Pavone Winery Estate: Backstage Brunello Tour + Gourmet Tasting</div>
+        <div class="tq-card-desc">On this exclusive wine experience, the head winemaker will guide you through the tasting of various Brunellos straight from the barrel as they share the estate's philosophy and methods.
 
-Following this tour, a comfortable tasting of six Brunellos across three flights, each paired with local products of the region waits for you in the tasting room.</p>
-          <div class="card-footer">
-            <span class="price">From €130</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-backstage-brunello-and-gourmet-wine-food-tasting-in-montalcino-p1080139/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Following this tour, a comfortable tasting of six Brunellos across three flights, each paired with local products of the region waits for you in the tasting room.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€130.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-backstage-brunello-and-gourmet-wine-food-tasting-in-montalcino-p1080139/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Corte Pavone Winery Estate: Montalcino Wine Tasting + Gourmet Bites" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Corte Pavone Winery Estate: Montalcino Wine Tasting + Gourmet Bites</h3>
-          <p class="venue">📍 Tuscany Wine Tasting</p>
-          <p>Enjoy a tour of the Montalcino picturesque vineyards as a passionate team guides the way, shedding light on their philosophy and practices. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Corte Pavone Winery Estate: Montalcino Wine Tasting + Gourmet Bites" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TUSCANY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Corte Pavone Winery Estate: Montalcino Wine Tasting + Gourmet Bites</div>
+        <div class="tq-card-desc">Enjoy a tour of the Montalcino picturesque vineyards as a passionate team guides the way, shedding light on their philosophy and practices. 
 
 Next, the journey delves into the cellar, where the steps of winemaking come alive. You will learn the benefits of storing wine in wooden barrels and concrete casks. 
 
-When you return to the vineyard, a made-up table awaits in the tasting room. Here, you a get a first-hand discovery of Montalcino's flavors. During the guided tasting, the team serves up six wines in three flights, each perfectly paired with a specially crafted gourmet nibble.</p>
-          <div class="card-footer">
-            <span class="price">From €35</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montalcino-guided-winery-tour-gourmet-tasting-p1080030/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+When you return to the vineyard, a made-up table awaits in the tasting room. Here, you a get a first-hand discovery of Montalcino's flavors. During the guided tasting, the team serves up six wines in three flights, each perfectly paired with a specially crafted gourmet nibble.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€35.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montalcino-guided-winery-tour-gourmet-tasting-p1080030/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Corte Pavone Winery Estate: Picnic with Wine & Food + Vineyard Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Corte Pavone Winery Estate: Picnic with Wine & Food + Vineyard Guided Tour</h3>
-          <p class="venue">📍 Tuscany Wine Tasting</p>
-          <p>Enjoy a tour of the vineyards and the cellar (optional) to get a closer look at the philosophy behind the scenes. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Corte Pavone Winery Estate: Picnic with Wine & Food + Vineyard Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TUSCANY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Corte Pavone Winery Estate: Picnic with Wine & Food + Vineyard Guided Tour</div>
+        <div class="tq-card-desc">Enjoy a tour of the vineyards and the cellar (optional) to get a closer look at the philosophy behind the scenes. 
 
 Learn about the unique methods of winemaking and discover the cellar sanctuary, where some wines are kept for years. 
 
 Following the tour, it's time to unwind with some wines, paired with homemade delicacies at a picnic. A spot in the vineyard has already been reserved just for you!
 
-Don't forget to take some of Montalcino home with you by selecting a wine to-go!</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-vineyard-tour-picnic-in-the-vineyard-with-a-bottle-of-wine-p1079758/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Don't forget to take some of Montalcino home with you by selecting a wine to-go!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-vineyard-tour-picnic-in-the-vineyard-with-a-bottle-of-wine-p1079758/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Corte Pavone Winery Estate: Montalcino Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Corte Pavone Winery Estate: Montalcino Wine Tasting</h3>
-          <p class="venue">📍 Tuscany Wine Tasting</p>
-          <p>Whether nestled in the tasting room or basking on the terrace of this family-owned vineyard, the seasoned team will serve up six distinct wines across three flights. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Corte Pavone Winery Estate: Montalcino Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TUSCANY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Corte Pavone Winery Estate: Montalcino Wine Tasting</div>
+        <div class="tq-card-desc">Whether nestled in the tasting room or basking on the terrace of this family-owned vineyard, the seasoned team will serve up six distinct wines across three flights. 
 
 Following a brief introduction to each flight's wines, there's ample time to savor each sip. 
 
-This wine experience is perfect for those who want to immerse themselves in the taste and aroma of Corte Pavone's wine, are already acquainted with the vineyard, or simply don't have the time for an extensive vineyard tour.</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐ 4 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-classic-wine-tasting-in-montalcino-p1079725/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This wine experience is perfect for those who want to immerse themselves in the taste and aroma of Corte Pavone's wine, are already acquainted with the vineyard, or simply don't have the time for an extensive vineyard tour.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-classic-wine-tasting-in-montalcino-p1079725/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Corte Pavone Winery: Local Wine Tasting With Gourmet Appetizers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Corte Pavone Winery: Local Wine Tasting With Gourmet Appetizers</h3>
-          <p class="venue">📍 Tuscany Wine Tasting</p>
-          <p>*Wine* down by stepping into this exceptional gourmet experience, designed to get you acquainted with Montalcino's local flavors. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ba28b61b9ec488aae57a8b3fde1246a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Corte Pavone Winery: Local Wine Tasting With Gourmet Appetizers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TUSCANY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Corte Pavone Winery: Local Wine Tasting With Gourmet Appetizers</div>
+        <div class="tq-card-desc">*Wine* down by stepping into this exceptional gourmet experience, designed to get you acquainted with Montalcino's local flavors. 
 
 As you relax at your table, the expert team will guide you through the tasting of different wines, each accompanied by a complementary gourmet bite.
 
-The wine tasting, in combination with gourmet bites, teaches you the philosophy of Corte Pavone winemaking, sustainable agriculture, and quality ingredients.</p>
-          <div class="card-footer">
-            <span class="price">From €70</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-Montalcino-gourmet-wine-food-tasting-p1079724/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The wine tasting, in combination with gourmet bites, teaches you the philosophy of Corte Pavone winemaking, sustainable agriculture, and quality ingredients.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€70.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-Montalcino-gourmet-wine-food-tasting-p1079724/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ff4c304088554e408a902fa82fc4ad5f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Brunello and Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum of Brunello and Wine Tasting</h3>
-          <p class="venue">📍 Brunello Temple</p>
-          <p>If you have a taste for the finer things in life, then this all-in-one package for Montalcino is for you!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ff4c304088554e408a902fa82fc4ad5f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Brunello and Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BRUNELLO TEMPLE</span>
+        </div>
+        <div class="tq-card-title">Museum of Brunello and Wine Tasting</div>
+        <div class="tq-card-desc">If you have a taste for the finer things in life, then this all-in-one package for Montalcino is for you!
 
 Your Museum of Brunello and wine tasting ticket includes a visit to the Museum of Brunello – an immersive and emotional journey designed to help you discover Brunello di Montalcino wine and the region it comes from – plus the Oro Di Montalcino App.
 
@@ -319,32 +588,49 @@ At the Museum of Brunello, enter a virtual reality experience that immerses you 
 
 Then spend some time discovering the town of Montalcino using the Oro Di Montalcino App. You’ll have access to the complex of Sant'Agostino, plus the Underground.
 
-The Enoteca Bistrot del Tempio del Brunello pairs a tasting with a revealing talk about culture, art and wine.</p>
-          <div class="card-footer">
-            <span class="price">From €47.5</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tickets-for-museum-of-brunello-and-wine-tasting-p1049802/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Enoteca Bistrot del Tempio del Brunello pairs a tasting with a revealing talk about culture, art and wine.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tickets-for-museum-of-brunello-and-wine-tasting-p1049802/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c608012a010245478b7e10a3865b9967.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montalcino Museum of Brunello: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montalcino Museum of Brunello: Entry Ticket</h3>
-          <p class="venue">📍 Brunello Temple</p>
-          <p>If you have a taste for the finer things in life, then this all-in-one package for Montalcino, will help you discover both the wine and the town. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c608012a010245478b7e10a3865b9967.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montalcino Museum of Brunello: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTALCINO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BRUNELLO TEMPLE</span>
+        </div>
+        <div class="tq-card-title">Montalcino Museum of Brunello: Entry Ticket</div>
+        <div class="tq-card-desc">If you have a taste for the finer things in life, then this all-in-one package for Montalcino, will help you discover both the wine and the town. 
 
 Your ticket includes a visit to the Tempio del Brunello – an immersive and emotional journey to discover Brunello di Montalcino wine and the region it comes from – plus the Oro Di Montalcino App.
 
-At the Brunello Temple, take a five-stage journey to discover Montalcino. Start with a virtual reality station that immerses you in the region, then descend into an underground environment where immersive videos reveal what makes Brunello unique. Your third station will give voice to the characters who have made Brunello a myth. Next, you can leave your mark in the divine painting by using the colors of Montalcino. And lastly, see artistic masterpieces that Montalcino has inspired.</p>
-          <div class="card-footer">
-            <span class="price">From €11</span>
-            <span class="rating">⭐ 3.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montalcino-museum-of-brunello-p1022989/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+At the Brunello Temple, take a five-stage journey to discover Montalcino. Start with a virtual reality station that immerses you in the region, then descend into an underground environment where immersive videos reveal what makes Brunello unique. Your third station will give voice to the characters who have made Brunello a myth. Next, you can leave your mark in the divine painting by using the colors of Montalcino. And lastly, see artistic masterpieces that Montalcino has inspired.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€11.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montalcino-museum-of-brunello-p1022989/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Marrakesh | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Marrakesh. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,32 +131,46 @@
     <p>33 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef487c3fb41c4a52991266611781e9f2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Dinner Show at Dar Essalam Restaurant" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakesh: Dinner Show at Dar Essalam Restaurant</h3>
-          <p class="venue">📍 Marrakesh Food & Drinks</p>
-          <p>Visit Dar Essalam Restaurant in the Medina, where tradition meets modernity. This authentic spot has a rich history with guests like Winston Churchill, Charles Trenet, and Alfred Hitchcock. Enjoy Moroccan cuisine accompanied by oriental music and dance.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef487c3fb41c4a52991266611781e9f2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Dinner Show at Dar Essalam Restaurant" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH FOOD & DRINKS</span>
+        </div>
+        <div class="tq-card-title">Marrakesh: Dinner Show at Dar Essalam Restaurant</div>
+        <div class="tq-card-desc">Visit Dar Essalam Restaurant in the Medina, where tradition meets modernity. This authentic spot has a rich history with guests like Winston Churchill, Charles Trenet, and Alfred Hitchcock. Enjoy Moroccan cuisine accompanied by oriental music and dance.
 
 Choose from various rooms, each with unique architecture and history.
 
 The K'Dim room, from the 17th century, showcases high standards of Islamic art. Its ceilings and doors are richly decorated, and it was featured in Alfred Hitchcock's film "The Man Who Knew Too Much."
 
-The Royal room has an Arabian-Andalusian lounge style with a large cupola and fountain. It exemplifies traditional Moroccan design and is suitable for seminars and congresses.</p>
-          <div class="card-footer">
-            <span class="price">From €28.2</span>
-            <span class="rating">⭐ 4.3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-dinner-show-at-dar-essalam-restaurant-p1122546/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Royal room has an Arabian-Andalusian lounge style with a large cupola and fountain. It exemplifies traditional Moroccan design and is suitable for seminars and congresses.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€28.20</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-dinner-show-at-dar-essalam-restaurant-p1122546/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Comptoir des Mines Galerie: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Comptoir des Mines Galerie: Guided Tour</h3>
-          <p class="venue">📍 Comptoir des Mines Galerie</p>
-          <p>Built in 1932, this 1,500 m2 Art Deco building originally housed the Comptoir des Mines, a trading company for mining products.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COMPTOIR DES MINES GALERIE</span>
+        </div>
+        <div class="tq-card-title">Comptoir des Mines Galerie: Guided Tour</div>
+        <div class="tq-card-desc">Built in 1932, this 1,500 m2 Art Deco building originally housed the Comptoir des Mines, a trading company for mining products.
 
 The space was designed with offices, apartments, and warehouses, spreading over two wings, two floors, and includes an attached hangar.
 
@@ -67,145 +180,231 @@ The preserved Art Deco features, including terrazzo flooring and walls, staircas
 
 Since the gallery's establishment, restoration has carefully adhered to its original style, incorporating period switches, chandeliers, and doors.
 
-Further renovations in 2023 and 2024 opened spaces to bring in light and depth.</p>
-          <div class="card-footer">
-            <span class="price">From €20</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-comptoir-des-mines-galerie-guided-tour-p1127437/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Further renovations in 2023 and 2024 opened spaces to bring in light and depth.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-comptoir-des-mines-galerie-guided-tour-p1127437/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: Private Shopping Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakech: Private Shopping Experience</h3>
-          <p class="venue">📍 Marrakesh City Tours</p>
-          <p>Join a 3-hour shopping tour in Marrakech’s Medina. Walk through the narrow alleys and visit potters, painters, and leather workers as they make their crafts. You’ll have the chance to shop for carpets, clothing, jewelry, and more.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: Private Shopping Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Marrakech: Private Shopping Experience</div>
+        <div class="tq-card-desc">Join a 3-hour shopping tour in Marrakech’s Medina. Walk through the narrow alleys and visit potters, painters, and leather workers as they make their crafts. You’ll have the chance to shop for carpets, clothing, jewelry, and more.
 
 Explore the local souks and browse items like Argan oil, spices, Berber rugs, and handmade products. A local guide will help you find items based on what you're looking for and give tips on how to bargain.
 
-This tour includes a personalized shopping experience, visits to artisan workshops, and free delivery for the items you buy. You'll also learn more about local crafts and shopping traditions.</p>
-          <div class="card-footer">
-            <span class="price">From €29</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-private-shopping-experience-p1114537/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This tour includes a personalized shopping experience, visits to artisan workshops, and free delivery for the items you buy. You'll also learn more about local crafts and shopping traditions.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-private-shopping-experience-p1114537/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef487c3fb41c4a52991266611781e9f2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Medina Guided Night Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakesh: Medina Guided Night Food Tour</h3>
-          <p class="venue">📍 Marrakesh Food & Drinks</p>
-          <p>Join a 3-hour evening food tour in the Medina of Marrakesh, which is a must-see at night.. Visit lively alleys with local food stalls, spices, and the sounds of busy streets.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef487c3fb41c4a52991266611781e9f2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Medina Guided Night Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH FOOD & DRINKS</span>
+        </div>
+        <div class="tq-card-title">Marrakesh: Medina Guided Night Food Tour</div>
+        <div class="tq-card-desc">Join a 3-hour evening food tour in the Medina of Marrakesh, which is a must-see at night.. Visit lively alleys with local food stalls, spices, and the sounds of busy streets.
 
 The tour includes tasting local bread, teas, barbecues, and traditional soups. With a local guide, get closer to food makers and street vendors through chats and tastings.
 
 Taste local flavors in the Marrakesh medina and markets. The small group tour covers 10 tastings, featuring traditional tagine and local sweets. 
 
-Learn about the ingredients, techniques, and traditions behind the foods while watching local chefs at work.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-guided-night-street-food-tour-p1114535/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about the ingredients, techniques, and traditions behind the foods while watching local chefs at work.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-guided-night-street-food-tour-p1114535/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: Private Jemaa el-Fna Night Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakech: Private Jemaa el-Fna Night Tour</h3>
-          <p class="venue">📍 Marrakesh City Tours</p>
-          <p>Take a private tour of Djemma el Fna and navigate the busy streets of the Medina near the historic mosque.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: Private Jemaa el-Fna Night Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Marrakech: Private Jemaa el-Fna Night Tour</div>
+        <div class="tq-card-desc">Take a private tour of Djemma el Fna and navigate the busy streets of the Medina near the historic mosque.
 
-Visit multiple stalls that light up after dark and get insights from an expert guide. Try local and international foods. Listen to music and watch dances unique to the area post-sunset.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-private-jemaa-el-fna-night-tour-p1114534/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit multiple stalls that light up after dark and get insights from an expert guide. Try local and international foods. Listen to music and watch dances unique to the area post-sunset.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-private-jemaa-el-fna-night-tour-p1114534/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: Private Guided City Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakech: Private Guided City Tour</h3>
-          <p class="venue">📍 Marrakesh City Tours</p>
-          <p>Visit the old Medina of Marrakech and see its main sights on a city tour. Check out the Koutoubia Mosque, Saadian Tombs, Bahia Palace, and old city walls. Walk through the medina to see traditional souks, bakeries, and lodging houses. Learn about Marrakech’s history and culture along the way.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: Private Guided City Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Marrakech: Private Guided City Tour</div>
+        <div class="tq-card-desc">Visit the old Medina of Marrakech and see its main sights on a city tour. Check out the Koutoubia Mosque, Saadian Tombs, Bahia Palace, and old city walls. Walk through the medina to see traditional souks, bakeries, and lodging houses. Learn about Marrakech’s history and culture along the way.
 
 Find the cultural highlights of Marrakech, including historical quarters with food markets, bakeries, hammams, and artisan workshops. Visit historical sites, gardens, and museums.
 
-See the colorful souks with tinsmiths, dyers, and herbalist stalls. End at Jemaa el-Fnaa square, where locals gather for storytellers, musicians, snake charmers, acrobats, and jugglers.</p>
-          <div class="card-footer">
-            <span class="price">From €60</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-private-guided-city-tour-p1114028/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See the colorful souks with tinsmiths, dyers, and herbalist stalls. End at Jemaa el-Fnaa square, where locals gather for storytellers, musicians, snake charmers, acrobats, and jugglers.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-private-guided-city-tour-p1114028/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Medina Souks Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakesh: Medina Souks Guided Walking Tour</h3>
-          <p class="venue">📍 Marrakesh City Tours</p>
-          <p>Visit the Marrakesh souks with a guided tour and walk through the Medina's market maze to see its different sections. These markets are known for their lively atmosphere and variety of goods.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Medina Souks Guided Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Marrakesh: Medina Souks Guided Walking Tour</div>
+        <div class="tq-card-desc">Visit the Marrakesh souks with a guided tour and walk through the Medina's market maze to see its different sections. These markets are known for their lively atmosphere and variety of goods.
 
-See craftsmen at work, from leather makers to rug weavers. Explore the wide range of spices and hand-woven textiles. Get an authentic look at Moroccan culture through its market life.</p>
-          <div class="card-footer">
-            <span class="price">From €29</span>
-            <span class="rating">⭐ 2 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-medina-souks-guided-walking-tour-p1113808/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See craftsmen at work, from leather makers to rug weavers. Explore the wide range of spices and hand-woven textiles. Get an authentic look at Moroccan culture through its market life.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-medina-souks-guided-walking-tour-p1113808/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ben Youssef Madrasa & Secret Garden: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ben Youssef Madrasa & Secret Garden: Guided Tour</h3>
-          <p class="venue">📍 Marrakesh City Tours</p>
-          <p>Start at Ben Youssef Madrasa, an important site of Islamic architecture. See geometric patterns, carved stucco, and quiet courtyards that tell stories of past scholars. The guide provides insights into the medersa's historical and cultural importance in Morocco.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ben Youssef Madrasa & Secret Garden: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Ben Youssef Madrasa & Secret Garden: Guided Tour</div>
+        <div class="tq-card-desc">Start at Ben Youssef Madrasa, an important site of Islamic architecture. See geometric patterns, carved stucco, and quiet courtyards that tell stories of past scholars. The guide provides insights into the medersa's historical and cultural importance in Morocco.
 
 Next, head to the Secret Garden in the city. Behind plain walls, you will find a peaceful space away from the busy streets of Marrakech. 
 
-Walk through green spaces, see colorful flowers, and hear water from fountains. The Secret Garden offers a quiet escape from the city's activity.</p>
-          <div class="card-footer">
-            <span class="price">From €29</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ben-youssef-madrasa-secret-garden-guided-tour-p1113806/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Walk through green spaces, see colorful flowers, and hear water from fountains. The Secret Garden offers a quiet escape from the city's activity.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ben-youssef-madrasa-secret-garden-guided-tour-p1113806/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Marrakesh: Sunrise Hot Air Balloon Ride + Transfers +  Breakfast" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakesh: Sunrise Hot Air Balloon Ride + Transfers +  Breakfast</h3>
-          <p class="venue">📍 Marrakesh Hot Air Balloon Flights</p>
-          <p>Take a flight in a hot-air balloon above Marrakesh during sunrise. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH HOT AIR BALLOON FLIGHTS</span>
+        </div>
+        <div class="tq-card-title">Marrakesh: Sunrise Hot Air Balloon Ride + Transfers +  Breakfast</div>
+        <div class="tq-card-desc">Take a flight in a hot-air balloon above Marrakesh during sunrise. 
 
 From the air, view the city of Marrakesh, the desert, and the Atlas Mountains. Participate in the activity with professional guidance to ensure safety and comfort throughout the journey. 
 
-Enjoy a traditional breakfast before the flight.</p>
-          <div class="card-footer">
-            <span class="price">From €180</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-sunrise-hot-air-balloon-ride-breakfast-transfers-p1125109/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a traditional breakfast before the flight.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€180.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-sunrise-hot-air-balloon-ride-breakfast-transfers-p1125109/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Jardin Majorelle Guided Tour + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakesh: Jardin Majorelle Guided Tour + Transfers</h3>
-          <p class="venue">📍 Marrakesh City Tours</p>
-          <p>Visit the Majorelle Garden. This botanical garden includes fountains, ponds, bamboo groves, cacti, and a private museum collection. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Jardin Majorelle Guided Tour + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Marrakesh: Jardin Majorelle Guided Tour + Transfers</div>
+        <div class="tq-card-desc">Visit the Majorelle Garden. This botanical garden includes fountains, ponds, bamboo groves, cacti, and a private museum collection. 
 
 The space displays over 15 species of North African birds.
 
@@ -213,127 +412,198 @@ Cobalt-blue buildings accentuate the garden, which was designed by the French ar
 
 View the walls of Marrakesh, notable for their red stone structure and historical gates. These walls, exceeding 10 km in length, stand around 7.6 to 10.8 m high and were historically significant as urban enclosures.
 
-Ten gates provide entry, with Bab Khemis being among the prominent ones. Some gates have an architectural influence on other Moroccan cities.</p>
-          <div class="card-footer">
-            <span class="price">From €69</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-jardin-majorelle-guided-tour-transfers-p1125074/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Ten gates provide entry, with Bab Khemis being among the prominent ones. Some gates have an architectural influence on other Moroccan cities.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€69.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-jardin-majorelle-guided-tour-transfers-p1125074/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a8f796bdab7a4f109f2ff5f4288627a1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agafay Desert: Guided Tour from Marrakesh + Lunch + Pool Access" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Agafay Desert: Guided Tour from Marrakesh + Lunch + Pool Access</h3>
-          <p class="venue">📍 Marrakesh Food & Drinks</p>
-          <p>Enjoy an experience in the Agafay Desert with lunch, designed for those who seek comfort and natural surroundings.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a8f796bdab7a4f109f2ff5f4288627a1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agafay Desert: Guided Tour from Marrakesh + Lunch + Pool Access" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH FOOD & DRINKS</span>
+        </div>
+        <div class="tq-card-title">Agafay Desert: Guided Tour from Marrakesh + Lunch + Pool Access</div>
+        <div class="tq-card-desc">Enjoy an experience in the Agafay Desert with lunch, designed for those who seek comfort and natural surroundings.
 
 Sit in front of the desert's golden landscape with your private table offering views of the Agafay hills. 
 
-Enjoy a meal made from fresh ingredients while appreciating the desert's quiet.</p>
-          <div class="card-footer">
-            <span class="price">From €90</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-agafay-desert-guided-tour-from-marrakesh-lunch-pool-access-p1124478/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a meal made from fresh ingredients while appreciating the desert's quiet.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€90.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-agafay-desert-guided-tour-from-marrakesh-lunch-pool-access-p1124478/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef487c3fb41c4a52991266611781e9f2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Guided Evening Street Food Tour + Tastings" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakesh: Guided Evening Street Food Tour + Tastings</h3>
-          <p class="venue">📍 Marrakesh Food & Drinks</p>
-          <p>Start in Jemaa el-Fnaa, where there are storytellers, musicians, and food vendors every evening. Visit Lady Fatima’s kitchen for harira soup, a local favorite that she has served for over ten years.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef487c3fb41c4a52991266611781e9f2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Guided Evening Street Food Tour + Tastings" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH FOOD & DRINKS</span>
+        </div>
+        <div class="tq-card-title">Marrakesh: Guided Evening Street Food Tour + Tastings</div>
+        <div class="tq-card-desc">Start in Jemaa el-Fnaa, where there are storytellers, musicians, and food vendors every evening. Visit Lady Fatima’s kitchen for harira soup, a local favorite that she has served for over ten years.
 
 Next, go to the Mellah, the former Jewish quarter, for sfenj, a doughnut made by the same family for four generations. Also, learn about Morocco’s mint tea ritual. 
 
 Afterwards, see how tangia, a slow-cooked lamb dish, is prepared. Then, taste charcoal-grilled kefta at a stall that has operated for over 30 years. 
 
-Finally, enjoy tangia lamb at the Chez Lamine Restaurant, where a chef who once cooked for the king will prepare dishes for you. Your spot is secure, even with high demand.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-guided-evening-street-food-tour-tastings-p1123135/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finally, enjoy tangia lamb at the Chez Lamine Restaurant, where a chef who once cooked for the king will prepare dishes for you. Your spot is secure, even with high demand.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-guided-evening-street-food-tour-tastings-p1123135/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Marrakesh: 2-Hr Basket Customization Workshop" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakesh: 2-Hr Basket Customization Workshop</h3>
-          <p class="venue">📍 Marrakesh Workshops & Classes</p>
-          <p>Visit an embroidery workshop and learn about Moroccan textile art. Guided by artisans, choose thread colors and a simple design or text. Step by step, learn proper stitching techniques.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH WORKSHOPS & CLASSES</span>
+        </div>
+        <div class="tq-card-title">Marrakesh: 2-Hr Basket Customization Workshop</div>
+        <div class="tq-card-desc">Visit an embroidery workshop and learn about Moroccan textile art. Guided by artisans, choose thread colors and a simple design or text. Step by step, learn proper stitching techniques.
 
-While working, enjoy mint tea and traditional pastries. After the session, take home a personalized basket, a keychain, and a tote bag as souvenirs from Marrakesh.</p>
-          <div class="card-footer">
-            <span class="price">From €38</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-2-hr-basket-customization-workshop-p1122398/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+While working, enjoy mint tea and traditional pastries. After the session, take home a personalized basket, a keychain, and a tote bag as souvenirs from Marrakesh.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-2-hr-basket-customization-workshop-p1122398/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Marrakesh: 2-Hr Arabic Calligraphy Workshop" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakesh: 2-Hr Arabic Calligraphy Workshop</h3>
-          <p class="venue">📍 Marrakesh Workshops & Classes</p>
-          <p>Learn the art of Arabic calligraphy applied to embroidery. Skilled embroiderers will show you how to transform curves and letters into a harmonious pattern using just thread and needle, without prior sketching.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH WORKSHOPS & CLASSES</span>
+        </div>
+        <div class="tq-card-title">Marrakesh: 2-Hr Arabic Calligraphy Workshop</div>
+        <div class="tq-card-desc">Learn the art of Arabic calligraphy applied to embroidery. Skilled embroiderers will show you how to transform curves and letters into a harmonious pattern using just thread and needle, without prior sketching.
 
 Choose a word or name, then follow step-by-step guidance to stitch points that create fluid and readable embroidery. Enjoy mint tea and Moroccan pastries between steps.
 
-Take home a personalized creation, a keychain, and a tote bag for authentic souvenirs of Marrakesh.</p>
-          <div class="card-footer">
-            <span class="price">From €38</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-2-hr-arabic-calligraphy-workshop-p1122397/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take home a personalized creation, a keychain, and a tote bag for authentic souvenirs of Marrakesh.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-2-hr-arabic-calligraphy-workshop-p1122397/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: Private Guided Photography Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakech: Private Guided Photography Tour</h3>
-          <p class="venue">📍 Marrakesh City Tours</p>
-          <p>Join the Marrakech photography tour to capture unique angles and popular tourist spots with a local guide. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: Private Guided Photography Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Marrakech: Private Guided Photography Tour</div>
+        <div class="tq-card-desc">Join the Marrakech photography tour to capture unique angles and popular tourist spots with a local guide. 
 
 Bring your camera and explore Marrakech through the lens.
 
-Ideal for both amateur and professional photographers, this tour offers diverse and interesting subjects for your photos.</p>
-          <div class="card-footer">
-            <span class="price">From €111.59</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-private-guided-photography-tour-p1121705/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Ideal for both amateur and professional photographers, this tour offers diverse and interesting subjects for your photos.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€111.59</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-private-guided-photography-tour-p1121705/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Marrakech: Private Moroccan Cooking Class + Lunch + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakech: Private Moroccan Cooking Class + Lunch + Transfers</h3>
-          <p class="venue">📍 Marrakesh Workshops & Classes</p>
-          <p>Join a cooking class in the Moroccan countryside. Cook in a farmhouse using fresh ingredients picked from the garden with help from locals.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH WORKSHOPS & CLASSES</span>
+        </div>
+        <div class="tq-card-title">Marrakech: Private Moroccan Cooking Class + Lunch + Transfers</div>
+        <div class="tq-card-desc">Join a cooking class in the Moroccan countryside. Cook in a farmhouse using fresh ingredients picked from the garden with help from locals.
 
-Learn to make a tagine and Moroccan mint tea. Get hands-on experience and learn directly from the locals. Enjoy a homemade meal and take home recipes you can use again.</p>
-          <div class="card-footer">
-            <span class="price">From €96.52</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-moroccan-cooking-class-lunch-transfers-p1121702/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn to make a tagine and Moroccan mint tea. Get hands-on experience and learn directly from the locals. Enjoy a homemade meal and take home recipes you can use again.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€96.52</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-moroccan-cooking-class-lunch-transfers-p1121702/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: Medina Souks Small Group Guided Walking Tour + Tea" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakech: Medina Souks Small Group Guided Walking Tour + Tea</h3>
-          <p class="venue">📍 Marrakesh City Tours</p>
-          <p>Visit the Medina in Marrakech, walk through its historic souks, and explore the artisans' craftsmanship.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: Medina Souks Small Group Guided Walking Tour + Tea" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Marrakech: Medina Souks Small Group Guided Walking Tour + Tea</div>
+        <div class="tq-card-desc">Visit the Medina in Marrakech, walk through its historic souks, and explore the artisans' craftsmanship.
 
 Start at the main square, Jemaa el Fna, and head to Souk Semmarine, Marrakech’s most iconic market street, and learn about Morocco’s leather tradition.
 
@@ -343,21 +613,32 @@ Take a short break with a mint tea on a terrace.
 
 Continue through Souk Haddadine to see blacksmiths' work.
 
-Finish in Rahba Lakdima, known for its spice market. Stalls here are filled with colorful powders, herbs, and dried flowers.</p>
-          <div class="card-footer">
-            <span class="price">From €29</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-medina-souks-small-group-guided-walking-tour-tea-p1121315/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finish in Rahba Lakdima, known for its spice market. Stalls here are filled with colorful powders, herbs, and dried flowers.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-medina-souks-small-group-guided-walking-tour-tea-p1121315/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: Guided Walking Tour + Bahia Palace & Madrasa Ben Youssef Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakech: Guided Walking Tour + Bahia Palace & Madrasa Ben Youssef Entry</h3>
-          <p class="venue">📍 Marrakesh City Tours</p>
-          <p>Start at the Bahia Palace, a 19th-century residence with gardens, tilework, and carved wooden ceilings. It was later expanded to include the Royal harem.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: Guided Walking Tour + Bahia Palace & Madrasa Ben Youssef Entry" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Marrakech: Guided Walking Tour + Bahia Palace & Madrasa Ben Youssef Entry</div>
+        <div class="tq-card-desc">Start at the Bahia Palace, a 19th-century residence with gardens, tilework, and carved wooden ceilings. It was later expanded to include the Royal harem.
 
 Continue to the Mellah, the old Jewish quarter with narrow streets, spice shops, and traditional balconies.
 
@@ -367,272 +648,431 @@ See the Koutoubia Mosque, whose minaret inspired the Giralda tower in Seville.
 
 Cross Jemaa el Fna, a lively square with storytellers, vendors, and artisans.
 
-End the tour at the 16th-century Ben Youssef Madrasa, once one of the largest Islamic colleges.</p>
-          <div class="card-footer">
-            <span class="price">From €49</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-guided-walking-tour-bahia-palace-madrasa-ben-youssef-entry-p1121264/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End the tour at the 16th-century Ben Youssef Madrasa, once one of the largest Islamic colleges.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€49.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-guided-walking-tour-bahia-palace-madrasa-ben-youssef-entry-p1121264/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef487c3fb41c4a52991266611781e9f2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Dinner Show + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakesh: Dinner Show + Roundtrip Transfer</h3>
-          <p class="venue">📍 Marrakesh Food & Drinks</p>
-          <p>Watch a unique show at the restaurant Fantasia Chez Ali. Sit comfortably on cushions under the tents around the arena. Try traditional Moroccan dishes prepared by local cooks.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef487c3fb41c4a52991266611781e9f2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Dinner Show + Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH FOOD & DRINKS</span>
+        </div>
+        <div class="tq-card-title">Marrakesh: Dinner Show + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Watch a unique show at the restaurant Fantasia Chez Ali. Sit comfortably on cushions under the tents around the arena. Try traditional Moroccan dishes prepared by local cooks.
 
 Folkloric troupes, musicians, and acrobats from different regions of Morocco entertain you throughout the evening.
 
-In the arena, after the meal, see dances, songs, caravans, skilled Berber riders on purebred Arabian horses, and the fantasia show.</p>
-          <div class="card-footer">
-            <span class="price">From €68</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-dinner-show-roundtrip-transfer-p1120907/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In the arena, after the meal, see dances, songs, caravans, skilled Berber riders on purebred Arabian horses, and the fantasia show.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€68.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-dinner-show-roundtrip-transfer-p1120907/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef487c3fb41c4a52991266611781e9f2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Guided Food Tour + Dinner" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakesh: Guided Food Tour + Dinner</h3>
-          <p class="venue">📍 Marrakesh Food & Drinks</p>
-          <p>Join a Marrakesh food tour to explore the local food scene.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef487c3fb41c4a52991266611781e9f2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Guided Food Tour + Dinner" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH FOOD & DRINKS</span>
+        </div>
+        <div class="tq-card-title">Marrakesh: Guided Food Tour + Dinner</div>
+        <div class="tq-card-desc">Join a Marrakesh food tour to explore the local food scene.
 
 Walk through souks and taste olives, dried fruits, nuts, pastries, and Moroccan specialties. Visit a spice market and learn about spices in Moroccan dishes. See the variety of food at Djemaa El-Fna and enjoy a traditional dinner in this world heritage square.
 
-Learn about the culture and the people through their cuisine, gaining a deeper understanding of their way of life. This tour provides a comprehensive look into Moroccan culinary traditions and the lively market atmosphere.</p>
-          <div class="card-footer">
-            <span class="price">From €39</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-guided-food-tour-dinner-p1119478/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about the culture and the people through their cuisine, gaining a deeper understanding of their way of life. This tour provides a comprehensive look into Moroccan culinary traditions and the lively market atmosphere.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-guided-food-tour-dinner-p1119478/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Marrakesh: Tagine Cooking Class" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakesh: Tagine Cooking Class</h3>
-          <p class="venue">📍 Marrakesh Workshops & Classes</p>
-          <p>Attend a Moroccan cooking class in a small group or private session.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH WORKSHOPS & CLASSES</span>
+        </div>
+        <div class="tq-card-title">Marrakesh: Tagine Cooking Class</div>
+        <div class="tq-card-desc">Attend a Moroccan cooking class in a small group or private session.
 
 Shop at the market and prepare a traditional dish for lunch. Learn some Arabic phrases to use while buying ingredients at the *souq* (market).
 
 Prepare a Moroccan tagine, classic meat and vegetable dish and mint tea. Share a meal with the group in a courtyard of a *riad*, a traditional Moroccan home.
 
-This is a carbon-neutral experience, led by an eco-certified tour operator.</p>
-          <div class="card-footer">
-            <span class="price">From €49</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-tagine-cooking-class-p1119399/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This is a carbon-neutral experience, led by an eco-certified tour operator.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€49.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-tagine-cooking-class-p1119399/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Private Medina, Palaces & Tombs Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakesh: Private Medina, Palaces & Tombs Tour</h3>
-          <p class="venue">📍 Marrakesh City Tours</p>
-          <p>Join a half-day walking tour in Marrakesh’s medina neighborhood. With a local guide, navigate the souks around Djemaa El-Fna and visit the Bahia Palace. The palace was once used by sultans.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakesh: Private Medina, Palaces & Tombs Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Marrakesh: Private Medina, Palaces & Tombs Tour</div>
+        <div class="tq-card-desc">Join a half-day walking tour in Marrakesh’s medina neighborhood. With a local guide, navigate the souks around Djemaa El-Fna and visit the Bahia Palace. The palace was once used by sultans.
 
-Taste fresh-baked bread at a communal bakery and see the ‘tanjia’ ovens used by locals. Visit the House of Photography in Marrakech to view photographs of old and modern Morocco.</p>
-          <div class="card-footer">
-            <span class="price">From €138</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-private-medina-palaces-tombs-tour-p1119394/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Taste fresh-baked bread at a communal bakery and see the ‘tanjia’ ovens used by locals. Visit the House of Photography in Marrakech to view photographs of old and modern Morocco.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€138.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakesh-private-medina-palaces-tombs-tour-p1119394/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: Half-Day Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakech: Half-Day Guided Tour</h3>
-          <p class="venue">📍 Marrakesh City Tours</p>
-          <p>Join a half-day city tour of Marrakech with a local guide. Begin at Café de France in Jemaa el-Fnaa Square. Visit the Koutoubia Mosque, known for its minaret and history. See the Saadian Tombs, sealed for centuries with detailed Hispano-Moorish carvings from the 16th century.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: Half-Day Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARRAKESH CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Marrakech: Half-Day Guided Tour</div>
+        <div class="tq-card-desc">Join a half-day city tour of Marrakech with a local guide. Begin at Café de France in Jemaa el-Fnaa Square. Visit the Koutoubia Mosque, known for its minaret and history. See the Saadian Tombs, sealed for centuries with detailed Hispano-Moorish carvings from the 16th century.
 
-Continue to the Bahia Palace, a 19th-century royal residence with gardens and stucco work. This private tour lets you see Marrakech's main landmarks and learn about the city's heritage directly from a local expert.</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-half-day-guided-tour-p1113658/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Continue to the Bahia Palace, a 19th-century royal residence with gardens and stucco work. This private tour lets you see Marrakech's main landmarks and learn about the city's heritage directly from a local expert.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-half-day-guided-tour-p1113658/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palmeraie: Guided Quad Adventure & Camel Ride + Transfers from Marrakesh" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palmeraie: Guided Quad Adventure & Camel Ride + Transfers from Marrakesh</h3>
-          <p class="venue">📍 Quad Biking Marrakech</p>
-          <p>Join an adventure that combines quad biking with a camel ride. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palmeraie: Guided Quad Adventure & Camel Ride + Transfers from Marrakesh" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">QUAD BIKING MARRAKECH</span>
+        </div>
+        <div class="tq-card-title">Palmeraie: Guided Quad Adventure & Camel Ride + Transfers from Marrakesh</div>
+        <div class="tq-card-desc">Join an adventure that combines quad biking with a camel ride. 
 
 First, ride a quad through desert landscapes, navigating hidden paths and rolling dunes. After exploring on the quad, switch to a camel and move gently through the desert. 
 
-Whether you're looking for excitement or a peaceful moment in nature, this experience offers both.</p>
-          <div class="card-footer">
-            <span class="price">From €55</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palmeraie-guided-quad-adventure-camel-ride-transfers-from-marrakesh-p1111074/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Whether you're looking for excitement or a peaceful moment in nature, this experience offers both.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palmeraie-guided-quad-adventure-camel-ride-transfers-from-marrakesh-p1111074/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palmeraie Desert: Half-Day Guided Quad Adventure + Transfers from Marrakesh" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palmeraie Desert: Half-Day Guided Quad Adventure + Transfers from Marrakesh</h3>
-          <p class="venue">📍 Quad Biking Marrakech</p>
-          <p>Ride a quad through the desert of the Palmeraie. Enjoy the combination of exciting speeds and learning about local culture. Suitable for those who love a fast pace or want a more cultural experience.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palmeraie-desert-half-day-guided-quad-adventure-transfers-from-marrakesh-p1110975/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palmeraie Desert: Half-Day Guided Quad Adventure + Transfers from Marrakesh" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">QUAD BIKING MARRAKECH</span>
+        </div>
+        <div class="tq-card-title">Palmeraie Desert: Half-Day Guided Quad Adventure + Transfers from Marrakesh</div>
+        <div class="tq-card-desc">Ride a quad through the desert of the Palmeraie. Enjoy the combination of exciting speeds and learning about local culture. Suitable for those who love a fast pace or want a more cultural experience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palmeraie-desert-half-day-guided-quad-adventure-transfers-from-marrakesh-p1110975/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agafay Desert & Lake: Half-Day Guided Quad Adventure + Transport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Agafay Desert & Lake: Half-Day Guided Quad Adventure + Transport</h3>
-          <p class="venue">📍 Quad Biking Marrakech</p>
-          <p>Start by getting picked up from your hotel and taken to the base where the activity begins. Enjoy a two-hour quad ride through the unique terrain of the Agafay Desert. Navigate winding tracks and cross golden dunes, enjoying views of a hidden lake.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agafay Desert & Lake: Half-Day Guided Quad Adventure + Transport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">QUAD BIKING MARRAKECH</span>
+        </div>
+        <div class="tq-card-title">Agafay Desert & Lake: Half-Day Guided Quad Adventure + Transport</div>
+        <div class="tq-card-desc">Start by getting picked up from your hotel and taken to the base where the activity begins. Enjoy a two-hour quad ride through the unique terrain of the Agafay Desert. Navigate winding tracks and cross golden dunes, enjoying views of a hidden lake.
 
-Take a break with traditional tea while enjoying the surroundings. Finally, return to your hotel with new memories.</p>
-          <div class="card-footer">
-            <span class="price">From €50</span>
-            <span class="rating">⭐ 2 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-agafay-desert-lake-half-day-guided-quad-adventure-transport-p1110940/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take a break with traditional tea while enjoying the surroundings. Finally, return to your hotel with new memories.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-agafay-desert-lake-half-day-guided-quad-adventure-transport-p1110940/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cc54953ddd834aa59689b7b1355441f0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: 2-Hr Quad Ride + Roundtrip Transport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marrakech: 2-Hr Quad Ride + Roundtrip Transport</h3>
-          <p class="venue">📍 Quad Biking Marrakech</p>
-          <p>Take a 2-hour quad ride through the foothills and landscapes of the palm grove of Marrakech. Navigate a green oasis and have traditional Moroccan mint tea in a Berber village.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cc54953ddd834aa59689b7b1355441f0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marrakech: 2-Hr Quad Ride + Roundtrip Transport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">QUAD BIKING MARRAKECH</span>
+        </div>
+        <div class="tq-card-title">Marrakech: 2-Hr Quad Ride + Roundtrip Transport</div>
+        <div class="tq-card-desc">Take a 2-hour quad ride through the foothills and landscapes of the palm grove of Marrakech. Navigate a green oasis and have traditional Moroccan mint tea in a Berber village.
 
-Get picked up from your hotel and transferred to a spot 10 km outside of Marrakech. Begin a 2-hour quad ride through sand dunes, Oued Tensift, Djibilettes, and Berber villages. Cover 40 km in a two-hour circuit. Pause at a home for 20 minutes for tea. After the ride, return to your hotel in Marrakech.</p>
-          <div class="card-footer">
-            <span class="price">From €44</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-2-hr-quad-ride-roundtrip-transport-p1109160/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get picked up from your hotel and transferred to a spot 10 km outside of Marrakech. Begin a 2-hour quad ride through sand dunes, Oued Tensift, Djibilettes, and Berber villages. Cover 40 km in a two-hour circuit. Pause at a home for 20 minutes for tea. After the ride, return to your hotel in Marrakech.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€44.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marrakech-2-hr-quad-ride-roundtrip-transport-p1109160/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a8af583767c04615b4c72a2ef9287f3d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Berber Trail: Day Trip from Marrakech + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Berber Trail: Day Trip from Marrakech + Lunch</h3>
-          <p class="venue">📍 Day Trip from Marrakech</p>
-          <p>Start your trip from Marrakech, navigating rough roads up into the Atlas range. Pass through valleys, climb mountains, and drive through the famous Berber Trail.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a8af583767c04615b4c72a2ef9287f3d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Berber Trail: Day Trip from Marrakech + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIP FROM MARRAKECH</span>
+        </div>
+        <div class="tq-card-title">Berber Trail: Day Trip from Marrakech + Lunch</div>
+        <div class="tq-card-desc">Start your trip from Marrakech, navigating rough roads up into the Atlas range. Pass through valleys, climb mountains, and drive through the famous Berber Trail.
 
 See villages and ancient structures. Meet friendly locals and learn about the area's history and culture.
 
-Enjoy a delicious lunch at a local restaurant while taking in scenic views of lush vegetation, slopes, and snow-covered peaks.</p>
-          <div class="card-footer">
-            <span class="price">From €91</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-berber-trail-day-trip-from-marrakech-lunch-p1107497/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a delicious lunch at a local restaurant while taking in scenic views of lush vegetation, slopes, and snow-covered peaks.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€91.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-berber-trail-day-trip-from-marrakech-lunch-p1107497/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Imlil & Mount Toubkal: Tour from Marrakech + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Imlil & Mount Toubkal: Tour from Marrakech + Lunch</h3>
-          <p class="venue">📍 Day Trip from Marrakech</p>
-          <p>Visit Toubkal Massif, a national park with rugged peaks and deep valleys. Toubkal holds the highest summits in the Atlas Mountains. Roads are busy with people, animals, scooters, and trucks. Exit at the small village of Imlil, the entry point for the Toubkal area.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIP FROM MARRAKECH</span>
+        </div>
+        <div class="tq-card-title">Imlil & Mount Toubkal: Tour from Marrakech + Lunch</div>
+        <div class="tq-card-desc">Visit Toubkal Massif, a national park with rugged peaks and deep valleys. Toubkal holds the highest summits in the Atlas Mountains. Roads are busy with people, animals, scooters, and trucks. Exit at the small village of Imlil, the entry point for the Toubkal area.
 
-Go on a 20-minute hike to a restaurant for lunch facing Mount Toubkal, which stands at 12,700 feet. It is the second-highest summit in Africa after Kilimanjaro.</p>
-          <div class="card-footer">
-            <span class="price">From €79</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-imlil-mount-toubkal-tour-from-marrakech-lunch-p1107459/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Go on a 20-minute hike to a restaurant for lunch facing Mount Toubkal, which stands at 12,700 feet. It is the second-highest summit in Africa after Kilimanjaro.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€79.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-imlil-mount-toubkal-tour-from-marrakech-lunch-p1107459/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Nature and Adventure Park: Small Group Tour from Marrakech + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Nature and Adventure Park: Small Group Tour from Marrakech + Lunch</h3>
-          <p class="venue">📍 Day Trip from Marrakech</p>
-          <p>Spend a day with activities, including an aerial course, rappelling, and hiking (1 activity per person).
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIP FROM MARRAKECH</span>
+        </div>
+        <div class="tq-card-title">Nature and Adventure Park: Small Group Tour from Marrakech + Lunch</div>
+        <div class="tq-card-desc">Spend a day with activities, including an aerial course, rappelling, and hiking (1 activity per person).
 
 Leave Marrakech and join a small group tour to a forest near the Atlas Mountains, just 30 minutes away. Go from tree to tree on bridges and zip lines. Climb a spider web made of ropes. Opt for an aerial activity if you prefer. After rappelling from a tree, walk to a nearby village.
 
-Children can visit the children's park with zip wires, swings, trampolines, rock climbing, BMX, and age-appropriate adventure courses for ages 4 to 6 and 7 to 11.</p>
-          <div class="card-footer">
-            <span class="price">From €75</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-nature-and-adventure-park-small-group-tour-from-marrakech-lunch-p1107458/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Children can visit the children's park with zip wires, swings, trampolines, rock climbing, BMX, and age-appropriate adventure courses for ages 4 to 6 and 7 to 11.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€75.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-nature-and-adventure-park-small-group-tour-from-marrakech-lunch-p1107458/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Ourika Valley: Tour + Pickup from Marrakech" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ourika Valley: Tour + Pickup from Marrakech</h3>
-          <p class="venue">📍 Day Trip from Marrakech</p>
-          <p>Visit the Ourika Valley in the Atlas Mountains and walk through aromatic gardens. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIP FROM MARRAKECH</span>
+        </div>
+        <div class="tq-card-title">Ourika Valley: Tour + Pickup from Marrakech</div>
+        <div class="tq-card-desc">Visit the Ourika Valley in the Atlas Mountains and walk through aromatic gardens. 
 
 See the Ourika River flowing through the foothills, making the area lush with orchards and terraced crops. Visit the small douar homes scattered across the landscape, enhancing the valley’s traditional look.
 
-Witness a mix of natural beauty and local agriculture in this unique location.</p>
-          <div class="card-footer">
-            <span class="price">From €42</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ourika-valley-tour-pickup-from-marrakech-p1106931/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Witness a mix of natural beauty and local agriculture in this unique location.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ourika-valley-tour-pickup-from-marrakech-p1106931/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Essaouira: Guided Day Tour + Pickup from Marrakech" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Essaouira: Guided Day Tour + Pickup from Marrakech</h3>
-          <p class="venue">📍 Day Trip from Marrakech</p>
-          <p>Explore Essaouira, known for its historic Portuguese harbor with examples of Moorish and Portuguese art, woodwork, and the silver souk.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIP FROM MARRAKECH</span>
+        </div>
+        <div class="tq-card-title">Essaouira: Guided Day Tour + Pickup from Marrakech</div>
+        <div class="tq-card-desc">Explore Essaouira, known for its historic Portuguese harbor with examples of Moorish and Portuguese art, woodwork, and the silver souk.
 
 Leave Skala and walk along Derb Laalouj Street to the Museum Sidi Mohammed Ben Abdallah. See musical instruments, local Andalusian songs, Berber documents, weapons, costumes, carpets, and more in the former Pasha residence. 
 
-Visit the Jewish Quarter, called Mellah, in the north of the city. Walk down Rue Mohammed Zerktouni, surrounded by a market that stretches to Bab Doukkala. Discover the beaches that offer sunshine all year.</p>
-          <div class="card-footer">
-            <span class="price">From €73</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-essaouira-guided-day-tour-pickup-from-marrakech-p1106930/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit the Jewish Quarter, called Mellah, in the north of the city. Walk down Rue Mohammed Zerktouni, surrounded by a market that stretches to Bab Doukkala. Discover the beaches that offer sunshine all year.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€73.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-essaouira-guided-day-tour-pickup-from-marrakech-p1106930/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Ouarzazate: Day Tour + Aït Benhaddou Visit + Pickup from Marrakech" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ouarzazate: Day Tour + Aït Benhaddou Visit + Pickup from Marrakech</h3>
-          <p class="venue">📍 Day Trip from Marrakech</p>
-          <p>Travel through the Tizi N'Tichka Pass, the highest in North Africa at 7,415 feet, and see various landscapes along the way. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MARRAKESH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIP FROM MARRAKECH</span>
+        </div>
+        <div class="tq-card-title">Ouarzazate: Day Tour + Aït Benhaddou Visit + Pickup from Marrakech</div>
+        <div class="tq-card-desc">Travel through the Tizi N'Tichka Pass, the highest in North Africa at 7,415 feet, and see various landscapes along the way. 
 
 Stop at the fortified city of Aït Benhaddou, a UNESCO World Heritage Site and film location. After having lunch, take a city tour of Ouarzazate, which means "no noise" in Berber. 
 
-Visit the Taourirt and Tiffoultoute Kasbahs, once the residences of the Glaoui, an old Pacha of Marrakech. Finally, return to Marrakech.</p>
-          <div class="card-footer">
-            <span class="price">From €51</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ouarzazate-day-tour-ait-benhaddou-visit-pickup-from-marrakech-p1106929/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit the Taourirt and Tiffoultoute Kasbahs, once the residences of the Glaoui, an old Pacha of Marrakech. Finally, return to Marrakech.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ouarzazate-day-tour-ait-benhaddou-visit-pickup-from-marrakech-p1106929/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

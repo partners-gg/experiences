@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Katoomba | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Katoomba. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,114 +131,185 @@
     <p>13 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d08cc4d9f94747d7bc7561ffd7547302.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains National Park: Scenic World Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blue Mountains National Park: Scenic World Pass</h3>
-          <p class="venue">📍 Scenic World</p>
-          <p>Get the Scenic World Pass to access four great attractions in the Blue Mountains, a UNESCO World Heritage Site in Katoomba.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d08cc4d9f94747d7bc7561ffd7547302.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains National Park: Scenic World Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KATOOMBA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SCENIC WORLD</span>
+        </div>
+        <div class="tq-card-title">Blue Mountains National Park: Scenic World Pass</div>
+        <div class="tq-card-desc">Get the Scenic World Pass to access four great attractions in the Blue Mountains, a UNESCO World Heritage Site in Katoomba.
 
 Start with the Scenic Skyway, flying between cliff tops 270 meters above the ancient rainforest canopy. Admire views of Katoomba Falls, the Three Sisters, Mt Solitary, and Jamison Valley. Then, ride the world's steepest railway down to the forest for a relaxing walk.
 
-Take the Scenic Cableway for another view of the Three Sisters. After your visit, relax at the café or shop for a souvenir.</p>
-          <div class="card-footer">
-            <span class="price">From €38.48</span>
-            <span class="rating">⭐ 4.8 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-national-park-scenic-world-pass-p1101049/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take the Scenic Cableway for another view of the Three Sisters. After your visit, relax at the café or shop for a souvenir.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.48</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-national-park-scenic-world-pass-p1101049/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9fcd6273608b46dca8be84ac7d09ee05.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains Sydney: Hop-on Hop-off Explorer Bus" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blue Mountains Sydney: Hop-on Hop-off Explorer Bus</h3>
-          <p class="venue">📍 Blue Mountains National Park</p>
-          <p>What's the best way to take in the sublime natural splendor of New South Wales? Hop aboard a Blue Mountains Explorer Bus and get ferried from one mesmerizing locale to the next - all in comfort and style.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9fcd6273608b46dca8be84ac7d09ee05.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains Sydney: Hop-on Hop-off Explorer Bus" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KATOOMBA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BLUE MOUNTAINS NATIONAL PARK</span>
+        </div>
+        <div class="tq-card-title">Blue Mountains Sydney: Hop-on Hop-off Explorer Bus</div>
+        <div class="tq-card-desc">What's the best way to take in the sublime natural splendor of New South Wales? Hop aboard a Blue Mountains Explorer Bus and get ferried from one mesmerizing locale to the next - all in comfort and style.
 
-See cascading waterfalls, sweeping vistas, towering mountains, dense jungle, and some awesome Aussie wildlife as you wind your way through stunning Blue Mountains terrain.</p>
-          <div class="card-footer">
-            <span class="price">From €33.07</span>
-            <span class="rating">⭐ 4.6 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-hop-on-hop-off-explorer-bus-p976816/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See cascading waterfalls, sweeping vistas, towering mountains, dense jungle, and some awesome Aussie wildlife as you wind your way through stunning Blue Mountains terrain.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-hop-on-hop-off-explorer-bus-p976816/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d08cc4d9f94747d7bc7561ffd7547302.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains Sydney: Hop-on Hop-off Bus + Scenic World Unlimited Rides Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blue Mountains Sydney: Hop-on Hop-off Bus + Scenic World Unlimited Rides Pass</h3>
-          <p class="venue">📍 Scenic World</p>
-          <p>Hop aboard a Blue Mountains Explorer Bus and get ferried from one mesmerising locale to the next. See cascading waterfalls, sweeping vistas, towering mountains, dense jungle, and more. Then, turn the adventure level all the way up to _crikey!_ with unlimited access to Scenic Worlds' jaw-dropping cable cars and walkways.</p>
-          <div class="card-footer">
-            <span class="price">From €69.75</span>
-            <span class="rating">⭐ 4.4 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-hop-on-hop-off-explorer-bus-scenic-world-unlimited-rides-pass-p976815/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d08cc4d9f94747d7bc7561ffd7547302.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains Sydney: Hop-on Hop-off Bus + Scenic World Unlimited Rides Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KATOOMBA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SCENIC WORLD</span>
+        </div>
+        <div class="tq-card-title">Blue Mountains Sydney: Hop-on Hop-off Bus + Scenic World Unlimited Rides Pass</div>
+        <div class="tq-card-desc">Hop aboard a Blue Mountains Explorer Bus and get ferried from one mesmerising locale to the next. See cascading waterfalls, sweeping vistas, towering mountains, dense jungle, and more. Then, turn the adventure level all the way up to _crikey!_ with unlimited access to Scenic Worlds' jaw-dropping cable cars and walkways.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€69.75</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-hop-on-hop-off-explorer-bus-scenic-world-unlimited-rides-pass-p976815/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains & Parramatta River: Full-Day Trip from Sydney" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blue Mountains & Parramatta River: Full-Day Trip from Sydney</h3>
-          <p class="venue">📍 Blue Mountains National Park</p>
-          <p>Start your day with a visit to the Featherdale Wildlife Park and see koalas, wombats, and a variety of native birds and animals.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains & Parramatta River: Full-Day Trip from Sydney" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KATOOMBA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BLUE MOUNTAINS NATIONAL PARK</span>
+        </div>
+        <div class="tq-card-title">Blue Mountains & Parramatta River: Full-Day Trip from Sydney</div>
+        <div class="tq-card-desc">Start your day with a visit to the Featherdale Wildlife Park and see koalas, wombats, and a variety of native birds and animals.
 
 Walk through Leura Village and check out its shops and cafes. Choose a local bakery or café for lunch (at your own expense).
 
 Ride on the Cableway, Skyway, and the world's steepest passenger Railway at Scenic World while viewing the landscapes like the Blue Mountains.
 
-See the Jamison Valley and the Three Sisters rock formation at Echo Point. Finish your day with a ferry cruise along the Parramatta River back to Sydney.</p>
-          <div class="card-footer">
-            <span class="price">From €126.28</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-parramatta-river-day-trip-from-sydney-p1116291/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See the Jamison Valley and the Three Sisters rock formation at Echo Point. Finish your day with a ferry cruise along the Parramatta River back to Sydney.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€126.28</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-parramatta-river-day-trip-from-sydney-p1116291/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains & Sydney Zoo: Small-Group Guided Tour from Sydney" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blue Mountains & Sydney Zoo: Small-Group Guided Tour from Sydney</h3>
-          <p class="venue">📍 Blue Mountains National Park</p>
-          <p>At the Blue Mountains, the surrounding air smells of eucalyptus and tea trees. Gain access to  rides at Scenic World (Skyway, Railway and Cableway), a stroll through a lush rainforest, a visit to a mountain village and a stopover at Sydney Zoo. Then, board a return ferry trip to Circular Quay.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains & Sydney Zoo: Small-Group Guided Tour from Sydney" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KATOOMBA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BLUE MOUNTAINS NATIONAL PARK</span>
+        </div>
+        <div class="tq-card-title">Blue Mountains & Sydney Zoo: Small-Group Guided Tour from Sydney</div>
+        <div class="tq-card-desc">At the Blue Mountains, the surrounding air smells of eucalyptus and tea trees. Gain access to  rides at Scenic World (Skyway, Railway and Cableway), a stroll through a lush rainforest, a visit to a mountain village and a stopover at Sydney Zoo. Then, board a return ferry trip to Circular Quay.
 
-Escape the city and take in the views of Jamison Valley and the Blue Mountains. The natural beauty of this World Heritage-listed area is a must-visit for nature enthusiasts. Its rock faces, waterfalls and native wildlife will appeal to the explorer in you.</p>
-          <div class="card-footer">
-            <span class="price">From €114.25</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-sydney-zoo-small-group-guided-tour-from-sydney-p1098009/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Escape the city and take in the views of Jamison Valley and the Blue Mountains. The natural beauty of this World Heritage-listed area is a must-visit for nature enthusiasts. Its rock faces, waterfalls and native wildlife will appeal to the explorer in you.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€114.25</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-sydney-zoo-small-group-guided-tour-from-sydney-p1098009/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains: Guided Day Tour from Sydney with Featherdale Wildlife & Bushwalk" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blue Mountains: Guided Day Tour from Sydney with Featherdale Wildlife & Bushwalk</h3>
-          <p class="venue">📍 Blue Mountains National Park</p>
-          <p>Join this premium small-group Blue Mountains day tour from Sydney with weather-optimized itineraries to avoid the crowds. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains: Guided Day Tour from Sydney with Featherdale Wildlife & Bushwalk" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KATOOMBA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BLUE MOUNTAINS NATIONAL PARK</span>
+        </div>
+        <div class="tq-card-title">Blue Mountains: Guided Day Tour from Sydney with Featherdale Wildlife & Bushwalk</div>
+        <div class="tq-card-desc">Join this premium small-group Blue Mountains day tour from Sydney with weather-optimized itineraries to avoid the crowds. 
 
 Experience Australia's largest wildlife collection at Featherdale Wildlife Park with koalas and kangaroos. Visit the iconic Three Sisters at Echo Point, and explore Wentworth Falls with scenic cliff-top walks. 
 
-Enjoy Jamison Valley views, hidden waterfalls, and Blue Mountains bushwalking.</p>
-          <div class="card-footer">
-            <span class="price">From €113.65</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-guided-day-tour-from-sydney-with-featherdale-wildlife-bushwalk-p1117736/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy Jamison Valley views, hidden waterfalls, and Blue Mountains bushwalking.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€113.65</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-guided-day-tour-from-sydney-with-featherdale-wildlife-bushwalk-p1117736/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains: Guided Day Tour from Sydney + Sydney Zoo & Scenic World Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blue Mountains: Guided Day Tour from Sydney + Sydney Zoo & Scenic World Entry</h3>
-          <p class="venue">📍 Blue Mountains National Park</p>
-          <p>Join a guided day tour from Sydney to explore the Blue Mountains, including a visit to an Australian animal park and Scenic World.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains: Guided Day Tour from Sydney + Sydney Zoo & Scenic World Entry" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KATOOMBA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BLUE MOUNTAINS NATIONAL PARK</span>
+        </div>
+        <div class="tq-card-title">Blue Mountains: Guided Day Tour from Sydney + Sydney Zoo & Scenic World Entry</div>
+        <div class="tq-card-desc">Join a guided day tour from Sydney to explore the Blue Mountains, including a visit to an Australian animal park and Scenic World.
 
 Start the tour at Sydney Zoo before heading into the Blue Mountains for a short walk to a lookout, where a guide provides local commentary. 
 
@@ -147,57 +317,90 @@ Enjoy a café-style lunch, along with a treat from a local chocolatier.
 
 After lunch, visit Scenic World, ride the world’s steepest railway down to the rainforest floor, and take a walk through the rainforest. 
 
-Return via the Cableway and stop by the gift shop before riding the Skyway. The Skyway takes you to the Katoomba side, where you can either walk the 1 km Prince Henry Cliff Walk to Echo Point and the Three Sisters or take a bus.</p>
-          <div class="card-footer">
-            <span class="price">From €135.3</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-guided-day-tour-from-sydney-sydney-zoo-scenic-world-entry-p1104192/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Return via the Cableway and stop by the gift shop before riding the Skyway. The Skyway takes you to the Katoomba side, where you can either walk the 1 km Prince Henry Cliff Walk to Echo Point and the Three Sisters or take a bus.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€135.30</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-guided-day-tour-from-sydney-sydney-zoo-scenic-world-entry-p1104192/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains National Park: Day Tour from Sydney + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blue Mountains National Park: Day Tour from Sydney + Lunch</h3>
-          <p class="venue">📍 Blue Mountains National Park</p>
-          <p>Join the ultimate Blue Mountains tour for a day of exploring Australia's wilderness. Start with a pickup from downtown Sydney and head to Glenbrook for a walk. Visit Elysian Rock for scenic views and Echo Point for great photos.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains National Park: Day Tour from Sydney + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KATOOMBA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BLUE MOUNTAINS NATIONAL PARK</span>
+        </div>
+        <div class="tq-card-title">Blue Mountains National Park: Day Tour from Sydney + Lunch</div>
+        <div class="tq-card-desc">Join the ultimate Blue Mountains tour for a day of exploring Australia's wilderness. Start with a pickup from downtown Sydney and head to Glenbrook for a walk. Visit Elysian Rock for scenic views and Echo Point for great photos.
 
 Enjoy three rides and a guided rainforest walk at Scenic World. See Katoomba Cascades Waterfalls and Cahill's Lookout for more views.
 
-Have a traditional Aussie pub meal (drinks not included). Feed kangaroos and take a photo with a koala at Sydney Zoo. End with a scenic ferry ride on Sydney Harbor to Circular Quay.</p>
-          <div class="card-footer">
-            <span class="price">From €155.14</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-national-park-day-tour-from-sydney-lunch-p1100064/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Have a traditional Aussie pub meal (drinks not included). Feed kangaroos and take a photo with a koala at Sydney Zoo. End with a scenic ferry ride on Sydney Harbor to Circular Quay.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€155.14</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-national-park-day-tour-from-sydney-lunch-p1100064/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains: Scenic World Entry Ticket + Harbour Cruise from Sydney" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blue Mountains: Scenic World Entry Ticket + Harbour Cruise from Sydney</h3>
-          <p class="venue">📍 Blue Mountains National Park</p>
-          <p>Begin the Blue Mountains Adventure with a convenient hotel pick-up in Sydney, followed by a comfortable ride to Glenbrook for a coffee break. Continue the journey to Echo Point to view the famous Three Sisters rock formation, an excellent spot for photos.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains: Scenic World Entry Ticket + Harbour Cruise from Sydney" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KATOOMBA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BLUE MOUNTAINS NATIONAL PARK</span>
+        </div>
+        <div class="tq-card-title">Blue Mountains: Scenic World Entry Ticket + Harbour Cruise from Sydney</div>
+        <div class="tq-card-desc">Begin the Blue Mountains Adventure with a convenient hotel pick-up in Sydney, followed by a comfortable ride to Glenbrook for a coffee break. Continue the journey to Echo Point to view the famous Three Sisters rock formation, an excellent spot for photos.
 
 Feel the excitement at Scenic World, where you can ride the world's steepest railway and enjoy three unique rides. Visit Elysian Rock's lookout for views. See Megalong Valley from the peaceful less crowded Cahill’s Lookout. Take a peaceful guided rainforest walk to Katoomba Cascades Waterfalls and explore the scenic boardwalks and stepping stones along the way.
 
-Visit Leura to explore boutique shops and enjoy a delicious lunch. Finish the day with a visit to Sydney Zoo, where you can feed kangaroos, interact with native animals, and get a free digital photo with a koala. Conclude the tour with a relaxing cruise on Sydney Harbour to Circular Quay, with views of the Sydney Opera House.</p>
-          <div class="card-footer">
-            <span class="price">From €131.69</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-scenic-world-entry-ticket-harbour-cruise-from-sydney-p1099963/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit Leura to explore boutique shops and enjoy a delicious lunch. Finish the day with a visit to Sydney Zoo, where you can feed kangaroos, interact with native animals, and get a free digital photo with a koala. Conclude the tour with a relaxing cruise on Sydney Harbour to Circular Quay, with views of the Sydney Opera House.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€131.69</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-scenic-world-entry-ticket-harbour-cruise-from-sydney-p1099963/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains & Sydney Zoo: Day Tour from Sydney" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blue Mountains & Sydney Zoo: Day Tour from Sydney</h3>
-          <p class="venue">📍 Blue Mountains National Park</p>
-          <p>Prepare for a full-day tour of the Blue Mountains Scenic World and Sydney Zoo Tour.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains & Sydney Zoo: Day Tour from Sydney" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KATOOMBA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BLUE MOUNTAINS NATIONAL PARK</span>
+        </div>
+        <div class="tq-card-title">Blue Mountains & Sydney Zoo: Day Tour from Sydney</div>
+        <div class="tq-card-desc">Prepare for a full-day tour of the Blue Mountains Scenic World and Sydney Zoo Tour.
 
 Start at Sydney Zoo, where you can take a photo with a koala and see Australian wildlife up close.
 
@@ -205,68 +408,107 @@ Visit Leura village to explore shops and cafes, enjoy mountain views, and breath
 
 Stop at Echo Point to see the Three Sisters rock formation and capture photos.
 
-Experience Scenic World with rides like the world's steepest railway, Scenic Skyway, and Scenic Cableway with the Unlimited Discovery Pass.</p>
-          <div class="card-footer">
-            <span class="price">From €125.68</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-sydney-zoo-day-tour-from-sydney-p1099700/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Experience Scenic World with rides like the world's steepest railway, Scenic Skyway, and Scenic Cableway with the Unlimited Discovery Pass.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€125.68</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-sydney-zoo-day-tour-from-sydney-p1099700/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains Stargazing Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blue Mountains Stargazing Tour</h3>
-          <p class="venue">📍 Blue Mountains National Park</p>
-          <p>Imagine infinity and beyond on this unforgettable tour that makes a magical feature of Australia’s spectacular night sky away from the city lights. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains Stargazing Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KATOOMBA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BLUE MOUNTAINS NATIONAL PARK</span>
+        </div>
+        <div class="tq-card-title">Blue Mountains Stargazing Tour</div>
+        <div class="tq-card-desc">Imagine infinity and beyond on this unforgettable tour that makes a magical feature of Australia’s spectacular night sky away from the city lights. 
 
 Led by French Astrophysicist Dimitri, PhD, and his fiancé Caroline, both Leura residents, this mesmerizing astronomy tour includes constellation storytelling, naked-eye astronomy, tips, and telescope viewings of the Moon, planets, stars, deep sky objects and galaxies. Sip on your hot chocolate and tune into the sound of the waterfalls for a relaxing mountain experience, with a fabulous 180-vista of the Jamison Valley at sunset.
 
-A wonderful opportunity to experience the Southern Sky and its celestial wonders only visible from the Southern hemisphere.</p>
-          <div class="card-footer">
-            <span class="price">From €55.32</span>
-            <span class="rating">⭐ 5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-stargazing-tour-p1032353/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+A wonderful opportunity to experience the Southern Sky and its celestial wonders only visible from the Southern hemisphere.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.32</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-stargazing-tour-p1032353/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0f203dc219f24a36ab9a1981f7d6617a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains: All-Inclusive Tour from Sydney with Sydney Zoo & Scenic World" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blue Mountains: All-Inclusive Tour from Sydney with Sydney Zoo & Scenic World</h3>
-          <p class="venue">📍 Blue Mountains National Park</p>
-          <p>Your small-group Blue Mountains adventure starts in the early morning from Sydney, setting off westward and traveling through high mountain ranges and into the very heart of the Blue Mountains.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0f203dc219f24a36ab9a1981f7d6617a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blue Mountains: All-Inclusive Tour from Sydney with Sydney Zoo & Scenic World" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KATOOMBA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BLUE MOUNTAINS NATIONAL PARK</span>
+        </div>
+        <div class="tq-card-title">Blue Mountains: All-Inclusive Tour from Sydney with Sydney Zoo & Scenic World</div>
+        <div class="tq-card-desc">Your small-group Blue Mountains adventure starts in the early morning from Sydney, setting off westward and traveling through high mountain ranges and into the very heart of the Blue Mountains.
 
 Enjoy breathtaking views from unique lookout points surrounding Jamison Valley. Away from the crowds you can marvel at the vast, jaw-dropping valley views. Marvel at beauty of the Three Sisters and listen to informative commentary from local guides.
 
 Experience the wonder of the Blue Mountains from above (and below) with included Scenic World passes to access three amazing sightseeing rides, and a guided boardwalk through the rainforest! Discover stunning views of the Skyway, see Katoomba falls, and ride on the steepest railway in the world.
 
-After enjoying a freshly prepared lunch, get up close and personal with some of Australia’s famous animals at Featherdale Wildlife Park before ending on a high note with a Parramatta River cruise that leads into the famous Sydney Harbour.</p>
-          <div class="card-footer">
-            <span class="price">From €171.38</span>
-            <span class="rating">⭐ 5 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-all-inclusive-blue-mountains-tour-from-sydney-p1022423/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After enjoying a freshly prepared lunch, get up close and personal with some of Australia’s famous animals at Featherdale Wildlife Park before ending on a high note with a Parramatta River cruise that leads into the famous Sydney Harbour.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€171.38</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-all-inclusive-blue-mountains-tour-from-sydney-p1022423/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="1-hour Blue Mountains Sightseeing Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>1-hour Blue Mountains Sightseeing Tour</h3>
-          <p class="venue">📍 Day Trips from Katoomba</p>
-          <p>The Boomerang Pass is a stay-put sightseeing tour of the Blue Mountains, designed for those who want to see the most in a short time without hopping on and off. Just sit back, relax, and enjoy the ride, as you cruise around the clifftops taking in live commentary and stunning views of the national park. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9c1ac10869c04ab6b7a496e3948447a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="1-hour Blue Mountains Sightseeing Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KATOOMBA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM KATOOMBA</span>
+        </div>
+        <div class="tq-card-title">1-hour Blue Mountains Sightseeing Tour</div>
+        <div class="tq-card-desc">The Boomerang Pass is a stay-put sightseeing tour of the Blue Mountains, designed for those who want to see the most in a short time without hopping on and off. Just sit back, relax, and enjoy the ride, as you cruise around the clifftops taking in live commentary and stunning views of the national park. 
 
-Along the route, you'll see the Great Dividing Range, Mount Solitary, the Three Sisters, the Ruined Castle, Megalong Valley, Jamison Valley, Kedumba Valley, King's Tableland, Leura and more. It's the best tour you'll ever take sitting down!</p>
-          <div class="card-footer">
-            <span class="price">From €21.05</span>
-            <span class="rating">⭐ 5 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-bus-tour-p1014676/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Along the route, you'll see the Great Dividing Range, Mount Solitary, the Three Sisters, the Ruined Castle, Megalong Valley, Jamison Valley, Kedumba Valley, King's Tableland, Leura and more. It's the best tour you'll ever take sitting down!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.05</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blue-mountains-bus-tour-p1014676/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

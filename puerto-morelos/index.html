@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Puerto Morelos | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Puerto Morelos. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,74 +131,123 @@
     <p>7 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d69482313774aa3babca153b34373c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Xoximilco Park: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Xoximilco Park: Entry Ticket</h3>
-          <p class="venue">📍 Xoximilco Park</p>
-          <p>Attention party people! Searching for the life and soul of Mexico? Come to Xoximilco! This floating fiesta blends vibrant carnival fun and fresh authentic food with the warm welcome and gorgeous scenery that Mexico is famous for. This is a top partygoing pick for Cancún.</p>
-          <div class="card-footer">
-            <span class="price">From €94.84</span>
-            <span class="rating">⭐ 4 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-xoximilco-entry-ticket-p975651/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7d69482313774aa3babca153b34373c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Xoximilco Park: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PUERTO MORELOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">XOXIMILCO PARK</span>
+        </div>
+        <div class="tq-card-title">Xoximilco Park: Entry Ticket</div>
+        <div class="tq-card-desc">Attention party people! Searching for the life and soul of Mexico? Come to Xoximilco! This floating fiesta blends vibrant carnival fun and fresh authentic food with the warm welcome and gorgeous scenery that Mexico is famous for. This is a top partygoing pick for Cancún.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€94.84</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-xoximilco-entry-ticket-p975651/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e6971147d4df4a05a8d9cfc05ba7197d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Selvática Park: Off-Road & 10 Zipline Circuit" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Selvática Park: Off-Road & 10 Zipline Circuit</h3>
-          <p class="venue">📍 Selvatica</p>
-          <p>Get ready to speed through the heart of the jungle in an off-road vehicle, followed by an unforgettable 10-zipline circuit at Selvatica.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e6971147d4df4a05a8d9cfc05ba7197d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Selvática Park: Off-Road & 10 Zipline Circuit" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PUERTO MORELOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SELVATICA</span>
+        </div>
+        <div class="tq-card-title">Selvática Park: Off-Road & 10 Zipline Circuit</div>
+        <div class="tq-card-desc">Get ready to speed through the heart of the jungle in an off-road vehicle, followed by an unforgettable 10-zipline circuit at Selvatica.
 
-Go off-road on a muddy track and soak away your cares in a private cenote. A light lunch is included!</p>
-          <div class="card-footer">
-            <span class="price">From €102.6</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-selvatica-off-road-with-transport-p992558/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Go off-road on a muddy track and soak away your cares in a private cenote. A light lunch is included!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€102.60</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-selvatica-off-road-with-transport-p992558/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/837239e214bc42fa9095b7acd5b4e376.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Selvática Park: Gimme-All Activities" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Selvática Park: Gimme-All Activities</h3>
-          <p class="venue">📍 Selvatica</p>
-          <p>"Gimme al!l" is what you'll be shouting when you set eyes on Selvatica. This pass to try everything on offer at Selvatica gives you access to all the fun activities at the park!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/837239e214bc42fa9095b7acd5b4e376.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Selvática Park: Gimme-All Activities" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PUERTO MORELOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SELVATICA</span>
+        </div>
+        <div class="tq-card-title">Selvática Park: Gimme-All Activities</div>
+        <div class="tq-card-desc">"Gimme al!l" is what you'll be shouting when you set eyes on Selvatica. This pass to try everything on offer at Selvatica gives you access to all the fun activities at the park!
 
-Chill out in a natural cenote, get active on the rope course, or make like a monkey on the bungee swing. Adrenaline junkies can also try the jungle coaster, monster ziplines, and off-roading in an ATV!</p>
-          <div class="card-footer">
-            <span class="price">From €123.3</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-selvatica-gimme-all-with-transport-p992527/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Chill out in a natural cenote, get active on the rope course, or make like a monkey on the bungee swing. Adrenaline junkies can also try the jungle coaster, monster ziplines, and off-roading in an ATV!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€123.30</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-selvatica-gimme-all-with-transport-p992527/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4db515993caa4dc9a336566d3af158ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Selvática Park: 10 Zipline Circuit" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Selvática Park: 10 Zipline Circuit</h3>
-          <p class="venue">📍 Selvatica</p>
-          <p>What's that noise? It's the pounding of your heart! Let the adrenaline power you as you fly through the jungle on 10 ziplines! Will you stop before the last one, or plummet to a wet, but satisfying end on the AquaZip?!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4db515993caa4dc9a336566d3af158ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Selvática Park: 10 Zipline Circuit" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PUERTO MORELOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SELVATICA</span>
+        </div>
+        <div class="tq-card-title">Selvática Park: 10 Zipline Circuit</div>
+        <div class="tq-card-desc">What's that noise? It's the pounding of your heart! Let the adrenaline power you as you fly through the jungle on 10 ziplines! Will you stop before the last one, or plummet to a wet, but satisfying end on the AquaZip?!
 
-Take a dip in the cool, blue water before lunch. It makes for the perfect, refreshing end to an action-packed day.</p>
-          <div class="card-footer">
-            <span class="price">From €61.22</span>
-            <span class="rating">⭐ 4.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-selvatica-extreme-canopy-with-transport-p992162/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take a dip in the cool, blue water before lunch. It makes for the perfect, refreshing end to an action-packed day.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€61.22</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-selvatica-extreme-canopy-with-transport-p992162/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/92e34f3297144551ae6212d6374d79d6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Puerto Morelos: Guided Taco & Tequila Tasting + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Puerto Morelos: Guided Taco & Tequila Tasting + Roundtrip Transfer</h3>
-          <p class="venue">📍 Puerto Morelos City Tours</p>
-          <p>Visit the beautiful seaside town of Puerto Morelos, known for its fishing culture. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/92e34f3297144551ae6212d6374d79d6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Puerto Morelos: Guided Taco & Tequila Tasting + Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PUERTO MORELOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PUERTO MORELOS CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Puerto Morelos: Guided Taco & Tequila Tasting + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Visit the beautiful seaside town of Puerto Morelos, known for its fishing culture. 
 
 Start with a taco tasting at a popular beachside restaurant, where you can enjoy flavorful fish tacos.
 
@@ -107,41 +255,63 @@ Stop at a local shop for beef and chicken tacos served with zesty salsas for tho
 
 Head to the flea market area to try authentic Maya tacos featuring cochinita pibil, a slow-roasted pork dish.
 
-End your culinary adventure with a guided tequila tasting. Afterward, take some time to explore the main square. This tour offers a mix of delicious food and cultural experiences.</p>
-          <div class="card-footer">
-            <span class="price">From €38.8</span>
-            <span class="rating">⭐ 3 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-puerto-morelos-guided-taco-tequila-tasting-roundtrip-transfer-p1103642/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End your culinary adventure with a guided tequila tasting. Afterward, take some time to explore the main square. This tour offers a mix of delicious food and cultural experiences.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.80</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-puerto-morelos-guided-taco-tequila-tasting-roundtrip-transfer-p1103642/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e6971147d4df4a05a8d9cfc05ba7197d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Extreme Adventure Cancun: Horseback Riding with ATV Ride, Ziplines & Cenote" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Extreme Adventure Cancun: Horseback Riding with ATV Ride, Ziplines & Cenote</h3>
-          <p class="venue">📍 Extreme Adventure Cancun</p>
-          <p>Experience an exciting adventure in the Mayan wilderness with ziplining, off-roading, and swimming in a Mayan cenote. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e6971147d4df4a05a8d9cfc05ba7197d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Extreme Adventure Cancun: Horseback Riding with ATV Ride, Ziplines & Cenote" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PUERTO MORELOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EXTREME ADVENTURE CANCUN</span>
+        </div>
+        <div class="tq-card-title">Extreme Adventure Cancun: Horseback Riding with ATV Ride, Ziplines & Cenote</div>
+        <div class="tq-card-desc">Experience an exciting adventure in the Mayan wilderness with ziplining, off-roading, and swimming in a Mayan cenote. 
 
 Start at El Rey Polo Club with horseback riding on scenic forest trails, suitable for all riders.
 
 Head to Extreme Adventure Park for an ATV ride through the jungle with a guide. 
 
-Enjoy ziplining on 6 lines and crossing 3 interactive bridges. End the tour with a swim in a natural Mayan cenote.</p>
-          <div class="card-footer">
-            <span class="price">From €93.98</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-extreme-adventure-cancun-horseback-riding-with-atv-ride-ziplines-cenote-p1102270/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy ziplining on 6 lines and crossing 3 interactive bridges. End the tour with a swim in a natural Mayan cenote.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€93.98</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-extreme-adventure-cancun-horseback-riding-with-atv-ride-ziplines-cenote-p1102270/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d69482313774aa3babca153b34373c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Xoximilco Park: Fast-Track Entrance & Transport with Dinner and Live Music" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Xoximilco Park: Fast-Track Entrance & Transport with Dinner and Live Music</h3>
-          <p class="venue">📍 Xoximilco Park</p>
-          <p>Step into a world of Mexican traditions and folklore with a visit to Xoximilco – an unforgettable evening of fun and festivity awaits you around every corner!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7d69482313774aa3babca153b34373c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Xoximilco Park: Fast-Track Entrance & Transport with Dinner and Live Music" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PUERTO MORELOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">XOXIMILCO PARK</span>
+        </div>
+        <div class="tq-card-title">Xoximilco Park: Fast-Track Entrance & Transport with Dinner and Live Music</div>
+        <div class="tq-card-desc">Step into a world of Mexican traditions and folklore with a visit to Xoximilco – an unforgettable evening of fun and festivity awaits you around every corner!
 
 Board a picturesque trajinera boat that represent various Mexican states – and set sail along the Xoximilco canals, taking in the stunning sights and enjoying an open bar stocked with tequila, rum, vodka, beers, soft drinks, and fresh waters. 
 
@@ -149,14 +319,20 @@ And that's not all – you'll also savor a tasting dinner featuring delicious di
 
 Throughout the evening, immerse yourself in the vibrant sounds and rhythms of Mexico, with live music that includes ranchero, norteño, and marimba, as well as the iconic and beloved Mariachi. 
 
-Get ready to sing, dance, and celebrate all that makes Mexico so special, and scream "¡Viva México!"</p>
-          <div class="card-footer">
-            <span class="price">From €154.34</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-xoximilco-tour-with-transportation-included-p1062023/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get ready to sing, dance, and celebrate all that makes Mexico so special, and scream "¡Viva México!"</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€154.34</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-xoximilco-tour-with-transportation-included-p1062023/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

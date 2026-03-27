@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Port Douglas | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Port Douglas. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,44 +131,71 @@
     <p>7 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6b6cfd79c56945b3bcae87be0b87f23b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Port Douglas Wildlife Habitat" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Port Douglas Wildlife Habitat</h3>
-          <p class="venue">📍 Wildlife Habitat</p>
-          <p>Australia is well known for its abundance of wildlife, from dastardly dingoes to fleet-footed kangaroos. Port Douglas Wildlife Habitat is a prime spot to get up close to some iconic creatures – without the threat of being eaten, stung, and/or poisoned.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6b6cfd79c56945b3bcae87be0b87f23b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Port Douglas Wildlife Habitat" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PORT DOUGLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WILDLIFE HABITAT</span>
+        </div>
+        <div class="tq-card-title">Port Douglas Wildlife Habitat</div>
+        <div class="tq-card-desc">Australia is well known for its abundance of wildlife, from dastardly dingoes to fleet-footed kangaroos. Port Douglas Wildlife Habitat is a prime spot to get up close to some iconic creatures – without the threat of being eaten, stung, and/or poisoned.
 
-Hug a koala and count the spots on a spotted-tail quoll. Potter down the Pathway of Pythons and snap photos of saltwater crocodiles. See vibrant cassowaries and finches, and just wait until you meet the endangered mahogany glider!</p>
-          <div class="card-footer">
-            <span class="price">From €29.47</span>
-            <span class="rating">⭐ 4.7 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-port-douglas-wildlife-habitat-p987872/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Hug a koala and count the spots on a spotted-tail quoll. Potter down the Pathway of Pythons and snap photos of saltwater crocodiles. See vibrant cassowaries and finches, and just wait until you meet the endangered mahogany glider!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.47</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-port-douglas-wildlife-habitat-p987872/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/070d1dcf1f8742ce90e1b5f965688421.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Outer Reef Cruise and Activity Platform from Port Douglas" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Outer Reef Cruise and Activity Platform from Port Douglas</h3>
-          <p class="venue">📍 Port Douglas Cruises & Boat Tours</p>
-          <p>Hop aboard Quicksilver's catamaran and travel 39 nautical miles to the edge of Australia's continental shelf. There's a specialised activity platform waiting for you, right where the reef's ecosystem remains most pure.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/070d1dcf1f8742ce90e1b5f965688421.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Outer Reef Cruise and Activity Platform from Port Douglas" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PORT DOUGLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PORT DOUGLAS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Outer Reef Cruise and Activity Platform from Port Douglas</div>
+        <div class="tq-card-desc">Hop aboard Quicksilver's catamaran and travel 39 nautical miles to the edge of Australia's continental shelf. There's a specialised activity platform waiting for you, right where the reef's ecosystem remains most pure.
 
-If you're here to snorkel or dive, you're in luck. This far out, the clear ocean water helps the ribbon reefs teem with some of the most vibrant coral and sea life you'll see. The platform has a licensed bar, underwater observatory, semi-submersibles, showers, and air-con.</p>
-          <div class="card-footer">
-            <span class="price">From €195.43</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-outer-reef-cruise-and-activity-platform-from-port-douglas-p987344/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+If you're here to snorkel or dive, you're in luck. This far out, the clear ocean water helps the ribbon reefs teem with some of the most vibrant coral and sea life you'll see. The platform has a licensed bar, underwater observatory, semi-submersibles, showers, and air-con.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€195.43</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-outer-reef-cruise-and-activity-platform-from-port-douglas-p987344/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d9de5f6a3833432ab76d4cd2d6e7c0ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Great Barrier Reef: Guided Snorkelling Tour from Port Douglas + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Great Barrier Reef: Guided Snorkelling Tour from Port Douglas + Lunch</h3>
-          <p class="venue">📍 Port Douglas Cruises & Boat Tours</p>
-          <p>Start your snorkeling adventure on the Great Barrier Reef. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d9de5f6a3833432ab76d4cd2d6e7c0ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Great Barrier Reef: Guided Snorkelling Tour from Port Douglas + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PORT DOUGLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PORT DOUGLAS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Great Barrier Reef: Guided Snorkelling Tour from Port Douglas + Lunch</div>
+        <div class="tq-card-desc">Start your snorkeling adventure on the Great Barrier Reef. 
 
 Visit three reef sites with relaxing breaks in between. Optional hotel pickup takes you to the Crystalbrook Marina, or drive there yourself. 
 
@@ -81,82 +207,132 @@ Divers receive a briefing during the trip. After anchoring, divers plunge while 
 
 Enjoy the vibrant colours and marine life close to the water's surface. Snorkeling is suitable for all skill levels. 
 
-Morning tea is served before heading to the second reef site.</p>
-          <div class="card-footer">
-            <span class="price">From €191.82</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-guided-snorkelling-tour-from-port-douglas-lunch-p1123280/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Morning tea is served before heading to the second reef site.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€191.82</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-guided-snorkelling-tour-from-port-douglas-lunch-p1123280/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d9de5f6a3833432ab76d4cd2d6e7c0ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Low Isles: Guided Boat Tour from Port Douglas + Snorkelling + Tea" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Low Isles: Guided Boat Tour from Port Douglas + Snorkelling + Tea</h3>
-          <p class="venue">📍 Port Douglas Cruises & Boat Tours</p>
-          <p>Snorkel at a quiet island during early morning or afternoon. Reach Low Isles after a 30-minute ride and explore the coral reef and its inhabitants without the crowds.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d9de5f6a3833432ab76d4cd2d6e7c0ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Low Isles: Guided Boat Tour from Port Douglas + Snorkelling + Tea" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PORT DOUGLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PORT DOUGLAS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Low Isles: Guided Boat Tour from Port Douglas + Snorkelling + Tea</div>
+        <div class="tq-card-desc">Snorkel at a quiet island during early morning or afternoon. Reach Low Isles after a 30-minute ride and explore the coral reef and its inhabitants without the crowds.
 
 Spend 2.5 hours snorkelling around this coral cay. Snorkel in the calm lagoon or view the reef from a glass bottom boat. 
 
-Guides will offer tours to help you learn about the Great Barrier Reef. Easily access the reef from the back of the boat or from the beach, as the reef is close to the island.</p>
-          <div class="card-footer">
-            <span class="price">From €155.74</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-low-isles-guided-boat-tour-from-port-douglas-snorkelling-tea-p1123244/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Guides will offer tours to help you learn about the Great Barrier Reef. Easily access the reef from the back of the boat or from the beach, as the reef is close to the island.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€155.74</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-low-isles-guided-boat-tour-from-port-douglas-snorkelling-tea-p1123244/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/070d1dcf1f8742ce90e1b5f965688421.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Wavedancer Low Isles Cruise from Port Douglas" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Wavedancer Low Isles Cruise from Port Douglas</h3>
-          <p class="venue">📍 Port Douglas Cruises & Boat Tours</p>
-          <p>A secluded tropical paradise, set like a jewel in the Great Barrier Reef, Low Isles is an idyllic, unspoilt coral cay island – a tropical island paradise. Combined with the romance of sailing aboard Quicksilver's luxury 30-metre sailing catamaran, _Wavedancer_, this is the perfect day for families and couples seeking island relaxation.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/070d1dcf1f8742ce90e1b5f965688421.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Wavedancer Low Isles Cruise from Port Douglas" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PORT DOUGLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PORT DOUGLAS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Wavedancer Low Isles Cruise from Port Douglas</div>
+        <div class="tq-card-desc">A secluded tropical paradise, set like a jewel in the Great Barrier Reef, Low Isles is an idyllic, unspoilt coral cay island – a tropical island paradise. Combined with the romance of sailing aboard Quicksilver's luxury 30-metre sailing catamaran, _Wavedancer_, this is the perfect day for families and couples seeking island relaxation.
 
 From the moment _Wavedancer_ moors in the calm waters of the island's picturesque lagoon, a host of reef activities await. The friendly crew will take you on a leisurely, informative day where island visitor numbers are limited.
 
-Discover the mysteries of marine life while snorkelling or enjoying the view on the glass-bottom boat. Take a guided beach walk and snorkelling tour with a marine biologist, or just soak up the sun on the beach beneath a thatched umbrella or on the decks of _Wavedancer_. Visitors are limited to protect the reef's ecology, so you'll experience this island heaven with a select few.</p>
-          <div class="card-footer">
-            <span class="price">From €159.35</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-wavedancer-low-isles-cruise-from-port-douglas-p1020147/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover the mysteries of marine life while snorkelling or enjoying the view on the glass-bottom boat. Take a guided beach walk and snorkelling tour with a marine biologist, or just soak up the sun on the beach beneath a thatched umbrella or on the decks of _Wavedancer_. Visitors are limited to protect the reef's ecology, so you'll experience this island heaven with a select few.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€159.35</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-wavedancer-low-isles-cruise-from-port-douglas-p1020147/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/070d1dcf1f8742ce90e1b5f965688421.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ocean Safari Great Barrier Reef Tour from Cape Tribulation" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ocean Safari Great Barrier Reef Tour from Cape Tribulation</h3>
-          <p class="venue">📍 Port Douglas Cruises & Boat Tours</p>
-          <p>If you’re spending time in Far North Queensland, then you’ve got to make sure you don't miss the chance to snorkel in the Great Barrier Reef. With this ticket, your transport from Cape Tribulation is taken care of, along with your snorkeling gear and detailed instructions on how to do it safely.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/070d1dcf1f8742ce90e1b5f965688421.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ocean Safari Great Barrier Reef Tour from Cape Tribulation" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PORT DOUGLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PORT DOUGLAS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Ocean Safari Great Barrier Reef Tour from Cape Tribulation</div>
+        <div class="tq-card-desc">If you’re spending time in Far North Queensland, then you’ve got to make sure you don't miss the chance to snorkel in the Great Barrier Reef. With this ticket, your transport from Cape Tribulation is taken care of, along with your snorkeling gear and detailed instructions on how to do it safely.
 
-You’ll travel to two reef sites and snorkel amongst the coral’s creatures. Keep an eye out for turtles and exotic fish as you glide through the warm waters of the Coral Sea!</p>
-          <div class="card-footer">
-            <span class="price">From €124.47</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-tour-from-cape-tribulation-p1012537/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You’ll travel to two reef sites and snorkel amongst the coral’s creatures. Keep an eye out for turtles and exotic fish as you glide through the warm waters of the Coral Sea!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€124.47</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-tour-from-cape-tribulation-p1012537/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/070d1dcf1f8742ce90e1b5f965688421.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ocean Safari Great Barrier Reef Tour from Cape Tribulation" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ocean Safari Great Barrier Reef Tour from Cape Tribulation</h3>
-          <p class="venue">📍 Port Douglas Cruises & Boat Tours</p>
-          <p>If you’re spending time in Far North Queensland, then you’ve got to make sure you don't miss the chance to snorkel in the Great Barrier Reef. With this ticket, your transport from Cape Tribulation is taken care of, along with your snorkeling gear and detailed instructions on how to do it safely.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/070d1dcf1f8742ce90e1b5f965688421.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ocean Safari Great Barrier Reef Tour from Cape Tribulation" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PORT DOUGLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PORT DOUGLAS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Ocean Safari Great Barrier Reef Tour from Cape Tribulation</div>
+        <div class="tq-card-desc">If you’re spending time in Far North Queensland, then you’ve got to make sure you don't miss the chance to snorkel in the Great Barrier Reef. With this ticket, your transport from Cape Tribulation is taken care of, along with your snorkeling gear and detailed instructions on how to do it safely.
 
-You’ll travel to two reef sites and snorkel amongst the coral’s creatures. Keep an eye out for turtles and exotic fish as you glide through the warm waters of the Coral Sea!</p>
-          <div class="card-footer">
-            <span class="price">From €124.47</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-tour-from-cape-tribulation-p1012537/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You’ll travel to two reef sites and snorkel amongst the coral’s creatures. Keep an eye out for turtles and exotic fish as you glide through the warm waters of the Coral Sea!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€124.47</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-tour-from-cape-tribulation-p1012537/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

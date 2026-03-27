@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Rovaniemi | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Rovaniemi. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,98 +131,158 @@
     <p>21 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SnowGlow Winterpark: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>SnowGlow Winterpark: Entry Ticket</h3>
-          <p class="venue">📍 SnowGlow Winterpark</p>
-          <p>Experience the magic of winter at Rovaniemi SnowGlow Winterpark from November 23rd, 2024, to March 9th, 2025. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SnowGlow Winterpark: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SNOWGLOW WINTERPARK</span>
+        </div>
+        <div class="tq-card-title">SnowGlow Winterpark: Entry Ticket</div>
+        <div class="tq-card-desc">Experience the magic of winter at Rovaniemi SnowGlow Winterpark from November 23rd, 2024, to March 9th, 2025. 
 
-Enjoy a variety of outdoor activities and family-friendly fun in a cozy, winter-themed setting. The park is open daily, offering unique experiences from morning until night.</p>
-          <div class="card-footer">
-            <span class="price">From €29</span>
-            <span class="rating">⭐ 3 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-snowglow-winterpark-entry-p1101205/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a variety of outdoor activities and family-friendly fun in a cozy, winter-themed setting. The park is open daily, offering unique experiences from morning until night.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-snowglow-winterpark-entry-p1101205/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Reindeer Farm: Guided Tour + Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Reindeer Farm: Guided Tour + Transfer</h3>
-          <p class="venue">📍 Rovaniemi Activities</p>
-          <p>This eco-friendly experience promises a reindeer ride and a charming journey for both the young and those young at heart!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Reindeer Farm: Guided Tour + Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROVANIEMI ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Reindeer Farm: Guided Tour + Transfer</div>
+        <div class="tq-card-desc">This eco-friendly experience promises a reindeer ride and a charming journey for both the young and those young at heart!
 
 The excitement escalates with an intriguing visit to a local farm and herdsman. But remember, winter sled rides dance to Mother Nature's tune. If the snow opts out of the party, fear not! The tour smoothly shifts to quality moments feeding and frolicking with the reindeer.
 
-While learning about these fascinating animals from a seasoned guide, you can savor a piping hot cup of coffee.</p>
-          <div class="card-footer">
-            <span class="price">From €90</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-reindeer-farm-guided-tour-and-transfer-p1083787/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+While learning about these fascinating animals from a seasoned guide, you can savor a piping hot cup of coffee.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€90.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-reindeer-farm-guided-tour-and-transfer-p1083787/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Snowmobile Safari 1 Hour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Snowmobile Safari 1 Hour</h3>
-          <p class="venue">📍 Lapland Winter Activities</p>
-          <p>If you're in Lapland, it would be rude not to pay a visit to Santa Claus. It would be even ruder to not jump on a snowmobile and get a hit of adrenaline while riding through Finland’s frozen forest.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Snowmobile Safari 1 Hour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAPLAND WINTER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Snowmobile Safari 1 Hour</div>
+        <div class="tq-card-desc">If you're in Lapland, it would be rude not to pay a visit to Santa Claus. It would be even ruder to not jump on a snowmobile and get a hit of adrenaline while riding through Finland’s frozen forest.
 
-Take a journey through Santa Claus Village and see the beauty of the Arctic Circle with an expert guide who'll tailor your journey based on the experience you want: pleasant sightseeing and getting in touch with nature, or high-octane speed while swerving around trees.</p>
-          <div class="card-footer">
-            <span class="price">From €89</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-snowmobile-safari-1-hour-p988005/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take a journey through Santa Claus Village and see the beauty of the Arctic Circle with an expert guide who'll tailor your journey based on the experience you want: pleasant sightseeing and getting in touch with nature, or high-octane speed while swerving around trees.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€89.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-snowmobile-safari-1-hour-p988005/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/48549e87628b4bcca12ce3d2445cc0ac.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Korouoma Canyon: Frozen Waterfalls Trip From Rovaniemi" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Korouoma Canyon: Frozen Waterfalls Trip From Rovaniemi</h3>
-          <p class="venue">📍 Frozen Waterfall Rovaniemi</p>
-          <p>This trip takes participants to the heart of Korouoma Canyon, Europe's most stunning frozen waterfalls, a magnet for ice-climbing enthusiasts and curious travelers. As you go through the canyon, your guide will tell you about the local flora and fauna.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/48549e87628b4bcca12ce3d2445cc0ac.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Korouoma Canyon: Frozen Waterfalls Trip From Rovaniemi" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FROZEN WATERFALL ROVANIEMI</span>
+        </div>
+        <div class="tq-card-title">Korouoma Canyon: Frozen Waterfalls Trip From Rovaniemi</div>
+        <div class="tq-card-desc">This trip takes participants to the heart of Korouoma Canyon, Europe's most stunning frozen waterfalls, a magnet for ice-climbing enthusiasts and curious travelers. As you go through the canyon, your guide will tell you about the local flora and fauna.
 
 You might even get a look at some wolves, lynx, wolverines, majestic moose, reindeer, sprightly weasels, or Arctic hares. No worries, your expert guide is by your side
 
-Next, gather around the crackling open fire for refreshments and a traditional Finnish campfire snack. It's the perfect time for the guide to satisfy your curiosity about Lapland and demonstrate the age-old art of fire-starting, using just flint, steel, and nature's bounty.</p>
-          <div class="card-footer">
-            <span class="price">From €145</span>
-            <span class="rating">⭐ 4.6 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-korouoma-canyon-frozen-waterfalls-trip-from-rovaniemi-p1086408/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, gather around the crackling open fire for refreshments and a traditional Finnish campfire snack. It's the perfect time for the guide to satisfy your curiosity about Lapland and demonstrate the age-old art of fire-starting, using just flint, steel, and nature's bounty.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€145.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-korouoma-canyon-frozen-waterfalls-trip-from-rovaniemi-p1086408/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bb886ebab06d44ca8b4c9e9be05878ac.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lapland: Snowmobile Adventure with Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lapland: Snowmobile Adventure with Transfer</h3>
-          <p class="venue">📍 Rovaniemi Activities</p>
-          <p>Go on an action-packed adventure in Southern Lapland's wilderness. This snowmobile tour is for thrill-seekers and nature lovers.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bb886ebab06d44ca8b4c9e9be05878ac.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lapland: Snowmobile Adventure with Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROVANIEMI ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Lapland: Snowmobile Adventure with Transfer</div>
+        <div class="tq-card-desc">Go on an action-packed adventure in Southern Lapland's wilderness. This snowmobile tour is for thrill-seekers and nature lovers.
 
 Kick-start the engines and navigate through the scenic Taiga forests, skimming across frozen landscapes that are simply a sight to behold. Regular pauses allow you to admire the serene beauty of the surroundings, ideal for those Instagrammable moments.
 
-As the tour progresses, the guide offers a warm break with delicious drinks, weaving tales, and trivia about this magical region. After this heartwarming break, it's back on the snowmobiles, returning with hearts brimming with unforgettable adventures.</p>
-          <div class="card-footer">
-            <span class="price">From €165</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lapland-snowmobile-adventure-with-transfer-p1086410/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As the tour progresses, the guide offers a warm break with delicious drinks, weaving tales, and trivia about this magical region. After this heartwarming break, it's back on the snowmobiles, returning with hearts brimming with unforgettable adventures.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€165.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lapland-snowmobile-adventure-with-transfer-p1086410/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Northern Lights Rovaniemi: Wilderness Tour + Professional Camera" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Northern Lights Rovaniemi: Wilderness Tour + Professional Camera</h3>
-          <p class="venue">📍 Rovaniemi Activities</p>
-          <p>In the wilderness of Rovaniemi, an expert guide scoops up participants and provides them with cozy winter wear and sturdy boots. Then, it's off to the mesmerizing Northern Lights. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Northern Lights Rovaniemi: Wilderness Tour + Professional Camera" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROVANIEMI ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Northern Lights Rovaniemi: Wilderness Tour + Professional Camera</div>
+        <div class="tq-card-desc">In the wilderness of Rovaniemi, an expert guide scoops up participants and provides them with cozy winter wear and sturdy boots. Then, it's off to the mesmerizing Northern Lights. 
 
 This four-hour escapade may include up to three spectacular locations, handpicked for their promising aurora-viewing potential.
 
@@ -131,290 +290,461 @@ This tour also serves as a ticket to explore the Arctic landscape. The guide, br
 
 Imagine learning the art of building a fire in the traditional way, using elements from the surrounding environment - a skill to impress friends back home!
 
- Finnish snacks and hot beverages will be served. And don't worry about capturing these magical moments - the guide comes equipped with a professional camera to snap stunning pictures of the group and the Northern Lights, which will be shared the next day.</p>
-          <div class="card-footer">
-            <span class="price">From €129</span>
-            <span class="rating">⭐ 4.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-northern-lights-rovaniemi-wilderness-tour-with-professional-camera-p1085252/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+ Finnish snacks and hot beverages will be served. And don't worry about capturing these magical moments - the guide comes equipped with a professional camera to snap stunning pictures of the group and the Northern Lights, which will be shared the next day.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€129.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-northern-lights-rovaniemi-wilderness-tour-with-professional-camera-p1085252/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hike in Vikakongas" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hike in Vikakongas</h3>
-          <p class="venue">📍 Rovaniemi Activities</p>
-          <p>Embark on an enchanting hike beside a celebrated river and iconic bridge. This 2km path along the riverside, in the frosty season, makes for a beautiful walk.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hike in Vikakongas" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROVANIEMI ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Hike in Vikakongas</div>
+        <div class="tq-card-desc">Embark on an enchanting hike beside a celebrated river and iconic bridge. This 2km path along the riverside, in the frosty season, makes for a beautiful walk.
 
 The adventurous hike continues for another 1.6 km, spiraling back to the original starting point. 
 
-After the hike, a snug open fireplace greets hikers near the starting point. This is the perfect place to relax with a cup of coffee or tea, and savour some delicious biscuits.</p>
-          <div class="card-footer">
-            <span class="price">From €120</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-vikakongas-hike-p1083821/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After the hike, a snug open fireplace greets hikers near the starting point. This is the perfect place to relax with a cup of coffee or tea, and savour some delicious biscuits.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€120.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-vikakongas-hike-p1083821/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Korouoma Frozen Waterfalls: Guided Tour + Transfer from Rovaniemi" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Korouoma Frozen Waterfalls: Guided Tour + Transfer from Rovaniemi</h3>
-          <p class="venue">📍 Rovaniemi Activities</p>
-          <p>Step into a magical winter wonderland based in the heart of nature, a few hours away from the lively hub of Rovaniemi. Korouoma transforms into a frozen paradise each winter and charms visitors with its spellbinding views of beautiful frozen waterfalls.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Korouoma Frozen Waterfalls: Guided Tour + Transfer from Rovaniemi" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROVANIEMI ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Korouoma Frozen Waterfalls: Guided Tour + Transfer from Rovaniemi</div>
+        <div class="tq-card-desc">Step into a magical winter wonderland based in the heart of nature, a few hours away from the lively hub of Rovaniemi. Korouoma transforms into a frozen paradise each winter and charms visitors with its spellbinding views of beautiful frozen waterfalls.
 
 The adventure starts with a scenic drive in a minivan from Rovaniemi to Korouoma. You will hike along the stunning trails that lead to the majestic waterfalls. Midway, you will enjoy a traditional Lappish barbecue, complimented by a heartwarming drink.
 
 After covering a distance of 4 to 5 km, you will be amazed by the spectacular sight of the frozen waterfalls. If fortune favors, you might even spot adventurers climbing the icy cliffs.
 
-This trip is more than just a hike; it's a magical winter escapade designed to fascinate you and create lasting memories.</p>
-          <div class="card-footer">
-            <span class="price">From €180</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-korouoma-frozen-waterfalls-tour-from-rovaniemi-p1083788/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This trip is more than just a hike; it's a magical winter escapade designed to fascinate you and create lasting memories.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€180.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-korouoma-frozen-waterfalls-tour-from-rovaniemi-p1083788/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hike in Riisitunturi National Park" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hike in Riisitunturi National Park</h3>
-          <p class="venue">📍 Rovaniemi Activities</p>
-          <p>Join a hike through the snowy paradise of the Riisitunturi National Park, warm up with a delicious hot beverage, and nibble on scrumptious cookies, served right in the heart of this frosty haven. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hike in Riisitunturi National Park" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROVANIEMI ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Hike in Riisitunturi National Park</div>
+        <div class="tq-card-desc">Join a hike through the snowy paradise of the Riisitunturi National Park, warm up with a delicious hot beverage, and nibble on scrumptious cookies, served right in the heart of this frosty haven. 
 
-Don't forget to capture the mesmerizing scenery, it's a sight that's rarely encountered in a lifetime. After soaking in the beauty of this magical site, it's back to the lively buzz of Rovaniemi.</p>
-          <div class="card-footer">
-            <span class="price">From €220</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hike-in-riisitunturi-national-park-p1083783/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Don't forget to capture the mesmerizing scenery, it's a sight that's rarely encountered in a lifetime. After soaking in the beauty of this magical site, it's back to the lively buzz of Rovaniemi.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€220.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hike-in-riisitunturi-national-park-p1083783/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Arctic SnowHotel Visit with Ice Restaurant + Dinner" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Arctic SnowHotel Visit with Ice Restaurant + Dinner</h3>
-          <p class="venue">📍 Rovaniemi Activities</p>
-          <p>Join the knowledgeable guide on a stunning visit to the renowned Arctic SnowHotel, a wonder of icy architecture. Upon arrival, the guide will provide the entrance ticket, acting as a passport to this frozen wonderland.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Arctic SnowHotel Visit with Ice Restaurant + Dinner" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROVANIEMI ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Arctic SnowHotel Visit with Ice Restaurant + Dinner</div>
+        <div class="tq-card-desc">Join the knowledgeable guide on a stunning visit to the renowned Arctic SnowHotel, a wonder of icy architecture. Upon arrival, the guide will provide the entrance ticket, acting as a passport to this frozen wonderland.
 
 Participate in an informative tour of one of the world's first hotels sculpted entirely from ice, guided by an expert. Explore the chilling beauty of the ice rooms and learn about the unique design and creation process that takes place each year.
 
 Following the tour, indulge in a delightful dinner at the Ice Restaurant. Enjoy desserts served on frosty plates and a hot cup of coffee at the stylish bar. Don't forget to grab a unique souvenir from this extraordinary hotel, creating lasting memories of this icy escapade.
 
-As this incredible tour wraps up, get ready to return to the comforts of your accommodation, carrying a heart full of icy tales and experiences.</p>
-          <div class="card-footer">
-            <span class="price">From €260</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-arctic-snowhotel-visit-with-ice-restaurant-dinner-p1083749/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As this incredible tour wraps up, get ready to return to the comforts of your accommodation, carrying a heart full of icy tales and experiences.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€260.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-arctic-snowhotel-visit-with-ice-restaurant-dinner-p1083749/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Night Barbecue" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>The Night Barbecue</h3>
-          <p class="venue">📍 Rovaniemi Activities</p>
-          <p>Get ready for a captivating evening under the glittering Lapland stars. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Night Barbecue" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROVANIEMI ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">The Night Barbecue</div>
+        <div class="tq-card-desc">Get ready for a captivating evening under the glittering Lapland stars. 
 
-As a welcoming fire crackles, you'll eat delicious traditional Lapland barbecue and enjoy a hot drink. As your tour guide regales you with stories, you'll want to look up –  If you're lucky, you'll see the majestic Aurora Borealis above!</p>
-          <div class="card-footer">
-            <span class="price">From €120</span>
-            <span class="rating">⭐ 3 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-night-barbecue-rovaniemi-region-lapland-p1083441/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As a welcoming fire crackles, you'll eat delicious traditional Lapland barbecue and enjoy a hot drink. As your tour guide regales you with stories, you'll want to look up –  If you're lucky, you'll see the majestic Aurora Borealis above!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€120.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-night-barbecue-rovaniemi-region-lapland-p1083441/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Special Aurora Borealis Hunt" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Special Aurora Borealis Hunt</h3>
-          <p class="venue">📍 Northern Lights: Rovaniemi</p>
-          <p>Get ready for a thrilling adventure as professional Aurora Borealis hunters whisk you away on an unforgettable quest to witness the mesmerizing Northern Lights. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Special Aurora Borealis Hunt" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NORTHERN LIGHTS: ROVANIEMI</span>
+        </div>
+        <div class="tq-card-title">Special Aurora Borealis Hunt</div>
+        <div class="tq-card-desc">Get ready for a thrilling adventure as professional Aurora Borealis hunters whisk you away on an unforgettable quest to witness the mesmerizing Northern Lights. 
 
 The journey might take you to a tranquil lake, up a scenic hill, along the open road, or even across national borders to Finland, Sweden, or Norway. Your guides are ready to go the extra mile with no restrictions on distance or time, all to maximize the chances of catching those elusive, magical lights.
 
-As the skies clear and anticipation builds, get ready to set off to hunt. The prize after the hunt? The chance to marvel at the majestic Northern lights twinkling across the sky.</p>
-          <div class="card-footer">
-            <span class="price">From €210</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-special-aurora-borealis-hunt-p1083405/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As the skies clear and anticipation builds, get ready to set off to hunt. The prize after the hunt? The chance to marvel at the majestic Northern lights twinkling across the sky.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€210.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-special-aurora-borealis-hunt-p1083405/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ranua Wildlife Park: Guided Tour + Hotel Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ranua Wildlife Park: Guided Tour + Hotel Transfer</h3>
-          <p class="venue">📍 Rovaniemi Activities</p>
-          <p>With 200 animal specimens and 50 species of wild arctic animals, Ranua Wildlife Park is one of the best places for families to get to know nature and wildlife in Lapland.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ranua Wildlife Park: Guided Tour + Hotel Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROVANIEMI ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Ranua Wildlife Park: Guided Tour + Hotel Transfer</div>
+        <div class="tq-card-desc">With 200 animal specimens and 50 species of wild arctic animals, Ranua Wildlife Park is one of the best places for families to get to know nature and wildlife in Lapland.
 
-The tour departs from the enchanting city of Rovaniemi and includes not only an awe-inspiring visit to the zoo but also a delectable lunch!</p>
-          <div class="card-footer">
-            <span class="price">From €150</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for--ranua-wildlife-park-p1083404/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The tour departs from the enchanting city of Rovaniemi and includes not only an awe-inspiring visit to the zoo but also a delectable lunch!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€150.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for--ranua-wildlife-park-p1083404/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aurora Pro Photography Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aurora Pro Photography Tour</h3>
-          <p class="venue">📍 Northern Lights: Rovaniemi</p>
-          <p>Imagine standing under a starlit sky, watching the Northern Lights paint the night with dazzling colors. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8d66735b04eb4043af798c8c14991c52.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aurora Pro Photography Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NORTHERN LIGHTS: ROVANIEMI</span>
+        </div>
+        <div class="tq-card-title">Aurora Pro Photography Tour</div>
+        <div class="tq-card-desc">Imagine standing under a starlit sky, watching the Northern Lights paint the night with dazzling colors. 
 
 As you gaze at the amazing sight, your guide tells you tales about how nature intertwines with local life and the local, as well as cultural interpretations of the Northern Lights.
 
 The team is always on their toes, checking weather forecasts and anticipating the appearance of the lights to ensure this magical moment comes alive.
 
-And the best part? All the pictures from this unforgettable night will be sent to you after the tour.</p>
-          <div class="card-footer">
-            <span class="price">From €120</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aurora-pro-photography-tour-p1083336/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+And the best part? All the pictures from this unforgettable night will be sent to you after the tour.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€120.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aurora-pro-photography-tour-p1083336/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="From Rovaniemi: Frozen Waterfalls of Korouoma Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>From Rovaniemi: Frozen Waterfalls of Korouoma Tour</h3>
-          <p class="venue">📍 Lapland Winter Activities</p>
-          <p>Walk in a Finnish winter wonderland on this **hiking tour** to see the **Frozen Waterfalls of Korouoma**, complete with **roundtrip transport** from your hotel in the Rovaniemi city center. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="From Rovaniemi: Frozen Waterfalls of Korouoma Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAPLAND WINTER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">From Rovaniemi: Frozen Waterfalls of Korouoma Tour</div>
+        <div class="tq-card-desc">Walk in a Finnish winter wonderland on this **hiking tour** to see the **Frozen Waterfalls of Korouoma**, complete with **roundtrip transport** from your hotel in the Rovaniemi city center. 
 
 With the sparkling snow and frosted trees as your backdrop, you and your **expert guide** will hike (or snowshoe) toward the breathtaking waterfalls located in **Korouoma National Park**.
 
-Pause to warm up near a campfire and enjoy **Lappish barbeque** paired with **warm blueberry tea** for a winter adventure to remember.</p>
-          <div class="card-footer">
-            <span class="price">From €179</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-from-rovaniemi-frozen-waterfalls-of-korouoma-tour-p1047137/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Pause to warm up near a campfire and enjoy **Lappish barbeque** paired with **warm blueberry tea** for a winter adventure to remember.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€179.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-from-rovaniemi-frozen-waterfalls-of-korouoma-tour-p1047137/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Trip to Santa Claus Village" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Trip to Santa Claus Village</h3>
-          <p class="venue">📍 Lapland Winter Activities</p>
-          <p>Explore Santa Claus Village with a lot of Christmas and Lappish products to take back with you, and greet Santa Claus in his office! Join the elves working in Santa's post office and send postcards to all your friends with a special stamp on them. This place gives you a jolly and cheerful feeling of Christmas all year round.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Trip to Santa Claus Village" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAPLAND WINTER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Trip to Santa Claus Village</div>
+        <div class="tq-card-desc">Explore Santa Claus Village with a lot of Christmas and Lappish products to take back with you, and greet Santa Claus in his office! Join the elves working in Santa's post office and send postcards to all your friends with a special stamp on them. This place gives you a jolly and cheerful feeling of Christmas all year round.
 
-You will have a chance to see the reindeer and visit the Arctic Circle. A white line denoting the Arctic Circle is painted across the park. You can cross it and officially enter the Arctic area. A delicious lunch will be served at Santa’s restaurant, where will you enjoy the taste of the traditional Finnish buffet.</p>
-          <div class="card-footer">
-            <span class="price">From €99</span>
-            <span class="rating">⭐ 3.3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-trip-to-santa-claus-village-p1047136/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You will have a chance to see the reindeer and visit the Arctic Circle. A white line denoting the Arctic Circle is painted across the park. You can cross it and officially enter the Arctic area. A delicious lunch will be served at Santa’s restaurant, where will you enjoy the taste of the traditional Finnish buffet.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€99.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-trip-to-santa-claus-village-p1047136/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Snowmobile & Animals Day Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Snowmobile & Animals Day Tour</h3>
-          <p class="venue">📍 Lapland Winter Activities</p>
-          <p>Feel the frosty air in your hair on this action-packed adventure. Speed across a frozen lake and wintry forest on a snowmobile, and be led by huskies and reindeer on a sleigh! Is there any better way to travel?
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Snowmobile & Animals Day Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAPLAND WINTER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Snowmobile & Animals Day Tour</div>
+        <div class="tq-card-desc">Feel the frosty air in your hair on this action-packed adventure. Speed across a frozen lake and wintry forest on a snowmobile, and be led by huskies and reindeer on a sleigh! Is there any better way to travel?
 
 First, meet the huskies and reindeer at the farm. Two of the most popular animals in Lapland will whisk you away on a magical forest tour that will get those sleigh bells ringing! 
 
 After the sleigh ride, take some photos with the animals and even feed the reindeer. A professional handler will share the history of reindeer herding and tell you about the lifestyle of these beautiful animals. 
 
-Then, jump on your snowmobile for an unbeatable journey across a dazzling frozen lake and the snowy forest. It's a Lapland adventure for the memory books!</p>
-          <div class="card-footer">
-            <span class="price">From €199</span>
-            <span class="rating">⭐ 4.7 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-snowmobile-animals-day-tour-p1047034/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Then, jump on your snowmobile for an unbeatable journey across a dazzling frozen lake and the snowy forest. It's a Lapland adventure for the memory books!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€199.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-snowmobile-animals-day-tour-p1047034/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="From Rovaniemi : Northern Lights Photography Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>From Rovaniemi : Northern Lights Photography Tour</h3>
-          <p class="venue">📍 Lapland Winter Activities</p>
-          <p>Seek the illusive **northern lights of Finland** and capture them with the lens of a **professional camera** with tickets for this **guided photography tour**. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="From Rovaniemi : Northern Lights Photography Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAPLAND WINTER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">From Rovaniemi : Northern Lights Photography Tour</div>
+        <div class="tq-card-desc">Seek the illusive **northern lights of Finland** and capture them with the lens of a **professional camera** with tickets for this **guided photography tour**. 
 
 Follow your **guide and professional photographer**, who will assist you with both setting up your camera and finding the focus for high-quality photos of Mother Nature's most colorful performance – the aurora borealis. Learn the tricks of the trade as you capture the ethereal wavelengths in the dark sky. 
 
 Wile you wait for the northern lights to appear, sit around the campfire and **enjoy traditional reindeer sausage** while your guide will explain the natural phenomenon of the aurora borealis, as well as it's cultural significance to the Sami and Lappish people of Finland.
 
-**Please note: the northern lights are dependent on weather conditions and solar activity, and sights cannot be guaranteed.**</p>
-          <div class="card-footer">
-            <span class="price">From €110</span>
-            <span class="rating">⭐ 4.5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-northern-lights-photography-tour-p1046994/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+**Please note: the northern lights are dependent on weather conditions and solar activity, and sights cannot be guaranteed.**</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€110.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-northern-lights-photography-tour-p1046994/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Northern Lights Sleigh Ride" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Northern Lights Sleigh Ride</h3>
-          <p class="venue">📍 Lapland Winter Activities</p>
-          <p>The thrill of witnessing the Aurora Borealis is a once-in-a-lifetime experience. The Lights dancing up above is such a powerful and unique natural phenomenon - one look and you'll be changed! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Northern Lights Sleigh Ride" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAPLAND WINTER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Northern Lights Sleigh Ride</div>
+        <div class="tq-card-desc">The thrill of witnessing the Aurora Borealis is a once-in-a-lifetime experience. The Lights dancing up above is such a powerful and unique natural phenomenon - one look and you'll be changed! 
 
 Join this Northern Lights Sleigh Ride tour and let your guide take control of the snowmobile, as you embark on a magical journey across a dazzling, snowy landscape to a frozen lake, far, far away from any light pollution.
 
 After arriving, wait for the Northern Lights to appear while relaxing by the fire, enjoying hot blueberry juice. Your guide will tell you stories about this amazing natural phenomenon and hopefully, they'll put on a show for you!
 
-*Please note that Northern Lights are a natural phenomenon dependent on weather and solar wind activity, so a viewing is not guaranteed*</p>
-          <div class="card-footer">
-            <span class="price">From €79</span>
-            <span class="rating">⭐ 3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-northern-lights-sleigh-ride-p1046990/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+*Please note that Northern Lights are a natural phenomenon dependent on weather and solar wind activity, so a viewing is not guaranteed*</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€79.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-northern-lights-sleigh-ride-p1046990/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lake View of Northern Lights with Floating Suit" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lake View of Northern Lights with Floating Suit</h3>
-          <p class="venue">📍 Lapland Winter Activities</p>
-          <p>Experience the extraordinary natural phenomenon of the legendary northern lights while floating in a Finnish lake.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lake View of Northern Lights with Floating Suit" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAPLAND WINTER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Lake View of Northern Lights with Floating Suit</div>
+        <div class="tq-card-desc">Experience the extraordinary natural phenomenon of the legendary northern lights while floating in a Finnish lake.
 
 Drift in a warm and dry suit in one of Lapland's frozen lakes as you gaze at Mother Nature's most famous performance and enjoy hot drinks and gingerbread.
 
-**Please note: the aurora borealis is a natural phenomenon dependent on weather and solar wind activity, which can't be guaranteed.**</p>
-          <div class="card-footer">
-            <span class="price">From €88</span>
-            <span class="rating">⭐ 4.3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lake-view-of-northern-lights-with-floating-suit-p1046989/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+**Please note: the aurora borealis is a natural phenomenon dependent on weather and solar wind activity, which can't be guaranteed.**</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€88.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lake-view-of-northern-lights-with-floating-suit-p1046989/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lapland Northern Lights Tour with Lappish Barbecue" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lapland Northern Lights Tour with Lappish Barbecue</h3>
-          <p class="venue">📍 Lapland Winter Activities</p>
-          <p>Finnish Lapland is one of the best places to spot the Northern Lights! This three-hour tour will take you 20 kilometers away from the city and its light pollution, giving you the very best chance to see the Northern Lights in Lapland, in all their green glory. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/41b6b03f0ea74678992fae20d435f233.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lapland Northern Lights Tour with Lappish Barbecue" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROVANIEMI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAPLAND WINTER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Lapland Northern Lights Tour with Lappish Barbecue</div>
+        <div class="tq-card-desc">Finnish Lapland is one of the best places to spot the Northern Lights! This three-hour tour will take you 20 kilometers away from the city and its light pollution, giving you the very best chance to see the Northern Lights in Lapland, in all their green glory. 
 
 Your guide will pick you up and drop you off at your hotel/accommodation. Before you know it you'll be surrounded by the spectacular Arctic landscapes, with all of its pristine, untouched nature and millions of twinkling stars above you. 
 
 If the scenery is not enough to feast on, there's also a traditional Lappish barbecue in a beautiful lakeside setting. Tuck into some sausages and sip on some warm blueberry tea while your guide tells you facts and stories about the Northern Lights. 
 
-Talk about a night to remember!</p>
-          <div class="card-footer">
-            <span class="price">From €79</span>
-            <span class="rating">⭐ 3.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hunting-northern-lights-with-lappish-barbecue-p1044952/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Talk about a night to remember!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€79.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hunting-northern-lights-with-lappish-barbecue-p1044952/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

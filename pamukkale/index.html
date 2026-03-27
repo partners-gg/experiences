@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Pamukkale | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Pamukkale. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,109 +131,186 @@
     <p>7 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7a808ebe00bd4979a95d0f92b1bbb5a8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hot Air Balloon Flight in Pamukkale" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hot Air Balloon Flight in Pamukkale</h3>
-          <p class="venue">📍 Alaturka Pamukkale</p>
-          <p>Floating above Pamukkale, you could mistake it for the Arctic. The name literally translates to 'cotton castle', and looking down from a hot air balloon, you'll see why. The otherworldly landscape will leave you in awe, and the photos you take will leave friends and family green with envy.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7a808ebe00bd4979a95d0f92b1bbb5a8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hot Air Balloon Flight in Pamukkale" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PAMUKKALE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALATURKA PAMUKKALE</span>
+        </div>
+        <div class="tq-card-title">Hot Air Balloon Flight in Pamukkale</div>
+        <div class="tq-card-desc">Floating above Pamukkale, you could mistake it for the Arctic. The name literally translates to 'cotton castle', and looking down from a hot air balloon, you'll see why. The otherworldly landscape will leave you in awe, and the photos you take will leave friends and family green with envy.
 
-Floating gently through the sky at 1,000 feet the views above one of Turkey's most unique areas will give you memories to last a lifetime.</p>
-          <div class="card-footer">
-            <span class="price">From €150</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hot-air-balloon-flight-in-pamukkale-p989159/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Floating gently through the sky at 1,000 feet the views above one of Turkey's most unique areas will give you memories to last a lifetime.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€150.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hot-air-balloon-flight-in-pamukkale-p989159/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dde5a6cefa7948a09e09052bfaaae6c7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hierapolis & Travertines of Pamukkale: Day Tour from Antalya" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hierapolis & Travertines of Pamukkale: Day Tour from Antalya</h3>
-          <p class="venue">📍 Travertines of Pamukkale</p>
-          <p>No, you haven't been beamed to another planet. Pamukkale's white walls and pastel blue hot springs are just that surreal. This natural wonder is conveniently located a tile's throw from the stunning ancient ruins of Hierapolis, and this all-encompassing guided trip from Antalya's Turquoise Coast is the perfect way to see these UNESCO World Cultural Heritage gems.</p>
-          <div class="card-footer">
-            <span class="price">From €52</span>
-            <span class="rating">⭐ 5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hierapolis-travertines-of-pamukkale-day-tour-from-antalya-p977489/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dde5a6cefa7948a09e09052bfaaae6c7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hierapolis & Travertines of Pamukkale: Day Tour from Antalya" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PAMUKKALE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TRAVERTINES OF PAMUKKALE</span>
+        </div>
+        <div class="tq-card-title">Hierapolis & Travertines of Pamukkale: Day Tour from Antalya</div>
+        <div class="tq-card-desc">No, you haven't been beamed to another planet. Pamukkale's white walls and pastel blue hot springs are just that surreal. This natural wonder is conveniently located a tile's throw from the stunning ancient ruins of Hierapolis, and this all-encompassing guided trip from Antalya's Turquoise Coast is the perfect way to see these UNESCO World Cultural Heritage gems.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€52.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hierapolis-travertines-of-pamukkale-day-tour-from-antalya-p977489/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/31a143a581374cb48546d9f391aeb3bb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hierapolis & Travertines of Pamukkale: Day Tour from Bodrum" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hierapolis & Travertines of Pamukkale: Day Tour from Bodrum</h3>
-          <p class="venue">📍 Ancient Hierapolis</p>
-          <p>Sure, there are other travertines. But Pamukkale's white walls and pastel blue hot springs are something special. This natural wonder is conveniently located a tile's throw from the stunning ancient ruins of Hierapolis, and an all-encompassing guided trip from Bodrum is the perfect way to see these UNESCO World Cultural Heritage gems and enjoy some authentic Turkish grub along the way.</p>
-          <div class="card-footer">
-            <span class="price">From €99</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hierapolis-travertines-of-pamukkale-day-tour-from-bodrum-p977487/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/31a143a581374cb48546d9f391aeb3bb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hierapolis & Travertines of Pamukkale: Day Tour from Bodrum" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PAMUKKALE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ANCIENT HIERAPOLIS</span>
+        </div>
+        <div class="tq-card-title">Hierapolis & Travertines of Pamukkale: Day Tour from Bodrum</div>
+        <div class="tq-card-desc">Sure, there are other travertines. But Pamukkale's white walls and pastel blue hot springs are something special. This natural wonder is conveniently located a tile's throw from the stunning ancient ruins of Hierapolis, and an all-encompassing guided trip from Bodrum is the perfect way to see these UNESCO World Cultural Heritage gems and enjoy some authentic Turkish grub along the way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€99.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hierapolis-travertines-of-pamukkale-day-tour-from-bodrum-p977487/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2c3d98071c6a49119e7934be1bde5cdd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pamukkale Hot Air Balloon Flight" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pamukkale Hot Air Balloon Flight</h3>
-          <p class="venue">📍 Necropolis of Hierapolis, Phrygia</p>
-          <p>Visiting the famous cliffside-hugging Pamukkale Thermal Pools is great, but gliding 3,000 feet above them in a picturesque Pamukkale hot air balloon ride? That's spectacular.</p>
-          <div class="card-footer">
-            <span class="price">From €128</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pamukkale-hot-air-balloon-flight-p1002399/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2c3d98071c6a49119e7934be1bde5cdd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pamukkale Hot Air Balloon Flight" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PAMUKKALE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NECROPOLIS OF HIERAPOLIS, PHRYGIA</span>
+        </div>
+        <div class="tq-card-title">Pamukkale Hot Air Balloon Flight</div>
+        <div class="tq-card-desc">Visiting the famous cliffside-hugging Pamukkale Thermal Pools is great, but gliding 3,000 feet above them in a picturesque Pamukkale hot air balloon ride? That's spectacular.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€128.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pamukkale-hot-air-balloon-flight-p1002399/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/240159da48ff4ae8a60f616a0a359037.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pamukkale: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pamukkale: Guided Tour</h3>
-          <p class="venue">📍 Karahayit Red Springs</p>
-          <p>You'll see red in the village of Karahayit – in a good way! The iron content in the hot springs gives the rocks a distinct red color. The rest is pure relaxation. Kick off your sandals and go for a paddle in the waters – careful, it's hot!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/240159da48ff4ae8a60f616a0a359037.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pamukkale: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PAMUKKALE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KARAHAYIT RED SPRINGS</span>
+        </div>
+        <div class="tq-card-title">Pamukkale: Guided Tour</div>
+        <div class="tq-card-desc">You'll see red in the village of Karahayit – in a good way! The iron content in the hot springs gives the rocks a distinct red color. The rest is pure relaxation. Kick off your sandals and go for a paddle in the waters – careful, it's hot!
 
-At Pamukkale, take a scenic stroll through the remains of an ancient cemetery and explore the mystical remains of the ancient city of Hierapolis.</p>
-          <div class="card-footer">
-            <span class="price">From €80</span>
-            <span class="rating">⭐ 3 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pamukkale-entrance-ticket-tour-from-pamukkale-p1002393/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+At Pamukkale, take a scenic stroll through the remains of an ancient cemetery and explore the mystical remains of the ancient city of Hierapolis.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€80.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pamukkale-entrance-ticket-tour-from-pamukkale-p1002393/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2c3d98071c6a49119e7934be1bde5cdd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pamukkale Hot Air Balloon Flight" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pamukkale Hot Air Balloon Flight</h3>
-          <p class="venue">📍 Necropolis of Hierapolis, Phrygia</p>
-          <p>Visiting the famous cliffside-hugging Pamukkale Thermal Pools is great, but gliding 3,000 feet above them in a picturesque Pamukkale hot air balloon ride? That's spectacular.</p>
-          <div class="card-footer">
-            <span class="price">From €128</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pamukkale-hot-air-balloon-flight-p1002399/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2c3d98071c6a49119e7934be1bde5cdd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pamukkale Hot Air Balloon Flight" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PAMUKKALE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NECROPOLIS OF HIERAPOLIS, PHRYGIA</span>
+        </div>
+        <div class="tq-card-title">Pamukkale Hot Air Balloon Flight</div>
+        <div class="tq-card-desc">Visiting the famous cliffside-hugging Pamukkale Thermal Pools is great, but gliding 3,000 feet above them in a picturesque Pamukkale hot air balloon ride? That's spectacular.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€128.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pamukkale-hot-air-balloon-flight-p1002399/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/240159da48ff4ae8a60f616a0a359037.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pamukkale: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pamukkale: Guided Tour</h3>
-          <p class="venue">📍 Karahayit Red Springs</p>
-          <p>You'll see red in the village of Karahayit – in a good way! The iron content in the hot springs gives the rocks a distinct red color. The rest is pure relaxation. Kick off your sandals and go for a paddle in the waters – careful, it's hot!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/240159da48ff4ae8a60f616a0a359037.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pamukkale: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PAMUKKALE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KARAHAYIT RED SPRINGS</span>
+        </div>
+        <div class="tq-card-title">Pamukkale: Guided Tour</div>
+        <div class="tq-card-desc">You'll see red in the village of Karahayit – in a good way! The iron content in the hot springs gives the rocks a distinct red color. The rest is pure relaxation. Kick off your sandals and go for a paddle in the waters – careful, it's hot!
 
-At Pamukkale, take a scenic stroll through the remains of an ancient cemetery and explore the mystical remains of the ancient city of Hierapolis.</p>
-          <div class="card-footer">
-            <span class="price">From €80</span>
-            <span class="rating">⭐ 3 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pamukkale-entrance-ticket-tour-from-pamukkale-p1002393/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+At Pamukkale, take a scenic stroll through the remains of an ancient cemetery and explore the mystical remains of the ancient city of Hierapolis.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€80.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pamukkale-entrance-ticket-tour-from-pamukkale-p1002393/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Mooney Mooney | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Mooney Mooney. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,113 +131,179 @@
     <p>6 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8b674bc287d242fbad3e53369ed8a760.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Broken Bay Pearl Farm: Entry + Boat Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Broken Bay Pearl Farm: Entry + Boat Cruise</h3>
-          <p class="venue">📍 Broken Bay Pearl Farm</p>
-          <p>Sail into the serene beauty of the Hawkesbury River's tranquil waterways and travel to the saltwater pools of the Broken Bay Pearl Farm. Let the breathtaking scenery charm you as the farm's expert skipper explains the fascinating symbiosis between the diverse world of oysters and their environment.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8b674bc287d242fbad3e53369ed8a760.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Broken Bay Pearl Farm: Entry + Boat Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MOONEY MOONEY</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BROKEN BAY PEARL FARM</span>
+        </div>
+        <div class="tq-card-title">Broken Bay Pearl Farm: Entry + Boat Cruise</div>
+        <div class="tq-card-desc">Sail into the serene beauty of the Hawkesbury River's tranquil waterways and travel to the saltwater pools of the Broken Bay Pearl Farm. Let the breathtaking scenery charm you as the farm's expert skipper explains the fascinating symbiosis between the diverse world of oysters and their environment.
 
-Explore the intriguing life cycle of oysters, from humble beginnings to their grand finale, be it gracing a dinner plate as a seafood delicacy or transforming into a lustrous pearl.</p>
-          <div class="card-footer">
-            <span class="price">From €33.07</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-broken-bay-pearl-farm-entry-boat-cruise-p1083935/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore the intriguing life cycle of oysters, from humble beginnings to their grand finale, be it gracing a dinner plate as a seafood delicacy or transforming into a lustrous pearl.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-broken-bay-pearl-farm-entry-boat-cruise-p1083935/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/de9e85244f0f4440ab1e614f5eae4720.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Broken Bay Pearl Farm: Entry + Guided Oyster Tasting + Boat Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Broken Bay Pearl Farm: Entry + Guided Oyster Tasting + Boat Cruise</h3>
-          <p class="venue">📍 Broken Bay Pearl Farm</p>
-          <p>Learn about the features of the Sydney rock oyster, the Pacific oyster, and the Akoya pearl oyster through a guided tasting. Observe shucking techniques around the harvest table for fresh oyster preparation at home.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/de9e85244f0f4440ab1e614f5eae4720.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Broken Bay Pearl Farm: Entry + Guided Oyster Tasting + Boat Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MOONEY MOONEY</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BROKEN BAY PEARL FARM</span>
+        </div>
+        <div class="tq-card-title">Broken Bay Pearl Farm: Entry + Guided Oyster Tasting + Boat Cruise</div>
+        <div class="tq-card-desc">Learn about the features of the Sydney rock oyster, the Pacific oyster, and the Akoya pearl oyster through a guided tasting. Observe shucking techniques around the harvest table for fresh oyster preparation at home.
 
-See the waterways of the Hawkesbury River on a boat cruise while heading to the saltwater paddocks. View the landscape that enables optimal oyster cultivation and understand the interaction between the oysters and their environment.</p>
-          <div class="card-footer">
-            <span class="price">From €54.12</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-broken-bay-pearl-farm-entry-guided-oyster-tasting-boat-cruise-p1128265/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See the waterways of the Hawkesbury River on a boat cruise while heading to the saltwater paddocks. View the landscape that enables optimal oyster cultivation and understand the interaction between the oysters and their environment.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€54.12</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-broken-bay-pearl-farm-entry-guided-oyster-tasting-boat-cruise-p1128265/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8b674bc287d242fbad3e53369ed8a760.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Broken Bay Pearl Farm: Guided Tour + River Cruise + Optional Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Broken Bay Pearl Farm: Guided Tour + River Cruise + Optional Transfer</h3>
-          <p class="venue">📍 Broken Bay Pearl Farm</p>
-          <p>Visit Broken Bay Pearl Farm to see the workings of New South Wales' exclusive pearl farm. Learn about the Australian Akoya pearls and the history of the family's pioneering methods in cultivation.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8b674bc287d242fbad3e53369ed8a760.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Broken Bay Pearl Farm: Guided Tour + River Cruise + Optional Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MOONEY MOONEY</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BROKEN BAY PEARL FARM</span>
+        </div>
+        <div class="tq-card-title">Broken Bay Pearl Farm: Guided Tour + River Cruise + Optional Transfer</div>
+        <div class="tq-card-desc">Visit Broken Bay Pearl Farm to see the workings of New South Wales' exclusive pearl farm. Learn about the Australian Akoya pearls and the history of the family's pioneering methods in cultivation.
 
 Take a boat trip on the Hawkesbury River to observe an oyster growing area and understand pearl and oyster farming techniques. See how oysters contribute positively to the marine environment.
 
 Inside the pearl grading room, get an understanding of what makes Australian pearls rare.
 
-Conclude your trip with an oyster tasting session and observe a shucking demonstration, highlighting the efforts of local farming in the area.</p>
-          <div class="card-footer">
-            <span class="price">From €81.18</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-broken-bay-pearl-farm-guided-tour-river-cruise-optional-transfer-p1126295/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Conclude your trip with an oyster tasting session and observe a shucking demonstration, highlighting the efforts of local farming in the area.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€81.18</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-broken-bay-pearl-farm-guided-tour-river-cruise-optional-transfer-p1126295/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8b674bc287d242fbad3e53369ed8a760.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Broken Bay Pearl Farm: Entry + Oyster Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Broken Bay Pearl Farm: Entry + Oyster Tasting</h3>
-          <p class="venue">📍 Broken Bay Pearl Farm</p>
-          <p>Have a *shucking* good time at Broken Bay Pearl Farm with oyster tasting. This tour offers a taste and demonstration of the unique qualities of Sydney Rock Oyster, the luxuriously creamy Pacific oyster, and the Broken Bay Pearl Farm's crowning glory - the Akoya pearl oyster. Each guest has the pleasure of savoring 2-4 oysters, freshly plucked from the sea.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8b674bc287d242fbad3e53369ed8a760.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Broken Bay Pearl Farm: Entry + Oyster Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MOONEY MOONEY</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BROKEN BAY PEARL FARM</span>
+        </div>
+        <div class="tq-card-title">Broken Bay Pearl Farm: Entry + Oyster Tasting</div>
+        <div class="tq-card-desc">Have a *shucking* good time at Broken Bay Pearl Farm with oyster tasting. This tour offers a taste and demonstration of the unique qualities of Sydney Rock Oyster, the luxuriously creamy Pacific oyster, and the Broken Bay Pearl Farm's crowning glory - the Akoya pearl oyster. Each guest has the pleasure of savoring 2-4 oysters, freshly plucked from the sea.
 
-Enhance your oyster escapade by coupling it with a delightful farm cruise. Be the first to witness the journey of these ocean gems from farm to plate.</p>
-          <div class="card-footer">
-            <span class="price">From €21.05</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-broken-bay-pearl-fam-entry-oyster-tasting-p1082890/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enhance your oyster escapade by coupling it with a delightful farm cruise. Be the first to witness the journey of these ocean gems from farm to plate.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.05</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-broken-bay-pearl-fam-entry-oyster-tasting-p1082890/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8b674bc287d242fbad3e53369ed8a760.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Broken Bay Pearl Farm: Shell to Showroom" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Broken Bay Pearl Farm: Shell to Showroom</h3>
-          <p class="venue">📍 Broken Bay Pearl Farm</p>
-          <p>Discover Broken Bay Pearl Farm on a relaxed two-hour guided experience.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8b674bc287d242fbad3e53369ed8a760.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Broken Bay Pearl Farm: Shell to Showroom" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MOONEY MOONEY</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BROKEN BAY PEARL FARM</span>
+        </div>
+        <div class="tq-card-title">Broken Bay Pearl Farm: Shell to Showroom</div>
+        <div class="tq-card-desc">Discover Broken Bay Pearl Farm on a relaxed two-hour guided experience.
 
 Meet the guides and learn how New South Wales’ only pearl farm operates, including the story of the family behind it. Find out how the Australian Akoya pearl is grown and what makes it unique.
 
 Take a boat cruise along the Hawkesbury River to visit an oyster lease. See how pearl and rock oysters are farmed and learn about the steps involved in producing pearls and seafood. You’ll also hear how oysters support the local marine environment.
 
-The tour ends in the pearl grading room, where you’ll see how pearls are assessed for quality and value.</p>
-          <div class="card-footer">
-            <span class="price">From €60.13</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-broken-bay-pearl-farm-shell-to-showroom-p1010841/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The tour ends in the pearl grading room, where you’ll see how pearls are assessed for quality and value.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.13</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-broken-bay-pearl-farm-shell-to-showroom-p1010841/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8b674bc287d242fbad3e53369ed8a760.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Broken Bay Pearl Farm: Shell to Showroom" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Broken Bay Pearl Farm: Shell to Showroom</h3>
-          <p class="venue">📍 Broken Bay Pearl Farm</p>
-          <p>Discover Broken Bay Pearl Farm on a relaxed two-hour guided experience.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8b674bc287d242fbad3e53369ed8a760.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Broken Bay Pearl Farm: Shell to Showroom" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MOONEY MOONEY</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BROKEN BAY PEARL FARM</span>
+        </div>
+        <div class="tq-card-title">Broken Bay Pearl Farm: Shell to Showroom</div>
+        <div class="tq-card-desc">Discover Broken Bay Pearl Farm on a relaxed two-hour guided experience.
 
 Meet the guides and learn how New South Wales’ only pearl farm operates, including the story of the family behind it. Find out how the Australian Akoya pearl is grown and what makes it unique.
 
 Take a boat cruise along the Hawkesbury River to visit an oyster lease. See how pearl and rock oysters are farmed and learn about the steps involved in producing pearls and seafood. You’ll also hear how oysters support the local marine environment.
 
-The tour ends in the pearl grading room, where you’ll see how pearls are assessed for quality and value.</p>
-          <div class="card-footer">
-            <span class="price">From €60.13</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-broken-bay-pearl-farm-shell-to-showroom-p1010841/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The tour ends in the pearl grading room, where you’ll see how pearls are assessed for quality and value.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.13</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-broken-bay-pearl-farm-shell-to-showroom-p1010841/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Bari | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Bari. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,111 +131,177 @@
     <p>6 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palazzo Simi: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palazzo Simi: Guided Tour</h3>
-          <p class="venue">📍 Palazzo Simi</p>
-          <p>Once home to the wealthy Simi de Burgis family, this palace has strong influences from Renaissance architecture. The site itself can be traced all the way back to the Roman Empire, and at one point it was even a Byzantine church.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palazzo Simi: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BARI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALAZZO SIMI</span>
+        </div>
+        <div class="tq-card-title">Palazzo Simi: Guided Tour</div>
+        <div class="tq-card-desc">Once home to the wealthy Simi de Burgis family, this palace has strong influences from Renaissance architecture. The site itself can be traced all the way back to the Roman Empire, and at one point it was even a Byzantine church.
 
-The rich history of the site has left numerous archaeological treasures for you to discover. After you've explored above ground – and admired the white stone staircase – you can see relics, and the building's foundations as they would have been centuries ago.</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐ 3 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bari-underground-palazzo-simi-guided-tour-p988202/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The rich history of the site has left numerous archaeological treasures for you to discover. After you've explored above ground – and admired the white stone staircase – you can see relics, and the building's foundations as they would have been centuries ago.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bari-underground-palazzo-simi-guided-tour-p988202/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8ed00253432d4e56a7cb6ae22e4bbdc6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Basilica di San Nicola & Crypta: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Basilica di San Nicola & Crypta: Guided Tour</h3>
-          <p class="venue">📍 Basilica di San Nicola</p>
-          <p>The Basilica di San Nicola is the most popular landmark in Bari, Puglia. This atmospheric Romanesque basilica dominates the Piazza San Nicola, with its square features and pearly white walls.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8ed00253432d4e56a7cb6ae22e4bbdc6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Basilica di San Nicola & Crypta: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BARI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BASILICA DI SAN NICOLA</span>
+        </div>
+        <div class="tq-card-title">Basilica di San Nicola & Crypta: Guided Tour</div>
+        <div class="tq-card-desc">The Basilica di San Nicola is the most popular landmark in Bari, Puglia. This atmospheric Romanesque basilica dominates the Piazza San Nicola, with its square features and pearly white walls.
 
-On this guided tour, you'll explore the 12th-century basilica and its crypt with a learned host, who'll detail the history and architectural secrets of the site. You can also see the final resting place of jolly old St. Nick, whose remains are housed in a special altar surrounded by ornate columns.</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐ 4.5 (12)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-basilica-di-san-nicola-crypta-guided-tour-p987642/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+On this guided tour, you'll explore the 12th-century basilica and its crypt with a learned host, who'll detail the history and architectural secrets of the site. You can also see the final resting place of jolly old St. Nick, whose remains are housed in a special altar surrounded by ornate columns.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(12)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-basilica-di-san-nicola-crypta-guided-tour-p987642/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/848ee84ea01f4171b7bee20e825ef981.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="That's Bari: Walking or Bike Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>That's Bari: Walking or Bike Tour</h3>
-          <p class="venue">📍 Bari City Tours</p>
-          <p>Will you walk or will you cycle? Make your choice and join a guide to explore beautiful Bari's old town attractions. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/848ee84ea01f4171b7bee20e825ef981.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="That's Bari: Walking or Bike Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BARI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BARI CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">That's Bari: Walking or Bike Tour</div>
+        <div class="tq-card-desc">Will you walk or will you cycle? Make your choice and join a guide to explore beautiful Bari's old town attractions. 
 
-Cruise past pasta-making ladies in narrow streets as you head down between the Basilica of St. Nicholas, the ancient Cathedral of St. Sabinus, and the millenary Swabian Castle. Then head to the modern French part for some shopping, and see the famous fish market and opera house. Hungry? Sample some local gelato, salami, and cheese. Choose your own adventure!</p>
-          <div class="card-footer">
-            <span class="price">From €29</span>
-            <span class="rating">⭐ 4.8 (16)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-that-s-bari-walking-or-bike-tour-p980051/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Cruise past pasta-making ladies in narrow streets as you head down between the Basilica of St. Nicholas, the ancient Cathedral of St. Sabinus, and the millenary Swabian Castle. Then head to the modern French part for some shopping, and see the famous fish market and opera house. Hungry? Sample some local gelato, salami, and cheese. Choose your own adventure!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(16)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-that-s-bari-walking-or-bike-tour-p980051/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/848ee84ea01f4171b7bee20e825ef981.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bari Street Food: Walking or Bike Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bari Street Food: Walking or Bike Tour</h3>
-          <p class="venue">📍 Bari City Tours</p>
-          <p>Begin your tour by visiting the main attractions of the old town such as the Basilica of Saint Nicholas with its precious Crypt, the ancient Cathedral of Saint Sabinus, and the exterior of millenary Swabian Castle. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/848ee84ea01f4171b7bee20e825ef981.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bari Street Food: Walking or Bike Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BARI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BARI CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Bari Street Food: Walking or Bike Tour</div>
+        <div class="tq-card-desc">Begin your tour by visiting the main attractions of the old town such as the Basilica of Saint Nicholas with its precious Crypt, the ancient Cathedral of Saint Sabinus, and the exterior of millenary Swabian Castle. 
 
 Enjoy several tasting stops in a Panificio (local bakery), to learn how focaccia bread is made and get the opportunity to taste a slice. Find out the different kinds of cheeses & salami while drinking a glass of wine in a Salumeria. As you go around on the tour, bite into some delicious fried street food flavors such as sgagliozze and panzerotti.
 
-End your food tour on a sweet note with your favorite flavor of homemade ice cream in a Gelataria. Burn off all those tasty calories as you sightsee and explore the modern French part of the city, the famous seaside opera theaters, and luxury shopping streets.</p>
-          <div class="card-footer">
-            <span class="price">From €54</span>
-            <span class="rating">⭐ 4.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bari-history-culture-walking-or-bike-tour-p978899/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End your food tour on a sweet note with your favorite flavor of homemade ice cream in a Gelataria. Burn off all those tasty calories as you sightsee and explore the modern French part of the city, the famous seaside opera theaters, and luxury shopping streets.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€54.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bari-history-culture-walking-or-bike-tour-p978899/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d7f60bcbb4d42dca7c56f805729220a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ostuni, Cisternino & Polignano: Small-Group Guided Tour from Bari" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ostuni, Cisternino & Polignano: Small-Group Guided Tour from Bari</h3>
-          <p class="venue">📍 Day Trips from Bari</p>
-          <p>Prepare for a guided day tour of Ostuni, Polignano a Mare, and Cisternino from Bari. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d7f60bcbb4d42dca7c56f805729220a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ostuni, Cisternino & Polignano: Small-Group Guided Tour from Bari" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BARI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM BARI</span>
+        </div>
+        <div class="tq-card-title">Ostuni, Cisternino & Polignano: Small-Group Guided Tour from Bari</div>
+        <div class="tq-card-desc">Prepare for a guided day tour of Ostuni, Polignano a Mare, and Cisternino from Bari. 
 
 Visit Ostuni, known as the "White Town," where you'll see the town spread over a valley of ancient olive trees. The white houses create a unique atmosphere as you explore the streets.
 
 Head to Cisternino, a hilltop town with white houses and lush vegetation. It's one of Italy's 100 most beautiful towns, and enjoy the views of the Itria Valley.
 
-Reach Polignano a Mare, perched on a cliff with great views of the Adriatic Sea, and see balconies over 30 meters above sea level. Return to Bari after the exploration.</p>
-          <div class="card-footer">
-            <span class="price">From €184.99</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ostuni-cisternino-polignano-small-group-guided-tour-from-bari-p1098635/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Reach Polignano a Mare, perched on a cliff with great views of the Adriatic Sea, and see balconies over 30 meters above sea level. Return to Bari after the exploration.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€184.99</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ostuni-cisternino-polignano-small-group-guided-tour-from-bari-p1098635/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d7f60bcbb4d42dca7c56f805729220a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Alberobello, Monopoli & Polignano Day Trip from Bari" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Alberobello, Monopoli & Polignano Day Trip from Bari</h3>
-          <p class="venue">📍 Day Trips from Bari</p>
-          <p>Prepare yourself for an exciting journey from the grand Teatro Petruzelli in Bari.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d7f60bcbb4d42dca7c56f805729220a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Alberobello, Monopoli & Polignano Day Trip from Bari" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BARI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM BARI</span>
+        </div>
+        <div class="tq-card-title">Alberobello, Monopoli & Polignano Day Trip from Bari</div>
+        <div class="tq-card-desc">Prepare yourself for an exciting journey from the grand Teatro Petruzelli in Bari.
 
 Your adventure kicks off with a visit to Monopoli. Visit the town’s historic center and check out its narrow lanes and white-washed abodes. Then, go to the Cathedral of Santa Maria della Madia and the seafront at Porto Vecchio.
 
 From there, head to Alberello to see its unique trulli houses. Explore the UNESCO-protected Rione Monti and Aia Piccola neighborhoods. Remember to visit the Trullo Church of St. Anthony. After that, try traditional Puglian dishes at a local restaurant.
 
-The next destination is Polignano, famous for its dramatic cliffs and clear waters. Visit Lama Monachile Beach and enjoy the views from the Roman bridge. Finally, visit the historic center for its narrow streets and sea vistas.</p>
-          <div class="card-footer">
-            <span class="price">From €185</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-alberobello-monopoli-and-polignano-day-trip-from-bari-p1098395/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The next destination is Polignano, famous for its dramatic cliffs and clear waters. Visit Lama Monachile Beach and enjoy the views from the Roman bridge. Finally, visit the historic center for its narrow streets and sea vistas.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€185.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-alberobello-monopoli-and-polignano-day-trip-from-bari-p1098395/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

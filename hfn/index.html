@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Höfn | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Höfn. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,117 +131,183 @@
     <p>6 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fdae42f6457a472aa820fcd5c7bf099b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Vatnajökull: Snowmobile Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Vatnajökull: Snowmobile Tour</h3>
-          <p class="venue">📍 Höfn Glacier Tours</p>
-          <p>Experience the thrill of Arctic winds on Europe's largest glacier with an exciting snowmobile ride. Gaze upon the spectacular view of the glacier and surrounding highlands.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fdae42f6457a472aa820fcd5c7bf099b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Vatnajökull: Snowmobile Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HÖFN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HÖFN GLACIER TOURS</span>
+        </div>
+        <div class="tq-card-title">Vatnajökull: Snowmobile Tour</div>
+        <div class="tq-card-desc">Experience the thrill of Arctic winds on Europe's largest glacier with an exciting snowmobile ride. Gaze upon the spectacular view of the glacier and surrounding highlands.
 
 Halfway through this icy expedition, the tour pauses to allow adventurers to appreciate the serene beauty and capture lovely snaps of the icy wilderness.
 
-Knowledgeable guides will share fascinating stories and facts about the glacier during the tour. Safety and comfort are top priorities, with overalls and helmets provided at the base camp.</p>
-          <div class="card-footer">
-            <span class="price">From €219.05</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-vatnajokull-snowmobile-tour-p1091609/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Knowledgeable guides will share fascinating stories and facts about the glacier during the tour. Safety and comfort are top priorities, with overalls and helmets provided at the base camp.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€219.05</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-vatnajokull-snowmobile-tour-p1091609/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fdae42f6457a472aa820fcd5c7bf099b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Höfn Glacier: Ice Cave Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Höfn Glacier: Ice Cave Guided Tour</h3>
-          <p class="venue">📍 Höfn Glacier Tours</p>
-          <p>Join an unforgettable adventure exploring Europe's largest glacier. Each season brings a new ice cave to explore, each with its own unique charm.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fdae42f6457a472aa820fcd5c7bf099b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Höfn Glacier: Ice Cave Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HÖFN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HÖFN GLACIER TOURS</span>
+        </div>
+        <div class="tq-card-title">Höfn Glacier: Ice Cave Guided Tour</div>
+        <div class="tq-card-desc">Join an unforgettable adventure exploring Europe's largest glacier. Each season brings a new ice cave to explore, each with its own unique charm.
 
 Begin at Jökulsárlón, the Glacier Lagoon, where the base camp is located during winter. Travel in a specially modified super jeep to get as close as possible to the ice cave's entrance, then take a short stroll to enter the glacier's interior.
 
-Your safety is ensured with provided gear, including helmets and crampons. Throughout the trek, enjoy fascinating views and learn about the glaciers' impact on the environment.</p>
-          <div class="card-footer">
-            <span class="price">From €163.42</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hofn-glacier-ice-cave-guided-tour-p1091605/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your safety is ensured with provided gear, including helmets and crampons. Throughout the trek, enjoy fascinating views and learn about the glaciers' impact on the environment.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€163.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hofn-glacier-ice-cave-guided-tour-p1091605/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fdae42f6457a472aa820fcd5c7bf099b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Vatnajökull: Guided Glacier Encounter Hike" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Vatnajökull: Guided Glacier Encounter Hike</h3>
-          <p class="venue">📍 Höfn Glacier Tours</p>
-          <p>Visit Iceland and go for an adventurous glacier encounter hike, introducing you to Vatnajökull National Park's glaciers.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fdae42f6457a472aa820fcd5c7bf099b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Vatnajökull: Guided Glacier Encounter Hike" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HÖFN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HÖFN GLACIER TOURS</span>
+        </div>
+        <div class="tq-card-title">Vatnajökull: Guided Glacier Encounter Hike</div>
+        <div class="tq-card-desc">Visit Iceland and go for an adventurous glacier encounter hike, introducing you to Vatnajökull National Park's glaciers.
 
 Hop on a super jeep to reach your starting point, Falljökull outlet glacier, for an energy-saving journey with ample time to look at the glacier's beauty.
 
 Strap on crampons and grab an ice axe to explore moulins, crevasses, moraines, and dirt cones.
 
-Learn about the Öræfi region, home to Iceland's highest peak and numerous volcanoes, from an expert guide.</p>
-          <div class="card-footer">
-            <span class="price">From €117.52</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-vatnajokull-guided-glacier-encounter-hike-p1092927/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about the Öræfi region, home to Iceland's highest peak and numerous volcanoes, from an expert guide.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€117.52</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-vatnajokull-guided-glacier-encounter-hike-p1092927/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fdae42f6457a472aa820fcd5c7bf099b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Vatnajökull: Half-Day Glacier Discovery Hike" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Vatnajökull: Half-Day Glacier Discovery Hike</h3>
-          <p class="venue">📍 Höfn Glacier Tours</p>
-          <p>Set off for an exciting half-day adventure to conquer Vatnajökull, Europe's largest glacier, via the Falljökull outlet.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fdae42f6457a472aa820fcd5c7bf099b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Vatnajökull: Half-Day Glacier Discovery Hike" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HÖFN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HÖFN GLACIER TOURS</span>
+        </div>
+        <div class="tq-card-title">Vatnajökull: Half-Day Glacier Discovery Hike</div>
+        <div class="tq-card-desc">Set off for an exciting half-day adventure to conquer Vatnajökull, Europe's largest glacier, via the Falljökull outlet.
 
 Start at Freysnes Service station, gear up for the glacier, and Hop on a 4X4 Super Jeep to reach the starting point. Strap on crampons, grab ice axes, and hike up 300 meters to the scenic blue icefall.
 
-Explore crevasses, moulins, and waterfalls in this dynamic glacial landscape with an expert guide explaining the geography and history along the way.</p>
-          <div class="card-footer">
-            <span class="price">From €152.29</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-vatnajokull-half-day-glacier-discovery-hike-p1092926/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore crevasses, moulins, and waterfalls in this dynamic glacial landscape with an expert guide explaining the geography and history along the way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€152.29</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-vatnajokull-half-day-glacier-discovery-hike-p1092926/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fdae42f6457a472aa820fcd5c7bf099b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Vatnajökull Glacier: Super Jeep Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Vatnajökull Glacier: Super Jeep Tour</h3>
-          <p class="venue">📍 Höfn Glacier Tours</p>
-          <p>Prepare for an adventurous trip through Iceland's stunning landscapes. With super jeeps, you'll experience a cool and exciting adventure. Let the seasoned driver take you through Vatnajökull, Europe's largest glacier.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fdae42f6457a472aa820fcd5c7bf099b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Vatnajökull Glacier: Super Jeep Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HÖFN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HÖFN GLACIER TOURS</span>
+        </div>
+        <div class="tq-card-title">Vatnajökull Glacier: Super Jeep Tour</div>
+        <div class="tq-card-desc">Prepare for an adventurous trip through Iceland's stunning landscapes. With super jeeps, you'll experience a cool and exciting adventure. Let the seasoned driver take you through Vatnajökull, Europe's largest glacier.
 
 Ascend to a height of 1000 meters above sea level, surrounded by Iceland's towering peaks, and admire the scenic views.
 
-As you travel, the knowledgeable guide shares fascinating stories about the glaciers and their impact on the environment.</p>
-          <div class="card-footer">
-            <span class="price">From €201.67</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-vatnajokull-glacier-super-jeep-tour-p1091603/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As you travel, the knowledgeable guide shares fascinating stories about the glaciers and their impact on the environment.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€201.67</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-vatnajokull-glacier-super-jeep-tour-p1091603/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fdae42f6457a472aa820fcd5c7bf099b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Black Sand Beach: Super Jeep Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Black Sand Beach: Super Jeep Tour</h3>
-          <p class="venue">📍 Höfn Glacier Tours</p>
-          <p>Join the Super Jeep tour and explore the black sand beaches of Iceland. Witness the remains of the earliest local airport and the Hvanneyjarviti lighthouse as you ride along the coastline.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fdae42f6457a472aa820fcd5c7bf099b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Black Sand Beach: Super Jeep Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HÖFN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HÖFN GLACIER TOURS</span>
+        </div>
+        <div class="tq-card-title">Black Sand Beach: Super Jeep Tour</div>
+        <div class="tq-card-desc">Join the Super Jeep tour and explore the black sand beaches of Iceland. Witness the remains of the earliest local airport and the Hvanneyjarviti lighthouse as you ride along the coastline.
 
 Continue to the treacherous entrance of Höfn harbor, where you might spot playful seals and lovely mountain views.
 
 The highlight of the tour is a visit to a mystical glacial lagoon beneath the Fláajökull or Heinabergsjökull. Keep an eye out for reindeer along the way.
 
-Led by a knowledgeable guide, learn about the history of the airport, the harbor entrance, and the glaciers' impact on the environment.</p>
-          <div class="card-footer">
-            <span class="price">From €163.42</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-black-sand-beach-super-jeep-tour-p1091585/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Led by a knowledgeable guide, learn about the history of the airport, the harbor entrance, and the glaciers' impact on the environment.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€163.42</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-black-sand-beach-super-jeep-tour-p1091585/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

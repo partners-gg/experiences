@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Christchurch | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Christchurch. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,100 +131,152 @@
     <p>6 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/71b2969c21d4453dbace21edca06029f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Christchurch: Tram Day Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Christchurch: Tram Day Pass</h3>
-          <p class="venue">📍 Public Transport in Christchurch</p>
-          <p>Prepare for a ride on the Christchurch Tram to visit 17 significant stops around the city. This pass lets you board and exit at any stop throughout the day. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/71b2969c21d4453dbace21edca06029f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Christchurch: Tram Day Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CHRISTCHURCH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PUBLIC TRANSPORT IN CHRISTCHURCH</span>
+        </div>
+        <div class="tq-card-title">Christchurch: Tram Day Pass</div>
+        <div class="tq-card-desc">Prepare for a ride on the Christchurch Tram to visit 17 significant stops around the city. This pass lets you board and exit at any stop throughout the day. 
 
 See key sites like the Avon River, Arts Centre, Canterbury Museum, and Botanic Garden. 
 
 Listen to the knowledgeable drivers who will provide useful insights about Christchurch. 
 
-Create your own itinerary with this flexible hop-on, hop-off option allows you to create your own itinerary. This activity is suitable for both adults and kids, offering an informative and pleasant ride.</p>
-          <div class="card-footer">
-            <span class="price">From €20.08</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-christchurch-tram-day-pass-p1102892/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Create your own itinerary with this flexible hop-on, hop-off option allows you to create your own itinerary. This activity is suitable for both adults and kids, offering an informative and pleasant ride.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.08</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-christchurch-tram-day-pass-p1102892/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Christchurch Gondola: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Christchurch Gondola: Entry Ticket</h3>
-          <p class="venue">📍 Christchurch Gondola</p>
-          <p>Ride the Christchurch Gondola in its modern, refurbished cars for views of New Zealand's city. Start at ground level and see the suburbs, the Port Hills, Lyttelton Harbour, and the Southern Alps. At the top, visit the Red Rock Cafe for a drink and views. You can also ride the Time Tunnel to learn about the area's history. A trip on the Christchurch Gondola offers several local sights and activities worth checking out.</p>
-          <div class="card-footer">
-            <span class="price">From €21.09</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-christchurch-gondola-p1101756/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CHRISTCHURCH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CHRISTCHURCH GONDOLA</span>
+        </div>
+        <div class="tq-card-title">Christchurch Gondola: Entry Ticket</div>
+        <div class="tq-card-desc">Ride the Christchurch Gondola in its modern, refurbished cars for views of New Zealand's city. Start at ground level and see the suburbs, the Port Hills, Lyttelton Harbour, and the Southern Alps. At the top, visit the Red Rock Cafe for a drink and views. You can also ride the Time Tunnel to learn about the area's history. A trip on the Christchurch Gondola offers several local sights and activities worth checking out.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.09</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-christchurch-gondola-p1101756/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Mt Cook & Lake Tekapo: Guided Day Tour from Christchurch + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mt Cook & Lake Tekapo: Guided Day Tour from Christchurch + Lunch</h3>
-          <p class="venue">📍 Day Trips from Christchurch</p>
-          <p>Visit Aoraki/Mt Cook, New Zealand’s highest peak at 3724m, and see the longest glacier, Haupapa/Tasman Glacier. Explore Lake Tekapo and taste the famous meat pies at Fairlie Bakehouse. Escape the city and visit some of the most scenic parts of the South Island.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CHRISTCHURCH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CHRISTCHURCH</span>
+        </div>
+        <div class="tq-card-title">Mt Cook & Lake Tekapo: Guided Day Tour from Christchurch + Lunch</div>
+        <div class="tq-card-desc">Visit Aoraki/Mt Cook, New Zealand’s highest peak at 3724m, and see the longest glacier, Haupapa/Tasman Glacier. Explore Lake Tekapo and taste the famous meat pies at Fairlie Bakehouse. Escape the city and visit some of the most scenic parts of the South Island.
 
 Travel comfortably in a modern, well-equipped vehicle with a knowledgeable guide who will provide insights throughout the trip, making each stop more meaningful.
 
-Take in the sights, capture beautiful photos, and see what makes these destinations unique.</p>
-          <div class="card-footer">
-            <span class="price">From €145</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mt-cook-lake-tekapo-guided-day-tour-from-christchurch-lunch-p1104719/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take in the sights, capture beautiful photos, and see what makes these destinations unique.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€145.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mt-cook-lake-tekapo-guided-day-tour-from-christchurch-lunch-p1104719/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Arthur's Pass: Small-Group Day Tour from Christchurch via Castle Hill" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Arthur's Pass: Small-Group Day Tour from Christchurch via Castle Hill</h3>
-          <p class="venue">📍 Day Trips from Christchurch</p>
-          <p>Visit Arthur's Pass, a national park deep in the Southern Alps of New Zealand. Travel on the Great Alpine Highway through changing landscapes. See impressive engineering feats, waterfalls, and famous filming locations.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CHRISTCHURCH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CHRISTCHURCH</span>
+        </div>
+        <div class="tq-card-title">Arthur's Pass: Small-Group Day Tour from Christchurch via Castle Hill</div>
+        <div class="tq-card-desc">Visit Arthur's Pass, a national park deep in the Southern Alps of New Zealand. Travel on the Great Alpine Highway through changing landscapes. See impressive engineering feats, waterfalls, and famous filming locations.
 
 Start the day by being picked up from your accommodation and heading towards Arthur's Pass. Your guide will point out noteworthy views along the way. Expect to see green fields, rugged mountains, forests, and ice-fed lakes and rivers.
 
-There are several stops so you won't spend all day in the van. Take a Jetboat ride for an action-packed tour or walk through the forest to see a waterfall. There will also be stops at popular photo spots.</p>
-          <div class="card-footer">
-            <span class="price">From €115</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-arthurs-pass-small-group-day-tour-from-christchurch-via-castle-hill-p1104716/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There are several stops so you won't spend all day in the van. Take a Jetboat ride for an action-packed tour or walk through the forest to see a waterfall. There will also be stops at popular photo spots.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€115.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-arthurs-pass-small-group-day-tour-from-christchurch-via-castle-hill-p1104716/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Kaikoura: Small-Group Guided Tour from Christchurch + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Kaikoura: Small-Group Guided Tour from Christchurch + Lunch</h3>
-          <p class="venue">📍 Day Trips from Christchurch</p>
-          <p>Join a tour from Garden City, led by knowledgeable guides, to Kaikoura, a place where the mountains reach the sea.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CHRISTCHURCH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CHRISTCHURCH</span>
+        </div>
+        <div class="tq-card-title">Kaikoura: Small-Group Guided Tour from Christchurch + Lunch</div>
+        <div class="tq-card-desc">Join a tour from Garden City, led by knowledgeable guides, to Kaikoura, a place where the mountains reach the sea.
 
 In Kaikoura, a popular spot for surfers, you will see various kinds of wildlife. The bright blue Pacific Ocean contrasts with the Kaikoura Ranges, providing great photo opportunities. There are additional activities available during the day tour if you wish to join them.
 
-Travel comfortably in a modern vehicle, such as a Mercedes Sprinter, and the tour guides will provide valuable information and enhance your visit.</p>
-          <div class="card-footer">
-            <span class="price">From €115</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kaikoura-small-group-guided-tour-from-christchurch-lunch-p1104715/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Travel comfortably in a modern vehicle, such as a Mercedes Sprinter, and the tour guides will provide valuable information and enhance your visit.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€115.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kaikoura-small-group-guided-tour-from-christchurch-lunch-p1104715/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/71b2969c21d4453dbace21edca06029f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Christchurch: 3 Attractions Combo Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Christchurch: 3 Attractions Combo Pass</h3>
-          <p class="venue">📍 Public Transport in Christchurch</p>
-          <p>Save on sightseeing in Christchurch with a combined attraction pass that covers three key experiences for one price.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/71b2969c21d4453dbace21edca06029f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Christchurch: 3 Attractions Combo Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CHRISTCHURCH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PUBLIC TRANSPORT IN CHRISTCHURCH</span>
+        </div>
+        <div class="tq-card-title">Christchurch: 3 Attractions Combo Pass</div>
+        <div class="tq-card-desc">Save on sightseeing in Christchurch with a combined attraction pass that covers three key experiences for one price.
 
 The pass includes entry to the Christchurch Gondola, punting on the Avon River, and a ride on the Christchurch Tram. 
 
@@ -135,14 +286,20 @@ Ride the historic Tram, which stops at 17 key points around the city.
 
 Enjoy a guided boat ride down the Avon River in a punting boat. 
 
-Get views of Christchurch and the Canterbury region from the top of the Christchurch Gondola complex. This pass offers a convenient and cost-effective way to see these highlights of Christchurch.</p>
-          <div class="card-footer">
-            <span class="price">From €63.07</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-christchurch-3-attractions-combo-pass-p1101664/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get views of Christchurch and the Canterbury region from the top of the Christchurch Gondola complex. This pass offers a convenient and cost-effective way to see these highlights of Christchurch.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€63.07</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-christchurch-3-attractions-combo-pass-p1101664/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

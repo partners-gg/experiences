@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Veracruz | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Veracruz. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,95 +131,161 @@
     <p>6 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/94ed070700684671a4e8205bc42aba83.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Laguna Catemaco & Los Tuxtlas: Tour from Veracruz" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Laguna Catemaco & Los Tuxtlas: Tour from Veracruz</h3>
-          <p class="venue">📍 Laguna Catemaco</p>
-          <p>There's magic, monkeys, and the best cigars in Mexico on this fun tour to the south of Veracruz. Stand before a beautiful waterfall, visit the prestigious cigar-making capital of San Andrés Tuxtla, and take a boat trip along the river to an island of playful primates. A great day out from Veracruz including all transport.</p>
-          <div class="card-footer">
-            <span class="price">From €72.89</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-laguna-catemaco-los-tuxtlas-tour-from-veracruz-p977095/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/94ed070700684671a4e8205bc42aba83.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Laguna Catemaco & Los Tuxtlas: Tour from Veracruz" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>VERACRUZ</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAGUNA CATEMACO</span>
+        </div>
+        <div class="tq-card-title">Laguna Catemaco & Los Tuxtlas: Tour from Veracruz</div>
+        <div class="tq-card-desc">There's magic, monkeys, and the best cigars in Mexico on this fun tour to the south of Veracruz. Stand before a beautiful waterfall, visit the prestigious cigar-making capital of San Andrés Tuxtla, and take a boat trip along the river to an island of playful primates. A great day out from Veracruz including all transport.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€72.89</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-laguna-catemaco-los-tuxtlas-tour-from-veracruz-p977095/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/edd065061b02464e97ac9870e53fca15.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="El Tajín Ruins & Papantla: Guided Tour from Veracruz" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>El Tajín Ruins & Papantla: Guided Tour from Veracruz</h3>
-          <p class="venue">📍 El Tajín</p>
-          <p>Add a couple of centuries' worth of cultural heritage to your stay in Mexico, and wander the spectacular ancient ruins of El Tajín while a friendly guide shares the engrossing local history. Stand in awe before the monumental Pyramid of the Niches, a testament to the rich Totonac culture that flourished here for hundreds of years. See weather-worn temples, palaces, ballcourts, and more. Then, explore the nearby city of Papantla, to see how Totonac traditions live on today.</p>
-          <div class="card-footer">
-            <span class="price">From €94.76</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-el-tajin-ruins-papantla-guided-tour-from-veracruz-p977073/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/edd065061b02464e97ac9870e53fca15.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="El Tajín Ruins & Papantla: Guided Tour from Veracruz" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>VERACRUZ</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EL TAJÍN</span>
+        </div>
+        <div class="tq-card-title">El Tajín Ruins & Papantla: Guided Tour from Veracruz</div>
+        <div class="tq-card-desc">Add a couple of centuries' worth of cultural heritage to your stay in Mexico, and wander the spectacular ancient ruins of El Tajín while a friendly guide shares the engrossing local history. Stand in awe before the monumental Pyramid of the Niches, a testament to the rich Totonac culture that flourished here for hundreds of years. See weather-worn temples, palaces, ballcourts, and more. Then, explore the nearby city of Papantla, to see how Totonac traditions live on today.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€94.76</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-el-tajin-ruins-papantla-guided-tour-from-veracruz-p977073/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7b90dc05387f4f1cb12a27242ee7bbc4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Veracruz & Mandinga Lake Highlights Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Veracruz & Mandinga Lake Highlights Tour</h3>
-          <p class="venue">📍 Acuario de Veracruz</p>
-          <p>Short on time in Veracruz? This top ticket is a great solution. Visit five awesome attractions in one day, including transport! Start with the fish at Plaza Veracruz Aquarium. Get a history fix at the fortress of San Juan de Ulúa. Stop for some seafood and a boat ride in the beautiful Mandinga, and ride around Centro Histórico de Veracruz on board a traditional tram!</p>
-          <div class="card-footer">
-            <span class="price">From €51.02</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-veracruz-mandinga-lake-highlights-tour-p977023/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7b90dc05387f4f1cb12a27242ee7bbc4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Veracruz & Mandinga Lake Highlights Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>VERACRUZ</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ACUARIO DE VERACRUZ</span>
+        </div>
+        <div class="tq-card-title">Veracruz & Mandinga Lake Highlights Tour</div>
+        <div class="tq-card-desc">Short on time in Veracruz? This top ticket is a great solution. Visit five awesome attractions in one day, including transport! Start with the fish at Plaza Veracruz Aquarium. Get a history fix at the fortress of San Juan de Ulúa. Stop for some seafood and a boat ride in the beautiful Mandinga, and ride around Centro Histórico de Veracruz on board a traditional tram!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.02</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-veracruz-mandinga-lake-highlights-tour-p977023/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/86a24d40218647f9ac23444667d72db7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mandinga Lake: Boat Tour + Transport from Veracruz" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mandinga Lake: Boat Tour + Transport from Veracruz</h3>
-          <p class="venue">📍 Mandinga Lake</p>
-          <p>Wander off the beaten tourist track and say _¡Hola!_ to the heart of Mexico, on a guided tour of the quiet town of Mandinga and its enormous untamed lake. You'll be picked up from Veracruz on a winding road trip down the Gulf coast.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/86a24d40218647f9ac23444667d72db7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mandinga Lake: Boat Tour + Transport from Veracruz" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>VERACRUZ</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MANDINGA LAKE</span>
+        </div>
+        <div class="tq-card-title">Mandinga Lake: Boat Tour + Transport from Veracruz</div>
+        <div class="tq-card-desc">Wander off the beaten tourist track and say _¡Hola!_ to the heart of Mexico, on a guided tour of the quiet town of Mandinga and its enormous untamed lake. You'll be picked up from Veracruz on a winding road trip down the Gulf coast.
 
-Hop aboard a trusty sightseeing boat at Mandinga, and kick back as the adventure continues on the water. See tropical birds fluttering around the treeline, soak in some rays, and imagine a Spanish guitar lilting away in the background - oh wait, you don't have to!</p>
-          <div class="card-footer">
-            <span class="price">From €18.95</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mandinga-lake-boat-tour-transport-from-veracruz-p977019/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Hop aboard a trusty sightseeing boat at Mandinga, and kick back as the adventure continues on the water. See tropical birds fluttering around the treeline, soak in some rays, and imagine a Spanish guitar lilting away in the background - oh wait, you don't have to!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.95</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mandinga-lake-boat-tour-transport-from-veracruz-p977019/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/94ed070700684671a4e8205bc42aba83.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Juan de Ulúa: Guided Tour in Spanish" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>San Juan de Ulúa: Guided Tour in Spanish</h3>
-          <p class="venue">📍 San Juan de Ulúa</p>
-          <p>For almost 350 years, the San Juan de Ulúa in Veracruz served as the main military stronghold of the Spanish Empire in the Americas. Step back in time with a guide on a fascinating return trip from Veracruz, and get the lowdown on a historic site that has been a colonial fort, a presidential palace, a prison, and more!</p>
-          <div class="card-footer">
-            <span class="price">From €23.33</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-juan-de-ulua-guided-tour-in-spanish-p977017/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/94ed070700684671a4e8205bc42aba83.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Juan de Ulúa: Guided Tour in Spanish" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>VERACRUZ</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SAN JUAN DE ULÚA</span>
+        </div>
+        <div class="tq-card-title">San Juan de Ulúa: Guided Tour in Spanish</div>
+        <div class="tq-card-desc">For almost 350 years, the San Juan de Ulúa in Veracruz served as the main military stronghold of the Spanish Empire in the Americas. Step back in time with a guide on a fascinating return trip from Veracruz, and get the lowdown on a historic site that has been a colonial fort, a presidential palace, a prison, and more!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.33</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-san-juan-de-ulua-guided-tour-in-spanish-p977017/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/94ed070700684671a4e8205bc42aba83.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Juan de Ulua Fortress: Skip the Line" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>San Juan de Ulua Fortress: Skip the Line</h3>
-          <p class="venue">📍 San Juan de Ulúa</p>
-          <p>See more of **Veracruz** with skip-the-line entry to one of the city's most signifcant landmarks –  **Fortaleza de San Juan de Ulua**. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/94ed070700684671a4e8205bc42aba83.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Juan de Ulua Fortress: Skip the Line" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>VERACRUZ</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SAN JUAN DE ULÚA</span>
+        </div>
+        <div class="tq-card-title">San Juan de Ulua Fortress: Skip the Line</div>
+        <div class="tq-card-desc">See more of **Veracruz** with skip-the-line entry to one of the city's most signifcant landmarks –  **Fortaleza de San Juan de Ulua**. 
 
 Once built to defend against pirate attacks, this historic site offers visitors sweeping **views of the Gulf of Mexico** and ornate Italian-style architecture of the 1500s. 
 
-Once inside, guests will travel back through time via dimly-lit corridors to discover the past purposes of the fortress – including a former prison.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fortress-san-juan-de-ulua-entrance-without-queues-p1044373/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Once inside, guests will travel back through time via dimly-lit corridors to discover the past purposes of the fortress – including a former prison.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fortress-san-juan-de-ulua-entrance-without-queues-p1044373/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

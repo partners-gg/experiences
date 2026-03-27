@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Como | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Como. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,127 +131,204 @@
     <p>7 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/994e84eac7314ea79ae809e5bb1793d8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Villa del Balbianello Park" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Villa del Balbianello Park</h3>
-          <p class="venue">📍 Villa del Balbianello</p>
-          <p>Originally commissioned in the late eighteenth century by Cardinal Durini, a prominent writer and patron, the Villa del Balbianello Park was intended to be a haven of literary leisure and delight. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/994e84eac7314ea79ae809e5bb1793d8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Villa del Balbianello Park" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COMO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">VILLA DEL BALBIANELLO</span>
+        </div>
+        <div class="tq-card-title">Villa del Balbianello Park</div>
+        <div class="tq-card-desc">Originally commissioned in the late eighteenth century by Cardinal Durini, a prominent writer and patron, the Villa del Balbianello Park was intended to be a haven of literary leisure and delight. 
 
 Fast forward to modern times, and the property was acquired by Guido Monzino, an entrepreneur, collector, and passionate adventurer. 
 
-In 1974, Monzino transformed the villa into a personal retreat where he could meticulously preserve the memories of his exciting life, including his historic achievement of becoming the first Italian to summit Mount Everest.</p>
-          <div class="card-footer">
-            <span class="price">From €14</span>
-            <span class="rating">⭐ 4.5 (50)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-villa-del-balbianello-park-p1060828/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In 1974, Monzino transformed the villa into a personal retreat where he could meticulously preserve the memories of his exciting life, including his historic achievement of becoming the first Italian to summit Mount Everest.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(50)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-villa-del-balbianello-park-p1060828/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b22edc57eea748d5ac53b67bbaa221cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lake Como Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lake Como Boat Tour</h3>
-          <p class="venue">📍 Lake Como Tours</p>
-          <p>Join this Lake Como boat tour and enjoy the true beauty of the region, including sights that can only be seen from the lake, including the villas of the rich and famous. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b22edc57eea748d5ac53b67bbaa221cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lake Como Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COMO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAKE COMO TOURS</span>
+        </div>
+        <div class="tq-card-title">Lake Como Boat Tour</div>
+        <div class="tq-card-desc">Join this Lake Como boat tour and enjoy the true beauty of the region, including sights that can only be seen from the lake, including the villas of the rich and famous. 
 
-Your skipper will narrate the tour in your choice of Italian or English, so you can gain a deeper insight into the Como region. Music will be playing, the sun will be shining (hopefully), and you'll be taking in the sights of Como on a boat tour you won't want to miss.</p>
-          <div class="card-footer">
-            <span class="price">From €120</span>
-            <span class="rating">⭐ 4.9 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lake-como-boat-tour-p1026316/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your skipper will narrate the tour in your choice of Italian or English, so you can gain a deeper insight into the Como region. Music will be playing, the sun will be shining (hopefully), and you'll be taking in the sights of Como on a boat tour you won't want to miss.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€120.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lake-como-boat-tour-p1026316/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/704aa47cfeb6476781a3ba5622b071db.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Moritz & Tirano: Bernina Express Panoramic Tour from Lake Como" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>St. Moritz & Tirano: Bernina Express Panoramic Tour from Lake Como</h3>
-          <p class="venue">📍 Day Trips from Como Lake</p>
-          <p>Hop on a morning bus from Como’s city center and enjoy the views of Lake Como as you head to St. Moritz.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/704aa47cfeb6476781a3ba5622b071db.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Moritz & Tirano: Bernina Express Panoramic Tour from Lake Como" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COMO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM COMO LAKE</span>
+        </div>
+        <div class="tq-card-title">St. Moritz & Tirano: Bernina Express Panoramic Tour from Lake Como</div>
+        <div class="tq-card-desc">Hop on a morning bus from Como’s city center and enjoy the views of Lake Como as you head to St. Moritz.
 
 Take time to stroll along the lakeside, shop, or try treats from a local patisserie. In the afternoon, head to the train station and board a panoramic carriage on the Bernina Express to Tirano.
 
 Experience a scenic journey on this train, passing through over 50 tunnels and 196 bridges. See the Morteratsch Glacier, Montebello Bend, Lago Bianco, and Laj Neir before reaching Alp Grüm.
 
-After arriving in Tirano, take a return bus to Como for a late evening arrival.</p>
-          <div class="card-footer">
-            <span class="price">From €186</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-moritz-tirano-bernina-express-panoramic-tour-from-lake-como-p1103338/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After arriving in Tirano, take a return bus to Como for a late evening arrival.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€186.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-st-moritz-tirano-bernina-express-panoramic-tour-from-lake-como-p1103338/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/994e84eac7314ea79ae809e5bb1793d8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Villa del Balbianello & Velarca: Guided Visit + Lake Como Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Villa del Balbianello & Velarca: Guided Visit + Lake Como Boat Tour</h3>
-          <p class="venue">📍 Villa del Balbianello</p>
-          <p>Join a Lake Como tour and visit Villa del Balbianello and the historic boat La Velarca, which will be open to the public for the first time in September 2024. Your tour includes detailed commentary by a bilingual tour guide fluent in English and Italian. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/994e84eac7314ea79ae809e5bb1793d8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Villa del Balbianello & Velarca: Guided Visit + Lake Como Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COMO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">VILLA DEL BALBIANELLO</span>
+        </div>
+        <div class="tq-card-title">Villa del Balbianello & Velarca: Guided Visit + Lake Como Boat Tour</div>
+        <div class="tq-card-desc">Join a Lake Como tour and visit Villa del Balbianello and the historic boat La Velarca, which will be open to the public for the first time in September 2024. Your tour includes detailed commentary by a bilingual tour guide fluent in English and Italian. 
 
-Start with a guided tour of Villa del Balbianello, then take a taxi boat to La Velarca for another guided tour. Return by boat to Villa del Balbianello and enjoy free time exploring the garden and taking photos.</p>
-          <div class="card-footer">
-            <span class="price">From €80</span>
-            <span class="rating">⭐ 4.6 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-villa-del-balbianello-and-velarca-guided-visit-and-lake-como-boat-tour-p1102188/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Start with a guided tour of Villa del Balbianello, then take a taxi boat to La Velarca for another guided tour. Return by boat to Villa del Balbianello and enjoy free time exploring the garden and taking photos.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€80.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-villa-del-balbianello-and-velarca-guided-visit-and-lake-como-boat-tour-p1102188/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/704aa47cfeb6476781a3ba5622b071db.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lugano & Bellagio: Day Trip from Como + Boat Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lugano & Bellagio: Day Trip from Como + Boat Cruise</h3>
-          <p class="venue">📍 Day Trips from Como Lake</p>
-          <p>Set off on a full-day adventure from Como, diving into Swiss and Italian culture. Begin with stories about landmarks and beautiful landscapes, then visit the Swiss town of Lugano for some leisure time and a taste of its famous chocolate. Explore the historic village of Cadenabbia.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/704aa47cfeb6476781a3ba5622b071db.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lugano & Bellagio: Day Trip from Como + Boat Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COMO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM COMO LAKE</span>
+        </div>
+        <div class="tq-card-title">Lugano & Bellagio: Day Trip from Como + Boat Cruise</div>
+        <div class="tq-card-desc">Set off on a full-day adventure from Como, diving into Swiss and Italian culture. Begin with stories about landmarks and beautiful landscapes, then visit the Swiss town of Lugano for some leisure time and a taste of its famous chocolate. Explore the historic village of Cadenabbia.
 
 Enjoy a scenic cruise on Lake Como to Bellagio, known as the "Pearl of Lake Como," with its vibrant villas. Take a leisurely lunch break in Bellagio to soak up the local atmosphere.
 
-Return to Tremezzo by cruise, and end with a guided walking tour of Como, finishing at the grand gothic cathedral.</p>
-          <div class="card-footer">
-            <span class="price">From €97.5</span>
-            <span class="rating">⭐ 4.8 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-from-como-lugano-and-bellagio-with-exclusive-boat-cruise-p1093738/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Return to Tremezzo by cruise, and end with a guided walking tour of Como, finishing at the grand gothic cathedral.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€97.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-from-como-lugano-and-bellagio-with-exclusive-boat-cruise-p1093738/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f55d81170d2748dc978e53d96fa83e58.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lake Como Adventure Park Day Access" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lake Como Adventure Park Day Access</h3>
-          <p class="venue">📍 Lake Como Adventure Park</p>
-          <p>Looking for a fun and exciting way to spend a day in the stunning natural beauty of Lake Como? Look no further than the Lake Como Adventure Park Day Access pass!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f55d81170d2748dc978e53d96fa83e58.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lake Como Adventure Park Day Access" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COMO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAKE COMO ADVENTURE PARK</span>
+        </div>
+        <div class="tq-card-title">Lake Como Adventure Park Day Access</div>
+        <div class="tq-card-desc">Looking for a fun and exciting way to spend a day in the stunning natural beauty of Lake Como? Look no further than the Lake Como Adventure Park Day Access pass!
 
 With this pass, you'll have full access to all the amazing attractions and activities at the park, including thrilling ziplines, towering climbing walls, challenging high ropes courses, and much more. Whether you're a seasoned adventurer or a first-time visitor, there's something for everyone at Lake Como Adventure Park.
 
-And when you need a break from all the adrenaline-fueled excitement, you can take a stroll through the park's serene natural surroundings, take in the stunning views of Lake Como and the surrounding mountains.</p>
-          <div class="card-footer">
-            <span class="price">From €35</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lake-como-adventure-park-day-access-p1062021/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+And when you need a break from all the adrenaline-fueled excitement, you can take a stroll through the park's serene natural surroundings, take in the stunning views of Lake Como and the surrounding mountains.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€35.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lake-como-adventure-park-day-access-p1062021/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f55d81170d2748dc978e53d96fa83e58.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Como: Guided City Tour and Lake Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Como: Guided City Tour and Lake Cruise</h3>
-          <p class="venue">📍 Lake Como Tours</p>
-          <p>The tour starts in Piazza Cavour, the center of Como, offering a view of the hills and lake. You'll explore the historic center, see Como Cathedral and Teatro Sociale, and then visit the Medieval Walls. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f55d81170d2748dc978e53d96fa83e58.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Como: Guided City Tour and Lake Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COMO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAKE COMO TOURS</span>
+        </div>
+        <div class="tq-card-title">Como: Guided City Tour and Lake Cruise</div>
+        <div class="tq-card-desc">The tour starts in Piazza Cavour, the center of Como, offering a view of the hills and lake. You'll explore the historic center, see Como Cathedral and Teatro Sociale, and then visit the Medieval Walls. 
 
-The tour mixes history and culture, from the neoclassical Teatro Sociale to the Life Electric monument by Libeskind on the Foranea Dam. You'll then board a boat to enjoy the scenery. You'll see the villages of Cernobbio, Moltrasio, Torno, and Blevio along the lake. The guided tour is in English and offers an authentic experience.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 4.3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-como-guided-city-tour-and-free-boat-cruise-p1060461/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The tour mixes history and culture, from the neoclassical Teatro Sociale to the Life Electric monument by Libeskind on the Foranea Dam. You'll then board a boat to enjoy the scenery. You'll see the villages of Cernobbio, Moltrasio, Torno, and Blevio along the lake. The guided tour is in English and offers an authentic experience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-como-guided-city-tour-and-free-boat-cruise-p1060461/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>
