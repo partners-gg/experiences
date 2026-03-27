@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,41 +32,39 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bosco di San Francesco: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Bosco di San Francesco: Entry Ticket</h3>
-        <p class="venue">📍 Bosco di San Francesco</p>
-        <p>Experience 800 years of history in the famous woods where the patron saint of Italy meditated and prayed.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bosco di San Francesco: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Bosco di San Francesco: Entry Ticket</h3>
+          <p class="venue">📍 Bosco di San Francesco</p>
+          <p>Experience 800 years of history in the famous woods where the patron saint of Italy meditated and prayed.
 
 As you climb to the top of the 14th-century tower, the Bosco di San Francesco unfolds. Feast your eyes on Michelangelo Pistoletto's "Third Paradise" – a masterpiece of 121 olive trees, arranged in double rows to form three large concentric circles – that symbolises the union between heaven and earth. 
 
 Back on the ground, take the artist's invitation and walk the winding road among the rows, becoming part of the work as you go. It's a real call for reflection on the possible peaceful coexistence between man and nature.</p>
-        <div class="card-footer">
-         <span class="price">From €6</span>
-         <span class="rating">⭐ 4.3 (15)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-bosco-di-san-francesco-p1020049/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €6</span>
+            <span class="rating">⭐ 4.3 (15)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-bosco-di-san-francesco-p1020049/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pinacoteca, Roman Forum & Rocca Maggiore" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Pinacoteca, Roman Forum & Rocca Maggiore</h3>
-        <p class="venue">📍 Pinacoteca Comunale Palazzo Vallemani</p>
-        <p>**Pinacoteca**
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pinacoteca, Roman Forum & Rocca Maggiore" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Pinacoteca, Roman Forum & Rocca Maggiore</h3>
+          <p class="venue">📍 Pinacoteca Comunale Palazzo Vallemani</p>
+          <p>**Pinacoteca**
 
 This beautiful Baroque residence, with vaulted ceilings frescoed at the beginning of the 17th century by Umbrian and Tuscan painters, bears witness to the political, civil and religious evolution of the city. Among the most valuable works in the collection are *Madonna Enthroned with Child* attributed to Giotto and the *Virgin and Child*, detached from Porta San Giacomo and attributed to the young Perugino.</p>
-        <div class="card-footer">
-         <span class="price">From €12.5</span>
-         <span class="rating">⭐ 2 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-tickets-for-pinacoteca-roman-forum-rocca-maggiore-p1033487/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €12.5</span>
+            <span class="rating">⭐ 2 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-tickets-for-pinacoteca-roman-forum-rocca-maggiore-p1033487/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

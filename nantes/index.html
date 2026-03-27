@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,43 +32,41 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/01a04d878d664e8a859a8edd47f906bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Nantes Pass" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Nantes Pass</h3>
-        <p class="venue">📍 Nantes City Cards</p>
-        <p>Discover the vibrant city of Nantes with the Nantes Pass! Enjoy a weekend, a week, or even a day of unlimited access to the city’s incredible art, culture and heritage. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/01a04d878d664e8a859a8edd47f906bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Nantes Pass" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Nantes Pass</h3>
+          <p class="venue">📍 Nantes City Cards</p>
+          <p>Discover the vibrant city of Nantes with the Nantes Pass! Enjoy a weekend, a week, or even a day of unlimited access to the city’s incredible art, culture and heritage. 
 
 Take a trip to the Machines de l'Ile and marvel at the Galerie des Machines' mechanical animals. Delve into the city’s history at the Château des Ducs de Bretagne, or explore the Jules Verne Museum! 
 
 A guided tour of the old districts, a train ride, and cruises on the Erdre and Loire are all included with your pass. Go even further afield and explore Nantes’ famous vineyards and the Atlantic Coast. 
 
 With the Nantes Pass, the excitement is all yours – without having to worry about your wallet!</p>
-        <div class="card-footer">
-         <span class="price">From €29</span>
-         <span class="rating">⭐ 4.1 (17)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-nantes-pass-p1048804/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €29</span>
+            <span class="rating">⭐ 4.1 (17)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-nantes-pass-p1048804/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/435d0a8ad5ee4adf96fc41ba286e2792.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="AccroCamp Nantes: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>AccroCamp Nantes: Entry Ticket</h3>
-        <p class="venue">📍 AccroCamp Nantes</p>
-        <p>Try urban tree climbing in the middle of nature at Beaulieu Park on Île de Nantes. Just a short distance from the city center, AccroCamp offers 6 aerial courses ranging from 6 to 15 m high. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/435d0a8ad5ee4adf96fc41ba286e2792.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="AccroCamp Nantes: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>AccroCamp Nantes: Entry Ticket</h3>
+          <p class="venue">📍 AccroCamp Nantes</p>
+          <p>Try urban tree climbing in the middle of nature at Beaulieu Park on Île de Nantes. Just a short distance from the city center, AccroCamp offers 6 aerial courses ranging from 6 to 15 m high. 
 
 Navigate fun elements like ziplines, Tarzan swings, and monkey bridges suitable for all skill levels. An 80 to 100 m zipline adds excitement, all in a safe environment with a continuous safety line.</p>
-        <div class="card-footer">
-         <span class="price">From €11</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-accrocamp-nantes-entry-p1120604/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €11</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-accrocamp-nantes-entry-p1120604/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

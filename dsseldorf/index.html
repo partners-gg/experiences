@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,181 +32,179 @@
     <p>10 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/6d93a566e66e4931835778bdd2f12f7e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="DüsseldorfCard" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>DüsseldorfCard</h3>
-        <p class="venue">📍 Düsseldorf City Cards</p>
-        <p>The DüsseldorfCard is your key to over 50 of the city's best attractions with minimum fuss! Access the Aquazoo Löbbecke Museum, Filmmuseum, Goethe-Museum and more, plus get 24, 48, 72 or 96-hour access to public buses, metro, and other trains! It's the best way to see Düsseldorf!</p>
-        <div class="card-footer">
-         <span class="price">From €13.9</span>
-         <span class="rating">⭐ 4.8 (10)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dusseldorfcard-p975966/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6d93a566e66e4931835778bdd2f12f7e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="DüsseldorfCard" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>DüsseldorfCard</h3>
+          <p class="venue">📍 Düsseldorf City Cards</p>
+          <p>The DüsseldorfCard is your key to over 50 of the city's best attractions with minimum fuss! Access the Aquazoo Löbbecke Museum, Filmmuseum, Goethe-Museum and more, plus get 24, 48, 72 or 96-hour access to public buses, metro, and other trains! It's the best way to see Düsseldorf!</p>
+          <div class="card-footer">
+            <span class="price">From €13.9</span>
+            <span class="rating">⭐ 4.8 (10)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dusseldorfcard-p975966/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4692830477154e3da2694795eed31ec4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: Sightseeing River Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Düsseldorf: Sightseeing River Cruise</h3>
-        <p class="venue">📍 Panorama City Cruise Düsseldorf</p>
-        <p>Discover the hidden wonders of Düsseldorf, a city that's more than just a carnival hub. Explore Germany's fashion capital on a river cruise and see the city from a new angle. Enjoy views of the historical ruins, Old Town, famous sites, and the lively Rhine River banks.</p>
-        <div class="card-footer">
-         <span class="price">From €20</span>
-         <span class="rating">⭐ 5 (5)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dusseldorf-sightseeing-river-cruise-p1100845/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4692830477154e3da2694795eed31ec4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: Sightseeing River Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Düsseldorf: Sightseeing River Cruise</h3>
+          <p class="venue">📍 Panorama City Cruise Düsseldorf</p>
+          <p>Discover the hidden wonders of Düsseldorf, a city that's more than just a carnival hub. Explore Germany's fashion capital on a river cruise and see the city from a new angle. Enjoy views of the historical ruins, Old Town, famous sites, and the lively Rhine River banks.</p>
+          <div class="card-footer">
+            <span class="price">From €20</span>
+            <span class="rating">⭐ 5 (5)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dusseldorf-sightseeing-river-cruise-p1100845/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/6d93a566e66e4931835778bdd2f12f7e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="DüsseldorfCard Plus: 48, 72, or 96-Hr Public Transport" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>DüsseldorfCard Plus: 48, 72, or 96-Hr Public Transport</h3>
-        <p class="venue">📍 Düsseldorf City Cards</p>
-        <p>The DüsseldorfCard Plus is an extension of the DüsseldorfCard. It is an economical and convenient way to visit Düsseldorf and the surrounding Rhein-Ruhr area.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6d93a566e66e4931835778bdd2f12f7e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="DüsseldorfCard Plus: 48, 72, or 96-Hr Public Transport" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>DüsseldorfCard Plus: 48, 72, or 96-Hr Public Transport</h3>
+          <p class="venue">📍 Düsseldorf City Cards</p>
+          <p>The DüsseldorfCard Plus is an extension of the DüsseldorfCard. It is an economical and convenient way to visit Düsseldorf and the surrounding Rhein-Ruhr area.
 
 With the DüsseldorfCard Plus, you can use buses, subways, trams, and trains without any charge, as well as all trains without a supplement (RE, RB, and S-Bahn in 2nd class) in the entire area of the "Rhine-Ruhr Transport Association (VRR) and the Rhine-Sieg Transport Association (VRS)."
 
 The card also grants free or discounted entry to various museums and leisure facilities. Participants can join city tours, sightseeing tours, and cultural events at significantly reduced prices.
 
 Additionally, in Düsseldorf, the card offers numerous culinary offers as well as discounts at local retailers.</p>
-        <div class="card-footer">
-         <span class="price">From €29.9</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dusseldorfcard-plus-48-72-or-96-hr-public-transport-p1128178/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €29.9</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dusseldorfcard-plus-48-72-or-96-hr-public-transport-p1128178/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: Old Town Guided Walking Tour with Maritime Museum" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Düsseldorf: Old Town Guided Walking Tour with Maritime Museum</h3>
-        <p class="venue">📍 Düsseldorf City Tours</p>
-        <p>Prepare for a tour to learn about the culture, 700-year-old history, and nightlife of Düsseldorf's old town, which covers just half a square kilometre.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: Old Town Guided Walking Tour with Maritime Museum" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Düsseldorf: Old Town Guided Walking Tour with Maritime Museum</h3>
+          <p class="venue">📍 Düsseldorf City Tours</p>
+          <p>Prepare for a tour to learn about the culture, 700-year-old history, and nightlife of Düsseldorf's old town, which covers just half a square kilometre.
 
 Discover over 260 bars, clubs, cafés, and restaurants here, which is why it’s often called “the longest bar in the world.” Explore local landmarks, from old churches and market squares to modern museums and galleries.
 
 On a guided tour, locals will share stories like the tradition of the cartwheel, the legacy of Elector Jan Wellem, or the festive awakening of Hoppeditz during Carnival. The nearby Andreas Quartier shows how old buildings can be used in new ways.
 
 The tour ends with a walk along the Rhine promenade, where you can view the river, bridges, and meadows.</p>
-        <div class="card-footer">
-         <span class="price">From €18</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-old-town-guided-walking-tour-including-maritime-museum-p1102403/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €18</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-old-town-guided-walking-tour-including-maritime-museum-p1102403/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: Craft Beer & Street Food Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Düsseldorf: Craft Beer & Street Food Tour</h3>
-        <p class="venue">📍 Düsseldorf City Tours</p>
-        <p>Receive plenty of expert knowledge and fun facts from a trained guide during the tour. Learn about current beer trends in the old town and get insider tips on the best places to go with friends afterward.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: Craft Beer & Street Food Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Düsseldorf: Craft Beer & Street Food Tour</h3>
+          <p class="venue">📍 Düsseldorf City Tours</p>
+          <p>Receive plenty of expert knowledge and fun facts from a trained guide during the tour. Learn about current beer trends in the old town and get insider tips on the best places to go with friends afterward.
 
 Taste a local pork roll, or some french fries as a vegetarian alternative.</p>
-        <div class="card-footer">
-         <span class="price">From €39</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dusseldorf-craft-beer-street-food-tour-p1101710/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €39</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dusseldorf-craft-beer-street-food-tour-p1101710/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: Sushi, Sake & Little Tokyo Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Düsseldorf: Sushi, Sake & Little Tokyo Tour</h3>
-        <p class="venue">📍 Düsseldorf City Tours</p>
-        <p>In the heart of Düsseldorf, you'll find 'Little Tokyo,' Europe's third-largest Japanese community. Nowhere else in Europe showcases Japanese life so vividly in one area.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: Sushi, Sake & Little Tokyo Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Düsseldorf: Sushi, Sake & Little Tokyo Tour</h3>
+          <p class="venue">📍 Düsseldorf City Tours</p>
+          <p>In the heart of Düsseldorf, you'll find 'Little Tokyo,' Europe's third-largest Japanese community. Nowhere else in Europe showcases Japanese life so vividly in one area.
 
 Award-winning restaurants and Izakayas (traditional Japanese pubs) offer authentic Japanese cuisine, recognized as an Intangible Cultural Heritage in 2013. You will find ramen stalls, bakeries, bars, hotels, supermarkets, and bookstores along Immermannstraße and Klosterstraße, from the central station to the city center, creating a unique Japanese vibe.
 
 Locals, Japanese businesspeople, young manga fans, and foodies from around the world gather here. Over bowls of ramen, sushi, and sake, they bring life to the Japanese Quarter, making it one of Düsseldorf's most lively spots.</p>
-        <div class="card-footer">
-         <span class="price">From €35</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-sushi-sake-japanese-lifestyle-p1101061/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €35</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-sushi-sake-japanese-lifestyle-p1101061/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: City Exploration Game" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Düsseldorf: City Exploration Game</h3>
-        <p class="venue">📍 Düsseldorf City Tours</p>
-        <p>Get ready for an exciting city exploration game that combines fun, learning, and sightseeing, perfect for all ages. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: City Exploration Game" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Düsseldorf: City Exploration Game</h3>
+          <p class="venue">📍 Düsseldorf City Tours</p>
+          <p>Get ready for an exciting city exploration game that combines fun, learning, and sightseeing, perfect for all ages. 
 
 Help Jackson Wilde, a famous city explorer, by solving quizzes and earning points as you visit some of Düsseldorf's top landmarks.
 
 Download the app on Android or iOS, or access it through a browser to start your adventure. Explore Düsseldorf, complete missions, and learn about the city's monuments along the way.</p>
-        <div class="card-footer">
-         <span class="price">From €7.99</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dusseldorf-city-exploration-game-p1101003/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €7.99</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dusseldorf-city-exploration-game-p1101003/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: Rhine Tour with Segway" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Düsseldorf: Rhine Tour with Segway</h3>
-        <p class="venue">📍 Düsseldorf City Tours</p>
-        <p>This is one Rhine tour you won't forget! Speed along and take in the sights on a Segway PT. The Rhine meadows of Ober will enchant you on the way to Niederkassel and onto the Theodor Heuss Bridge, an arched bridge over the Rhine River that connects the Mainz-Kastel district of Wiesbaden. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: Rhine Tour with Segway" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Düsseldorf: Rhine Tour with Segway</h3>
+          <p class="venue">📍 Düsseldorf City Tours</p>
+          <p>This is one Rhine tour you won't forget! Speed along and take in the sights on a Segway PT. The Rhine meadows of Ober will enchant you on the way to Niederkassel and onto the Theodor Heuss Bridge, an arched bridge over the Rhine River that connects the Mainz-Kastel district of Wiesbaden. 
 
 Cruise on through Rhine Park along the Rhine promenade, back to Burgplatz, where locals and tourists gather to soak up the castle tower views over the water. 
 
 Get a free beer at the end of your tour at the Uerige, a microbrewery in Media Harbour.</p>
-        <div class="card-footer">
-         <span class="price">From €79</span>
-         <span class="rating">⭐ 5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dusseldorf-rhine-tour-with-segway-max-120-min-p1043905/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €79</span>
+            <span class="rating">⭐ 5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dusseldorf-rhine-tour-with-segway-max-120-min-p1043905/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: City and Rhine Tour XXL" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Düsseldorf: City and Rhine Tour XXL</h3>
-        <p class="venue">📍 Düsseldorf City Tours</p>
-        <p>Perfect for Düsseldorf visitors and residents alike, this XXL tour takes you over the Rhine promenade and through the old town. You will glide silently and effortlessly past the city's most beautiful sights, enjoy the ride through the Hofgarten, see the Kö-Bogen by star architect Daniel Libeskind in the heart of Düsseldorf's city center.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: City and Rhine Tour XXL" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Düsseldorf: City and Rhine Tour XXL</h3>
+          <p class="venue">📍 Düsseldorf City Tours</p>
+          <p>Perfect for Düsseldorf visitors and residents alike, this XXL tour takes you over the Rhine promenade and through the old town. You will glide silently and effortlessly past the city's most beautiful sights, enjoy the ride through the Hofgarten, see the Kö-Bogen by star architect Daniel Libeskind in the heart of Düsseldorf's city center.
 
 Take a look at the Burgplatz and the Medienhafen with its spectacular architecture, and finish the tour along the Rhine meadows. The highlights of this extra-long Segway tour are the two Rhine crossings, which offer unforgettable views of the city.</p>
-        <div class="card-footer">
-         <span class="price">From €99</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dusseldorf-city-and-rhine-tour-xxl-max-210-min-p1043903/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €99</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dusseldorf-city-and-rhine-tour-xxl-max-210-min-p1043903/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: Segway City Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Düsseldorf: Segway City Tour</h3>
-        <p class="venue">📍 Düsseldorf City Tours</p>
-        <p>Whether you are in Düsseldorf for the first time or have been many times, the city never gets old if you have a new way to explore it. Hop on a segway and join a **guided city tour of Düsseldorf**.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Düsseldorf: Segway City Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Düsseldorf: Segway City Tour</h3>
+          <p class="venue">📍 Düsseldorf City Tours</p>
+          <p>Whether you are in Düsseldorf for the first time or have been many times, the city never gets old if you have a new way to explore it. Hop on a segway and join a **guided city tour of Düsseldorf**.
 
 On your **segway**, you'll glide effortlessly past the city's most beautiful sights – along the **Oberkassler Rheinufer** and the **Museum Kunstpalast**, through the middle of the old town and across **Burgplatz Square**. 
 
 Stop at the **house brewery Uerige** for a glass of original **Düsseldorf Altbier** before continuing along the **Rhine promenade**. 
 
 During the tour, you guide will tell you the most important information about the city and personally introduce you to the **Kö-Bogen**, the **Hofgarten**, the **Königsallee**, **Medienhafen**,and the **Wahrzeiche**.</p>
-        <div class="card-footer">
-         <span class="price">From €79</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-segway-city-tour-dusseldorf-p1043827/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €79</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-segway-city-tour-dusseldorf-p1043827/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

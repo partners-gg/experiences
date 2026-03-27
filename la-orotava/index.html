@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,77 +32,75 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/84ec0cc1c9144ade8866b0a8e3056991.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Casa de los Balcones: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Casa de los Balcones: Entry Ticket</h3>
-        <p class="venue">📍 Casa de los Balcones</p>
-        <p>Some buildings are alive with history – you can sense it the moment you step inside, and this certainly rings true for Tenerife's La Casa de los Balcones.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/84ec0cc1c9144ade8866b0a8e3056991.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Casa de los Balcones: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Casa de los Balcones: Entry Ticket</h3>
+          <p class="venue">📍 Casa de los Balcones</p>
+          <p>Some buildings are alive with history – you can sense it the moment you step inside, and this certainly rings true for Tenerife's La Casa de los Balcones.
  
 Take an self-guided tour of this 17th-century manor and see the lifestyles enjoyed by its past residents, which were well-to-do families and military figures. See family heirlooms and antiquities, and soak up the tranquil atmosphere of its inner courtyard with views of intricate wooden balconies that evoke the nostalgia of yesteryear.</p>
-        <div class="card-footer">
-         <span class="price">From €6</span>
-         <span class="rating">⭐ 4.1 (15)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-la-casa-de-los-balcones-p979723/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €6</span>
+            <span class="rating">⭐ 4.1 (15)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-la-casa-de-los-balcones-p979723/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/84ec0cc1c9144ade8866b0a8e3056991.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The House of Balconies & Hoya Gofio Mill: Audio Guide" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The House of Balconies & Hoya Gofio Mill: Audio Guide</h3>
-        <p class="venue">📍 Casa de los Balcones</p>
-        <p>Discover the Canary Islands' culture, history, and tradition with this exclusive ticket. The ticket grants access to two of La Orotava's iconic 17th-century landmarks: Casa de los Balcones and Molino de Gofio Del Hoyo.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/84ec0cc1c9144ade8866b0a8e3056991.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The House of Balconies & Hoya Gofio Mill: Audio Guide" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The House of Balconies & Hoya Gofio Mill: Audio Guide</h3>
+          <p class="venue">📍 Casa de los Balcones</p>
+          <p>Discover the Canary Islands' culture, history, and tradition with this exclusive ticket. The ticket grants access to two of La Orotava's iconic 17th-century landmarks: Casa de los Balcones and Molino de Gofio Del Hoyo.
 
 Explore Casa de los Balcones to see traditional crafts, lacework, and embroidery. At Molino de Gofio Del Hoyo, learn about the 17th-century mill's role in making gofio and the lives of the millers.
 
 Witness the traditional Canary Islands architecture of both sites and gain insight into local heritage.</p>
-        <div class="card-footer">
-         <span class="price">From €9.5</span>
-         <span class="rating">⭐ 4 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-house-of-balconies-and-hoyo-gofio-mill-audio-guide-p1100703/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €9.5</span>
+            <span class="rating">⭐ 4 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-house-of-balconies-and-hoyo-gofio-mill-audio-guide-p1100703/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/89de371c34094deeadbb354f458b2c84.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="La Orotava: Guided Tour with Gofio Tasting" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>La Orotava: Guided Tour with Gofio Tasting</h3>
-        <p class="venue">📍 Tenerife Walking Tours</p>
-        <p>Take a tour called "Los Molinos de la Villa" and learn about the hydraulic heritage still present in the streets of northern Tenerife and the staple food of the Canary Islands, gofio, which has a history of five centuries.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/89de371c34094deeadbb354f458b2c84.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="La Orotava: Guided Tour with Gofio Tasting" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>La Orotava: Guided Tour with Gofio Tasting</h3>
+          <p class="venue">📍 Tenerife Walking Tours</p>
+          <p>Take a tour called "Los Molinos de la Villa" and learn about the hydraulic heritage still present in the streets of northern Tenerife and the staple food of the Canary Islands, gofio, which has a history of five centuries.
 
 These mills used the power of water to grind roasted grain. Ten mills remain, situated along a pathway marked by an old water channel that once connected them. Along this route, you will also find old public washhouses and watering places, now regarded as ethnographic treasures.
 
 On this tour, you'll see the mills and learn about their function. Visit La Orotava, where two of these mills continue to operate. Watch their wheels in action and taste traditional gofio.</p>
-        <div class="card-footer">
-         <span class="price">From €35</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-la-orotava-guided-tour-with-gofio-tasting-p1104580/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €35</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-la-orotava-guided-tour-with-gofio-tasting-p1104580/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/3290e06d83474d28a962818312e09822.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Teide Legends Digital Exhibition" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Teide Legends Digital Exhibition</h3>
-        <p class="venue">📍 Teide Volcano Visitor's Center</p>
-        <p>Get access to the "Science and Legend" exhibition at the Teide Cable Car Visitor's Center. Explore the exhibition and discover legends related to the eruption of Mount Teide around 1,000 years ago.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3290e06d83474d28a962818312e09822.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Teide Legends Digital Exhibition" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Teide Legends Digital Exhibition</h3>
+          <p class="venue">📍 Teide Volcano Visitor's Center</p>
+          <p>Get access to the "Science and Legend" exhibition at the Teide Cable Car Visitor's Center. Explore the exhibition and discover legends related to the eruption of Mount Teide around 1,000 years ago.
 
 After exploring the exhibition, head to the souvenir shop at the Visitor Center. You'll find a variety of treasures to commemorate your Teide Legend experience.
 
 Furthermore, treat your taste buds to a local culinary adventure at Spain's highest restaurant-cafe. Have delicious cuisine while taking in the scenic views of the National Park.</p>
-        <div class="card-footer">
-         <span class="price">From €3</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-teide-legends-digital-exhibition-p1088015/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €3</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-teide-legends-digital-exhibition-p1088015/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

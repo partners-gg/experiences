@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,37 +32,35 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1b40f09bb9a483d8be030cab7a16864.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jungle Park: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Jungle Park: Entry Ticket</h3>
-        <p class="venue">📍 Jungle Park</p>
-        <p>It's about to get animal-tastic with your ticket to Jungle Park Tenerife! Watch parrots, macaws, sea lions and more in one of Jungle Park Tenerife's thrilling live shows. See orangutans, gibbons, lions, leopards, reptiles and crocodiles, and watch things get fishy during feeding time for the penguins!</p>
-        <div class="card-footer">
-         <span class="price">From €36</span>
-         <span class="rating">⭐ 4.5 (139)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-jungle-park-tenerife-p975435/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1b40f09bb9a483d8be030cab7a16864.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jungle Park: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Jungle Park: Entry Ticket</h3>
+          <p class="venue">📍 Jungle Park</p>
+          <p>It's about to get animal-tastic with your ticket to Jungle Park Tenerife! Watch parrots, macaws, sea lions and more in one of Jungle Park Tenerife's thrilling live shows. See orangutans, gibbons, lions, leopards, reptiles and crocodiles, and watch things get fishy during feeding time for the penguins!</p>
+          <div class="card-footer">
+            <span class="price">From €36</span>
+            <span class="rating">⭐ 4.5 (139)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-jungle-park-tenerife-p975435/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/0f61454dce174c4bba6ded2be4bd12bd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 1-Hr Axe-Throwing Session" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Tenerife: 1-Hr Axe-Throwing Session</h3>
-        <p class="venue">📍 Axe Throwing Tenerife</p>
-        <p>Visit the axe-throwing hall at Zentral Center in Playa Las Américas. Use 4 axe-throwing lanes, a professional dartboard, and a horseshoe pitch. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0f61454dce174c4bba6ded2be4bd12bd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 1-Hr Axe-Throwing Session" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Tenerife: 1-Hr Axe-Throwing Session</h3>
+          <p class="venue">📍 Axe Throwing Tenerife</p>
+          <p>Visit the axe-throwing hall at Zentral Center in Playa Las Américas. Use 4 axe-throwing lanes, a professional dartboard, and a horseshoe pitch. 
 
 Enjoy time with friends or family in a modern space with soft lighting and background music. Try different challenges with over 10 games shown on a video projector. Refreshments are available to add to the fun.</p>
-        <div class="card-footer">
-         <span class="price">From €55</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-tenerife-1-hr-axe-throwing-session-p1105748/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €55</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-tenerife-1-hr-axe-throwing-session-p1105748/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

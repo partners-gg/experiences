@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,61 +32,59 @@
     <p>3 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/35fab0e4b67f44ee83d97fb4d0e10b59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gilroy Gardens: 1-Day Admission Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Gilroy Gardens: 1-Day Admission Ticket</h3>
-        <p class="venue">📍 Gilroy Gardens</p>
-        <p>Celebrate 25 years at Gilroy Gardens Family Theme Park in 2025! Spend your day spinning, swinging, and soaring on rides made for every age group. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/35fab0e4b67f44ee83d97fb4d0e10b59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gilroy Gardens: 1-Day Admission Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Gilroy Gardens: 1-Day Admission Ticket</h3>
+          <p class="venue">📍 Gilroy Gardens</p>
+          <p>Celebrate 25 years at Gilroy Gardens Family Theme Park in 2025! Spend your day spinning, swinging, and soaring on rides made for every age group. 
 
 You’ll find plenty of gentle rides for little ones, action-packed roller coasters, and even water play areas to help you cool off. 
 
 If you love learning and nature, you can step into interactive exhibits and see the famous “Circus Trees” among thousands of other trees scattered across 26+ acres. 
 
 When you step inside, you’ll see why so many families return year after year.</p>
-        <div class="card-footer">
-         <span class="price">From €36.46</span>
-         <span class="rating">⭐ 5 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-gilroy-gardens-theme-park-one-day-admission-ticket-p1119287/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €36.46</span>
+            <span class="rating">⭐ 5 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-gilroy-gardens-theme-park-one-day-admission-ticket-p1119287/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/35fab0e4b67f44ee83d97fb4d0e10b59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gilroy Gardens: North Pole Lights" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Gilroy Gardens: North Pole Lights</h3>
-        <p class="venue">📍 Gilroy Gardens</p>
-        <p>Visit North Pole Nights at Gilroy Gardens from November 28 to December 31. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/35fab0e4b67f44ee83d97fb4d0e10b59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gilroy Gardens: North Pole Lights" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Gilroy Gardens: North Pole Lights</h3>
+          <p class="venue">📍 Gilroy Gardens</p>
+          <p>Visit North Pole Nights at Gilroy Gardens from November 28 to December 31. 
 
 Participate in activities featuring live shows, ice skating, Santa’s Workshop, themed food and drinks, and light displays. 
 
 Optional additions include Lunch with Santa on weekends or a Holiday Feast on December 20-21.</p>
-        <div class="card-footer">
-         <span class="price">From €43.11</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-gilroy-gardens-north-pole-nights-p1124871/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €43.11</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-gilroy-gardens-north-pole-nights-p1124871/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/35fab0e4b67f44ee83d97fb4d0e10b59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gilroy Gardens: The Great Big Boo!" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Gilroy Gardens: The Great Big Boo!</h3>
-        <p class="venue">📍 Gilroy Gardens</p>
-        <p>Dress up and follow the BOO Trail for trick-or-treating stations across the park. Collect candy in Boo Alley, a safe environment for all ages. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/35fab0e4b67f44ee83d97fb4d0e10b59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gilroy Gardens: The Great Big Boo!" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Gilroy Gardens: The Great Big Boo!</h3>
+          <p class="venue">📍 Gilroy Gardens</p>
+          <p>Dress up and follow the BOO Trail for trick-or-treating stations across the park. Collect candy in Boo Alley, a safe environment for all ages. 
 
 Watch the classic live musical show, "Do the BOO" and meet characters like Vinnie the Vampire and Frankie the Lounge Singer. Join them in a fun adventure to save Halloween from Wendella the Witch's curse!</p>
-        <div class="card-footer">
-         <span class="price">From €39.22</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-gilroy-gardens-the-great-big-boo-p1122145/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €39.22</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-gilroy-gardens-the-great-big-boo-p1122145/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

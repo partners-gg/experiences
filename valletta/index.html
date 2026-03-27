@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,91 +32,89 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/52d7b1c603994a1a9260100c77dfab7c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Malta Hop-On Hop-Off Bus Pass + Harbour Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Malta Hop-On Hop-Off Bus Pass + Harbour Cruise</h3>
-        <p class="venue">📍 Valletta Waterfront</p>
-        <p>Get smart when you're sightseeing around Malta and save time using the handy Hop-on Hop-off Bus Pass. This ticket to easy-peasy transport will take you to all the best sights and stop at 35 attractions like the Valletta Waterfront, Vittoriosa Waterfront, Blue Grotto and more.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/52d7b1c603994a1a9260100c77dfab7c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Malta Hop-On Hop-Off Bus Pass + Harbour Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Malta Hop-On Hop-Off Bus Pass + Harbour Cruise</h3>
+          <p class="venue">📍 Valletta Waterfront</p>
+          <p>Get smart when you're sightseeing around Malta and save time using the handy Hop-on Hop-off Bus Pass. This ticket to easy-peasy transport will take you to all the best sights and stop at 35 attractions like the Valletta Waterfront, Vittoriosa Waterfront, Blue Grotto and more.
 
 To make your Malta experience perfect, enjoy a Harbour Cruise (can be used within three days from the pass activation), taking you around the harbour in Valletta with its spectacular military fortifications, hopping off to visit the Esplora Interactive Science Museum (admission not included).</p>
-        <div class="card-footer">
-         <span class="price">From €35</span>
-         <span class="rating">⭐ 3.5 (22)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-malta-p975907/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €35</span>
+            <span class="rating">⭐ 3.5 (22)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-malta-p975907/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/cad3d760fd334319ab441094cb226d2e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Original Valletta Walking Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Original Valletta Walking Tour</h3>
-        <p class="venue">📍 Valletta City Gate</p>
-        <p>Malta's magical capital Valletta was built by the Knights of St John in 1565, and this story-filled tour serves up a taste of its history with the facts behind its growing modern appeal.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cad3d760fd334319ab441094cb226d2e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Original Valletta Walking Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Original Valletta Walking Tour</h3>
+          <p class="venue">📍 Valletta City Gate</p>
+          <p>Malta's magical capital Valletta was built by the Knights of St John in 1565, and this story-filled tour serves up a taste of its history with the facts behind its growing modern appeal.
 
 Traverse the city’s highlights in a small group, from St. John’s Co-Cathedral to the Auberge de Castille, the Church of St. Paul's Shipwreck – built when Christianity came to town – and St. George’s Square, home of the opulent Grand Master’s Palace. 
 
 Your guide will bring this World Heritage City to life before your eyes, diving into the details behind every Baroque masterpiece as old architecture blends with the new. If you don't know where to start in Valletta, start with this ticket to the best bits, and see life through the eyes of the locals, past and present. You'll be charmed in no time!</p>
-        <div class="card-footer">
-         <span class="price">From €22</span>
-         <span class="rating">⭐ 4.9 (57)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-original-valletta-walking-tour-p1012903/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €22</span>
+            <span class="rating">⭐ 4.9 (57)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-original-valletta-walking-tour-p1012903/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/cad3d760fd334319ab441094cb226d2e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Valletta Self-Guided Audio Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Valletta Self-Guided Audio Tour</h3>
-        <p class="venue">📍 Malta Self-Guided Tours</p>
-        <p>Immerse yourself in the culture and history of Malta with a self-guided audio tour of Valletta.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cad3d760fd334319ab441094cb226d2e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Valletta Self-Guided Audio Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Valletta Self-Guided Audio Tour</h3>
+          <p class="venue">📍 Malta Self-Guided Tours</p>
+          <p>Immerse yourself in the culture and history of Malta with a self-guided audio tour of Valletta.
 
 Tickets for this Valletta audio tour allow you to explore at your pace so you can savor the city, a UNESCO World Heritage Site. Learn fascinating facts about iconic city landmarks – the City Gate, the Upper Barrakka Gardens, and Fort St. Elmo. 
 
 With unlimited access to the audio guide during your stay, you can pinpoint your favorite spots and generate a multitude of walking routes for the best photo opportunities in Valletta.</p>
-        <div class="card-footer">
-         <span class="price">From €4.6</span>
-         <span class="rating">⭐ 3.2 (19)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-valletta-self-guided-audio-tour-p1034481/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €4.6</span>
+            <span class="rating">⭐ 3.2 (19)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-valletta-self-guided-audio-tour-p1034481/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/cad3d760fd334319ab441094cb226d2e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Malta Airport Transfer" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Private Malta Airport Transfer</h3>
-        <p class="venue">📍 Airport Transfers Malta</p>
-        <p>Whether you're planning a fun-filled family holiday or a quick business trip, make your transportation from Malta Airport easy and stress-free with the help of a private transfer. A professionally trained chauffeur, knowledgeable and familiar with all of Malta's top locations and attractions, will pick you up and make sure you get to where you need to go.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cad3d760fd334319ab441094cb226d2e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Malta Airport Transfer" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Private Malta Airport Transfer</h3>
+          <p class="venue">📍 Airport Transfers Malta</p>
+          <p>Whether you're planning a fun-filled family holiday or a quick business trip, make your transportation from Malta Airport easy and stress-free with the help of a private transfer. A professionally trained chauffeur, knowledgeable and familiar with all of Malta's top locations and attractions, will pick you up and make sure you get to where you need to go.
 
 Malta International Airport is serviced by a single passenger terminal and is the only airport in Malta, making the pick-up (and drop-off) process smooth and stress-free. Only 10 km removed from the capital Valletta, pre-booking your transportation will mean you get to relax and enjoy your holiday the minute your flight touches down.</p>
-        <div class="card-footer">
-         <span class="price">From €32</span>
-         <span class="rating">⭐ 5 (11)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-private-malta-airport-transfer-p1013060/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €32</span>
+            <span class="rating">⭐ 5 (11)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-private-malta-airport-transfer-p1013060/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/cad3d760fd334319ab441094cb226d2e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Malta Airport Transfer" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Private Malta Airport Transfer</h3>
-        <p class="venue">📍 Airport Transfers Malta</p>
-        <p>Whether you're planning a fun-filled family holiday or a quick business trip, make your transportation from Malta Airport easy and stress-free with the help of a private transfer. A professionally trained chauffeur, knowledgeable and familiar with all of Malta's top locations and attractions, will pick you up and make sure you get to where you need to go.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cad3d760fd334319ab441094cb226d2e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Malta Airport Transfer" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Private Malta Airport Transfer</h3>
+          <p class="venue">📍 Airport Transfers Malta</p>
+          <p>Whether you're planning a fun-filled family holiday or a quick business trip, make your transportation from Malta Airport easy and stress-free with the help of a private transfer. A professionally trained chauffeur, knowledgeable and familiar with all of Malta's top locations and attractions, will pick you up and make sure you get to where you need to go.
 
 Malta International Airport is serviced by a single passenger terminal and is the only airport in Malta, making the pick-up (and drop-off) process smooth and stress-free. Only 10 km removed from the capital Valletta, pre-booking your transportation will mean you get to relax and enjoy your holiday the minute your flight touches down.</p>
-        <div class="card-footer">
-         <span class="price">From €32</span>
-         <span class="rating">⭐ 5 (11)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-private-malta-airport-transfer-p1013060/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €32</span>
+            <span class="rating">⭐ 5 (11)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-private-malta-airport-transfer-p1013060/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

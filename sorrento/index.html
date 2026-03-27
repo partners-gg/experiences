@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,79 +32,77 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Three Tenors In Sorrento" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Three Tenors In Sorrento</h3>
-        <p class="venue">📍 Museo Correale di Terranova</p>
-        <p>Inspired by the iconic 1994 'Three Tenors in Concert' performance by Luciano Pavarotti, Placido Domingo and José Carreras, Opera e Lirica reproduces this breathtaking musical experience with its own renowned artists. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Three Tenors In Sorrento" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Three Tenors In Sorrento</h3>
+          <p class="venue">📍 Museo Correale di Terranova</p>
+          <p>Inspired by the iconic 1994 'Three Tenors in Concert' performance by Luciano Pavarotti, Placido Domingo and José Carreras, Opera e Lirica reproduces this breathtaking musical experience with its own renowned artists. 
 
 The enticing voices of Marco Ferrante, Enzo Tremante and Alessandro Fortunato, accompanied by soaring strings and mellifluous piano, take the audience on a spectacular journey through the masterpieces of Italian opera and traditional Neapolitan songs. 
 
 This is a must-see Sorrento opera full of emotions, romanticism and lighthearted moments that comes to life in the magnificent Concert Hall of the Correale Museum of Terranova.</p>
-        <div class="card-footer">
-         <span class="price">From €60</span>
-         <span class="rating">⭐ 5 (22)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-three-tenors-in-sorrento-p1025215/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €60</span>
+            <span class="rating">⭐ 5 (22)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-three-tenors-in-sorrento-p1025215/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sorrento: Small Group Pasta and Tiramisu Class" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Sorrento: Small Group Pasta and Tiramisu Class</h3>
-        <p class="venue">📍 Sorrento Cooking Classes</p>
-        <p>Savor the taste of Italy with two homemade pasta dishes. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sorrento: Small Group Pasta and Tiramisu Class" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Sorrento: Small Group Pasta and Tiramisu Class</h3>
+          <p class="venue">📍 Sorrento Cooking Classes</p>
+          <p>Savor the taste of Italy with two homemade pasta dishes. 
 
 Learn to roll 'sfoglia' - fresh pasta made by hand with the Cesarine, Italy's oldest network of home cooks. 
 
 Master the art of cooking tiramisu as a finishing touch to your homemade meal.</p>
-        <div class="card-footer">
-         <span class="price">From €135</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-sorrento-small-group-pasta-and-tiramisu-class-p1092704/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €135</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-sorrento-small-group-pasta-and-tiramisu-class-p1092704/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sorrento: Small Group Home Cooking Class with Local Host" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Sorrento: Small Group Home Cooking Class with Local Host</h3>
-        <p class="venue">📍 Sorrento Cooking Classes</p>
-        <p>Join a fun cooking class at a local Italian home and learn to make some of Italy's most famous dishes. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sorrento: Small Group Home Cooking Class with Local Host" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Sorrento: Small Group Home Cooking Class with Local Host</h3>
+          <p class="venue">📍 Sorrento Cooking Classes</p>
+          <p>Join a fun cooking class at a local Italian home and learn to make some of Italy's most famous dishes. 
 
 Cook three authentic recipes with guidance from the local host on fully-equipped workstations with utensils and fresh ingredients. Taste your homemade Italian dishes along with local red and white wines and enjoy hearing family recipes and stories about regional cuisine from your host. 
 
 The sample menu includes a starter with seasonal produce, fresh pasta, and a typical dessert.</p>
-        <div class="card-footer">
-         <span class="price">From €179</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-sorrento-small-group-home-cooking-class-with-local-host-p1092632/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €179</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-sorrento-small-group-home-cooking-class-with-local-host-p1092632/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sorrento: Private Cooking Class + Guided Market Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Sorrento: Private Cooking Class + Guided Market Tour</h3>
-        <p class="venue">📍 Sorrento Cooking Classes</p>
-        <p>Hop on a culinary journey to Sorrento. Explore the lively local market and traditional food shops with a friendly home chef as your guide. Enjoy a private cooking class in a local’s home, where you'll learn the secrets of Sorrento's famous dishes.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sorrento: Private Cooking Class + Guided Market Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Sorrento: Private Cooking Class + Guided Market Tour</h3>
+          <p class="venue">📍 Sorrento Cooking Classes</p>
+          <p>Hop on a culinary journey to Sorrento. Explore the lively local market and traditional food shops with a friendly home chef as your guide. Enjoy a private cooking class in a local’s home, where you'll learn the secrets of Sorrento's famous dishes.
 
 Learn three authentic recipes from the chef and cook at your own workstation with fresh ingredients and utensils. Sit down to a delicious Italian meal paired with local wines.
 
 Each host shares family recipes, creating a menu that includes a seasonal starter, signature pasta, and classic dessert.</p>
-        <div class="card-footer">
-         <span class="price">From €235</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-sorrento-private-cooking-class-guided-market-tour-p1090848/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €235</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-sorrento-private-cooking-class-guided-market-tour-p1090848/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>
