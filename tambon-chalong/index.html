@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,13 +32,12 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/85b7a65eef914f7c947fccc5c943d155.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Phuket: Jungle Xtrem Adventure & Zipline Park Entry Ticket + Transfers" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Phuket: Jungle Xtrem Adventure & Zipline Park Entry Ticket + Transfers</h3>
-        <p class="venue">📍 Phuket Ziplining</p>
-        <p>Go on an adventure at Jungle Xtrem Park in Phuket.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/85b7a65eef914f7c947fccc5c943d155.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Phuket: Jungle Xtrem Adventure & Zipline Park Entry Ticket + Transfers" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Phuket: Jungle Xtrem Adventure & Zipline Park Entry Ticket + Transfers</h3>
+          <p class="venue">📍 Phuket Ziplining</p>
+          <p>Go on an adventure at Jungle Xtrem Park in Phuket.
 
 Begin with hotel pickup and a safety briefing. Gear up with a harness, carabiners, and pulley system before heading up.
 
@@ -49,34 +48,33 @@ Choose from beginner (35 platforms, 14 ziplines), intermediate (45 platforms, 17
 Test your balance and swing from tree to tree. Finish with a zipline descent.
 
 Guides and safety measures are in place for a secure adventure in Phuket’s forest.</p>
-        <div class="card-footer">
-         <span class="price">From €50.16</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-phuket-jungle-xtrem-adventure-zipline-park-entry-transfers-p1119988/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €50.16</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-phuket-jungle-xtrem-adventure-zipline-park-entry-transfers-p1119988/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="" alt="Chalong Temple & Big Buddha: Visit + ATV Adventure" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Chalong Temple & Big Buddha: Visit + ATV Adventure</h3>
-        <p class="venue">📍 Wat Chalong (Chaithararam Temple)</p>
-        <p>Get ready for an exhilarating journey, as the adventure starts right from the hotel doorstep, with pickups at the convenient times of 8:30 AM, 12:00 PM, and 14:30 PM. The journey next stops at the bustling hub of Phuket Paradise Trip’s office, where registration and anticipation build up. 
+      <div class="card">
+        <img src="" alt="Chalong Temple & Big Buddha: Visit + ATV Adventure" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Chalong Temple & Big Buddha: Visit + ATV Adventure</h3>
+          <p class="venue">📍 Wat Chalong (Chaithararam Temple)</p>
+          <p>Get ready for an exhilarating journey, as the adventure starts right from the hotel doorstep, with pickups at the convenient times of 8:30 AM, 12:00 PM, and 14:30 PM. The journey next stops at the bustling hub of Phuket Paradise Trip’s office, where registration and anticipation build up. 
 
 Hop onto the truck, and let it whisk you away to the mountainous starting point. Here, a friendly guide explains how to ride, ensures safety, and sets the ground rules. Now, it's time to unleash the inner adventurer and navigate the route that twists and turns through the mesmerizing rubber tree jungle, all for a thrilling 40 minutes. 
 
 But the journey doesn’t stop here. Traverse through the jungle and switch gears to a comfortable car ride that leads to the majestic Big Buddha Temple. 
 
 Back at the office, shake off the dust, kick back with a refreshing drink, and freshen up. The adventure concludes with a serene visit to the Chalong Temple, allowing a peaceful 30-minute exploration. So, buckle up and book this ticket for a day packed with excitement, adventure, and tranquility.</p>
-        <div class="card-footer">
-         <span class="price">From €36.96</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-visit-to-chalong-temple-big-buddha-and-atv-adventure-p1098207/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €36.96</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-visit-to-chalong-temple-big-buddha-and-atv-adventure-p1098207/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

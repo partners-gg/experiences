@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,31 +32,30 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/93261a996cc54bd79dbea5828a0cb697.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agra: Guided Sunrise Tour from Delhi" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Agra: Guided Sunrise Tour from Delhi</h3>
-        <p class="venue">📍 Agra City Tours</p>
-        <p>Take a full-day guided tour of Agra after being picked up from your hotel or the airport in Delhi, Gurgaon, or Noida. Travel comfortably in an air-conditioned vehicle.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/93261a996cc54bd79dbea5828a0cb697.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agra: Guided Sunrise Tour from Delhi" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Agra: Guided Sunrise Tour from Delhi</h3>
+          <p class="venue">📍 Agra City Tours</p>
+          <p>Take a full-day guided tour of Agra after being picked up from your hotel or the airport in Delhi, Gurgaon, or Noida. Travel comfortably in an air-conditioned vehicle.
 
 Start your city tour of Agra early in the morning to see the sunrise at the Taj Mahal. As the sunlight reflects off the white marble, observe the beauty of this architectural masterpiece. 
 
 Listen as your guide shares historical details about the Taj Mahal, its construction, and the story of the Mughal emperor Shah Jahan and his wife, Mumtaz Mahal.</p>
-        <div class="card-footer">
-         <span class="price">From €107</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-agra-guided-sunrise-tour-from-delhi-p1103753/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €107</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-agra-guided-sunrise-tour-from-delhi-p1103753/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/93261a996cc54bd79dbea5828a0cb697.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agra: Guided Day Tour from Delhi" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Agra: Guided Day Tour from Delhi</h3>
-        <p class="venue">📍 Agra City Tours</p>
-        <p>Start a full-day guided tour of Agra with pickup from your hotel or the airport in Delhi, Gurgaon, or Noida in an air-conditioned vehicle.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/93261a996cc54bd79dbea5828a0cb697.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agra: Guided Day Tour from Delhi" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Agra: Guided Day Tour from Delhi</h3>
+          <p class="venue">📍 Agra City Tours</p>
+          <p>Start a full-day guided tour of Agra with pickup from your hotel or the airport in Delhi, Gurgaon, or Noida in an air-conditioned vehicle.
 
 Reach Agra, meet your private guide, and head to the Taj Mahal, a UNESCO World Heritage Site built by Mughal Emperor Shah Jahan for his wife, Mumtaz Mahal.
 
@@ -65,20 +64,20 @@ Visit the Agra Fort, another UNESCO World Heritage Site. This red sandstone fort
 Pause for lunch at a 5-star hotel offering both local and international cuisine.
 
 Conclude the tour with a return trip to your hotel, the airport, or another location in Delhi.</p>
-        <div class="card-footer">
-         <span class="price">From €100</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-agra-guided-day-tour-from-delhi-p1103600/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €100</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-agra-guided-day-tour-from-delhi-p1103600/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/93261a996cc54bd79dbea5828a0cb697.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agra: Guided Day Tour + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Agra: Guided Day Tour + Roundtrip Transfer</h3>
-        <p class="venue">📍 Agra City Tours</p>
-        <p>Get picked up from your hotel, the airport, or any location in Agra. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/93261a996cc54bd79dbea5828a0cb697.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agra: Guided Day Tour + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Agra: Guided Day Tour + Roundtrip Transfer</h3>
+          <p class="venue">📍 Agra City Tours</p>
+          <p>Get picked up from your hotel, the airport, or any location in Agra. 
 
 Meet your tour guide and visit the Taj Mahal with an express entry ticket. Explore the marble mausoleum at your own pace.
 
@@ -87,52 +86,51 @@ Visit the historic Agra Fort, a UNESCO World Heritage Site that was once home to
 Get picked up by your taxi driver from a meeting point in Agra and take you to Fatehpur Sikri, a 40-minute drive away. Once reached, explore the city and visit Buland Darwaza.
 
 After the tour, you will be taken back to your hotel, the airport, or any desired location in Agra.</p>
-        <div class="card-footer">
-         <span class="price">From €100</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-agra-guided-day-tour-roundtrip-transfer-p1103599/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €100</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-agra-guided-day-tour-roundtrip-transfer-p1103599/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/93261a996cc54bd79dbea5828a0cb697.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agra: Guided Tour + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Agra: Guided Tour + Roundtrip Transfer</h3>
-        <p class="venue">📍 Agra City Tours</p>
-        <p>Choose a pickup location in Delhi, Noida, Gurugram, Ghaziabad, or Faridabad, and select a time between 4 and 10 in the morning. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/93261a996cc54bd79dbea5828a0cb697.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agra: Guided Tour + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Agra: Guided Tour + Roundtrip Transfer</h3>
+          <p class="venue">📍 Agra City Tours</p>
+          <p>Choose a pickup location in Delhi, Noida, Gurugram, Ghaziabad, or Faridabad, and select a time between 4 and 10 in the morning. 
 
 Meet your guide at the designated spot, with the Taj Mahal nearby. Arrive at the Taj Mahal and take photos with your guide’s help.
 
 Drive to Agra Fort, a UNESCO World Heritage Site. Explore the red sandstone castle and the Mughal rulers' palace within its 2.5 km-long walls.
 
 Visit the Tomb of Itimad-ud-Daulah by the Yamuna River, the first Mughal mausoleum of its kind.</p>
-        <div class="card-footer">
-         <span class="price">From €45.9</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-agra-guided-tour-roundtrip-transfer-p1102408/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €45.9</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-agra-guided-tour-roundtrip-transfer-p1102408/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/93261a996cc54bd79dbea5828a0cb697.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agra: Private Taj Mahal and Agra Fort Sunrise Tour from Delhi" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Agra: Private Taj Mahal and Agra Fort Sunrise Tour from Delhi</h3>
-        <p class="venue">📍 Agra City Tours</p>
-        <p>Set off for a memorable expedition from Delhi to Agra. This escapade begins with an early morning pickup, taking you off to witness the magic of a sunrise over the grand Agra Fort. A private guide teeming with history and culture will accompany you throughout the tour, enriching the enjoyment with intriguing tales and insights.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/93261a996cc54bd79dbea5828a0cb697.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agra: Private Taj Mahal and Agra Fort Sunrise Tour from Delhi" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Agra: Private Taj Mahal and Agra Fort Sunrise Tour from Delhi</h3>
+          <p class="venue">📍 Agra City Tours</p>
+          <p>Set off for a memorable expedition from Delhi to Agra. This escapade begins with an early morning pickup, taking you off to witness the magic of a sunrise over the grand Agra Fort. A private guide teeming with history and culture will accompany you throughout the tour, enriching the enjoyment with intriguing tales and insights.
 
 As the sun ascends, casting a golden hue over the majestic palace, have a delicious breakfast at a nearby hotel. With your bellies full and spirits high, the expedition continues to the magnificent Itimad-ud-daulah, the first Mughal mausoleum erected on the banks of the Yamuna.
 
 Witness the world's one of the seven wonders, the Taj Mahal. Be amazed by the work of white marble that makes this place beautiful. You'll also have the opportunity to browse through the city's vibrant markets for delightful souvenirs, capturing the essence of the city.</p>
-        <div class="card-footer">
-         <span class="price">From €211.13</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-agra-private-taj-mahal-and-agra-fort-sunrise-tour-from-delhi-p1085502/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €211.13</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-agra-private-taj-mahal-and-agra-fort-sunrise-tour-from-delhi-p1085502/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

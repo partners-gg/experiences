@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,61 +32,59 @@
     <p>3 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/86bb74a8ebac454bb29ea668783cc5f8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Globe Life Field: Texas Rangers Baseball Game" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Globe Life Field: Texas Rangers Baseball Game</h3>
-        <p class="venue">📍 Globe Life Field Stadium</p>
-        <p>Feel the excitement of a Texas Rangers baseball game at Globe Life Field in Arlington. Your ticket includes a designated seat where you can enjoy Major League Baseball action up close. The stadium's retractable roof ensures comfort, shielding you from the Texas heat with air conditioning.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/86bb74a8ebac454bb29ea668783cc5f8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Globe Life Field: Texas Rangers Baseball Game" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Globe Life Field: Texas Rangers Baseball Game</h3>
+          <p class="venue">📍 Globe Life Field Stadium</p>
+          <p>Feel the excitement of a Texas Rangers baseball game at Globe Life Field in Arlington. Your ticket includes a designated seat where you can enjoy Major League Baseball action up close. The stadium's retractable roof ensures comfort, shielding you from the Texas heat with air conditioning.
 
 Beyond the baseball game, enjoy other interactive games and activities during breaks, accompanied by lively music throughout the stadium.</p>
-        <div class="card-footer">
-         <span class="price">From €17.44</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-globe-life-field-texas-rangers-baseball-game-p1097811/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €17.44</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-globe-life-field-texas-rangers-baseball-game-p1097811/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f7358d09834709a9ceb200bdc2ddc2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Walking Tour of Arlington National Cemetery" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Private Walking Tour of Arlington National Cemetery</h3>
-        <p class="venue">📍 Arlington National Cemetery</p>
-        <p>This privately guided tour of Arlington National Cemetery, with tram tickets included is a history lesson in itself. Join your guide and take the tram tour to the top of the cemetery, where you'll then enjoy a leisurely walking tour downhill. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f7358d09834709a9ceb200bdc2ddc2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Walking Tour of Arlington National Cemetery" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Private Walking Tour of Arlington National Cemetery</h3>
+          <p class="venue">📍 Arlington National Cemetery</p>
+          <p>This privately guided tour of Arlington National Cemetery, with tram tickets included is a history lesson in itself. Join your guide and take the tram tour to the top of the cemetery, where you'll then enjoy a leisurely walking tour downhill. 
 
 As you wind your way down through the cemetery, you'll see President John F. Kennedy's gravesite, the Tomb of the Unknown Soldier, U.S. Army Gen. John J. Pershing's gravesite, the U.S. Marine Corps War Memorial, and other notable memorials, including the one to the Columbia and Challenger space shuttles. 
 
 Your tour ends at the exit of the cemetery. However, feel free to continue exploring the historical site in your own time.</p>
-        <div class="card-footer">
-         <span class="price">From €115.97</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-private-walking-tour-of-arlington-national-cemetery-p1029374/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €115.97</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-private-walking-tour-of-arlington-national-cemetery-p1029374/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f7358d09834709a9ceb200bdc2ddc2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Arlington National Cemetery Guided Walking Tour: Semi-Private" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Arlington National Cemetery Guided Walking Tour: Semi-Private</h3>
-        <p class="venue">📍 Arlington National Cemetery</p>
-        <p>A sobering reminder of the realities of war, but a stunningly beautiful tribute – the Arlington National Cemetery is the final resting place of more than 400,000 service members and their families.  
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f7358d09834709a9ceb200bdc2ddc2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Arlington National Cemetery Guided Walking Tour: Semi-Private" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Arlington National Cemetery Guided Walking Tour: Semi-Private</h3>
+          <p class="venue">📍 Arlington National Cemetery</p>
+          <p>A sobering reminder of the realities of war, but a stunningly beautiful tribute – the Arlington National Cemetery is the final resting place of more than 400,000 service members and their families.  
 
 This private guided walking tour takes you around the grounds that once belonged to General Robert E. Lee. You'll find out more about him, along with other important names who have been laid to rest here.
 
 Your guide will give you more details about famous tombs such as those of President John F. Kennedy and soldier Audie Murphy. You'll also visit a few less known graves, like that of famed boxer Joe Louis. 
 
 Pay your respects at the Tomb of the Unknown Soldier, you might even have the chance to witness a Changing of the Guard ceremony. Before you leave, see the more modern memorials to the victims of the space shuttles Columbia and Challenger while walking these hallowed grounds.</p>
-        <div class="card-footer">
-         <span class="price">From €44.78</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-arlington-national-cemetery-guided-walking-tour-p1026712/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €44.78</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-arlington-national-cemetery-guided-walking-tour-p1026712/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

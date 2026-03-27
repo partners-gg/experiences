@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,37 +32,35 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/077af1c9b86640fdb9ced21b437a47b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Malay Countryside: Cycling Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Malay Countryside: Cycling Tour</h3>
-        <p class="venue">📍 George Town Bike Tours</p>
-        <p>Get ready for a thrilling 2.5-hour bike ride through the verdant countryside of Malaysia. Unearth hidden treasures, from lush local plantations to quaint fishing villages nestled in Penang. This unique journey, away from the bustling city life, presents a harmonious blend of on-road and off-road escapades, offering an authentic and immersive dive into the vibrant cultural tapestry of Penang.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/077af1c9b86640fdb9ced21b437a47b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Malay Countryside: Cycling Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Malay Countryside: Cycling Tour</h3>
+          <p class="venue">📍 George Town Bike Tours</p>
+          <p>Get ready for a thrilling 2.5-hour bike ride through the verdant countryside of Malaysia. Unearth hidden treasures, from lush local plantations to quaint fishing villages nestled in Penang. This unique journey, away from the bustling city life, presents a harmonious blend of on-road and off-road escapades, offering an authentic and immersive dive into the vibrant cultural tapestry of Penang.
 
 This bike ride masterfully intertwines on-road and off-road adventures, promising an experience that's not daunting yet calls for a decent level of cycling prowess. Break free from the bustling streets of George Town without the worry of straying off the path. Your well-informed guide will navigate you through lesser-traveled routes, unveiling rustic landscapes and villages hidden from the discerning eye of the average traveler. Your ticket to this adventure awaits - book now and let the journey unfold!</p>
-        <div class="card-footer">
-         <span class="price">From €29.5</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-cycling-in-the-malay-countryside-p1095363/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €29.5</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-cycling-in-the-malay-countryside-p1095363/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/077af1c9b86640fdb9ced21b437a47b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Penang 3D Trick Art Museum" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Penang 3D Trick Art Museum</h3>
-        <p class="venue">📍 Penang 3D Trick Art Museum</p>
-        <p>There's over 40 painted optical illusions at the Penang 3D Trick Art Museum. These backdrops make for amazing photos and they put you at the centre of their mind-bending trickery. The museum features art from traditional Malaysian settings and modern cultures, so you'll find something for everyone!</p>
-        <div class="card-footer">
-         <span class="price">From €3.78</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-penang-3d-trick-art-museum-p1021074/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/077af1c9b86640fdb9ced21b437a47b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Penang 3D Trick Art Museum" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Penang 3D Trick Art Museum</h3>
+          <p class="venue">📍 Penang 3D Trick Art Museum</p>
+          <p>There's over 40 painted optical illusions at the Penang 3D Trick Art Museum. These backdrops make for amazing photos and they put you at the centre of their mind-bending trickery. The museum features art from traditional Malaysian settings and modern cultures, so you'll find something for everyone!</p>
+          <div class="card-footer">
+            <span class="price">From €3.78</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-penang-3d-trick-art-museum-p1021074/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

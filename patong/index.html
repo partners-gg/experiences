@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,13 +32,12 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="" alt="Phuket: Surin Islands Speedboat Tour with Snorkeling" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Phuket: Surin Islands Speedboat Tour with Snorkeling</h3>
-        <p class="venue">📍 Day Trips from Pa Tong</p>
-        <p>05.30 AM - Let the adventure begin! With an early morning hotel pick-up, embark on a thrilling 3-hour journey to the exquisite Baan Nam Kem pier in Phang Nga.
+      <div class="card">
+        <img src="" alt="Phuket: Surin Islands Speedboat Tour with Snorkeling" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Phuket: Surin Islands Speedboat Tour with Snorkeling</h3>
+          <p class="venue">📍 Day Trips from Pa Tong</p>
+          <p>05.30 AM - Let the adventure begin! With an early morning hotel pick-up, embark on a thrilling 3-hour journey to the exquisite Baan Nam Kem pier in Phang Nga.
 
 08.30 AM - A warm welcome awaits at the private pier! Here's where the check-in happens and the snorkel gear gets picked up, readying for a day full of breathtaking experiences.
 
@@ -57,20 +56,20 @@
 05.00 PM - Back at Baan Nam Kem, the perfect end to a perfect day!
 
 08.15 PM - Arrive back at the hotel in Phuket via a shared minivan, memories of an unforgettable day etched in the heart forever. Book today and dive into an extraordinary adventure!</p>
-        <div class="card-footer">
-         <span class="price">From €113.25</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-from-phuket-surin-islands-speedboat-tour-with-snorkeling-p1094790/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €113.25</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-from-phuket-surin-islands-speedboat-tour-with-snorkeling-p1094790/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="" alt="Phuket: Private Day Trip to Khao Sok with Longtail Boat Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Phuket: Private Day Trip to Khao Sok with Longtail Boat Tour</h3>
-        <p class="venue">📍 Khao Sok Day Trips from Pa Tong</p>
-        <p>Depart on a day-long adventure to Khao Sok National Park, often hailed as one of Thailand's hidden gems. With a private vehicle from Phuket and a 4-hour longtail boat ride, this tour offers an unforgettable exploration of Khao Sok's best features in one day. 
+      <div class="card">
+        <img src="" alt="Phuket: Private Day Trip to Khao Sok with Longtail Boat Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Phuket: Private Day Trip to Khao Sok with Longtail Boat Tour</h3>
+          <p class="venue">📍 Khao Sok Day Trips from Pa Tong</p>
+          <p>Depart on a day-long adventure to Khao Sok National Park, often hailed as one of Thailand's hidden gems. With a private vehicle from Phuket and a 4-hour longtail boat ride, this tour offers an unforgettable exploration of Khao Sok's best features in one day. 
 
 The day kicks off bright and early at 6:30 AM with a private hotel pickup from any location in Phuket. By 9:45 AM, you'll arrive at Khao Sok and head straight to the Cheow Lan Lake viewpoint. Gaze upon the beautiful vista before diving into your 4-hour private longtail boat tour, complete with a lunch stop at Cheow Lan Lake.
 
@@ -79,48 +78,47 @@ During the experience, you'll spend 1.5 hours cruising through waters, followed 
 Guided by a seasoned local, you'll navigate the world's oldest rainforest, finally reaching the raft house.
 
 At 2:15 PM, the private boat tour ends, and you'll return to Phuket by 2:30 PM. By 6:00 PM, you'll be dropped off at your hotel.</p>
-        <div class="card-footer">
-         <span class="price">From €419.72</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-phuket-private-day-trip-to-khao-sok-with-longtail-boat-tour-p1094388/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €419.72</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-phuket-private-day-trip-to-khao-sok-with-longtail-boat-tour-p1094388/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="" alt="Froggy's Fun Park: Trampoline, Playground & Rope Park 1-Day Access" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Froggy's Fun Park: Trampoline, Playground & Rope Park 1-Day Access</h3>
-        <p class="venue">📍 Froggy's Fun Park</p>
-        <p>Enjoy a day full of fun at Froggy's Fun Park as you get 1-day unlimited access to the trampoline zone, playground, and rope park. 
+      <div class="card">
+        <img src="" alt="Froggy's Fun Park: Trampoline, Playground & Rope Park 1-Day Access" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Froggy's Fun Park: Trampoline, Playground & Rope Park 1-Day Access</h3>
+          <p class="venue">📍 Froggy's Fun Park</p>
+          <p>Enjoy a day full of fun at Froggy's Fun Park as you get 1-day unlimited access to the trampoline zone, playground, and rope park. 
 
 Bounce, climb, and play without any boundaries. Try out the rope courses, dive into foam pits, or just have a great time with your family.</p>
-        <div class="card-footer">
-         <span class="price">From €23.76</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-froggy-s-fun-park-trampoline-playground-rope-park-1-day-access-p1093579/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €23.76</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-froggy-s-fun-park-trampoline-playground-rope-park-1-day-access-p1093579/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pa Tong: ATV Ride + Big Buddha Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Pa Tong: ATV Ride + Big Buddha Tour</h3>
-        <p class="venue">📍 Outdoor Activities Pa Tong</p>
-        <p>Prepare for an adventurous ATV tour through Phuket's countryside.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pa Tong: ATV Ride + Big Buddha Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Pa Tong: ATV Ride + Big Buddha Tour</h3>
+          <p class="venue">📍 Outdoor Activities Pa Tong</p>
+          <p>Prepare for an adventurous ATV tour through Phuket's countryside.
 
 Feel the thrill as you explore local villages, farms, and lush plantations on your ATV.
 
 Experience the scenic beauty around and learn about the local culture.</p>
-        <div class="card-footer">
-         <span class="price">From €58.07</span>
-         <span class="rating">⭐ 4 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-pa-tong-atv-ride-big-buddha-tour-p1092990/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €58.07</span>
+            <span class="rating">⭐ 4 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-pa-tong-atv-ride-big-buddha-tour-p1092990/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

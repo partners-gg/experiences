@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,85 +32,83 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/d7d982bd78114ee3bb38d3e776934ae9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Brașov by Night + Black Church: Fast Track" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Brașov by Night + Black Church: Fast Track</h3>
-        <p class="venue">📍 Brașov City Tours</p>
-        <p>Give the daytime tourists the slip and explore the Gothic architecture and medieval streets of Brașov with an atmospheric candlelight night-tour! This tour includes special fast-track entrance to the historic Black Church - are you ready for the goosebumps?</p>
-        <div class="card-footer">
-         <span class="price">From €15.45</span>
-         <span class="rating">⭐ 3.7 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-brasov-by-night-black-church-fast-track-p976320/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d7d982bd78114ee3bb38d3e776934ae9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Brașov by Night + Black Church: Fast Track" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Brașov by Night + Black Church: Fast Track</h3>
+          <p class="venue">📍 Brașov City Tours</p>
+          <p>Give the daytime tourists the slip and explore the Gothic architecture and medieval streets of Brașov with an atmospheric candlelight night-tour! This tour includes special fast-track entrance to the historic Black Church - are you ready for the goosebumps?</p>
+          <div class="card-footer">
+            <span class="price">From €15.45</span>
+            <span class="rating">⭐ 3.7 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-brasov-by-night-black-church-fast-track-p976320/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/3ecde04b3a4945c9921bfdc2629f1b26.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Art Museum Brașov: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Art Museum Brașov: Entry Ticket</h3>
-        <p class="venue">📍 Art Museum Brașov</p>
-        <p>Surround yourself with creative inspiration in one of Romania's best art museums. Enter the Art Museum Brasov and get the lowdown from a guide, who will point you towards the must-see pieces and give you a brief overview of the museum. Then you're free to explore yourself. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3ecde04b3a4945c9921bfdc2629f1b26.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Art Museum Brașov: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Art Museum Brașov: Entry Ticket</h3>
+          <p class="venue">📍 Art Museum Brașov</p>
+          <p>Surround yourself with creative inspiration in one of Romania's best art museums. Enter the Art Museum Brasov and get the lowdown from a guide, who will point you towards the must-see pieces and give you a brief overview of the museum. Then you're free to explore yourself. 
 
 Check out the stars of Romanian 20th-century painting on the upper floors, or head to the cellar for a dazzling array of European crystal and porcelain, as well as vases and statuettes from China, Tibet and Old Persia.</p>
-        <div class="card-footer">
-         <span class="price">From €9.1</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-art-museum-brasov-guided-tour-p1003681/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €9.1</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-art-museum-brasov-guided-tour-p1003681/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/717484f7e8664f2cb2b618b570ddedc5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="History Museum Brașov: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>History Museum Brașov: Entry Ticket</h3>
-        <p class="venue">📍 History Museum Brașov</p>
-        <p>A Gothic watchtower looking out over a medieval city in Transylvania... No, it's not Dracula's house – it's the History Museum Brașov! Containing everything you ever wanted to know about this historic city, this impressive building was once where Brașov's Saxon rulers would discuss political plots by candlelight.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/717484f7e8664f2cb2b618b570ddedc5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="History Museum Brașov: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>History Museum Brașov: Entry Ticket</h3>
+          <p class="venue">📍 History Museum Brașov</p>
+          <p>A Gothic watchtower looking out over a medieval city in Transylvania... No, it's not Dracula's house – it's the History Museum Brașov! Containing everything you ever wanted to know about this historic city, this impressive building was once where Brașov's Saxon rulers would discuss political plots by candlelight.
 
 Join a friendly guide and dive into the epic history within. Discover archaeological treasures from the Middle Ages, and see how the city has evolved over the centuries since.</p>
-        <div class="card-footer">
-         <span class="price">From €9.1</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-history-museum-brasov-guided-tour-p1002130/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €9.1</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-history-museum-brasov-guided-tour-p1002130/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/3ecde04b3a4945c9921bfdc2629f1b26.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Art Museum Brașov: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Art Museum Brașov: Entry Ticket</h3>
-        <p class="venue">📍 Art Museum Brașov</p>
-        <p>Surround yourself with creative inspiration in one of Romania's best art museums. Enter the Art Museum Brasov and get the lowdown from a guide, who will point you towards the must-see pieces and give you a brief overview of the museum. Then you're free to explore yourself. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3ecde04b3a4945c9921bfdc2629f1b26.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Art Museum Brașov: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Art Museum Brașov: Entry Ticket</h3>
+          <p class="venue">📍 Art Museum Brașov</p>
+          <p>Surround yourself with creative inspiration in one of Romania's best art museums. Enter the Art Museum Brasov and get the lowdown from a guide, who will point you towards the must-see pieces and give you a brief overview of the museum. Then you're free to explore yourself. 
 
 Check out the stars of Romanian 20th-century painting on the upper floors, or head to the cellar for a dazzling array of European crystal and porcelain, as well as vases and statuettes from China, Tibet and Old Persia.</p>
-        <div class="card-footer">
-         <span class="price">From €9.1</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-art-museum-brasov-guided-tour-p1003681/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €9.1</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-art-museum-brasov-guided-tour-p1003681/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/717484f7e8664f2cb2b618b570ddedc5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="History Museum Brașov: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>History Museum Brașov: Entry Ticket</h3>
-        <p class="venue">📍 History Museum Brașov</p>
-        <p>A Gothic watchtower looking out over a medieval city in Transylvania... No, it's not Dracula's house – it's the History Museum Brașov! Containing everything you ever wanted to know about this historic city, this impressive building was once where Brașov's Saxon rulers would discuss political plots by candlelight.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/717484f7e8664f2cb2b618b570ddedc5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="History Museum Brașov: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>History Museum Brașov: Entry Ticket</h3>
+          <p class="venue">📍 History Museum Brașov</p>
+          <p>A Gothic watchtower looking out over a medieval city in Transylvania... No, it's not Dracula's house – it's the History Museum Brașov! Containing everything you ever wanted to know about this historic city, this impressive building was once where Brașov's Saxon rulers would discuss political plots by candlelight.
 
 Join a friendly guide and dive into the epic history within. Discover archaeological treasures from the Middle Ages, and see how the city has evolved over the centuries since.</p>
-        <div class="card-footer">
-         <span class="price">From €9.1</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-history-museum-brasov-guided-tour-p1002130/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €9.1</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-history-museum-brasov-guided-tour-p1002130/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

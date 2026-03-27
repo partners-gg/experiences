@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,39 +32,37 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2bbc5a87e4e8434a9376327d56f1aaea.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turkish Night Marmaris" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Turkish Night Marmaris</h3>
-        <p class="venue">📍 Kervansaray Turkish Night</p>
-        <p>Welcome to an evening of Eastern Promise in the coastal town of Marmaris. Tap your feet to the sounds and movements echoed by generations of cultural heritage. See traditional belly dancers, whirling dervishes, and folk dancers twirl and groove in their vibrant costumes in a starry-night courtyard setting. A buffet of Turkish cuisine with a selection of local meze, barbecued chicken, and unlimited beer, wine, and soft drinks will keep you more than content!</p>
-        <div class="card-footer">
-         <span class="price">From €45</span>
-         <span class="rating">⭐ 4 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-turkish-night-marmaris-p979889/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2bbc5a87e4e8434a9376327d56f1aaea.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turkish Night Marmaris" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Turkish Night Marmaris</h3>
+          <p class="venue">📍 Kervansaray Turkish Night</p>
+          <p>Welcome to an evening of Eastern Promise in the coastal town of Marmaris. Tap your feet to the sounds and movements echoed by generations of cultural heritage. See traditional belly dancers, whirling dervishes, and folk dancers twirl and groove in their vibrant costumes in a starry-night courtyard setting. A buffet of Turkish cuisine with a selection of local meze, barbecued chicken, and unlimited beer, wine, and soft drinks will keep you more than content!</p>
+          <div class="card-footer">
+            <span class="price">From €45</span>
+            <span class="rating">⭐ 4 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-turkish-night-marmaris-p979889/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2146ed80424f452a9d652a7b4f81f26c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marmaris Atlantis Waterpark: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Marmaris Atlantis Waterpark: Entry Ticket</h3>
-        <p class="venue">📍 Marmaris Atlantis Waterpark</p>
-        <p>Atlantis Marmaris Waterpark promises a full day of aquatic fun for the whole family.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2146ed80424f452a9d652a7b4f81f26c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marmaris Atlantis Waterpark: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Marmaris Atlantis Waterpark: Entry Ticket</h3>
+          <p class="venue">📍 Marmaris Atlantis Waterpark</p>
+          <p>Atlantis Marmaris Waterpark promises a full day of aquatic fun for the whole family.
 
 For kids, there's a wave pool, mini golf course, and bowling alley – just to name a few activities. For older kids, there are chill swimming zones, thrilling slides, and restaurants to kick back in. For adults, there's a private beach, sun-loungers, and the bar is always open.
 
 Grab a free sunbed and umbrella and relax under the warm Marmaris sunshine.</p>
-        <div class="card-footer">
-         <span class="price">From €30</span>
-         <span class="rating">⭐ 3.4 (8)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-marmaris-atlantis-waterpark-p979194/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €30</span>
+            <span class="rating">⭐ 3.4 (8)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-marmaris-atlantis-waterpark-p979194/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

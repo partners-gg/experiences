@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,77 +32,75 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/24237ed09c174c5797b5590c7c1c1dc3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château d'Azay-le-Rideau & Gardens of Villandry: Guided Trip from Tours" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Château d'Azay-le-Rideau & Gardens of Villandry: Guided Trip from Tours</h3>
-        <p class="venue">📍 Loire Valley Day Trip from Tours</p>
-        <p>Tour the Val de Loire region. Visit the Château d'Azay-le-Rideau that showcases French art and architecture from the 16th and 19th centuries.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/24237ed09c174c5797b5590c7c1c1dc3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château d'Azay-le-Rideau & Gardens of Villandry: Guided Trip from Tours" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Château d'Azay-le-Rideau & Gardens of Villandry: Guided Trip from Tours</h3>
+          <p class="venue">📍 Loire Valley Day Trip from Tours</p>
+          <p>Tour the Val de Loire region. Visit the Château d'Azay-le-Rideau that showcases French art and architecture from the 16th and 19th centuries.
 
 See the classic French gardens of Chateau de Villandry. Walk through the kitchen garden and main water garden. Navigate the garden maze.
 
 With your guide, explore these sites and learn historical facts and anecdotes. Observe typical French villages on the drive through the Loire Valley.</p>
-        <div class="card-footer">
-         <span class="price">From €109</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-d-azay-le-rideau-gardens-of-villandry-guided-trip-from-tours-p1119128/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €109</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-d-azay-le-rideau-gardens-of-villandry-guided-trip-from-tours-p1119128/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/24237ed09c174c5797b5590c7c1c1dc3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château de Chenonceau & Chambord: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Château de Chenonceau & Chambord: Guided Tour</h3>
-        <p class="venue">📍 Loire Valley Day Trip from Tours</p>
-        <p>Join a full-day guided tour of the Loire Valley from Tours to visit two important French castles. Start at Chenonceau, the "Château des Dames," to see its unique architecture and Renaissance gardens. Learn about the notable former residents who lived there. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/24237ed09c174c5797b5590c7c1c1dc3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château de Chenonceau & Chambord: Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Château de Chenonceau & Chambord: Guided Tour</h3>
+          <p class="venue">📍 Loire Valley Day Trip from Tours</p>
+          <p>Join a full-day guided tour of the Loire Valley from Tours to visit two important French castles. Start at Chenonceau, the "Château des Dames," to see its unique architecture and Renaissance gardens. Learn about the notable former residents who lived there. 
 
 After lunch (at your own expense) in a nearby village, head to Château de Chambord. Explore its double helix staircase, large rooms, and terraces with wide views. Gain insights from expert guides at both sites as you learn about the art and history of each location.</p>
-        <div class="card-footer">
-         <span class="price">From €165</span>
-         <span class="rating">⭐ 4 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-de-chenonceau-chambord-guided-tour-p1115768/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €165</span>
+            <span class="rating">⭐ 4 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-de-chenonceau-chambord-guided-tour-p1115768/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/24237ed09c174c5797b5590c7c1c1dc3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Loire Valley: Guided Chinon & Bourgueil Vineyards Tour from Tours + Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Loire Valley: Guided Chinon & Bourgueil Vineyards Tour from Tours + Wine Tasting</h3>
-        <p class="venue">📍 Loire Valley Day Trip from Tours</p>
-        <p>Join a full-day small-group wine tour of the Loire Valley, starting from Tours. Begin with a visit to a winery in the Bourgueil region to taste a variety of wines. Then head to the town of Chinon, known for its half-timbered houses and castle, where you’ll have time to explore and grab lunch on your own.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/24237ed09c174c5797b5590c7c1c1dc3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Loire Valley: Guided Chinon & Bourgueil Vineyards Tour from Tours + Wine Tasting" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Loire Valley: Guided Chinon & Bourgueil Vineyards Tour from Tours + Wine Tasting</h3>
+          <p class="venue">📍 Loire Valley Day Trip from Tours</p>
+          <p>Join a full-day small-group wine tour of the Loire Valley, starting from Tours. Begin with a visit to a winery in the Bourgueil region to taste a variety of wines. Then head to the town of Chinon, known for its half-timbered houses and castle, where you’ll have time to explore and grab lunch on your own.
 
 In the afternoon, visit another winery in the Chinon area to sample its well-known red wines. A local wine expert will guide you throughout the day, sharing insights into the region’s winemaking and history.</p>
-        <div class="card-footer">
-         <span class="price">From €155</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-loire-valley-guided-chinon-bourgueil-vineyards-tour-from-tours-wine-tasting-p1115719/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €155</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-loire-valley-guided-chinon-bourgueil-vineyards-tour-from-tours-wine-tasting-p1115719/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/24237ed09c174c5797b5590c7c1c1dc3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château de Chenonceau & Chambord: Guided Trip from Tours + Lunch" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Château de Chenonceau & Chambord: Guided Trip from Tours + Lunch</h3>
-        <p class="venue">📍 Loire Valley Day Trip from Tours</p>
-        <p>Enjoy a drive by minivan to Chenonceau and arrive at Château de Chenonceau, a castle built on a bridge across the Cher River. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/24237ed09c174c5797b5590c7c1c1dc3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château de Chenonceau & Chambord: Guided Trip from Tours + Lunch" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Château de Chenonceau & Chambord: Guided Trip from Tours + Lunch</h3>
+          <p class="venue">📍 Loire Valley Day Trip from Tours</p>
+          <p>Enjoy a drive by minivan to Chenonceau and arrive at Château de Chenonceau, a castle built on a bridge across the Cher River. 
 
 Walk through the gardens named after the famous residents, Catherine de Médicis and Diane de Poitiers. Observe the architecture and rooms filled with antiques and fresh flowers.
 
 Have lunch at a special location hosted by the resident Countess and continue to Chambord. Look at the artworks and architecture as your guide highlights key rooms and hidden details. 
 
 See the view of Château de Chambord before returning to Tours. Also, the drop-off at the end of the day is at 6:30 PM.</p>
-        <div class="card-footer">
-         <span class="price">From €239</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-de-chenonceau-chambord-guided-trip-from-tours-lunch-p1113395/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €239</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-de-chenonceau-chambord-guided-trip-from-tours-lunch-p1113395/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

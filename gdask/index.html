@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,69 +32,67 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/be97dcf50d264b10b4281db15270cd6e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gdańsk: Guided Beer Tasting Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Gdańsk: Guided Beer Tasting Tour</h3>
-        <p class="venue">📍 Gdansk Food & Drink Tours</p>
-        <p>Start your tour in the old town and visit a Gdańsk brewery to taste three freshly brewed beers. You'll also hear the brewer's stories about global and local beer history.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/be97dcf50d264b10b4281db15270cd6e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gdańsk: Guided Beer Tasting Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Gdańsk: Guided Beer Tasting Tour</h3>
+          <p class="venue">📍 Gdansk Food & Drink Tours</p>
+          <p>Start your tour in the old town and visit a Gdańsk brewery to taste three freshly brewed beers. You'll also hear the brewer's stories about global and local beer history.
 
 Then, head to a craft beer pub to sample 4-5 Polish beers. The bartender will explain the pub's history and the local craft beer scene, including the breweries and ingredients.
 
 Enjoy snacks that complement the beers and learn about Gdańsk's beer culture and the beer-making process.</p>
-        <div class="card-footer">
-         <span class="price">From €60</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-gdansk-guided-beer-tasting-tour-p1101765/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €60</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-gdansk-guided-beer-tasting-tour-p1101765/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/be97dcf50d264b10b4281db15270cd6e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gdansk: Guided Vodka Tasting Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Gdansk: Guided Vodka Tasting Tour</h3>
-        <p class="venue">📍 Gdansk Food & Drink Tours</p>
-        <p>Spend 90 minutes exploring Poland's vodka tradition in Gdansk. Taste 6 vodka brands and learn about their unique stories. Discover how Gdansk's history and cultural influences shaped its vodka culture, and enjoy traditional Polish snacks that pair with the vodkas.</p>
-        <div class="card-footer">
-         <span class="price">From €48</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-gdansk-guided-vodka-tasting-tour-p1101749/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/be97dcf50d264b10b4281db15270cd6e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gdansk: Guided Vodka Tasting Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Gdansk: Guided Vodka Tasting Tour</h3>
+          <p class="venue">📍 Gdansk Food & Drink Tours</p>
+          <p>Spend 90 minutes exploring Poland's vodka tradition in Gdansk. Taste 6 vodka brands and learn about their unique stories. Discover how Gdansk's history and cultural influences shaped its vodka culture, and enjoy traditional Polish snacks that pair with the vodkas.</p>
+          <div class="card-footer">
+            <span class="price">From €48</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-gdansk-guided-vodka-tasting-tour-p1101749/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/be97dcf50d264b10b4281db15270cd6e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gdansk: Private Boat Cruise + Drinks" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Gdansk: Private Boat Cruise + Drinks</h3>
-        <p class="venue">📍 Gdansk Boat Cruises</p>
-        <p>Rent a private boat in Sopot and Gdansk for a 2-hour trip on northern Poland’s waters. This modern yacht accommodates up to 12 guests, making it ideal for celebrations or a relaxing getaway. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/be97dcf50d264b10b4281db15270cd6e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gdansk: Private Boat Cruise + Drinks" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Gdansk: Private Boat Cruise + Drinks</h3>
+          <p class="venue">📍 Gdansk Boat Cruises</p>
+          <p>Rent a private boat in Sopot and Gdansk for a 2-hour trip on northern Poland’s waters. This modern yacht accommodates up to 12 guests, making it ideal for celebrations or a relaxing getaway. 
 
 Enjoy sparkling wine on board and groove on music from the high-quality sound system available below the deck and in the cockpit. You can also bring your snacks at no extra cost.</p>
-        <div class="card-footer">
-         <span class="price">From €43</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-gdansk-private-boat-cruise-drinks-p1101712/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €43</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-gdansk-private-boat-cruise-drinks-p1101712/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/48e4340eed1d430db17f13d0fcc0334a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="European Solidarity Centre: Entry Ticket + Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>European Solidarity Centre: Entry Ticket + Guided Tour</h3>
-        <p class="venue">📍 European Solidarity Centre</p>
-        <p>Join a guided tour through the tales of freedom fighters, exploring their inspiring ideals and global impact. Learn about the inspiring ideals that have sparked global battles for justice and dignity.</p>
-        <div class="card-footer">
-         <span class="price">From €29.98</span>
-         <span class="rating">⭐ 3.3 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-european-solidarity-centre-entry-ticket-guided-tour-p1098849/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/48e4340eed1d430db17f13d0fcc0334a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="European Solidarity Centre: Entry Ticket + Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>European Solidarity Centre: Entry Ticket + Guided Tour</h3>
+          <p class="venue">📍 European Solidarity Centre</p>
+          <p>Join a guided tour through the tales of freedom fighters, exploring their inspiring ideals and global impact. Learn about the inspiring ideals that have sparked global battles for justice and dignity.</p>
+          <div class="card-footer">
+            <span class="price">From €29.98</span>
+            <span class="rating">⭐ 3.3 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-european-solidarity-centre-entry-ticket-guided-tour-p1098849/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>
