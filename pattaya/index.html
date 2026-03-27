@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Pattaya | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Pattaya. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,120 +131,202 @@
     <p>15 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/de181e457feb4e30b373080b82317951.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Columbia Pictures Aquaverse: 1-Day Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Columbia Pictures Aquaverse: 1-Day Pass</h3>
-          <p class="venue">📍 Columbia Pictures Aquaverse</p>
-          <p>Step into the splash-filled world of excitement at Columbia Pictures Aquaverse Pattaya. Enjoy exciting aquatic adventures paired with the magic of cinema.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/de181e457feb4e30b373080b82317951.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Columbia Pictures Aquaverse: 1-Day Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COLUMBIA PICTURES AQUAVERSE</span>
+        </div>
+        <div class="tq-card-title">Columbia Pictures Aquaverse: 1-Day Pass</div>
+        <div class="tq-card-desc">Step into the splash-filled world of excitement at Columbia Pictures Aquaverse Pattaya. Enjoy exciting aquatic adventures paired with the magic of cinema.
 
-With a mix of excitement, family laughter, and lasting memories, this water-themed wonderland has something for everyone. If you're looking for a bit of adventure and amusement, make this your next stop on the itinerary.</p>
-          <div class="card-footer">
-            <span class="price">From €23.49</span>
-            <span class="rating">⭐ 5 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-columbia-pictures-aquaverse-1-day-pass-p1090094/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With a mix of excitement, family laughter, and lasting memories, this water-themed wonderland has something for everyone. If you're looking for a bit of adventure and amusement, make this your next stop on the itinerary.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.49</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-columbia-pictures-aquaverse-1-day-pass-p1090094/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e9f79c8235c04aaa86d041489e0bfa68.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="EasyKart Pattaya at Bali Hai Pier" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>EasyKart Pattaya at Bali Hai Pier</h3>
-          <p class="venue">📍 EasyKart Pattaya: Bali Hai Pier</p>
-          <p>Start your engines and get ready to burn some serious rubber as you tear around the largest karting complex in Thailand. With 1,200 meters of tracks geared to both beginners and seasoned gearheads, you can expect a day of high-speed thrills and spills that the whole family will love.</p>
-          <div class="card-footer">
-            <span class="price">From €18.45</span>
-            <span class="rating">⭐ 4.8 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-easykart-pattaya-p975345/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e9f79c8235c04aaa86d041489e0bfa68.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="EasyKart Pattaya at Bali Hai Pier" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EASYKART PATTAYA: BALI HAI PIER</span>
+        </div>
+        <div class="tq-card-title">EasyKart Pattaya at Bali Hai Pier</div>
+        <div class="tq-card-desc">Start your engines and get ready to burn some serious rubber as you tear around the largest karting complex in Thailand. With 1,200 meters of tracks geared to both beginners and seasoned gearheads, you can expect a day of high-speed thrills and spills that the whole family will love.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.45</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-easykart-pattaya-p975345/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd015bdfa3c84901aefe694c8f74a61a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Underwater World Pattaya: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Underwater World Pattaya: Entry Ticket</h3>
-          <p class="venue">📍 Underwater World Pattaya</p>
-          <p>Underwater World Pattaya is an attraction that shows many types of marine life from the region. It is located in South Pattaya and offers educational programs and recreational activities.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cd015bdfa3c84901aefe694c8f74a61a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Underwater World Pattaya: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">UNDERWATER WORLD PATTAYA</span>
+        </div>
+        <div class="tq-card-title">Underwater World Pattaya: Entry Ticket</div>
+        <div class="tq-card-desc">Underwater World Pattaya is an attraction that shows many types of marine life from the region. It is located in South Pattaya and offers educational programs and recreational activities.
 
 See many marine animals, including tropical fish, sharks, and rays. Participate in educational programs and guided tours to learn about the marine ecosystem and conservation efforts.
 
-You can also enjoy other recreational activities such as relaxing at the beach, water sports, and seaside dining.</p>
-          <div class="card-footer">
-            <span class="price">From €6.6</span>
-            <span class="rating">⭐ 4 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-underwater-world-pattaya-p1047249/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You can also enjoy other recreational activities such as relaxing at the beach, water sports, and seaside dining.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€6.60</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-underwater-world-pattaya-p1047249/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d9a7c3faccf94d8abe3a5813dac045ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Sanctuary of Truth Pattaya" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>The Sanctuary of Truth Pattaya</h3>
-          <p class="venue">📍 Sanctuary of Truth Museum</p>
-          <p>Explore the marvelous Sanctuary of Truth, a hybrid of a temple and a castle, themed on the Ayutthaya Kingdom and inspired by Buddhist and Hindu beliefs. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d9a7c3faccf94d8abe3a5813dac045ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Sanctuary of Truth Pattaya" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SANCTUARY OF TRUTH MUSEUM</span>
+        </div>
+        <div class="tq-card-title">The Sanctuary of Truth Pattaya</div>
+        <div class="tq-card-desc">Explore the marvelous Sanctuary of Truth, a hybrid of a temple and a castle, themed on the Ayutthaya Kingdom and inspired by Buddhist and Hindu beliefs. 
 
-Thai ingenuity is in full display here with its countless wooden sculptures. Learn about the cultural relevance of the different carved pieces, and how they reflect on their ancient heritage, modern lifestyle, and Eastern philosophy.</p>
-          <div class="card-footer">
-            <span class="price">From €13.2</span>
-            <span class="rating">⭐ 4.6 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-sanctuary-of-truth-pattaya-p1047286/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Thai ingenuity is in full display here with its countless wooden sculptures. Learn about the cultural relevance of the different carved pieces, and how they reflect on their ancient heritage, modern lifestyle, and Eastern philosophy.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.20</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-sanctuary-of-truth-pattaya-p1047286/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/01ef0d9af282423ca4b321245727fe89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="EasyKart Pattaya: Go Karting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>EasyKart Pattaya: Go Karting</h3>
-          <p class="venue">📍 EasyKart Pattaya: Thepprasit</p>
-          <p>Feel the rush of racing at EasyKart Pattaya (Thepprasit), where both speed enthusiasts and beginners can enjoy excitement. Featuring a 350 m beginner track and an 800 m racing track, this go-karting experience welcomes everyone, from seasoned pros to curious first-timers and even young kids.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/01ef0d9af282423ca4b321245727fe89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="EasyKart Pattaya: Go Karting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EASYKART PATTAYA: THEPPRASIT</span>
+        </div>
+        <div class="tq-card-title">EasyKart Pattaya: Go Karting</div>
+        <div class="tq-card-desc">Feel the rush of racing at EasyKart Pattaya (Thepprasit), where both speed enthusiasts and beginners can enjoy excitement. Featuring a 350 m beginner track and an 800 m racing track, this go-karting experience welcomes everyone, from seasoned pros to curious first-timers and even young kids.
 
-This exciting adventure is designed for all skill levels, making it perfect for friends, family, and kids alike. Located in Pattaya, Thailand, the outdoor go-karting stadium not only promises excitement but also ensures a safe environment to unleash the inner racer.</p>
-          <div class="card-footer">
-            <span class="price">From €18.45</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-easykart-pattaya-go-karting-p1097470/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This exciting adventure is designed for all skill levels, making it perfect for friends, family, and kids alike. Located in Pattaya, Thailand, the outdoor go-karting stadium not only promises excitement but also ensures a safe environment to unleash the inner racer.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.45</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-easykart-pattaya-go-karting-p1097470/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ccfdd93414444c2ba2f3cc70dcdd6d3f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ramayana Water Park: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ramayana Water Park: Skip The Line Ticket</h3>
-          <p class="venue">📍 Ramayana Water Park</p>
-          <p>Weather too hot to handle? Cool off at Ramayana Water Park, the number one waterpark in Thailand, and one of Asia's top three! Ramayana boasts 21 water rides to keep you and the kids entertained and wet for hours! Splash about on over 50 attractions under the watchful eyes of 350 highly trained personnel and lifeguards.</p>
-          <div class="card-footer">
-            <span class="price">From €24.29</span>
-            <span class="rating">⭐ 2.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ramayana-water-park-skip-the-line-p975521/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ccfdd93414444c2ba2f3cc70dcdd6d3f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ramayana Water Park: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RAMAYANA WATER PARK</span>
+        </div>
+        <div class="tq-card-title">Ramayana Water Park: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Weather too hot to handle? Cool off at Ramayana Water Park, the number one waterpark in Thailand, and one of Asia's top three! Ramayana boasts 21 water rides to keep you and the kids entertained and wet for hours! Splash about on over 50 attractions under the watchful eyes of 350 highly trained personnel and lifeguards.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€24.29</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ramayana-water-park-skip-the-line-p975521/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/01ef0d9af282423ca4b321245727fe89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tiffany's Show Pattaya: Admission Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tiffany's Show Pattaya: Admission Ticket</h3>
-          <p class="venue">📍 Tiffany's Show Pattaya</p>
-          <p>Attend a performance at the Tiffany's Show in Pattaya. Starting as a one-man show on New Year's Eve in 1974, it has grown into one of Thailand's most famous performances. Choose from various seating options to either sit close to the stage or watch from further back. See skilled artists and entertainers deliver comedic impersonations and dramatic acts. Enjoy elaborate costumes and professional light and sound displays.</p>
-          <div class="card-footer">
-            <span class="price">From €58.07</span>
-            <span class="rating">⭐ 4.2 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tiffanys-show-pattaya-admission-p1104624/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/01ef0d9af282423ca4b321245727fe89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tiffany's Show Pattaya: Admission Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TIFFANY'S SHOW PATTAYA</span>
+        </div>
+        <div class="tq-card-title">Tiffany's Show Pattaya: Admission Ticket</div>
+        <div class="tq-card-desc">Attend a performance at the Tiffany's Show in Pattaya. Starting as a one-man show on New Year's Eve in 1974, it has grown into one of Thailand's most famous performances. Choose from various seating options to either sit close to the stage or watch from further back. See skilled artists and entertainers deliver comedic impersonations and dramatic acts. Enjoy elaborate costumes and professional light and sound displays.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€58.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tiffanys-show-pattaya-admission-p1104624/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/01ef0d9af282423ca4b321245727fe89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pattaya Pass: 18+ Benefits with Colosseum Show" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pattaya Pass: 18+ Benefits with Colosseum Show</h3>
-          <p class="venue">📍 Pattaya City Passes</p>
-          <p>Plan your trip with a single pass that allows you to visit Pattaya's top attractions and restaurants. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/01ef0d9af282423ca4b321245727fe89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pattaya Pass: 18+ Benefits with Colosseum Show" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PATTAYA CITY PASSES</span>
+        </div>
+        <div class="tq-card-title">Pattaya Pass: 18+ Benefits with Colosseum Show</div>
+        <div class="tq-card-desc">Plan your trip with a single pass that allows you to visit Pattaya's top attractions and restaurants. 
 
 Choose where to go and what to eat from your pass, giving you the freedom to travel on your own schedule. 
 
@@ -157,122 +338,205 @@ Attractions and activities include the Sanctuary of Truth Museum, Pattaya Floati
 
 For relaxation, enjoy massages at Kanenoyu Hotstone Spa by Gold Finger and Kainiyom Spa and Massage.
 
-Enjoy food and beverages at Nara Thai Cuisine, Ordinary Coffee X The Now, Pastry Addiction, and Charm All-Day-Dining.</p>
-          <div class="card-footer">
-            <span class="price">From €68.61</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tagthai-pattaya-day-pass-with-1-8-benefits-p1104196/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy food and beverages at Nara Thai Cuisine, Ordinary Coffee X The Now, Pastry Addiction, and Charm All-Day-Dining.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€68.61</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tagthai-pattaya-day-pass-with-1-8-benefits-p1104196/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/de181e457feb4e30b373080b82317951.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tarzan Adventure Pattaya: Zipline Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tarzan Adventure Pattaya: Zipline Experience</h3>
-          <p class="venue">📍 Tarzan Adventure Pattaya</p>
-          <p>Visit Tarzan Adventure Pattaya to navigate the jungles from the treetops. Try zipline courses, cross rope bridges, and ride sky bikes. The park is designed for all ages with varying levels of difficulty, so everyone from families to adventure seekers can participate. Safety is a priority, with top-quality gear and experienced guides ensuring a secure experience. Spend a day in nature, exploring the jungle in a unique way.</p>
-          <div class="card-footer">
-            <span class="price">From €14.52</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tarzan-adventure-pattaya-zipline-experience-p1103683/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/de181e457feb4e30b373080b82317951.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tarzan Adventure Pattaya: Zipline Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TARZAN ADVENTURE PATTAYA</span>
+        </div>
+        <div class="tq-card-title">Tarzan Adventure Pattaya: Zipline Experience</div>
+        <div class="tq-card-desc">Visit Tarzan Adventure Pattaya to navigate the jungles from the treetops. Try zipline courses, cross rope bridges, and ride sky bikes. The park is designed for all ages with varying levels of difficulty, so everyone from families to adventure seekers can participate. Safety is a priority, with top-quality gear and experienced guides ensuring a secure experience. Spend a day in nature, exploring the jungle in a unique way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.52</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tarzan-adventure-pattaya-zipline-experience-p1103683/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/01ef0d9af282423ca4b321245727fe89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sanook Park Pattaya: Human Slingshot and Bungee Jump" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sanook Park Pattaya: Human Slingshot and Bungee Jump</h3>
-          <p class="venue">📍 Sanook Park Pattaya</p>
-          <p>Buckle up for an exciting ride at Sanook Park Pattaya with thrilling attractions like the Human Slingshot and Bungy Jump. Feel the rush as you soar through the sky, courtesy of the Human Slingshot. Then, take a heart-stopping 60-meter Bungy Jump, free-falling towards the earth before the cord snaps back.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/01ef0d9af282423ca4b321245727fe89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sanook Park Pattaya: Human Slingshot and Bungee Jump" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SANOOK PARK PATTAYA</span>
+        </div>
+        <div class="tq-card-title">Sanook Park Pattaya: Human Slingshot and Bungee Jump</div>
+        <div class="tq-card-desc">Buckle up for an exciting ride at Sanook Park Pattaya with thrilling attractions like the Human Slingshot and Bungy Jump. Feel the rush as you soar through the sky, courtesy of the Human Slingshot. Then, take a heart-stopping 60-meter Bungy Jump, free-falling towards the earth before the cord snaps back.
 
 All the activities are closely monitored by certified professionals who have years of experience to ensure the utmost safety. Moreover, the modern equipment meets international safety standards.
 
-Located just a short drive from Pattaya's center, Sanook Park offers scenic views that elevate every jump and launch. Capture your daring moments with optional photo and video packages to share your adventure with friends and family.</p>
-          <div class="card-footer">
-            <span class="price">From €34.84</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sanook-park-pattaya-human-slingshot-and-bungee-jump-p1097806/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Located just a short drive from Pattaya's center, Sanook Park offers scenic views that elevate every jump and launch. Capture your daring moments with optional photo and video packages to share your adventure with friends and family.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€34.84</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sanook-park-pattaya-human-slingshot-and-bungee-jump-p1097806/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd015bdfa3c84901aefe694c8f74a61a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Colosseum Cabaret Show Pattaya" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Colosseum Cabaret Show Pattaya</h3>
-          <p class="venue">📍 Colosseum Show Pattaya</p>
-          <p>Prepare for a fun night at Pattaya's Colosseum Show. As soon as the theater doors open, you'll be amazed by spectacular performances from talented artists worldwide. They will showcase their skills in an impressive mix of dance, music, and theater.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cd015bdfa3c84901aefe694c8f74a61a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Colosseum Cabaret Show Pattaya" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COLOSSEUM SHOW PATTAYA</span>
+        </div>
+        <div class="tq-card-title">Colosseum Cabaret Show Pattaya</div>
+        <div class="tq-card-desc">Prepare for a fun night at Pattaya's Colosseum Show. As soon as the theater doors open, you'll be amazed by spectacular performances from talented artists worldwide. They will showcase their skills in an impressive mix of dance, music, and theater.
 
-With spectacular visual effects and engaging stories, each act will fascinate you. The Colosseum Show celebrates cultural diversity and human creativity, offering an unmatched experience. Whether you're a local or visiting Pattaya for the first time, this show promises an evening of top-notch entertainment you'll always remember.</p>
-          <div class="card-footer">
-            <span class="price">From €21.12</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-colosseum-cabaret-show-pattaya-p1093836/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With spectacular visual effects and engaging stories, each act will fascinate you. The Colosseum Show celebrates cultural diversity and human creativity, offering an unmatched experience. Whether you're a local or visiting Pattaya for the first time, this show promises an evening of top-notch entertainment you'll always remember.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.12</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-colosseum-cabaret-show-pattaya-p1093836/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/01ef0d9af282423ca4b321245727fe89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tappia Floating Cafe Pattaya: Drink + Squid Fishing + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tappia Floating Cafe Pattaya: Drink + Squid Fishing + Transfers</h3>
-          <p class="venue">📍 Tappia Floating Cafe Pattaya</p>
-          <p>Board the Tappia Floating Cafe in Pattaya for a unique dining experience at sea. Enjoy stunning ocean views from the floating deck and try your hand at catching squid. Any successful catches will be taken swiftly to the ship's kitchen, where a skilled chef transforms the squid into a delicious sashimi or grilled dish. Join a unique blend of dining and adventure on the water at the Tappia Floating Cafe.</p>
-          <div class="card-footer">
-            <span class="price">From €15.84</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tappia-floating-cafe-pattaya-drink-squid-fishing-transfers-p1092050/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/01ef0d9af282423ca4b321245727fe89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tappia Floating Cafe Pattaya: Drink + Squid Fishing + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TAPPIA FLOATING CAFE PATTAYA</span>
+        </div>
+        <div class="tq-card-title">Tappia Floating Cafe Pattaya: Drink + Squid Fishing + Transfers</div>
+        <div class="tq-card-desc">Board the Tappia Floating Cafe in Pattaya for a unique dining experience at sea. Enjoy stunning ocean views from the floating deck and try your hand at catching squid. Any successful catches will be taken swiftly to the ship's kitchen, where a skilled chef transforms the squid into a delicious sashimi or grilled dish. Join a unique blend of dining and adventure on the water at the Tappia Floating Cafe.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.84</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tappia-floating-cafe-pattaya-drink-squid-fishing-transfers-p1092050/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/01ef0d9af282423ca4b321245727fe89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Art in Paradise Pattaya: Skip The Line Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Art in Paradise Pattaya: Skip The Line Entry Ticket</h3>
-          <p class="venue">📍 Art In Paradise Pattaya</p>
-          <p>Explore Pattaya's Art in Paradise 3D Museum for a world of optical illusions and vibrant galleries. Enjoy fast-track entry, skipping queues for a seamless adventure ideal for all ages. Spend 2-3 hours creating mind-bending photos and enjoying highlights like jungle adventures, encounters with dinosaurs, and playful moments with giant cats. Conclude your experience at the museum with ample time to explore the surrounding area.</p>
-          <div class="card-footer">
-            <span class="price">From €15.84</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-art-in-paradise-pattaya-skip-the-line-entry-p1091995/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/01ef0d9af282423ca4b321245727fe89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Art in Paradise Pattaya: Skip The Line Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ART IN PARADISE PATTAYA</span>
+        </div>
+        <div class="tq-card-title">Art in Paradise Pattaya: Skip The Line Entry Ticket</div>
+        <div class="tq-card-desc">Explore Pattaya's Art in Paradise 3D Museum for a world of optical illusions and vibrant galleries. Enjoy fast-track entry, skipping queues for a seamless adventure ideal for all ages. Spend 2-3 hours creating mind-bending photos and enjoying highlights like jungle adventures, encounters with dinosaurs, and playful moments with giant cats. Conclude your experience at the museum with ample time to explore the surrounding area.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.84</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-art-in-paradise-pattaya-skip-the-line-entry-p1091995/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/841cc3d557de46efa3ae6258d762fb08.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pattaya: Alcazar Cabaret Show" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pattaya: Alcazar Cabaret Show</h3>
-          <p class="venue">📍 Alcazar Cabaret Show</p>
-          <p>Enter the fascinating world of the Alcazar Cabaret Show in Pattaya, where glitz, glamour, and grandeur take center stage. Prepare to be amazed by a spectacular performance as talented performers dressed in eye-catching costumes light up the stage.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/841cc3d557de46efa3ae6258d762fb08.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pattaya: Alcazar Cabaret Show" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALCAZAR CABARET SHOW</span>
+        </div>
+        <div class="tq-card-title">Pattaya: Alcazar Cabaret Show</div>
+        <div class="tq-card-desc">Enter the fascinating world of the Alcazar Cabaret Show in Pattaya, where glitz, glamour, and grandeur take center stage. Prepare to be amazed by a spectacular performance as talented performers dressed in eye-catching costumes light up the stage.
 
-The Alcazar show brings an electrifying energy to Pattaya's cultural scene, offering an unforgettable experience that seamlessly combines elegance, skill, and pure entertainment.</p>
-          <div class="card-footer">
-            <span class="price">From €25.61</span>
-            <span class="rating">⭐ 3.6 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pattaya-alcazar-cabaret-show-p1090148/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Alcazar show brings an electrifying energy to Pattaya's cultural scene, offering an unforgettable experience that seamlessly combines elegance, skill, and pure entertainment.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.6</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.61</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pattaya-alcazar-cabaret-show-p1090148/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/01ef0d9af282423ca4b321245727fe89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Frost Magical Ice of Siam" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Frost Magical Ice of Siam</h3>
-          <p class="venue">📍 Frost Magical Ice of Siam</p>
-          <p>Journey to the Frost Magical Ice of Siam on your trip to Thailand and step inside a frozen paradise featuring amazing winter scenery and festive cheer. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/01ef0d9af282423ca4b321245727fe89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Frost Magical Ice of Siam" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATTAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FROST MAGICAL ICE OF SIAM</span>
+        </div>
+        <div class="tq-card-title">Frost Magical Ice of Siam</div>
+        <div class="tq-card-desc">Journey to the Frost Magical Ice of Siam on your trip to Thailand and step inside a frozen paradise featuring amazing winter scenery and festive cheer. 
 
-Check out the sand and ice sculptures in two separate exhibition areas, portraying the traditions, folktales, and landmarks of Thailand. Get a deeper insight into Thailand's history and culture through the art pieces created by local artists. Soak up the mesmerizing light displays and unique installations throughout this incredible experience.</p>
-          <div class="card-footer">
-            <span class="price">From €15.84</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-frost-magical-ice-of-siam-p1047284/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Check out the sand and ice sculptures in two separate exhibition areas, portraying the traditions, folktales, and landmarks of Thailand. Get a deeper insight into Thailand's history and culture through the art pieces created by local artists. Soak up the mesmerizing light displays and unique installations throughout this incredible experience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.84</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-frost-magical-ice-of-siam-p1047284/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Sharjah | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Sharjah. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,201 +131,333 @@
     <p>12 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Al Noor Island & Butterfly House: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Al Noor Island & Butterfly House: Entry Ticket</h3>
-          <p class="venue">📍 Al Noor Island</p>
-          <p>Visit Al Noor Island, a tropical lagoon island in downtown Sharjah, a famous spot filled with activities and sights.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Al Noor Island & Butterfly House: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SHARJAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AL NOOR ISLAND</span>
+        </div>
+        <div class="tq-card-title">Al Noor Island & Butterfly House: Entry Ticket</div>
+        <div class="tq-card-desc">Visit Al Noor Island, a tropical lagoon island in downtown Sharjah, a famous spot filled with activities and sights.
 
 Sharjah's Al Noor Island features the Butterfly House which is famous for its fairytale experience. 
 
-Walk through green meadows, view unique art installations, and see butterflies in their natural habitat. Spend time in a butterfly house, see modern art, relax at a café, and let children play in designated areas.</p>
-          <div class="card-footer">
-            <span class="price">From €11.74</span>
-            <span class="rating">⭐ 3.2 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-al-noor-island-butterfly-house-entry-p1104846/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Walk through green meadows, view unique art installations, and see butterflies in their natural habitat. Spend time in a butterfly house, see modern art, relax at a café, and let children play in designated areas.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.2</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€11.74</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-al-noor-island-butterfly-house-entry-p1104846/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sharjah: 30-Min Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sharjah: 30-Min Boat Tour</h3>
-          <p class="venue">📍 Sharjah Boat Tours</p>
-          <p>Take a boat tour through Sharjah's Khalid Lagoon on a traditional 'Abra' and see a blend of history and culture. Cruise the calm waters and observe Sharjah’s heritage and future.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sharjah: 30-Min Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SHARJAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SHARJAH BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Sharjah: 30-Min Boat Tour</div>
+        <div class="tq-card-desc">Take a boat tour through Sharjah's Khalid Lagoon on a traditional 'Abra' and see a blend of history and culture. Cruise the calm waters and observe Sharjah’s heritage and future.
 
-This tour offers visitors a glimpse into Emirati culture aboard handcrafted boats that reflect the UAE’s history. While sailing, see views of the city’s skyline with modern buildings and landmarks, each telling a part of Sharjah's past and present. This trip offers a unique cultural experience in the UAE.</p>
-          <div class="card-footer">
-            <span class="price">From €56.35</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sharjah-boat-tour-p1104728/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This tour offers visitors a glimpse into Emirati culture aboard handcrafted boats that reflect the UAE’s history. While sailing, see views of the city’s skyline with modern buildings and landmarks, each telling a part of Sharjah's past and present. This trip offers a unique cultural experience in the UAE.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€56.35</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sharjah-boat-tour-p1104728/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/18700b24877b48af92b52fe783eb137c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sharjah Heritage Museum: Skip The Line & Sharjah City Tour from Dubai" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sharjah Heritage Museum: Skip The Line & Sharjah City Tour from Dubai</h3>
-          <p class="venue">📍 Sharjah Fort</p>
-          <p>Leave the shorts in Dubai, cover up respectfully, and step into traditional Middle Eastern and Emirati culture with a tour to Sharjah, also known as the 'Pearl of the Gulf'. Get collected from Dubai and visit local highlights with your guide, from mosques to souks and royal residences.</p>
-          <div class="card-footer">
-            <span class="price">From €33.63</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sharjah-heritage-museum-skip-the-line-sharjah-city-tour-from-dubai-p977087/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/18700b24877b48af92b52fe783eb137c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sharjah Heritage Museum: Skip The Line & Sharjah City Tour from Dubai" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SHARJAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SHARJAH FORT</span>
+        </div>
+        <div class="tq-card-title">Sharjah Heritage Museum: Skip The Line & Sharjah City Tour from Dubai</div>
+        <div class="tq-card-desc">Leave the shorts in Dubai, cover up respectfully, and step into traditional Middle Eastern and Emirati culture with a tour to Sharjah, also known as the 'Pearl of the Gulf'. Get collected from Dubai and visit local highlights with your guide, from mosques to souks and royal residences.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.63</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sharjah-heritage-museum-skip-the-line-sharjah-city-tour-from-dubai-p977087/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c04a5b78cb084dbc93161b927e805145.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Sharjah" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hop-on Hop-off Bus Sharjah</h3>
-          <p class="venue">📍 Sharjah Hop-on Hop-off Tours</p>
-          <p>Just up the dusty road from Dubai, Sharjah is known as the cultural capital of the UAE! Plug in the audio guide and soak up info and stories as you're shuttled from destination to destination with this 1 or 2-day Hop-on Hop-off City Sightseeing Tour. The 2-day ticket includes free access to many of Sharjah's best attractions!</p>
-          <div class="card-footer">
-            <span class="price">From €24.14</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-sharjah-p975903/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c04a5b78cb084dbc93161b927e805145.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Sharjah" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SHARJAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SHARJAH HOP-ON HOP-OFF TOURS</span>
+        </div>
+        <div class="tq-card-title">Hop-on Hop-off Bus Sharjah</div>
+        <div class="tq-card-desc">Just up the dusty road from Dubai, Sharjah is known as the cultural capital of the UAE! Plug in the audio guide and soak up info and stories as you're shuttled from destination to destination with this 1 or 2-day Hop-on Hop-off City Sightseeing Tour. The 2-day ticket includes free access to many of Sharjah's best attractions!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€24.14</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-sharjah-p975903/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sharjah: Guided Tandem Paragliding Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sharjah: Guided Tandem Paragliding Experience</h3>
-          <p class="venue">📍 Outdoor Activities in Sharjah</p>
-          <p>Try paragliding in Sharjah with a professional pilot to glide above the earth and enjoy the experience of flying.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sharjah: Guided Tandem Paragliding Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SHARJAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">OUTDOOR ACTIVITIES IN SHARJAH</span>
+        </div>
+        <div class="tq-card-title">Sharjah: Guided Tandem Paragliding Experience</div>
+        <div class="tq-card-desc">Try paragliding in Sharjah with a professional pilot to glide above the earth and enjoy the experience of flying.
 
-Imagine flying through the air like a bird, with the wind on your face, and below, see a landscape that stretches out widely.</p>
-          <div class="card-footer">
-            <span class="price">From €167.28</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sharjah-guided-tandem-paragliding-experience-p1106926/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Imagine flying through the air like a bird, with the wind on your face, and below, see a landscape that stretches out widely.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€167.28</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sharjah-guided-tandem-paragliding-experience-p1106926/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Al Noor Island: Entry Without Butterfly House Access" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Al Noor Island: Entry Without Butterfly House Access</h3>
-          <p class="venue">📍 Al Noor Island</p>
-          <p>Visit Al Noor Island, a tropical lagoon in downtown Sharjah. Discover a popular family spot known for its natural beauty and creative spaces.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Al Noor Island: Entry Without Butterfly House Access" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SHARJAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AL NOOR ISLAND</span>
+        </div>
+        <div class="tq-card-title">Al Noor Island: Entry Without Butterfly House Access</div>
+        <div class="tq-card-desc">Visit Al Noor Island, a tropical lagoon in downtown Sharjah. Discover a popular family spot known for its natural beauty and creative spaces.
 
 You can walk through meadows, view unique art installations, and watch butterflies in a special section of the park (an additional fee is required). 
 
-You will find modern art pieces, a café, and play areas for kids. Enjoy a day filled with nature, art, and fun activities.</p>
-          <div class="card-footer">
-            <span class="price">From €8.22</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-al-noor-island-entry-without-butterfly-house-access-p1104986/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You will find modern art pieces, a café, and play areas for kids. Enjoy a day filled with nature, art, and fun activities.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8.22</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-al-noor-island-entry-without-butterfly-house-access-p1104986/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/947722c4a48f42c6952834c2769213e5.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Island Of Legends: Day Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Island Of Legends: Day Pass</h3>
-          <p class="venue">📍 Island Of Legends</p>
-          <p>Experience family fun and adventure in Sharjah at Island of Legends. Your day pass unlocks unlimited access to 26+ rides and attractions for all ages, from kid-friendly classics to pulse-quickening adventures. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/947722c4a48f42c6952834c2769213e5.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Island Of Legends: Day Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SHARJAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ISLAND OF LEGENDS</span>
+        </div>
+        <div class="tq-card-title">Island Of Legends: Day Pass</div>
+        <div class="tq-card-desc">Experience family fun and adventure in Sharjah at Island of Legends. Your day pass unlocks unlimited access to 26+ rides and attractions for all ages, from kid-friendly classics to pulse-quickening adventures. 
 
-Ride above the city on the Eye of the Emirates Wheel for sweeping views of Sharjah, then relax at scenic picnic areas throughout the park. With themed zones and convenient amenities, it’s an easy, all-day outing the whole family will love.</p>
-          <div class="card-footer">
-            <span class="price">From €24.65</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-island-of-legends-day-pass-p1104845/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Ride above the city on the Eye of the Emirates Wheel for sweeping views of Sharjah, then relax at scenic picnic areas throughout the park. With themed zones and convenient amenities, it’s an easy, all-day outing the whole family will love.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€24.65</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-island-of-legends-day-pass-p1104845/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sharjah: 15-Min Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sharjah: 15-Min Boat Tour</h3>
-          <p class="venue">📍 Sharjah Boat Tours</p>
-          <p>Take a boat tour through Sharjah's Khalid Lagoon on a traditional 'Abra' boat for a trip that includes history and local culture. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sharjah: 15-Min Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SHARJAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SHARJAH BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Sharjah: 15-Min Boat Tour</div>
+        <div class="tq-card-desc">Take a boat tour through Sharjah's Khalid Lagoon on a traditional 'Abra' boat for a trip that includes history and local culture. 
 
 Cruise the waters to explore Sharjah’s rich heritage and see glimpses of its future. This tour is popular among visitors and offers insight into Emirati culture. 
 
-While sailing, see views of the city’s skyline with modern buildings and landmarks. Each tells a story about Sharjah's past and present, offering a unique look into the cultural center of the UAE.</p>
-          <div class="card-footer">
-            <span class="price">From €28.17</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sharjah-boat-tour-p1104726/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+While sailing, see views of the city’s skyline with modern buildings and landmarks. Each tells a story about Sharjah's past and present, offering a unique look into the cultural center of the UAE.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€28.17</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sharjah-boat-tour-p1104726/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pearls Kingdom Waterpark: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pearls Kingdom Waterpark: Entry Ticket</h3>
-          <p class="venue">📍 Pearls Kingdom Waterpark</p>
-          <p>Visit this highly-rated waterpark and find over 30 aquatic rides and slides suitable for all ages. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pearls Kingdom Waterpark: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SHARJAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PEARLS KINGDOM WATERPARK</span>
+        </div>
+        <div class="tq-card-title">Pearls Kingdom Waterpark: Entry Ticket</div>
+        <div class="tq-card-desc">Visit this highly-rated waterpark and find over 30 aquatic rides and slides suitable for all ages. 
 
-Enjoy wave pools, lazy rivers, and splash zones for younger visitors. Test your courage on steep slides or relax in cabanas. This destination offers a variety of food options to refuel yourself after a day full of water activities.</p>
-          <div class="card-footer">
-            <span class="price">From €43.2</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pearls-kingdom-waterpark-entry-p1104368/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy wave pools, lazy rivers, and splash zones for younger visitors. Test your courage on steep slides or relax in cabanas. This destination offers a variety of food options to refuel yourself after a day full of water activities.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€43.20</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pearls-kingdom-waterpark-entry-p1104368/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sharjah: Dune Buggy Experience + Dinner" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sharjah: Dune Buggy Experience + Dinner</h3>
-          <p class="venue">📍 Sharjah Desert Safari</p>
-          <p>Prepare for a desert adventure with a two-seater dune buggy ride in the Mleiha desert. Enjoy the scenic backdrop of a UNESCO World Heritage Site while having fun and tasting great food.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sharjah: Dune Buggy Experience + Dinner" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SHARJAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SHARJAH DESERT SAFARI</span>
+        </div>
+        <div class="tq-card-title">Sharjah: Dune Buggy Experience + Dinner</div>
+        <div class="tq-card-desc">Prepare for a desert adventure with a two-seater dune buggy ride in the Mleiha desert. Enjoy the scenic backdrop of a UNESCO World Heritage Site while having fun and tasting great food.
 
-Start with a camel ride across the dunes, guided by experts who share stories about the region's heritage. Loof at the vast landscape and then try sandboarding on the dunes.</p>
-          <div class="card-footer">
-            <span class="price">From €516.51</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sharjah-dune-buggy-experience-dinner-p1099112/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Start with a camel ride across the dunes, guided by experts who share stories about the region's heritage. Loof at the vast landscape and then try sandboarding on the dunes.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€516.51</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sharjah-dune-buggy-experience-dinner-p1099112/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dune Buggy & Private Dinner in the Dunes in Mleiha National Park" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Dune Buggy & Private Dinner in the Dunes in Mleiha National Park</h3>
-          <p class="venue">📍 Sharjah Desert Safari</p>
-          <p>Discover an exciting desert adventure with the dune buggy experience. Enjoy a thrilling ride through the desert and admire the views of untouched desert beauty.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dune Buggy & Private Dinner in the Dunes in Mleiha National Park" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SHARJAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SHARJAH DESERT SAFARI</span>
+        </div>
+        <div class="tq-card-title">Dune Buggy & Private Dinner in the Dunes in Mleiha National Park</div>
+        <div class="tq-card-desc">Discover an exciting desert adventure with the dune buggy experience. Enjoy a thrilling ride through the desert and admire the views of untouched desert beauty.
 
-Enjoy a camel ride and sandboarding at Zerzura. Then, the adventure leads to a delicious Arabic feast in a private spot among the dunes.</p>
-          <div class="card-footer">
-            <span class="price">From €798.25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sharjah-zerzura-dune-buggy-experience-private-dinner-transfers-p1098212/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a camel ride and sandboarding at Zerzura. Then, the adventure leads to a delicious Arabic feast in a private spot among the dunes.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€798.25</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sharjah-zerzura-dune-buggy-experience-private-dinner-transfers-p1098212/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dune Buggy Experience & Fossil Discovery in Mleiha National Park" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Dune Buggy Experience & Fossil Discovery in Mleiha National Park</h3>
-          <p class="venue">📍 Sharjah Desert Safari</p>
-          <p>Explore the desert in a top-quality Dune Buggy. The buggies are designed for safety and comfort, and a team is ready to assist with any issues.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dune Buggy Experience & Fossil Discovery in Mleiha National Park" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SHARJAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SHARJAH DESERT SAFARI</span>
+        </div>
+        <div class="tq-card-title">Dune Buggy Experience & Fossil Discovery in Mleiha National Park</div>
+        <div class="tq-card-desc">Explore the desert in a top-quality Dune Buggy. The buggies are designed for safety and comfort, and a team is ready to assist with any issues.
 
 Discover the UNESCO World Heritage Site of Mleiha, see Camel Rock, and find real fossils at Fossil Rock.
 
-Enjoy a smooth ride on adjustable off-road suspension, and rest assured that each buggy is cleaned thoroughly after every tour. A photography and videography service is also available to capture your experience.</p>
-          <div class="card-footer">
-            <span class="price">From €281.73</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sharjah-zerzura-dune-buggy-experience-fossil-discovery-transfers-p1098209/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a smooth ride on adjustable off-road suspension, and rest assured that each buggy is cleaned thoroughly after every tour. A photography and videography service is also available to capture your experience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€281.73</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sharjah-zerzura-dune-buggy-experience-fossil-discovery-transfers-p1098209/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

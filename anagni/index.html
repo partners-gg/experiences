@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Anagni | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Anagni. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,45 +131,67 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/88f2e26425b248389dd35b08b5954c47.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cathedral Museum of Anagni (MuCA): Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cathedral Museum of Anagni (MuCA): Entry Ticket</h3>
-          <p class="venue">📍 Museum of the Cathedral of Anagni</p>
-          <p>With these tickets to the Cathedral Museum of Anagni, you'll travel back in time to relive - through a kaleidoscope of colors and images - the charm of the Middle Ages.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/88f2e26425b248389dd35b08b5954c47.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cathedral Museum of Anagni (MuCA): Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANAGNI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEUM OF THE CATHEDRAL OF ANAGNI</span>
+        </div>
+        <div class="tq-card-title">Cathedral Museum of Anagni (MuCA): Entry Ticket</div>
+        <div class="tq-card-desc">With these tickets to the Cathedral Museum of Anagni, you'll travel back in time to relive - through a kaleidoscope of colors and images - the charm of the Middle Ages.
 
 The museum takes you on a 12-stop tour to visit various areas, rooms and chapels, all adorned with fascinating objects and tapestries. You'll also stop at the Crypt of St. Magnus, an incredible frescoed crypt that's almost a thousand years old. 
 
 The museum preserves reliquary icons, sacred objects, mosaics, ancient tombs and sarcophagi, colorful textiles, images of saints and martyrs, frescoes with biblical stories, hagiographic cycles, and scientific and pagan descriptions of the creation of the cosmos. 
 
-You'll need an audio guide to take advantage of all that – luckily it's free to download!</p>
-          <div class="card-footer">
-            <span class="price">From €10</span>
-            <span class="rating">⭐ 4.7 (75)</span>
-            <a href="https://www.tiqets.com/en/checkout/entry-ticket-for-cathedral-museum-anagni-muca-p1033308/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll need an audio guide to take advantage of all that – luckily it's free to download!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(75)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€10.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/entry-ticket-for-cathedral-museum-anagni-muca-p1033308/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/88f2e26425b248389dd35b08b5954c47.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bonifacio VIII Palace in Anagni: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bonifacio VIII Palace in Anagni: Entry Ticket</h3>
-          <p class="venue">📍 Boniface VIII Palace</p>
-          <p>Step into the heart of medieval history with a ticket to the grand Palazzo di Bonifacio VIII. This ancient structure, nestled in the town center, dates back to the 13th century. It once belonged to the illustrious Caetani family, notably the home of Pope Bonifacio VIII himself. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/88f2e26425b248389dd35b08b5954c47.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bonifacio VIII Palace in Anagni: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANAGNI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BONIFACE VIII PALACE</span>
+        </div>
+        <div class="tq-card-title">Bonifacio VIII Palace in Anagni: Entry Ticket</div>
+        <div class="tq-card-desc">Step into the heart of medieval history with a ticket to the grand Palazzo di Bonifacio VIII. This ancient structure, nestled in the town center, dates back to the 13th century. It once belonged to the illustrious Caetani family, notably the home of Pope Bonifacio VIII himself. 
 
 Within the palace walls, you'll discover a treasure trove of art and culture. Expansive frescoed halls, priceless paintings, exquisite artwork, and fine furniture await your exploration. Each room offers a glimpse into the opulence of medieval life and the intrigue of the period's politics.
 
 The palace's star attraction? The famous Sala dello Schiaffo or "Slap Room". Here unfolded a shocking event that sent ripples through medieval European history. As commanded by the leader of French Soldiers, Nogaret, Giacomo Sciarra Colonna struck the Pope. This audacious act set the stage for the Avignon period.
 
-Your journey into the past begins here, at the Palazzo di Bonifacio VIII.</p>
-          <div class="card-footer">
-            <span class="price">From €9</span>
-            <span class="rating">⭐ 4.2 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bonifacio-viii-palace-in-anagni-p1081707/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your journey into the past begins here, at the Palazzo di Bonifacio VIII.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€9.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bonifacio-viii-palace-in-anagni-p1081707/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

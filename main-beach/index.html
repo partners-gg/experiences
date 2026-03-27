@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Main Beach | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Main Beach. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,203 +131,335 @@
     <p>12 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/855b7548520e4c67aba92c888c01b83d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sea World Single Day Pass Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sea World Single Day Pass Ticket</h3>
-          <p class="venue">📍 Sea World Gold Coast</p>
-          <p>Sea World promises kids young and old a thrilling range of sea-themed activities!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/855b7548520e4c67aba92c888c01b83d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sea World Single Day Pass Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MAIN BEACH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEA WORLD GOLD COAST</span>
+        </div>
+        <div class="tq-card-title">Sea World Single Day Pass Ticket</div>
+        <div class="tq-card-desc">Sea World promises kids young and old a thrilling range of sea-themed activities!
 
 Explore the enchanting world of dolphins through interactive encounters and dazzling shows. Discover the playful antics of penguins as they waddle and swim in their icy habitat. Get up close to majestic polar bears, spot the graceful seals and sea lions and watch fascinating sharks, stingrays, and tropical fish! 
 
 There are rides, too. Experience the exhilarating rush of Jet Rescue, a high-speed roller coaster quest to help marine life. Brave wild weather conditions on the heart-pounding Storm Coaster, or for family-friendly fun, the Viking's Revenge Flume Ride sends you plunging down a water-filled track. 
 
-For breathtaking views, the Sky Fortress will take you on an aerial adventure high above the park. Whether you're after speed, splashes, or stunning sights, Sea World Australia has it all!</p>
-          <div class="card-footer">
-            <span class="price">From €65.54</span>
-            <span class="rating">⭐ 4.2 (132)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sea-world-single-day-pass-p1064711/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+For breathtaking views, the Sky Fortress will take you on an aerial adventure high above the park. Whether you're after speed, splashes, or stunning sights, Sea World Australia has it all!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(132)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€65.54</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sea-world-single-day-pass-p1064711/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5b221d99d5624f0985aa1941443d9a65.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sea World Gold Coast Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sea World Gold Coast Transfers</h3>
-          <p class="venue">📍 Sea World Gold Coast</p>
-          <p>Enjoy an effort-free journey to Sea World on the Gold Coast. You'll be picked up directly from your accommodation and then all you have to do is sit back and relax as you ride to Sea World theme park! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5b221d99d5624f0985aa1941443d9a65.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sea World Gold Coast Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MAIN BEACH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEA WORLD GOLD COAST</span>
+        </div>
+        <div class="tq-card-title">Sea World Gold Coast Transfers</div>
+        <div class="tq-card-desc">Enjoy an effort-free journey to Sea World on the Gold Coast. You'll be picked up directly from your accommodation and then all you have to do is sit back and relax as you ride to Sea World theme park! 
 
-Sea World theme park transfer is available from a number of Gold Coast suburbs, so no matter where you're staying, transport should be available. Make the most of a dry ride before you make a splash inside.</p>
-          <div class="card-footer">
-            <span class="price">From €13.23</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sea-world-gold-coast-transfers-p1012172/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Sea World theme park transfer is available from a number of Gold Coast suburbs, so no matter where you're staying, transport should be available. Make the most of a dry ride before you make a splash inside.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.23</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sea-world-gold-coast-transfers-p1012172/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/855b7548520e4c67aba92c888c01b83d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sea World Gold Coast: 1-Day Entry Ticket + Jet Boat Ride" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sea World Gold Coast: 1-Day Entry Ticket + Jet Boat Ride</h3>
-          <p class="venue">📍 Sea World Gold Coast</p>
-          <p>Spend an exciting day on the Gold Coast with a combo ticket. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/855b7548520e4c67aba92c888c01b83d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sea World Gold Coast: 1-Day Entry Ticket + Jet Boat Ride" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MAIN BEACH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEA WORLD GOLD COAST</span>
+        </div>
+        <div class="tq-card-title">Sea World Gold Coast: 1-Day Entry Ticket + Jet Boat Ride</div>
+        <div class="tq-card-desc">Spend an exciting day on the Gold Coast with a combo ticket. 
 
 Begin with a high-speed ride on the latest Arro Jet boat from the Sea World Marine Precinct on Main Beach. An experienced pilot will guide you through fast turns, spins, and full loops. 
 
-Visit Sea World to see various marine attractions and rides. Meet polar bears, interact with rays, observe sharks, and watch live seal and dolphin shows.s</p>
-          <div class="card-footer">
-            <span class="price">From €101.62</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sea-world-gold-coast-day-entry-jet-boat-ride-p1104453/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit Sea World to see various marine attractions and rides. Meet polar bears, interact with rays, observe sharks, and watch live seal and dolphin shows.s</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€101.62</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sea-world-gold-coast-day-entry-jet-boat-ride-p1104453/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ec5e9c961544868aecc49319575b93a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="1-Hour Jet Ski Safari" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>1-Hour Jet Ski Safari</h3>
-          <p class="venue">📍 Gold Coast Jet Ski Safaris</p>
-          <p>Don't leave the Gold Coast without experiencing the ultimate jet-ski adventure! Power your way along the beautiful sub-tropical shores of South Stradbroke Island on a seafaring safari, and explore a wild coastal wonderland at maximum speed!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ec5e9c961544868aecc49319575b93a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="1-Hour Jet Ski Safari" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MAIN BEACH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GOLD COAST JET SKI SAFARIS</span>
+        </div>
+        <div class="tq-card-title">1-Hour Jet Ski Safari</div>
+        <div class="tq-card-desc">Don't leave the Gold Coast without experiencing the ultimate jet-ski adventure! Power your way along the beautiful sub-tropical shores of South Stradbroke Island on a seafaring safari, and explore a wild coastal wonderland at maximum speed!
 
-After you're familiarised with all the safety and jet-ski instruction you need, you'll weave your way past beautiful Islands, beaches, sandbars, and mangroves, drinking in the glorious scenery before turning back to ride the 15 km back home.</p>
-          <div class="card-footer">
-            <span class="price">From €137.7</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-1hr-jet-ski-safari-non-stop-adventure-tour-p1014274/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After you're familiarised with all the safety and jet-ski instruction you need, you'll weave your way past beautiful Islands, beaches, sandbars, and mangroves, drinking in the glorious scenery before turning back to ride the 15 km back home.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€137.70</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-1hr-jet-ski-safari-non-stop-adventure-tour-p1014274/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ec5e9c961544868aecc49319575b93a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gold Coast: 30-Min Jet Ski Safari" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Gold Coast: 30-Min Jet Ski Safari</h3>
-          <p class="venue">📍 Gold Coast Jet Ski Safaris</p>
-          <p>Take a short and sweet jet ski safari along the sunny waterways and sub-tropical shores of the Gold Coast. Get your bearings with a ride on the 1 km practice track and build up your confidence. Then, really show off your skills and go blasting full-throttle, or take in the scenery at a leisurely pace on the beautiful waters of South Stradbroke Island. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ec5e9c961544868aecc49319575b93a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gold Coast: 30-Min Jet Ski Safari" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MAIN BEACH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GOLD COAST JET SKI SAFARIS</span>
+        </div>
+        <div class="tq-card-title">Gold Coast: 30-Min Jet Ski Safari</div>
+        <div class="tq-card-desc">Take a short and sweet jet ski safari along the sunny waterways and sub-tropical shores of the Gold Coast. Get your bearings with a ride on the 1 km practice track and build up your confidence. Then, really show off your skills and go blasting full-throttle, or take in the scenery at a leisurely pace on the beautiful waters of South Stradbroke Island. 
 
-Zoom past beautiful beaches, sandbars and islands, and keep an eye out for native wildlife, before turning around and making your way back to base. You'll be riding the latest model Seadoo GTS 1500 cc jet skis, (130 horsepower!). So you'll feel the full rush of the most reliable and stable jet skis around!</p>
-          <div class="card-footer">
-            <span class="price">From €78.17</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-30-minute-jet-ski-safari-p1014114/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Zoom past beautiful beaches, sandbars and islands, and keep an eye out for native wildlife, before turning around and making your way back to base. You'll be riding the latest model Seadoo GTS 1500 cc jet skis, (130 horsepower!). So you'll feel the full rush of the most reliable and stable jet skis around!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€78.17</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-30-minute-jet-ski-safari-p1014114/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e4c08993179640ee895a26b535f9e6cd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradise Jet Boating: 1-Hr Broadwater Adventure Ride" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Paradise Jet Boating: 1-Hr Broadwater Adventure Ride</h3>
-          <p class="venue">📍 Paradise Jet Boating</p>
-          <p>Set off on this 35 km ride, departing from the central Surfers Paradise location at the end of Cavill Avenue. Glide through the Surfers Paradise canals before accelerating into the Broadwater for an extended ride packed with excitement.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e4c08993179640ee895a26b535f9e6cd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradise Jet Boating: 1-Hr Broadwater Adventure Ride" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MAIN BEACH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PARADISE JET BOATING</span>
+        </div>
+        <div class="tq-card-title">Paradise Jet Boating: 1-Hr Broadwater Adventure Ride</div>
+        <div class="tq-card-desc">Set off on this 35 km ride, departing from the central Surfers Paradise location at the end of Cavill Avenue. Glide through the Surfers Paradise canals before accelerating into the Broadwater for an extended ride packed with excitement.
 
-Feel the rush of high-speed turns, spins, and dynamic slides as you cruise all the way to the Sovereign Islands. Along the way, get scenic views, admire waterfront homes, and keep an eye out for playful dolphins and sea birds.</p>
-          <div class="card-footer">
-            <span class="price">From €51.11</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-paradise-jet-boating-1-hr-broadwater-adventure-ride-p976668/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Feel the rush of high-speed turns, spins, and dynamic slides as you cruise all the way to the Sovereign Islands. Along the way, get scenic views, admire waterfront homes, and keep an eye out for playful dolphins and sea birds.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.11</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-paradise-jet-boating-1-hr-broadwater-adventure-ride-p976668/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ec5e9c961544868aecc49319575b93a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gold Coast Jet Ski Safari + Parasailing Combo: 30 Minutes" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Gold Coast Jet Ski Safari + Parasailing Combo: 30 Minutes</h3>
-          <p class="venue">📍 Gold Coast Jet Ski Safaris</p>
-          <p>Get ready for a short and sweet South Stradbroke Island adventure, and the thrill of a lifetime! Glide your way along the beautiful sub-tropical shores of South Stradbroke Island with this 30-minute jet ski safari and parasail combo ticket.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ec5e9c961544868aecc49319575b93a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gold Coast Jet Ski Safari + Parasailing Combo: 30 Minutes" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MAIN BEACH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GOLD COAST JET SKI SAFARIS</span>
+        </div>
+        <div class="tq-card-title">Gold Coast Jet Ski Safari + Parasailing Combo: 30 Minutes</div>
+        <div class="tq-card-desc">Get ready for a short and sweet South Stradbroke Island adventure, and the thrill of a lifetime! Glide your way along the beautiful sub-tropical shores of South Stradbroke Island with this 30-minute jet ski safari and parasail combo ticket.
 
 Start with a practice ride on the one-kilometer track to get your confidence up to speed, then use your new skills to blast your way full throttle – or at a more leisurely pace – around the stunning South Stradbroke Island. Heading north, you'll ride past beautiful beaches, sandbars and islands, looking out for native wildlife as you go! 
 
-Your combo ticket also lets you soar through the sky like a bird and take in the magnificent views of the coastline and hinterland from up to 300 feet above the Broadwater with high-flying parasailing!</p>
-          <div class="card-footer">
-            <span class="price">From €183.4</span>
-            <span class="rating">⭐ 3.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-30min-jet-ski-safari-parasailing-combo-p1014503/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your combo ticket also lets you soar through the sky like a bird and take in the magnificent views of the coastline and hinterland from up to 300 feet above the Broadwater with high-flying parasailing!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€183.40</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-30min-jet-ski-safari-parasailing-combo-p1014503/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ec5e9c961544868aecc49319575b93a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="1.5-Hour Jet Ski Safari & Island Stop" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>1.5-Hour Jet Ski Safari & Island Stop</h3>
-          <p class="venue">📍 Gold Coast Jet Ski Safaris</p>
-          <p>You can’t come to the Gold Coast without experiencing the ultimate jet-ski adventure! Blast your way along the beautiful sub-tropical shores of South Stradbroke Island on a seafaring safari, and explore a wild coastal wonderland at top speed!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ec5e9c961544868aecc49319575b93a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="1.5-Hour Jet Ski Safari & Island Stop" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MAIN BEACH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GOLD COAST JET SKI SAFARIS</span>
+        </div>
+        <div class="tq-card-title">1.5-Hour Jet Ski Safari & Island Stop</div>
+        <div class="tq-card-desc">You can’t come to the Gold Coast without experiencing the ultimate jet-ski adventure! Blast your way along the beautiful sub-tropical shores of South Stradbroke Island on a seafaring safari, and explore a wild coastal wonderland at top speed!
 
 After you're familiarised with all the safety and jet-ski instruction you need, you'll weave your way past beautiful Islands, beaches, sandbars, and mangroves. Stop off at a cool tropical bar on South Stradbroke Island for refreshments, before turning back to ride the 20 km back home.
 
-Every weekend there's a breakfast safari available, allowing for an extended stay on the island, during which you can enjoy breakfast with the local wildlife and stunning scenery.</p>
-          <div class="card-footer">
-            <span class="price">From €179.8</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-1-5hr-jet-ski-safari-with-island-stop-p1014273/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Every weekend there's a breakfast safari available, allowing for an extended stay on the island, during which you can enjoy breakfast with the local wildlife and stunning scenery.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€179.80</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-1-5hr-jet-ski-safari-with-island-stop-p1014273/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e4c08993179640ee895a26b535f9e6cd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradise Jet Boat Ride & Aquaduck: Combo Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Paradise Jet Boat Ride & Aquaduck: Combo Ticket</h3>
-          <p class="venue">📍 Paradise Jet Boating</p>
-          <p>Your Paradise Jet Boating experience is a full-throttle thrill ride on the Gold Coast. Hold onto your hats, or better yet, don’t bring them at all! Tear through the Broadwater with your adrenalin-chasing captain performing plenty of daring spins and slides.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e4c08993179640ee895a26b535f9e6cd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradise Jet Boat Ride & Aquaduck: Combo Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MAIN BEACH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PARADISE JET BOATING</span>
+        </div>
+        <div class="tq-card-title">Paradise Jet Boat Ride & Aquaduck: Combo Ticket</div>
+        <div class="tq-card-desc">Your Paradise Jet Boating experience is a full-throttle thrill ride on the Gold Coast. Hold onto your hats, or better yet, don’t bring them at all! Tear through the Broadwater with your adrenalin-chasing captain performing plenty of daring spins and slides.
 
-Next up, get ready for the Aquaduck, an amphibious vehicle that transforms from bus to boat in one single splashdown! It’s obviously the best way to travel in Surfers Paradise (or anywhere for that matter), so be quick and grab a ticket now!</p>
-          <div class="card-footer">
-            <span class="price">From €69.15</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-paradise-jet-boat-aquaduck-combo-p1010415/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next up, get ready for the Aquaduck, an amphibious vehicle that transforms from bus to boat in one single splashdown! It’s obviously the best way to travel in Surfers Paradise (or anywhere for that matter), so be quick and grab a ticket now!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€69.15</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-paradise-jet-boat-aquaduck-combo-p1010415/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e4c08993179640ee895a26b535f9e6cd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradise Jet Boating: 40-Minute Jet Blast Ride" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Paradise Jet Boating: 40-Minute Jet Blast Ride</h3>
-          <p class="venue">📍 Paradise Jet Boating</p>
-          <p>Go on a 20 km ride, departing from the central Surfers Paradise location at the end of Cavill Avenue. Cruise through the iconic Surfers Paradise canals before hitting the open water, where you’ll experience high-speed spins and slides on the Southern Broadwater all the way up to Wavebreak Island. Along the way, take in views of the famous Surfers Paradise skyline.</p>
-          <div class="card-footer">
-            <span class="price">From €37.88</span>
-            <span class="rating">⭐ 4.8 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-paradise-jet-boating-40-minute-jet-blast-ride-p1010346/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e4c08993179640ee895a26b535f9e6cd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradise Jet Boating: 40-Minute Jet Blast Ride" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MAIN BEACH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PARADISE JET BOATING</span>
+        </div>
+        <div class="tq-card-title">Paradise Jet Boating: 40-Minute Jet Blast Ride</div>
+        <div class="tq-card-desc">Go on a 20 km ride, departing from the central Surfers Paradise location at the end of Cavill Avenue. Cruise through the iconic Surfers Paradise canals before hitting the open water, where you’ll experience high-speed spins and slides on the Southern Broadwater all the way up to Wavebreak Island. Along the way, take in views of the famous Surfers Paradise skyline.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€37.88</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-paradise-jet-boating-40-minute-jet-blast-ride-p1010346/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e4c08993179640ee895a26b535f9e6cd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradise Jet Boat Ride & Aquaduck: Combo Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Paradise Jet Boat Ride & Aquaduck: Combo Ticket</h3>
-          <p class="venue">📍 Paradise Jet Boating</p>
-          <p>Your Paradise Jet Boating experience is a full-throttle thrill ride on the Gold Coast. Hold onto your hats, or better yet, don’t bring them at all! Tear through the Broadwater with your adrenalin-chasing captain performing plenty of daring spins and slides.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e4c08993179640ee895a26b535f9e6cd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradise Jet Boat Ride & Aquaduck: Combo Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MAIN BEACH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PARADISE JET BOATING</span>
+        </div>
+        <div class="tq-card-title">Paradise Jet Boat Ride & Aquaduck: Combo Ticket</div>
+        <div class="tq-card-desc">Your Paradise Jet Boating experience is a full-throttle thrill ride on the Gold Coast. Hold onto your hats, or better yet, don’t bring them at all! Tear through the Broadwater with your adrenalin-chasing captain performing plenty of daring spins and slides.
 
-Next up, get ready for the Aquaduck, an amphibious vehicle that transforms from bus to boat in one single splashdown! It’s obviously the best way to travel in Surfers Paradise (or anywhere for that matter), so be quick and grab a ticket now!</p>
-          <div class="card-footer">
-            <span class="price">From €69.15</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-paradise-jet-boat-aquaduck-combo-p1010415/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next up, get ready for the Aquaduck, an amphibious vehicle that transforms from bus to boat in one single splashdown! It’s obviously the best way to travel in Surfers Paradise (or anywhere for that matter), so be quick and grab a ticket now!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€69.15</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-paradise-jet-boat-aquaduck-combo-p1010415/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e4c08993179640ee895a26b535f9e6cd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradise Jet Boating: 40-Minute Jet Blast Ride" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Paradise Jet Boating: 40-Minute Jet Blast Ride</h3>
-          <p class="venue">📍 Paradise Jet Boating</p>
-          <p>Go on a 20 km ride, departing from the central Surfers Paradise location at the end of Cavill Avenue. Cruise through the iconic Surfers Paradise canals before hitting the open water, where you’ll experience high-speed spins and slides on the Southern Broadwater all the way up to Wavebreak Island. Along the way, take in views of the famous Surfers Paradise skyline.</p>
-          <div class="card-footer">
-            <span class="price">From €37.88</span>
-            <span class="rating">⭐ 4.8 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-paradise-jet-boating-40-minute-jet-blast-ride-p1010346/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e4c08993179640ee895a26b535f9e6cd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Paradise Jet Boating: 40-Minute Jet Blast Ride" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MAIN BEACH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PARADISE JET BOATING</span>
+        </div>
+        <div class="tq-card-title">Paradise Jet Boating: 40-Minute Jet Blast Ride</div>
+        <div class="tq-card-desc">Go on a 20 km ride, departing from the central Surfers Paradise location at the end of Cavill Avenue. Cruise through the iconic Surfers Paradise canals before hitting the open water, where you’ll experience high-speed spins and slides on the Southern Broadwater all the way up to Wavebreak Island. Along the way, take in views of the famous Surfers Paradise skyline.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€37.88</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-paradise-jet-boating-40-minute-jet-blast-ride-p1010346/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

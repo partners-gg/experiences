@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Honolulu | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Honolulu. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,64 +131,102 @@
     <p>32 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0d36b6d5e47f46b68e9f95c5e0010105.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Diamond Head State Monument: Self-Guided Audio Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Diamond Head State Monument: Self-Guided Audio Tour</h3>
-          <p class="venue">📍 Diamond Head State Monument</p>
-          <p>Let your inner explorer out of the box and venture across the volcanic rock of Diamond Head. Soak in the scintillating views of Honolulu and the sunkissed Pacific from the top of this Hawaiian State Monument, and learn about its fascinating history with a handy audio guide.</p>
-          <div class="card-footer">
-            <span class="price">From €9.48</span>
-            <span class="rating">⭐ 3.2 (80)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-diamond-head-state-monument-self-guided-audio-tour-p975963/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0d36b6d5e47f46b68e9f95c5e0010105.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Diamond Head State Monument: Self-Guided Audio Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DIAMOND HEAD STATE MONUMENT</span>
+        </div>
+        <div class="tq-card-title">Diamond Head State Monument: Self-Guided Audio Tour</div>
+        <div class="tq-card-desc">Let your inner explorer out of the box and venture across the volcanic rock of Diamond Head. Soak in the scintillating views of Honolulu and the sunkissed Pacific from the top of this Hawaiian State Monument, and learn about its fascinating history with a handy audio guide.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.2</strong>
+            <span class="tq-reviews">(80)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€9.48</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-diamond-head-state-monument-self-guided-audio-tour-p975963/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0d36b6d5e47f46b68e9f95c5e0010105.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Battleship Missouri" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Battleship Missouri</h3>
-          <p class="venue">📍 Battleship Missouri Memorial</p>
-          <p>You'll cruise through the history of the Battleship Missouri Memorial during this visit. The Iowa-class battleship saw action in the battles of Iwo Jima and Okinawa, the Korean War, and Operation Desert Storm. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0d36b6d5e47f46b68e9f95c5e0010105.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Battleship Missouri" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BATTLESHIP MISSOURI MEMORIAL</span>
+        </div>
+        <div class="tq-card-title">Battleship Missouri</div>
+        <div class="tq-card-desc">You'll cruise through the history of the Battleship Missouri Memorial during this visit. The Iowa-class battleship saw action in the battles of Iwo Jima and Okinawa, the Korean War, and Operation Desert Storm. 
 
 While the ship dates back over 80 years since it was commissioned, she's outfitted with modern technology. As you walk between decks, you'll find educational exhibits, memorabilia, and activities to give you a deeper understanding of what life was like for sailors who had to make the ship function while at war. 
 
-This multi-generational journey through America's last and most celebrated battleship is one you won't want to miss. Your ticket includes access to the Mighty Mo guided tour, which lets you walk in the footsteps of General Douglas MacArthur, and see where World War II ended. Tours are available in English, Japanese, and Chinese.</p>
-          <div class="card-footer">
-            <span class="price">From €34.48</span>
-            <span class="rating">⭐ 4.8 (84)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-battleship-missouri-p1018666/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This multi-generational journey through America's last and most celebrated battleship is one you won't want to miss. Your ticket includes access to the Mighty Mo guided tour, which lets you walk in the footsteps of General Douglas MacArthur, and see where World War II ended. Tours are available in English, Japanese, and Chinese.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(84)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€34.48</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-battleship-missouri-p1018666/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/75465d471c574a6984149c1395635806.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Passport to Pearl Harbor" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Passport to Pearl Harbor</h3>
-          <p class="venue">📍 Pearl Harbor</p>
-          <p>Visit three iconic attractions located at Pearl Harbor with this passport that includes audio and guided tours.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/75465d471c574a6984149c1395635806.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Passport to Pearl Harbor" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PEARL HARBOR</span>
+        </div>
+        <div class="tq-card-title">Passport to Pearl Harbor</div>
+        <div class="tq-card-desc">Visit three iconic attractions located at Pearl Harbor with this passport that includes audio and guided tours.
 
 Choose a 35-minute guided tour or a self-guided  tour at the Battleship Missouri. You'll be able to climb aboard the "Mighty Mo" as she stands silent guard over Pearl Harbor. The last battleship made in the US and hear more about how it proudly served three wars across three generations. 
 
 Visit the Pearl Harbor Aviation Museum, stand on an American WWII battlefield, and see the strafing marks and bullets holes left by the attack that sunk the USS Arizona.
 
-The Pacific Fleet Submarine Museum, which is adjacent to the Pearl Harbor National Memorial, features the WWII fleet submarine USS Bowfin, a 1942 Balao-class submarine. There's also a museum, outdoor artifacts, a lanai (shaded patio), food service, gift shop, restrooms and concessions. This is one of the few museums in the world where visitors can learn about the history of the US Navy’s submarine fleet.</p>
-          <div class="card-footer">
-            <span class="price">From €86.21</span>
-            <span class="rating">⭐ 4.4 (47)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-passport-to-pearl-harbor-p1026754/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Pacific Fleet Submarine Museum, which is adjacent to the Pearl Harbor National Memorial, features the WWII fleet submarine USS Bowfin, a 1942 Balao-class submarine. There's also a museum, outdoor artifacts, a lanai (shaded patio), food service, gift shop, restrooms and concessions. This is one of the few museums in the world where visitors can learn about the history of the US Navy’s submarine fleet.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(47)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€86.21</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-passport-to-pearl-harbor-p1026754/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pacific Fleet Submarine Museum & USS Bowfin: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pacific Fleet Submarine Museum & USS Bowfin: Entry Ticket</h3>
-          <p class="venue">📍 USS Bowfin Submarine Museum & Park</p>
-          <p>The Pacific Fleet Submarine Museum and campus recently completed a makeover. The museum was expanded and the interior was completely redesigned with three galleries that document the history of the United States Navy's Submarine Force during World War II, the Cold War, to the present day and into the future. There are many different exhibits the whole family can enjoy.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pacific Fleet Submarine Museum & USS Bowfin: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">USS BOWFIN SUBMARINE MUSEUM & PARK</span>
+        </div>
+        <div class="tq-card-title">Pacific Fleet Submarine Museum & USS Bowfin: Entry Ticket</div>
+        <div class="tq-card-desc">The Pacific Fleet Submarine Museum and campus recently completed a makeover. The museum was expanded and the interior was completely redesigned with three galleries that document the history of the United States Navy's Submarine Force during World War II, the Cold War, to the present day and into the future. There are many different exhibits the whole family can enjoy.
 
 **World War II Gallery**
 The Submarine Force came of age during World War II. Although it comprised just 2% of the US Navy, it was responsible for sinking over five million tons of Imperial Japan's shipping vessels - about 60% of the total shipping sunk during the war. 
@@ -98,41 +235,63 @@ The Submarine Force came of age during World War II. Although it comprised just 
 Bowfin's bell was missing after her move between San Diego and Seattle. In 1996, the bell resurfaced and was offered to the museum.
 
 **Battleflags**
-Hanging in the World War II gallery of the museum are replicas of submarine battleflags of many submarines that fought in the Pacific.</p>
-          <div class="card-footer">
-            <span class="price">From €22.41</span>
-            <span class="rating">⭐ 4.6 (21)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pacific-fleet-submarine-museum-uss-bowfin-p1029219/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Hanging in the World War II gallery of the museum are replicas of submarine battleflags of many submarines that fought in the Pacific.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(21)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.41</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pacific-fleet-submarine-museum-uss-bowfin-p1029219/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e112712070a74cbaaaeb2dfaf33a6f41.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="USS Arizona Memorial: Narrated Multimedia Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>USS Arizona Memorial: Narrated Multimedia Tour</h3>
-          <p class="venue">📍 Pearl Harbor</p>
-          <p>Take this USS Arizona Memorial Narrated Tour and turn back the clocks to the morning of December 7, 1941. Relive the surprise attack on Pearl Harbor on this self-guided audio tour. It's a journey across 29 stops that brings to life the events that changed the Pacific forever.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e112712070a74cbaaaeb2dfaf33a6f41.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="USS Arizona Memorial: Narrated Multimedia Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PEARL HARBOR</span>
+        </div>
+        <div class="tq-card-title">USS Arizona Memorial: Narrated Multimedia Tour</div>
+        <div class="tq-card-desc">Take this USS Arizona Memorial Narrated Tour and turn back the clocks to the morning of December 7, 1941. Relive the surprise attack on Pearl Harbor on this self-guided audio tour. It's a journey across 29 stops that brings to life the events that changed the Pacific forever.
 
 Let Hollywood actress Jamie Lee Curtis guide and narrate you through the two world-class museums at the USS Arizona Memorial visitor center.
 
 Follow the story of how the Japanese invasion unfolded on the day that lives in infamy, and then retrace the chaotic scenes along the shoreline with the incredible _Path of Attack_ tour.
 
-Hear firsthand from actual USS Arizona and Pearl Harbor Survivors, as they retrace their own footsteps on that fateful morning.</p>
-          <div class="card-footer">
-            <span class="price">From €8.62</span>
-            <span class="rating">⭐ 4.6 (18)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-uss-arizona-memorial-narrated-tour-p975994/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Hear firsthand from actual USS Arizona and Pearl Harbor Survivors, as they retrace their own footsteps on that fateful morning.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(18)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8.62</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-uss-arizona-memorial-narrated-tour-p975994/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4f18bc9693ec4c09a19b243ae6d2d54c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pearl Harbor Aviation Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pearl Harbor Aviation Museum: Entry Ticket</h3>
-          <p class="venue">📍 Pearl Harbor Aviation Museum</p>
-          <p>Spanning two historic WWII-era hangars filled with aircraft, exhibits, and artifacts of the men and women who gave their lives for freedom, Pearl Harbor Aviation Museum offers a can't-miss stop on your pilgrimage to Pearl Harbor.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4f18bc9693ec4c09a19b243ae6d2d54c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pearl Harbor Aviation Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PEARL HARBOR AVIATION MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Pearl Harbor Aviation Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Spanning two historic WWII-era hangars filled with aircraft, exhibits, and artifacts of the men and women who gave their lives for freedom, Pearl Harbor Aviation Museum offers a can't-miss stop on your pilgrimage to Pearl Harbor.
 
 **Hangar 37**
 Housed in an authentic World War II-era hangar, Pearl Harbor Aviation Museum’s Hangar 37 is home to the artifacts that tell the story of America’s involvement in World War II from the December 7, 1941 attack on Pearl Harbor to the Battle of Midway, and beyond.
@@ -141,311 +300,509 @@ Housed in an authentic World War II-era hangar, Pearl Harbor Aviation Museum’s
 Hangar 79 picks up where the story in Hangar 37 leaves off, documenting the rise of American air superiority that was established in World War II and continued to climb in subsequent decades in the Korean War, the Vietnam War, and the Gulf Wars.
 
 **The Raytheon Pavillion & Outdoor Exhibits**
-This permanent pavilion opened at the museum with the aim of providing exposure to national and international traveling exhibits, through the lens of American history.</p>
-          <div class="card-footer">
-            <span class="price">From €25.86</span>
-            <span class="rating">⭐ 4.6 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pearl-harbor-aviation-museum-p1026865/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This permanent pavilion opened at the museum with the aim of providing exposure to national and international traveling exhibits, through the lens of American history.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.86</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pearl-harbor-aviation-museum-p1026865/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/747b916757654b3683c12a0d1fbf0de0.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Waikiki Trolley" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Waikiki Trolley</h3>
-          <p class="venue">📍 Hawaii City Tours</p>
-          <p>Explore the tropical island paradise of Oahu with a side order of cool Pacific breeze, aboard the rambling Waikiki Trolley. The third-largest island in the Hawaiian archipelago, Oahu is overflowing with sightseeing treasures. With the Waikiki Trolley, you won't miss a beat.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/747b916757654b3683c12a0d1fbf0de0.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Waikiki Trolley" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Waikiki Trolley</div>
+        <div class="tq-card-desc">Explore the tropical island paradise of Oahu with a side order of cool Pacific breeze, aboard the rambling Waikiki Trolley. The third-largest island in the Hawaiian archipelago, Oahu is overflowing with sightseeing treasures. With the Waikiki Trolley, you won't miss a beat.
 
 Choose the route(s) that suits your mood, and discover the glorious natural splendor, historic sites, and fun activities all around the island, hopping on and off whenever as you see fit.
 
-Goodbye stress – Aloha Hawaii!</p>
-          <div class="card-footer">
-            <span class="price">From €15.52</span>
-            <span class="rating">⭐ 4.5 (11)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-waikiki-trolley-p984474/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Goodbye stress – Aloha Hawaii!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(11)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.52</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-waikiki-trolley-p984474/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3ee2b1a885a04f59baf292aa529e07b9.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pearl Harbor Virtual Reality Center" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pearl Harbor Virtual Reality Center</h3>
-          <p class="venue">📍 Pearl Harbor</p>
-          <p>It's the morning of December 7, 1941, just another sunny day in Hawaii. Until the sky cracks open in a hail of bullets and explosions. Relive one of World War II's most seismic moments with a tour of the _USS Arizona Memorial_, an incredible VR experience that drops you into the thick of Japan's surprise attack on the US Navy, and more.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3ee2b1a885a04f59baf292aa529e07b9.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pearl Harbor Virtual Reality Center" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PEARL HARBOR</span>
+        </div>
+        <div class="tq-card-title">Pearl Harbor Virtual Reality Center</div>
+        <div class="tq-card-desc">It's the morning of December 7, 1941, just another sunny day in Hawaii. Until the sky cracks open in a hail of bullets and explosions. Relive one of World War II's most seismic moments with a tour of the _USS Arizona Memorial_, an incredible VR experience that drops you into the thick of Japan's surprise attack on the US Navy, and more.
 
 Before the frantic manning of battle stations, take some time to explore the main deck of the USS _Arizona_. The famous warship is rendered in glorious virtual reality with meticulous historically accurate attention to detail. Survey the horizon from the crow's nest, and take in 360° views of the ship. 
 
-See hellfire rain down from above, and giant naval destroyers sink into the Pacific, as Japanese bomber planes scream overhead. You'll see the surprise attack unfold across four segments that bring to life the attack sequence on Pearl Harbor’s Battleship Row.</p>
-          <div class="card-footer">
-            <span class="price">From €6.04</span>
-            <span class="rating">⭐ 4.4 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pearl-harbor-virtual-reality-center-p975997/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See hellfire rain down from above, and giant naval destroyers sink into the Pacific, as Japanese bomber planes scream overhead. You'll see the surprise attack unfold across four segments that bring to life the attack sequence on Pearl Harbor’s Battleship Row.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€6.04</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pearl-harbor-virtual-reality-center-p975997/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/75465d471c574a6984149c1395635806.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="WWII Pearl Harbor Heroes Deluxe Adventure from Honolulu" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>WWII Pearl Harbor Heroes Deluxe Adventure from Honolulu</h3>
-          <p class="venue">📍 Pearl Harbor</p>
-          <p>It was a dark period in US history, and one that shaped the country we know today. Get the lowdown on this life-changing chapter on a Pearl Harbor Heroes Adventure Tour on Oahu. Join a guide and visit the Arizona Memorial, USS _Bowfin_, Pacific Aviation Museum, and Battleship Missouri. Transport from Waikiki included.</p>
-          <div class="card-footer">
-            <span class="price">From €202.24</span>
-            <span class="rating">⭐ 3.4 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-wwii-pearl-harbor-heroes-adventure-from-honolulu-p976626/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/75465d471c574a6984149c1395635806.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="WWII Pearl Harbor Heroes Deluxe Adventure from Honolulu" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PEARL HARBOR</span>
+        </div>
+        <div class="tq-card-title">WWII Pearl Harbor Heroes Deluxe Adventure from Honolulu</div>
+        <div class="tq-card-desc">It was a dark period in US history, and one that shaped the country we know today. Get the lowdown on this life-changing chapter on a Pearl Harbor Heroes Adventure Tour on Oahu. Join a guide and visit the Arizona Memorial, USS _Bowfin_, Pacific Aviation Museum, and Battleship Missouri. Transport from Waikiki included.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.4</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€202.24</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-wwii-pearl-harbor-heroes-adventure-from-honolulu-p976626/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/de92655eec254af197a8df0e7253e05d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Go City Hawaii: All-Inclusive Oahu Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Go City Hawaii: All-Inclusive Oahu Pass</h3>
-          <p class="venue">📍 Hawaii City Cards</p>
-          <p>Explore Oahu at your own pace with a 2 to 7-days Go City Oahu: All-Inclusive Pass and take your pick from a list of incredible attractions for an unforgettable Hawaiian adventure.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/de92655eec254af197a8df0e7253e05d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Go City Hawaii: All-Inclusive Oahu Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Go City Hawaii: All-Inclusive Oahu Pass</div>
+        <div class="tq-card-desc">Explore Oahu at your own pace with a 2 to 7-days Go City Oahu: All-Inclusive Pass and take your pick from a list of incredible attractions for an unforgettable Hawaiian adventure.
  
-With the pass you'll also bag one premium attraction, including admission to your choice of Luau, between Ka Moana Luau at Aloha Tower OR Aloha Kai Luau at Sea Life Park.</p>
-          <div class="card-footer">
-            <span class="price">From €188.83</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-go-oahu-card-p975496/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With the pass you'll also bag one premium attraction, including admission to your choice of Luau, between Ka Moana Luau at Aloha Tower OR Aloha Kai Luau at Sea Life Park.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€188.83</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-go-oahu-card-p975496/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e928394239d44be9d875db83d00f413.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Waikiki: Roundtrip Shuttle Transfer from Ko Olina" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Waikiki: Roundtrip Shuttle Transfer from Ko Olina</h3>
-          <p class="venue">📍 Hawaii Day Trips</p>
-          <p>Use the shuttle transfer for daily trips between the Ko Olina resort area and Waikiki. The shuttle leaves Ko Olina in the morning and arrives at Ross Dress for Less on Seaside Avenue in Waikiki after about an hour. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2e928394239d44be9d875db83d00f413.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Waikiki: Roundtrip Shuttle Transfer from Ko Olina" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII DAY TRIPS</span>
+        </div>
+        <div class="tq-card-title">Waikiki: Roundtrip Shuttle Transfer from Ko Olina</div>
+        <div class="tq-card-desc">Use the shuttle transfer for daily trips between the Ko Olina resort area and Waikiki. The shuttle leaves Ko Olina in the morning and arrives at Ross Dress for Less on Seaside Avenue in Waikiki after about an hour. 
 
-Spend your day exploring the area, shopping, or enjoying the beach. Return to the same location in the early afternoon for the trip back to Ko Olina. The shuttle ride back also takes about an hour.</p>
-          <div class="card-footer">
-            <span class="price">From €35.21</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-waikiki-roundtrip-shuttle-transfer-from-ko-olina-p1119804/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Spend your day exploring the area, shopping, or enjoying the beach. Return to the same location in the early afternoon for the trip back to Ko Olina. The shuttle ride back also takes about an hour.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€35.21</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-waikiki-roundtrip-shuttle-transfer-from-ko-olina-p1119804/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Waimea Valley: Guided Waterfall Hike & Swim Tour from Waikiki" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Waimea Valley: Guided Waterfall Hike & Swim Tour from Waikiki</h3>
-          <p class="venue">📍 Hawaii Outdoor Activities</p>
-          <p>Join a guided hiking tour through Oahu's North Shore in Waimea Valley. Start with breakfast at Green World Coffee Farm. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Waimea Valley: Guided Waterfall Hike & Swim Tour from Waikiki" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Waimea Valley: Guided Waterfall Hike & Swim Tour from Waikiki</div>
+        <div class="tq-card-desc">Join a guided hiking tour through Oahu's North Shore in Waimea Valley. Start with breakfast at Green World Coffee Farm. 
 
 Walk 1.5 miles through botanical gardens, rainforest trails, and cultural sites. Guides share Hawaiian history and information on native plants. 
 
-Reach Waimea Falls and, if conditions permit, swim under lifeguard supervision. Enjoy lunch before visiting the Dole Plantation.</p>
-          <div class="card-footer">
-            <span class="price">From €115.54</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-waimea-valley-guided-waterfall-hike-swim-tour-from-waikiki-p1118448/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Reach Waimea Falls and, if conditions permit, swim under lifeguard supervision. Enjoy lunch before visiting the Dole Plantation.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€115.54</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-waimea-valley-guided-waterfall-hike-swim-tour-from-waikiki-p1118448/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bc31d6ebfba94558adb554f575a4b9c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Path to Pali Passage Helicopter Flight" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Path to Pali Passage Helicopter Flight</h3>
-          <p class="venue">📍 Hawaii Aviation activities</p>
-          <p>Ready to see the mountains, the Waikiki skyline, and Diamond Head crater as you’ve never seen them before? Choose whether you want the doors on or off, and board your Path to Pali Passage flight on a Rainbow helicopter. Take to the skies over Oahu – it's so beautiful up there you won't want to come down.</p>
-          <div class="card-footer">
-            <span class="price">From €379.38</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-path-to-pali-passage-helicopter-flight-p976117/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bc31d6ebfba94558adb554f575a4b9c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Path to Pali Passage Helicopter Flight" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII AVIATION ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Path to Pali Passage Helicopter Flight</div>
+        <div class="tq-card-desc">Ready to see the mountains, the Waikiki skyline, and Diamond Head crater as you’ve never seen them before? Choose whether you want the doors on or off, and board your Path to Pali Passage flight on a Rainbow helicopter. Take to the skies over Oahu – it's so beautiful up there you won't want to come down.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€379.38</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-path-to-pali-passage-helicopter-flight-p976117/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b27ebdb4173a412e9abef3807738191f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Waikiki Sunset Helicopter Flight" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Waikiki Sunset Helicopter Flight</h3>
-          <p class="venue">📍 Hawaii Aviation activities</p>
-          <p>Watch the Waikiki skyline twinkle below you on this thrilling twilight helicopter flight! Board at sunset and watch the colors light up the modern city buildings from a new angle. You'll see Ala Moana Center, Magic Island, Honolulu Skyline, Pearl Harbor and more.</p>
-          <div class="card-footer">
-            <span class="price">From €444.05</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-waikiki-sunset-helicopter-flight-p976108/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b27ebdb4173a412e9abef3807738191f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Waikiki Sunset Helicopter Flight" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII AVIATION ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Waikiki Sunset Helicopter Flight</div>
+        <div class="tq-card-desc">Watch the Waikiki skyline twinkle below you on this thrilling twilight helicopter flight! Board at sunset and watch the colors light up the modern city buildings from a new angle. You'll see Ala Moana Center, Magic Island, Honolulu Skyline, Pearl Harbor and more.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€444.05</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-waikiki-sunset-helicopter-flight-p976108/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="O'ahu: Dolphin Watching Cruise, Zipline, Snorkeling + Lunch & Drinks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>O'ahu: Dolphin Watching Cruise, Zipline, Snorkeling + Lunch & Drinks</h3>
-          <p class="venue">📍 Hawaii Outdoor Activities</p>
-          <p>Begin your day at Coral Crater Adventure Park, where you can try three ziplines designed for any level of participant. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="O'ahu: Dolphin Watching Cruise, Zipline, Snorkeling + Lunch & Drinks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">O'ahu: Dolphin Watching Cruise, Zipline, Snorkeling + Lunch & Drinks</div>
+        <div class="tq-card-desc">Begin your day at Coral Crater Adventure Park, where you can try three ziplines designed for any level of participant. 
 
 Afterwards, head to Ko Olina Marina to board the boat for a dolphin-watching cruise. While onboard, enjoy the views from the spacious cabin or the open-air deck. 
 
 Participate in snorkeling to observe the underwater scenery. 
 
-On the vessel, a Hawaiian buffet is served with a choice of beverages, including alcoholic and non-alcoholic options.</p>
-          <div class="card-footer">
-            <span class="price">From €242.87</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-oahu-dolphin-watching-cruise-zipline-snorkeling-lunch-drinks-p1126182/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+On the vessel, a Hawaiian buffet is served with a choice of beverages, including alcoholic and non-alcoholic options.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€242.87</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-oahu-dolphin-watching-cruise-zipline-snorkeling-lunch-drinks-p1126182/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hawaii Volcanoes National Park: 3-Hr E-Fat Guided Bike Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hawaii Volcanoes National Park: 3-Hr E-Fat Guided Bike Tour</h3>
-          <p class="venue">📍 Hawaii Outdoor Activities</p>
-          <p>Ride through the Hawaii Volcanoes National Park on fat tire e-bikes. Cover many miles effortlessly on roads and trails.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hawaii Volcanoes National Park: 3-Hr E-Fat Guided Bike Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Hawaii Volcanoes National Park: 3-Hr E-Fat Guided Bike Tour</div>
+        <div class="tq-card-desc">Ride through the Hawaii Volcanoes National Park on fat tire e-bikes. Cover many miles effortlessly on roads and trails.
 
 The bikes are powerful and easy to ride, even for beginners. Your guide will share insights about the island's geology and volcanoes.
 
-Quickly reach the top park spots without the hassle of parking.</p>
-          <div class="card-footer">
-            <span class="price">From €179.31</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hawaii-volcanoes-national-park-3-hr-e-fat-guided-bike-tour-p1124128/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Quickly reach the top park spots without the hassle of parking.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€179.31</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hawaii-volcanoes-national-park-3-hr-e-fat-guided-bike-tour-p1124128/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e928394239d44be9d875db83d00f413.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hawaii Volcanoes National Park: E-Fat Bike Rental" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hawaii Volcanoes National Park: E-Fat Bike Rental</h3>
-          <p class="venue">📍 Hawaii Bike Rentals</p>
-          <p>Ride through city streets and mountain trails on a powerful mobility e-bike. The advanced engine provides quick power, complementing your pedaling for a smooth experience.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2e928394239d44be9d875db83d00f413.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hawaii Volcanoes National Park: E-Fat Bike Rental" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII BIKE RENTALS</span>
+        </div>
+        <div class="tq-card-title">Hawaii Volcanoes National Park: E-Fat Bike Rental</div>
+        <div class="tq-card-desc">Ride through city streets and mountain trails on a powerful mobility e-bike. The advanced engine provides quick power, complementing your pedaling for a smooth experience.
 
-Climb hills and accelerate with less effort. This e-bike is a great way to see many spots on The Big Island.</p>
-          <div class="card-footer">
-            <span class="price">From €107.78</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hawaii-volcanoes-national-park-e-fat-bike-rental-p1122512/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Climb hills and accelerate with less effort. This e-bike is a great way to see many spots on The Big Island.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€107.78</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hawaii-volcanoes-national-park-e-fat-bike-rental-p1122512/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turtle Canyon: Guided Snorkeling Experience + Live Hula Show + Snacks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turtle Canyon: Guided Snorkeling Experience + Live Hula Show + Snacks</h3>
-          <p class="venue">📍 Hawaii Outdoor Activities</p>
-          <p>Snorkel at Turtle Canyon and see Hawaiian green sea turtles and colorful reef fish. This reef is just off Waikiki's coast. The staff ensures a safe ocean visit making the tour suitable for beginners and experienced swimmers.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turtle Canyon: Guided Snorkeling Experience + Live Hula Show + Snacks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Turtle Canyon: Guided Snorkeling Experience + Live Hula Show + Snacks</div>
+        <div class="tq-card-desc">Snorkel at Turtle Canyon and see Hawaiian green sea turtles and colorful reef fish. This reef is just off Waikiki's coast. The staff ensures a safe ocean visit making the tour suitable for beginners and experienced swimmers.
 
 Relax on a double-decker boat with wraparound seating. View Diamond Head and the Honolulu skyline as you cruise. In winter, look for Hawaiian spinner dolphins or humpback whales.
 
-This tour includes a live hula performance, snacks, and unlimited soft drinks. Snorkel gear is provided, and no experience is needed.</p>
-          <div class="card-footer">
-            <span class="price">From €107.78</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turtle-canyon-guided-snorkeling-experience-live-hula-show-snacks-p1122209/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This tour includes a live hula performance, snacks, and unlimited soft drinks. Snorkel gear is provided, and no experience is needed.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€107.78</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turtle-canyon-guided-snorkeling-experience-live-hula-show-snacks-p1122209/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e928394239d44be9d875db83d00f413.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kapolei: Morning Dolphin Watching Cruise + Snorkeling + Lunch + Drinks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Kapolei: Morning Dolphin Watching Cruise + Snorkeling + Lunch + Drinks</h3>
-          <p class="venue">📍 Hawaii Cruises & Boat Tours</p>
-          <p>Take a morning cruise along the Waianae coast, starting from Ko’Olina Marina. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2e928394239d44be9d875db83d00f413.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kapolei: Morning Dolphin Watching Cruise + Snorkeling + Lunch + Drinks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Kapolei: Morning Dolphin Watching Cruise + Snorkeling + Lunch + Drinks</div>
+        <div class="tq-card-desc">Take a morning cruise along the Waianae coast, starting from Ko’Olina Marina. 
 
 Learn about the history and legends of the islands as you travel. 
 
 After the ride, spend an hour snorkeling in the waters off Oahu's western coastline.
 
-There are six outdoor showers with warm freshwater, changing rooms and toilets. Snorkel equipment features silicone seals, optical lenses, and quality fins, along with guidance for beginners.</p>
-          <div class="card-footer">
-            <span class="price">From €150.03</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kapolei-morning-dolphin-watching-cruise-snorkeling-lunch-drinks-p1121388/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There are six outdoor showers with warm freshwater, changing rooms and toilets. Snorkel equipment features silicone seals, optical lenses, and quality fins, along with guidance for beginners.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€150.03</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kapolei-morning-dolphin-watching-cruise-snorkeling-lunch-drinks-p1121388/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oahu: Guided Dolphin Watching & Snorkeling Tour + Lunch + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Oahu: Guided Dolphin Watching & Snorkeling Tour + Lunch + Roundtrip Transfer</h3>
-          <p class="venue">📍 Hawaii Outdoor Activities</p>
-          <p>Join a dolphin watching and snorkeling cruise on Oahu's West Coast.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oahu: Guided Dolphin Watching & Snorkeling Tour + Lunch + Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Oahu: Guided Dolphin Watching & Snorkeling Tour + Lunch + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Join a dolphin watching and snorkeling cruise on Oahu's West Coast.
 
 See wild dolphins swimming in their natural habitat from the boat. Afterward, snorkel in clear waters with sea turtles and tropical fish.
  
 Try kayaking, stand-up paddleboarding, and a 20 ft water slide off the boat. Learn about Hawaiian traditions with a cultural performance onboard.
 
-Enjoy the views of West Oahu with a friendly crew, lunch, and transportation from Waikiki hotels.</p>
-          <div class="card-footer">
-            <span class="price">From €163.82</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-oahu-guided-dolphin-watching-snorkeling-tour-lunch-roundtrip-transfer-p1119479/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy the views of West Oahu with a friendly crew, lunch, and transportation from Waikiki hotels.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€163.82</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-oahu-guided-dolphin-watching-snorkeling-tour-lunch-roundtrip-transfer-p1119479/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Waikiki: Sailing & Snorkeling Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Waikiki: Sailing & Snorkeling Tour</h3>
-          <p class="venue">📍 Hawaii Outdoor Activities</p>
-          <p>Set sail on Oʻahu’s "Turtle Canyon" aboard the *Hokulani trimaran*. Depart from Ala Wai Harbor for a two-hour cruise to a great snorkeling spot with Hawaiian green sea turtles, coral reefs, and schools of tropical fish. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Waikiki: Sailing & Snorkeling Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Waikiki: Sailing & Snorkeling Tour</div>
+        <div class="tq-card-desc">Set sail on Oʻahu’s "Turtle Canyon" aboard the *Hokulani trimaran*. Depart from Ala Wai Harbor for a two-hour cruise to a great snorkeling spot with Hawaiian green sea turtles, coral reefs, and schools of tropical fish. 
 
-Snorkeling gear and safety vests are provided, with a certified crew offering in-water guidance. After snorkeling, raise the sails and view Diamond Head and the Waikīkī skyline during the return cruise. BYOB (bring your own beverages) is welcome to enjoy on deck with complimentary bottled water.</p>
-          <div class="card-footer">
-            <span class="price">From €85.36</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-waikiki-sailing-snorkeling-tour-p1119189/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Snorkeling gear and safety vests are provided, with a certified crew offering in-water guidance. After snorkeling, raise the sails and view Diamond Head and the Waikīkī skyline during the return cruise. BYOB (bring your own beverages) is welcome to enjoy on deck with complimentary bottled water.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€85.36</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-waikiki-sailing-snorkeling-tour-p1119189/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Waikiki: Sunset Sailing Tour with Swim" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Waikiki: Sunset Sailing Tour with Swim</h3>
-          <p class="venue">📍 Hawaii Outdoor Activities</p>
-          <p>Board the 1,000 sqft Hokulani trimaran for a sunset swim and sail in Waikiki.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Waikiki: Sunset Sailing Tour with Swim" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Waikiki: Sunset Sailing Tour with Swim</div>
+        <div class="tq-card-desc">Board the 1,000 sqft Hokulani trimaran for a sunset swim and sail in Waikiki.
 
 Start with a swim in the clear waters near Diamond Head. Then cruise along the coastline as the sun sets. Bring your own canned drinks to enjoy with local Hawaiian music.
 
-Relax with shaded seating under a 300 sqft Sunbrella Bimini, open deck views, and onboard bathrooms.</p>
-          <div class="card-footer">
-            <span class="price">From €68.12</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-waikiki-sunset-sailing-tour-with-swim-p1119188/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Relax with shaded seating under a 300 sqft Sunbrella Bimini, open deck views, and onboard bathrooms.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€68.12</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-waikiki-sunset-sailing-tour-with-swim-p1119188/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e928394239d44be9d875db83d00f413.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Waikiki: Whale Watching Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Waikiki: Whale Watching Tour</h3>
-          <p class="venue">📍 Hawaii Cruises & Boat Tours</p>
-          <p>Join a two-hour tour in Waikiki for whale watching. Step aboard a modern trimaran designed for comfort and safety. Sail across Hawaiian waters to see humpback whales in their natural habitat.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2e928394239d44be9d875db83d00f413.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Waikiki: Whale Watching Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Waikiki: Whale Watching Tour</div>
+        <div class="tq-card-desc">Join a two-hour tour in Waikiki for whale watching. Step aboard a modern trimaran designed for comfort and safety. Sail across Hawaiian waters to see humpback whales in their natural habitat.
 
-Learn from the experienced crew and onboard naturalists. They guide you to the best spots to observe these large sea mammals. The trimaran's deck provides clear views for capturing photos with Diamond Head Volcano as your backdrop.</p>
-          <div class="card-footer">
-            <span class="price">From €68.12</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-waikiki-whale-watching-tour-p1119187/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn from the experienced crew and onboard naturalists. They guide you to the best spots to observe these large sea mammals. The trimaran's deck provides clear views for capturing photos with Diamond Head Volcano as your backdrop.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€68.12</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-waikiki-whale-watching-tour-p1119187/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e928394239d44be9d875db83d00f413.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oahu: Guided Dolphin Watching Sunset Cruise + Snorkeling + Buffet" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Oahu: Guided Dolphin Watching Sunset Cruise + Snorkeling + Buffet</h3>
-          <p class="venue">📍 Hawaii Cruises & Boat Tours</p>
-          <p>Enjoy a sunset cruise that includes both dinner and snorkeling.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2e928394239d44be9d875db83d00f413.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oahu: Guided Dolphin Watching Sunset Cruise + Snorkeling + Buffet" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Oahu: Guided Dolphin Watching Sunset Cruise + Snorkeling + Buffet</div>
+        <div class="tq-card-desc">Enjoy a sunset cruise that includes both dinner and snorkeling.
 
 As you sail along the Waianae coastline, the crew will share the history and local legends about the islands, giving you an understanding of the area.
 
@@ -453,154 +810,248 @@ The experience includes a Hawaiian buffet along with a selection of alcoholic an
 
 Snorkeling gear is provided, including soft-seal masks, quality fins, and optical lenses, with help available for those new to snorkeling.
 
-Onboard, you'll find warm freshwater showers, changing rooms, and toilets. There's also a cabin with padded seating where you can relax between activities.</p>
-          <div class="card-footer">
-            <span class="price">From €127.52</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-oahu-guided-dolphin-watching-sunset-cruise-snorkeling-hawaiian-buffet-p1118157/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Onboard, you'll find warm freshwater showers, changing rooms, and toilets. There's also a cabin with padded seating where you can relax between activities.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€127.52</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-oahu-guided-dolphin-watching-sunset-cruise-snorkeling-hawaiian-buffet-p1118157/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e928394239d44be9d875db83d00f413.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oahu: Afternoon Dolphin Watching Cruise + Snorkeling" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Oahu: Afternoon Dolphin Watching Cruise + Snorkeling</h3>
-          <p class="venue">📍 Hawaii Cruises & Boat Tours</p>
-          <p>Learn the history of the Waianae coastline. Hear stories about the islands during a narrated tour along Oahu's western coast. Enjoy an hour of snorkeling in clear waters, with all equipment and instructions provided.</p>
-          <div class="card-footer">
-            <span class="price">From €150.03</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-oahu-afternoon-dolphin-watching-cruise-snorkeling-p1117091/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2e928394239d44be9d875db83d00f413.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oahu: Afternoon Dolphin Watching Cruise + Snorkeling" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Oahu: Afternoon Dolphin Watching Cruise + Snorkeling</div>
+        <div class="tq-card-desc">Learn the history of the Waianae coastline. Hear stories about the islands during a narrated tour along Oahu's western coast. Enjoy an hour of snorkeling in clear waters, with all equipment and instructions provided.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€150.03</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-oahu-afternoon-dolphin-watching-cruise-snorkeling-p1117091/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/022eacfd472e47728a3d110e2d63c34d.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Go City Oahu: Explorer Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Go City Oahu: Explorer Pass</h3>
-          <p class="venue">📍 Hawaii City Cards</p>
-          <p>Explore Oahu at your own pace and take your pick from a list of incredible attractions for an unforgettable Hawaiian adventure.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/022eacfd472e47728a3d110e2d63c34d.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Go City Oahu: Explorer Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Go City Oahu: Explorer Pass</div>
+        <div class="tq-card-desc">Explore Oahu at your own pace and take your pick from a list of incredible attractions for an unforgettable Hawaiian adventure.
 
 With the pass, you'll also bag one premium attraction, including admission to your choice of Luau, between Ka Moana Luau at Aloha Tower OR Aloha Kai Luau at Sea Life Park.
 
 The Explorer Pass lets you see the best of the Central Pacific region and create your own itinerary. Simply choose your pass and choose between 3 to 7 attractions and activities and is valid for 30 days after first use.
 
-All-access attractions include the Pacific Fleet Submarine Museum at Pearl Harbor, kayaking adventures, and a Makapu'u Lighthouse hike for ocean views. Just choose your favorites for ultimate happiness in Hawaii!</p>
-          <div class="card-footer">
-            <span class="price">From €145.72</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-go-city-oahu-explorer-pass-p1099327/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+All-access attractions include the Pacific Fleet Submarine Museum at Pearl Harbor, kayaking adventures, and a Makapu'u Lighthouse hike for ocean views. Just choose your favorites for ultimate happiness in Hawaii!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€145.72</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-go-city-oahu-explorer-pass-p1099327/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/747b916757654b3683c12a0d1fbf0de0.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Honolulu: Fireworks Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Honolulu: Fireworks Boat Tour</h3>
-          <p class="venue">📍 Hawaii City Tours</p>
-          <p>Join this Friday night fireworks tour outside of Waikiki for a unique experience. Witness the city lights like never before as you cruise to the perfect spot for the fireworks show. Enjoy drinks, music, and sightseeing while taking in beautiful views of the Honolulu skyline and underwater scenes through the glass-bottom boat.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/747b916757654b3683c12a0d1fbf0de0.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Honolulu: Fireworks Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Honolulu: Fireworks Boat Tour</div>
+        <div class="tq-card-desc">Join this Friday night fireworks tour outside of Waikiki for a unique experience. Witness the city lights like never before as you cruise to the perfect spot for the fireworks show. Enjoy drinks, music, and sightseeing while taking in beautiful views of the Honolulu skyline and underwater scenes through the glass-bottom boat.
 
-This firework cruise in Honolulu, Hawaii is ideal for any celebration, family outing, or if you're just visiting Hawaii for a short while. You get water and juice on all cruises, but feel free to bring your own food and drinks, including adult beverages, to enjoy during the show.</p>
-          <div class="card-footer">
-            <span class="price">From €61.96</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-honolulu-fireworks-boat-tour-p1091986/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This firework cruise in Honolulu, Hawaii is ideal for any celebration, family outing, or if you're just visiting Hawaii for a short while. You get water and juice on all cruises, but feel free to bring your own food and drinks, including adult beverages, to enjoy during the show.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€61.96</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-honolulu-fireworks-boat-tour-p1091986/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e928394239d44be9d875db83d00f413.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Honolulu: Sunset Waikiki Glass Bottom Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Honolulu: Sunset Waikiki Glass Bottom Boat Tour</h3>
-          <p class="venue">📍 Hawaii City Tours</p>
-          <p>Witness a scenic sunset over the beautiful city, Waikiki, from a new oceanic perspective aboard the Haleiwa Queen. Join a friendly crew as the sky transforms into a vibrant canvas of colors over downtown Honolulu during this sunset tour.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2e928394239d44be9d875db83d00f413.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Honolulu: Sunset Waikiki Glass Bottom Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAWAII CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Honolulu: Sunset Waikiki Glass Bottom Boat Tour</div>
+        <div class="tq-card-desc">Witness a scenic sunset over the beautiful city, Waikiki, from a new oceanic perspective aboard the Haleiwa Queen. Join a friendly crew as the sky transforms into a vibrant canvas of colors over downtown Honolulu during this sunset tour.
 
 Look through the glass-bottom viewports and witness the underwater world come alive with fish and sea life illuminated by the boat's lights. Even after dusk, Oahu's reefs offer a fascinating view. Add in the twinkling city lights of Honolulu reflected on the water, and you've got an unmatched experience.
 
-Whether you're on a family vacation or a group adventure, a tour with Hawaii Glass Bottom Boats is the perfect addition to your Hawaiian getaway.</p>
-          <div class="card-footer">
-            <span class="price">From €61.96</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-honolulu-sunset-waikiki-glass-bottom-boat-tour-p1091984/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Whether you're on a family vacation or a group adventure, a tour with Hawaii Glass Bottom Boats is the perfect addition to your Hawaiian getaway.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€61.96</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-honolulu-sunset-waikiki-glass-bottom-boat-tour-p1091984/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/883451d989e74676b25d3943726bd1fb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hard Rock Cafe Honolulu" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hard Rock Cafe Honolulu</h3>
-          <p class="venue">📍 Hard Rock Cafe Honolulu</p>
-          <p>Visit the legendary Hard Rock Cafe Honolulu. Established in 1987, this iconic eatery is nestled in Waikiki, surrounded by a plethora of bustling resorts, eclectic shops, the impressive Hawaii Convention Center, and the world-famous Waikiki Beach. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/883451d989e74676b25d3943726bd1fb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hard Rock Cafe Honolulu" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HARD ROCK CAFE HONOLULU</span>
+        </div>
+        <div class="tq-card-title">Hard Rock Cafe Honolulu</div>
+        <div class="tq-card-desc">Visit the legendary Hard Rock Cafe Honolulu. Established in 1987, this iconic eatery is nestled in Waikiki, surrounded by a plethora of bustling resorts, eclectic shops, the impressive Hawaii Convention Center, and the world-famous Waikiki Beach. 
 
-Savor mouthwatering delicacies of typical American cuisine. Look around and admire the impressive collection of memorabilia at the cafe. Featuring a special connection to Hawaii in each item, you can see the Ramirez classical guitar given to Elvis Presley by Jack Lord and Tina Turner’s wig, among many other collectibles.</p>
-          <div class="card-footer">
-            <span class="price">From €31.95</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hard-rock-cafe-honolulu-p1067565/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Savor mouthwatering delicacies of typical American cuisine. Look around and admire the impressive collection of memorabilia at the cafe. Featuring a special connection to Hawaii in each item, you can see the Ramirez classical guitar given to Elvis Presley by Jack Lord and Tina Turner’s wig, among many other collectibles.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€31.95</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hard-rock-cafe-honolulu-p1067565/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ka Moana Luau at Aloha Tower" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ka Moana Luau at Aloha Tower</h3>
-          <p class="venue">📍 Aloha Tower</p>
-          <p>Are you ready to score big with a night of unforgettable Hawaiian fun and culture? Join the ʻOhana and embark on an exciting voyage across Ka Moana (the ocean) at the new and improved Luau experience!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a79cdc7c959048ad814aa1bb764880c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ka Moana Luau at Aloha Tower" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALOHA TOWER</span>
+        </div>
+        <div class="tq-card-title">Ka Moana Luau at Aloha Tower</div>
+        <div class="tq-card-desc">Are you ready to score big with a night of unforgettable Hawaiian fun and culture? Join the ʻOhana and embark on an exciting voyage across Ka Moana (the ocean) at the new and improved Luau experience!
 
 Be blown away by the spectacular sights, sounds and flavors of Polynesia as you embark on a journey through the many islands that make up this rich and diverse region. 
 
-You'll witness mesmerizing cultural chants, dances and songs, including the enchanting Hula ʻAuana from Hawaiʻi, the electrifying ʻoteʻa from Tahiti, and the jaw-dropping Samoan fire-knife performances, among many others.</p>
-          <div class="card-footer">
-            <span class="price">From €116.47</span>
-            <span class="rating">⭐ 2.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ka-moana-luau-at-aloha-tower-p1052482/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll witness mesmerizing cultural chants, dances and songs, including the enchanting Hula ʻAuana from Hawaiʻi, the electrifying ʻoteʻa from Tahiti, and the jaw-dropping Samoan fire-knife performances, among many others.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€116.47</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ka-moana-luau-at-aloha-tower-p1052482/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4f18bc9693ec4c09a19b243ae6d2d54c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pearl Harbor Aviation Museum: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pearl Harbor Aviation Museum: Guided Tour</h3>
-          <p class="venue">📍 Pearl Harbor Aviation Museum</p>
-          <p>With two historic WWII-era hangars filled with aircraft, exhibits, and artifacts honoring the men and women who gave their lives for freedom, Pearl Harbor Aviation Museum is a must on your pilgrimage to Pearl Harbor.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4f18bc9693ec4c09a19b243ae6d2d54c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pearl Harbor Aviation Museum: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PEARL HARBOR AVIATION MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Pearl Harbor Aviation Museum: Guided Tour</div>
+        <div class="tq-card-desc">With two historic WWII-era hangars filled with aircraft, exhibits, and artifacts honoring the men and women who gave their lives for freedom, Pearl Harbor Aviation Museum is a must on your pilgrimage to Pearl Harbor.
 
 This Pearl Harbor Aviation Museum ticket also includes a guided "Legends of Pearl Harbor" tour, giving your exclusive access to Hangars 37 and 79 with an expert as your guide. 
 
-Hear the compelling history and thrilling heroism of that fateful day as you board a legendary C-47 transport plane and enter Lt. Ted Shealy’s restoration shop.</p>
-          <div class="card-footer">
-            <span class="price">From €35.33</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pearl-harbor-aviation-museum-guided-tour-p1034184/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Hear the compelling history and thrilling heroism of that fateful day as you board a legendary C-47 transport plane and enter Lt. Ted Shealy’s restoration shop.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€35.33</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pearl-harbor-aviation-museum-guided-tour-p1034184/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4f18bc9693ec4c09a19b243ae6d2d54c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pearl Harbor Aviation Museum: Entry Ticket + Tower View Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pearl Harbor Aviation Museum: Entry Ticket + Tower View Experience</h3>
-          <p class="venue">📍 Pearl Harbor Aviation Museum</p>
-          <p>Visit the Pearl Harbor Aviation Museum, located at the site of the Pearl Harbor attack. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4f18bc9693ec4c09a19b243ae6d2d54c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pearl Harbor Aviation Museum: Entry Ticket + Tower View Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HONOLULU</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PEARL HARBOR AVIATION MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Pearl Harbor Aviation Museum: Entry Ticket + Tower View Experience</div>
+        <div class="tq-card-desc">Visit the Pearl Harbor Aviation Museum, located at the site of the Pearl Harbor attack. 
 
 Explore more than 50 aircraft on display, along with exhibits in Hangar 37, Hangar 79, and the Raytheon Pavilion.
 
 Take an elevator to the Ford Island Control Tower observation level, 168 ft above ground, for 360° views of Pearl Harbor. See landmarks such as the USS Arizona Memorial, Battleship Row, and the surrounding harbor.
 
-Use interpretive displays and viewfinders to identify key locations, and hear brief explanations from an onsite docent about the events of December 7, 1941.</p>
-          <div class="card-footer">
-            <span class="price">From €34.48</span>
-            <span class="rating">⭐ 4 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pearl-harbor-aviation-museum-entry-tower-view-experience-p1033923/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Use interpretive displays and viewfinders to identify key locations, and hear brief explanations from an onsite docent about the events of December 7, 1941.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€34.48</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pearl-harbor-aviation-museum-entry-tower-view-experience-p1033923/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

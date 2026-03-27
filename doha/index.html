@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Doha | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Doha. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,173 +131,267 @@
     <p>10 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Museum of Qatar: Entry Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>National Museum of Qatar: Entry Ticket + Audio Guide</h3>
-          <p class="venue">📍 National Museum of Qatar</p>
-          <p>Explore the National Museum of Qatar (NMoQ) to see the work of architect Jean Nouvel, inspired by the desert rose. Learn about Qatar's history from its geological beginnings to its present-day identity.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e1172218094470a99248be950e734d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Museum of Qatar: Entry Ticket + Audio Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DOHA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NATIONAL MUSEUM OF QATAR</span>
+        </div>
+        <div class="tq-card-title">National Museum of Qatar: Entry Ticket + Audio Guide</div>
+        <div class="tq-card-desc">Explore the National Museum of Qatar (NMoQ) to see the work of architect Jean Nouvel, inspired by the desert rose. Learn about Qatar's history from its geological beginnings to its present-day identity.
 
 Visit three main galleries: *Beginnings*, which covers Qatar’s natural history; *Life in Qatar*, highlighting cultural traditions and everyday life; and *The Modern History of Qatar*, detailing the nation's transformation. Key exhibits include the Pearl Carpet of Baroda and multimedia displays.
 
-Enjoy interactive installations, educational workshops, cafes, and gift shops.</p>
-          <div class="card-footer">
-            <span class="price">From €11.74</span>
-            <span class="rating">⭐ 4.2 (13)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-national-museum-of-qatar-entry-audio-guide-p1116111/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy interactive installations, educational workshops, cafes, and gift shops.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(13)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€11.74</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-national-museum-of-qatar-entry-audio-guide-p1116111/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Islamic Art: Entry Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum of Islamic Art: Entry Ticket + Audio Guide</h3>
-          <p class="venue">📍 Museum of Islamic Art</p>
-          <p>Visit the Museum of Islamic Art in Doha, designed by architect I.M. Pei. The museum is located along Doha’s Corniche. See a collection that covers over 1,400 years of Islamic history.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Islamic Art: Entry Ticket + Audio Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DOHA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEUM OF ISLAMIC ART</span>
+        </div>
+        <div class="tq-card-title">Museum of Islamic Art: Entry Ticket + Audio Guide</div>
+        <div class="tq-card-desc">Visit the Museum of Islamic Art in Doha, designed by architect I.M. Pei. The museum is located along Doha’s Corniche. See a collection that covers over 1,400 years of Islamic history.
 
 Walk through galleries showcasing ceramics, metalwork, manuscripts, textiles, and jewelry from the 7th to 20th centuries. The collection includes pieces from Asia, Africa, and Europe, showing the diversity of Islamic civilization. Rotating exhibitions and interactive displays provide different ways to engage with the collection.
 
-Whether interested in art, history, or learning something new, the Museum of Islamic Art provides a comprehensive look into Islamic culture.</p>
-          <div class="card-footer">
-            <span class="price">From €11.74</span>
-            <span class="rating">⭐ 4.6 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-islamic-art-entry-audio-guide-p1116108/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Whether interested in art, history, or learning something new, the Museum of Islamic Art provides a comprehensive look into Islamic culture.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€11.74</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-islamic-art-entry-audio-guide-p1116108/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Doha: Private City Tour from Cruise Port" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Doha: Private City Tour from Cruise Port</h3>
-          <p class="venue">📍 Doha City Tours</p>
-          <p>Doha, known as one of the world's safest cities, blends history, tradition, and modern living. Take a 4-hour tour of Doha and visit many key attractions. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DOHA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DOHA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Doha: Private City Tour from Cruise Port</div>
+        <div class="tq-card-desc">Doha, known as one of the world's safest cities, blends history, tradition, and modern living. Take a 4-hour tour of Doha and visit many key attractions. 
 
-See the rich culture, history, and rapid growth of Qatar in a short time. Visit prominent landmarks and learn about Arab culture.</p>
-          <div class="card-footer">
-            <span class="price">From €155</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-doha-private-city-tour-from-cruise-port-p1104967/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See the rich culture, history, and rapid growth of Qatar in a short time. Visit prominent landmarks and learn about Arab culture.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€155.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-doha-private-city-tour-from-cruise-port-p1104967/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="North Qatar: Private Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>North Qatar: Private Tour</h3>
-          <p class="venue">📍 Day Trips from Doha</p>
-          <p>Dive headfirst into an enchanting journey through North Qatar, where time-worn tales and contemporary charm intertwine to craft an adventure you won't soon forget. The grandeur of Al Zubarah Fort, a UNESCO World Heritage Site brimming with centuries-old secrets, sets the stage for this thrilling escapade. Guided by a seasoned expert, you'll traverse the fort's remarkable architecture, immersing yourself in the captivating narratives of Qatar's vibrant past as a hub for trade and defense. Don't miss this chance to experience the enthralling blend of old and new in one of the world's most dynamic destinations. Book your ticket now to secure your spot on this must-see tour!</p>
-          <div class="card-footer">
-            <span class="price">From €305</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-north-qatar-private-tour-p1097663/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DOHA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM DOHA</span>
+        </div>
+        <div class="tq-card-title">North Qatar: Private Tour</div>
+        <div class="tq-card-desc">Dive headfirst into an enchanting journey through North Qatar, where time-worn tales and contemporary charm intertwine to craft an adventure you won't soon forget. The grandeur of Al Zubarah Fort, a UNESCO World Heritage Site brimming with centuries-old secrets, sets the stage for this thrilling escapade. Guided by a seasoned expert, you'll traverse the fort's remarkable architecture, immersing yourself in the captivating narratives of Qatar's vibrant past as a hub for trade and defense. Don't miss this chance to experience the enthralling blend of old and new in one of the world's most dynamic destinations. Book your ticket now to secure your spot on this must-see tour!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€305.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-north-qatar-private-tour-p1097663/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Full Day Desert Safari with BBQ Meal" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Full Day Desert Safari with BBQ Meal</h3>
-          <p class="venue">📍 Qatar Desert Safari</p>
-          <p>Step away from the daily grind and dive headfirst into the breathtaking splendor of the desert with the full day desert safari experience. Picture the wind frolicking through your hair as you scale undulating sand dunes on an electrifying dune-bashing escapade. The expert drivers masterfully negotiate the rugged landscape, ensuring a heart-pounding thrill you'll cherish forever.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DOHA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">QATAR DESERT SAFARI</span>
+        </div>
+        <div class="tq-card-title">Full Day Desert Safari with BBQ Meal</div>
+        <div class="tq-card-desc">Step away from the daily grind and dive headfirst into the breathtaking splendor of the desert with the full day desert safari experience. Picture the wind frolicking through your hair as you scale undulating sand dunes on an electrifying dune-bashing escapade. The expert drivers masterfully negotiate the rugged landscape, ensuring a heart-pounding thrill you'll cherish forever.
 
 But the allure doesn't stop there. Envision being lulled by the graceful stride of a magnificent camel, drinking in the endless desert vista unfolding in front of you.
 
 And for the grand finale, why not indulge in a lavish BBQ banquet beneath the glittering desert sky? Relish the tantalizing tastes of succulent grilled meats and mouthwatering sides, all set against the serene backdrop of the desert's timeless beauty.
 
-So, why wait? Book the full day desert safari for a mix of adventure, rejuvenation, and unforgettable memories, complete with a BBQ feast. Allow the desert to cast its enchanting spell on you!</p>
-          <div class="card-footer">
-            <span class="price">From €325</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-full-day-desert-safari-with-bbq-meal-p1097661/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+So, why wait? Book the full day desert safari for a mix of adventure, rejuvenation, and unforgettable memories, complete with a BBQ feast. Allow the desert to cast its enchanting spell on you!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€325.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-full-day-desert-safari-with-bbq-meal-p1097661/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Doha: Full-Day City Tour with Dhow Boat" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Doha: Full-Day City Tour with Dhow Boat</h3>
-          <p class="venue">📍 Doha City Tours</p>
-          <p>Get ready to step into a blend of rich history and modern marvels as you embark on an all-day city tour of Doha, the pulsating heart of Qatar. Nestled along the jewel-like waters of the Arabian Gulf, this city is a vibrant tapestry of experiences, seamlessly weaving tradition and innovation, antiquity and contemporary charm. As dawn breaks, Doha springs to life, inviting curious souls to discover hidden treasures and iconic landmarks.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DOHA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DOHA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Doha: Full-Day City Tour with Dhow Boat</div>
+        <div class="tq-card-desc">Get ready to step into a blend of rich history and modern marvels as you embark on an all-day city tour of Doha, the pulsating heart of Qatar. Nestled along the jewel-like waters of the Arabian Gulf, this city is a vibrant tapestry of experiences, seamlessly weaving tradition and innovation, antiquity and contemporary charm. As dawn breaks, Doha springs to life, inviting curious souls to discover hidden treasures and iconic landmarks.
 
-Your adventure begins at Souq Waqif, where the aroma of spices dances with traditional melodies. Next, unlock the secrets of Qatari history at the Msheireb Museums. Soak in the culture at the Museum of Islamic Art and Qatar National Library, before marveling at the modern skyline from West Bay. Immerse in arts and entertainment at Katara, and end your day at the tranquil Aspire Zone. Here, the past and present mingle under a canopy of lush green, leaving you with unforgettable memories.</p>
-          <div class="card-footer">
-            <span class="price">From €375</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-doha-full-day-city-tour-with-dhow-boat-p1097346/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your adventure begins at Souq Waqif, where the aroma of spices dances with traditional melodies. Next, unlock the secrets of Qatari history at the Msheireb Museums. Soak in the culture at the Museum of Islamic Art and Qatar National Library, before marveling at the modern skyline from West Bay. Immerse in arts and entertainment at Katara, and end your day at the tranquil Aspire Zone. Here, the past and present mingle under a canopy of lush green, leaving you with unforgettable memories.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€375.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-doha-full-day-city-tour-with-dhow-boat-p1097346/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="West Qatar: Camel Race Track Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>West Qatar: Camel Race Track Tour</h3>
-          <p class="venue">📍 Day Trips from Doha</p>
-          <p>Discover the mystical charm of West Qatar, where the grandeur of the desert and cultural opulence intersect. Feel your heart race with the thundering hooves at the famous West Qatar Camel Race Track, dive deep into the traditional Qatari heritage and surrender to the awe-inspiring desert beauty under the limitless Qatari sky.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DOHA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM DOHA</span>
+        </div>
+        <div class="tq-card-title">West Qatar: Camel Race Track Tour</div>
+        <div class="tq-card-desc">Discover the mystical charm of West Qatar, where the grandeur of the desert and cultural opulence intersect. Feel your heart race with the thundering hooves at the famous West Qatar Camel Race Track, dive deep into the traditional Qatari heritage and surrender to the awe-inspiring desert beauty under the limitless Qatari sky.
 
-At the Camel Race Track, let the surreal Mushroom Rock formation and the stunning Richard Serra sculpture captivate you, merging the magic of nature with the finesse of modern art, right in the desert's core. Step into this spellbinding adventure and book the ticket now to explore a world where tradition meets tranquility, and excitement meets elegance.</p>
-          <div class="card-footer">
-            <span class="price">From €182</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-west-qatar-tour-camel-race-track-p1097146/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+At the Camel Race Track, let the surreal Mushroom Rock formation and the stunning Richard Serra sculpture captivate you, merging the magic of nature with the finesse of modern art, right in the desert's core. Step into this spellbinding adventure and book the ticket now to explore a world where tradition meets tranquility, and excitement meets elegance.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€182.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-west-qatar-tour-camel-race-track-p1097146/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Doha: Half-Day Desert Safari Tour + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Doha: Half-Day Desert Safari Tour + Roundtrip Transfer</h3>
-          <p class="venue">📍 Qatar Desert Safari</p>
-          <p>Set off for an exciting adventure to Qatar's inland sea, Khor Al Udaid. Begin with a drive across towering sand dunes, some reaching up to 50 meters high, driven by experienced 4WD drivers. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DOHA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">QATAR DESERT SAFARI</span>
+        </div>
+        <div class="tq-card-title">Doha: Half-Day Desert Safari Tour + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Set off for an exciting adventure to Qatar's inland sea, Khor Al Udaid. Begin with a drive across towering sand dunes, some reaching up to 50 meters high, driven by experienced 4WD drivers. 
 
-Try sandboarding and camel riding for added fun, and make stops to take amazing photos with the scenic desert background.</p>
-          <div class="card-footer">
-            <span class="price">From €195</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-doha-half-day-desert-safari-tour-roundtrip-transfer-p1096666/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Try sandboarding and camel riding for added fun, and make stops to take amazing photos with the scenic desert background.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€195.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-doha-half-day-desert-safari-tour-roundtrip-transfer-p1096666/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Doha: Private Night City Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Doha: Private Night City Tour</h3>
-          <p class="venue">📍 Doha City Tours</p>
-          <p>Watch as the sun dips below the horizon and Doha, Qatar's glimmering capital, springs to life in a captivating spectacle of lights and liveliness. The Doha City Night Tour beckons explorers to navigate its pulsating streets and monumental landmarks under the alluring night sky's radiance. The journey begins at the scenic Corniche, offering jaw-dropping vistas of a skyline where cutting-edge skyscrapers and historic beacons brilliantly shine against the backdrop of the Arabian Gulf. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DOHA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DOHA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Doha: Private Night City Tour</div>
+        <div class="tq-card-desc">Watch as the sun dips below the horizon and Doha, Qatar's glimmering capital, springs to life in a captivating spectacle of lights and liveliness. The Doha City Night Tour beckons explorers to navigate its pulsating streets and monumental landmarks under the alluring night sky's radiance. The journey begins at the scenic Corniche, offering jaw-dropping vistas of a skyline where cutting-edge skyscrapers and historic beacons brilliantly shine against the backdrop of the Arabian Gulf. 
 
 From this hypnotic viewpoint, the adventure meanders through the thriving downtown district, pausing at the time-honored Souq Waqif. This vibrant marketplace buzzes with a kaleidoscope of stalls and spirited activity. The exploration continues, revealing Doha's architectural marvels such as the striking Museum of Islamic Art and the luxurious Pearl-Qatar island development. 
 
-Throughout the journey, the dynamic cultural landscape of Katara Cultural Village and West Bay unfolds, where iconic skyscrapers set the night ablaze. To top off this unforgettable experience, the tour indulges in the city's nightlife, whisking guests off to rooftop bars. Discover Doha's nocturnal magic - secure a ticket and join the adventure!</p>
-          <div class="card-footer">
-            <span class="price">From €190</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-doha-private-night-city-tour-p1096599/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Throughout the journey, the dynamic cultural landscape of Katara Cultural Village and West Bay unfolds, where iconic skyscrapers set the night ablaze. To top off this unforgettable experience, the tour indulges in the city's nightlife, whisking guests off to rooftop bars. Discover Doha's nocturnal magic - secure a ticket and join the adventure!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€190.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-doha-private-night-city-tour-p1096599/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Doha: Private Guided City Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Doha: Private Guided City Tour</h3>
-          <p class="venue">📍 Doha City Tours</p>
-          <p>Take a 4-hour Doha city tour for stopovers or short visits. This private guided tour explores Qatar's vibrant capital, blending culture, history, and modern attractions. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DOHA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DOHA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Doha: Private Guided City Tour</div>
+        <div class="tq-card-desc">Take a 4-hour Doha city tour for stopovers or short visits. This private guided tour explores Qatar's vibrant capital, blending culture, history, and modern attractions. 
 
-Enjoy a hassle-free experience with a pickup from the airport or hotel in a private vehicle. Your English-speaking guide will share insights about the city's key sites. You will learn as much as a resident and have your own stories to share with friends and family.</p>
-          <div class="card-footer">
-            <span class="price">From €145</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-doha-private-guided-city-tour-p1096265/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a hassle-free experience with a pickup from the airport or hotel in a private vehicle. Your English-speaking guide will share insights about the city's key sites. You will learn as much as a resident and have your own stories to share with friends and family.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€145.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-doha-private-guided-city-tour-p1096265/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

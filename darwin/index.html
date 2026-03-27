@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Darwin | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Darwin. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,325 +131,523 @@
     <p>18 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/66de43af53ca443baba84520f37a98a3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Darwin: Aquascene Fish Feeding Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Darwin: Aquascene Fish Feeding Experience</h3>
-          <p class="venue">📍 Aquascene Fish Feeding Sanctuary</p>
-          <p>Join a unique fish feeding experience at Aquascene Fish Feeding Sanctuary in Darwin's Doctors Gully. Since the 1950s, this natural event occurs during high tide.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/66de43af53ca443baba84520f37a98a3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Darwin: Aquascene Fish Feeding Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AQUASCENE FISH FEEDING SANCTUARY</span>
+        </div>
+        <div class="tq-card-title">Darwin: Aquascene Fish Feeding Experience</div>
+        <div class="tq-card-desc">Join a unique fish feeding experience at Aquascene Fish Feeding Sanctuary in Darwin's Doctors Gully. Since the 1950s, this natural event occurs during high tide.
 
 The fish come close, eagerly taking treats, making it a fun and engaging experience for children and adults alike
 
 Participate by feeding the fish from a raised platform or wading into the water. Enjoy this activity with family or friends. 
 
-Suitable for all ages, this popular spot draws up to 70,000 visitors annually.</p>
-          <div class="card-footer">
-            <span class="price">From €9.02</span>
-            <span class="rating">⭐ 3.9 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-darwin-aquascene-fish-feeding-experience-p1106089/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Suitable for all ages, this popular spot draws up to 70,000 visitors annually.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€9.02</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-darwin-aquascene-fish-feeding-experience-p1106089/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/86012ba533c44f538f21560ea0229796.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Crocosaurus Cove: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Crocosaurus Cove: Entry Ticket</h3>
-          <p class="venue">📍 Crocosaurus Cove</p>
-          <p>You don't have to risk your life to get up close and personal with crocodiles. Protect your limbs with a life-changing adventure at Crocosaurus Cove!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/86012ba533c44f538f21560ea0229796.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Crocosaurus Cove: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CROCOSAURUS COVE</span>
+        </div>
+        <div class="tq-card-title">Crocosaurus Cove: Entry Ticket</div>
+        <div class="tq-card-desc">You don't have to risk your life to get up close and personal with crocodiles. Protect your limbs with a life-changing adventure at Crocosaurus Cove!
 
-In the heart of Darwin City, see over 200 of Australia's famous saltwater crocodiles, with lots of shows and activities included in your ticket. It's not just crocodilian intrigue that makes Crocosaurus Cove so exciting – while you're there, be sure to check out barramundis, archer fish, and whiprays in their giant aquarium home, and meet some extra-cute turtles at the Top End Turtle Billabong!</p>
-          <div class="card-footer">
-            <span class="price">From €24.05</span>
-            <span class="rating">⭐ 4.8 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-crocosaurus-cove-p1010679/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In the heart of Darwin City, see over 200 of Australia's famous saltwater crocodiles, with lots of shows and activities included in your ticket. It's not just crocodilian intrigue that makes Crocosaurus Cove so exciting – while you're there, be sure to check out barramundis, archer fish, and whiprays in their giant aquarium home, and meet some extra-cute turtles at the Top End Turtle Billabong!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€24.05</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-crocosaurus-cove-p1010679/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/66de43af53ca443baba84520f37a98a3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Darwin: Sunset Cruise + Food Platter" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Darwin: Sunset Cruise + Food Platter</h3>
-          <p class="venue">📍 Darwin Cruises</p>
-          <p>Board the *Charles Darwin* for one of Darwin’s sunsets. Watch the colors of the evening sky reflect across the harbor and frame the city skyline. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/66de43af53ca443baba84520f37a98a3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Darwin: Sunset Cruise + Food Platter" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DARWIN CRUISES</span>
+        </div>
+        <div class="tq-card-title">Darwin: Sunset Cruise + Food Platter</div>
+        <div class="tq-card-desc">Board the *Charles Darwin* for one of Darwin’s sunsets. Watch the colors of the evening sky reflect across the harbor and frame the city skyline. 
 
 This two-hour cruise provides clear views, letting you relax and enjoy the sights of the Top End. 
 
-Enjoy a gourmet grazing platter with fresh, local flavors, followed by locally-made mango ice cream.</p>
-          <div class="card-footer">
-            <span class="price">From €77.57</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-darwin-2-hr-sunset-cruise-tasting-platter-p1120444/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a gourmet grazing platter with fresh, local flavors, followed by locally-made mango ice cream.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€77.57</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-darwin-2-hr-sunset-cruise-tasting-platter-p1120444/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/66de43af53ca443baba84520f37a98a3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Darwin Harbour: Sunset Cruise + Buffet Dinner" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Darwin Harbour: Sunset Cruise + Buffet Dinner</h3>
-          <p class="venue">📍 Darwin Cruises</p>
-          <p>See Darwin's sunsets from a unique spot. Just minutes from the city, Darwin Harbour offers rich marine life, fascinating history, and wide views of the tropical landscape.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/66de43af53ca443baba84520f37a98a3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Darwin Harbour: Sunset Cruise + Buffet Dinner" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DARWIN CRUISES</span>
+        </div>
+        <div class="tq-card-title">Darwin Harbour: Sunset Cruise + Buffet Dinner</div>
+        <div class="tq-card-desc">See Darwin's sunsets from a unique spot. Just minutes from the city, Darwin Harbour offers rich marine life, fascinating history, and wide views of the tropical landscape.
 
 Board the *Charles Darwin* for a cruise that combines sightseeing with local dining. As the sun sets over the sea, relax on the deck and see the harbour, city skyline, and horizon.
 
-Enjoy a buffet dinner with fresh seafood and local produce. This cruise offers a comfortable way to spend an evening in Darwin.</p>
-          <div class="card-footer">
-            <span class="price">From €89.6</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-darwin-harbour-sunset-cruise-buffet-dinner-p1120443/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a buffet dinner with fresh seafood and local produce. This cruise offers a comfortable way to spend an evening in Darwin.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€89.60</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-darwin-harbour-sunset-cruise-buffet-dinner-p1120443/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/66de43af53ca443baba84520f37a98a3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Darwin: Jumping Crocodile Cruise on Adelaide River" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Darwin: Jumping Crocodile Cruise on Adelaide River</h3>
-          <p class="venue">📍 Darwin Cruises</p>
-          <p>See saltwater crocodiles up close from a unique vantage point with no cages or glass. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/66de43af53ca443baba84520f37a98a3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Darwin: Jumping Crocodile Cruise on Adelaide River" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DARWIN CRUISES</span>
+        </div>
+        <div class="tq-card-title">Darwin: Jumping Crocodile Cruise on Adelaide River</div>
+        <div class="tq-card-desc">See saltwater crocodiles up close from a unique vantage point with no cages or glass. 
 
 Learn about their biology and ecology from an experienced crew on the Adelaide River. 
 
-Enjoy clear views from the purpose-built vessels of the floodplains and Djukbinj National Park.</p>
-          <div class="card-footer">
-            <span class="price">From €33.07</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-darwin-jumping-crocodile-cruise-on-adelaide-river-p1101506/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy clear views from the purpose-built vessels of the floodplains and Djukbinj National Park.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-darwin-jumping-crocodile-cruise-on-adelaide-river-p1101506/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a316a756d46a479a92e4a55e7388e1f0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aviation Attraction Combo Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aviation Attraction Combo Ticket</h3>
-          <p class="venue">📍 RFDS Darwin Tourist Facility</p>
-          <p>The RFDS Darwin Tourist Facility and the Darwin Aviation Museum have come together to create an air-craft combo ticket designed to have you high-flying through Australia's aviation history! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a316a756d46a479a92e4a55e7388e1f0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aviation Attraction Combo Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RFDS DARWIN TOURIST FACILITY</span>
+        </div>
+        <div class="tq-card-title">Aviation Attraction Combo Ticket</div>
+        <div class="tq-card-desc">The RFDS Darwin Tourist Facility and the Darwin Aviation Museum have come together to create an air-craft combo ticket designed to have you high-flying through Australia's aviation history! 
 
-Access two of Australia's premier aviation attractions. See history come to life through VR technology, learn about the bombing of Darwin Harbour and walk around almost 20 awesome aircraft, all on display in top condition. A must for young airplane fans and potential pilots!</p>
-          <div class="card-footer">
-            <span class="price">From €25.26</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aviation-attraction-combo-ticket-p1026870/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Access two of Australia's premier aviation attractions. See history come to life through VR technology, learn about the bombing of Darwin Harbour and walk around almost 20 awesome aircraft, all on display in top condition. A must for young airplane fans and potential pilots!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.26</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aviation-attraction-combo-ticket-p1026870/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/86012ba533c44f538f21560ea0229796.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Croc N History Combo" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Croc N History Combo</h3>
-          <p class="venue">📍 Crocosaurus Cove</p>
-          <p>Combine two of Darwin's premier attractions with one ticket and save money! The flexible Croc n History package gives you full-day entry to Crocosaurus Cove and the RFDS Darwin Tourist facility. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/86012ba533c44f538f21560ea0229796.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Croc N History Combo" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CROCOSAURUS COVE</span>
+        </div>
+        <div class="tq-card-title">Croc N History Combo</div>
+        <div class="tq-card-desc">Combine two of Darwin's premier attractions with one ticket and save money! The flexible Croc n History package gives you full-day entry to Crocosaurus Cove and the RFDS Darwin Tourist facility. 
 
 Crocosaurus Cove, located in the heart of Darwin city, allows visitors a unique, up-close-and-personal view of Australia’s iconic Saltwater Crocodiles.
 
-RFDS Darwin Tourist facility brings history to life, sharing two amazing Territory stories. One started Territory operations in 1939, the other occurred in 1942 as an act of aggression unparalleled on Australian soil. Both forged the resolve and resilience of the people who live in Australia's Northern Territory. This is your chance to learn their incredible stories.</p>
-          <div class="card-footer">
-            <span class="price">From €40.89</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-croc-n-history-combo-p1026869/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+RFDS Darwin Tourist facility brings history to life, sharing two amazing Territory stories. One started Territory operations in 1939, the other occurred in 1942 as an act of aggression unparalleled on Australian soil. Both forged the resolve and resilience of the people who live in Australia's Northern Territory. This is your chance to learn their incredible stories.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.89</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-croc-n-history-combo-p1026869/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3928a8bbf302488ebde5b4a2376e9eab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Croc Explorer Combo" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Croc Explorer Combo</h3>
-          <p class="venue">📍 Crocosaurus Cove</p>
-          <p>Combine two of Darwin’s top attractions with the Croc Explorer and save time and money!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3928a8bbf302488ebde5b4a2376e9eab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Croc Explorer Combo" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CROCOSAURUS COVE</span>
+        </div>
+        <div class="tq-card-title">Croc Explorer Combo</div>
+        <div class="tq-card-desc">Combine two of Darwin’s top attractions with the Croc Explorer and save time and money!
 
 This ticket will give you access to Crocosaurus Cove for the day and a 24-hour Hop-On Hop-Off pass for the Darwin Explorer, which can be used on separate days within a 30-day period.
 
-Set in the heart of Darwin City, Crocosaurus Coves is home too over 200 of Australia's famous saltwater crocodiles, with lots of shows and activities included in your ticket. It's not just crocodilian intrigue that makes Crocosaurus Cove so exciting – while you're there, be sure to check out barramundis, archer fish, and whiprays in their giant aquarium home, and meet some extra-cute turtles at the Top End Turtle Billabong!</p>
-          <div class="card-footer">
-            <span class="price">From €49.31</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-croc-explorer-combo-p1026868/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Set in the heart of Darwin City, Crocosaurus Coves is home too over 200 of Australia's famous saltwater crocodiles, with lots of shows and activities included in your ticket. It's not just crocodilian intrigue that makes Crocosaurus Cove so exciting – while you're there, be sure to check out barramundis, archer fish, and whiprays in their giant aquarium home, and meet some extra-cute turtles at the Top End Turtle Billabong!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€49.31</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-croc-explorer-combo-p1026868/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/02a4f867fffc4bcebf9fa64d3cc5e000.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Honey Rider Sunrise Jetski Adventure" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Honey Rider Sunrise Jetski Adventure</h3>
-          <p class="venue">📍 Darwin Water Activities</p>
-          <p>Witness the sensational glow of the morning sun glinting on the surf and the city skyline, as you escape reality on a 90-minute jet ski mission. Slingshot your way along the coastline, carving sharp lines through the ocean. Conditions are usually as smooth as a martini glass at this time of day, so this experience will have you gasping for more! Iced lattes and tea provided on the water will have your morning fix sorted!</p>
-          <div class="card-footer">
-            <span class="price">From €167.77</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-honey-rider-sunrise-jetski-adventure-p1025988/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/02a4f867fffc4bcebf9fa64d3cc5e000.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Honey Rider Sunrise Jetski Adventure" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DARWIN WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Honey Rider Sunrise Jetski Adventure</div>
+        <div class="tq-card-desc">Witness the sensational glow of the morning sun glinting on the surf and the city skyline, as you escape reality on a 90-minute jet ski mission. Slingshot your way along the coastline, carving sharp lines through the ocean. Conditions are usually as smooth as a martini glass at this time of day, so this experience will have you gasping for more! Iced lattes and tea provided on the water will have your morning fix sorted!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€167.77</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-honey-rider-sunrise-jetski-adventure-p1025988/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d1c9fe116ea74c93a303f97f29db0f55.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Golden Eye Sunset Jet Ski Adventure" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Golden Eye Sunset Jet Ski Adventure</h3>
-          <p class="venue">📍 Darwin Water Activities</p>
-          <p>No trip to Darwin is complete without experiencing the iconic, spectacular sunsets. Departing from tour HQ at 17:00, this evening tour will see you cruise around to the ‘Magic Mile’ from Mindil Beach to East Point.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d1c9fe116ea74c93a303f97f29db0f55.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Golden Eye Sunset Jet Ski Adventure" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DARWIN WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Golden Eye Sunset Jet Ski Adventure</div>
+        <div class="tq-card-desc">No trip to Darwin is complete without experiencing the iconic, spectacular sunsets. Departing from tour HQ at 17:00, this evening tour will see you cruise around to the ‘Magic Mile’ from Mindil Beach to East Point.
 
 From there, you’ll witness a spectacular sunset as you bob along with the waves from atop your Jet Ski.
 
 Perfect for photographers and amateur shutterbugs alike, witness the Darwin city skyline during golden hour and capture a shot you’ll want to show off.
 
-With accompanying party beats and refreshments provided, this tour is perfect to double up on – grab a friend, family member, or loved one for a group experience not to be missed!</p>
-          <div class="card-footer">
-            <span class="price">From €167.77</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-golden-eye-sunset-jet-ski-adventure-p1025985/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With accompanying party beats and refreshments provided, this tour is perfect to double up on – grab a friend, family member, or loved one for a group experience not to be missed!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€167.77</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-golden-eye-sunset-jet-ski-adventure-p1025985/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d1c9fe116ea74c93a303f97f29db0f55.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Die Another Day: One Hour Jet Ski Adventure" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Die Another Day: One Hour Jet Ski Adventure</h3>
-          <p class="venue">📍 Darwin Water Activities</p>
-          <p>The name's ski. Jetski! Get ready to discover Darwin the fun way, by water on a 00Seven Adventure. Launching from 00-Seven HQ you'll soon be blasting along the coastal mangroves to explore some of Darwin harbor's most thrilling hidden gems.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d1c9fe116ea74c93a303f97f29db0f55.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Die Another Day: One Hour Jet Ski Adventure" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DARWIN WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Die Another Day: One Hour Jet Ski Adventure</div>
+        <div class="tq-card-desc">The name's ski. Jetski! Get ready to discover Darwin the fun way, by water on a 00Seven Adventure. Launching from 00-Seven HQ you'll soon be blasting along the coastal mangroves to explore some of Darwin harbor's most thrilling hidden gems.
 
 On the run back to base, you'll witness the Darwin city skyline in all its glory.
 
-High stakes poker games don’t compare to the rush you’ll get from jumping on the latest model of Jet Ski GTI’s. Honey Ryder and Miss Moneypenny are waiting for you.</p>
-          <div class="card-footer">
-            <span class="price">From €119.66</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-die-another-day-p1025984/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+High stakes poker games don’t compare to the rush you’ll get from jumping on the latest model of Jet Ski GTI’s. Honey Ryder and Miss Moneypenny are waiting for you.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€119.66</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-die-another-day-p1025984/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/34acf47ece6847149636e6d363924a5d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Casino Royale Jetski Adventure" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Casino Royale Jetski Adventure</h3>
-          <p class="venue">📍 Darwin Water Activities</p>
-          <p>Your ticket for the Casino Royale Jetski Adventure gives you a licence to thrill. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/34acf47ece6847149636e6d363924a5d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Casino Royale Jetski Adventure" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DARWIN WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Casino Royale Jetski Adventure</div>
+        <div class="tq-card-desc">Your ticket for the Casino Royale Jetski Adventure gives you a licence to thrill. 
 
 Starting from HQ at Darwin Waterfront, cruise at full throttle along sun-drenched, unspoilt coastlines while spotting marine life, feeding fish and enjoying the thrill of the pristine, open water. If you feel like taking it easy, then cruise along at your own pace. 
 
 Show off your skills, open up the engine and blast in front of Darwin's iconic Mindil Beach Casino before making your way back to base.
 
-High stakes poker games don't compare to the rush you'll get from hopping on the latest model of the Jet Ski GTI. Unlike Bond, you only live once so don't miss your chance to stir things up on the water.</p>
-          <div class="card-footer">
-            <span class="price">From €113.65</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-casino-royale-jetski-adventure-p1025947/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+High stakes poker games don't compare to the rush you'll get from hopping on the latest model of the Jet Ski GTI. Unlike Bond, you only live once so don't miss your chance to stir things up on the water.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€113.65</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-casino-royale-jetski-adventure-p1025947/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c2fed6eb248e433aad3204431a37b827.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Crocosaurus Cove: Whipray Encounter" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Crocosaurus Cove: Whipray Encounter</h3>
-          <p class="venue">📍 Crocosaurus Cove</p>
-          <p>If you want to ease your way into Crocosaurus Cove's wild experiences before swimming with crocodiles, how about getting up close to inquisitive and friendly whiprays?
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c2fed6eb248e433aad3204431a37b827.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Crocosaurus Cove: Whipray Encounter" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CROCOSAURUS COVE</span>
+        </div>
+        <div class="tq-card-title">Crocosaurus Cove: Whipray Encounter</div>
+        <div class="tq-card-desc">If you want to ease your way into Crocosaurus Cove's wild experiences before swimming with crocodiles, how about getting up close to inquisitive and friendly whiprays?
 
 Whiprays are stingrays, but stingrays aren't necessarily whiprays. These gentle freshwater beings are little-known but very keen to get to know you!
 
-As part of the daily (3:30 pm) aquarium show, you'll join experienced handlers to feed one of Croc Cove's friendly two-meter-wide whiprays. With a maximum of four participants, it's an intimate experience you'll always remember!</p>
-          <div class="card-footer">
-            <span class="price">From €36.68</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-whipray-encounter-crocosaurus-cove-p1016285/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As part of the daily (3:30 pm) aquarium show, you'll join experienced handlers to feed one of Croc Cove's friendly two-meter-wide whiprays. With a maximum of four participants, it's an intimate experience you'll always remember!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€36.68</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-whipray-encounter-crocosaurus-cove-p1016285/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/180955a390974d12b03548dbaa2ffd5f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Big Croc Encounter VIP Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Big Croc Encounter VIP Tour</h3>
-          <p class="venue">📍 Crocosaurus Cove</p>
-          <p>Crocosaurus Cove's Big Croc Feed VIP Experience offers a unique behind-the-scenes look at this reptilian wonderland, giving visitors deep insights into reptiles and how they are cared for. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/180955a390974d12b03548dbaa2ffd5f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Big Croc Encounter VIP Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CROCOSAURUS COVE</span>
+        </div>
+        <div class="tq-card-title">Big Croc Encounter VIP Tour</div>
+        <div class="tq-card-desc">Crocosaurus Cove's Big Croc Feed VIP Experience offers a unique behind-the-scenes look at this reptilian wonderland, giving visitors deep insights into reptiles and how they are cared for. 
 
 Meet experienced handlers at the start of your 1.5-hour tour and follow them through the park. They'll share the animals' stories and supervise your encounters with the many unique reptiles. 
 
 On your first stop, learn how to feed a 5-meter crocodile and witness the true power of his bone-crushing jaws! Then, feed the feisty juvenile crocs from the Fishing for Crocs platform, followed by some one-on-one time with baby croc Fluffy. Finish the tour with an intimate walk through the Reptile House, and safely interact with slithering snakes and beady-eyed lizards. 
 
-This fantastic tour is offered at 10:00 and 13:00 daily, and is the ultimate experience for every reptile lover. All animal handling opportunities are optional and supervised by professional experts.</p>
-          <div class="card-footer">
-            <span class="price">From €56.52</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-big-croc-encounter-vip-tour-p1016159/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This fantastic tour is offered at 10:00 and 13:00 daily, and is the ultimate experience for every reptile lover. All animal handling opportunities are optional and supervised by professional experts.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€56.52</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-big-croc-encounter-vip-tour-p1016159/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a316a756d46a479a92e4a55e7388e1f0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="RFDS Darwin Tourist Facility" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>RFDS Darwin Tourist Facility</h3>
-          <p class="venue">📍 RFDS Darwin Tourist Facility</p>
-          <p>The RFDS Darwin Tourist Facility shares the incredible story behind Reverend John Flynn's Royal Flying Doctor Service, which launched in 1939. Using VR displays, immersive films, and interactive exhibits – including a cockpit experience inside a decommissioned plane – the RFDS Darwin Tourist Facility gives you a bird's-eye view of the charity's history.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a316a756d46a479a92e4a55e7388e1f0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="RFDS Darwin Tourist Facility" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RFDS DARWIN TOURIST FACILITY</span>
+        </div>
+        <div class="tq-card-title">RFDS Darwin Tourist Facility</div>
+        <div class="tq-card-desc">The RFDS Darwin Tourist Facility shares the incredible story behind Reverend John Flynn's Royal Flying Doctor Service, which launched in 1939. Using VR displays, immersive films, and interactive exhibits – including a cockpit experience inside a decommissioned plane – the RFDS Darwin Tourist Facility gives you a bird's-eye view of the charity's history.
 
-Get ready to fly into the past using the power of virtual reality. As you put on the headset you'll be transported back to 19 February 1942, when Darwin harbour was attacked by 242 Japanese aircraft.</p>
-          <div class="card-footer">
-            <span class="price">From €18.04</span>
-            <span class="rating">⭐ 5 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rfds-darwin-tourist-facility-p1011830/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get ready to fly into the past using the power of virtual reality. As you put on the headset you'll be transported back to 19 February 1942, when Darwin harbour was attacked by 242 Japanese aircraft.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.04</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rfds-darwin-tourist-facility-p1011830/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/66de43af53ca443baba84520f37a98a3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Crocosaurus Cove: Cage of Death Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Crocosaurus Cove: Cage of Death Experience</h3>
-          <p class="venue">📍 Crocosaurus Cove</p>
-          <p>You don't have to risk your life to get up close and personal with crocodiles. Protect your limbs with a life-changing adventure at Crocosaurus Cove!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/66de43af53ca443baba84520f37a98a3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Crocosaurus Cove: Cage of Death Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CROCOSAURUS COVE</span>
+        </div>
+        <div class="tq-card-title">Crocosaurus Cove: Cage of Death Experience</div>
+        <div class="tq-card-desc">You don't have to risk your life to get up close and personal with crocodiles. Protect your limbs with a life-changing adventure at Crocosaurus Cove!
 
 Lock eyes with crocodiles and swim safely in their realm as you're slowly lowered into the Cage of Death. Gawp at more than 200 of Australia's saltwater crocodiles, with plenty of shows and feeds included in your ticket.
 
-It's not just crocodilian intrigue that makes Crocosaurus Cove so exciting. See barramundis, archerfish, and whiprays in their giant aquarium home, and meet some extra-cute turtles at the Top End Turtle Billabong!</p>
-          <div class="card-footer">
-            <span class="price">From €117.26</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cage-of-death-at-crocosaurus-cove-p1010681/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+It's not just crocodilian intrigue that makes Crocosaurus Cove so exciting. See barramundis, archerfish, and whiprays in their giant aquarium home, and meet some extra-cute turtles at the Top End Turtle Billabong!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€117.26</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cage-of-death-at-crocosaurus-cove-p1010681/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a316a756d46a479a92e4a55e7388e1f0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="RFDS Darwin Tourist Facility" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>RFDS Darwin Tourist Facility</h3>
-          <p class="venue">📍 RFDS Darwin Tourist Facility</p>
-          <p>The RFDS Darwin Tourist Facility shares the incredible story behind Reverend John Flynn's Royal Flying Doctor Service, which launched in 1939. Using VR displays, immersive films, and interactive exhibits – including a cockpit experience inside a decommissioned plane – the RFDS Darwin Tourist Facility gives you a bird's-eye view of the charity's history.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a316a756d46a479a92e4a55e7388e1f0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="RFDS Darwin Tourist Facility" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RFDS DARWIN TOURIST FACILITY</span>
+        </div>
+        <div class="tq-card-title">RFDS Darwin Tourist Facility</div>
+        <div class="tq-card-desc">The RFDS Darwin Tourist Facility shares the incredible story behind Reverend John Flynn's Royal Flying Doctor Service, which launched in 1939. Using VR displays, immersive films, and interactive exhibits – including a cockpit experience inside a decommissioned plane – the RFDS Darwin Tourist Facility gives you a bird's-eye view of the charity's history.
 
-Get ready to fly into the past using the power of virtual reality. As you put on the headset you'll be transported back to 19 February 1942, when Darwin harbour was attacked by 242 Japanese aircraft.</p>
-          <div class="card-footer">
-            <span class="price">From €18.04</span>
-            <span class="rating">⭐ 5 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rfds-darwin-tourist-facility-p1011830/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get ready to fly into the past using the power of virtual reality. As you put on the headset you'll be transported back to 19 February 1942, when Darwin harbour was attacked by 242 Japanese aircraft.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.04</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rfds-darwin-tourist-facility-p1011830/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/66de43af53ca443baba84520f37a98a3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Crocosaurus Cove: Cage of Death Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Crocosaurus Cove: Cage of Death Experience</h3>
-          <p class="venue">📍 Crocosaurus Cove</p>
-          <p>You don't have to risk your life to get up close and personal with crocodiles. Protect your limbs with a life-changing adventure at Crocosaurus Cove!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/66de43af53ca443baba84520f37a98a3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Crocosaurus Cove: Cage of Death Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DARWIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CROCOSAURUS COVE</span>
+        </div>
+        <div class="tq-card-title">Crocosaurus Cove: Cage of Death Experience</div>
+        <div class="tq-card-desc">You don't have to risk your life to get up close and personal with crocodiles. Protect your limbs with a life-changing adventure at Crocosaurus Cove!
 
 Lock eyes with crocodiles and swim safely in their realm as you're slowly lowered into the Cage of Death. Gawp at more than 200 of Australia's saltwater crocodiles, with plenty of shows and feeds included in your ticket.
 
-It's not just crocodilian intrigue that makes Crocosaurus Cove so exciting. See barramundis, archerfish, and whiprays in their giant aquarium home, and meet some extra-cute turtles at the Top End Turtle Billabong!</p>
-          <div class="card-footer">
-            <span class="price">From €117.26</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cage-of-death-at-crocosaurus-cove-p1010681/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+It's not just crocodilian intrigue that makes Crocosaurus Cove so exciting. See barramundis, archerfish, and whiprays in their giant aquarium home, and meet some extra-cute turtles at the Top End Turtle Billabong!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€117.26</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cage-of-death-at-crocosaurus-cove-p1010681/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

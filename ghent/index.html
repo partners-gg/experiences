@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Ghent | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Ghent. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,119 +131,196 @@
     <p>7 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70de9f0f96a04450b736ad027ab2f8da.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Guided Boat Tour through Historical Ghent" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Guided Boat Tour through Historical Ghent</h3>
-          <p class="venue">📍 Ghent Cruises</p>
-          <p>Leaving from one of Ghent's most beautiful sites, the Graslei, your 40-minute scenic boat trip along the Lys and the Lieve to the Rabot Towers will sail you off on a beautiful history lesson! See this Belgian university town from a whole new angle, rain or shine.</p>
-          <div class="card-footer">
-            <span class="price">From €11</span>
-            <span class="rating">⭐ 4.5 (152)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-guided-boat-tour-through-historical-ghent-p976663/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/70de9f0f96a04450b736ad027ab2f8da.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Guided Boat Tour through Historical Ghent" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GHENT</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GHENT CRUISES</span>
+        </div>
+        <div class="tq-card-title">Guided Boat Tour through Historical Ghent</div>
+        <div class="tq-card-desc">Leaving from one of Ghent's most beautiful sites, the Graslei, your 40-minute scenic boat trip along the Lys and the Lieve to the Rabot Towers will sail you off on a beautiful history lesson! See this Belgian university town from a whole new angle, rain or shine.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(152)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€11.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-guided-boat-tour-through-historical-ghent-p976663/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b32799f4aad1458e8ff18ab2aa7845c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ghent: Audio Guide App by TouringBee" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ghent: Audio Guide App by TouringBee</h3>
-          <p class="venue">📍 Ghent City Tours</p>
-          <p>Discover the heart of Ghent City with the TouringBee app. This app turns your walk into an informative journey. Its audio commentary acts as your personal guide, sharing interesting stories about the city's landmarks.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b32799f4aad1458e8ff18ab2aa7845c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ghent: Audio Guide App by TouringBee" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GHENT</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GHENT CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Ghent: Audio Guide App by TouringBee</div>
+        <div class="tq-card-desc">Discover the heart of Ghent City with the TouringBee app. This app turns your walk into an informative journey. Its audio commentary acts as your personal guide, sharing interesting stories about the city's landmarks.
 
 Go on a two-hour tour, where you'll visit 31 stops, including Gravensteen Castle and Ghent's oldest house. You'll pass by the city's largest brothel, bustling markets, old churches, and picturesque streets and quays.
 
-Enjoy this tour at your pace. Stop for a coffee, explore a hidden alleyway, or skip a point of interest if you want. The tour starts and ends at Sint-Michielsbrug, but you can keep exploring or take a river cruise (not included) afterward.</p>
-          <div class="card-footer">
-            <span class="price">From €7</span>
-            <span class="rating">⭐ 4.4 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ghent-half-day-city-tour-audio-guide-p1093337/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy this tour at your pace. Stop for a coffee, explore a hidden alleyway, or skip a point of interest if you want. The tour starts and ends at Sint-Michielsbrug, but you can keep exploring or take a river cruise (not included) afterward.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€7.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ghent-half-day-city-tour-audio-guide-p1093337/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70de9f0f96a04450b736ad027ab2f8da.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Boat Trip with Gin & Tonic" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Boat Trip with Gin & Tonic</h3>
-          <p class="venue">📍 Ghent Cruises</p>
-          <p>Glide through Ghent on a guided boat trip and discover the city's secrets. Learn about medieval Belgium, immerse yourself in the city of Emperor Charles V, and finish up with snacks and a gin & tonic at Valery's Bar.</p>
-          <div class="card-footer">
-            <span class="price">From €27</span>
-            <span class="rating">⭐ 4.2 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-boat-trip-with-gin-tonic-p976695/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/70de9f0f96a04450b736ad027ab2f8da.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Boat Trip with Gin & Tonic" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GHENT</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GHENT CRUISES</span>
+        </div>
+        <div class="tq-card-title">Boat Trip with Gin & Tonic</div>
+        <div class="tq-card-desc">Glide through Ghent on a guided boat trip and discover the city's secrets. Learn about medieval Belgium, immerse yourself in the city of Emperor Charles V, and finish up with snacks and a gin & tonic at Valery's Bar.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-boat-trip-with-gin-tonic-p976695/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b32799f4aad1458e8ff18ab2aa7845c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ghent: Self-Guided Exploration Game" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ghent: Self-Guided Exploration Game</h3>
-          <p class="venue">📍 Ghent City Tours</p>
-          <p>Join the Secrets of Exploration Game, a fun self-guided tour that turns the city into your playground. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b32799f4aad1458e8ff18ab2aa7845c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ghent: Self-Guided Exploration Game" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GHENT</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GHENT CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Ghent: Self-Guided Exploration Game</div>
+        <div class="tq-card-desc">Join the Secrets of Exploration Game, a fun self-guided tour that turns the city into your playground. 
 
 Discover the city's hidden gems through puzzles, riddles, and photo challenges, and learn about the city's history, characters, and culture in an engaging way.
 
-Explore the city's historic center with the Secrets of Scavenger Hunt, a GPS-based game, and learn about the city's best-kept secrets.</p>
-          <div class="card-footer">
-            <span class="price">From €19.95</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ghent-self-guided-exploration-game-p1099754/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore the city's historic center with the Secrets of Scavenger Hunt, a GPS-based game, and learn about the city's best-kept secrets.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.95</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ghent-self-guided-exploration-game-p1099754/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/970106e47be54c95b32c92c6f369ee00.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ghent: Guided Beer Tasting Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ghent: Guided Beer Tasting Tour</h3>
-          <p class="venue">📍 Ghent Food and Drink Tours</p>
-          <p>Discover Ghent’s beer culture with a guided tour through local bars. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/970106e47be54c95b32c92c6f369ee00.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ghent: Guided Beer Tasting Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GHENT</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GHENT FOOD AND DRINK TOURS</span>
+        </div>
+        <div class="tq-card-title">Ghent: Guided Beer Tasting Tour</div>
+        <div class="tq-card-desc">Discover Ghent’s beer culture with a guided tour through local bars. 
 
 Learn about the brewing process and taste a variety of local beers paired with delicious food. 
 
-Explore historic spots in Ghent and sample different Belgian brews at each stop. The final stop features a unique local craft beer exclusive to this town.</p>
-          <div class="card-footer">
-            <span class="price">From €55</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ghent-guided-beer-tasting-tour-p1094883/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore historic spots in Ghent and sample different Belgian brews at each stop. The final stop features a unique local craft beer exclusive to this town.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ghent-guided-beer-tasting-tour-p1094883/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/970106e47be54c95b32c92c6f369ee00.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ghent: City Tour and Beer Tasting + Canal Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ghent: City Tour and Beer Tasting + Canal Cruise</h3>
-          <p class="venue">📍 Ghent Food and Drink Tours</p>
-          <p>Step back into the Middle Ages on this city tour of Ghent. Explore quintessential Belgian architecture, as well as local delicacies, with an expert guide. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/970106e47be54c95b32c92c6f369ee00.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ghent: City Tour and Beer Tasting + Canal Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GHENT</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GHENT FOOD AND DRINK TOURS</span>
+        </div>
+        <div class="tq-card-title">Ghent: City Tour and Beer Tasting + Canal Cruise</div>
+        <div class="tq-card-desc">Step back into the Middle Ages on this city tour of Ghent. Explore quintessential Belgian architecture, as well as local delicacies, with an expert guide. 
 
-Absorb the city’s fascinating history as you admire and photograph its beautiful buildings and cityscapes. Then relax on the 30-minute canal cruise through the city and enjoy even more new perspectives on the city’s breathtaking sights.</p>
-          <div class="card-footer">
-            <span class="price">From €89</span>
-            <span class="rating">⭐ 2.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ghent-beer-and-city-sightseeing-tour-p1072366/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Absorb the city’s fascinating history as you admire and photograph its beautiful buildings and cityscapes. Then relax on the 30-minute canal cruise through the city and enjoy even more new perspectives on the city’s breathtaking sights.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€89.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ghent-beer-and-city-sightseeing-tour-p1072366/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70de9f0f96a04450b736ad027ab2f8da.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Historical Boat Tour Including 1 Ghent Beer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Historical Boat Tour Including 1 Ghent Beer</h3>
-          <p class="venue">📍 Ghent Cruises</p>
-          <p>Hop aboard this unique opportunity to approach Ghent from the water, and find yourself in the middle of the Middle Ages! See the magnificent facades of Graslei, Vleeshuis, Oude Vismijn and Gravensteen, which remain the silent and prestigious witnesses to a glorious past. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/70de9f0f96a04450b736ad027ab2f8da.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Historical Boat Tour Including 1 Ghent Beer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GHENT</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GHENT CRUISES</span>
+        </div>
+        <div class="tq-card-title">Historical Boat Tour Including 1 Ghent Beer</div>
+        <div class="tq-card-desc">Hop aboard this unique opportunity to approach Ghent from the water, and find yourself in the middle of the Middle Ages! See the magnificent facades of Graslei, Vleeshuis, Oude Vismijn and Gravensteen, which remain the silent and prestigious witnesses to a glorious past. 
 
-Cast your eyes and lenses on the typical wooden facade of the old days, and take a scenic 40-minute cruise on Leie river from Graslei quay in the historic city center of Ghent. There's a beer-sampling too, to wash your day trip down with.</p>
-          <div class="card-footer">
-            <span class="price">From €16</span>
-            <span class="rating">⭐ 4.5 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-historical-boat-tour-including-1-ghent-beer-p1019686/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Cast your eyes and lenses on the typical wooden facade of the old days, and take a scenic 40-minute cruise on Leie river from Graslei quay in the historic city center of Ghent. There's a beer-sampling too, to wash your day trip down with.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€16.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-historical-boat-tour-including-1-ghent-beer-p1019686/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Treviso | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Treviso. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,71 +131,115 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1755862065fd431295053202d74b1fe6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Venice: Shuttle Bus Transfer from Treviso Canova Airport to Venice" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Venice: Shuttle Bus Transfer from Treviso Canova Airport to Venice</h3>
-          <p class="venue">📍 Airport Transfers Treviso</p>
-          <p>Your Venetian adventure will be smooth sailing from the get-go with this super convenient shuttle bus ride from Treviso Canova Airport to Venice Piazzale Roma, or Mestre Railway Station. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1755862065fd431295053202d74b1fe6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Venice: Shuttle Bus Transfer from Treviso Canova Airport to Venice" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TREVISO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AIRPORT TRANSFERS TREVISO</span>
+        </div>
+        <div class="tq-card-title">Venice: Shuttle Bus Transfer from Treviso Canova Airport to Venice</div>
+        <div class="tq-card-desc">Your Venetian adventure will be smooth sailing from the get-go with this super convenient shuttle bus ride from Treviso Canova Airport to Venice Piazzale Roma, or Mestre Railway Station. 
 
 The floating city is notoriously busy. Waltz by the disgruntled crowds queuing for tickets at the airport, and reach your destination faster!
 
-With free WiFi onboard, you can also plan your time in Venice while you travel!</p>
-          <div class="card-footer">
-            <span class="price">From €14</span>
-            <span class="rating">⭐ 4.8 (204)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-venice-airport-transfer-from-treviso-airport-to-venice-p1025068/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With free WiFi onboard, you can also plan your time in Venice while you travel!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(204)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-venice-airport-transfer-from-treviso-airport-to-venice-p1025068/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1755862065fd431295053202d74b1fe6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Venice: Shuttle Bus Transfer from Venice to Treviso Canova Airport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Venice: Shuttle Bus Transfer from Venice to Treviso Canova Airport</h3>
-          <p class="venue">📍 Airport Transfers Treviso</p>
-          <p>Reach the Treviso Airport faster, the stress-free way, with a super convenient shuttle bus ride from Venice Piazzale Roma to the Canova Treviso Airport.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1755862065fd431295053202d74b1fe6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Venice: Shuttle Bus Transfer from Venice to Treviso Canova Airport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TREVISO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AIRPORT TRANSFERS TREVISO</span>
+        </div>
+        <div class="tq-card-title">Venice: Shuttle Bus Transfer from Venice to Treviso Canova Airport</div>
+        <div class="tq-card-desc">Reach the Treviso Airport faster, the stress-free way, with a super convenient shuttle bus ride from Venice Piazzale Roma to the Canova Treviso Airport.
 
-With free onboard WiFi you can post your photos of your Venice adventures online, and figure out where to put all your cool souvenirs when you get back home!</p>
-          <div class="card-footer">
-            <span class="price">From €14</span>
-            <span class="rating">⭐ 4.7 (197)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-shuttle-bus-from-venice-to-treviso-canova-airport-p1025109/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With free onboard WiFi you can post your photos of your Venice adventures online, and figure out where to put all your cool souvenirs when you get back home!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(197)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-shuttle-bus-from-venice-to-treviso-canova-airport-p1025109/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1755862065fd431295053202d74b1fe6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Venice: Bus Transfer to Treviso Airport (TSF) by Barzi Service" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Venice: Bus Transfer to Treviso Airport (TSF) by Barzi Service</h3>
-          <p class="venue">📍 Airport Transfers Treviso</p>
-          <p>Use a Barzi Service bus transfer to get to Treviso Airport (TSF) efficiently. This direct and budget-friendly shuttle connects you from Mestre Station, making it easy to travel from mainland Venice or your Mestre hotel.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1755862065fd431295053202d74b1fe6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Venice: Bus Transfer to Treviso Airport (TSF) by Barzi Service" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TREVISO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AIRPORT TRANSFERS TREVISO</span>
+        </div>
+        <div class="tq-card-title">Venice: Bus Transfer to Treviso Airport (TSF) by Barzi Service</div>
+        <div class="tq-card-desc">Use a Barzi Service bus transfer to get to Treviso Airport (TSF) efficiently. This direct and budget-friendly shuttle connects you from Mestre Station, making it easy to travel from mainland Venice or your Mestre hotel.
 
-The travel time is around 30-40 minutes via the motorway, avoiding local traffic and taking you directly to the terminal. The modern coaches provide ample luggage space for your belongings.</p>
-          <div class="card-footer">
-            <span class="price">From €10</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-venice-bus-transfer-to-treviso-airport-tsf-by-barzi-service-p1124303/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The travel time is around 30-40 minutes via the motorway, avoiding local traffic and taking you directly to the terminal. The modern coaches provide ample luggage space for your belongings.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€10.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-venice-bus-transfer-to-treviso-airport-tsf-by-barzi-service-p1124303/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1755862065fd431295053202d74b1fe6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Venice: Barzi Service Bus Transfer from Treviso Airport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Venice: Barzi Service Bus Transfer from Treviso Airport</h3>
-          <p class="venue">📍 Airport Transfers Treviso</p>
-          <p>Land at Treviso Airport (TSF) and head directly to Venice with the Barzi Service airport shuttle. This is a fast and affordable transfer option, taking the motorway straight to Venice. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1755862065fd431295053202d74b1fe6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Venice: Barzi Service Bus Transfer from Treviso Airport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TREVISO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AIRPORT TRANSFERS TREVISO</span>
+        </div>
+        <div class="tq-card-title">Venice: Barzi Service Bus Transfer from Treviso Airport</div>
+        <div class="tq-card-desc">Land at Treviso Airport (TSF) and head directly to Venice with the Barzi Service airport shuttle. This is a fast and affordable transfer option, taking the motorway straight to Venice. 
 
-In around 30 minutes, you'll arrive at Mestre Station, a key stop for regional trains and connections. Use modern coaches with ample luggage space for a comfortable trip.</p>
-          <div class="card-footer">
-            <span class="price">From €10</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-treviso-airport-bus-transfer-to-venice-by-barzi-service-p1123992/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In around 30 minutes, you'll arrive at Mestre Station, a key stop for regional trains and connections. Use modern coaches with ample luggage space for a comfortable trip.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€10.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-treviso-airport-bus-transfer-to-venice-by-barzi-service-p1123992/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

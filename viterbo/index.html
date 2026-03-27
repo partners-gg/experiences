@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Viterbo | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Viterbo. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,71 +131,115 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/faed90e6de114b2bb9ba82fb1e9f6ebc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Viterbo Underground" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Viterbo Underground</h3>
-          <p class="venue">📍 Viterbo Sotterranea</p>
-          <p>The labyrinth under the city of Viterbo has seen its share of drama over the centuries. It is thought to date back to the Etruscan era, but we can say with certainty the tunnel network was used as a secret escape route during sieges or invasions in the Middle Ages. It came into use again during WWII, acting as an air raid shelter.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/faed90e6de114b2bb9ba82fb1e9f6ebc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Viterbo Underground" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>VITERBO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">VITERBO SOTTERRANEA</span>
+        </div>
+        <div class="tq-card-title">Viterbo Underground</div>
+        <div class="tq-card-desc">The labyrinth under the city of Viterbo has seen its share of drama over the centuries. It is thought to date back to the Etruscan era, but we can say with certainty the tunnel network was used as a secret escape route during sieges or invasions in the Middle Ages. It came into use again during WWII, acting as an air raid shelter.
 
-There are untold stories lurking in the shadows. Pluck up your courage and enter the darkness on this 20-minute guided tour around Viterbo's subterranean world.</p>
-          <div class="card-footer">
-            <span class="price">From €4</span>
-            <span class="rating">⭐ 4.3 (52)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-viterbo-underground-p978150/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There are untold stories lurking in the shadows. Pluck up your courage and enter the darkness on this 20-minute guided tour around Viterbo's subterranean world.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(52)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€4.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-viterbo-underground-p978150/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/faed90e6de114b2bb9ba82fb1e9f6ebc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palace of the Popes (Polo Monumental Colle del Duomo): Skip The Line" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palace of the Popes (Polo Monumental Colle del Duomo): Skip The Line</h3>
-          <p class="venue">📍 Palace of the Popes of Viterbo</p>
-          <p>You cannot come to Viterbo and not visit the Palace of the Popes! Any history buff will revel in uncovering the stories tied to the Viterbo, known as the “City of the Popes” thanks to being the Papal seat between 1257 and 1281. The palace still retains the partial appearance of a military fortress, which it was back in 1255, before being transformed into a papal court.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/faed90e6de114b2bb9ba82fb1e9f6ebc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palace of the Popes (Polo Monumental Colle del Duomo): Skip The Line" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>VITERBO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALACE OF THE POPES OF VITERBO</span>
+        </div>
+        <div class="tq-card-title">Palace of the Popes (Polo Monumental Colle del Duomo): Skip The Line</div>
+        <div class="tq-card-desc">You cannot come to Viterbo and not visit the Palace of the Popes! Any history buff will revel in uncovering the stories tied to the Viterbo, known as the “City of the Popes” thanks to being the Papal seat between 1257 and 1281. The palace still retains the partial appearance of a military fortress, which it was back in 1255, before being transformed into a papal court.
 
-Bypass the long lines with this special skip-the-line entrance ticket to Polo Monumental Colle del Duomoanecdotes. Plug into your free audio guide and discover archaeological remains from the region, and get up close the most interesting of Tuscia's works of art, including the Pope's treasures.</p>
-          <div class="card-footer">
-            <span class="price">From €16</span>
-            <span class="rating">⭐ 4.5 (29)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-skip-the-line-entrance-to-polo-monumentale-colle-del-duomo-p1025254/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Bypass the long lines with this special skip-the-line entrance ticket to Polo Monumental Colle del Duomoanecdotes. Plug into your free audio guide and discover archaeological remains from the region, and get up close the most interesting of Tuscia's works of art, including the Pope's treasures.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(29)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€16.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-skip-the-line-entrance-to-polo-monumentale-colle-del-duomo-p1025254/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1755862065fd431295053202d74b1fe6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palazzo dei Priori: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palazzo dei Priori: Skip The Line Ticket</h3>
-          <p class="venue">📍 Priori Palace</p>
-          <p>Feel the magic of Palazzo dei Priori in Viterbo with the skip-the-line entry ticket. This historic destination invites visitors of all ages to explore its rich history. As you wander through its halls adorned with frescoes, you'll uncover the secrets of ancient Viterbo with each turn.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1755862065fd431295053202d74b1fe6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palazzo dei Priori: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>VITERBO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PRIORI PALACE</span>
+        </div>
+        <div class="tq-card-title">Palazzo dei Priori: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Feel the magic of Palazzo dei Priori in Viterbo with the skip-the-line entry ticket. This historic destination invites visitors of all ages to explore its rich history. As you wander through its halls adorned with frescoes, you'll uncover the secrets of ancient Viterbo with each turn.
 
-Young explorers can go on an exclusive adventure trail, discovering hidden treasures within the 16th-century walls. Join this experience where the past and present come together at Palazzo dei Priori.</p>
-          <div class="card-footer">
-            <span class="price">From €12</span>
-            <span class="rating">⭐ 1 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palazzo-dei-priori-skip-the-line-p1091127/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Young explorers can go on an exclusive adventure trail, discovering hidden treasures within the 16th-century walls. Join this experience where the past and present come together at Palazzo dei Priori.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palazzo-dei-priori-skip-the-line-p1091127/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/adc100015f364d6b9228ce43e3e87ad9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Viterbo Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Viterbo Pass</h3>
-          <p class="venue">📍 Palace of the Popes of Viterbo</p>
-          <p>A stone's throw from Rome lies Viterbo, a medieval gem nestled in Tuscia, the land of the ancient Etruscans. It's best known for being the seat of the papacy for two decades during the 13th century, but your Viterbo Pass gets you access to lots of interesting places!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/adc100015f364d6b9228ce43e3e87ad9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Viterbo Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>VITERBO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALACE OF THE POPES OF VITERBO</span>
+        </div>
+        <div class="tq-card-title">Viterbo Pass</div>
+        <div class="tq-card-desc">A stone's throw from Rome lies Viterbo, a medieval gem nestled in Tuscia, the land of the ancient Etruscans. It's best known for being the seat of the papacy for two decades during the 13th century, but your Viterbo Pass gets you access to lots of interesting places!
 
 Step back in time via the Palazzo dei Priori with its frescoes from the 1500s, and the Palazzo dei Papi, the site of the first and longest Conclave in history.
 
-It's all about the atmosphere at the Rossi Danielli Civic Museum, located in the cloister and the convent annexed with the church of Santa Maria della Verità. Uncover treasures at the Museum of Ceramics and the Museum of the Sodalizio dei Facchini di Santa Rosa. Or imagine the audience in awe at the Teatro dell'Unione, one of the most beautiful Italian theaters in Lazio. The choice is yours with the Viterbo Pass.</p>
-          <div class="card-footer">
-            <span class="price">From €24</span>
-            <span class="rating">⭐ 4.2 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-viterbo-pass-p1025475/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+It's all about the atmosphere at the Rossi Danielli Civic Museum, located in the cloister and the convent annexed with the church of Santa Maria della Verità. Uncover treasures at the Museum of Ceramics and the Museum of the Sodalizio dei Facchini di Santa Rosa. Or imagine the audience in awe at the Teatro dell'Unione, one of the most beautiful Italian theaters in Lazio. The choice is yours with the Viterbo Pass.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€24.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-viterbo-pass-p1025475/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

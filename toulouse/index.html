@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Toulouse | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Toulouse. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,30 +131,46 @@
     <p>12 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a1a86800aed4dcfb6b989042613e812.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Halle de La Machine: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Halle de La Machine: Entry Ticket</h3>
-          <p class="venue">📍 Halle de La Machine</p>
-          <p>Science is stranger than fiction at La Halle de la Machine, a unique street theater exhibition where man and machine collide!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a1a86800aed4dcfb6b989042613e812.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Halle de La Machine: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TOULOUSE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HALLE DE LA MACHINE</span>
+        </div>
+        <div class="tq-card-title">Halle de La Machine: Entry Ticket</div>
+        <div class="tq-card-desc">Science is stranger than fiction at La Halle de la Machine, a unique street theater exhibition where man and machine collide!
 
 Witness spectacular architecture in motion, as giant mechanical beasts come to life with real movement and theatrical performance. There's also a museum where kids can play with machine animals and meet the inventors of each beast. 
 
-A visit to La Halle de la Machine is an invitation to explore the stories and legends behind these extraordinary mechanical entities.</p>
-          <div class="card-footer">
-            <span class="price">From €13</span>
-            <span class="rating">⭐ 4.6 (202)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-la-halle-de-la-machine-p997277/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+A visit to La Halle de la Machine is an invitation to explore the stories and legends behind these extraordinary mechanical entities.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(202)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-la-halle-de-la-machine-p997277/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e0ca5cdbd3f6459e837978ab32546742.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cité de l'Espace: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cité de l'Espace: Skip The Line Ticket</h3>
-          <p class="venue">📍 Cité de l'Espace</p>
-          <p>Visit Cité de l'espace in Toulouse, a space science center focused on astronomy and space exploration. It offers interactive exhibits, large outdoor displays, an IMAX cinema, and two planetariums.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e0ca5cdbd3f6459e837978ab32546742.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cité de l'Espace: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TOULOUSE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CITÉ DE L'ESPACE</span>
+        </div>
+        <div class="tq-card-title">Cité de l'Espace: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Visit Cité de l'espace in Toulouse, a space science center focused on astronomy and space exploration. It offers interactive exhibits, large outdoor displays, an IMAX cinema, and two planetariums.
 
 The site includes over 4,000 m² of exhibition space and four hectares of gardens. See life-size models of major space hardware, including the Apollo lunar module, the Mir space station, the Ariane 5 rocket, Martian rovers, and the Orion crew module. 
 
@@ -63,51 +178,84 @@ Scientific presenters lead demonstrations and talks throughout the day.
 
 **Epsilon Mission**: A mission control–style exhibition about French astronaut Sophie Adenot’s time on the ISS, covering daily life and onboard experiments,
 
-**LuneXplorer**: A 40-minute immersive simulation of a Moon mission, from launch to landing, linked to NASA’s Artemis program with the European Space Agency (ESA).</p>
-          <div class="card-footer">
-            <span class="price">From €29</span>
-            <span class="rating">⭐ 4.6 (279)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cite-de-l-espace-skip-the-line-p975967/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+**LuneXplorer**: A 40-minute immersive simulation of a Moon mission, from launch to landing, linked to NASA’s Artemis program with the European Space Agency (ESA).</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(279)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cite-de-l-espace-skip-the-line-p975967/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a5d8482a56a941feac24d25eafb9068b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pass Nîmes la Romaine" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pass Nîmes la Romaine</h3>
-          <p class="venue">📍 Occitanie City Cards</p>
-          <p>The Pass Nîmes la Romaine provides access to some of the most spectacular and well-preserved Roman ruins in France, allowing visitors to step back in time and explore the ancient world in a truly immersive way.</p>
-          <div class="card-footer">
-            <span class="price">From €14.5</span>
-            <span class="rating">⭐ 4.5 (72)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pass-nimes-la-romaine-p1062099/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a5d8482a56a941feac24d25eafb9068b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pass Nîmes la Romaine" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TOULOUSE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">OCCITANIE CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Pass Nîmes la Romaine</div>
+        <div class="tq-card-desc">The Pass Nîmes la Romaine provides access to some of the most spectacular and well-preserved Roman ruins in France, allowing visitors to step back in time and explore the ancient world in a truly immersive way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(72)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pass-nimes-la-romaine-p1062099/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/af3f803ee5e64226aebf3af4f07ae08d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toulouse: CityTour Bus" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Toulouse: CityTour Bus</h3>
-          <p class="venue">📍 Occitanie Bus Tours</p>
-          <p>Enjoy _la vie en rose_ with a sightseeing tour of Toulouse; be chauffered around La Ville Rose aboard an open-top coach while an audio guide narrates the city's cultural treasures and amazing history in real-time. Cruise along the narrow streets of the old town, see beautiful churches, elegant hotels, corner bakeries, and cozy bistros.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/af3f803ee5e64226aebf3af4f07ae08d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toulouse: CityTour Bus" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TOULOUSE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">OCCITANIE BUS TOURS</span>
+        </div>
+        <div class="tq-card-title">Toulouse: CityTour Bus</div>
+        <div class="tq-card-desc">Enjoy _la vie en rose_ with a sightseeing tour of Toulouse; be chauffered around La Ville Rose aboard an open-top coach while an audio guide narrates the city's cultural treasures and amazing history in real-time. Cruise along the narrow streets of the old town, see beautiful churches, elegant hotels, corner bakeries, and cozy bistros.
 
-Taking 70 minutes, this is the perfect way to get oriented in one of France's most beautiful cities. What have you got Toulouse?</p>
-          <div class="card-footer">
-            <span class="price">From €16</span>
-            <span class="rating">⭐ 4.3 (77)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-citytour-toulouse-bus-p996949/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Taking 70 minutes, this is the perfect way to get oriented in one of France's most beautiful cities. What have you got Toulouse?</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(77)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€16.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-citytour-toulouse-bus-p996949/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/adc9997bae4d45f6aae1ffadd9881a15.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Albi & Cordes-sur-Ciel: Day Tour From Toulouse + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Albi & Cordes-sur-Ciel: Day Tour From Toulouse + Audio Guide</h3>
-          <p class="venue">📍 Day Trips from Toulouse</p>
-          <p>Depart from Toulouse and arrive in the beautiful city of Albi.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/adc9997bae4d45f6aae1ffadd9881a15.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Albi & Cordes-sur-Ciel: Day Tour From Toulouse + Audio Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TOULOUSE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM TOULOUSE</span>
+        </div>
+        <div class="tq-card-title">Albi & Cordes-sur-Ciel: Day Tour From Toulouse + Audio Guide</div>
+        <div class="tq-card-desc">Depart from Toulouse and arrive in the beautiful city of Albi.
 
 Explore the Toulouse-Lautrec Museum and then head to the nearby Sainte-Cécile Cathedral. Spend any remaining time walking around or having lunch.
 
@@ -115,136 +263,219 @@ Next, board your transport and arrive at Cordes sur Ciel in the afternoon.
 
 Start exploring the city with a visit to the chocolate museum and, later, stroll through the historic streets and squares of the old town.
 
-Post exploration, return to the bus for your departure back to Toulouse.</p>
-          <div class="card-footer">
-            <span class="price">From €26</span>
-            <span class="rating">⭐ 4.7 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-albi-cordes-sur-ciel-day-tour-from-toulouse-audio-guide-p1100118/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Post exploration, return to the bus for your departure back to Toulouse.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-albi-cordes-sur-ciel-day-tour-from-toulouse-audio-guide-p1100118/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/adc9997bae4d45f6aae1ffadd9881a15.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Carcassonne: Day Tour from Toulouse + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Carcassonne: Day Tour from Toulouse + Audio Guide</h3>
-          <p class="venue">📍 Day Trips from Toulouse</p>
-          <p>Depart from Toulouse and arrive in Carcassonne in the morning.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/adc9997bae4d45f6aae1ffadd9881a15.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Carcassonne: Day Tour from Toulouse + Audio Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TOULOUSE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM TOULOUSE</span>
+        </div>
+        <div class="tq-card-title">Carcassonne: Day Tour from Toulouse + Audio Guide</div>
+        <div class="tq-card-desc">Depart from Toulouse and arrive in Carcassonne in the morning.
 
 Visit the Château Comtal and explore this ancient castle also listed as a UNESCO World Heritage Site. 
 
 Enjoy lunch on your own at one of the squares in the city. In the afternoon, walk along the historic streets of this medieval city and learn about its rich history from locals.
 
-Post exploration, return to the bus to depart for Toulouse.</p>
-          <div class="card-footer">
-            <span class="price">From €39</span>
-            <span class="rating">⭐ 4.3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-carcassonne-day-tour-from-toulouse-audio-guide-p1100119/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Post exploration, return to the bus to depart for Toulouse.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-carcassonne-day-tour-from-toulouse-audio-guide-p1100119/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/97bea677dad245408937ea6ae6bea560.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toulouse: Guided Food Tour + Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Toulouse: Guided Food Tour + Tasting</h3>
-          <p class="venue">📍 Toulouse Food & Drinks</p>
-          <p>Join a food tour in Toulouse and taste some of the city's specialties.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/97bea677dad245408937ea6ae6bea560.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toulouse: Guided Food Tour + Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TOULOUSE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TOULOUSE FOOD & DRINKS</span>
+        </div>
+        <div class="tq-card-title">Toulouse: Guided Food Tour + Tasting</div>
+        <div class="tq-card-desc">Join a food tour in Toulouse and taste some of the city's specialties.
 
-Walk through the city center and discover notable neighborhoods. You will be sampling southwest dishes along with charcuterie, cheeses, hot dogs, cinnamon rolls, local smash burgers, and more.</p>
-          <div class="card-footer">
-            <span class="price">From €64</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-toulouse-guided-food-tour-p1117652/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Walk through the city center and discover notable neighborhoods. You will be sampling southwest dishes along with charcuterie, cheeses, hot dogs, cinnamon rolls, local smash burgers, and more.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-toulouse-guided-food-tour-p1117652/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/adc9997bae4d45f6aae1ffadd9881a15.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lourdes: Small Group Guided Day Tour from Toulouse" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lourdes: Small Group Guided Day Tour from Toulouse</h3>
-          <p class="venue">📍 Day Trips from Toulouse</p>
-          <p>Join a guided tour from Toulouse to visit Lourdes, one of the world’s renowned pilgrimage sites. Travel in an air-conditioned minivan with a convenient pickup and drop-off in central Toulouse.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/adc9997bae4d45f6aae1ffadd9881a15.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lourdes: Small Group Guided Day Tour from Toulouse" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TOULOUSE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM TOULOUSE</span>
+        </div>
+        <div class="tq-card-title">Lourdes: Small Group Guided Day Tour from Toulouse</div>
+        <div class="tq-card-desc">Join a guided tour from Toulouse to visit Lourdes, one of the world’s renowned pilgrimage sites. Travel in an air-conditioned minivan with a convenient pickup and drop-off in central Toulouse.
 
 On arrival, see the Sanctuary of Our Lady of Lourdes and its main sites: the Basilica of Our Lady of the Immaculate Conception, the Basilica of Our Lady of the Rosary, and the Basilica of St. Pius X. Visit the Grotto of Massabielle, where the Virgin Mary appeared to Bernadette Soubirous, and gather water from the spring.
 
-After a guided tour, spend free time walking through historic streets, shopping for religious souvenirs, or having lunch (at your own expense). Finally, return to Toulouse.</p>
-          <div class="card-footer">
-            <span class="price">From €145</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lourdes-small-group-guided-day-tour-from-toulouse-p1116460/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After a guided tour, spend free time walking through historic streets, shopping for religious souvenirs, or having lunch (at your own expense). Finally, return to Toulouse.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€145.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lourdes-small-group-guided-day-tour-from-toulouse-p1116460/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/adc9997bae4d45f6aae1ffadd9881a15.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Albi, Cordes-sur-Ciel & Gaillac: Guided Tour from Toulouse + Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Albi, Cordes-sur-Ciel & Gaillac: Guided Tour from Toulouse + Wine Tasting</h3>
-          <p class="venue">📍 Day Trips from Toulouse</p>
-          <p>Take a full-day small group trip from Toulouse to see key sites in southern France. Visit Albi to see the Sainte-Cécile Cathedral and walk through the old town, with free time to explore or visit the Toulouse-Lautrec Museum.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/adc9997bae4d45f6aae1ffadd9881a15.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Albi, Cordes-sur-Ciel & Gaillac: Guided Tour from Toulouse + Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TOULOUSE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM TOULOUSE</span>
+        </div>
+        <div class="tq-card-title">Albi, Cordes-sur-Ciel & Gaillac: Guided Tour from Toulouse + Wine Tasting</div>
+        <div class="tq-card-desc">Take a full-day small group trip from Toulouse to see key sites in southern France. Visit Albi to see the Sainte-Cécile Cathedral and walk through the old town, with free time to explore or visit the Toulouse-Lautrec Museum.
 
-Continue to the hilltop village of Cordes-sur-Ciel to walk its streets and see its Gothic buildings. End the day with a guided wine tasting in the Gaillac region.</p>
-          <div class="card-footer">
-            <span class="price">From €145</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-albi-cordes-sur-ciel-gaillac-guided-tour-from-toulouse-wine-tasting-p1115761/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Continue to the hilltop village of Cordes-sur-Ciel to walk its streets and see its Gothic buildings. End the day with a guided wine tasting in the Gaillac region.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€145.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-albi-cordes-sur-ciel-gaillac-guided-tour-from-toulouse-wine-tasting-p1115761/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/adc9997bae4d45f6aae1ffadd9881a15.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gaillac: Half-Day Guided Tour from Toulouse + Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Gaillac: Half-Day Guided Tour from Toulouse + Wine Tasting</h3>
-          <p class="venue">📍 Day Trips from Toulouse</p>
-          <p>Join a small group tour from Toulouse to one of France's oldest wine regions, Gaillac. Ride comfortably with a local guide who will take you to two selected wineries. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/adc9997bae4d45f6aae1ffadd9881a15.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gaillac: Half-Day Guided Tour from Toulouse + Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TOULOUSE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM TOULOUSE</span>
+        </div>
+        <div class="tq-card-title">Gaillac: Half-Day Guided Tour from Toulouse + Wine Tasting</div>
+        <div class="tq-card-desc">Join a small group tour from Toulouse to one of France's oldest wine regions, Gaillac. Ride comfortably with a local guide who will take you to two selected wineries. 
 
-Learn about winemaking and taste various Gaillac wines, including reds, whites, rosés, and sparkling wines. Walk through vineyards and see grape varieties such as Mauzac and Braucol.</p>
-          <div class="card-footer">
-            <span class="price">From €90</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-gaillac-half-day-guided-tour-from-toulouse-wine-tasting-p1115366/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about winemaking and taste various Gaillac wines, including reds, whites, rosés, and sparkling wines. Walk through vineyards and see grape varieties such as Mauzac and Braucol.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€90.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-gaillac-half-day-guided-tour-from-toulouse-wine-tasting-p1115366/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0ad4dc94b8034c2699d1073601171d28.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toulouse City Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Toulouse City Pass</h3>
-          <p class="venue">📍 Occitanie City Cards</p>
-          <p>Forget worrying about how to get around Toulouse, all public transport is included in the Toulouse City Pass. Easy! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0ad4dc94b8034c2699d1073601171d28.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toulouse City Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TOULOUSE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">OCCITANIE CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Toulouse City Pass</div>
+        <div class="tq-card-desc">Forget worrying about how to get around Toulouse, all public transport is included in the Toulouse City Pass. Easy! 
 
 You'll also get free access to 13 museums and monuments in Toulouse, numerous activities at cut prices, and reduced rates on city tours. See the Natural History Museum, Fine-Arts Museum, Contemporary Art Museum, the Jacobins Convent and more.
 
-Want more info on Toulouse? Get a free guided tour, which you'll pick yourself from the program at the tourist office.</p>
-          <div class="card-footer">
-            <span class="price">From €36</span>
-            <span class="rating">⭐ 3.8 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-toulouse-city-pass-p1006751/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Want more info on Toulouse? Get a free guided tour, which you'll pick yourself from the program at the tourist office.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€36.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-toulouse-city-pass-p1006751/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0ad4dc94b8034c2699d1073601171d28.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toulouse City Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Toulouse City Pass</h3>
-          <p class="venue">📍 Occitanie City Cards</p>
-          <p>Forget worrying about how to get around Toulouse, all public transport is included in the Toulouse City Pass. Easy! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0ad4dc94b8034c2699d1073601171d28.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Toulouse City Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TOULOUSE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">OCCITANIE CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Toulouse City Pass</div>
+        <div class="tq-card-desc">Forget worrying about how to get around Toulouse, all public transport is included in the Toulouse City Pass. Easy! 
 
 You'll also get free access to 13 museums and monuments in Toulouse, numerous activities at cut prices, and reduced rates on city tours. See the Natural History Museum, Fine-Arts Museum, Contemporary Art Museum, the Jacobins Convent and more.
 
-Want more info on Toulouse? Get a free guided tour, which you'll pick yourself from the program at the tourist office.</p>
-          <div class="card-footer">
-            <span class="price">From €36</span>
-            <span class="rating">⭐ 3.8 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-toulouse-city-pass-p1006751/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Want more info on Toulouse? Get a free guided tour, which you'll pick yourself from the program at the tourist office.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€36.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-toulouse-city-pass-p1006751/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Saint Augustine | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Saint Augustine. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,347 +131,589 @@
     <p>22 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/41d01fdfd2c84e53ad4e89ae680a494f.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Pirate & Treasure Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>St. Augustine Pirate & Treasure Museum: Entry Ticket</h3>
-          <p class="venue">📍 St. Augustine Pirate & Treasure Museum</p>
-          <p>Parrot on your shoulder behaving appropriately? Eye-patch on straight? Then put your best peg-leg forward for the St. Augustine Pirate & Treasure Museum. Join Sir Francis Drake for more skulls and crossbones than you can count on this interactive journey through swashbuckling history - there's even a treasure hunt!</p>
-          <div class="card-footer">
-            <span class="price">From €17.43</span>
-            <span class="rating">⭐ 4.8 (30)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-pirate-treasure-museum-p976083/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/41d01fdfd2c84e53ad4e89ae680a494f.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Pirate & Treasure Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ST. AUGUSTINE PIRATE & TREASURE MUSEUM</span>
+        </div>
+        <div class="tq-card-title">St. Augustine Pirate & Treasure Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Parrot on your shoulder behaving appropriately? Eye-patch on straight? Then put your best peg-leg forward for the St. Augustine Pirate & Treasure Museum. Join Sir Francis Drake for more skulls and crossbones than you can count on this interactive journey through swashbuckling history - there's even a treasure hunt!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(30)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.43</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-pirate-treasure-museum-p976083/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bcff3093e6114d4ba79af3af0cfd86bd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Potter's Wax Museum of St. Augustine" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Potter's Wax Museum of St. Augustine</h3>
-          <p class="venue">📍 Potter's Wax Museum</p>
-          <p>Theater-school grads in mouse suits might have a hold on people's hearts elsewhere in Florida, but in St. Augustine it's all about who's immortalized in wax at Potter's Wax Museum. Visit with celebs, sporting heroes, politicians and more, from Britney Spears to George Bush!</p>
-          <div class="card-footer">
-            <span class="price">From €15.6</span>
-            <span class="rating">⭐ 4.5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-potter-s-wax-museum-of-st-augustine-p976050/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bcff3093e6114d4ba79af3af0cfd86bd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Potter's Wax Museum of St. Augustine" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POTTER'S WAX MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Potter's Wax Museum of St. Augustine</div>
+        <div class="tq-card-desc">Theater-school grads in mouse suits might have a hold on people's hearts elsewhere in Florida, but in St. Augustine it's all about who's immortalized in wax at Potter's Wax Museum. Visit with celebs, sporting heroes, politicians and more, from Britney Spears to George Bush!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.60</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-potter-s-wax-museum-of-st-augustine-p976050/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7faa05ff8c514c4eae68b66485208a93.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Villa Zorayda Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Villa Zorayda Museum: Entry Ticket</h3>
-          <p class="venue">📍 Villa Zorayda Museum</p>
-          <p>This impressive concrete and crushed coquina construction transformed the buildings in the city of St. Augustine after its completion. It still has the power to wow you before you've even stepped inside!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7faa05ff8c514c4eae68b66485208a93.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Villa Zorayda Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">VILLA ZORAYDA MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Villa Zorayda Museum: Entry Ticket</div>
+        <div class="tq-card-desc">This impressive concrete and crushed coquina construction transformed the buildings in the city of St. Augustine after its completion. It still has the power to wow you before you've even stepped inside!
 
 Witness a Gilded Age masterpiece built in 1883 and feel the history seeping through its wonderful walls. Study the architecture inspired by the Alhambra Palace in Granada, Spain. Explore the original art and antique collection inside, wander amongst the furnishings, and get up close to colorful pottery, impressive paintings, and sculptures from around the world.
 
-Feel free to take your time, and don't miss the chance to get more info directly into your ears via an audio guide. You'll learn the history of the building - it used to be a club - its importance in St. Augustine, as well as fun facts about the art collection inside.</p>
-          <div class="card-footer">
-            <span class="price">From €13.78</span>
-            <span class="rating">⭐ 4.8 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-villa-zorayda-museum-p1026536/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Feel free to take your time, and don't miss the chance to get more info directly into your ears via an audio guide. You'll learn the history of the building - it used to be a club - its importance in St. Augustine, as well as fun facts about the art collection inside.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.78</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-villa-zorayda-museum-p1026536/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7e26a3c731e448b934115e20a03bf98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Medieval Torture Museum + Audio Guide + Ghost Hunting + Tiny Art: All-Inclusive" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Medieval Torture Museum + Audio Guide + Ghost Hunting + Tiny Art: All-Inclusive</h3>
-          <p class="venue">📍 Medieval Torture Museum</p>
-          <p>Dive into the lives of fanatics, madmen, and psychopaths at the Medieval Torture Museum in St. Augustine. Then use your combo ticket to warm your heart back up with dozens of miniature artworks at the Tiny Art Gallery.</p>
-          <div class="card-footer">
-            <span class="price">From €21.55</span>
-            <span class="rating">⭐ 4.2 (13)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-medieval-torture-museum-micro-masterpieces-art-gallery-all-inclusive-p976800/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c7e26a3c731e448b934115e20a03bf98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Medieval Torture Museum + Audio Guide + Ghost Hunting + Tiny Art: All-Inclusive" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MEDIEVAL TORTURE MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Medieval Torture Museum + Audio Guide + Ghost Hunting + Tiny Art: All-Inclusive</div>
+        <div class="tq-card-desc">Dive into the lives of fanatics, madmen, and psychopaths at the Medieval Torture Museum in St. Augustine. Then use your combo ticket to warm your heart back up with dozens of miniature artworks at the Tiny Art Gallery.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(13)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.55</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-medieval-torture-museum-micro-masterpieces-art-gallery-all-inclusive-p976800/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/af9892212fa5432e894f09d52cb0b275.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Believe It or Not! St. Augustine: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ripley's Believe It or Not! St. Augustine: Entry Ticket</h3>
-          <p class="venue">📍 Ripley's Believe It or Not! St. Augustine</p>
-          <p>Experience Ripley's Believe It or Not! where the extraordinary becomes reality. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/af9892212fa5432e894f09d52cb0b275.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Believe It or Not! St. Augustine: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RIPLEY'S BELIEVE IT OR NOT! ST. AUGUSTINE</span>
+        </div>
+        <div class="tq-card-title">Ripley's Believe It or Not! St. Augustine: Entry Ticket</div>
+        <div class="tq-card-desc">Experience Ripley's Believe It or Not! where the extraordinary becomes reality. 
 
 Explore 14 themed galleries filled with unique artifacts, interactive exhibits, and unbelievable stories for visitors of all ages.
 
 From genuine shrunken heads to fascinating tales of remarkable individuals, Ripley's offers a glimpse into a world of wonder and curiosity. 
 
-Step into this realm of fascination in St. Augustine and prepare for an unforgettable adventure!</p>
-          <div class="card-footer">
-            <span class="price">From €22.03</span>
-            <span class="rating">⭐ 4 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-ripley-s-believe-it-or-not-p1089909/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Step into this realm of fascination in St. Augustine and prepare for an unforgettable adventure!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.03</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-ripley-s-believe-it-or-not-p1089909/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a1301dc638ab471fa1dab776de7e33b8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Colonial Experience: Skip The Line" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Colonial Experience: Skip The Line</h3>
-          <p class="venue">📍 Colonial Quarter</p>
-          <p>Meet blacksmiths, lock and load a musket, visit a home that’s over 270 years old! A day out at Colonial Experience gives you a fully interactive look at the oldest permanent European Settlement in North America and how they lived in St. Augustine for hundreds of years.</p>
-          <div class="card-footer">
-            <span class="price">From €13.76</span>
-            <span class="rating">⭐ 4.7 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-colonial-experience-skip-the-line-p976084/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a1301dc638ab471fa1dab776de7e33b8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Colonial Experience: Skip The Line" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COLONIAL QUARTER</span>
+        </div>
+        <div class="tq-card-title">Colonial Experience: Skip The Line</div>
+        <div class="tq-card-desc">Meet blacksmiths, lock and load a musket, visit a home that’s over 270 years old! A day out at Colonial Experience gives you a fully interactive look at the oldest permanent European Settlement in North America and how they lived in St. Augustine for hundreds of years.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.76</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-colonial-experience-skip-the-line-p976084/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ac6efc5e028041f6ac48f6d8ec947de5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine: Hop-on Hop-off Old Town Trolley" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>St. Augustine: Hop-on Hop-off Old Town Trolley</h3>
-          <p class="venue">📍 St. Augustine Old Jail</p>
-          <p>Take your imagination back in time and discover the oldest city in the USA with the St. Augustine Old Town Trolley. Meander around Florida's historic European settlement in an open-air trolley and see incredibly well-preserved sites that show the humble beginnings of Britain's former colony.</p>
-          <div class="card-footer">
-            <span class="price">From €34.07</span>
-            <span class="rating">⭐ 4.5 (11)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-st-augustine-old-town-trolley-p976311/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ac6efc5e028041f6ac48f6d8ec947de5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine: Hop-on Hop-off Old Town Trolley" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ST. AUGUSTINE OLD JAIL</span>
+        </div>
+        <div class="tq-card-title">St. Augustine: Hop-on Hop-off Old Town Trolley</div>
+        <div class="tq-card-desc">Take your imagination back in time and discover the oldest city in the USA with the St. Augustine Old Town Trolley. Meander around Florida's historic European settlement in an open-air trolley and see incredibly well-preserved sites that show the humble beginnings of Britain's former colony.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(11)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€34.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-st-augustine-old-town-trolley-p976311/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/05a616bb37fe48ff931b02ed4714653e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Old Jail: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>St. Augustine Old Jail: Guided Tour</h3>
-          <p class="venue">📍 St. Augustine Old Jail</p>
-          <p>The Old Jail in St. Augustine still has a harrowing air about it, which is to be expected, seeing as it hasn't really changed much in a whole century! Join your guide in full costume for a tour into the dark past of prison life, where the wronged and falsely accused were made to suffer for over 60 years.</p>
-          <div class="card-footer">
-            <span class="price">From €16.52</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-old-jail-guided-tour-p976063/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/05a616bb37fe48ff931b02ed4714653e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Old Jail: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ST. AUGUSTINE OLD JAIL</span>
+        </div>
+        <div class="tq-card-title">St. Augustine Old Jail: Guided Tour</div>
+        <div class="tq-card-desc">The Old Jail in St. Augustine still has a harrowing air about it, which is to be expected, seeing as it hasn't really changed much in a whole century! Join your guide in full costume for a tour into the dark past of prison life, where the wronged and falsely accused were made to suffer for over 60 years.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€16.52</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-old-jail-guided-tour-p976063/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c347d213b7e74d37a442e80f8f3b17a5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine History Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>St. Augustine History Museum: Entry Ticket</h3>
-          <p class="venue">📍 St. Augustine History Museum</p>
-          <p>Did you know that Florida was a United States territory until 1845, when it officially became a state? Get more fascinating facts about Florida at the St. Augustine History Museum, an educational hour or two off the beaten track that'll make you appreciate your time here even more!</p>
-          <div class="card-footer">
-            <span class="price">From €7.34</span>
-            <span class="rating">⭐ 3 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-history-museum-p976059/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c347d213b7e74d37a442e80f8f3b17a5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine History Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ST. AUGUSTINE HISTORY MUSEUM</span>
+        </div>
+        <div class="tq-card-title">St. Augustine History Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Did you know that Florida was a United States territory until 1845, when it officially became a state? Get more fascinating facts about Florida at the St. Augustine History Museum, an educational hour or two off the beaten track that'll make you appreciate your time here even more!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€7.34</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-history-museum-p976059/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/24438e11ec64463f8fe9c257e2bd59c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Aquarium: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>St. Augustine Aquarium: Entry Ticket</h3>
-          <p class="venue">📍 St. Augustine Aquarium</p>
-          <p>Prepare to be mesmerized by the captivating world of marine biology at the St. Augustine Aquarium. Nestled on Rt. 16, a mere hop and skip from I-95, this landlocked aquarium is a slice of oceanic paradise that promises to leave guests spellbound. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/24438e11ec64463f8fe9c257e2bd59c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Aquarium: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ST. AUGUSTINE AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">St. Augustine Aquarium: Entry Ticket</div>
+        <div class="tq-card-desc">Prepare to be mesmerized by the captivating world of marine biology at the St. Augustine Aquarium. Nestled on Rt. 16, a mere hop and skip from I-95, this landlocked aquarium is a slice of oceanic paradise that promises to leave guests spellbound. 
 
 Immerse yourself in the wonders of the deep with a plethora of indoor and open-air exhibits that offer a glimpse into the aquatic universe. Guests can embark on a snorkeling adventure in an 80,000-gallon tank that teems with hundreds of Florida reef fish, including the majestic angelfish, blue-lined grunts, and high-hats. 
 
-The knowledgeable staff at the St. Augustine Aquarium is passionate about sharing their love for marine biology and invites guests to explore the sea and its inhabitants. Guests can embark on a thrilling adventure to search for seahorses hiding in the seagrass, or touch starfishes, horseshoe crabs, and other invertebrates.</p>
-          <div class="card-footer">
-            <span class="price">From €13.76</span>
-            <span class="rating">⭐ 3.2 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-aquarium-ticket-p1065875/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The knowledgeable staff at the St. Augustine Aquarium is passionate about sharing their love for marine biology and invites guests to explore the sea and its inhabitants. Guests can embark on a thrilling adventure to search for seahorses hiding in the seagrass, or touch starfishes, horseshoe crabs, and other invertebrates.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.2</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.76</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-aquarium-ticket-p1065875/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e0ea8fcda6a44e2493b6e2e24c3d6404.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine: Ghosts & Gravestones Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>St. Augustine: Ghosts & Gravestones Tour</h3>
-          <p class="venue">📍 Saint Augustine City Tours</p>
-          <p>Hop aboard the _Trolley of the Doomed_ and be swept around the oldest town in America on a tour of its most notoriously haunted sites. Summon your courage as you explore the history of death and occult occurrences in the Old Jail, Huguenot Cemetery, Potter's Wax Museum, and more spine-tingling locales with the help of a fittingly spooky ghost guide.</p>
-          <div class="card-footer">
-            <span class="price">From €31.38</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ghosts-gravestones-st-augustine-p976077/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e0ea8fcda6a44e2493b6e2e24c3d6404.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine: Ghosts & Gravestones Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SAINT AUGUSTINE CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">St. Augustine: Ghosts & Gravestones Tour</div>
+        <div class="tq-card-desc">Hop aboard the _Trolley of the Doomed_ and be swept around the oldest town in America on a tour of its most notoriously haunted sites. Summon your courage as you explore the history of death and occult occurrences in the Old Jail, Huguenot Cemetery, Potter's Wax Museum, and more spine-tingling locales with the help of a fittingly spooky ghost guide.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€31.38</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ghosts-gravestones-st-augustine-p976077/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/01a46703ed8046b685a3beb8397b93cc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Oldest Store Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>St. Augustine Oldest Store Museum: Entry Ticket</h3>
-          <p class="venue">📍 St. Augustine Oldest Store Museum</p>
-          <p>Step right up! Step right up! Get your hands on a ticket for the Oldest Store Museum in St. Augustine and see how the American shopping experience has changed in the last 120 years. Watch sneaky snake oil merchants peddling their wares, and discover the latest miracle inventions of the early 20th century, like the amazing unicycle - now that's bound to catch on!</p>
-          <div class="card-footer">
-            <span class="price">From €14.68</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-oldest-store-museum-p976066/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/01a46703ed8046b685a3beb8397b93cc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Oldest Store Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ST. AUGUSTINE OLDEST STORE MUSEUM</span>
+        </div>
+        <div class="tq-card-title">St. Augustine Oldest Store Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Step right up! Step right up! Get your hands on a ticket for the Oldest Store Museum in St. Augustine and see how the American shopping experience has changed in the last 120 years. Watch sneaky snake oil merchants peddling their wares, and discover the latest miracle inventions of the early 20th century, like the amazing unicycle - now that's bound to catch on!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.68</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-oldest-store-museum-p976066/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7faa05ff8c514c4eae68b66485208a93.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Night Watchman Ghost Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>The Night Watchman Ghost Tour</h3>
-          <p class="venue">📍 Walking Tours in St. Augustine</p>
-          <p>Take a walking tour through the historic streets of St. Augustine guided by stories of a night watchman and his daughter. This tour will include narratives that highlight historical events and locations.</p>
-          <div class="card-footer">
-            <span class="price">From €25.87</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-night-watchman-ghost-tour-p1127105/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7faa05ff8c514c4eae68b66485208a93.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Night Watchman Ghost Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN ST. AUGUSTINE</span>
+        </div>
+        <div class="tq-card-title">The Night Watchman Ghost Tour</div>
+        <div class="tq-card-desc">Take a walking tour through the historic streets of St. Augustine guided by stories of a night watchman and his daughter. This tour will include narratives that highlight historical events and locations.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.87</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-night-watchman-ghost-tour-p1127105/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7faa05ff8c514c4eae68b66485208a93.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Saint Augustine: Evening Architectural Photography Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Saint Augustine: Evening Architectural Photography Tour</h3>
-          <p class="venue">📍 Walking Tours in St. Augustine</p>
-          <p>Join a guided tour through the historic streets of Saint Augustine. Learn practical photography techniques for various devices, including smartphones and DSLRs. Visit locations with significant historical context, practicing photographic composition and lighting skills inspired by the architectural environment. Enhance personal storytelling through visual imagery while interacting with the city’s unique cultural landscape. This activity is suited for all levels, focusing on both technical learning and the historical depth of Saint Augustine’s environment.</p>
-          <div class="card-footer">
-            <span class="price">From €76.74</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-saint-augustine-evening-architectural-photography-tour-p1127100/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7faa05ff8c514c4eae68b66485208a93.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Saint Augustine: Evening Architectural Photography Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN ST. AUGUSTINE</span>
+        </div>
+        <div class="tq-card-title">Saint Augustine: Evening Architectural Photography Tour</div>
+        <div class="tq-card-desc">Join a guided tour through the historic streets of Saint Augustine. Learn practical photography techniques for various devices, including smartphones and DSLRs. Visit locations with significant historical context, practicing photographic composition and lighting skills inspired by the architectural environment. Enhance personal storytelling through visual imagery while interacting with the city’s unique cultural landscape. This activity is suited for all levels, focusing on both technical learning and the historical depth of Saint Augustine’s environment.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€76.74</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-saint-augustine-evening-architectural-photography-tour-p1127100/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7faa05ff8c514c4eae68b66485208a93.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Torrid Tales True Crime Tour In St. Augustine" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Torrid Tales True Crime Tour In St. Augustine</h3>
-          <p class="venue">📍 Walking Tours in St. Augustine</p>
-          <p>Follow the streets of St. Augustine and learn about locations tied to historical crimes and incidents. Examine details of notable cases, ranging from an unresolved case from centuries ago to modern events. Understand the circumstances of these events and consider evidence and outcomes. Engage with the narratives that define the history and identity of this historic town.</p>
-          <div class="card-footer">
-            <span class="price">From €26.64</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-torrid-tales-true-crime-tour-in-st-augustine-p1127099/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7faa05ff8c514c4eae68b66485208a93.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Torrid Tales True Crime Tour In St. Augustine" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN ST. AUGUSTINE</span>
+        </div>
+        <div class="tq-card-title">Torrid Tales True Crime Tour In St. Augustine</div>
+        <div class="tq-card-desc">Follow the streets of St. Augustine and learn about locations tied to historical crimes and incidents. Examine details of notable cases, ranging from an unresolved case from centuries ago to modern events. Understand the circumstances of these events and consider evidence and outcomes. Engage with the narratives that define the history and identity of this historic town.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.64</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-torrid-tales-true-crime-tour-in-st-augustine-p1127099/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7faa05ff8c514c4eae68b66485208a93.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Guided Walking History Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Private Guided Walking History Tour</h3>
-          <p class="venue">📍 Walking Tours in St. Augustine</p>
-          <p>Participate in a guided walking tour through the historic streets of St. Augustine, tailored for families. Learn about aspects of pirate and early settlement history through shared historical anecdotes. Engage in hands-on learning by handling items such as cannonballs, blacksmith nails, and other historical artifacts. Kids can take part in interactive activities that focus on pirate-related skills and historical knowledge.</p>
-          <div class="card-footer">
-            <span class="price">From €25.87</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-private-guided-walking-history-tour-p1127098/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7faa05ff8c514c4eae68b66485208a93.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Guided Walking History Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN ST. AUGUSTINE</span>
+        </div>
+        <div class="tq-card-title">Private Guided Walking History Tour</div>
+        <div class="tq-card-desc">Participate in a guided walking tour through the historic streets of St. Augustine, tailored for families. Learn about aspects of pirate and early settlement history through shared historical anecdotes. Engage in hands-on learning by handling items such as cannonballs, blacksmith nails, and other historical artifacts. Kids can take part in interactive activities that focus on pirate-related skills and historical knowledge.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.87</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-private-guided-walking-history-tour-p1127098/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7e26a3c731e448b934115e20a03bf98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tiny Art Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tiny Art Museum: Entry Ticket</h3>
-          <p class="venue">📍 Medieval Torture Museum</p>
-          <p>Visit the Tiny Art Museum, located within the same building as the Medieval Torture Museum on the second floor.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c7e26a3c731e448b934115e20a03bf98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tiny Art Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MEDIEVAL TORTURE MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Tiny Art Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Visit the Tiny Art Museum, located within the same building as the Medieval Torture Museum on the second floor.
 
 Witness a diverse collection of miniature artworks, that is valued by collectors, created using intricate techniques over a history of more than 1,000 years. Examples include portraits on poppy seeds or camel caravans through a needle's eye.
 
-View pieces where incredible detail has been applied, such as portraits painted on tiny surfaces or sculptures fitting into uniquely small spaces, showcasing human innovation in art.</p>
-          <div class="card-footer">
-            <span class="price">From €8.61</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tiny-art-museum-entry-p1126994/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+View pieces where incredible detail has been applied, such as portraits painted on tiny surfaces or sculptures fitting into uniquely small spaces, showcasing human innovation in art.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8.61</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tiny-art-museum-entry-p1126994/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ac6efc5e028041f6ac48f6d8ec947de5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Old Jail: After Dark Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>St. Augustine Old Jail: After Dark Tour</h3>
-          <p class="venue">📍 St. Augustine Old Jail</p>
-          <p>Join a team for a paranormal investigation of the St. Augustine Old Jail. Old Jail is recognized as one of the most haunted buildings in the country and shrouded in mystery and lore. The historic building housed prisoners from 1891 to 1953 when it was closed due to its harsh conditions and cruelty.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ac6efc5e028041f6ac48f6d8ec947de5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Old Jail: After Dark Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ST. AUGUSTINE OLD JAIL</span>
+        </div>
+        <div class="tq-card-title">St. Augustine Old Jail: After Dark Tour</div>
+        <div class="tq-card-desc">Join a team for a paranormal investigation of the St. Augustine Old Jail. Old Jail is recognized as one of the most haunted buildings in the country and shrouded in mystery and lore. The historic building housed prisoners from 1891 to 1953 when it was closed due to its harsh conditions and cruelty.
 
 Multiple hangings were carried out on this site in addition to many other deaths that can only be described as unnatural. These are the reasons that leads many to believe it is a hotspot for paranormal activity and become a popular destination for ghost hunters everywhere.
 
-During the investigation, you'll be provided with and trained to use traditional and modern ghost-hunting equipment. You can also bring your own gear. Feel the thrill of searching for evidence of ghosts and other supernatural beings at this famous location.</p>
-          <div class="card-footer">
-            <span class="price">From €91.82</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-old-jail-after-dark-tour-p1092286/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+During the investigation, you'll be provided with and trained to use traditional and modern ghost-hunting equipment. You can also bring your own gear. Feel the thrill of searching for evidence of ghosts and other supernatural beings at this famous location.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€91.82</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-old-jail-after-dark-tour-p1092286/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f3cc124408164840990ded1bf10d242e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Combo Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>St. Augustine Combo Pass</h3>
-          <p class="venue">📍 St. Augustine Oldest Store Museum</p>
-          <p>Enjoy the sights and history of St. Augustine with this Combo Pass, including a 1-day Hop on Hop off Trolley and entrance to the Oldest Store, Old Jail Museum and St. Augustine History Museum.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f3cc124408164840990ded1bf10d242e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Combo Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ST. AUGUSTINE OLDEST STORE MUSEUM</span>
+        </div>
+        <div class="tq-card-title">St. Augustine Combo Pass</div>
+        <div class="tq-card-desc">Enjoy the sights and history of St. Augustine with this Combo Pass, including a 1-day Hop on Hop off Trolley and entrance to the Oldest Store, Old Jail Museum and St. Augustine History Museum.
 
 Take your imagination back in time and discover the oldest city in the USA with the St. Augustine Old Town Trolley. Meander around Florida's historic European settlement in an open-air trolley and see incredibly well-preserved sites that show the humble beginnings of Britain's former colony.
 
 The Old Jail in St. Augustine still has a harrowing air about it, which is to be expected, seeing as it hasn't really changed much in a whole century! The St. Augustine Oldest Store Museum is a time capsule experience that transports you to a convenience store at the turn of the 20th century. 
 
-At the St. Augustine History Museum you'll learn how four different nations came to rule over a quaint beach town and made a permanent mark on its personality and culture.</p>
-          <div class="card-footer">
-            <span class="price">From €59.67</span>
-            <span class="rating">⭐ 4.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-combo-pass-p1033922/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+At the St. Augustine History Museum you'll learn how four different nations came to rule over a quaint beach town and made a permanent mark on its personality and culture.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€59.67</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-combo-pass-p1033922/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7faa05ff8c514c4eae68b66485208a93.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Shipwreck Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>St. Augustine Shipwreck Museum: Entry Ticket</h3>
-          <p class="venue">📍 St. Augustine Shipwreck Museum</p>
-          <p>Discover the story of some famous shipwrecks, dating as far back as the 16th century, some of which were found off Florida's coast! It's a ticket to a magical maritime adventure for all wannabe sailors and explorers. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7faa05ff8c514c4eae68b66485208a93.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Shipwreck Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ST. AUGUSTINE SHIPWRECK MUSEUM</span>
+        </div>
+        <div class="tq-card-title">St. Augustine Shipwreck Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Discover the story of some famous shipwrecks, dating as far back as the 16th century, some of which were found off Florida's coast! It's a ticket to a magical maritime adventure for all wannabe sailors and explorers. 
 
-Unearth some of the world’s most famous shipwrecks, from the R.M.S. Titanic, to the Nuestra Señora de Atocha, the S.S. Central America, the 1715 Spanish Fleet and more. Witness treasures from China, the Mediterranean, and get involved in the hands-on exhibitions and experiences - there's even a treasure hunt!</p>
-          <div class="card-footer">
-            <span class="price">From €12.93</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-shipwreck-museum-p1032349/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Unearth some of the world’s most famous shipwrecks, from the R.M.S. Titanic, to the Nuestra Señora de Atocha, the S.S. Central America, the 1715 Spanish Fleet and more. Witness treasures from China, the Mediterranean, and get involved in the hands-on exhibitions and experiences - there's even a treasure hunt!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.93</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-shipwreck-museum-p1032349/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/089bbc79ebfa44369a626d0c3eb18e58.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Day Tour from Orlando" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>St. Augustine Day Tour from Orlando</h3>
-          <p class="venue">📍 Fort Matanzas National Monument</p>
-          <p>There are few cities in the proud-old US of A with more history than St. Augustine. In fact, it's certified as the oldest city in the country. How's that for a culture trip? 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/089bbc79ebfa44369a626d0c3eb18e58.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Day Tour from Orlando" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FORT MATANZAS NATIONAL MONUMENT</span>
+        </div>
+        <div class="tq-card-title">St. Augustine Day Tour from Orlando</div>
+        <div class="tq-card-desc">There are few cities in the proud-old US of A with more history than St. Augustine. In fact, it's certified as the oldest city in the country. How's that for a culture trip? 
 
-You'll learn all sorts of fascinating tidbits on this roundtrip tour from Orlando. Wander the quaint cobblestone streets of the historic district to soak up the atmosphere, as well as visit its famous landmarks. Castilla de San Marcos, Fort Matanzas, Flagler College, the Lightner Museum – you'll see them all.</p>
-          <div class="card-footer">
-            <span class="price">From €86.22</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-day-tour-from-orlando-p1001996/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll learn all sorts of fascinating tidbits on this roundtrip tour from Orlando. Wander the quaint cobblestone streets of the historic district to soak up the atmosphere, as well as visit its famous landmarks. Castilla de San Marcos, Fort Matanzas, Flagler College, the Lightner Museum – you'll see them all.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€86.22</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-day-tour-from-orlando-p1001996/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/089bbc79ebfa44369a626d0c3eb18e58.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Day Tour from Orlando" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>St. Augustine Day Tour from Orlando</h3>
-          <p class="venue">📍 Fort Matanzas National Monument</p>
-          <p>There are few cities in the proud-old US of A with more history than St. Augustine. In fact, it's certified as the oldest city in the country. How's that for a culture trip? 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/089bbc79ebfa44369a626d0c3eb18e58.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Day Tour from Orlando" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAINT AUGUSTINE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FORT MATANZAS NATIONAL MONUMENT</span>
+        </div>
+        <div class="tq-card-title">St. Augustine Day Tour from Orlando</div>
+        <div class="tq-card-desc">There are few cities in the proud-old US of A with more history than St. Augustine. In fact, it's certified as the oldest city in the country. How's that for a culture trip? 
 
-You'll learn all sorts of fascinating tidbits on this roundtrip tour from Orlando. Wander the quaint cobblestone streets of the historic district to soak up the atmosphere, as well as visit its famous landmarks. Castilla de San Marcos, Fort Matanzas, Flagler College, the Lightner Museum – you'll see them all.</p>
-          <div class="card-footer">
-            <span class="price">From €86.22</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-day-tour-from-orlando-p1001996/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll learn all sorts of fascinating tidbits on this roundtrip tour from Orlando. Wander the quaint cobblestone streets of the historic district to soak up the atmosphere, as well as visit its famous landmarks. Castilla de San Marcos, Fort Matanzas, Flagler College, the Lightner Museum – you'll see them all.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€86.22</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-day-tour-from-orlando-p1001996/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

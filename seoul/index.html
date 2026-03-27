@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Seoul | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Seoul. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,150 +131,243 @@
     <p>14 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7493423678114cdab34f410fc5c06f75.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="N Seoul Tower: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>N Seoul Tower: Entry Ticket</h3>
-          <p class="venue">📍 N Seoul Tower</p>
-          <p>Visit N Seoul Tower, also known as Namsan Tower, in central Seoul. Standing at 774 ft on Namsan Mountain, it has been a city symbol since 1980. View the city from its observation decks, especially at night with the city lights.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7493423678114cdab34f410fc5c06f75.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="N Seoul Tower: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEOUL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">N SEOUL TOWER</span>
+        </div>
+        <div class="tq-card-title">N Seoul Tower: Entry Ticket</div>
+        <div class="tq-card-desc">Visit N Seoul Tower, also known as Namsan Tower, in central Seoul. Standing at 774 ft on Namsan Mountain, it has been a city symbol since 1980. View the city from its observation decks, especially at night with the city lights.
 
 You can reach the tower via hiking, cable car, or shuttle bus through Namsan Park. At the tower's base, find cultural attractions, restaurants, and shops. The "Locks of Love" fence is a popular spot where couples leave padlocks.
 
-N Seoul Tower also offers exhibitions and light shows, blending natural surroundings, cultural elements, and modern entertainment.</p>
-          <div class="card-footer">
-            <span class="price">From €12.47</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-n-seoul-tower-p1124821/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+N Seoul Tower also offers exhibitions and light shows, blending natural surroundings, cultural elements, and modern entertainment.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.47</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-n-seoul-tower-p1124821/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce120ff4a01942448e72aff5e7a396b9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seoul Sky Lotte World Tower: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seoul Sky Lotte World Tower: Entry Ticket</h3>
-          <p class="venue">📍 Seoul Sky Lotte World Tower</p>
-          <p>Visit Lotte World Tower in Seoul, South Korea. Standing at 555 m tall with 123 floors, this skyscraper has something for everyone. Find offices, a luxury hotel, malls, and various dining options.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ce120ff4a01942448e72aff5e7a396b9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seoul Sky Lotte World Tower: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEOUL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEOUL SKY LOTTE WORLD TOWER</span>
+        </div>
+        <div class="tq-card-title">Seoul Sky Lotte World Tower: Entry Ticket</div>
+        <div class="tq-card-desc">Visit Lotte World Tower in Seoul, South Korea. Standing at 555 m tall with 123 floors, this skyscraper has something for everyone. Find offices, a luxury hotel, malls, and various dining options.
 
 Start at the observatory on the 117th floor for wide views of Seoul, including the Han River, especially clear at sunset and night. Look straight down through the glass sky deck on the 118th floor.
 
-At the top, a restaurant and café offer meals with city views. Inside, Lotte World Mall and duty-free shops provide many shopping choices.</p>
-          <div class="card-footer">
-            <span class="price">From €17.66</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seoul-sky-lotte-world-tower-p1120692/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+At the top, a restaurant and café offer meals with city views. Inside, Lotte World Mall and duty-free shops provide many shopping choices.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.66</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seoul-sky-lotte-world-tower-p1120692/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce120ff4a01942448e72aff5e7a396b9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seoul Station: Airport Railroad Express (AREX) Ticket from Incheon Airport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seoul Station: Airport Railroad Express (AREX) Ticket from Incheon Airport</h3>
-          <p class="venue">📍 Seoul Airport transfers</p>
-          <p>Take the Airport Railroad Express (AREX) Train for the fastest non-stop route between Incheon International Airport and Seoul Station. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ce120ff4a01942448e72aff5e7a396b9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seoul Station: Airport Railroad Express (AREX) Ticket from Incheon Airport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEOUL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEOUL AIRPORT TRANSFERS</span>
+        </div>
+        <div class="tq-card-title">Seoul Station: Airport Railroad Express (AREX) Ticket from Incheon Airport</div>
+        <div class="tq-card-desc">Take the Airport Railroad Express (AREX) Train for the fastest non-stop route between Incheon International Airport and Seoul Station. 
 
-Travel comfortably with premium amenities and dedicated services. Use high-speed WiFi to stay connected throughout the journey.</p>
-          <div class="card-footer">
-            <span class="price">From €8.7</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seoul-station-airport-railroad-express-arex-from-incheon-airport-p1120944/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Travel comfortably with premium amenities and dedicated services. Use high-speed WiFi to stay connected throughout the journey.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8.70</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seoul-station-airport-railroad-express-arex-from-incheon-airport-p1120944/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce120ff4a01942448e72aff5e7a396b9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lotte World: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lotte World: Entry Ticket</h3>
-          <p class="venue">📍 Lotte World</p>
-          <p>Visit Lotte World Adventure in Seoul, South Korea, an amusement park for visitors of all ages. Enjoy both indoor and outdoor attractions.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ce120ff4a01942448e72aff5e7a396b9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lotte World: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEOUL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LOTTE WORLD</span>
+        </div>
+        <div class="tq-card-title">Lotte World: Entry Ticket</div>
+        <div class="tq-card-desc">Visit Lotte World Adventure in Seoul, South Korea, an amusement park for visitors of all ages. Enjoy both indoor and outdoor attractions.
 
 "Adventure," the indoor area, offers rides, interactive activities, and a themed environment.
 
-Outside, "Magic Island" has rollercoasters, water rides, and views of the lake. See parades, live shows, and seasonal festivals.</p>
-          <div class="card-footer">
-            <span class="price">From €34.92</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lotte-world-entry-p1120945/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Outside, "Magic Island" has rollercoasters, water rides, and views of the lake. See parades, live shows, and seasonal festivals.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€34.92</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lotte-world-entry-p1120945/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce120ff4a01942448e72aff5e7a396b9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lotte World Aquarium Seoul: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lotte World Aquarium Seoul: Entry Ticket</h3>
-          <p class="venue">📍 Lotte World Aquarium Seoul</p>
-          <p>Visit Lotte Aquarium in Lotte World Shopping City. See 650 species and over 55,000 marine creatures in a setting designed to show the ocean’s natural ecosystem. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ce120ff4a01942448e72aff5e7a396b9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lotte World Aquarium Seoul: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEOUL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LOTTE WORLD AQUARIUM SEOUL</span>
+        </div>
+        <div class="tq-card-title">Lotte World Aquarium Seoul: Entry Ticket</div>
+        <div class="tq-card-desc">Visit Lotte Aquarium in Lotte World Shopping City. See 650 species and over 55,000 marine creatures in a setting designed to show the ocean’s natural ecosystem. 
 
-Key exhibits include a large marine tank and 13 themed zones. Attend presentations to learn more about marine life. Touch the starfish in the interactive areas.</p>
-          <div class="card-footer">
-            <span class="price">From €14.22</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lotte-world-aquarium-seoul-entry-p1120946/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Key exhibits include a large marine tank and 13 themed zones. Attend presentations to learn more about marine life. Touch the starfish in the interactive areas.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.22</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lotte-world-aquarium-seoul-entry-p1120946/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a2225084d73249a58266a605b0567325.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SEA LIFE COEX Seoul Aquarium: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>SEA LIFE COEX Seoul Aquarium: Entry Ticket</h3>
-          <p class="venue">📍 SEA LIFE COEX Seoul Aquarium</p>
-          <p>Visit Seoul’s largest aquarium, SEA LIFE COEX, located in the Gangnam District. The aquarium features 650 species of marine animals from different environments, including rivers, swamps, and deep-sea habitats.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a2225084d73249a58266a605b0567325.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SEA LIFE COEX Seoul Aquarium: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEOUL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEA LIFE COEX SEOUL AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">SEA LIFE COEX Seoul Aquarium: Entry Ticket</div>
+        <div class="tq-card-desc">Visit Seoul’s largest aquarium, SEA LIFE COEX, located in the Gangnam District. The aquarium features 650 species of marine animals from different environments, including rivers, swamps, and deep-sea habitats.
 
 Explore themed zones with 40,000 sea creatures in 183 display tanks and 90 breeding tanks, holding over 3,500 tons of water. See sharks, turtles, stingrays, electric eels, octopus, piranhas, jellyfish, and more.
 
-There are rest areas throughout the aquarium, including an open-top water tank that releases anions.</p>
-          <div class="card-footer">
-            <span class="price">From €15.54</span>
-            <span class="rating">⭐ 4.1 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sea-life-coex-seoul-aquarium-entry-p981140/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There are rest areas throughout the aquarium, including an open-top water tank that releases anions.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.54</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sea-life-coex-seoul-aquarium-entry-p981140/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5d98cc9c96f84c7cbfd990f125ff0aa0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="South Korea: Guided Demilitarized Zone & Suspension Bridge Tour + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>South Korea: Guided Demilitarized Zone & Suspension Bridge Tour + Transfers</h3>
-          <p class="venue">📍 Day Trips from Seoul</p>
-          <p>Visit the DMZ and explore the 3rd Infiltration Tunnel. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5d98cc9c96f84c7cbfd990f125ff0aa0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="South Korea: Guided Demilitarized Zone & Suspension Bridge Tour + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEOUL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SEOUL</span>
+        </div>
+        <div class="tq-card-title">South Korea: Guided Demilitarized Zone & Suspension Bridge Tour + Transfers</div>
+        <div class="tq-card-desc">Visit the DMZ and explore the 3rd Infiltration Tunnel. 
 
 See Imjingak, Freedom Bridge, and the Dora Observatory. Visit Gloster Hill Memorial Park and the Suspension Bridge. 
 
-Get insights into each location and the history between North and South Korea from your guide.</p>
-          <div class="card-footer">
-            <span class="price">From €63.8</span>
-            <span class="rating">⭐ 4.9 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-south-korea-guided-demilitarized-zone-suspension-bridge-tour-transfers-p1100074/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get insights into each location and the history between North and South Korea from your guide.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€63.80</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-south-korea-guided-demilitarized-zone-suspension-bridge-tour-transfers-p1100074/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0a30e83514f9462c8dcb21ec61f963c5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="South Korea Demilitarized Zone: Half-Day Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>South Korea Demilitarized Zone: Half-Day Tour</h3>
-          <p class="venue">📍 Day Trips from Seoul</p>
-          <p>In the 50+ years that Korea has been divided, the North and South have become two distinct entities. A trip to the DMZ will let you realize just how close the two countries are. Only 2.5 kilometers divide them, but the rift of history and ideology is immeasurable. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0a30e83514f9462c8dcb21ec61f963c5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="South Korea Demilitarized Zone: Half-Day Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEOUL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SEOUL</span>
+        </div>
+        <div class="tq-card-title">South Korea Demilitarized Zone: Half-Day Tour</div>
+        <div class="tq-card-desc">In the 50+ years that Korea has been divided, the North and South have become two distinct entities. A trip to the DMZ will let you realize just how close the two countries are. Only 2.5 kilometers divide them, but the rift of history and ideology is immeasurable. 
 
-This ticket will bring you to the border, and show you a number of key sights including Dorasan Observatory, the Third Tunnel, the Dorasan Station and Imjingak (Peace Nuri Park).</p>
-          <div class="card-footer">
-            <span class="price">From €51.73</span>
-            <span class="rating">⭐ 4 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-south-korea-demilitarized-zone-half-day-tour-p993318/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This ticket will bring you to the border, and show you a number of key sights including Dorasan Observatory, the Third Tunnel, the Dorasan Station and Imjingak (Peace Nuri Park).</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.73</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-south-korea-demilitarized-zone-half-day-tour-p993318/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5e3ef8ea0754e4fb589c33c062f9e89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seoul Royal Palace Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seoul Royal Palace Tour</h3>
-          <p class="venue">📍 Gyeongbokgung Palace</p>
-          <p>Start your day with a guided visit to Gyeongbokgung Palace, the largest and most beautiful of Seoul's Five Grand Palaces. Watch the Royal Guard Changing Ceremony held at the palace.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5e3ef8ea0754e4fb589c33c062f9e89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seoul Royal Palace Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEOUL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GYEONGBOKGUNG PALACE</span>
+        </div>
+        <div class="tq-card-title">Seoul Royal Palace Tour</div>
+        <div class="tq-card-desc">Start your day with a guided visit to Gyeongbokgung Palace, the largest and most beautiful of Seoul's Five Grand Palaces. Watch the Royal Guard Changing Ceremony held at the palace.
 
 After the village tour, head to Bukchon Hanok Village to see traditional Korean houses (hanoks), many of which now serve as cultural centers, guesthouses, and restaurants. If it’s closed, the tour will go to Namsangol Hanok Village instead.
 
@@ -183,96 +375,157 @@ Then take a drive along Bugak Skyway, passing Cheongwadae (the former presidenti
 
 Next, visit the Cheongha Korea Ginseng Center to learn about Korean ginseng, historically valued for its medicinal properties.
 
-End the tour at Gwangjang Market, where you can shop and try local street food like mung bean pancakes and seaweed rice rolls.</p>
-          <div class="card-footer">
-            <span class="price">From €33.63</span>
-            <span class="rating">⭐ 2.8 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seoul-royal-palace-tour-p992955/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End the tour at Gwangjang Market, where you can shop and try local street food like mung bean pancakes and seaweed rice rolls.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2.8</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.63</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seoul-royal-palace-tour-p992955/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/870b89ffa09e46f49066788dccfdab30.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Figure Museum W: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Figure Museum W: Entry Ticket</h3>
-          <p class="venue">📍 Figure Museum W</p>
-          <p>There's no denying that superheroes are big business these days. Marvel releases are among the highest grossing films of all time, and comics aren't a dirty little secret to be hidden under your bed anymore. Instead, figurines and rare issues take pride of place on shelves everywhere.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/870b89ffa09e46f49066788dccfdab30.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Figure Museum W: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEOUL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FIGURE MUSEUM W</span>
+        </div>
+        <div class="tq-card-title">Figure Museum W: Entry Ticket</div>
+        <div class="tq-card-desc">There's no denying that superheroes are big business these days. Marvel releases are among the highest grossing films of all time, and comics aren't a dirty little secret to be hidden under your bed anymore. Instead, figurines and rare issues take pride of place on shelves everywhere.
 
-Figure Museum W is every geek's fantasy. See collectibles of your favorite heroes – and villains – including lifelike busts, movie replica suits, and realistic renditions of every character you can imagine.</p>
-          <div class="card-footer">
-            <span class="price">From €7.6</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-figure-museum-w-p982097/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Figure Museum W is every geek's fantasy. See collectibles of your favorite heroes – and villains – including lifelike busts, movie replica suits, and realistic renditions of every character you can imagine.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€7.60</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-figure-museum-w-p982097/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5d98cc9c96f84c7cbfd990f125ff0aa0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="South Korea Demilitarized Zone & Royal Palace Full-Day Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>South Korea Demilitarized Zone & Royal Palace Full-Day Tour</h3>
-          <p class="venue">📍 Gyeongbokgung Palace</p>
-          <p>If you're visiting Seoul, it's worth taking the time to journey further north to visit the demilitarized zone that separates North and South Korea. Be part of the ongoing history that divides the country, not just by barbed wire fences and armed guards, but by ideology.</p>
-          <div class="card-footer">
-            <span class="price">From €120.71</span>
-            <span class="rating">⭐ 3 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-south-korea-demilitarized-zone-royal-palace-full-day-tour-p993383/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5d98cc9c96f84c7cbfd990f125ff0aa0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="South Korea Demilitarized Zone & Royal Palace Full-Day Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEOUL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GYEONGBOKGUNG PALACE</span>
+        </div>
+        <div class="tq-card-title">South Korea Demilitarized Zone & Royal Palace Full-Day Tour</div>
+        <div class="tq-card-desc">If you're visiting Seoul, it's worth taking the time to journey further north to visit the demilitarized zone that separates North and South Korea. Be part of the ongoing history that divides the country, not just by barbed wire fences and armed guards, but by ideology.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€120.71</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-south-korea-demilitarized-zone-royal-palace-full-day-tour-p993383/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c95d7dc38fa34c77b73d2fe7ba706a20.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Football Faentasium: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Football Faentasium: Entry Ticket</h3>
-          <p class="venue">📍 Football Faentasium</p>
-          <p>The Football Faentasium is a unique space devoted to all things football, presenting the proud history of the sport in South Korea through fascinating interactive exhibits.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c95d7dc38fa34c77b73d2fe7ba706a20.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Football Faentasium: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEOUL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FOOTBALL FAENTASIUM</span>
+        </div>
+        <div class="tq-card-title">Football Faentasium: Entry Ticket</div>
+        <div class="tq-card-desc">The Football Faentasium is a unique space devoted to all things football, presenting the proud history of the sport in South Korea through fascinating interactive exhibits.
 
 Fans of the beautiful game can bend it like Beckham and score like Son Heung-min in unique VR football experiences, or kick back and relax in a football-themed cafe featuring World Cup-inspired drinks and more.
 
-There are also plenty of great photo ops, so prepare your best Zlatan-style bicycle kick!</p>
-          <div class="card-footer">
-            <span class="price">From €6.91</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-football-faentasium-p981805/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There are also plenty of great photo ops, so prepare your best Zlatan-style bicycle kick!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€6.91</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-football-faentasium-p981805/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce120ff4a01942448e72aff5e7a396b9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seoulland: Entry Ticket + Sky Lift Ride + Seoul Zoo" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seoulland: Entry Ticket + Sky Lift Ride + Seoul Zoo</h3>
-          <p class="venue">📍 Seoulland</p>
-          <p>Enjoy a day at Seoulland, one of South Korea’s well-known amusement parks. Located in central Seoul, this theme park entertains visitors of all ages.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ce120ff4a01942448e72aff5e7a396b9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seoulland: Entry Ticket + Sky Lift Ride + Seoul Zoo" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEOUL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEOULLAND</span>
+        </div>
+        <div class="tq-card-title">Seoulland: Entry Ticket + Sky Lift Ride + Seoul Zoo</div>
+        <div class="tq-card-desc">Enjoy a day at Seoulland, one of South Korea’s well-known amusement parks. Located in central Seoul, this theme park entertains visitors of all ages.
 
 Your ticket grants access to various rides, attractions, and seasonal events. Explore themed zones like the European Garden, Animal Kingdom, and Futuristic World.
 
-Each zone offers different experiences, from high-speed rollercoasters to gentle rides for families and kids.</p>
-          <div class="card-footer">
-            <span class="price">From €21.03</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seoulland-entry-sky-lift-ride-seoul-zoo-p1120735/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Each zone offers different experiences, from high-speed rollercoasters to gentle rides for families and kids.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.03</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seoulland-entry-sky-lift-ride-seoul-zoo-p1120735/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5d98cc9c96f84c7cbfd990f125ff0aa0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="DMZ: Second Tunnel & Sky Bridge Full Day Guided Tour from Seoul" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>DMZ: Second Tunnel & Sky Bridge Full Day Guided Tour from Seoul</h3>
-          <p class="venue">📍 Day Trips from Seoul</p>
-          <p>Take a historical journey through the 2nd Tunnel, a relic nestled 13 km north of Cholwon within the Korean Demilitarized Zone (DMZ), between North and South Korea. Unearthed on March 19, 1975, this tunnel could once accommodate up to 30,000 armed soldiers in just sixty minutes, complete with vehicles, artillery, and even tanks.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5d98cc9c96f84c7cbfd990f125ff0aa0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="DMZ: Second Tunnel & Sky Bridge Full Day Guided Tour from Seoul" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEOUL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SEOUL</span>
+        </div>
+        <div class="tq-card-title">DMZ: Second Tunnel & Sky Bridge Full Day Guided Tour from Seoul</div>
+        <div class="tq-card-desc">Take a historical journey through the 2nd Tunnel, a relic nestled 13 km north of Cholwon within the Korean Demilitarized Zone (DMZ), between North and South Korea. Unearthed on March 19, 1975, this tunnel could once accommodate up to 30,000 armed soldiers in just sixty minutes, complete with vehicles, artillery, and even tanks.
 
-Then, take a walk on the Sky Bridge, revealing views of the scenery below.</p>
-          <div class="card-footer">
-            <span class="price">From €75.01</span>
-            <span class="rating">⭐ 5 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-dmz-second-tunnel-sky-bridge-full-day-guided-tour-from-seoul-p1090625/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Then, take a walk on the Sky Bridge, revealing views of the scenery below.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€75.01</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-dmz-second-tunnel-sky-bridge-full-day-guided-tour-from-seoul-p1090625/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

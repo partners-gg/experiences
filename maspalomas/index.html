@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Maspalomas | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Maspalomas. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,67 +131,111 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9aae5369bc7b45e49166999a5e97c97d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palmitos Park: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palmitos Park: Entry Ticket</h3>
-          <p class="venue">📍 Palmitos Park</p>
-          <p>Gran Canaria's Palmitos Park is a _Jungle Book_ of fun for all. See colorful parrots swoop around without enclosures, watch dolphins leap in live shows, see birds of prey swoop from the sky and hang with monkeys, meerkats and more in this animal-tastic island paradise!</p>
-          <div class="card-footer">
-            <span class="price">From €39</span>
-            <span class="rating">⭐ 4.7 (213)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palmitos-park-p975448/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9aae5369bc7b45e49166999a5e97c97d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palmitos Park: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MASPALOMAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALMITOS PARK</span>
+        </div>
+        <div class="tq-card-title">Palmitos Park: Entry Ticket</div>
+        <div class="tq-card-desc">Gran Canaria's Palmitos Park is a _Jungle Book_ of fun for all. See colorful parrots swoop around without enclosures, watch dolphins leap in live shows, see birds of prey swoop from the sky and hang with monkeys, meerkats and more in this animal-tastic island paradise!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(213)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palmitos-park-p975448/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/653dfffad1ae4e588d2f0bf2f0905760.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sioux City Park: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sioux City Park: Skip The Line Ticket</h3>
-          <p class="venue">📍 Sioux City Park</p>
-          <p>Buckle up cowboys, and get ready to take the reins at Sioux City Park - an authentic but not-quite-real Wild West town, built in 1972 to shoot western movies. If some of it looks familiar, you'll have seen it on your screens!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/653dfffad1ae4e588d2f0bf2f0905760.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sioux City Park: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MASPALOMAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIOUX CITY PARK</span>
+        </div>
+        <div class="tq-card-title">Sioux City Park: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Buckle up cowboys, and get ready to take the reins at Sioux City Park - an authentic but not-quite-real Wild West town, built in 1972 to shoot western movies. If some of it looks familiar, you'll have seen it on your screens!
 
 Engage with real sheriffs, outlaws and townspeople. Look out for the bank robberies and gunfights, and even step up to the Sheriff's office. Everything here is for real - you can even enjoy a cool beer in the saloon.
 
-No Wild West adventure is complete without the animals. Kids will love the cachena cows, giant hens, emus and meerkats in the zoo. Everyone will get a kick out of the crocs! If you want some time in the saddle, too, opt for a ride in the "Land of Horses." There's something in Sioux City Park for every cowboy and cowgirl.</p>
-          <div class="card-footer">
-            <span class="price">From €24.9</span>
-            <span class="rating">⭐ 4.5 (102)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sioux-city-park-p1030470/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+No Wild West adventure is complete without the animals. Kids will love the cachena cows, giant hens, emus and meerkats in the zoo. Everyone will get a kick out of the crocs! If you want some time in the saddle, too, opt for a ride in the "Land of Horses." There's something in Sioux City Park for every cowboy and cowgirl.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(102)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€24.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sioux-city-park-p1030470/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0f46f34d8b0e43a3b71004187cd6af70.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aqualand Maspalomas: Online Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aqualand Maspalomas: Online Ticket</h3>
-          <p class="venue">📍 Aqualand Maspalomas</p>
-          <p>Gran Canaria's Aqualand Maspalomas is a splash-fest you won't forget on a hot and sunny day in Gran Canaria. Enjoy with these Aqualand Maspalomas tickets and get ready for kid-friendly rides, as well as thrilling slides. There's even a solarium if you need a relaxing break!</p>
-          <div class="card-footer">
-            <span class="price">From €41</span>
-            <span class="rating">⭐ 4.2 (199)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aqualand-maspalomas-skip-the-line-p975460/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0f46f34d8b0e43a3b71004187cd6af70.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aqualand Maspalomas: Online Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MASPALOMAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AQUALAND MASPALOMAS</span>
+        </div>
+        <div class="tq-card-title">Aqualand Maspalomas: Online Ticket</div>
+        <div class="tq-card-desc">Gran Canaria's Aqualand Maspalomas is a splash-fest you won't forget on a hot and sunny day in Gran Canaria. Enjoy with these Aqualand Maspalomas tickets and get ready for kid-friendly rides, as well as thrilling slides. There's even a solarium if you need a relaxing break!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(199)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€41.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aqualand-maspalomas-skip-the-line-p975460/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7e63e5443b6b4d59a4843df6f89e8432.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Holidayworld Wooland Fun Park: Fast Track" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Holidayworld Wooland Fun Park: Fast Track</h3>
-          <p class="venue">📍 Holidayworld Maspalomas Center</p>
-          <p>From the rollercoasters to the Ferris wheel and the family carousel, this is old-fashioned family entertainment at its best. Just show your smartphone tickets to Holidayworld Wooland Fun Park and you'll bypass the long line and fast-track your way to the fun. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7e63e5443b6b4d59a4843df6f89e8432.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Holidayworld Wooland Fun Park: Fast Track" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MASPALOMAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HOLIDAYWORLD MASPALOMAS CENTER</span>
+        </div>
+        <div class="tq-card-title">Holidayworld Wooland Fun Park: Fast Track</div>
+        <div class="tq-card-desc">From the rollercoasters to the Ferris wheel and the family carousel, this is old-fashioned family entertainment at its best. Just show your smartphone tickets to Holidayworld Wooland Fun Park and you'll bypass the long line and fast-track your way to the fun. 
 
-Spanning a huge area, this Canary Island amusement park is packed full of leisure activities, from bowling to bumper cars, karaoke, escape rooms, and the mighty NOMAD Gastro Market. Pick from over 400 culinary delights, and wind down with a cheeky wine or brew in the beer garden.</p>
-          <div class="card-footer">
-            <span class="price">From €13</span>
-            <span class="rating">⭐ 4.3 (44)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-holidayworld-wooland-fun-park-p1013363/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Spanning a huge area, this Canary Island amusement park is packed full of leisure activities, from bowling to bumper cars, karaoke, escape rooms, and the mighty NOMAD Gastro Market. Pick from over 400 culinary delights, and wind down with a cheeky wine or brew in the beer garden.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(44)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-holidayworld-wooland-fun-park-p1013363/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

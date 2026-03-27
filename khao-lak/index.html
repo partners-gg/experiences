@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Khao Lak | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Khao Lak. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,88 +131,129 @@
     <p>7 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e42437f78f164333b852ea3fcd132a02.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Khao Lak Boxing Stadium: Muay Thai Matches" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Khao Lak Boxing Stadium: Muay Thai Matches</h3>
-          <p class="venue">📍 Khao Lak Boxing Stadium</p>
-          <p>Witness the world of Muay Thai, where traditional boxing reaches exciting extremes. It isn't your average match—it's a dynamic display of strength and finesse, where fighters skillfully use elbows, knees, and feet in a precise performance.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e42437f78f164333b852ea3fcd132a02.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Khao Lak Boxing Stadium: Muay Thai Matches" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KHAO LAK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KHAO LAK BOXING STADIUM</span>
+        </div>
+        <div class="tq-card-title">Khao Lak Boxing Stadium: Muay Thai Matches</div>
+        <div class="tq-card-desc">Witness the world of Muay Thai, where traditional boxing reaches exciting extremes. It isn't your average match—it's a dynamic display of strength and finesse, where fighters skillfully use elbows, knees, and feet in a precise performance.
 
 Grab a VIP Ringside ticket to be right in the center of the action. Watch as the fighters demonstrate their impressive skills, refined through years of dedication. It's a showcase of tenacity, strategy, and talent.
 
-The best part is that you get the chance to take a photo with these incredible fighters.</p>
-          <div class="card-footer">
-            <span class="price">From €26.4</span>
-            <span class="rating">⭐ 4.3 (13)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-khao-lak-boxing-stadium-muay-thai-matches-p1090149/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The best part is that you get the chance to take a photo with these incredible fighters.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(13)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.40</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-khao-lak-boxing-stadium-muay-thai-matches-p1090149/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Beyond Boxing Stadium - Bang Neang Khaolak: Muay Thai Match Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Beyond Boxing Stadium - Bang Neang Khaolak: Muay Thai Match Entry Ticket</h3>
-          <p class="venue">📍 Beyond Boxing Stadium - Bang Neang Khaolak</p>
-          <p>Muay Thai is a form of boxing involving the use of fists, elbows, legs, and knees.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KHAO LAK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BEYOND BOXING STADIUM - BANG NEANG KHAOLAK</span>
+        </div>
+        <div class="tq-card-title">Beyond Boxing Stadium - Bang Neang Khaolak: Muay Thai Match Entry Ticket</div>
+        <div class="tq-card-desc">Muay Thai is a form of boxing involving the use of fists, elbows, legs, and knees.
 
 Attend a live match to observe skilled fighters employing techniques honed through years of practice.
 
-A ringside ticket places you close to the action, allowing close observation of each strike and movement.</p>
-          <div class="card-footer">
-            <span class="price">From €39.33</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-beyond-boxing-stadium-bang-neang-khaolak-muay-thai-match-entry-p1129124/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+A ringside ticket places you close to the action, allowing close observation of each strike and movement.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.33</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-beyond-boxing-stadium-bang-neang-khaolak-muay-thai-match-entry-p1129124/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="James Bond Island, Ko Panyi & Khai Island: Speedboat Tour from Khao Lak + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>James Bond Island, Ko Panyi & Khai Island: Speedboat Tour from Khao Lak + Lunch</h3>
-          <p class="venue">📍 Day Trips from Khao Lak</p>
-          <p>Start your day with a pickup from your Khao Lak hotel and travel by minivan to a speedboat pier in Phuket. By 8:30 AM, board the boat for the adventurous journey ahead. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KHAO LAK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM KHAO LAK</span>
+        </div>
+        <div class="tq-card-title">James Bond Island, Ko Panyi & Khai Island: Speedboat Tour from Khao Lak + Lunch</div>
+        <div class="tq-card-desc">Start your day with a pickup from your Khao Lak hotel and travel by minivan to a speedboat pier in Phuket. By 8:30 AM, board the boat for the adventurous journey ahead. 
 
 Stop at Panak Island to explore a cave and lagoon, and visit the James Bond movie location from "The Man with the Golden Gun.”
 
 Enjoy a buffet lunch at the floating village of Ko Panyi, and after lunch, paddle a canoe around Hong Island.
 
-Enjoy snorkeling and relaxing on Khai Island in the afternoon. Return to the pier and then take the minivan back to Khao Lak.</p>
-          <div class="card-footer">
-            <span class="price">From €78.93</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-panak-island-ko-panyi-khai-island-guided-speedboat-tour-lunch-p1095056/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy snorkeling and relaxing on Khai Island in the afternoon. Return to the pier and then take the minivan back to Khao Lak.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€78.93</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-panak-island-ko-panyi-khai-island-guided-speedboat-tour-lunch-p1095056/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Koh Racha Noi & Koh Racha Yai: Guided Speedboat Tour + Transfer + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Koh Racha Noi & Koh Racha Yai: Guided Speedboat Tour + Transfer + Lunch</h3>
-          <p class="venue">📍 Day Trips from Khao Lak</p>
-          <p>Prepare for a tour of Koh Racha Noi and Koh Racha Yai starting from a shared minivan pickup from Khao Lak hotel and then head to the pier in Phuket.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KHAO LAK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM KHAO LAK</span>
+        </div>
+        <div class="tq-card-title">Koh Racha Noi & Koh Racha Yai: Guided Speedboat Tour + Transfer + Lunch</div>
+        <div class="tq-card-desc">Prepare for a tour of Koh Racha Noi and Koh Racha Yai starting from a shared minivan pickup from Khao Lak hotel and then head to the pier in Phuket.
 
 Board a speedboat to Koh Racha Noi and reach Pirates Beach, where you can relax, swim, or paddle in the water. For those interested, there's a hike to a viewpoint with great views.
 
 Enjoy snorkeling at Banana Bay, known for its vibrant sea life. Travel to Koh Racha Yai, where a lunch buffet is served. After lunch, there’s more snorkeling in the clear waters of Koh Racha Yai.
 
-Return to Phuket, with a chance to spot dolphins near Maiton Island and finally board the minibus to head back to Khao Lak.</p>
-          <div class="card-footer">
-            <span class="price">From €78.93</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-koh-racha-noi-koh-racha-yai-guided-speedboat-tour-transfer-lunch-p1094885/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Return to Phuket, with a chance to spot dolphins near Maiton Island and finally board the minibus to head back to Khao Lak.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€78.93</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-koh-racha-noi-koh-racha-yai-guided-speedboat-tour-transfer-lunch-p1094885/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Phi Phi Islands: Boat Tour + Roundtrip Transfer from Khao Lak" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Phi Phi Islands: Boat Tour + Roundtrip Transfer from Khao Lak</h3>
-          <p class="venue">📍 Day Trips from Khao Lak</p>
-          <p>Escape to Phi Phi Islands on a day-long adventure full of sun, sea, and beautiful sights. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KHAO LAK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM KHAO LAK</span>
+        </div>
+        <div class="tq-card-title">Phi Phi Islands: Boat Tour + Roundtrip Transfer from Khao Lak</div>
+        <div class="tq-card-desc">Escape to Phi Phi Islands on a day-long adventure full of sun, sea, and beautiful sights. 
 
 Travel in a private taxi from your hotel to a shared speedboat ride towards Phi Phi Islands. Once you arrive, go on a 4-hour private tour aboard a beautiful longtail boat. 
 
@@ -121,21 +261,30 @@ Discover Maya Bay, the beach featured in "The Beach" movie.
 
 Enjoy the beauty of Pileh Lagoon, snorkel in clear waters, visit the monkeys at Monkey Bay, and explore the Viking Cave.
 
-Spend some time exploring Phi Phi Don on your own before heading back to Phuket on a shared speedboat, with a private taxi returning you to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €222.93</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-phi-phi-islands-boat-tour-roundtrip-transfer-from-khao-lak-p1094789/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Spend some time exploring Phi Phi Don on your own before heading back to Phuket on a shared speedboat, with a private taxi returning you to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€222.93</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-phi-phi-islands-boat-tour-roundtrip-transfer-from-khao-lak-p1094789/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Surin Islands: Speedboat Tour from Khao Lak + Snorkeling" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Surin Islands: Speedboat Tour from Khao Lak + Snorkeling</h3>
-          <p class="venue">📍 Day Trips from Khao Lak</p>
-          <p>07:00-08:00 AM - A shared minivan will whisk you away from your Khao Lak hotel.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KHAO LAK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM KHAO LAK</span>
+        </div>
+        <div class="tq-card-title">Surin Islands: Speedboat Tour from Khao Lak + Snorkeling</div>
+        <div class="tq-card-desc">07:00-08:00 AM - A shared minivan will whisk you away from your Khao Lak hotel.
 
 08:30 AM - The welcoming crew invites you onboard at a private pier for check-in
 09:00 AM - Start a speedboat cruise to the beautiful Surin Islands
@@ -152,34 +301,49 @@ Spend some time exploring Phi Phi Don on your own before heading back to Phuket 
 
 05:00 PM: Touchdown at Baan Nam Kem
 
-06:00–07:00 PM: Return to your hotel in Khao Lak via a shared minivan</p>
-          <div class="card-footer">
-            <span class="price">From €100.05</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-surin-islands-speedboat-tour-from-khao-lak-snorkeling-p1094453/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+06:00–07:00 PM: Return to your hotel in Khao Lak via a shared minivan</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€100.05</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-surin-islands-speedboat-tour-from-khao-lak-snorkeling-p1094453/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Cheow Larn Lake: Guided Tour from Khaolak + Bamboo Raft Ride + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cheow Larn Lake: Guided Tour from Khaolak + Bamboo Raft Ride + Lunch</h3>
-          <p class="venue">📍 Cheow Larn Lake Day Trips from Khao Lak</p>
-          <p>Prepare for a day tour to explore the beauty of Cheow Lan Lake. The tour starts with a pickup from your Khaolak hotel, and enjoy the ride with scenic views on the way to the lake.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KHAO LAK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CHEOW LARN LAKE DAY TRIPS FROM KHAO LAK</span>
+        </div>
+        <div class="tq-card-title">Cheow Larn Lake: Guided Tour from Khaolak + Bamboo Raft Ride + Lunch</div>
+        <div class="tq-card-desc">Prepare for a day tour to explore the beauty of Cheow Lan Lake. The tour starts with a pickup from your Khaolak hotel, and enjoy the ride with scenic views on the way to the lake.
 
 Board a boat to reach the lake, where you can relax and enjoy the peaceful surroundings. Capture photos at Khao Sam Kloe before heading to a floating raft house.
 
 Paddle a kayak on the clear waters and go on a guided jungle walk in Klong Seang National Park. 
 
-Experience a bamboo raft ride to Coral Cave and end the day with a wildlife safari on a longtail boat, where you might spot wild elephants.</p>
-          <div class="card-footer">
-            <span class="price">From €110.87</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cheow-larn-lake-guided-tour-from-khaolak-bamboo-raft-ride-lunch-p1094272/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Experience a bamboo raft ride to Coral Cave and end the day with a wildlife safari on a longtail boat, where you might spot wild elephants.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€110.87</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cheow-larn-lake-guided-tour-from-khaolak-bamboo-raft-ride-lunch-p1094272/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

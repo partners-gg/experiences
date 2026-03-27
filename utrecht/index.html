@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Utrecht | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Utrecht. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,95 +131,161 @@
     <p>6 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6185d45ebbaf48a18dd6ea6b71686187.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Utrecht: Discovery Tour DOMunder" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Utrecht: Discovery Tour DOMunder</h3>
-          <p class="venue">📍 DOMunder</p>
-          <p>Step back in time with the DOMunder Discovery Tour! Go into ancient cellars and learn about the history of Domplein. Then, head to the archaeological dig in the center of Domplein. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6185d45ebbaf48a18dd6ea6b71686187.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Utrecht: Discovery Tour DOMunder" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UTRECHT</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DOMUNDER</span>
+        </div>
+        <div class="tq-card-title">Utrecht: Discovery Tour DOMunder</div>
+        <div class="tq-card-desc">Step back in time with the DOMunder Discovery Tour! Go into ancient cellars and learn about the history of Domplein. Then, head to the archaeological dig in the center of Domplein. 
 
-With a flashlight in hand, search for hidden treasures from 2000 years ago buried beneath the city.</p>
-          <div class="card-footer">
-            <span class="price">From €14.5</span>
-            <span class="rating">⭐ 4.3 (86)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-discovery-domunder-guided-tour-p1094697/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With a flashlight in hand, search for hidden treasures from 2000 years ago buried beneath the city.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(86)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-discovery-domunder-guided-tour-p1094697/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/24d47e193eab4b7da38f7507ed3e1a4f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Van Gogh - The Immersive Experience Utrecht: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Van Gogh - The Immersive Experience Utrecht: Entry Ticket</h3>
-          <p class="venue">📍 Van Gogh - The Immersive Experience Utrecht</p>
-          <p>Step into the world of Vincent Van Gogh, the renowned Dutch painter. This 360º digital exhibition in Utrecht showcases his most famous works.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/24d47e193eab4b7da38f7507ed3e1a4f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Van Gogh - The Immersive Experience Utrecht: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UTRECHT</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">VAN GOGH - THE IMMERSIVE EXPERIENCE UTRECHT</span>
+        </div>
+        <div class="tq-card-title">Van Gogh - The Immersive Experience Utrecht: Entry Ticket</div>
+        <div class="tq-card-desc">Step into the world of Vincent Van Gogh, the renowned Dutch painter. This 360º digital exhibition in Utrecht showcases his most famous works.
 
-The digital show surrounds you with Van Gogh's art, allowing a unique perspective on his creative process. Learn more about his life, techniques, and the stories behind his paintings.</p>
-          <div class="card-footer">
-            <span class="price">From €16.9</span>
-            <span class="rating">⭐ 3.7 (122)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-van-gogh-the-immersive-experience-utrecht-entry-p1121273/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The digital show surrounds you with Van Gogh's art, allowing a unique perspective on his creative process. Learn more about his life, techniques, and the stories behind his paintings.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.7</strong>
+            <span class="tq-reviews">(122)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€16.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-van-gogh-the-immersive-experience-utrecht-entry-p1121273/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/06e450fa96d648b8ac544d1fcb4b2439.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Canal Cruise Utrecht" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Canal Cruise Utrecht</h3>
-          <p class="venue">📍 Utrecht Cruises</p>
-          <p>The fourth biggest city in the Netherlands, Utrecht boasts beautiful parks, medieval churches and enviable terraces along its maze of canals. See it all from the comfort of your boat on this canal cruise through the city.</p>
-          <div class="card-footer">
-            <span class="price">From €18.5</span>
-            <span class="rating">⭐ 4.1 (75)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-canal-cruise-utrecht-p975556/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/06e450fa96d648b8ac544d1fcb4b2439.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Canal Cruise Utrecht" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UTRECHT</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">UTRECHT CRUISES</span>
+        </div>
+        <div class="tq-card-title">Canal Cruise Utrecht</div>
+        <div class="tq-card-desc">The fourth biggest city in the Netherlands, Utrecht boasts beautiful parks, medieval churches and enviable terraces along its maze of canals. See it all from the comfort of your boat on this canal cruise through the city.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(75)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-canal-cruise-utrecht-p975556/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b4790f934bb74443a143a5fc2cd7fbf6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Centraal Museum Utrecht: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Centraal Museum Utrecht: Skip The Line Ticket</h3>
-          <p class="venue">📍 Centraal Museum Utrecht</p>
-          <p>Skip the line and dive into a world of history, art and culture at the Centraal Museum, founded in 1838. See works and pieces from Rietveld to the Utrecht Caravaggists, from Dick Bruna to Moesman, and from Viktor and Rolf to the 1,000-year-old Utrecht ship in the basement.</p>
-          <div class="card-footer">
-            <span class="price">From €18</span>
-            <span class="rating">⭐ 4.7 (20)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-centraal-museum-utrecht-skip-the-line-p975826/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b4790f934bb74443a143a5fc2cd7fbf6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Centraal Museum Utrecht: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UTRECHT</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CENTRAAL MUSEUM UTRECHT</span>
+        </div>
+        <div class="tq-card-title">Centraal Museum Utrecht: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Skip the line and dive into a world of history, art and culture at the Centraal Museum, founded in 1838. See works and pieces from Rietveld to the Utrecht Caravaggists, from Dick Bruna to Moesman, and from Viktor and Rolf to the 1,000-year-old Utrecht ship in the basement.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(20)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-centraal-museum-utrecht-skip-the-line-p975826/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d0130b26985745589b91333fb37bd851.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum Speelklok: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum Speelklok: Entry Ticket</h3>
-          <p class="venue">📍 Museum Speelklok</p>
-          <p>Enjoy a musical and whimsical day out at Utrecht's Speelklok Museum, and surround yourself with 'live' music performed by a huge collection of self-playing instruments. With more clocks, music boxes, orchestrions, and street organs that you can wave a conductor's baton at, it's a showcase of ingenious engineering and fascinating insight into life before the iPod.</p>
-          <div class="card-footer">
-            <span class="price">From €17</span>
-            <span class="rating">⭐ 4.7 (27)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-speelklok-p975401/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d0130b26985745589b91333fb37bd851.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum Speelklok: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UTRECHT</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEUM SPEELKLOK</span>
+        </div>
+        <div class="tq-card-title">Museum Speelklok: Entry Ticket</div>
+        <div class="tq-card-desc">Enjoy a musical and whimsical day out at Utrecht's Speelklok Museum, and surround yourself with 'live' music performed by a huge collection of self-playing instruments. With more clocks, music boxes, orchestrions, and street organs that you can wave a conductor's baton at, it's a showcase of ingenious engineering and fascinating insight into life before the iPod.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(27)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-museum-speelklok-p975401/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/24d47e193eab4b7da38f7507ed3e1a4f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Utrecht: Guided Highlights Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Utrecht: Guided Highlights Walking Tour</h3>
-          <p class="venue">📍 Utrecht City Tours</p>
-          <p>Join the charismatic guide, Lucas, on a whirlwind journey through Utrecht! As a local who's spent years mastering the art of tour-guiding, he's ready to show you the ins, outs, and hidden gems of this enchanting city.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/24d47e193eab4b7da38f7507ed3e1a4f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Utrecht: Guided Highlights Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UTRECHT</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">UTRECHT CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Utrecht: Guided Highlights Walking Tour</div>
+        <div class="tq-card-desc">Join the charismatic guide, Lucas, on a whirlwind journey through Utrecht! As a local who's spent years mastering the art of tour-guiding, he's ready to show you the ins, outs, and hidden gems of this enchanting city.
 
-Get set for an exhilarating rendezvous with a lively group of explorers, just like you. Prepare to uncover Utrecht's secrets, sample traditional Dutch cookies, and create unforgettable memories. The adventure kicks off at the iconic Dom Square, followed by a 1.5 to 2-hour walking tour that will leave you spellbound.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-utrecht-guided-highlights-walking-tour-p1095924/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get set for an exhilarating rendezvous with a lively group of explorers, just like you. Prepare to uncover Utrecht's secrets, sample traditional Dutch cookies, and create unforgettable memories. The adventure kicks off at the iconic Dom Square, followed by a 1.5 to 2-hour walking tour that will leave you spellbound.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-utrecht-guided-highlights-walking-tour-p1095924/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

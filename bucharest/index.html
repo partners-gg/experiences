@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Bucharest | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Bucharest. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,121 +131,198 @@
     <p>7 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c831fe28af104feabd1e668533da030b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palace of the Parliament: Entry Ticket + Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palace of the Parliament: Entry Ticket + Guided Tour</h3>
-          <p class="venue">📍 Palace of the Parliament</p>
-          <p>When you can see a building from space, you know it's bound to be a statement up close. Get fast-track entrance and a guided tour of Bucharest's Palace of the Parliament, and glimpse the extravagant architectural ambition and neoclassical style evident in every square inch of the world's second-largest administrative building. Palatial is an understatement!</p>
-          <div class="card-footer">
-            <span class="price">From €32.9</span>
-            <span class="rating">⭐ 4.3 (655)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palace-of-the-parliament-entrance-guided-tour-p976227/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c831fe28af104feabd1e668533da030b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palace of the Parliament: Entry Ticket + Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUCHAREST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALACE OF THE PARLIAMENT</span>
+        </div>
+        <div class="tq-card-title">Palace of the Parliament: Entry Ticket + Guided Tour</div>
+        <div class="tq-card-desc">When you can see a building from space, you know it's bound to be a statement up close. Get fast-track entrance and a guided tour of Bucharest's Palace of the Parliament, and glimpse the extravagant architectural ambition and neoclassical style evident in every square inch of the world's second-largest administrative building. Palatial is an understatement!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(655)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€32.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palace-of-the-parliament-entrance-guided-tour-p976227/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d37d1869a44448e8be17d8b8743c7ea4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ceauşescu Mansion: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ceauşescu Mansion: Guided Tour</h3>
-          <p class="venue">📍 Ceauşescu Mansion</p>
-          <p>When anti-communist revolutionaries stormed the House of Ceauşescu in 1989, they were shocked by the opulence they found. While they went cold and hungry under the austere policies of Nicolae and Elena Ceaușescu, the country's leaders lived like royalty.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d37d1869a44448e8be17d8b8743c7ea4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ceauşescu Mansion: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUCHAREST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CEAUŞESCU MANSION</span>
+        </div>
+        <div class="tq-card-title">Ceauşescu Mansion: Guided Tour</div>
+        <div class="tq-card-desc">When anti-communist revolutionaries stormed the House of Ceauşescu in 1989, they were shocked by the opulence they found. While they went cold and hungry under the austere policies of Nicolae and Elena Ceaușescu, the country's leaders lived like royalty.
 
-Much of the villa's contents were pillaged by protesters, but what remains is a reminder of these tumultuous events. Visiting the Ceauşescu Mansion is one of the best things to do in Bucharest for an arresting fix of cultural history.</p>
-          <div class="card-footer">
-            <span class="price">From €29.9</span>
-            <span class="rating">⭐ 4.5 (84)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ceausescu-mansion-guided-tour-p998300/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Much of the villa's contents were pillaged by protesters, but what remains is a reminder of these tumultuous events. Visiting the Ceauşescu Mansion is one of the best things to do in Bucharest for an arresting fix of cultural history.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(84)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ceausescu-mansion-guided-tour-p998300/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/97d6ab78b82d4d8fbfd2ffd7889ef46c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Senses Bucharest: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum of Senses Bucharest: Entry Ticket</h3>
-          <p class="venue">📍 Museum of Senses Bucharest</p>
-          <p>Would you dare lie on a bed of nails? How about turning yourself into a delicious snack? It's a wacky world over at the Museum of Senses Bucharest, designed to let you smell, touch, taste, see, and hear your way around its many mind-boggling rooms.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/97d6ab78b82d4d8fbfd2ffd7889ef46c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Senses Bucharest: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUCHAREST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEUM OF SENSES BUCHAREST</span>
+        </div>
+        <div class="tq-card-title">Museum of Senses Bucharest: Entry Ticket</div>
+        <div class="tq-card-desc">Would you dare lie on a bed of nails? How about turning yourself into a delicious snack? It's a wacky world over at the Museum of Senses Bucharest, designed to let you smell, touch, taste, see, and hear your way around its many mind-boggling rooms.
 
-Ignite your senses as you explore over 40 different exhibits in multiple zones. It's a journey of deception, perception and play, with a healthy blend of education and optical illusions.</p>
-          <div class="card-footer">
-            <span class="price">From €11.78</span>
-            <span class="rating">⭐ 4 (83)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-senses-bucharest-p978632/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Ignite your senses as you explore over 40 different exhibits in multiple zones. It's a journey of deception, perception and play, with a healthy blend of education and optical illusions.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(83)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€11.78</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-senses-bucharest-p978632/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d75d4a068ed74f0983f78806a79187fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bucharest Walking Tour by Tiqets" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bucharest Walking Tour by Tiqets</h3>
-          <p class="venue">📍 Bucharest City Tours</p>
-          <p>Bucharest in the evening is an impressive spectacle. With this Bucharest walking tour, you'll see the best of it and hear fascinating stories as the city twinkles into life.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d75d4a068ed74f0983f78806a79187fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bucharest Walking Tour by Tiqets" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUCHAREST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BUCHAREST CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Bucharest Walking Tour by Tiqets</div>
+        <div class="tq-card-desc">Bucharest in the evening is an impressive spectacle. With this Bucharest walking tour, you'll see the best of it and hear fascinating stories as the city twinkles into life.
 
 Beginning at Piata Constitutiei (in front of the Palace of the Parliament), you'll make your way past the Romanian Orthodox Patriarchal Cathedral, along the grand Calea Victoriei, through Revolution Square, and finally to the Old Town and Dracula's bronze statue.
 
-Hear about the country's last communist leader, Nicolae Ceaușescu, who made a dramatic helicopter escape from Revolution Square in 1989, as well as plenty more fascinating cultural tidbits from your English, Italian, and Romanian-speaking guide.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 3.6 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-free-bucharest-walking-tour-by-tiqets-p1012820/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Hear about the country's last communist leader, Nicolae Ceaușescu, who made a dramatic helicopter escape from Revolution Square in 1989, as well as plenty more fascinating cultural tidbits from your English, Italian, and Romanian-speaking guide.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.6</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-free-bucharest-walking-tour-by-tiqets-p1012820/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8f4fa59b84914948b0cedcbacf152575.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bucharest Sightseeing Tour & The National Village Museum" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bucharest Sightseeing Tour & The National Village Museum</h3>
-          <p class="venue">📍 Romanian Athenaeum</p>
-          <p>This four-hour guided tour will give you a heap of fresh insights on fascinating Bucharest. Get inside the Palace of Parliament - the second largest administrative building in the world - and visit the charming, open-air Village Museum to uncover the secret life of Romanian peasants.</p>
-          <div class="card-footer">
-            <span class="price">From €67</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bucharest-sightseeing-tour-the-national-village-museum-p976684/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8f4fa59b84914948b0cedcbacf152575.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bucharest Sightseeing Tour & The National Village Museum" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUCHAREST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROMANIAN ATHENAEUM</span>
+        </div>
+        <div class="tq-card-title">Bucharest Sightseeing Tour & The National Village Museum</div>
+        <div class="tq-card-desc">This four-hour guided tour will give you a heap of fresh insights on fascinating Bucharest. Get inside the Palace of Parliament - the second largest administrative building in the world - and visit the charming, open-air Village Museum to uncover the secret life of Romanian peasants.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€67.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bucharest-sightseeing-tour-the-national-village-museum-p976684/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/38e2574d691345a4b6fdf94722c3021a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cotroceni Palace: Fast Track Ticket + Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cotroceni Palace: Fast Track Ticket + Guided Tour</h3>
-          <p class="venue">📍 Cotroceni Palace</p>
-          <p>Three centuries of royalty are waiting to be explored at Cotroceni Palace, which is now the official residence of the president of Romania. As a relatively hidden gem, a visit here is essential in Bucharest, but you must book ahead.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/38e2574d691345a4b6fdf94722c3021a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cotroceni Palace: Fast Track Ticket + Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUCHAREST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COTROCENI PALACE</span>
+        </div>
+        <div class="tq-card-title">Cotroceni Palace: Fast Track Ticket + Guided Tour</div>
+        <div class="tq-card-desc">Three centuries of royalty are waiting to be explored at Cotroceni Palace, which is now the official residence of the president of Romania. As a relatively hidden gem, a visit here is essential in Bucharest, but you must book ahead.
 
 Wander the magnificent hallways with your guide. See the bedrooms of kings and queens, plus children's bedrooms, a music hall including a grand old piano, and the king's office. 
 
-Don't miss a stroll through the gardens. You might catch the president in action!</p>
-          <div class="card-footer">
-            <span class="price">From €29.65</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cotroceni-palace-fast-track-guided-tour-p998069/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Don't miss a stroll through the gardens. You might catch the president in action!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.65</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cotroceni-palace-fast-track-guided-tour-p998069/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c831fe28af104feabd1e668533da030b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bucharest Palace of Parliament: Spanish Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bucharest Palace of Parliament: Spanish Guided Tour</h3>
-          <p class="venue">📍 Palace of the Parliament</p>
-          <p>Step into a realm where history and artistry intertwine, and a welcoming host eagerly awaits your arrival at the venue. After a friendly introduction to your knowledgeable guide, glide through the metal detectors and go on an adventure.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c831fe28af104feabd1e668533da030b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bucharest Palace of Parliament: Spanish Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUCHAREST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALACE OF THE PARLIAMENT</span>
+        </div>
+        <div class="tq-card-title">Bucharest Palace of Parliament: Spanish Guided Tour</div>
+        <div class="tq-card-desc">Step into a realm where history and artistry intertwine, and a welcoming host eagerly awaits your arrival at the venue. After a friendly introduction to your knowledgeable guide, glide through the metal detectors and go on an adventure.
 
 Begin your journey in the Honor Hallway, a grand gallery adorned with statues of Romania's most distinguished kings, including the legendary Vlad Dracula.
 
 Explore the venue's vast corridors and rooms, each named after a renowned Romanian artist. Discover the Pink Room, dedicated to notable United Nations assemblies.
 
-Prepare to be amazed by the Music Hall, a stage that has hosted top performers from around the world for the enjoyment of the Romanian elite. Finally, witness Europe's largest ballroom – a space equivalent to four football fields.</p>
-          <div class="card-footer">
-            <span class="price">From €36.9</span>
-            <span class="rating">⭐ 3 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bucharest-palace-of-parliament-spanish-guided-tour-p1091473/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Prepare to be amazed by the Music Hall, a stage that has hosted top performers from around the world for the enjoyment of the Romanian elite. Finally, witness Europe's largest ballroom – a space equivalent to four football fields.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€36.90</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bucharest-palace-of-parliament-spanish-guided-tour-p1091473/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Fuerteventura | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Fuerteventura. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,265 +131,430 @@
     <p>15 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/74076feacde54fd68649fda1bf927abf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Isla de Lobos: Ferry from Corralejo" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Isla de Lobos: Ferry from Corralejo</h3>
-          <p class="venue">📍 Fuerteventura Cruises</p>
-          <p>Looking for an exciting day trip during your time in Fuerteventura? Luckily for you, it's as easy as hopping on the Isla de Lobos ferry. Departing from Corralejo, you'll be on the island in just 20 minutes, and after that, you have the entire day to discover the island's scenery and the abundance of activities available there.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/74076feacde54fd68649fda1bf927abf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Isla de Lobos: Ferry from Corralejo" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUERTEVENTURA CRUISES</span>
+        </div>
+        <div class="tq-card-title">Isla de Lobos: Ferry from Corralejo</div>
+        <div class="tq-card-desc">Looking for an exciting day trip during your time in Fuerteventura? Luckily for you, it's as easy as hopping on the Isla de Lobos ferry. Departing from Corralejo, you'll be on the island in just 20 minutes, and after that, you have the entire day to discover the island's scenery and the abundance of activities available there.
 
-Relax on La Concha beach, hike up La Caldera (the highest point on the island at 127 meters above sea level), and cycle to Martiño Lighthouse. There are options aplenty on Isla de Lobos.</p>
-          <div class="card-footer">
-            <span class="price">From €17</span>
-            <span class="rating">⭐ 4.5 (55)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-isla-de-lobos-ferry-from-corralejo-p1011767/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Relax on La Concha beach, hike up La Caldera (the highest point on the island at 127 meters above sea level), and cycle to Martiño Lighthouse. There are options aplenty on Isla de Lobos.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(55)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-isla-de-lobos-ferry-from-corralejo-p1011767/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/74076feacde54fd68649fda1bf927abf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lobos Island: Roundtrip Ferry from Corralejo + Mini Cruise + 1 Drink" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lobos Island: Roundtrip Ferry from Corralejo + Mini Cruise + 1 Drink</h3>
-          <p class="venue">📍 Fuerteventura Cruises</p>
-          <p>Start the trip by boarding a ferry from Corralejo. Upon arriving at Lobos, explore the islet.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/74076feacde54fd68649fda1bf927abf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lobos Island: Roundtrip Ferry from Corralejo + Mini Cruise + 1 Drink" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUERTEVENTURA CRUISES</span>
+        </div>
+        <div class="tq-card-title">Lobos Island: Roundtrip Ferry from Corralejo + Mini Cruise + 1 Drink</div>
+        <div class="tq-card-desc">Start the trip by boarding a ferry from Corralejo. Upon arriving at Lobos, explore the islet.
 
 Anchor for about an hour in a cove at Lobos. Practice snorkelling while feeding the local fish or swim in clear waters.
 
-At midday, the ferry will pick everyone up from the Lobos dock for a mini cruise where you can enjoy the underwater view while having a drink. In the afternoon, return to Corralejo by ferry.</p>
-          <div class="card-footer">
-            <span class="price">From €28</span>
-            <span class="rating">⭐ 3 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lobos-island-roundtrip-ferry-from-corralejo-mini-cruise-1-drink-p1119242/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+At midday, the ferry will pick everyone up from the Lobos dock for a mini cruise where you can enjoy the underwater view while having a drink. In the afternoon, return to Corralejo by ferry.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€28.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lobos-island-roundtrip-ferry-from-corralejo-mini-cruise-1-drink-p1119242/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/40578b173e344be8b74367bcd27997e5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fuerteventura: 1.5-Hr Dolphin Watching Cruise + Hotel Pickup" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Fuerteventura: 1.5-Hr Dolphin Watching Cruise + Hotel Pickup</h3>
-          <p class="venue">📍 Fuerteventura Cruises</p>
-          <p>Join a dolphin-watching tour in southern Fuerteventura on a small boat with a maximum of 12 passengers for a more comfortable experience. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/40578b173e344be8b74367bcd27997e5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fuerteventura: 1.5-Hr Dolphin Watching Cruise + Hotel Pickup" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUERTEVENTURA CRUISES</span>
+        </div>
+        <div class="tq-card-title">Fuerteventura: 1.5-Hr Dolphin Watching Cruise + Hotel Pickup</div>
+        <div class="tq-card-desc">Join a dolphin-watching tour in southern Fuerteventura on a small boat with a maximum of 12 passengers for a more comfortable experience. 
 
 Depart from Morro Jable in Jandía and head into waters rich in marine life. This area has a nearly 90% chance of spotting dolphins year-round. 
 
-There's also a chance to see whales, flying fish, turtles, and seabirds. Dolphins often swim close to the boat, offering a chance to see them up close.</p>
-          <div class="card-footer">
-            <span class="price">From €59</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fuerteventura-1-5-hr-dolphin-watching-cruise-hotel-pickup-p1118780/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There's also a chance to see whales, flying fish, turtles, and seabirds. Dolphins often swim close to the boat, offering a chance to see them up close.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€59.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fuerteventura-1-5-hr-dolphin-watching-cruise-hotel-pickup-p1118780/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1242af86c40e47cdab71630b0bfce123.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Castillo Caleta de Fuste: Stand-up Paddle Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Castillo Caleta de Fuste: Stand-up Paddle Experience</h3>
-          <p class="venue">📍 Fuerteventura Water Activities</p>
-          <p>Grab a paddle and enjoy this unique experience on the water.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1242af86c40e47cdab71630b0bfce123.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Castillo Caleta de Fuste: Stand-up Paddle Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUERTEVENTURA WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Castillo Caleta de Fuste: Stand-up Paddle Experience</div>
+        <div class="tq-card-desc">Grab a paddle and enjoy this unique experience on the water.
 
 Once you arrive, meet an instructor and learn the basics on safety, how to use the board, and the correct way to paddle. 
 
 Then try stand-up paddleboarding and enjoy some time on the water. 
 
-Glide across the Atlantic, paddle at your own pace, and take in the views around you.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-castillo-caleta-de-fuste-stand-up-paddle-experience-p1121632/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Glide across the Atlantic, paddle at your own pace, and take in the views around you.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-castillo-caleta-de-fuste-stand-up-paddle-experience-p1121632/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1242af86c40e47cdab71630b0bfce123.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Caleta de Fuste: Kayak Rental" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Caleta de Fuste: Kayak Rental</h3>
-          <p class="venue">📍 Fuerteventura Water Activities</p>
-          <p>Rent a double or single kayak and see the clear water and calm sea. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1242af86c40e47cdab71630b0bfce123.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Caleta de Fuste: Kayak Rental" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUERTEVENTURA WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Caleta de Fuste: Kayak Rental</div>
+        <div class="tq-card-desc">Rent a double or single kayak and see the clear water and calm sea. 
 
-From Puerto del Castillo, take one hour to paddle around and see the bay of Caleta de Fuste at your own pace.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-caleta-de-fuste-kayak-rental-p1121631/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+From Puerto del Castillo, take one hour to paddle around and see the bay of Caleta de Fuste at your own pace.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-caleta-de-fuste-kayak-rental-p1121631/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1242af86c40e47cdab71630b0bfce123.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Castillo Caleta de Fuste: Guided Jet Ski Circuit Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Castillo Caleta de Fuste: Guided Jet Ski Circuit Experience</h3>
-          <p class="venue">📍 Fuerteventura Water Activities</p>
-          <p>See Caleta de Fuste from the sea on a 20-minute jet ski ride around the circuit. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1242af86c40e47cdab71630b0bfce123.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Castillo Caleta de Fuste: Guided Jet Ski Circuit Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUERTEVENTURA WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Castillo Caleta de Fuste: Guided Jet Ski Circuit Experience</div>
+        <div class="tq-card-desc">See Caleta de Fuste from the sea on a 20-minute jet ski ride around the circuit. 
 
 This bay is known for its beach and calm waters.
 
 Start at Puerto Castillo where you will meet your instructor and put on a life jacket. After a short safety briefing, head out to the water.
 
-Ride along the bay with an experienced instructor and see the coastal views.</p>
-          <div class="card-footer">
-            <span class="price">From €68</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-castillo-caleta-de-fuste-jet-ski-circuit-experience-p1121469/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Ride along the bay with an experienced instructor and see the coastal views.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€68.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-castillo-caleta-de-fuste-jet-ski-circuit-experience-p1121469/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1242af86c40e47cdab71630b0bfce123.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fuerteventura: Puerto Castillo Floating Waterpark" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Fuerteventura: Puerto Castillo Floating Waterpark</h3>
-          <p class="venue">📍 Fuerteventura Water Activities</p>
-          <p>Prepare to spend hours having fun at the floating water park. Slide, jump, and climb with family or friends. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1242af86c40e47cdab71630b0bfce123.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fuerteventura: Puerto Castillo Floating Waterpark" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUERTEVENTURA WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Fuerteventura: Puerto Castillo Floating Waterpark</div>
+        <div class="tq-card-desc">Prepare to spend hours having fun at the floating water park. Slide, jump, and climb with family or friends. 
 
-The floating water park is suitable for all ages and provides activities for everyone.</p>
-          <div class="card-footer">
-            <span class="price">From €13</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fuerteventura-puerto-castillo-floating-waterpark-p1121465/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The floating water park is suitable for all ages and provides activities for everyone.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fuerteventura-puerto-castillo-floating-waterpark-p1121465/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/74076feacde54fd68649fda1bf927abf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Isla de Lobos: Luxury Catamaran Cruise + Lunch + Drinks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Isla de Lobos: Luxury Catamaran Cruise + Lunch + Drinks</h3>
-          <p class="venue">📍 Fuerteventura Cruises</p>
-          <p>Spend a day on the *Oby Luxury* catamaran.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/74076feacde54fd68649fda1bf927abf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Isla de Lobos: Luxury Catamaran Cruise + Lunch + Drinks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUERTEVENTURA CRUISES</span>
+        </div>
+        <div class="tq-card-title">Isla de Lobos: Luxury Catamaran Cruise + Lunch + Drinks</div>
+        <div class="tq-card-desc">Spend a day on the *Oby Luxury* catamaran.
 
 Sail to Isla de Lobos and anchor in its clear waters. Join in on select activities and have lunch prepared for you.
 
 Enjoy the spacious, open-air design on the catamaran as you sip unlimited drinks onboard.
 
-Relax in the sunbathing areas, which offer several comfortable spots to unwind.</p>
-          <div class="card-footer">
-            <span class="price">From €85</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-isla-de-lobos-catamaran-cruise-lunch-drinks-p1120981/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Relax in the sunbathing areas, which offer several comfortable spots to unwind.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€85.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-isla-de-lobos-catamaran-cruise-lunch-drinks-p1120981/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b2f10eed973a41ad8d524d40e42fff2a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lanzarote: Guided Tour from Fuerteventura + Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lanzarote: Guided Tour from Fuerteventura + Wine Tasting</h3>
-          <p class="venue">📍 Day trips from Fuerteventura</p>
-          <p>Take a trip from Fuerteventura to Lanzarote. After a 45-minute boat ride from Corralejo to Playa Blanca, tour the main attractions of the island's south by bus.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b2f10eed973a41ad8d524d40e42fff2a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lanzarote: Guided Tour from Fuerteventura + Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM FUERTEVENTURA</span>
+        </div>
+        <div class="tq-card-title">Lanzarote: Guided Tour from Fuerteventura + Wine Tasting</div>
+        <div class="tq-card-desc">Take a trip from Fuerteventura to Lanzarote. After a 45-minute boat ride from Corralejo to Playa Blanca, tour the main attractions of the island's south by bus.
 
 See the volcanic landscape of Timanfaya National Park and visit La Geria, a wine region known for its unique Malvasia wine grown in volcanic soil. Learn about natural uses of the plant at the Aloe Vera Museum.
 
-End the trip with a stop at Lago Verde and its cliffs before returning to Fuerteventura.</p>
-          <div class="card-footer">
-            <span class="price">From €83</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lanzarote-guided-tour-from-fuerteventura-wine-tasting-p1120911/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End the trip with a stop at Lago Verde and its cliffs before returning to Fuerteventura.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€83.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lanzarote-guided-tour-from-fuerteventura-wine-tasting-p1120911/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b2f10eed973a41ad8d524d40e42fff2a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fuerteventura: Guided Tour + Transfer + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Fuerteventura: Guided Tour + Transfer + Lunch</h3>
-          <p class="venue">📍 Day trips from Fuerteventura</p>
-          <p>Spend more than seven hours visiting special spots on the island. Start at the east coast of Fuerteventura and head to Faro de la Entallada for ocean views.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b2f10eed973a41ad8d524d40e42fff2a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fuerteventura: Guided Tour + Transfer + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM FUERTEVENTURA</span>
+        </div>
+        <div class="tq-card-title">Fuerteventura: Guided Tour + Transfer + Lunch</div>
+        <div class="tq-card-desc">Spend more than seven hours visiting special spots on the island. Start at the east coast of Fuerteventura and head to Faro de la Entallada for ocean views.
 
 Next, head to Ajuy on the west coast. The village is known for its black sand beaches and marine caves. Visit Betancuria, a cultural and historical center with traditional Canarian architecture.
 
-Lastly, go to the north to see the Dunas de Corralejo. This natural park offers a desert-like landscape by the sea. The tour includes a meal at a traditional restaurant featuring local flavors.</p>
-          <div class="card-footer">
-            <span class="price">From €69</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fuerteventura-guided-tour-transfer-lunch-p1120391/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Lastly, go to the north to see the Dunas de Corralejo. This natural park offers a desert-like landscape by the sea. The tour includes a meal at a traditional restaurant featuring local flavors.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€69.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fuerteventura-guided-tour-transfer-lunch-p1120391/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/74076feacde54fd68649fda1bf927abf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Isla de Lobos: Catamaran Sailing Tour + Lunch & Drinks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Isla de Lobos: Catamaran Sailing Tour + Lunch & Drinks</h3>
-          <p class="venue">📍 Fuerteventura Cruises</p>
-          <p>Sail on a catamaran from Corralejo to Isla de Lobos, a designated Natural Park since 1982. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/74076feacde54fd68649fda1bf927abf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Isla de Lobos: Catamaran Sailing Tour + Lunch & Drinks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUERTEVENTURA CRUISES</span>
+        </div>
+        <div class="tq-card-title">Isla de Lobos: Catamaran Sailing Tour + Lunch & Drinks</div>
+        <div class="tq-card-desc">Sail on a catamaran from Corralejo to Isla de Lobos, a designated Natural Park since 1982. 
 
-Anchor in a clear-water cove where you can swim, sunbathe on deck, and have lunch. Take the opportunity to disembark at Lobos Islet for a visit, which will take approximately 1 hour.</p>
-          <div class="card-footer">
-            <span class="price">From €62</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-isla-de-lobos-catamaran-sailing-tour-lunch-drinks-p1119241/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Anchor in a clear-water cove where you can swim, sunbathe on deck, and have lunch. Take the opportunity to disembark at Lobos Islet for a visit, which will take approximately 1 hour.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€62.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-isla-de-lobos-catamaran-sailing-tour-lunch-drinks-p1119241/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/74076feacde54fd68649fda1bf927abf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Caleta de Fuste: Catamaran Cruise + Lunch + Unlimited Drinks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Caleta de Fuste: Catamaran Cruise + Lunch + Unlimited Drinks</h3>
-          <p class="venue">📍 Fuerteventura Cruises</p>
-          <p>Set sail on a spacious catamaran from the Caleta de Fuste dock.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/74076feacde54fd68649fda1bf927abf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Caleta de Fuste: Catamaran Cruise + Lunch + Unlimited Drinks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUERTEVENTURA CRUISES</span>
+        </div>
+        <div class="tq-card-title">Caleta de Fuste: Catamaran Cruise + Lunch + Unlimited Drinks</div>
+        <div class="tq-card-desc">Set sail on a spacious catamaran from the Caleta de Fuste dock.
 
 Head towards the fishing village of Pozo Negro. The crew is available to assist with needs during the trip.
 
-Once anchored in the bay, go snorkeling, swim in the sea, or relax on the deck and sunbathe.</p>
-          <div class="card-footer">
-            <span class="price">From €64</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-caleta-de-fuste-catamaran-cruise-lunch-unlimited-drinks-p1119231/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Once anchored in the bay, go snorkeling, swim in the sea, or relax on the deck and sunbathe.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-caleta-de-fuste-catamaran-cruise-lunch-unlimited-drinks-p1119231/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1242af86c40e47cdab71630b0bfce123.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fuerteventura: Guided Scuba Diving + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Fuerteventura: Guided Scuba Diving + Roundtrip Transfer</h3>
-          <p class="venue">📍 Fuerteventura Water Activities</p>
-          <p>Dive into the underwater world of Fuerteventura, known for its marine biodiversity and landscapes.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1242af86c40e47cdab71630b0bfce123.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fuerteventura: Guided Scuba Diving + Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUERTEVENTURA WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Fuerteventura: Guided Scuba Diving + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Dive into the underwater world of Fuerteventura, known for its marine biodiversity and landscapes.
 
-An experienced instructor will teach you how to use scuba equipment and guide you underwater. All necessary gear is included, no need to bring anything extra.</p>
-          <div class="card-footer">
-            <span class="price">From €75</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fuerteventura-guided-scuba-diving-roundtrip-transfer-p1117543/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+An experienced instructor will teach you how to use scuba equipment and guide you underwater. All necessary gear is included, no need to bring anything extra.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€75.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fuerteventura-guided-scuba-diving-roundtrip-transfer-p1117543/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1242af86c40e47cdab71630b0bfce123.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fuerteventura: Guided Kayak & Snorkeling Tour + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Fuerteventura: Guided Kayak & Snorkeling Tour + Roundtrip Transfer</h3>
-          <p class="venue">📍 Fuerteventura Water Activities</p>
-          <p>Start the kayak excursions from the beach of La Lajita and paddle along the rocky coast with views of cliffs and wild beaches. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1242af86c40e47cdab71630b0bfce123.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fuerteventura: Guided Kayak & Snorkeling Tour + Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUERTEVENTURA WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Fuerteventura: Guided Kayak & Snorkeling Tour + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Start the kayak excursions from the beach of La Lajita and paddle along the rocky coast with views of cliffs and wild beaches. 
 
-Take a break to snorkel and see the marine life in the Canarian waters, with masks and snorkels provided. Spend 30 minutes snorkeling with guidance from an instructor. Get back to the kayaks and continue along the rocks.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fuerteventura-guided-kayak-snorkeling-tour-roundtrip-transfer-p1116973/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take a break to snorkel and see the marine life in the Canarian waters, with masks and snorkels provided. Spend 30 minutes snorkeling with guidance from an instructor. Get back to the kayaks and continue along the rocks.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fuerteventura-guided-kayak-snorkeling-tour-roundtrip-transfer-p1116973/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1242af86c40e47cdab71630b0bfce123.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fuerteventura: Guided Snorkeling Tour + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Fuerteventura: Guided Snorkeling Tour + Roundtrip Transfer</h3>
-          <p class="venue">📍 Fuerteventura Water Activities</p>
-          <p>Try snorkeling and see what lives underwater—no swimming skills needed. A buoyancy vest will help you float as you explore a shallow area with lots of fish and marine animals. See the volcanic reef and unique rock formations formed by lava, and spend about 50 minutes in the water.</p>
-          <div class="card-footer">
-            <span class="price">From €39</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fuerteventura-guided-snorkeling-tour-roundtrip-transfer-p1116969/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1242af86c40e47cdab71630b0bfce123.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fuerteventura: Guided Snorkeling Tour + Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FUERTEVENTURA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUERTEVENTURA WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Fuerteventura: Guided Snorkeling Tour + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Try snorkeling and see what lives underwater—no swimming skills needed. A buoyancy vest will help you float as you explore a shallow area with lots of fish and marine animals. See the volcanic reef and unique rock formations formed by lava, and spend about 50 minutes in the water.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fuerteventura-guided-snorkeling-tour-roundtrip-transfer-p1116969/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

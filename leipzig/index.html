@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Leipzig | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Leipzig. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,100 +131,160 @@
     <p>8 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fd31f450d20b4c219265d0da38588b8c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Leipzig Zoo + Travel Card "Leipzig (Zone 110)"" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Leipzig Zoo + Travel Card "Leipzig (Zone 110)"</h3>
-          <p class="venue">📍 Leipzig Zoo</p>
-          <p>See the majestic tigers prowling in the **Siberian tiger savannah.** Watch the wise elephants cooling in the shady **elephant temple, Ganesha Mandir**. Then take a safari through the expanses of the Kiwara savannah, where giraffes, antelopes, zebras and flamingos can be observed in their naturally modeled habitat. It's all here at the Leipzig Zoological Garden, one of the oldest in the world.</p>
-          <div class="card-footer">
-            <span class="price">From €27</span>
-            <span class="rating">⭐ 4.7 (2016)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-leipzig-zoo-p1015763/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fd31f450d20b4c219265d0da38588b8c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Leipzig Zoo + Travel Card "Leipzig (Zone 110)"" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LEIPZIG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LEIPZIG ZOO</span>
+        </div>
+        <div class="tq-card-title">Leipzig Zoo + Travel Card "Leipzig (Zone 110)"</div>
+        <div class="tq-card-desc">See the majestic tigers prowling in the **Siberian tiger savannah.** Watch the wise elephants cooling in the shady **elephant temple, Ganesha Mandir**. Then take a safari through the expanses of the Kiwara savannah, where giraffes, antelopes, zebras and flamingos can be observed in their naturally modeled habitat. It's all here at the Leipzig Zoological Garden, one of the oldest in the world.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(2,016)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-leipzig-zoo-p1015763/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c73fc03c83d0418abdc5b0db6b46c80d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="BELANTIS Amusement Park: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>BELANTIS Amusement Park: Entry Ticket</h3>
-          <p class="venue">📍 BELANTIS Amusement Park</p>
-          <p>Gather your family and friends for an exciting day at the BELANTIS amusement park in Leipzig. Whether it’s a shot of adrenaline you seek or a relaxing day, there are attractions that will keep everyone busy.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c73fc03c83d0418abdc5b0db6b46c80d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="BELANTIS Amusement Park: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LEIPZIG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BELANTIS AMUSEMENT PARK</span>
+        </div>
+        <div class="tq-card-title">BELANTIS Amusement Park: Entry Ticket</div>
+        <div class="tq-card-desc">Gather your family and friends for an exciting day at the BELANTIS amusement park in Leipzig. Whether it’s a shot of adrenaline you seek or a relaxing day, there are attractions that will keep everyone busy.
 
 Test your bravery on the **Huracan rollercoaster** that will have you thinking ‘Never again’ when it shoots down at 85km/hr (but will have you screaming ‘Again!’ by the end).
 
 Prefer your heart to beat at a normal pace? There are a number of gentle boat rides and fun interactive attractions to entertain the family and young children. 
 
-Sit back and relax as you enjoy hilarious performances with pirates, knights, and talking animals.</p>
-          <div class="card-footer">
-            <span class="price">From €41.9</span>
-            <span class="rating">⭐ 4.3 (231)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-belantis-amusement-park-p1060895/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Sit back and relax as you enjoy hilarious performances with pirates, knights, and talking animals.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(231)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€41.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-belantis-amusement-park-p1060895/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbac0d1317594b3cbec4dbc4cd5b1814.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="1-Day Hop-on Hop-off Bus Leipzig" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>1-Day Hop-on Hop-off Bus Leipzig</h3>
-          <p class="venue">📍 Leipzig Bus Tours</p>
-          <p>Enjoy a combination of convenient transport and informative sightseeing with Stadtrundfahrt Leipzig. There are 13 stops scattered throughout the city, ranging from attractions like the zoo to historic landmarks like St. Thomas Church. And best of all, you can jump on – or off – at any of them!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbac0d1317594b3cbec4dbc4cd5b1814.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="1-Day Hop-on Hop-off Bus Leipzig" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LEIPZIG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LEIPZIG BUS TOURS</span>
+        </div>
+        <div class="tq-card-title">1-Day Hop-on Hop-off Bus Leipzig</div>
+        <div class="tq-card-desc">Enjoy a combination of convenient transport and informative sightseeing with Stadtrundfahrt Leipzig. There are 13 stops scattered throughout the city, ranging from attractions like the zoo to historic landmarks like St. Thomas Church. And best of all, you can jump on – or off – at any of them!
 
-If you're more interested in finding out about the city's past, then stay on for the whole ride. A knowledgeable guide will provide you with interesting commentary during the ride.</p>
-          <div class="card-footer">
-            <span class="price">From €24</span>
-            <span class="rating">⭐ 4.4 (109)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-1-day-hop-on-hop-off-bus-leipzig-p1004636/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+If you're more interested in finding out about the city's past, then stay on for the whole ride. A knowledgeable guide will provide you with interesting commentary during the ride.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(109)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€24.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-1-day-hop-on-hop-off-bus-leipzig-p1004636/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/796b3bf8f11d43e98a9b0371259cd64b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Guided Tour with Night Watchman Bremme®" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Guided Tour with Night Watchman Bremme®</h3>
-          <p class="venue">📍 Leipzig Walking Tours</p>
-          <p>Exclusive to Treffpunkt Leipzig, this atmospheric tour with night watchman Bremme® is one of the most popular tours through Leipzig city center. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/796b3bf8f11d43e98a9b0371259cd64b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Guided Tour with Night Watchman Bremme®" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LEIPZIG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LEIPZIG WALKING TOURS</span>
+        </div>
+        <div class="tq-card-title">Guided Tour with Night Watchman Bremme®</div>
+        <div class="tq-card-desc">Exclusive to Treffpunkt Leipzig, this atmospheric tour with night watchman Bremme® is one of the most popular tours through Leipzig city center. 
 
 Bremme® is an integral part of the nocturnal cityscape, and is the most qualified guide you could hope for!
 
 Let the night watchman Bremme® lead you through the cozy squares and darkened alleys by the light of his lantern. 
 
-He will take you past the most beautiful sights of the old town, and regale you with curious stories from the Leipzig of yesteryear. It's the only tour you need.</p>
-          <div class="card-footer">
-            <span class="price">From €13</span>
-            <span class="rating">⭐ 4.4 (40)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-guided-tour-with-night-watchman-bremme-p1056069/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+He will take you past the most beautiful sights of the old town, and regale you with curious stories from the Leipzig of yesteryear. It's the only tour you need.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(40)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-guided-tour-with-night-watchman-bremme-p1056069/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/796b3bf8f11d43e98a9b0371259cd64b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Leipzig: Self-Guided Exploration Game" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Leipzig: Self-Guided Exploration Game</h3>
-          <p class="venue">📍 Leipzig Self Guided Tours</p>
-          <p>Start the Secrets of Exploration Game on your phone and discover the city at your own pace. Once booked, you will receive all necessary details via email. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/796b3bf8f11d43e98a9b0371259cd64b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Leipzig: Self-Guided Exploration Game" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LEIPZIG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LEIPZIG SELF GUIDED TOURS</span>
+        </div>
+        <div class="tq-card-title">Leipzig: Self-Guided Exploration Game</div>
+        <div class="tq-card-desc">Start the Secrets of Exploration Game on your phone and discover the city at your own pace. Once booked, you will receive all necessary details via email. 
 
 Navigate through the city, solving puzzles, riddles, and photo tasks as you play this GPS-based game. 
 
-Learn about the city's history, notable characters, culture, and unique facts that even locals may not know.</p>
-          <div class="card-footer">
-            <span class="price">From €19.95</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-leipzig-self-guided-exploration-game-p1104203/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about the city's history, notable characters, culture, and unique facts that even locals may not know.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.95</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-leipzig-self-guided-exploration-game-p1104203/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/796b3bf8f11d43e98a9b0371259cd64b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Leipzig: Self-Guided Syndicate City Escape Game" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Leipzig: Self-Guided Syndicate City Escape Game</h3>
-          <p class="venue">📍 Leipzig Self Guided Tours</p>
-          <p>Start the Syndicate City Game with a phone that has internet access. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/796b3bf8f11d43e98a9b0371259cd64b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Leipzig: Self-Guided Syndicate City Escape Game" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LEIPZIG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LEIPZIG SELF GUIDED TOURS</span>
+        </div>
+        <div class="tq-card-title">Leipzig: Self-Guided Syndicate City Escape Game</div>
+        <div class="tq-card-desc">Start the Syndicate City Game with a phone that has internet access. 
 
 Arrive at the starting location to begin your mission: recovering stolen formulas as you explore the city. 
 
@@ -133,46 +292,74 @@ Follow the role-playing story to navigate the area, solve puzzles and riddles, a
 
 Choose a character—John, Azita, Burke, Clara, or Leopold the dog—and begin the game in the city center. 
 
-Discover notable city landmarks while you play and try to catch Magnus if you can.</p>
-          <div class="card-footer">
-            <span class="price">From €19.95</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-leipzig-self-guided-syndicate-city-escape-game-p1104195/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover notable city landmarks while you play and try to catch Magnus if you can.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.95</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-leipzig-self-guided-syndicate-city-escape-game-p1104195/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/796b3bf8f11d43e98a9b0371259cd64b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Leipzig: Self-Guided Sherlock Holmes Murder Mystery Game" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Leipzig: Self-Guided Sherlock Holmes Murder Mystery Game</h3>
-          <p class="venue">📍 Leipzig Self Guided Tours</p>
-          <p>Experience the Sherlock Holmes City Game, a self-guided tour that turns the city into an interactive adventure. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/796b3bf8f11d43e98a9b0371259cd64b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Leipzig: Self-Guided Sherlock Holmes Murder Mystery Game" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LEIPZIG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LEIPZIG SELF GUIDED TOURS</span>
+        </div>
+        <div class="tq-card-title">Leipzig: Self-Guided Sherlock Holmes Murder Mystery Game</div>
+        <div class="tq-card-desc">Experience the Sherlock Holmes City Game, a self-guided tour that turns the city into an interactive adventure. 
 
-Explore the city, solve puzzles, and complete photo challenges to gather clues about Balthasar's murder. Play at your own pace, anytime, anywhere, and with anyone.</p>
-          <div class="card-footer">
-            <span class="price">From €19.95</span>
-            <span class="rating">⭐ 3 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-leipzig-self-guided-sherlock-holmes-murder-mystery-game-p1095098/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore the city, solve puzzles, and complete photo challenges to gather clues about Balthasar's murder. Play at your own pace, anytime, anywhere, and with anyone.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.95</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-leipzig-self-guided-sherlock-holmes-murder-mystery-game-p1095098/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/796b3bf8f11d43e98a9b0371259cd64b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Leipzig Old Town Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Leipzig Old Town Tour</h3>
-          <p class="venue">📍 Leipzig Walking Tours</p>
-          <p>Get the best first impression on this immersive Leipzig walking tour. Starting from the romantic Thomaskirchhof, you'll discover the most important sights of the compact city center. In front of the venerable St. Thomas Church, learn about the life and work of Johann Sebastian Bach and the world-famous St. Thomas Choir, and ask your guide anything you like about Leipzig Old Town.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/796b3bf8f11d43e98a9b0371259cd64b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Leipzig Old Town Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LEIPZIG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LEIPZIG WALKING TOURS</span>
+        </div>
+        <div class="tq-card-title">Leipzig Old Town Tour</div>
+        <div class="tq-card-desc">Get the best first impression on this immersive Leipzig walking tour. Starting from the romantic Thomaskirchhof, you'll discover the most important sights of the compact city center. In front of the venerable St. Thomas Church, learn about the life and work of Johann Sebastian Bach and the world-famous St. Thomas Choir, and ask your guide anything you like about Leipzig Old Town.
 
-Follow the scent of one of the oldest coffee houses in Europe, "Zum Arabischen Coffe Baum". Wander through the impressive Barthels Hof and gaze up at the statues in the magnificent Mädler Passage. Along the way, you'll see the distinctive Renaissance-style Old Town Hall, plus many other sights in the beautiful city center.</p>
-          <div class="card-footer">
-            <span class="price">From €10</span>
-            <span class="rating">⭐ 4.3 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-leipzig-old-town-tour-p1031835/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Follow the scent of one of the oldest coffee houses in Europe, "Zum Arabischen Coffe Baum". Wander through the impressive Barthels Hof and gaze up at the statues in the magnificent Mädler Passage. Along the way, you'll see the distinctive Renaissance-style Old Town Hall, plus many other sights in the beautiful city center.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€10.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-leipzig-old-town-tour-p1031835/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>
