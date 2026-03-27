@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Luxembourg | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Luxembourg. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,66 +131,104 @@
     <p>9 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e6eebee20804cacab6d5cb9ecac49c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="City Train in Luxembourg's Old Town" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>City Train in Luxembourg's Old Town</h3>
-          <p class="venue">📍 Luxembourg City Tours</p>
-          <p>The small landlocked country of Luxembourg – aka the 'Gibraltar of the North' – has a long history, and you'll hear all about it as you chug around the Fortress of Luxembourg with a multi-language audio guide. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2e6eebee20804cacab6d5cb9ecac49c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="City Train in Luxembourg's Old Town" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LUXEMBOURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LUXEMBOURG CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">City Train in Luxembourg's Old Town</div>
+        <div class="tq-card-desc">The small landlocked country of Luxembourg – aka the 'Gibraltar of the North' – has a long history, and you'll hear all about it as you chug around the Fortress of Luxembourg with a multi-language audio guide. 
 
 If you're passionate about history and culture, a ride on the City Train promises an illuminating sightseeing tour of Old Town Luxembourg.
 
-The train trundles past the historic sites of the old fortress city, while your stereo headphones bring tales of olden times to life. This Luxembourg City tour is great for first-time visitors to Luxembourg!</p>
-          <div class="card-footer">
-            <span class="price">From €14.5</span>
-            <span class="rating">⭐ 4.2 (36)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-luxembourg-city-train-old-town-p1014173/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The train trundles past the historic sites of the old fortress city, while your stereo headphones bring tales of olden times to life. This Luxembourg City tour is great for first-time visitors to Luxembourg!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(36)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-luxembourg-city-train-old-town-p1014173/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e6eebee20804cacab6d5cb9ecac49c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxembourg Tour: Castles and Countryside" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Luxembourg Tour: Castles and Countryside</h3>
-          <p class="venue">📍 Luxembourg City Tours</p>
-          <p>Learn more about the history of Luxembourg, from the Middle Ages to modern times, on this tour of its leafy country surroundings.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2e6eebee20804cacab6d5cb9ecac49c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxembourg Tour: Castles and Countryside" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LUXEMBOURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LUXEMBOURG CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Luxembourg Tour: Castles and Countryside</div>
+        <div class="tq-card-desc">Learn more about the history of Luxembourg, from the Middle Ages to modern times, on this tour of its leafy country surroundings.
 
 Aboard a comfortable convertible bus, you'll discover the lush natural landscapes of the Mullerthal and take a guided tour of the Schiessentümpel waterfalls. You'll also take a brief look around Beaufort Castle, before an extended two-hour visit to Vianden Castle to learn its 1,000-year history.
 
-After a walk around the abbey town of Echternach, you'll make your way back to the center, suitably educated and ready for the night's entertainment!</p>
-          <div class="card-footer">
-            <span class="price">From €115</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-nature-and-castle-tour-p1014376/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After a walk around the abbey town of Echternach, you'll make your way back to the center, suitably educated and ready for the night's entertainment!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€115.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-nature-and-castle-tour-p1014376/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e6eebee20804cacab6d5cb9ecac49c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxembourg City: Guided eBike Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Luxembourg City: Guided eBike Tour</h3>
-          <p class="venue">📍 Luxembourg City Tours</p>
-          <p>See the best of Luxembourg City with a pedal-powered sightseeing tour of the city, led by an expert guide. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2e6eebee20804cacab6d5cb9ecac49c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxembourg City: Guided eBike Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LUXEMBOURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LUXEMBOURG CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Luxembourg City: Guided eBike Tour</div>
+        <div class="tq-card-desc">See the best of Luxembourg City with a pedal-powered sightseeing tour of the city, led by an expert guide. 
 
 With your electric bicycle, cruise from Luxumbourg City's medieval city center into its lush green belt, Petrusse Valley. Follow your guide to get spectacular views of sightseeing essentials, like the Grund and the Abbey of Neimënster.
 
-Conclude your Luxembourg City sightseeing adventure at the picturesque Kinnekswiss city park.</p>
-          <div class="card-footer">
-            <span class="price">From €76</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-best-of-luxembourg-city-guided-e-bike-tour-p1032102/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Conclude your Luxembourg City sightseeing adventure at the picturesque Kinnekswiss city park.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€76.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-best-of-luxembourg-city-guided-e-bike-tour-p1032102/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e6eebee20804cacab6d5cb9ecac49c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxembourg: City Train and Entry to 7 Museums" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Luxembourg: City Train and Entry to 7 Museums</h3>
-          <p class="venue">📍 Luxembourg City Tours</p>
-          <p>Take a thrilling journey through the city, riding the iconic Luxembourg City Train before diving into the enriching world of 7 distinct museums, all bundled into one exciting combo ticket. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2e6eebee20804cacab6d5cb9ecac49c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxembourg: City Train and Entry to 7 Museums" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LUXEMBOURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LUXEMBOURG CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Luxembourg: City Train and Entry to 7 Museums</div>
+        <div class="tq-card-desc">Take a thrilling journey through the city, riding the iconic Luxembourg City Train before diving into the enriching world of 7 distinct museums, all bundled into one exciting combo ticket. 
 
 Be charmed by the historic elegance of Villa Vauban and its scenic park, or find inspiration amidst the cutting-edge displays at Casino Luxembourg-Forum d’Art Contemporain, a hub showcasing the latest masterpieces from international artists.
 
@@ -99,106 +236,163 @@ Venture into the heart of the old town district to unearth the city's past at L�
 
 Wander the sprawling 6,000 square meters of exhibition space at the Musée National d’Histoire et d’Art, where encyclopedic collections promise a world of discovery. 
 
-Journey back in time at the Musée National d’Histoire Naturelle, home to exhibitions showcasing over 160 years of the Institute's history.</p>
-          <div class="card-footer">
-            <span class="price">From €27.5</span>
-            <span class="rating">⭐ 2 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-comb0-ticket-city-train-7-museums-entry-in-luxembourg-city-p1081265/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Journey back in time at the Musée National d’Histoire Naturelle, home to exhibitions showcasing over 160 years of the Institute's history.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-comb0-ticket-city-train-7-museums-entry-in-luxembourg-city-p1081265/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Luxembourg: Guided Food Tour and Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Luxembourg: Guided Food Tour and Tasting</h3>
-          <p class="venue">📍 Luxembourg Food and Drink Tours</p>
-          <p>Roam through the vibrant Luxembourg City, where a delicious culinary adventure awaits you. Join a leisurely stroll along the city's charming cobblestone streets, led by an enthusiastic local guide. This tour reveals the city's hidden gems and gastronomic hotspots, promising a delightful dive into its rich culture.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LUXEMBOURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LUXEMBOURG FOOD AND DRINK TOURS</span>
+        </div>
+        <div class="tq-card-title">Luxembourg: Guided Food Tour and Tasting</div>
+        <div class="tq-card-desc">Roam through the vibrant Luxembourg City, where a delicious culinary adventure awaits you. Join a leisurely stroll along the city's charming cobblestone streets, led by an enthusiastic local guide. This tour reveals the city's hidden gems and gastronomic hotspots, promising a delightful dive into its rich culture.
 
 Along the food journey, get a sweet taste at a Luxembourgish Chocolaterie, where the finest chocolates and hot chocolate are made.
 
-The Luxembourg City food tour is perfect for food enthusiasts and culture buffs alike. It's an unforgettable, fun-filled, and tasty exploration of Luxembourg's delicacies.</p>
-          <div class="card-footer">
-            <span class="price">From €90</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-luxembourg-food-tasting-walking-tour-p1085114/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Luxembourg City food tour is perfect for food enthusiasts and culture buffs alike. It's an unforgettable, fun-filled, and tasty exploration of Luxembourg's delicacies.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€90.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-luxembourg-food-tasting-walking-tour-p1085114/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/970106e47be54c95b32c92c6f369ee00.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxembourg: City Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Luxembourg: City Bus Tour</h3>
-          <p class="venue">📍 Luxembourg Bus Tours</p>
-          <p>Get ready for a minibus ride through the picturesque streets and historical wonders of Luxembourg City on a city bus tour! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/970106e47be54c95b32c92c6f369ee00.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxembourg: City Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LUXEMBOURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LUXEMBOURG BUS TOURS</span>
+        </div>
+        <div class="tq-card-title">Luxembourg: City Bus Tour</div>
+        <div class="tq-card-desc">Get ready for a minibus ride through the picturesque streets and historical wonders of Luxembourg City on a city bus tour! 
 
-Feast your eyes on every highlight the city has to offer. Throughout the 50-minute, non-stop journey, an audio guide spares no detail in telling you about Luxembourg’s past and present.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 4.1 (11)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-luxembourg-city-bus-tour-p1084610/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Feast your eyes on every highlight the city has to offer. Throughout the 50-minute, non-stop journey, an audio guide spares no detail in telling you about Luxembourg’s past and present.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(11)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-luxembourg-city-bus-tour-p1084610/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2e6eebee20804cacab6d5cb9ecac49c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxembourg: Cultural Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Luxembourg: Cultural Guided Walking Tour</h3>
-          <p class="venue">📍 Luxembourg City Tours</p>
-          <p>This whirlwind dog-friendly tour of Luxembourg is your golden ticket to explore everything about a city that blends historical charm perfectly with modern allure. Alongside a savvy guide, who's brimming with facts and stories, you'll wander on a wonderful journey that's as educational as it is entertaining.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2e6eebee20804cacab6d5cb9ecac49c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxembourg: Cultural Guided Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LUXEMBOURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LUXEMBOURG CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Luxembourg: Cultural Guided Walking Tour</div>
+        <div class="tq-card-desc">This whirlwind dog-friendly tour of Luxembourg is your golden ticket to explore everything about a city that blends historical charm perfectly with modern allure. Alongside a savvy guide, who's brimming with facts and stories, you'll wander on a wonderful journey that's as educational as it is entertaining.
 
 Your adventure kicks off in the bustling city center, where you'll meander through quaint streets and vibrant squares. Marvel at grandiose churches, the regal Royal Palace, and take in awe-inspiring views from the formidable walls of an ancient fortress.
 
 Next, enter the valley and the tranquil world of the former Neumünster Abbey, a male prison until 1980. Here, your guide will tell you all about the Grand Duchy's foundation, its visionary founder Siegfried, and the birth of the Luxembourgish language.
 
-Discover the city's secret underground tunnels and laugh along with local jokes and city legends. To round off the day, kick back and enjoy a local culinary treat.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 4 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-guided-walking-and-cultural-tour-in-luxembourg-city-p1081266/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover the city's secret underground tunnels and laugh along with local jokes and city legends. To round off the day, kick back and enjoy a local culinary treat.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-guided-walking-and-cultural-tour-in-luxembourg-city-p1081266/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9d86d98bf8864b4390739aa56d06d3e1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxembourg City Pass: 7 Museums + Self-Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Luxembourg City Pass: 7 Museums + Self-Guided Tour</h3>
-          <p class="venue">📍 Villa Vauban: Art Museum of the City of Luxembourg</p>
-          <p>Go on an art binge through the streets of Luxembourg City, soaking up its culture and history at every turn. Valid for 48 hours, the city's most mesmerizing museums are yours to explore at your own pace. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9d86d98bf8864b4390739aa56d06d3e1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxembourg City Pass: 7 Museums + Self-Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LUXEMBOURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">VILLA VAUBAN: ART MUSEUM OF THE CITY OF LUXEMBOURG</span>
+        </div>
+        <div class="tq-card-title">Luxembourg City Pass: 7 Museums + Self-Guided Tour</div>
+        <div class="tq-card-desc">Go on an art binge through the streets of Luxembourg City, soaking up its culture and history at every turn. Valid for 48 hours, the city's most mesmerizing museums are yours to explore at your own pace. 
 
 This journey includes Villa Vauban, Casino Luxembourg, Luxembourg City History Museum, the National Museum, the MUDAM, the Museum Dräi Eechelen, and the National Museum of Natural History.
 
-This ticket not only opens the doors to these seven museums but also includes an exclusive interactive map with 36 intriguing points of interest. From historical buildings and iconic landmarks to charming parks, each point on the map is enriched with informative text and audio descriptions.</p>
-          <div class="card-footer">
-            <span class="price">From €21.99</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-walk-the-mile-discover-the-7-museums-of-the-capital-p1080207/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This ticket not only opens the doors to these seven museums but also includes an exclusive interactive map with 36 intriguing points of interest. From historical buildings and iconic landmarks to charming parks, each point on the map is enriched with informative text and audio descriptions.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.99</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-walk-the-mile-discover-the-7-museums-of-the-capital-p1080207/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Luxembourg City: E-Bike Rental" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Luxembourg City: E-Bike Rental</h3>
-          <p class="venue">📍 Bike Rentals Luxembourg</p>
-          <p>Get ready for a thrilling escapade into the heart of Luxembourg aboard a state-of-the-art electric bike! Say goodbye to weary legs and hello to effortless exploration, as these high-powered e-bikes transform a city tour into an exciting adventure. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LUXEMBOURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BIKE RENTALS LUXEMBOURG</span>
+        </div>
+        <div class="tq-card-title">Luxembourg City: E-Bike Rental</div>
+        <div class="tq-card-desc">Get ready for a thrilling escapade into the heart of Luxembourg aboard a state-of-the-art electric bike! Say goodbye to weary legs and hello to effortless exploration, as these high-powered e-bikes transform a city tour into an exciting adventure. 
 
 Luxembourg, a city adorned with a maze of cycle paths, offers an exhilarating mix of bustling city scenes and tranquil park trails. You'll get a helmet and free app that includes highlights and a citt map thrown in with your e-bike. 
 
 The pickup point is a stone's throw away from the city center and can be reached via car, bus, or, fittingly, an e-bike. 
 
-So, strap on those helmets and embark on a captivating journey around Luxembourg, a green capital that's as breathtaking as a snapshot from a fairytale!</p>
-          <div class="card-footer">
-            <span class="price">From €42</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-luxembourg-city-e-bike-rental-p1080029/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+So, strap on those helmets and embark on a captivating journey around Luxembourg, a green capital that's as breathtaking as a snapshot from a fairytale!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-luxembourg-city-e-bike-rental-p1080029/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

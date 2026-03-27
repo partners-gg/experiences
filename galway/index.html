@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Galway | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Galway. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,30 +131,46 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Galway to Cliffs of Moher Bus: Half-Day Express Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Galway to Cliffs of Moher Bus: Half-Day Express Tour</h3>
-          <p class="venue">📍 Day Trips from Galway</p>
-          <p>This Galway to Cliffs of Moher bus tour allows you to hop on over to the West of Ireland's spectacular cliffs, take a look around, and be back in Galway in no time. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Galway to Cliffs of Moher Bus: Half-Day Express Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GALWAY</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM GALWAY</span>
+        </div>
+        <div class="tq-card-title">Galway to Cliffs of Moher Bus: Half-Day Express Tour</div>
+        <div class="tq-card-desc">This Galway to Cliffs of Moher bus tour allows you to hop on over to the West of Ireland's spectacular cliffs, take a look around, and be back in Galway in no time. 
 
 After a non-stop bus ride from Galway, you'll be set free at the Cliffs of Moher to explore and look around the Visitor Center. Wander Ireland's mysterious cliffs, and experience what if feels like to stand at the edge of the world. 
 
-You'll have two full hours to walk around. Need to catch a connection on the way home? Don't worry, the bus is scheduled to return with enough time to reach national bus and train services to Dublin, Cork, Sligo, and more.</p>
-          <div class="card-footer">
-            <span class="price">From €50</span>
-            <span class="rating">⭐ 4.2 (12)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-galway-to-cliffs-of-moher-bus-half-day-express-p1024989/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll have two full hours to walk around. Need to catch a connection on the way home? Don't worry, the bus is scheduled to return with enough time to reach national bus and train services to Dublin, Cork, Sligo, and more.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(12)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-galway-to-cliffs-of-moher-bus-half-day-express-p1024989/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Galway to Cliffs of Moher and Burren Full Day Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Galway to Cliffs of Moher and Burren Full Day Tour</h3>
-          <p class="venue">📍 Day Trips from Galway</p>
-          <p>Leave Galway behind for the day during this fully-guided tour to the Cliffs of Moher and Burren.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Galway to Cliffs of Moher and Burren Full Day Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GALWAY</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM GALWAY</span>
+        </div>
+        <div class="tq-card-title">Galway to Cliffs of Moher and Burren Full Day Tour</div>
+        <div class="tq-card-desc">Leave Galway behind for the day during this fully-guided tour to the Cliffs of Moher and Burren.
 
 As you travel through the Burren, listen to your expert driver-guide tell tales of Galway and the surrounding area's rich history. 
 
@@ -63,64 +178,103 @@ You'll step off the coach into windswept landscapes at the Cliffs of Moher. You'
 
 Take time for yourself to explore the walking paths along the most outstanding landscape in Ireland, seeing exposed limestone terrain, jagged cliffs, and the untamed Atlantic Ocean as you go. There's also time to pop into the official visitor centre. 
 
-Alongside the cliffs, you'll see Dunguaire Castle (Kinvara), Aillwee Cave, Lisdoonvarna, Corkscrew Hill, Doolin, and Blackhead Lighthouse.</p>
-          <div class="card-footer">
-            <span class="price">From €60</span>
-            <span class="rating">⭐ 4.8 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-galway-to-cliffs-of-moher-and-burren-full-day-tour-p1024988/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Alongside the cliffs, you'll see Dunguaire Castle (Kinvara), Aillwee Cave, Lisdoonvarna, Corkscrew Hill, Doolin, and Blackhead Lighthouse.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-galway-to-cliffs-of-moher-and-burren-full-day-tour-p1024988/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/99653aa021814553b282861ba719ca24.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Galway 48H" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hop-on Hop-off Bus Galway 48H</h3>
-          <p class="venue">📍 Galway Bus Tours</p>
-          <p>Breeze around the seaside charm of Ireland's west-coast city in an open-top sightseeing bus, and hear the tales of myth and romance that make Galway one of the most magical places in the world. With eight stops along the route, you can hop off and explore the winding cobblestone streets, bustling craft markets, and airy beachfront promenades at your leisure.</p>
-          <div class="card-footer">
-            <span class="price">From €24</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-galway-48h-p976395/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/99653aa021814553b282861ba719ca24.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Galway 48H" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GALWAY</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GALWAY BUS TOURS</span>
+        </div>
+        <div class="tq-card-title">Hop-on Hop-off Bus Galway 48H</div>
+        <div class="tq-card-desc">Breeze around the seaside charm of Ireland's west-coast city in an open-top sightseeing bus, and hear the tales of myth and romance that make Galway one of the most magical places in the world. With eight stops along the route, you can hop off and explore the winding cobblestone streets, bustling craft markets, and airy beachfront promenades at your leisure.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€24.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-galway-48h-p976395/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Galway to Connemara National Park and Diamond Hill Full Day Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Galway to Connemara National Park and Diamond Hill Full Day Tour</h3>
-          <p class="venue">📍 Day Trips from Galway</p>
-          <p>Enjoy a full-day, guided tour of Connemara – an area famed for its unspoiled natural beauty and rugged landscapes. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Galway to Connemara National Park and Diamond Hill Full Day Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GALWAY</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM GALWAY</span>
+        </div>
+        <div class="tq-card-title">Galway to Connemara National Park and Diamond Hill Full Day Tour</div>
+        <div class="tq-card-desc">Enjoy a full-day, guided tour of Connemara – an area famed for its unspoiled natural beauty and rugged landscapes. 
 
 As you travel from Galway, listen to your expert driver-guide share the origin of the Irish language and how it is still the native language of Connemara, despite its diminishing status in the rest of Ireland. 
 
-Once you step off the coach, you'll have time to visit iconic Irish landmarks by yourself. Get wrapped up in this corner of Ireland's beauty and discover rivers and lakes that flow off The Twelve Pins Mountain Range to naturally shape this majestic region. You’ll surely see reasons why Hollywood directors chose Connemara as backdrops to movies such as _The Field_ (starring Richard Harris and John Hurt) and _Marley & Me_ (starring Owen Wilson and Jennifer Aniston).</p>
-          <div class="card-footer">
-            <span class="price">From €55</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-galway-to-connemara-national-park-and-diamond-hill-full-day-tour-p1024917/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Once you step off the coach, you'll have time to visit iconic Irish landmarks by yourself. Get wrapped up in this corner of Ireland's beauty and discover rivers and lakes that flow off The Twelve Pins Mountain Range to naturally shape this majestic region. You’ll surely see reasons why Hollywood directors chose Connemara as backdrops to movies such as _The Field_ (starring Richard Harris and John Hurt) and _Marley & Me_ (starring Owen Wilson and Jennifer Aniston).</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-galway-to-connemara-national-park-and-diamond-hill-full-day-tour-p1024917/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Galway to Connemara and Kylemore Abbey Full Day Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Galway to Connemara and Kylemore Abbey Full Day Tour</h3>
-          <p class="venue">📍 Day Trips from Galway</p>
-          <p>Is Ireland's beauty getting you tongue-tied? At least on this tour, you might start to understand some of the language.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Galway to Connemara and Kylemore Abbey Full Day Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GALWAY</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM GALWAY</span>
+        </div>
+        <div class="tq-card-title">Galway to Connemara and Kylemore Abbey Full Day Tour</div>
+        <div class="tq-card-desc">Is Ireland's beauty getting you tongue-tied? At least on this tour, you might start to understand some of the language.
 
 Explore the heart of the Gaeltacht (Irish-Speaking) region of Ireland as you travel through Ireland’s most untouched, rugged landscapes. The land is blanketed in majestic mountains, expansive lakes, golden beaches and breathtaking valleys. Your local guide will share the origins of the Irish language and teach you some of the native language of Connemara as you enjoy a full day, the Irish way.
 
-Get the inside scoop on the traditional way of life on the West coast of the Emerald Isle. Soak up the rich history that has shaped the region over the centuries, and giggle at some of the resident's exploits, as told by the locals!</p>
-          <div class="card-footer">
-            <span class="price">From €60</span>
-            <span class="rating">⭐ 5 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-galway-to-connemara-and-kylemore-abbey-full-day-tour-p1024915/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get the inside scoop on the traditional way of life on the West coast of the Emerald Isle. Soak up the rich history that has shaped the region over the centuries, and giggle at some of the resident's exploits, as told by the locals!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-galway-to-connemara-and-kylemore-abbey-full-day-tour-p1024915/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

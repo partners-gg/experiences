@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Húsavík | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Húsavík. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,145 +131,233 @@
     <p>8 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/840e5b1807ff4eb7a7a15b41f3e6cab5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Skjálfandi: Guided Whale Watching Tour from Húsavík" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Skjálfandi: Guided Whale Watching Tour from Húsavík</h3>
-          <p class="venue">📍 Husavik Whale Watching</p>
-          <p>Join a 3-hour whale-watching tour from Húsavík, and see marine mammals in their natural habitat. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/840e5b1807ff4eb7a7a15b41f3e6cab5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Skjálfandi: Guided Whale Watching Tour from Húsavík" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HÚSAVÍK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HUSAVIK WHALE WATCHING</span>
+        </div>
+        <div class="tq-card-title">Skjálfandi: Guided Whale Watching Tour from Húsavík</div>
+        <div class="tq-card-desc">Join a 3-hour whale-watching tour from Húsavík, and see marine mammals in their natural habitat. 
 
 Sail into Skjálfandi Bay on a restored Icelandic oak boat and explore one of the main whale-watching areas in North Iceland.
 
-A wildlife guide provides a safety briefing and live commentary during the trip, with information about whales, seabirds, and the local marine environment.</p>
-          <div class="card-footer">
-            <span class="price">From €86.86</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-skjalfandi-guided-whale-watching-tour-from-husavik-p1127843/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+A wildlife guide provides a safety briefing and live commentary during the trip, with information about whales, seabirds, and the local marine environment.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€86.86</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-skjalfandi-guided-whale-watching-tour-from-husavik-p1127843/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/840e5b1807ff4eb7a7a15b41f3e6cab5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Husavík: Whale & Puffin Watching Tour in a RIB Speedboat" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Husavík: Whale & Puffin Watching Tour in a RIB Speedboat</h3>
-          <p class="venue">📍 Husavik Whale Watching</p>
-          <p>Ride a RIB speedboat that's faster than the wind and take to Skjálfandi Bay where larger whales swim. With 24 species of whales in the area, there's a good chance of seeing a variety of beautiful sea behemoths. The ones likely to be spotted are humpbacks, minkes, blue whales, harbor porpoises, and the white-beaked dolphin.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/840e5b1807ff4eb7a7a15b41f3e6cab5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Husavík: Whale & Puffin Watching Tour in a RIB Speedboat" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HÚSAVÍK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HUSAVIK WHALE WATCHING</span>
+        </div>
+        <div class="tq-card-title">Husavík: Whale & Puffin Watching Tour in a RIB Speedboat</div>
+        <div class="tq-card-desc">Ride a RIB speedboat that's faster than the wind and take to Skjálfandi Bay where larger whales swim. With 24 species of whales in the area, there's a good chance of seeing a variety of beautiful sea behemoths. The ones likely to be spotted are humpbacks, minkes, blue whales, harbor porpoises, and the white-beaked dolphin.
 
-From April 15 to August 15 (approximately) you can take a trip to Puffin Island. Around 70% of Arctic Puffins nest around Iceland, so the opportunity is rife for wildlife lovers.</p>
-          <div class="card-footer">
-            <span class="price">From €152.92</span>
-            <span class="rating">⭐ 4.8 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rib-boat-whale-and-puffin-safari-from-husavik-p984770/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+From April 15 to August 15 (approximately) you can take a trip to Puffin Island. Around 70% of Arctic Puffins nest around Iceland, so the opportunity is rife for wildlife lovers.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€152.92</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rib-boat-whale-and-puffin-safari-from-husavik-p984770/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7eb8a29fe4944fb8a794f66cd08856bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Húsavík: GeoSea Thermal Baths" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Húsavík: GeoSea Thermal Baths</h3>
-          <p class="venue">📍 Geosea Geothermal Sea Baths</p>
-          <p>For centuries, the geothermal pools north of Húsavík has been known to residents, who have utilized it for bathing and washing. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7eb8a29fe4944fb8a794f66cd08856bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Húsavík: GeoSea Thermal Baths" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HÚSAVÍK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GEOSEA GEOTHERMAL SEA BATHS</span>
+        </div>
+        <div class="tq-card-title">Húsavík: GeoSea Thermal Baths</div>
+        <div class="tq-card-desc">For centuries, the geothermal pools north of Húsavík has been known to residents, who have utilized it for bathing and washing. 
 
 Drilling for hot water at Húsavíkurhöfði in the mid-20th century revealed water that turned out to be hot seawater, too rich in minerals to be suitable for heating houses. 
 
 Instead of letting this hot water go to waste, an old cheese barrel was installed at Húsavíkurhöfði. There, Húsavík residents could enjoy the health benefits of bathing in hot seawater. 
 
-Those suffering from skin conditions such as psoriasis have found relief by bathing in the water, which is at an optimal temperature of 38°-39°C.</p>
-          <div class="card-footer">
-            <span class="price">From €52.09</span>
-            <span class="rating">⭐ 4.8 (28)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-husavik-geosea-thermal-baths-p1059768/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Those suffering from skin conditions such as psoriasis have found relief by bathing in the water, which is at an optimal temperature of 38°-39°C.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(28)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€52.09</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-husavik-geosea-thermal-baths-p1059768/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/840e5b1807ff4eb7a7a15b41f3e6cab5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Whale Watching" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Whale Watching</h3>
-          <p class="venue">📍 Husavik Whale Watching</p>
-          <p>Step right up and join the merry crew at Friends of Moby Dick, the charming family-run venture that promises an intimate, enlightening adventure! Built on a solid foundation of respect for the grandeur of marine life and its natural habitat, this unique experience takes you up close and personal with the majestic whales.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/840e5b1807ff4eb7a7a15b41f3e6cab5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Whale Watching" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HÚSAVÍK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HUSAVIK WHALE WATCHING</span>
+        </div>
+        <div class="tq-card-title">Whale Watching</div>
+        <div class="tq-card-desc">Step right up and join the merry crew at Friends of Moby Dick, the charming family-run venture that promises an intimate, enlightening adventure! Built on a solid foundation of respect for the grandeur of marine life and its natural habitat, this unique experience takes you up close and personal with the majestic whales.
 
 Friends of Moby Dick are committed to delivering breathtaking encounters that truly make a splash! The team's expert guides aren't just knowledgeable – they live and breathe marine biology and conservation. Bursting with passion, they are eager to share their wisdom and make your journey on the water an unforgettable one.
 
-In this thrilling escapade, safety and well-being take the helm. Strict guidelines are in place to protect both the awe-inspiring whales and the intrepid guests. So why wait? Dive into this exhilarating experience and book your ticket today – the adventure of a lifetime awaits!</p>
-          <div class="card-footer">
-            <span class="price">From €83.37</span>
-            <span class="rating">⭐ 4.9 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-whale-watching-p1095728/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In this thrilling escapade, safety and well-being take the helm. Strict guidelines are in place to protect both the awe-inspiring whales and the intrepid guests. So why wait? Dive into this exhilarating experience and book your ticket today – the adventure of a lifetime awaits!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€83.37</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-whale-watching-p1095728/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/840e5b1807ff4eb7a7a15b41f3e6cab5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Husavík: Whale Watching Tour + Snack" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Husavík: Whale Watching Tour + Snack</h3>
-          <p class="venue">📍 Husavik Whale Watching</p>
-          <p>Iceland always promises a whale of a time, but this is one fin-tastic opportunity! Discover the magnificent nature of Skjálfandi Bay aboard a traditional Icelandic oak boat, captained by the most qualified and experienced crew on the island. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/840e5b1807ff4eb7a7a15b41f3e6cab5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Husavík: Whale Watching Tour + Snack" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HÚSAVÍK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HUSAVIK WHALE WATCHING</span>
+        </div>
+        <div class="tq-card-title">Husavík: Whale Watching Tour + Snack</div>
+        <div class="tq-card-desc">Iceland always promises a whale of a time, but this is one fin-tastic opportunity! Discover the magnificent nature of Skjálfandi Bay aboard a traditional Icelandic oak boat, captained by the most qualified and experienced crew on the island. 
 
 Observe whales, dolphins, and sea birds in their natural habitat and get ready for the otherwordly scenery to take your breath away. 
 
-What could be more beautiful than spending the day out in the ocean, surrounded by these majestic creatures? Bring your camera (as if you'd forget) and make some wall space at home. You're going to want to frame these amazing moments and look at them forever.</p>
-          <div class="card-footer">
-            <span class="price">From €97.29</span>
-            <span class="rating">⭐ 4.7 (24)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-husavik-original-whale-watching-p1055901/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+What could be more beautiful than spending the day out in the ocean, surrounded by these majestic creatures? Bring your camera (as if you'd forget) and make some wall space at home. You're going to want to frame these amazing moments and look at them forever.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(24)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€97.29</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-husavik-original-whale-watching-p1055901/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/840e5b1807ff4eb7a7a15b41f3e6cab5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Husavík: Silent Whale Watching Tour + Snack" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Husavík: Silent Whale Watching Tour + Snack</h3>
-          <p class="venue">📍 Husavik Whale Watching</p>
-          <p>_It's oh so quiet, sssh, ssssh_. On this tour, you're going to meet a real Icelandic legend.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/840e5b1807ff4eb7a7a15b41f3e6cab5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Husavík: Silent Whale Watching Tour + Snack" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HÚSAVÍK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HUSAVIK WHALE WATCHING</span>
+        </div>
+        <div class="tq-card-title">Husavík: Silent Whale Watching Tour + Snack</div>
+        <div class="tq-card-desc">_It's oh so quiet, sssh, ssssh_. On this tour, you're going to meet a real Icelandic legend.
 
-No, not Björk, but another Icelandic legend, the mighty whale! Keep things quiet on this silent whale watching tour from Husavik, and you might be lucky enough to encounter these majestic creatures up close on your electric — and completely silent — boat!</p>
-          <div class="card-footer">
-            <span class="price">From €111.19</span>
-            <span class="rating">⭐ 5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-silent-whale-watching-tour-from-husavik-p976688/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+No, not Björk, but another Icelandic legend, the mighty whale! Keep things quiet on this silent whale watching tour from Husavik, and you might be lucky enough to encounter these majestic creatures up close on your electric — and completely silent — boat!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€111.19</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-silent-whale-watching-tour-from-husavik-p976688/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7eb8a29fe4944fb8a794f66cd08856bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Husavík: Whale & Puffins Watching Tour + Snack" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Husavík: Whale & Puffins Watching Tour + Snack</h3>
-          <p class="venue">📍 Husavik Whale Watching</p>
-          <p>Get out the waterproof jackets and wrap up warm! This is a three-hour trip onto Icelandic waters to spot the big, bubble-blowing, plankton-munching mammals who call the freezing ocean home. Join the pioneers of whale watching in Iceland for some time on a boat, and see some adorable puffins too!</p>
-          <div class="card-footer">
-            <span class="price">From €114.67</span>
-            <span class="rating">⭐ 4.8 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-husavik-original-whale-watching-puffins-p976641/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7eb8a29fe4944fb8a794f66cd08856bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Husavík: Whale & Puffins Watching Tour + Snack" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HÚSAVÍK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HUSAVIK WHALE WATCHING</span>
+        </div>
+        <div class="tq-card-title">Husavík: Whale & Puffins Watching Tour + Snack</div>
+        <div class="tq-card-desc">Get out the waterproof jackets and wrap up warm! This is a three-hour trip onto Icelandic waters to spot the big, bubble-blowing, plankton-munching mammals who call the freezing ocean home. Join the pioneers of whale watching in Iceland for some time on a boat, and see some adorable puffins too!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€114.67</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-husavik-original-whale-watching-puffins-p976641/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/840e5b1807ff4eb7a7a15b41f3e6cab5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Whales And Puffins: RIB Speedboat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Whales And Puffins: RIB Speedboat Tour</h3>
-          <p class="venue">📍 Husavik Whale Watching</p>
-          <p>Prepare for a thrilling adventure aboard the fleet of Iceland's speediest Rigid Inflatable Boats (RIB)! Expertly crafted to deliver a close encounter with the majestic whales, playful dolphins, and quirky puffins of Sjálfandi Bay, Húsavík, these boats offer a ride like no other.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/840e5b1807ff4eb7a7a15b41f3e6cab5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Whales And Puffins: RIB Speedboat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HÚSAVÍK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HUSAVIK WHALE WATCHING</span>
+        </div>
+        <div class="tq-card-title">Whales And Puffins: RIB Speedboat Tour</div>
+        <div class="tq-card-desc">Prepare for a thrilling adventure aboard the fleet of Iceland's speediest Rigid Inflatable Boats (RIB)! Expertly crafted to deliver a close encounter with the majestic whales, playful dolphins, and quirky puffins of Sjálfandi Bay, Húsavík, these boats offer a ride like no other.
 
 Thanks to the fleet's lightning-fast pace, covering vast distances in pursuit of these magnificent creatures becomes a breeze. This not only boosts the likelihood of spotting some of the world's largest animals but also heightens the thrill of the chase!
 
 Despite their power and speed, these RIB boats glide across the waters with minimal noise and disturbance, ensuring an eco-friendly voyage.
 
-A friendly reminder: Puffin season runs from approximately April 15th to August 20th. Outside of these dates, the tours exclusively focus on the awe-inspiring whales. So, why wait? Book your ticket now for an unforgettable aquatic adventure!</p>
-          <div class="card-footer">
-            <span class="price">From €168</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-whales-and-puffins-rib-speedboat-tour-p1097658/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+A friendly reminder: Puffin season runs from approximately April 15th to August 20th. Outside of these dates, the tours exclusively focus on the awe-inspiring whales. So, why wait? Book your ticket now for an unforgettable aquatic adventure!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€168.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-whales-and-puffins-rib-speedboat-tour-p1097658/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

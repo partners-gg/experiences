@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Cozumel | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Cozumel. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,205 +131,337 @@
     <p>12 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: Day Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>KUZÁ Beach & Adventure Park: Day Pass</h3>
-          <p class="venue">📍 KUZÁ Beach & Adventure Park</p>
-          <p>Visit KUZÁ Beach Park in Cozumel with a Day Pass. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: Day Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COZUMEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KUZÁ BEACH & ADVENTURE PARK</span>
+        </div>
+        <div class="tq-card-title">KUZÁ Beach & Adventure Park: Day Pass</div>
+        <div class="tq-card-desc">Visit KUZÁ Beach Park in Cozumel with a Day Pass. 
 
 Swim, relax, or play on the beachfront. Engage in family-friendly activities and find shaded loungers. 
 
-Enjoy onsite food and drinks à la carte, with an option to upgrade.</p>
-          <div class="card-footer">
-            <span class="price">From €46.56</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-day-pass-p1123660/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy onsite food and drinks à la carte, with an option to upgrade.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€46.56</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-day-pass-p1123660/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0152877e7e524a019089ee9d6ab5f03b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cozumel Turtle Sanctuary: Snorkel Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cozumel Turtle Sanctuary: Snorkel Tour</h3>
-          <p class="venue">📍 Cozumel Water Activities</p>
-          <p>Expect to be amazed by the Caribbean’s most stunning locations, including the legendary 'El Cielo' on this snorkel tour in Cozumel. Each tour stops at three or four different destinations, offering a taste of the island's beauty.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0152877e7e524a019089ee9d6ab5f03b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cozumel Turtle Sanctuary: Snorkel Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COZUMEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COZUMEL WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Cozumel Turtle Sanctuary: Snorkel Tour</div>
+        <div class="tq-card-desc">Expect to be amazed by the Caribbean’s most stunning locations, including the legendary 'El Cielo' on this snorkel tour in Cozumel. Each tour stops at three or four different destinations, offering a taste of the island's beauty.
 
-Worry not about bringing anything - they've got it all covered! From mouthwatering Mexican snacks to ice-cold refreshments, everything is freshly prepared and ready to keep the fun rolling. Just show up, and they'll handle the rest!</p>
-          <div class="card-footer">
-            <span class="price">From €53.45</span>
-            <span class="rating">⭐ 3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cozumel-turtle-sanctuary-snorkel-tour-p1091287/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Worry not about bringing anything - they've got it all covered! From mouthwatering Mexican snacks to ice-cold refreshments, everything is freshly prepared and ready to keep the fun rolling. Just show up, and they'll handle the rest!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€53.45</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cozumel-turtle-sanctuary-snorkel-tour-p1091287/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: VIP Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>KUZÁ Beach & Adventure Park: VIP Pass</h3>
-          <p class="venue">📍 KUZÁ Beach & Adventure Park</p>
-          <p>Spend a day at KUZÁ Beach & Adventure Park with access to the beach, facilities, unlimited buffet dining, and snacks.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: VIP Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COZUMEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KUZÁ BEACH & ADVENTURE PARK</span>
+        </div>
+        <div class="tq-card-title">KUZÁ Beach & Adventure Park: VIP Pass</div>
+        <div class="tq-card-desc">Spend a day at KUZÁ Beach & Adventure Park with access to the beach, facilities, unlimited buffet dining, and snacks.
 
-Enjoy two premium cocktails, a standard open bar, and attentive service. Snorkel gear is available for use. Have a comfortable and relaxed time in Cozumel.</p>
-          <div class="card-footer">
-            <span class="price">From €129.33</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-vip-pass-p1123855/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy two premium cocktails, a standard open bar, and attentive service. Snorkel gear is available for use. Have a comfortable and relaxed time in Cozumel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€129.33</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-vip-pass-p1123855/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: Deluxe Pass + Guided Buggy Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>KUZÁ Beach & Adventure Park: Deluxe Pass + Guided Buggy Tour</h3>
-          <p class="venue">📍 KUZÁ Beach & Adventure Park</p>
-          <p>Start your day with a guided buggy ride through Cozumel’s inland trails and the historic village of El Cedral.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: Deluxe Pass + Guided Buggy Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COZUMEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KUZÁ BEACH & ADVENTURE PARK</span>
+        </div>
+        <div class="tq-card-title">KUZÁ Beach & Adventure Park: Deluxe Pass + Guided Buggy Tour</div>
+        <div class="tq-card-desc">Start your day with a guided buggy ride through Cozumel’s inland trails and the historic village of El Cedral.
 
-Then, relax at KUZÁ Beach & Adventure Park. Enjoy buffet lunch, a standard open bar, beach activities, water activities, and time to relax on the shoreline.</p>
-          <div class="card-footer">
-            <span class="price">From €120.71</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-deluxe-pass-guided-buggy-tour-p1123854/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Then, relax at KUZÁ Beach & Adventure Park. Enjoy buffet lunch, a standard open bar, beach activities, water activities, and time to relax on the shoreline.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€120.71</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-deluxe-pass-guided-buggy-tour-p1123854/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: Deluxe Pass + Mexican Cooking Workshop" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>KUZÁ Beach & Adventure Park: Deluxe Pass + Mexican Cooking Workshop</h3>
-          <p class="venue">📍 KUZÁ Beach & Adventure Park</p>
-          <p>Join a beachfront culinary workshop at KUZÁ to make tortillas, guacamole, and tacos al pastor. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: Deluxe Pass + Mexican Cooking Workshop" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COZUMEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KUZÁ BEACH & ADVENTURE PARK</span>
+        </div>
+        <div class="tq-card-title">KUZÁ Beach & Adventure Park: Deluxe Pass + Mexican Cooking Workshop</div>
+        <div class="tq-card-desc">Join a beachfront culinary workshop at KUZÁ to make tortillas, guacamole, and tacos al pastor. 
 
-Relax with access to Cozumel’s beach. Enjoy a buffet lunch, an open bar with standard drinks, cultural activities, and printed recipes to take home.</p>
-          <div class="card-footer">
-            <span class="price">From €85.36</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-deluxe-pass-mexican-cooking-workshop-p1123812/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Relax with access to Cozumel’s beach. Enjoy a buffet lunch, an open bar with standard drinks, cultural activities, and printed recipes to take home.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€85.36</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-deluxe-pass-mexican-cooking-workshop-p1123812/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: Deluxe Pass + Zipline Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>KUZÁ Beach & Adventure Park: Deluxe Pass + Zipline Experience</h3>
-          <p class="venue">📍 KUZÁ Beach & Adventure Park</p>
-          <p>Start your day with a ride through the trees on a multi-line zipline course, with views of the ocean. Then, return to the beach and relax.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: Deluxe Pass + Zipline Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COZUMEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KUZÁ BEACH & ADVENTURE PARK</span>
+        </div>
+        <div class="tq-card-title">KUZÁ Beach & Adventure Park: Deluxe Pass + Zipline Experience</div>
+        <div class="tq-card-desc">Start your day with a ride through the trees on a multi-line zipline course, with views of the ocean. Then, return to the beach and relax.
 
 Enjoy live entertainment, music, and cultural showcases. Lounge under palm trees, float in the Caribbean waters, or follow nature paths through tropical landscapes.
 
-A beachfront buffet and unlimited drinks from an open bar are included with your pass.</p>
-          <div class="card-footer">
-            <span class="price">From €94.84</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-deluxe-pass-zipline-experience-p1123811/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+A beachfront buffet and unlimited drinks from an open bar are included with your pass.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€94.84</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-deluxe-pass-zipline-experience-p1123811/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: Deluxe Pass + Waterpark Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>KUZÁ Beach & Adventure Park: Deluxe Pass + Waterpark Entry</h3>
-          <p class="venue">📍 KUZÁ Beach & Adventure Park</p>
-          <p>Visit KUZÁ for a full day of beach activities and access to the waterpark. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: Deluxe Pass + Waterpark Entry" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COZUMEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KUZÁ BEACH & ADVENTURE PARK</span>
+        </div>
+        <div class="tq-card-title">KUZÁ Beach & Adventure Park: Deluxe Pass + Waterpark Entry</div>
+        <div class="tq-card-desc">Visit KUZÁ for a full day of beach activities and access to the waterpark. 
 
 Use the lazy river, slides, and splash zone. Enjoy food, drinks, and live shows throughout the day. 
 
-The beach is open for you to relax and explore.</p>
-          <div class="card-footer">
-            <span class="price">From €94.84</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-deluxe-pass-waterpark-entry-p1123810/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The beach is open for you to relax and explore.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€94.84</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-deluxe-pass-waterpark-entry-p1123810/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: Deluxe Pass + Guided Snorkeling + El Cielito Visit" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>KUZÁ Beach & Adventure Park: Deluxe Pass + Guided Snorkeling + El Cielito Visit</h3>
-          <p class="venue">📍 KUZÁ Beach & Adventure Park</p>
-          <p>Start with a guided snorkeling trip to Columbia and Palancar Reef. Swim through coral gardens and among schools of tropical fish.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: Deluxe Pass + Guided Snorkeling + El Cielito Visit" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COZUMEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KUZÁ BEACH & ADVENTURE PARK</span>
+        </div>
+        <div class="tq-card-title">KUZÁ Beach & Adventure Park: Deluxe Pass + Guided Snorkeling + El Cielito Visit</div>
+        <div class="tq-card-desc">Start with a guided snorkeling trip to Columbia and Palancar Reef. Swim through coral gardens and among schools of tropical fish.
 
 Move on to El Cielito, a sandbar with starfish, stingrays, and sea turtles in clear waters. At KUZÁ, continue your day at your own pace.
 
-Relax on Cozumel’s private shoreline, enjoy a beachfront buffet with Mexican and international dishes, and drink from the open bar. You will have access to shaded loungers, jungle trails, beach games, cultural activities, and calm waters.</p>
-          <div class="card-footer">
-            <span class="price">From €120.71</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-deluxe-pass-guided-snorkeling-el-cielito-visit-p1123805/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Relax on Cozumel’s private shoreline, enjoy a beachfront buffet with Mexican and international dishes, and drink from the open bar. You will have access to shaded loungers, jungle trails, beach games, cultural activities, and calm waters.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€120.71</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-deluxe-pass-guided-snorkeling-el-cielito-visit-p1123805/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: Deluxe Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>KUZÁ Beach & Adventure Park: Deluxe Pass</h3>
-          <p class="venue">📍 KUZÁ Beach & Adventure Park</p>
-          <p>Get the Deluxe Pass to KUZÁ for a day at Cozumel’s beach. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b529fb62f5434cf88509f3a70699d897.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="KUZÁ Beach & Adventure Park: Deluxe Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COZUMEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KUZÁ BEACH & ADVENTURE PARK</span>
+        </div>
+        <div class="tq-card-title">KUZÁ Beach & Adventure Park: Deluxe Pass</div>
+        <div class="tq-card-desc">Get the Deluxe Pass to KUZÁ for a day at Cozumel’s beach. 
 
-Eat at the buffet, drink at the open bar, and take part in cultural activities. Relax in shaded lounges and walk the nature trails.</p>
-          <div class="card-footer">
-            <span class="price">From €73.29</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-deluxe-pass-p1123661/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Eat at the buffet, drink at the open bar, and take part in cultural activities. Relax in shaded lounges and walk the nature trails.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€73.29</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kuza-beach-adventure-park-deluxe-pass-p1123661/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ab853dcd9727492187e2be96fa4f40e2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Señor Frog's Cozumel: Frog's Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Señor Frog's Cozumel: Frog's Pass</h3>
-          <p class="venue">📍 Señor Frog's Cozumel</p>
-          <p>Visit Señor Frogs in Cozumel for a lively experience that combines good food and entertainment. This well-known restaurant features live music and a team of hosts that bring fun from the moment you enter.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ab853dcd9727492187e2be96fa4f40e2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Señor Frog's Cozumel: Frog's Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COZUMEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEÑOR FROG'S COZUMEL</span>
+        </div>
+        <div class="tq-card-title">Señor Frog's Cozumel: Frog's Pass</div>
+        <div class="tq-card-desc">Visit Señor Frogs in Cozumel for a lively experience that combines good food and entertainment. This well-known restaurant features live music and a team of hosts that bring fun from the moment you enter.
 
-The Señor Frog's Pass includes a full menu with a starter, a main course, and a drink. You can choose to add a special upgrade to your meal. Whether with family or friends, Señor Frog's provides a meal that is both tasty and entertaining.</p>
-          <div class="card-footer">
-            <span class="price">From €19.83</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-frog-s-pass-cozumel-mexican-food-fiesta-p1102112/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Señor Frog's Pass includes a full menu with a starter, a main course, and a drink. You can choose to add a special upgrade to your meal. Whether with family or friends, Señor Frog's provides a meal that is both tasty and entertaining.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.83</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-frog-s-pass-cozumel-mexican-food-fiesta-p1102112/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0152877e7e524a019089ee9d6ab5f03b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chankanaab Beach Adventure Park: Guided Snuba Adventure" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Chankanaab Beach Adventure Park: Guided Snuba Adventure</h3>
-          <p class="venue">📍 Cozumel Water Activities</p>
-          <p>Try SNUBA, an underwater experience like scuba diving without the need for certification or heavy tanks. Breathe underwater and get close to marine life in Cozumel with a professional guide. It's an activity suitable for all ages.</p>
-          <div class="card-footer">
-            <span class="price">From €56.04</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-chankanaab-beach-adventure-park-guided-snuba-adventure-p1101222/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0152877e7e524a019089ee9d6ab5f03b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chankanaab Beach Adventure Park: Guided Snuba Adventure" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COZUMEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COZUMEL WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Chankanaab Beach Adventure Park: Guided Snuba Adventure</div>
+        <div class="tq-card-desc">Try SNUBA, an underwater experience like scuba diving without the need for certification or heavy tanks. Breathe underwater and get close to marine life in Cozumel with a professional guide. It's an activity suitable for all ages.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€56.04</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-chankanaab-beach-adventure-park-guided-snuba-adventure-p1101222/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0152877e7e524a019089ee9d6ab5f03b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaTrek Helmet Diving Experience in Downtown Cozumel" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>SeaTrek Helmet Diving Experience in Downtown Cozumel</h3>
-          <p class="venue">📍 Cozumel Water Activities</p>
-          <p>Discover the underwater world of Mexico without swimming. With this sea trek experience in central Cozumel, everyone can explore the ocean floor.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0152877e7e524a019089ee9d6ab5f03b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaTrek Helmet Diving Experience in Downtown Cozumel" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COZUMEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COZUMEL WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">SeaTrek Helmet Diving Experience in Downtown Cozumel</div>
+        <div class="tq-card-desc">Discover the underwater world of Mexico without swimming. With this sea trek experience in central Cozumel, everyone can explore the ocean floor.
 
 Put on an astronaut-style helmet, descend beneath the waves, and stroll along the white sandy seabed surrounded by Cozumel's marine life.
 
-Expert guides will ensure a safe and fascinating expedition. The underwater escapade lasts 25 to 30 minutes, allowing plenty of time to enjoy the sights below the surface.</p>
-          <div class="card-footer">
-            <span class="price">From €68.12</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cozumel-sea-trek-snorkeling-experience-p1088095/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Expert guides will ensure a safe and fascinating expedition. The underwater escapade lasts 25 to 30 minutes, allowing plenty of time to enjoy the sights below the surface.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€68.12</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cozumel-sea-trek-snorkeling-experience-p1088095/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

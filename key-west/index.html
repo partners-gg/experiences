@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Key West | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Key West. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,495 +131,858 @@
     <p>33 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1586ecc1c94b4f7d9ffc8012bf0d0a4d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Dolphin Watching Eco Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West: Dolphin Watching Eco Tour</h3>
-          <p class="venue">📍 Key West Water Activities</p>
-          <p>Grab your shades and swimsuit, and sail out across the glimmering Gulf of Mexico for a once-in-a-lifetime encounter with majestic bottlenose dolphins. See them play and somersault through the air in their natural habitat. Then, drift over to the tranquil shallows of Key West's backcountry and snorkel through the warm tropical waters teeming with graceful rays, colorful fish, and lively coral. Pop open a frosty beer on the way back to really soak up that paradise feeling!</p>
-          <div class="card-footer">
-            <span class="price">From €74.11</span>
-            <span class="rating">⭐ 4.4 (16)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-dolphin-watching-eco-tour-p977614/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1586ecc1c94b4f7d9ffc8012bf0d0a4d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Dolphin Watching Eco Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KEY WEST WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Key West: Dolphin Watching Eco Tour</div>
+        <div class="tq-card-desc">Grab your shades and swimsuit, and sail out across the glimmering Gulf of Mexico for a once-in-a-lifetime encounter with majestic bottlenose dolphins. See them play and somersault through the air in their natural habitat. Then, drift over to the tranquil shallows of Key West's backcountry and snorkel through the warm tropical waters teeming with graceful rays, colorful fish, and lively coral. Pop open a frosty beer on the way back to really soak up that paradise feeling!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(16)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€74.11</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-dolphin-watching-eco-tour-p977614/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/04af00d9f89348c29394d610234d7dc1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West Aquarium: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West Aquarium: Entry Ticket</h3>
-          <p class="venue">📍 Key West Aquarium</p>
-          <p>Get immersed in a world of watery wonders at Key West Aquarium. Florida's only open-air aquarium is overflowing with fascinating creatures and awesome exhibits that are equal parts fun and educational. Grab a smartphone ticket and dive right in!</p>
-          <div class="card-footer">
-            <span class="price">From €19.45</span>
-            <span class="rating">⭐ 4.4 (14)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-key-west-aquarium-p976025/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/04af00d9f89348c29394d610234d7dc1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West Aquarium: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KEY WEST AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Key West Aquarium: Entry Ticket</div>
+        <div class="tq-card-desc">Get immersed in a world of watery wonders at Key West Aquarium. Florida's only open-air aquarium is overflowing with fascinating creatures and awesome exhibits that are equal parts fun and educational. Grab a smartphone ticket and dive right in!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(14)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.45</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-key-west-aquarium-p976025/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d471d3c7388048448bad0c3392e66d51.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Double Dip Snorkel Trip" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Double Dip Snorkel Trip</h3>
-          <p class="venue">📍 Key West Water Activities</p>
-          <p>Key West and snorkeling go hand-in-hand. Or should that be fin-in-fin?
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d471d3c7388048448bad0c3392e66d51.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Double Dip Snorkel Trip" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KEY WEST WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Double Dip Snorkel Trip</div>
+        <div class="tq-card-desc">Key West and snorkeling go hand-in-hand. Or should that be fin-in-fin?
 
 Race between two paradisaical locations on a rapid catamaran, before a carefree drift around the warm, tropical waters of North America's only living coral reef. And, of course, there are plenty of eye-catching fish in the sea!
 
-Your jolly crew of expert divers will kit you out with top-of-the-line equipment and make sure you're well versed in reef etiquette. Basically, don't touch the coral and it'll all go swimmingly.</p>
-          <div class="card-footer">
-            <span class="price">From €74.11</span>
-            <span class="rating">⭐ 4 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-double-dip-snorkel-trip-p978179/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your jolly crew of expert divers will kit you out with top-of-the-line equipment and make sure you're well versed in reef etiquette. Basically, don't touch the coral and it'll all go swimmingly.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€74.11</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-double-dip-snorkel-trip-p978179/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/11f109f18ffb47ec92079faea1cf3594.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Truman Little White House: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Truman Little White House: Entry Ticket</h3>
-          <p class="venue">📍 Truman Little White House</p>
-          <p>Ponder American politics during the time of Harry S. Truman, the 33rd President of the USA. His former residence, the Truman Little White House, is now a museum packed with history - you can even see his pool table.</p>
-          <div class="card-footer">
-            <span class="price">From €22.2</span>
-            <span class="rating">⭐ 4.8 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-truman-little-white-house-p976061/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/11f109f18ffb47ec92079faea1cf3594.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Truman Little White House: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TRUMAN LITTLE WHITE HOUSE</span>
+        </div>
+        <div class="tq-card-title">Truman Little White House: Entry Ticket</div>
+        <div class="tq-card-desc">Ponder American politics during the time of Harry S. Truman, the 33rd President of the USA. His former residence, the Truman Little White House, is now a museum packed with history - you can even see his pool table.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.20</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-truman-little-white-house-p976061/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b7f4fd61870f48faab40c45d3f0eb53c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Hop-on Hop-off Old Town Trolley" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West: Hop-on Hop-off Old Town Trolley</h3>
-          <p class="venue">📍 Key West City Tours</p>
-          <p>Make your Key West stay as memorable as possible with an Old Town Trolley Tour. Get a local's eye-view of all of the landmarks and attractions, while you take a relaxing toodle around. Plus, get free admission to Sails to Rails.</p>
-          <div class="card-footer">
-            <span class="price">From €49.75</span>
-            <span class="rating">⭐ 4.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-key-west-old-town-trolley-p976049/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b7f4fd61870f48faab40c45d3f0eb53c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Hop-on Hop-off Old Town Trolley" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KEY WEST CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Key West: Hop-on Hop-off Old Town Trolley</div>
+        <div class="tq-card-desc">Make your Key West stay as memorable as possible with an Old Town Trolley Tour. Get a local's eye-view of all of the landmarks and attractions, while you take a relaxing toodle around. Plus, get free admission to Sails to Rails.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€49.75</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-key-west-old-town-trolley-p976049/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d30fe88fe13e4c19839b196dbc3a9286.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Glass Bottom Boat Key West" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Glass Bottom Boat Key West</h3>
-          <p class="venue">📍 Key West Water Activities</p>
-          <p>Get a new sense of the ocean floor on this underwater safari, while staying warm and dry. The Glass Bottom Boat will ferry you across the Gulf of Mexico in a luxurious catamaran outfitted with a glass-floored viewing deck.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d30fe88fe13e4c19839b196dbc3a9286.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Glass Bottom Boat Key West" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KEY WEST WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Glass Bottom Boat Key West</div>
+        <div class="tq-card-desc">Get a new sense of the ocean floor on this underwater safari, while staying warm and dry. The Glass Bottom Boat will ferry you across the Gulf of Mexico in a luxurious catamaran outfitted with a glass-floored viewing deck.
 
-This window into the ocean gives you a front-row seat to see schools of colorful fish and marine wildlife like rays and sea turtles. See what America's only living coral reef is home to beneath the waves – without so much as a toe in the water!</p>
-          <div class="card-footer">
-            <span class="price">From €64.84</span>
-            <span class="rating">⭐ 4.2 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-glass-bottom-boat-key-west-p976473/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This window into the ocean gives you a front-row seat to see schools of colorful fish and marine wildlife like rays and sea turtles. See what America's only living coral reef is home to beneath the waves – without so much as a toe in the water!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.84</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-glass-bottom-boat-key-west-p976473/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0b67d300fe954f81b0405f83c694836d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ghosts & Gravestones Key West" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ghosts & Gravestones Key West</h3>
-          <p class="venue">📍 Key West City Tours</p>
-          <p>As one of the oldest settlements in America, Key West has been the scene for a disturbing paranormal event or two in its time. Discover the haunting tales of America's southernmost ghosts aboard the _Trolley of the Doomed_ and explore the dark history that lurks beneath the surface of this seemingly peaceful seaside resort.</p>
-          <div class="card-footer">
-            <span class="price">From €34.36</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ghosts-gravestones-key-west-p976096/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0b67d300fe954f81b0405f83c694836d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ghosts & Gravestones Key West" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KEY WEST CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Ghosts & Gravestones Key West</div>
+        <div class="tq-card-desc">As one of the oldest settlements in America, Key West has been the scene for a disturbing paranormal event or two in its time. Discover the haunting tales of America's southernmost ghosts aboard the _Trolley of the Doomed_ and explore the dark history that lurks beneath the surface of this seemingly peaceful seaside resort.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€34.36</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ghosts-gravestones-key-west-p976096/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ecf86eb7ec79441daf7df21b48b7577a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West Conch Tour Train" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West Conch Tour Train</h3>
-          <p class="venue">📍 Key West City Tours</p>
-          <p>Hop aboard the Key West Conch Tour Train and explore the historic island city with the sea breeze in your hair. See where Hemingway brooded and scribbled some of his finest work, visit the Key West Lighthouse, and window shop the city's top attractions in locomotive style!</p>
-          <div class="card-footer">
-            <span class="price">From €38.89</span>
-            <span class="rating">⭐ 4.5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-key-west-conch-tour-train-p976044/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ecf86eb7ec79441daf7df21b48b7577a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West Conch Tour Train" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KEY WEST CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Key West Conch Tour Train</div>
+        <div class="tq-card-desc">Hop aboard the Key West Conch Tour Train and explore the historic island city with the sea breeze in your hair. See where Hemingway brooded and scribbled some of his finest work, visit the Key West Lighthouse, and window shop the city's top attractions in locomotive style!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.89</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-key-west-conch-tour-train-p976044/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d34c2137689b4821a7d7e98e08074df3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West Daytime Sail" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West Daytime Sail</h3>
-          <p class="venue">📍 Classic Harbor Line Key West</p>
-          <p>What could be better than sailing the shorelines of Key West with the sun shining down through some 3,600 square feet of billowing sails, lounging on a teak deck, with Cuba peeking over the horizon?</p>
-          <div class="card-footer">
-            <span class="price">From €63.03</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-key-west-daytime-mimosa-sail-p983749/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d34c2137689b4821a7d7e98e08074df3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West Daytime Sail" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CLASSIC HARBOR LINE KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Key West Daytime Sail</div>
+        <div class="tq-card-desc">What could be better than sailing the shorelines of Key West with the sun shining down through some 3,600 square feet of billowing sails, lounging on a teak deck, with Cuba peeking over the horizon?</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€63.03</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-key-west-daytime-mimosa-sail-p983749/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4b2fe67c4f7d49c68e813c3b7ace5b2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West Sunset Sail Aboard America 2.0" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West Sunset Sail Aboard America 2.0</h3>
-          <p class="venue">📍 Classic Harbor Line Key West</p>
-          <p>Set sail towards the spectacular sunset and savor the splendorous maritime shades of Key West on board an elegant, period-style cruise ship. This two-hour cruise will take you along turquoise tropical waters. Float past the iconic Key West Lighthouse, Mallory Square, and Sunset Pier, and keep an eye out for dolphins, sea turtles, and waterfowl. Catch the ethereal green flash phenomenon as the sun descends behind the horizon.</p>
-          <div class="card-footer">
-            <span class="price">From €100.1</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-key-west-sunset-sail-aboard-america-2-0-p983748/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4b2fe67c4f7d49c68e813c3b7ace5b2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West Sunset Sail Aboard America 2.0" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CLASSIC HARBOR LINE KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Key West Sunset Sail Aboard America 2.0</div>
+        <div class="tq-card-desc">Set sail towards the spectacular sunset and savor the splendorous maritime shades of Key West on board an elegant, period-style cruise ship. This two-hour cruise will take you along turquoise tropical waters. Float past the iconic Key West Lighthouse, Mallory Square, and Sunset Pier, and keep an eye out for dolphins, sea turtles, and waterfowl. Catch the ethereal green flash phenomenon as the sun descends behind the horizon.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€100.10</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-key-west-sunset-sail-aboard-america-2-0-p983748/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sunset Sail on Classic Yacht Malabar X" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sunset Sail on Classic Yacht Malabar X</h3>
-          <p class="venue">📍 Sailing Trips in Key West</p>
-          <p>Board the schooner yacht Malabar X, designed by a renowned American naval architect. This historic vessel hosts public sailing events to aid in its preservation. Set sail from the Atlantic coast of the Keys, heading into open waters. Engage with the sailing process by raising the sails, steering the helm, or simply relax and observe the surroundings as the crew operates the vessel.</p>
-          <div class="card-footer">
-            <span class="price">From €101.04</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sunset-sail-on-classic-yacht-malabar-x-p1127830/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sunset Sail on Classic Yacht Malabar X" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SAILING TRIPS IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Sunset Sail on Classic Yacht Malabar X</div>
+        <div class="tq-card-desc">Board the schooner yacht Malabar X, designed by a renowned American naval architect. This historic vessel hosts public sailing events to aid in its preservation. Set sail from the Atlantic coast of the Keys, heading into open waters. Engage with the sailing process by raising the sails, steering the helm, or simply relax and observe the surroundings as the crew operates the vessel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€101.04</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sunset-sail-on-classic-yacht-malabar-x-p1127830/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bugeye Backcountry Eco Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bugeye Backcountry Eco Tour</h3>
-          <p class="venue">📍 Sailing Trips in Key West</p>
-          <p>Take a guided eco-tour around Key West, featuring multiple activities. Sail aboard the Appledore Star, a replica historic schooner, into the Key West National Wildlife Refuge. Visit mangrove islands, home to diverse marine and bird life species. Kayak through mangrove-laden waters and learn about their role in supporting ecosystems. Try snorkeling in the coral formations, with insights provided by the crew on marine flora and fauna. Relax onboard with refreshments and a light meal during the return journey. This tour focuses on wildlife observation and learning about the Key West backcountry environment.</p>
-          <div class="card-footer">
-            <span class="price">From €111.18</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bugeye-backcountry-eco-tour-p1127829/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bugeye Backcountry Eco Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SAILING TRIPS IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Bugeye Backcountry Eco Tour</div>
+        <div class="tq-card-desc">Take a guided eco-tour around Key West, featuring multiple activities. Sail aboard the Appledore Star, a replica historic schooner, into the Key West National Wildlife Refuge. Visit mangrove islands, home to diverse marine and bird life species. Kayak through mangrove-laden waters and learn about their role in supporting ecosystems. Try snorkeling in the coral formations, with insights provided by the crew on marine flora and fauna. Relax onboard with refreshments and a light meal during the return journey. This tour focuses on wildlife observation and learning about the Key West backcountry environment.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€111.18</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bugeye-backcountry-eco-tour-p1127829/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Classic Day Sail Aboard Schooner America 2.0" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Classic Day Sail Aboard Schooner America 2.0</h3>
-          <p class="venue">📍 Sailing Trips in Key West</p>
-          <p>Sail aboard the Schooner America 2.0, a 105-foot vessel inspired by the first winner of the 1851 America's Cup Race. Navigate the waters around Key West, observing its marine environment and possibly spotting dolphins alongside. The schooner's build incorporates teak and mahogany elements, with bench seating for comfort. During the trip, listen to the crew share information about Key West's ecosystem, landmarks, and history. View notable locations such as Mallory Square, Sunset Pier, Fort Zachary Taylor, and Sand Key Lighthouse. For a participatory sailing experience, assist in sail operations or guide the helm.</p>
-          <div class="card-footer">
-            <span class="price">From €51.91</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-classic-day-sail-aboard-schooner-america-2-0-p1127828/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Classic Day Sail Aboard Schooner America 2.0" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SAILING TRIPS IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Classic Day Sail Aboard Schooner America 2.0</div>
+        <div class="tq-card-desc">Sail aboard the Schooner America 2.0, a 105-foot vessel inspired by the first winner of the 1851 America's Cup Race. Navigate the waters around Key West, observing its marine environment and possibly spotting dolphins alongside. The schooner's build incorporates teak and mahogany elements, with bench seating for comfort. During the trip, listen to the crew share information about Key West's ecosystem, landmarks, and history. View notable locations such as Mallory Square, Sunset Pier, Fort Zachary Taylor, and Sand Key Lighthouse. For a participatory sailing experience, assist in sail operations or guide the helm.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.91</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-classic-day-sail-aboard-schooner-america-2-0-p1127828/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Original Key West Pub Crawl" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Original Key West Pub Crawl</h3>
-          <p class="venue">📍 Pub Crawls in Key West</p>
-          <p>Visit several well-known bars in Key West on a guided pub crawl. Go to five locations, and receive a drink, like a domestic beer or house cocktail, included at each. Participate in contests and activities that add entertainment to the tour. Receive a souvenir t-shirt as a keepsake from this bar crawl.</p>
-          <div class="card-footer">
-            <span class="price">From €37.03</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-original-key-west-pub-crawl-p1127827/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Original Key West Pub Crawl" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PUB CRAWLS IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Original Key West Pub Crawl</div>
+        <div class="tq-card-desc">Visit several well-known bars in Key West on a guided pub crawl. Go to five locations, and receive a drink, like a domestic beer or house cocktail, included at each. Participate in contests and activities that add entertainment to the tour. Receive a souvenir t-shirt as a keepsake from this bar crawl.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€37.03</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-original-key-west-pub-crawl-p1127827/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West Odyssey: Guided Walking Exploration Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West Odyssey: Guided Walking Exploration Tour</h3>
-          <p class="venue">📍 Walking Tours in Key West</p>
-          <p>Take a guided walking tour through the Key West Historic District to learn about its history. Walk through streets lined with buildings of historical significance and hear stories about notable past residents, such as writers and other influential individuals. See preserved architecture that reflects the unique characteristics of the area. Learn about the cultural and historical aspects that have defined the region over time. This tour provides information on different locations and their importance, giving a better understanding of Key West's historical background.</p>
-          <div class="card-footer">
-            <span class="price">From €44.78</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-key-west-odyssey-guided-walking-exploration-tour-p1127774/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West Odyssey: Guided Walking Exploration Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Key West Odyssey: Guided Walking Exploration Tour</div>
+        <div class="tq-card-desc">Take a guided walking tour through the Key West Historic District to learn about its history. Walk through streets lined with buildings of historical significance and hear stories about notable past residents, such as writers and other influential individuals. See preserved architecture that reflects the unique characteristics of the area. Learn about the cultural and historical aspects that have defined the region over time. This tour provides information on different locations and their importance, giving a better understanding of Key West's historical background.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€44.78</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-key-west-odyssey-guided-walking-exploration-tour-p1127774/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West Ghost & Mysteries Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West Ghost & Mysteries Tour</h3>
-          <p class="venue">📍 Walking Tours in Key West</p>
-          <p>Join a tour through Key West and hear stories about its history and the legends of its most eerie locations. Visit several sites said to be tied to ghostly tales, and learn about the folklore of the area. Engage in activities using tools for exploring the paranormal. There will be opportunities to take photos, and the guide gives advice about photographing potential anomalies, sharing past findings from participants. This tour involves historical storytelling, practical demonstrations, and an exploration of local lore.</p>
-          <div class="card-footer">
-            <span class="price">From €27.81</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-key-west-ghost-mysteries-tour-p1127765/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West Ghost & Mysteries Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Key West Ghost & Mysteries Tour</div>
+        <div class="tq-card-desc">Join a tour through Key West and hear stories about its history and the legends of its most eerie locations. Visit several sites said to be tied to ghostly tales, and learn about the folklore of the area. Engage in activities using tools for exploring the paranormal. There will be opportunities to take photos, and the guide gives advice about photographing potential anomalies, sharing past findings from participants. This tour involves historical storytelling, practical demonstrations, and an exploration of local lore.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.81</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-key-west-ghost-mysteries-tour-p1127765/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bone Island: Haunted Pub Crawl & Ghost Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bone Island: Haunted Pub Crawl & Ghost Tour</h3>
-          <p class="venue">📍 Walking Tours in Key West</p>
-          <p>Take a narrated walk through a destination known for its history and stories of hauntings. Listen to tales rooted in local history and lore as you visit historically significant places. This tour includes a memento in the form of a T-shirt for attendees. Knowledgeable guides provide detailed narratives throughout the experience.</p>
-          <div class="card-footer">
-            <span class="price">From €27.76</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bone-island-haunted-pub-crawl-ghost-tour-p1127763/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bone Island: Haunted Pub Crawl & Ghost Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Bone Island: Haunted Pub Crawl & Ghost Tour</div>
+        <div class="tq-card-desc">Take a narrated walk through a destination known for its history and stories of hauntings. Listen to tales rooted in local history and lore as you visit historically significant places. This tour includes a memento in the form of a T-shirt for attendees. Knowledgeable guides provide detailed narratives throughout the experience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.76</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bone-island-haunted-pub-crawl-ghost-tour-p1127763/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key Lime Pie Tour: Historic Seaport Stroll" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key Lime Pie Tour: Historic Seaport Stroll</h3>
-          <p class="venue">📍 Walking Tours in Key West</p>
-          <p>Taste Key Lime Pie along the waterfront in Old Town Key West. Visit establishments offering unique variations of this dessert and enjoy a daily Key Lime Cocktail. Walk through the area while hearing about the history of the city and its iconic dessert. This guided walking tour covers about 8 blocks and starts at a location in Old Town, ending nearby. See the sights and enjoy the flavors of this local specialty.</p>
-          <div class="card-footer">
-            <span class="price">From €47.42</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-key-lime-pie-tour-historic-seaport-stroll-p1127762/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key Lime Pie Tour: Historic Seaport Stroll" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Key Lime Pie Tour: Historic Seaport Stroll</div>
+        <div class="tq-card-desc">Taste Key Lime Pie along the waterfront in Old Town Key West. Visit establishments offering unique variations of this dessert and enjoy a daily Key Lime Cocktail. Walk through the area while hearing about the history of the city and its iconic dessert. This guided walking tour covers about 8 blocks and starts at a location in Old Town, ending nearby. See the sights and enjoy the flavors of this local specialty.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-key-lime-pie-tour-historic-seaport-stroll-p1127762/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/60f0b89225a146be8ffca23bec8d9bc0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ultimate Adventure at Fury Water Adventures" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ultimate Adventure at Fury Water Adventures</h3>
-          <p class="venue">📍 Key West Water Activities</p>
-          <p>If you're not afraid to get wet, prepare to experience the action-packed, adrenaline-pumping watersports thrill of a lifetime on an Ultimate Adventure! Spend a half or full day at Fury Water Adventures. From jet-skiing to parasailing, there are so many activities for all ages.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/60f0b89225a146be8ffca23bec8d9bc0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ultimate Adventure at Fury Water Adventures" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KEY WEST WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Ultimate Adventure at Fury Water Adventures</div>
+        <div class="tq-card-desc">If you're not afraid to get wet, prepare to experience the action-packed, adrenaline-pumping watersports thrill of a lifetime on an Ultimate Adventure! Spend a half or full day at Fury Water Adventures. From jet-skiing to parasailing, there are so many activities for all ages.
 
 Build some speed and make like James Bond on a jet ski, before splashing around a waterpark that includes toys, a climbing tower, an aqua slide, and a water trampoline.
 
-You can even go crazy on a 3,500 square foot aquatic obstacle course of connected water trampolines, slides, and hurdles.</p>
-          <div class="card-footer">
-            <span class="price">From €127.61</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ultimate-adventure-at-fury-water-adventures-p976483/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You can even go crazy on a 3,500 square foot aquatic obstacle course of connected water trampolines, slides, and hurdles.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€127.61</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ultimate-adventure-at-fury-water-adventures-p976483/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/454d839306ae41219a2d88e3041d36e9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Reef & Ritas Snorkeling Trip" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West: Reef & Ritas Snorkeling Trip</h3>
-          <p class="venue">📍 Key West Water Activities</p>
-          <p>Put on your sunnies and your sunscreen while you kick back on this luxury catamaran cruise off the coast of Key West. You can soak up rays while setting sail to the only coral reef in the US. Keep a lookout for majestic sea turtles and swim with flashing shoals of tropical fish moving in unison through forests of colorful coral.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/454d839306ae41219a2d88e3041d36e9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Reef & Ritas Snorkeling Trip" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KEY WEST WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Key West: Reef & Ritas Snorkeling Trip</div>
+        <div class="tq-card-desc">Put on your sunnies and your sunscreen while you kick back on this luxury catamaran cruise off the coast of Key West. You can soak up rays while setting sail to the only coral reef in the US. Keep a lookout for majestic sea turtles and swim with flashing shoals of tropical fish moving in unison through forests of colorful coral.
 
-PS: Keep your eyes peeled for dolphins, Key West's bottlenose ballerinas are known to patrol these parts! Once back on deck, end your tour with a margarita, or three!</p>
-          <div class="card-footer">
-            <span class="price">From €55.57</span>
-            <span class="rating">⭐ 3.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-reef-ritas-snorkeling-trip-key-west-p976478/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+PS: Keep your eyes peeled for dolphins, Key West's bottlenose ballerinas are known to patrol these parts! Once back on deck, end your tour with a margarita, or three!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.57</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-reef-ritas-snorkeling-trip-key-west-p976478/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ebbb2120236242e3b7bbf6762a02ab40.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Morning Snorkel Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West: Morning Snorkel Tour</h3>
-          <p class="venue">📍 Key West Water Activities</p>
-          <p>With the sun on your back and North America's only living coral reef stretching beneath you, this is one Florida snorkeling trip you won't forget. And that's without adding the luxury of a state-of-the-art catamaran complete with spacious sundeck, free drinks including beer and wine, and a friendly captain who will tell you all the local Key West secrets. All aboard!</p>
-          <div class="card-footer">
-            <span class="price">From €50.93</span>
-            <span class="rating">⭐ 4.8 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-key-west-morning-snorkel-p976476/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ebbb2120236242e3b7bbf6762a02ab40.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Morning Snorkel Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KEY WEST WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Key West: Morning Snorkel Tour</div>
+        <div class="tq-card-desc">With the sun on your back and North America's only living coral reef stretching beneath you, this is one Florida snorkeling trip you won't forget. And that's without adding the luxury of a state-of-the-art catamaran complete with spacious sundeck, free drinks including beer and wine, and a friendly captain who will tell you all the local Key West secrets. All aboard!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.93</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-key-west-morning-snorkel-p976476/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbba6235ef8f47ac9adca0036c464cd5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Island Adventure Eco Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West: Island Adventure Eco Tour</h3>
-          <p class="venue">📍 Key West Water Activities</p>
-          <p>Hey, VIP! Time to board your state-of-the-art catamaran and cruise through Key West's beautiful backwaters to a remote sanctuary of shallow sandbars and clear, calm turquoise waters. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbba6235ef8f47ac9adca0036c464cd5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Island Adventure Eco Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KEY WEST WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Key West: Island Adventure Eco Tour</div>
+        <div class="tq-card-desc">Hey, VIP! Time to board your state-of-the-art catamaran and cruise through Key West's beautiful backwaters to a remote sanctuary of shallow sandbars and clear, calm turquoise waters. 
 
 Just don't tell the locals – you're about to discover an area they thought was a secret! 
 
 Tuck into a delicious lunch of locally sourced ingredients from Florida farms. 
 
-It's fun, eco-friendly and fabulously Florida!</p>
-          <div class="card-footer">
-            <span class="price">From €111.18</span>
-            <span class="rating">⭐ 3 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-island-adventure-eco-tour-p976475/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+It's fun, eco-friendly and fabulously Florida!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€111.18</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-island-adventure-eco-tour-p976475/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3c43e1edf7fc43a0adbed50b90442c7f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West Shipwreck Treasure Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West Shipwreck Treasure Museum: Entry Ticket</h3>
-          <p class="venue">📍 Key West Shipwreck Treasure Museum</p>
-          <p>Set sail for the 1800s and discover a trove of history at the Key West Shipwreck Treasure Museum. See real treasures salvaged from vessels that capsized in the treacherous waters of Key West, and meet the wrecking crews who risked their lives to plunder the sinking ships for all they were worth.</p>
-          <div class="card-footer">
-            <span class="price">From €16.68</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-key-west-shipwreck-treasure-museum-p976035/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3c43e1edf7fc43a0adbed50b90442c7f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West Shipwreck Treasure Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KEY WEST SHIPWRECK TREASURE MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Key West Shipwreck Treasure Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Set sail for the 1800s and discover a trove of history at the Key West Shipwreck Treasure Museum. See real treasures salvaged from vessels that capsized in the treacherous waters of Key West, and meet the wrecking crews who risked their lives to plunder the sinking ships for all they were worth.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€16.68</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-key-west-shipwreck-treasure-museum-p976035/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Wind & Wine Sunset Sail" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West: Wind & Wine Sunset Sail</h3>
-          <p class="venue">📍 Evening Cruises in Key West</p>
-          <p>Take a trip on a historic schooner in Key West during the evening. Participate in a guided tasting featuring wines from different regions, as well as various craft and domestic beers. Light snacks are provided, such as an assortment of meats, cheeses, crackers, fruits, vegetables, and chocolate. The setting allows for spacious and easy movement, offering a relaxed experience during the voyage.</p>
-          <div class="card-footer">
-            <span class="price">From €101.04</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-key-west-wind-wine-sunset-sail-p1126779/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Wind & Wine Sunset Sail" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EVENING CRUISES IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Key West: Wind & Wine Sunset Sail</div>
+        <div class="tq-card-desc">Take a trip on a historic schooner in Key West during the evening. Participate in a guided tasting featuring wines from different regions, as well as various craft and domestic beers. Light snacks are provided, such as an assortment of meats, cheeses, crackers, fruits, vegetables, and chocolate. The setting allows for spacious and easy movement, offering a relaxed experience during the voyage.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€101.04</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-key-west-wind-wine-sunset-sail-p1126779/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Champagne Sunset Sail on Schooner America 2.0" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West: Champagne Sunset Sail on Schooner America 2.0</h3>
-          <p class="venue">📍 Evening Cruises in Key West</p>
-          <p>Sail aboard the 105-foot Schooner America 2.0 for a tour in the waters of the Florida Keys. See prominent sights such as Fort Zachary Taylor, Sand Key Lighthouse, Mallory Square, and Sunset Pier. Spot marine wildlife like dolphins, sea turtles, and waterfowl during the voyage. While aboard, beverages such as champagne, wine, beer, soft drinks, and water are available as well as light snacks. Enjoy the comfortable environment offered by the teak decks and mahogany finishes of the boat.</p>
-          <div class="card-footer">
-            <span class="price">From €100.1</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-key-west-champagne-sunset-sail-on-schooner-america-2-0-p1126778/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Champagne Sunset Sail on Schooner America 2.0" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EVENING CRUISES IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Key West: Champagne Sunset Sail on Schooner America 2.0</div>
+        <div class="tq-card-desc">Sail aboard the 105-foot Schooner America 2.0 for a tour in the waters of the Florida Keys. See prominent sights such as Fort Zachary Taylor, Sand Key Lighthouse, Mallory Square, and Sunset Pier. Spot marine wildlife like dolphins, sea turtles, and waterfowl during the voyage. While aboard, beverages such as champagne, wine, beer, soft drinks, and water are available as well as light snacks. Enjoy the comfortable environment offered by the teak decks and mahogany finishes of the boat.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€100.10</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-key-west-champagne-sunset-sail-on-schooner-america-2-0-p1126778/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Island Excursion & Dolphin Watching" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Island Excursion & Dolphin Watching</h3>
-          <p class="venue">📍 Day trips in Key West</p>
-          <p>Spend a day off the coast of Key West at an exclusive island or sandbar known primarily to local residents. Travel there by boat and visit a unique spot where you can walk on the sandy shores, rest on a water pad, explore nearby terrain, search for unique shells, and observe ocean life. You may see dolphins, turtles, or stingrays along the way. This destination provides a chance to enjoy leisure activities by the sea with groups of friends or family members.</p>
-          <div class="card-footer">
-            <span class="price">From €602.48</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-island-excursion-dolphin-watching-p1126777/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Island Excursion & Dolphin Watching" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Island Excursion & Dolphin Watching</div>
+        <div class="tq-card-desc">Spend a day off the coast of Key West at an exclusive island or sandbar known primarily to local residents. Travel there by boat and visit a unique spot where you can walk on the sandy shores, rest on a water pad, explore nearby terrain, search for unique shells, and observe ocean life. You may see dolphins, turtles, or stingrays along the way. This destination provides a chance to enjoy leisure activities by the sea with groups of friends or family members.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€602.48</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-island-excursion-dolphin-watching-p1126777/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Snorkeling Excursion" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Private Snorkeling Excursion</h3>
-          <p class="venue">📍 Snorkeling in Key West</p>
-          <p>Visit a coral reef where various marine species reside. Observe fish, turtles, dolphins, and sea rays within their natural environment. Snorkeling equipment is supplied during the visit.</p>
-          <div class="card-footer">
-            <span class="price">From €463.45</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-private-snorkeling-excursion-p1126776/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Snorkeling Excursion" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SNORKELING IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Private Snorkeling Excursion</div>
+        <div class="tq-card-desc">Visit a coral reef where various marine species reside. Observe fish, turtles, dolphins, and sea rays within their natural environment. Snorkeling equipment is supplied during the visit.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€463.45</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-private-snorkeling-excursion-p1126776/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Key West: Sandbar Trip on a Tiki Boat" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Private Key West: Sandbar Trip on a Tiki Boat</h3>
-          <p class="venue">📍 Day trips in Key West</p>
-          <p>Take part in the lively ambience of the Florida Keys Back Country sand bars. Observe diverse wildlife such as rays, turtles, various fish, and occasionally dolphins in their natural habitat.</p>
-          <div class="card-footer">
-            <span class="price">From €486.62</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-private-key-west-sandbar-trip-on-a-tiki-boat-p1126775/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Key West: Sandbar Trip on a Tiki Boat" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Private Key West: Sandbar Trip on a Tiki Boat</div>
+        <div class="tq-card-desc">Take part in the lively ambience of the Florida Keys Back Country sand bars. Observe diverse wildlife such as rays, turtles, various fish, and occasionally dolphins in their natural habitat.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€486.62</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-private-key-west-sandbar-trip-on-a-tiki-boat-p1126775/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="FishMonster Classic: Flats And Backcountry Fishing" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>FishMonster Classic: Flats And Backcountry Fishing</h3>
-          <p class="venue">📍 Day trips in Key West</p>
-          <p>Visit the flats of Key West and the lower Keys, where various fish including permit, bonefish, tarpon, barracudas, sharks, and jacks are located in the clear waters.</p>
-          <div class="card-footer">
-            <span class="price">From €452.93</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fishmonster-classic-flats-and-backcountry-fishing-p1126774/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="FishMonster Classic: Flats And Backcountry Fishing" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">FishMonster Classic: Flats And Backcountry Fishing</div>
+        <div class="tq-card-desc">Visit the flats of Key West and the lower Keys, where various fish including permit, bonefish, tarpon, barracudas, sharks, and jacks are located in the clear waters.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€452.93</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fishmonster-classic-flats-and-backcountry-fishing-p1126774/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Guided Bike Tour of Old Town Key West" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Guided Bike Tour of Old Town Key West</h3>
-          <p class="venue">📍 Bike Tours in Key West</p>
-          <p>Take a guided tour through Key West to visit important landmarks in the southernmost point of the United States. See regions spanning from coast to coast and be served a portion of Key Lime Pie.</p>
-          <div class="card-footer">
-            <span class="price">From €47.42</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-guided-bike-tour-of-old-town-key-west-p1126773/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1d660281df004c858ffd1992da8ec863.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Guided Bike Tour of Old Town Key West" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BIKE TOURS IN KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Guided Bike Tour of Old Town Key West</div>
+        <div class="tq-card-desc">Take a guided tour through Key West to visit important landmarks in the southernmost point of the United States. See regions spanning from coast to coast and be served a portion of Key Lime Pie.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-guided-bike-tour-of-old-town-key-west-p1126773/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0c861a1b17f5436394f3252e324730f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hard Rock Cafe Key West" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hard Rock Cafe Key West</h3>
-          <p class="venue">📍 Hard Rock Cafe Key West</p>
-          <p>Located on the Duval Street, Hard Rock Cafe Key West presents the ultimate authentic dining and entertainment experience. After a delicious meal of freshly prepared American cuisine, take a stroll through musical history with a collection of memorabilia that can only be found at the cafe.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0c861a1b17f5436394f3252e324730f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hard Rock Cafe Key West" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HARD ROCK CAFE KEY WEST</span>
+        </div>
+        <div class="tq-card-title">Hard Rock Cafe Key West</div>
+        <div class="tq-card-desc">Located on the Duval Street, Hard Rock Cafe Key West presents the ultimate authentic dining and entertainment experience. After a delicious meal of freshly prepared American cuisine, take a stroll through musical history with a collection of memorabilia that can only be found at the cafe.
 
 Discover the perfect place to eat, drink, and unwind on our little island paradise while visiting our beautiful and charming city. Explore the vibrant culture and historic landmarks of gorgeous downtown Key West and experience the sights and sounds that inspired great minds like Ernest Hemingway.
 
-Once your cravings for locally inspired American cuisine are satisfied, do not forget to swing by the Rock Shop for exclusive souvenirs and Hard Rock merchandise to bring back home.</p>
-          <div class="card-footer">
-            <span class="price">From €31.95</span>
-            <span class="rating">⭐ 2 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hard-rock-cafe-key-west-p1067976/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Once your cravings for locally inspired American cuisine are satisfied, do not forget to swing by the Rock Shop for exclusive souvenirs and Hard Rock merchandise to bring back home.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€31.95</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hard-rock-cafe-key-west-p1067976/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1586ecc1c94b4f7d9ffc8012bf0d0a4d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sunset Sail + Live Music with Fury Water Adventures" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sunset Sail + Live Music with Fury Water Adventures</h3>
-          <p class="venue">📍 Key West Water Activities</p>
-          <p>With Fury Water Adventure's "Commotion on the Ocean" package, you’ll eat, drink, and party the night away on the whim of an ocean breeze with Key West’s original live music sunset sail. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1586ecc1c94b4f7d9ffc8012bf0d0a4d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sunset Sail + Live Music with Fury Water Adventures" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KEY WEST WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Sunset Sail + Live Music with Fury Water Adventures</div>
+        <div class="tq-card-desc">With Fury Water Adventure's "Commotion on the Ocean" package, you’ll eat, drink, and party the night away on the whim of an ocean breeze with Key West’s original live music sunset sail. 
 
-Grab an ice-cold beverage, soak in the waning rays of the Florida sunset, and let the music move you as you chase the good vibes of the Sunshine State.</p>
-          <div class="card-footer">
-            <span class="price">From €74.11</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-commotion-on-the-ocean-sunset-sail-with-live-music-p1032147/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Grab an ice-cold beverage, soak in the waning rays of the Florida sunset, and let the music move you as you chase the good vibes of the Sunshine State.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€74.11</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-commotion-on-the-ocean-sunset-sail-with-live-music-p1032147/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e187cd70d79d48efa2862f7ff1a1a86f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Sails to Rails Museum at Flagler Station" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Key West: Sails to Rails Museum at Flagler Station</h3>
-          <p class="venue">📍 Sails To Rails Museum at Flagler Station</p>
-          <p>The treacherous waters of the Caribbean, Gulf of Mexico and Florida Keys were a flurry of treasure-laden Spanish Galleons, dreaded Pirates, merchant ships and more as the New World made its riches known to all who sailed her waters from 1500 to the early 1900s.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e187cd70d79d48efa2862f7ff1a1a86f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Key West: Sails to Rails Museum at Flagler Station" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>KEY WEST</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SAILS TO RAILS MUSEUM AT FLAGLER STATION</span>
+        </div>
+        <div class="tq-card-title">Key West: Sails to Rails Museum at Flagler Station</div>
+        <div class="tq-card-desc">The treacherous waters of the Caribbean, Gulf of Mexico and Florida Keys were a flurry of treasure-laden Spanish Galleons, dreaded Pirates, merchant ships and more as the New World made its riches known to all who sailed her waters from 1500 to the early 1900s.
 
 Get to grips with the Age of Sail with tickets to the Sails to Rails Museum at Flagler Station in Key West, where sail remained part of the industrial fabric until its last ship was built in 1939. Journey through an interactive timeline of Key West's history and see how America literally sailed into the era of Henry Flagler’s Overseas Railway.
 
-Located in the historic Key West Bight, Sails and Rails at Flagler Station has something for everyone, from state-of-the-art exhibits to unique artifacts and the world's only to-scale model of Fort Jefferson in the Dry Tortugas.</p>
-          <div class="card-footer">
-            <span class="price">From €9.27</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sails-to-rails-museum-at-flagler-station-p1023170/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Located in the historic Key West Bight, Sails and Rails at Flagler Station has something for everyone, from state-of-the-art exhibits to unique artifacts and the world's only to-scale model of Fort Jefferson in the Dry Tortugas.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€9.27</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sails-to-rails-museum-at-flagler-station-p1023170/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

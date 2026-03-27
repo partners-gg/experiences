@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Hobart | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Hobart. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,44 +131,69 @@
     <p>12 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="" alt="Hobart: One-way or Roundtrip Bus Transfer Between City Centre & Airport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hobart: One-way or Roundtrip Bus Transfer Between City Centre & Airport</h3>
-          <p class="venue">📍 Airport Transfer in Hobart</p>
-          <p>Enjoy quick transfers to the Hobart Airport with six convenient pickup locations in Hobart City. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HOBART</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AIRPORT TRANSFER IN HOBART</span>
+        </div>
+        <div class="tq-card-title">Hobart: One-way or Roundtrip Bus Transfer Between City Centre & Airport</div>
+        <div class="tq-card-desc">Enjoy quick transfers to the Hobart Airport with six convenient pickup locations in Hobart City. 
 
 Skip the hassle of public transport and avoid high parking fees, as this door-to-door service takes you directly to the airport in time for check-in. 
 
-The bus transfer offers a quick way to travel to the airport in modern coaches with free WiFi. The bus departs Hobart City every 30 minutes, seven days a week, ensuring an easy and reliable commute to the airport.</p>
-          <div class="card-footer">
-            <span class="price">From €13.52</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hobart-one-way-or-roundtrip-bus-transfer-between-city-centre-airport-p1107137/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The bus transfer offers a quick way to travel to the airport in modern coaches with free WiFi. The bus departs Hobart City every 30 minutes, seven days a week, ensuring an easy and reliable commute to the airport.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.52</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hobart-one-way-or-roundtrip-bus-transfer-between-city-centre-airport-p1107137/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1178112e19c47219995315a3a423bd0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Port Arthur Historic Site: Entry Ticket + Harbour Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Port Arthur Historic Site: Entry Ticket + Harbour Cruise</h3>
-          <p class="venue">📍 Port Arthur Historic Site</p>
-          <p>Get a great value pass for the Port Arthur Historic Site, which includes two days of access and a cruise around Carnarvon Bay. Explore over 30 historic buildings, learn about Australia’s convict history, and enjoy a relaxing cruise to see the site from different angles. Visit other attractions like the Interpretation Gallery, Museum & Convict Centre, and the Dockyard at your own pace.</p>
-          <div class="card-footer">
-            <span class="price">From €31.87</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-port-arthur-historic-site-entry-harbour-cruise-p1101063/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f1178112e19c47219995315a3a423bd0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Port Arthur Historic Site: Entry Ticket + Harbour Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HOBART</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PORT ARTHUR HISTORIC SITE</span>
+        </div>
+        <div class="tq-card-title">Port Arthur Historic Site: Entry Ticket + Harbour Cruise</div>
+        <div class="tq-card-desc">Get a great value pass for the Port Arthur Historic Site, which includes two days of access and a cruise around Carnarvon Bay. Explore over 30 historic buildings, learn about Australia’s convict history, and enjoy a relaxing cruise to see the site from different angles. Visit other attractions like the Interpretation Gallery, Museum & Convict Centre, and the Dockyard at your own pace.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€31.87</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-port-arthur-historic-site-entry-harbour-cruise-p1101063/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2c67d17df05a4515afb7465929631d10.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hobart: Iron Pot Lighthouse Guided Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hobart: Iron Pot Lighthouse Guided Cruise</h3>
-          <p class="venue">📍 Hobart Cruises & Boat Tours</p>
-          <p>Cruise the Derwent River on a new vessel with 14 passengers. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2c67d17df05a4515afb7465929631d10.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hobart: Iron Pot Lighthouse Guided Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HOBART</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HOBART CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Hobart: Iron Pot Lighthouse Guided Cruise</div>
+        <div class="tq-card-desc">Cruise the Derwent River on a new vessel with 14 passengers. 
 
 Sit in the cabin with leather seating and large windows. Pass by Battery Point, Wrest Point Casino, and the Shot Tower with Mount Wellington in the background. 
 
@@ -79,21 +203,30 @@ In Storm Bay, pass Betsey Island, home to seabirds like cormorants, gulls, and t
 
 As you circle the island, see Hope Beach, known for its breaks and offshore winds. Cruise near the shore to observe the waves where local surfers practice. 
 
-After 2.5 hours on the water, return to Hobart.</p>
-          <div class="card-footer">
-            <span class="price">From €87.19</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hobart-iron-pot-lighthouse-guided-cruise-p1122101/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After 2.5 hours on the water, return to Hobart.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€87.19</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hobart-iron-pot-lighthouse-guided-cruise-p1122101/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Bruny Island: Guided Bus Tour From Hobart + Cruise + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bruny Island: Guided Bus Tour From Hobart + Cruise + Lunch</h3>
-          <p class="venue">📍 Hobart Cruises & Boat Tours</p>
-          <p>Start with a full-day trip from Hobart to Bruny Island. Use bus, ferry, and boat to visit the island’s highlights, coastline, and sea cliffs.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HOBART</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HOBART CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Bruny Island: Guided Bus Tour From Hobart + Cruise + Lunch</div>
+        <div class="tq-card-desc">Start with a full-day trip from Hobart to Bruny Island. Use bus, ferry, and boat to visit the island’s highlights, coastline, and sea cliffs.
 
 Begin with a drive and ferry crossing, followed by morning tea on Bruny Island with a blueberry muffin and a hot or cold drink.
 
@@ -103,21 +236,30 @@ Afterward, have lunch at a local restaurant with pumpkin soup and a salad roll w
 
 End the day with a bus tour of the island. Then take the ferry back and relax on the return journey to Hobart.
 
-Finish with a hotel drop-off.</p>
-          <div class="card-footer">
-            <span class="price">From €165.37</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bruny-island-guided-bus-tour-from-hobart-cruise-lunch-p1122100/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finish with a hotel drop-off.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€165.37</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bruny-island-guided-bus-tour-from-hobart-cruise-lunch-p1122100/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Bruny Island: Guided Food Tour from Hobart + Ferry Ride + Bligh Museum Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bruny Island: Guided Food Tour from Hobart + Ferry Ride + Bligh Museum Entry</h3>
-          <p class="venue">📍 Hobart Cruises & Boat Tours</p>
-          <p>Join a guided tour of Bruny Island with a local expert. Depart from Hobart and spend a full day exploring. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HOBART</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HOBART CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Bruny Island: Guided Food Tour from Hobart + Ferry Ride + Bligh Museum Entry</div>
+        <div class="tq-card-desc">Join a guided tour of Bruny Island with a local expert. Depart from Hobart and spend a full day exploring. 
 
 Visit the island's many sights and taste local products like cheese, fresh oysters, honey, fudge, mead, and wine. Meet the skilled people who make these treats.
 
@@ -127,21 +269,30 @@ Have lunch at Pennicott’s beachside restaurant in Adventure Bay, including shu
 
 Walk along a quiet beach and travel through diverse landscapes, from light bush in the north to the lush Mavista Rainforest in the south. 
 
-Look out for unique wildlife, such as the rare white wallaby. End the trip with a ferry ride back to Kettering and then return to Hobart.</p>
-          <div class="card-footer">
-            <span class="price">From €165.37</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bruny-island-guided-food-tour-from-hobart-ferry-ride-bligh-museum-entry-p1122099/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Look out for unique wildlife, such as the rare white wallaby. End the trip with a ferry ride back to Kettering and then return to Hobart.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€165.37</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bruny-island-guided-food-tour-from-hobart-ferry-ride-bligh-museum-entry-p1122099/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Cape Raoul: Guided Tour from Hobart + Port Arthur Historic Site Entry + Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cape Raoul: Guided Tour from Hobart + Port Arthur Historic Site Entry + Cruise</h3>
-          <p class="venue">📍 Hobart Cruises & Boat Tours</p>
-          <p>Depart Hobart with a return bus transfer for a 90-minute cruise from Port Arthur Historic Site to Cape Raoul. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HOBART</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HOBART CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Cape Raoul: Guided Tour from Hobart + Port Arthur Historic Site Entry + Cruise</div>
+        <div class="tq-card-desc">Depart Hobart with a return bus transfer for a 90-minute cruise from Port Arthur Historic Site to Cape Raoul. 
 
 See the Tasman Peninsula’s cliffs, sea caves, arches, and white sand beaches. Spot dolphins, seals, whales, and seabirds.
 
@@ -149,21 +300,30 @@ Pass Point Puer and the Isle of the Dead. View the sands of Safety Cove and the 
 
 Cruise past West Arthur Head toward the cliffs of Cape Raoul. Find Australian fur seals on the cliff base. Watch for albatrosses and sea eagles above.
 
-Explore the Port Arthur Historic Site, part of the World Heritage list. Learn about Tasmania’s history and coastline.</p>
-          <div class="card-footer">
-            <span class="price">From €144.32</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cape-raoul-guided-tour-from-hobart-port-arthur-historic-site-entry-cruise-p1122098/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore the Port Arthur Historic Site, part of the World Heritage list. Learn about Tasmania’s history and coastline.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€144.32</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cape-raoul-guided-tour-from-hobart-port-arthur-historic-site-entry-cruise-p1122098/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Tasman Island: Guided Tour from Hobart + Cruise + Lunch + Optional Port Arthur" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tasman Island: Guided Tour from Hobart + Cruise + Lunch + Optional Port Arthur</h3>
-          <p class="venue">📍 Hobart Cruises & Boat Tours</p>
-          <p>Join the Tasman Island day tour to visit the Tasman Peninsula.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HOBART</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HOBART CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Tasman Island: Guided Tour from Hobart + Cruise + Lunch + Optional Port Arthur</div>
+        <div class="tq-card-desc">Join the Tasman Island day tour to visit the Tasman Peninsula.
 
 Start with a guided bus ride from Hobart. After arrival, have morning tea and then board a vessel for a 3-hour cruise.
 
@@ -173,101 +333,148 @@ Learn about the region’s history and geology.
 
 After the cruise, have lunch at a local restaurant. Then, go sightseeing around the Tasman Peninsula.
 
-The bus returns to Hobart in the late afternoon with a hotel drop-off option.</p>
-          <div class="card-footer">
-            <span class="price">From €165.37</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tasman-island-guided-tour-from-hobart-cruise-lunch-optional-port-arthur-p1122097/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The bus returns to Hobart in the late afternoon with a hotel drop-off option.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€165.37</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tasman-island-guided-tour-from-hobart-cruise-lunch-optional-port-arthur-p1122097/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Wineglass Bay, Freycinet National Park & Richmond: Guided Tour + Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Wineglass Bay, Freycinet National Park & Richmond: Guided Tour + Transfer</h3>
-          <p class="venue">📍 Wineglass Bay</p>
-          <p>Join a full-day small-group tour from Hobart to visit Wineglass Bay and other Tasmanian landmarks. Travel to Freycinet National Park, where you will walk to the Wineglass Bay lookout and see wildlife, beaches, and coves.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HOBART</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WINEGLASS BAY</span>
+        </div>
+        <div class="tq-card-title">Wineglass Bay, Freycinet National Park & Richmond: Guided Tour + Transfer</div>
+        <div class="tq-card-desc">Join a full-day small-group tour from Hobart to visit Wineglass Bay and other Tasmanian landmarks. Travel to Freycinet National Park, where you will walk to the Wineglass Bay lookout and see wildlife, beaches, and coves.
 
 Try wines, seafood, and wood-fired pizzas at Devils Corner Winery. Learn about the area from your guide.
 
 At no extra cost, drive through Tasmania's wine region, the Coal River Valley, and stop at the historic town of Richmond. 
 
-This tour offers a varied itinerary to help you get the most out of your visit to Tasmania, including seaside towns, historic sites, and coastal views.</p>
-          <div class="card-footer">
-            <span class="price">From €101.62</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-wineglass-bay-freycinet-national-park-richmond-guided-tour-transfer-p1104843/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This tour offers a varied itinerary to help you get the most out of your visit to Tasmania, including seaside towns, historic sites, and coastal views.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€101.62</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-wineglass-bay-freycinet-national-park-richmond-guided-tour-transfer-p1104843/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Mt. Field, Bonorong Wildlife Sanctuary & Mt. Wellington: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mt. Field, Bonorong Wildlife Sanctuary & Mt. Wellington: Guided Tour</h3>
-          <p class="venue">📍 Mt. Field National Park</p>
-          <p>Visit Mount Field National Park, just a 1.5-hour drive from Hobart. Walk through temperate rainforests and alpine moorlands and see waterfalls like Russell Falls and Horseshoe Falls. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HOBART</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MT. FIELD NATIONAL PARK</span>
+        </div>
+        <div class="tq-card-title">Mt. Field, Bonorong Wildlife Sanctuary & Mt. Wellington: Guided Tour</div>
+        <div class="tq-card-desc">Visit Mount Field National Park, just a 1.5-hour drive from Hobart. Walk through temperate rainforests and alpine moorlands and see waterfalls like Russell Falls and Horseshoe Falls. 
 
 Follow the Tall Trees Trail to see Swamp Gums over 80 meters high and complete the loop to Lady Barron Falls.
 
 Reach the Bonorong Wildlife Sanctuary to see native animals and learn about Tasmania’s rare species from expert staff.
 
-Drive to the summit of Kunyani/Mount Wellington at 1271 meters, offering views over Hobart.</p>
-          <div class="card-footer">
-            <span class="price">From €111.25</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mt-field-bonorong-wildlife-sanctuary-mt-wellington-guided-tour-p1101592/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Drive to the summit of Kunyani/Mount Wellington at 1271 meters, offering views over Hobart.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€111.25</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mt-field-bonorong-wildlife-sanctuary-mt-wellington-guided-tour-p1101592/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Freycinet National Park & Wineglass Bay: Small-Group Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Freycinet National Park & Wineglass Bay: Small-Group Guided Tour</h3>
-          <p class="venue">📍 Wineglass Bay</p>
-          <p>Explore some of the world's top beaches on the East Coast, starting at Freycinet National Park. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HOBART</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WINEGLASS BAY</span>
+        </div>
+        <div class="tq-card-title">Freycinet National Park & Wineglass Bay: Small-Group Guided Tour</div>
+        <div class="tq-card-desc">Explore some of the world's top beaches on the East Coast, starting at Freycinet National Park. 
 
 Join a group tour to the Wineglass Bay lookout, where a 45-minute uphill hike leads to amazing views of the beach and turquoise waters.
 
 After taking in the view, you can either hike down to the beach for a swim or relaxation or head back with a guide to explore Honeymoon Bay, Sleepy Bay, and Cape Tourville Lighthouse. Also, the adventure can be customized to your preferences.
 
-Visit Devil's Corner Winery, located on a hill with views of Freycinet. It's a great spot to relax with a glass of wine, fresh seafood, wood-fired pizza, tea, coffee, or artisan gelato.</p>
-          <div class="card-footer">
-            <span class="price">From €99.22</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-freycinet-national-park-wineglass-bay-small-group-guided-tour-p1099797/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit Devil's Corner Winery, located on a hill with views of Freycinet. It's a great spot to relax with a glass of wine, fresh seafood, wood-fired pizza, tea, coffee, or artisan gelato.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€99.22</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-freycinet-national-park-wineglass-bay-small-group-guided-tour-p1099797/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1178112e19c47219995315a3a423bd0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tasman Peninsula, Port Arthur & Richmond: Small-Group Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tasman Peninsula, Port Arthur & Richmond: Small-Group Guided Tour</h3>
-          <p class="venue">📍 Port Arthur Historic Site</p>
-          <p>Travel from Hobart to the Tasman Peninsula and see the impressive caves and arches formed by the Southern Ocean. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f1178112e19c47219995315a3a423bd0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tasman Peninsula, Port Arthur & Richmond: Small-Group Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HOBART</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PORT ARTHUR HISTORIC SITE</span>
+        </div>
+        <div class="tq-card-title">Tasman Peninsula, Port Arthur & Richmond: Small-Group Guided Tour</div>
+        <div class="tq-card-desc">Travel from Hobart to the Tasman Peninsula and see the impressive caves and arches formed by the Southern Ocean. 
 
 Take a morning walk along clifftops 300 meters high, with stops at Pirates Bay, Waterfall Bay, Tasman Arch, and Devil’s Kitchen to see the top sights.
 
 Visit Port Arthur to explore the well-preserved ruins of a former convict settlement. Enjoy a four-hour visit, including a free harbor cruise around the Isle of the Dead and informative site talks.
 
-End the day in Richmond, a historic village with old stone buildings, candy shops, and Australia’s oldest bridge, built by convicts and rumored to be haunted.</p>
-          <div class="card-footer">
-            <span class="price">From €93.21</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tasman-peninsula-port-arthur-richmond-small-group-guided-tour-p1099789/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End the day in Richmond, a historic village with old stone buildings, candy shops, and Australia’s oldest bridge, built by convicts and rumored to be haunted.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€93.21</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tasman-peninsula-port-arthur-richmond-small-group-guided-tour-p1099789/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Bruny Island: Food, Sightseeing & Cape Bruny Lighthouse Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bruny Island: Food, Sightseeing & Cape Bruny Lighthouse Tour</h3>
-          <p class="venue">📍 Cape Bruny Lighthouse</p>
-          <p>Step right into the heart of Bruny Island's magic, with a 13-year legacy of unlocking its secret treasures. This experience is brimming with a tantalizing morning tea spread, a sumptuous lunch at the renowned Hotel Bruny, and an exclusive tour of the iconic Cape Bruny Lighthouse – all peppered with local produce tastings that tease the senses. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>HOBART</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAPE BRUNY LIGHTHOUSE</span>
+        </div>
+        <div class="tq-card-title">Bruny Island: Food, Sightseeing & Cape Bruny Lighthouse Tour</div>
+        <div class="tq-card-desc">Step right into the heart of Bruny Island's magic, with a 13-year legacy of unlocking its secret treasures. This experience is brimming with a tantalizing morning tea spread, a sumptuous lunch at the renowned Hotel Bruny, and an exclusive tour of the iconic Cape Bruny Lighthouse – all peppered with local produce tastings that tease the senses. 
 
 Every day, the Bruny Island Sightseeing, Foods, and Lighthouse Tours crafts friendships and unforgettable memories. Departing from Hobart around the crisp morning hour of 7 am, this tour promises an adventure of a lifetime. 
 
@@ -275,14 +482,20 @@ Indulge in a rustic picnic-style morning tea featuring freshly shucked oysters, 
 
 Sweeten the journey with tastings at Bruny Island Honey and the decadent Bruny Island Chocolate/Fudge Company. 
 
-The tour also whisks you away to Bruny Island's star attractions, including the breathtaking Truganini Lookout, the bustling Neck Wildlife Zone, the serene Adventure Bay, the picturesque Two Tree Point, and the wild South Bruny National Park. Don't forget to keep an eye out for the elusive White Wallaby!</p>
-          <div class="card-footer">
-            <span class="price">From €168.37</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bruny-island-safaris-food-sightseeing-and-cape-bruny-lighthouse-tour-p1098215/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The tour also whisks you away to Bruny Island's star attractions, including the breathtaking Truganini Lookout, the bustling Neck Wildlife Zone, the serene Adventure Bay, the picturesque Two Tree Point, and the wild South Bruny National Park. Don't forget to keep an eye out for the elusive White Wallaby!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€168.37</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bruny-island-safaris-food-sightseeing-and-cape-bruny-lighthouse-tour-p1098215/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

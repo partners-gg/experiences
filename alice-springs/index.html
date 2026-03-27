@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Alice Springs | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Alice Springs. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,48 +131,73 @@
     <p>9 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="" alt="Alice Springs Desert Park: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Alice Springs Desert Park: Entry Ticket</h3>
-          <p class="venue">📍 Alice Springs Desert Park</p>
-          <p>Explore Australia's arid wilderness at the Alice Springs Desert Park, a gateway to the outback that fascinates visitors worldwide. Located near Alice Springs and under the West MacDonnell Ranges, the park celebrates the heritage of the local Arrernte people and showcases the Akngwelye and Yeperenye Altyerre (wild dog and caterpillar) dreamtime stories.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ALICE SPRINGS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALICE SPRINGS DESERT PARK</span>
+        </div>
+        <div class="tq-card-title">Alice Springs Desert Park: Entry Ticket</div>
+        <div class="tq-card-desc">Explore Australia's arid wilderness at the Alice Springs Desert Park, a gateway to the outback that fascinates visitors worldwide. Located near Alice Springs and under the West MacDonnell Ranges, the park celebrates the heritage of the local Arrernte people and showcases the Akngwelye and Yeperenye Altyerre (wild dog and caterpillar) dreamtime stories.
 
 The park features three desert ecosystems, Desert Rivers, Sand Country, and Woodland, each highlighting the rugged beauty and resilient life of the desert. You can enjoy guided presentations, a free-flying bird show, and rare encounters with endangered species at the Nocturnal House.
 
-Managed by the Northern Territory Government and the Parks and Wildlife Commission, the park focuses on conservation, research, and breeding programs, earning Advanced Ecotourism Accreditation.</p>
-          <div class="card-footer">
-            <span class="price">From €23.76</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-alice-springs-desert-park-p1099620/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Managed by the Northern Territory Government and the Parks and Wildlife Commission, the park focuses on conservation, research, and breeding programs, earning Advanced Ecotourism Accreditation.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.76</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-alice-springs-desert-park-p1099620/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8555cde47cbb41a08df0faaa725ffc16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Uluru: Sunset Tour + Transfers + Sparkling Wine & Light Snacks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Uluru: Sunset Tour + Transfers + Sparkling Wine & Light Snacks</h3>
-          <p class="venue">📍 Alice Springs Day Tours</p>
-          <p>Relax on the journey to Uluru–Kata Tjuta National Park. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8555cde47cbb41a08df0faaa725ffc16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Uluru: Sunset Tour + Transfers + Sparkling Wine & Light Snacks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ALICE SPRINGS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALICE SPRINGS DAY TOURS</span>
+        </div>
+        <div class="tq-card-title">Uluru: Sunset Tour + Transfers + Sparkling Wine & Light Snacks</div>
+        <div class="tq-card-desc">Relax on the journey to Uluru–Kata Tjuta National Park. 
 
 Listen to your driver guide talk about the area as you look at the desert scenery and see Uluru in the distance. 
 
-Get closer to see its size and significance. At sunset, see the colors change on Uluru with a glass of sparkling wine and snacks.</p>
-          <div class="card-footer">
-            <span class="price">From €63.14</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-uluru-sunset-tour-transfers-sparkling-wine-light-snacks-p1122689/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get closer to see its size and significance. At sunset, see the colors change on Uluru with a glass of sparkling wine and snacks.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€63.14</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-uluru-sunset-tour-transfers-sparkling-wine-light-snacks-p1122689/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8555cde47cbb41a08df0faaa725ffc16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Uluru & Kata Tjuta: Guided Sunrise Tour + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Uluru & Kata Tjuta: Guided Sunrise Tour + Transfers</h3>
-          <p class="venue">📍 Alice Springs Day Tours</p>
-          <p>Start the day early to visit two landmarks in Uluru–Kata Tjuta National Park. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8555cde47cbb41a08df0faaa725ffc16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Uluru & Kata Tjuta: Guided Sunrise Tour + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ALICE SPRINGS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALICE SPRINGS DAY TOURS</span>
+        </div>
+        <div class="tq-card-title">Uluru & Kata Tjuta: Guided Sunrise Tour + Transfers</div>
+        <div class="tq-card-desc">Start the day early to visit two landmarks in Uluru–Kata Tjuta National Park. 
 
 Begin the morning at Talinguru Nyakunytjaku, the sunrise viewing platform, where the first light reveals Uluru against the desert horizon.
 
@@ -81,108 +205,178 @@ Next, travel 45 kilometers to Kata Tjuta. Listen to the driver guide as they sha
 
 Upon arrival, take a guided walk through Walpa Gorge. The towering rock walls and rare plant species offer a contrast to the surrounding red desert landscape.
 
-This tour highlights the unique features of Uluru, Kata Tjuta, and Walpa Gorge in the Red Centre.</p>
-          <div class="card-footer">
-            <span class="price">From €119.66</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-uluru-kata-tjuta-guided-sunrise-tour-transfers-p1122688/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This tour highlights the unique features of Uluru, Kata Tjuta, and Walpa Gorge in the Red Centre.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€119.66</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-uluru-kata-tjuta-guided-sunrise-tour-transfers-p1122688/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8555cde47cbb41a08df0faaa725ffc16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Uluru: Sacred Sites & Sunset Tour + Transfer + Snacks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Uluru: Sacred Sites & Sunset Tour + Transfer + Snacks</h3>
-          <p class="venue">📍 Alice Springs Day Tours</p>
-          <p>Visit the base of Uluru and catch the sunset. Travel comfortably while the driver guide talks about Uluru’s history and importance. Listen to Aboriginal stories handed down over the years.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8555cde47cbb41a08df0faaa725ffc16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Uluru: Sacred Sites & Sunset Tour + Transfer + Snacks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ALICE SPRINGS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALICE SPRINGS DAY TOURS</span>
+        </div>
+        <div class="tq-card-title">Uluru: Sacred Sites & Sunset Tour + Transfer + Snacks</div>
+        <div class="tq-card-desc">Visit the base of Uluru and catch the sunset. Travel comfortably while the driver guide talks about Uluru’s history and importance. Listen to Aboriginal stories handed down over the years.
 
-Learn the meaning of ancient rock art and about the local flora, fauna, and culture of the Anangu people, the traditional custodians of the land. End your outing by seeing the sunset at Uluru.</p>
-          <div class="card-footer">
-            <span class="price">From €119.66</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-uluru-sacred-sites-sunset-tour-transfer-snacks-p1122687/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn the meaning of ancient rock art and about the local flora, fauna, and culture of the Anangu people, the traditional custodians of the land. End your outing by seeing the sunset at Uluru.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€119.66</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-uluru-sacred-sites-sunset-tour-transfer-snacks-p1122687/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8555cde47cbb41a08df0faaa725ffc16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="West MacDonnell Ranges: Guided Tour + Roundtrip Transfer + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>West MacDonnell Ranges: Guided Tour + Roundtrip Transfer + Lunch</h3>
-          <p class="venue">📍 Alice Springs Day Tours</p>
-          <p>Tour the West MacDonnell Ranges on a one-day trip. See the tall, red walls lit by the desert sun as you drive through. Stop at gorges and waterholes to cool off with a swim during warmer months.</p>
-          <div class="card-footer">
-            <span class="price">From €149.73</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-west-macdonnell-ranges-guided-tour-roundtrip-transfer-lunch-p1103751/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8555cde47cbb41a08df0faaa725ffc16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="West MacDonnell Ranges: Guided Tour + Roundtrip Transfer + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ALICE SPRINGS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALICE SPRINGS DAY TOURS</span>
+        </div>
+        <div class="tq-card-title">West MacDonnell Ranges: Guided Tour + Roundtrip Transfer + Lunch</div>
+        <div class="tq-card-desc">Tour the West MacDonnell Ranges on a one-day trip. See the tall, red walls lit by the desert sun as you drive through. Stop at gorges and waterholes to cool off with a swim during warmer months.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€149.73</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-west-macdonnell-ranges-guided-tour-roundtrip-transfer-lunch-p1103751/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8555cde47cbb41a08df0faaa725ffc16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Alice Springs: Guided Tour + Transport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Alice Springs: Guided Tour + Transport</h3>
-          <p class="venue">📍 Alice Springs Day Tours</p>
-          <p>Visit the historical sites of Mparntwe (pronounced m’barn-twa), also known as Alice Springs. Learn about its transformation from a town called Stuart to the central point of the Australian outback.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8555cde47cbb41a08df0faaa725ffc16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Alice Springs: Guided Tour + Transport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ALICE SPRINGS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALICE SPRINGS DAY TOURS</span>
+        </div>
+        <div class="tq-card-title">Alice Springs: Guided Tour + Transport</div>
+        <div class="tq-card-desc">Visit the historical sites of Mparntwe (pronounced m’barn-twa), also known as Alice Springs. Learn about its transformation from a town called Stuart to the central point of the Australian outback.
 
-See significant locations that tell the story of its development and importance in the region. Explore Mparntwe to understand how it has grown over time and its role in shaping the area's history.</p>
-          <div class="card-footer">
-            <span class="price">From €113.65</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-alice-springs-guided-tour-transport-p1103640/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See significant locations that tell the story of its development and importance in the region. Explore Mparntwe to understand how it has grown over time and its role in shaping the area's history.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€113.65</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-alice-springs-guided-tour-transport-p1103640/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Uluru: Guided Day Tour from Alice Springs + Sunset BBQ" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Uluru: Guided Day Tour from Alice Springs + Sunset BBQ</h3>
-          <p class="venue">📍 Uluru Day Trips from Alice Springs</p>
-          <p>Travel in an air-conditioned vehicle. Listen to stories and learn the history of this well-known destination. BBQ, beverages, and snacks are provided, letting you focus on the surroundings.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ALICE SPRINGS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ULURU DAY TRIPS FROM ALICE SPRINGS</span>
+        </div>
+        <div class="tq-card-title">Uluru: Guided Day Tour from Alice Springs + Sunset BBQ</div>
+        <div class="tq-card-desc">Travel in an air-conditioned vehicle. Listen to stories and learn the history of this well-known destination. BBQ, beverages, and snacks are provided, letting you focus on the surroundings.
 
-This tour combines comfort with exploration, making it a popular choice during an outback trip.</p>
-          <div class="card-footer">
-            <span class="price">From €239.93</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-uluru-guided-day-tour-from-alice-springs-and-sunset-bbq-p1103394/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This tour combines comfort with exploration, making it a popular choice during an outback trip.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€239.93</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-uluru-guided-day-tour-from-alice-springs-and-sunset-bbq-p1103394/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d3aee8e559649149b11769f0511c52f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Alice Springs Hot Air Balloon Flight" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Alice Springs Hot Air Balloon Flight</h3>
-          <p class="venue">📍 Alice Springs Hot Air Balloon</p>
-          <p>The sprawling desert landscapes of Central Australia are quite something at ground level, so imagine gazing down at the world from an Alice Springs hot-air balloon flight!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7d3aee8e559649149b11769f0511c52f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Alice Springs Hot Air Balloon Flight" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ALICE SPRINGS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALICE SPRINGS HOT AIR BALLOON</span>
+        </div>
+        <div class="tq-card-title">Alice Springs Hot Air Balloon Flight</div>
+        <div class="tq-card-desc">The sprawling desert landscapes of Central Australia are quite something at ground level, so imagine gazing down at the world from an Alice Springs hot-air balloon flight!
 
-This sunrise hot-air balloon ride over Alice Springs is the complete experience. You'll enjoy complimentary pick-up and drop-off, and even help prepare your balloon for take off. Your expert pilot will provide commentary throughout your incredible journey, and there will be refreshments waiting when you come back down to Earth.</p>
-          <div class="card-footer">
-            <span class="price">From €219.48</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-alice-springs-hot-air-balloon-flight-p1011407/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This sunrise hot-air balloon ride over Alice Springs is the complete experience. You'll enjoy complimentary pick-up and drop-off, and even help prepare your balloon for take off. Your expert pilot will provide commentary throughout your incredible journey, and there will be refreshments waiting when you come back down to Earth.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€219.48</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-alice-springs-hot-air-balloon-flight-p1011407/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7d3aee8e559649149b11769f0511c52f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Alice Springs Hot Air Balloon Flight" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Alice Springs Hot Air Balloon Flight</h3>
-          <p class="venue">📍 Alice Springs Hot Air Balloon</p>
-          <p>The sprawling desert landscapes of Central Australia are quite something at ground level, so imagine gazing down at the world from an Alice Springs hot-air balloon flight!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7d3aee8e559649149b11769f0511c52f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Alice Springs Hot Air Balloon Flight" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ALICE SPRINGS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALICE SPRINGS HOT AIR BALLOON</span>
+        </div>
+        <div class="tq-card-title">Alice Springs Hot Air Balloon Flight</div>
+        <div class="tq-card-desc">The sprawling desert landscapes of Central Australia are quite something at ground level, so imagine gazing down at the world from an Alice Springs hot-air balloon flight!
 
-This sunrise hot-air balloon ride over Alice Springs is the complete experience. You'll enjoy complimentary pick-up and drop-off, and even help prepare your balloon for take off. Your expert pilot will provide commentary throughout your incredible journey, and there will be refreshments waiting when you come back down to Earth.</p>
-          <div class="card-footer">
-            <span class="price">From €219.48</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-alice-springs-hot-air-balloon-flight-p1011407/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This sunrise hot-air balloon ride over Alice Springs is the complete experience. You'll enjoy complimentary pick-up and drop-off, and even help prepare your balloon for take off. Your expert pilot will provide commentary throughout your incredible journey, and there will be refreshments waiting when you come back down to Earth.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€219.48</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-alice-springs-hot-air-balloon-flight-p1011407/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Ubud | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Ubud. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,267 +131,443 @@
     <p>16 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4702020f8b214bc8a750d1b1e6f9fc72.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Best of Ubud: Monkey Forest, Rice Terraces, Tegenungan Waterfall & Temples" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Best of Ubud: Monkey Forest, Rice Terraces, Tegenungan Waterfall & Temples</h3>
-          <p class="venue">📍 Ubud Palace</p>
-          <p>Bali is more than Bintangs and beaches, especially in the deep, green heart of it all – Ubud.  On this full-day tour, you'll team up with one of Bali's friendly locals, who can't wait to chew your ear off about Ubud's cultural and spiritual history. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4702020f8b214bc8a750d1b1e6f9fc72.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Best of Ubud: Monkey Forest, Rice Terraces, Tegenungan Waterfall & Temples" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">UBUD PALACE</span>
+        </div>
+        <div class="tq-card-title">Best of Ubud: Monkey Forest, Rice Terraces, Tegenungan Waterfall & Temples</div>
+        <div class="tq-card-desc">Bali is more than Bintangs and beaches, especially in the deep, green heart of it all – Ubud.  On this full-day tour, you'll team up with one of Bali's friendly locals, who can't wait to chew your ear off about Ubud's cultural and spiritual history. 
 
-You and your guide will tour it all, from bustling markets to the monkey forest, lush rice terraces, and holy temples.</p>
-          <div class="card-footer">
-            <span class="price">From €47.42</span>
-            <span class="rating">⭐ 4.5 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-best-of-ubud-monkey-forest-rice-terraces-tegenungan-waterfall-temples-p1000416/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You and your guide will tour it all, from bustling markets to the monkey forest, lush rice terraces, and holy temples.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-best-of-ubud-monkey-forest-rice-terraces-tegenungan-waterfall-temples-p1000416/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3c0bfe3ba748476aa4f6011a1269ac61.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aloha Swing Ubud: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aloha Swing Ubud: Entry Ticket</h3>
-          <p class="venue">📍 Aloha Swing Ubud</p>
-          <p>Get your Bali adventure into full swing, and keep those Instagram followers recreationally jealous, with a ticket for one of the hottest spots on the paradise island: Aloha Swing Ubud.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3c0bfe3ba748476aa4f6011a1269ac61.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aloha Swing Ubud: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALOHA SWING UBUD</span>
+        </div>
+        <div class="tq-card-title">Aloha Swing Ubud: Entry Ticket</div>
+        <div class="tq-card-desc">Get your Bali adventure into full swing, and keep those Instagram followers recreationally jealous, with a ticket for one of the hottest spots on the paradise island: Aloha Swing Ubud.
 
 Jump into a giant bird's nest, a double bed, or a good old-fashioned ring swing, and be suspended up to 60 meters above the ground. Spellbinding backdrops of jungle and undulating paddy fields will ensure those all-important likes will soar as much as your mood. 
 
-It's un-Bali-vable!</p>
-          <div class="card-footer">
-            <span class="price">From €23.28</span>
-            <span class="rating">⭐ 4.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aloha-swing-ubud-p992890/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+It's un-Bali-vable!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.28</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aloha-swing-ubud-p992890/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/322c221315864e999cf9f21feb74c097.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Instagram Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bali Instagram Tour</h3>
-          <p class="venue">📍 Tegalalang Rice Terrace</p>
-          <p>The beauty of Bali knows no bounds. This four-stop tour of the island allows budding photographers and influencers to discover some of the island's most beautiful locations. A local guide will take you to some of Indonesia's most picturesque spots, where you'll have plenty of time to capture picture-perfect memories.</p>
-          <div class="card-footer">
-            <span class="price">From €34.49</span>
-            <span class="rating">⭐ 5 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bali-instagram-tour-p986785/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/322c221315864e999cf9f21feb74c097.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Instagram Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TEGALALANG RICE TERRACE</span>
+        </div>
+        <div class="tq-card-title">Bali Instagram Tour</div>
+        <div class="tq-card-desc">The beauty of Bali knows no bounds. This four-stop tour of the island allows budding photographers and influencers to discover some of the island's most beautiful locations. A local guide will take you to some of Indonesia's most picturesque spots, where you'll have plenty of time to capture picture-perfect memories.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€34.49</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bali-instagram-tour-p986785/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d2765af02f4c4ff4885d9b792e156265.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Swing: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bali Swing: Entry Ticket</h3>
-          <p class="venue">📍 Bali Swing</p>
-          <p>When you're in one of the most beautiful tropics in the world, it'd be a waste not to get a photo you'll remember for a lifetime. The Bali Swing offers visitors a hit of adrenaline over the verdant canopies of Ubud. Scared? There's no better way to get over a fear of heights than with this view.</p>
-          <div class="card-footer">
-            <span class="price">From €8.62</span>
-            <span class="rating">⭐ 4.2 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bali-swing-p983285/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d2765af02f4c4ff4885d9b792e156265.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Swing: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BALI SWING</span>
+        </div>
+        <div class="tq-card-title">Bali Swing: Entry Ticket</div>
+        <div class="tq-card-desc">When you're in one of the most beautiful tropics in the world, it'd be a waste not to get a photo you'll remember for a lifetime. The Bali Swing offers visitors a hit of adrenaline over the verdant canopies of Ubud. Scared? There's no better way to get over a fear of heights than with this view.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8.62</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bali-swing-p983285/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c35915bc706b4c1cb89888ea69215b9b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ubud: Private Guided Tour + Transport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ubud: Private Guided Tour + Transport</h3>
-          <p class="venue">📍 Ubud Guided Tours</p>
-          <p>Start by swaying above lush jungles on the Ubud Swing before visiting the Bali Pulina coffee plantation to learn about coffee production and taste a variety of flavors.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c35915bc706b4c1cb89888ea69215b9b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ubud: Private Guided Tour + Transport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">UBUD GUIDED TOURS</span>
+        </div>
+        <div class="tq-card-title">Ubud: Private Guided Tour + Transport</div>
+        <div class="tq-card-desc">Start by swaying above lush jungles on the Ubud Swing before visiting the Bali Pulina coffee plantation to learn about coffee production and taste a variety of flavors.
 
 Continue your journey to the Tegalalang Rice Terrace, admiring its intricate irrigation system and beautiful pathways showcasing human ingenuity.
 
-Finally, trek along a rustic trail to discover the hidden Secret Waterfall, immersing yourself in untouched natural beauty.</p>
-          <div class="card-footer">
-            <span class="price">From €17.86</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ubud-private-guided-tour-and-transport-p1087158/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finally, trek along a rustic trail to discover the hidden Secret Waterfall, immersing yourself in untouched natural beauty.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.86</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ubud-private-guided-tour-and-transport-p1087158/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/322c221315864e999cf9f21feb74c097.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali: Ubud Village & Gate of Heaven Private Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bali: Ubud Village & Gate of Heaven Private Tour</h3>
-          <p class="venue">📍 Tegalalang Rice Terrace</p>
-          <p>With its pristine beaches, captivating cultural arts, and awe-inspiring natural beauty, every corner of Bali is a well-told story waiting to be discovered.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/322c221315864e999cf9f21feb74c097.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali: Ubud Village & Gate of Heaven Private Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TEGALALANG RICE TERRACE</span>
+        </div>
+        <div class="tq-card-title">Bali: Ubud Village & Gate of Heaven Private Tour</div>
+        <div class="tq-card-desc">With its pristine beaches, captivating cultural arts, and awe-inspiring natural beauty, every corner of Bali is a well-told story waiting to be discovered.
 
-Ubud Village, a favorite among the locals, and Lempuyang Temple dubbed the 'Gate of Heaven', are just a few of the exquisite delights you'll explore on this trip.</p>
-          <div class="card-footer">
-            <span class="price">From €64.67</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bali-ubud-and-gate-of-heaven-private-tour-p1086149/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Ubud Village, a favorite among the locals, and Lempuyang Temple dubbed the 'Gate of Heaven', are just a few of the exquisite delights you'll explore on this trip.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.67</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bali-ubud-and-gate-of-heaven-private-tour-p1086149/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/322c221315864e999cf9f21feb74c097.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ubud Floating Breakfast, Jungle Swing & Spa: Romantic Tour with Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ubud Floating Breakfast, Jungle Swing & Spa: Romantic Tour with Transfers</h3>
-          <p class="venue">📍 Tegalalang Rice Terrace</p>
-          <p>Add some authentic romance and all-out wow factor to your Bali adventure, with a tour of beautiful Ubud. Following pick-up from your hotel, meet your private guide and head to a natural pool in the lush scenery natural of Ubud. Indulge in a secret floating breakfast featuring classic American menu items – all overlooking the breathtaking tropical jungle. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/322c221315864e999cf9f21feb74c097.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ubud Floating Breakfast, Jungle Swing & Spa: Romantic Tour with Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TEGALALANG RICE TERRACE</span>
+        </div>
+        <div class="tq-card-title">Ubud Floating Breakfast, Jungle Swing & Spa: Romantic Tour with Transfers</div>
+        <div class="tq-card-desc">Add some authentic romance and all-out wow factor to your Bali adventure, with a tour of beautiful Ubud. Following pick-up from your hotel, meet your private guide and head to a natural pool in the lush scenery natural of Ubud. Indulge in a secret floating breakfast featuring classic American menu items – all overlooking the breathtaking tropical jungle. 
 
-Next, you'll be taken to Tegallalang Rice Terrace to stroll through the ridges and take the chance to snap lots of pictures. After some relaxing strolls around the gorgeous area, you'll get to fly over the treetops and experience incredible views on a jungle swing. You will then enjoy afternoon tea as you and your beloved prepare to be pampered in a 180-minute Honeymoon spa package, surrounded by the breathtaking jungle and tranquil paddy fields.</p>
-          <div class="card-footer">
-            <span class="price">From €98.08</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ubud-floating-breakfast-jungle-swing-spa-romantic-tour-with-transfers-p1037616/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, you'll be taken to Tegallalang Rice Terrace to stroll through the ridges and take the chance to snap lots of pictures. After some relaxing strolls around the gorgeous area, you'll get to fly over the treetops and experience incredible views on a jungle swing. You will then enjoy afternoon tea as you and your beloved prepare to be pampered in a 180-minute Honeymoon spa package, surrounded by the breathtaking jungle and tranquil paddy fields.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€98.08</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ubud-floating-breakfast-jungle-swing-spa-romantic-tour-with-transfers-p1037616/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/322c221315864e999cf9f21feb74c097.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Combo ATV and Ayung River Rafting Adventure with Lunch & Massage" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Combo ATV and Ayung River Rafting Adventure with Lunch & Massage</h3>
-          <p class="venue">📍 Tegalalang Rice Terrace</p>
-          <p>A tropical paradise awaits on this ATV and Ayung River rafting adventure. You'll explore varied landscapes, lush rice paddies, overgrown jungles and rushing rivers on a two-hour ATV Quad bike thirll-ride! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/322c221315864e999cf9f21feb74c097.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Combo ATV and Ayung River Rafting Adventure with Lunch & Massage" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TEGALALANG RICE TERRACE</span>
+        </div>
+        <div class="tq-card-title">Combo ATV and Ayung River Rafting Adventure with Lunch & Massage</div>
+        <div class="tq-card-desc">A tropical paradise awaits on this ATV and Ayung River rafting adventure. You'll explore varied landscapes, lush rice paddies, overgrown jungles and rushing rivers on a two-hour ATV Quad bike thirll-ride! 
 
 This exhilarating water rafting activity will have you conquering the wild rapids of Ayung River. A delicious Indonesian buffet lunch will fill your rumbling stomach before a quick sightseeing trip to Ubud Palace, Ubud Art Market, and Tegalalang Rice Terraces. 
 
-Then, what better way to end your day in Bali than by treating yourself to a relaxing 2 hours at a Balinese spa? You deserve it.</p>
-          <div class="card-footer">
-            <span class="price">From €100.1</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-combo-atv-and-ayung-river-rafting-adventures-with-massages-p1034411/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Then, what better way to end your day in Bali than by treating yourself to a relaxing 2 hours at a Balinese spa? You deserve it.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€100.10</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-combo-atv-and-ayung-river-rafting-adventures-with-massages-p1034411/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/001ea97109bd4c749990687ac88782de.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="White Water Rafting with Jungle Swing & Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>White Water Rafting with Jungle Swing & Lunch</h3>
-          <p class="venue">📍 Tegalalang Rice Terrace</p>
-          <p>From giant swings to rolling rice paddies, to the biggest adrenaline rush in Bali. The island of the gods will amaze you on this full-day adventure tour to some of Bali's most exciting places. Get the lush green rice paddy views you've seen on Instagram, and experience a white water rafting adventure on the untouched waters of the Ayung River.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/001ea97109bd4c749990687ac88782de.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="White Water Rafting with Jungle Swing & Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TEGALALANG RICE TERRACE</span>
+        </div>
+        <div class="tq-card-title">White Water Rafting with Jungle Swing & Lunch</div>
+        <div class="tq-card-desc">From giant swings to rolling rice paddies, to the biggest adrenaline rush in Bali. The island of the gods will amaze you on this full-day adventure tour to some of Bali's most exciting places. Get the lush green rice paddy views you've seen on Instagram, and experience a white water rafting adventure on the untouched waters of the Ayung River.
 
-There are loads of chances to take amazing photos on the way, and your local guide will point all the essential facts and landmarks as you go.</p>
-          <div class="card-footer">
-            <span class="price">From €64.67</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-white-water-rafting-with-jungle-swing-lunch-p1003547/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There are loads of chances to take amazing photos on the way, and your local guide will point all the essential facts and landmarks as you go.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.67</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-white-water-rafting-with-jungle-swing-lunch-p1003547/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/119ed77acbfd432f9c21f22018ab6605.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Sacred Temple with Spiritual Cleansing Private Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bali Sacred Temple with Spiritual Cleansing Private Tour</h3>
-          <p class="venue">📍 Tirta Empul Temple</p>
-          <p>Looking for a day trip in Bali that shows you the *real* island of the gods? This is the tour for you. Get collected from your accommodation and join your guide for a day of myths, legends, and a good old-fashioned soul cleanse.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/119ed77acbfd432f9c21f22018ab6605.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Sacred Temple with Spiritual Cleansing Private Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TIRTA EMPUL TEMPLE</span>
+        </div>
+        <div class="tq-card-title">Bali Sacred Temple with Spiritual Cleansing Private Tour</div>
+        <div class="tq-card-desc">Looking for a day trip in Bali that shows you the *real* island of the gods? This is the tour for you. Get collected from your accommodation and join your guide for a day of myths, legends, and a good old-fashioned soul cleanse.
 
 Discover a pre-Hindu temple complex at Gunung Kawi, undergo a purification blessing at Tirta Empul (or Holy Spring Temple), and head on to the Goa Gajah Temple, also known as the Elephant Cave Temple.
 
-The best tour for feeling blissed out, and blessed, in Bali.</p>
-          <div class="card-footer">
-            <span class="price">From €51.73</span>
-            <span class="rating">⭐ 4 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bali-sacred-temple-with-spiritual-cleansing-private-tour-p1002991/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The best tour for feeling blissed out, and blessed, in Bali.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.73</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bali-sacred-temple-with-spiritual-cleansing-private-tour-p1002991/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b04e73ac2d6e46788218127694aef829.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Eat, Pray & Love Private Tour with Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bali Eat, Pray & Love Private Tour with Guide</h3>
-          <p class="venue">📍 Tirta Empul Temple</p>
-          <p>You may have heard of Elizabeth Gilbert, who came to the island of Bali at the end of a year-long journey to search for balance and love in her life. Now you get to see the magical island through her eyes on a special, private Eat, Pray, Love tour!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b04e73ac2d6e46788218127694aef829.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Eat, Pray & Love Private Tour with Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TIRTA EMPUL TEMPLE</span>
+        </div>
+        <div class="tq-card-title">Bali Eat, Pray & Love Private Tour with Guide</div>
+        <div class="tq-card-desc">You may have heard of Elizabeth Gilbert, who came to the island of Bali at the end of a year-long journey to search for balance and love in her life. Now you get to see the magical island through her eyes on a special, private Eat, Pray, Love tour!
 
-Get collected from your hotel and get ready for a full day of Balinese wonders. Think rice paddy treks, yoga with eye-boggling views, a proper spiritual cleansing at an ancient temple, and even a meet-and-greet with a healer!</p>
-          <div class="card-footer">
-            <span class="price">From €64.67</span>
-            <span class="rating">⭐ 5 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bali-eat-pray-love-private-tour-with-guide-p1002062/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get collected from your hotel and get ready for a full day of Balinese wonders. Think rice paddy treks, yoga with eye-boggling views, a proper spiritual cleansing at an ancient temple, and even a meet-and-greet with a healer!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.67</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bali-eat-pray-love-private-tour-with-guide-p1002062/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e1e981bbd720474a877c45c96d863691.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ubud Instagram Private Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ubud Instagram Private Tour</h3>
-          <p class="venue">📍 Ubud Palace</p>
-          <p>Been posting in black and white on your Instagram? With this tour of Ubud, that'll soon change. Add a splash of color to your photos, and a day you won't forget to your memories, on this private tour of Ubud. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e1e981bbd720474a877c45c96d863691.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ubud Instagram Private Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">UBUD PALACE</span>
+        </div>
+        <div class="tq-card-title">Ubud Instagram Private Tour</div>
+        <div class="tq-card-desc">Been posting in black and white on your Instagram? With this tour of Ubud, that'll soon change. Add a splash of color to your photos, and a day you won't forget to your memories, on this private tour of Ubud. 
 
-You'll enjoy a host of activities along the way, as well as the chance to learn more about the island's history and culture from your expert guide. Oh, and don't worry – you'll be able to visit the Ubud Monkey Forest too.</p>
-          <div class="card-footer">
-            <span class="price">From €47.42</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ubud-instagram-private-tour-p1000380/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll enjoy a host of activities along the way, as well as the chance to learn more about the island's history and culture from your expert guide. Oh, and don't worry – you'll be able to visit the Ubud Monkey Forest too.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ubud-instagram-private-tour-p1000380/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/001ea97109bd4c749990687ac88782de.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="White Water Rafting with Jungle Swing & Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>White Water Rafting with Jungle Swing & Lunch</h3>
-          <p class="venue">📍 Tegalalang Rice Terrace</p>
-          <p>From giant swings to rolling rice paddies, to the biggest adrenaline rush in Bali. The island of the gods will amaze you on this full-day adventure tour to some of Bali's most exciting places. Get the lush green rice paddy views you've seen on Instagram, and experience a white water rafting adventure on the untouched waters of the Ayung River.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/001ea97109bd4c749990687ac88782de.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="White Water Rafting with Jungle Swing & Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TEGALALANG RICE TERRACE</span>
+        </div>
+        <div class="tq-card-title">White Water Rafting with Jungle Swing & Lunch</div>
+        <div class="tq-card-desc">From giant swings to rolling rice paddies, to the biggest adrenaline rush in Bali. The island of the gods will amaze you on this full-day adventure tour to some of Bali's most exciting places. Get the lush green rice paddy views you've seen on Instagram, and experience a white water rafting adventure on the untouched waters of the Ayung River.
 
-There are loads of chances to take amazing photos on the way, and your local guide will point all the essential facts and landmarks as you go.</p>
-          <div class="card-footer">
-            <span class="price">From €64.67</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-white-water-rafting-with-jungle-swing-lunch-p1003547/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There are loads of chances to take amazing photos on the way, and your local guide will point all the essential facts and landmarks as you go.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.67</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-white-water-rafting-with-jungle-swing-lunch-p1003547/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/119ed77acbfd432f9c21f22018ab6605.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Sacred Temple with Spiritual Cleansing Private Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bali Sacred Temple with Spiritual Cleansing Private Tour</h3>
-          <p class="venue">📍 Tirta Empul Temple</p>
-          <p>Looking for a day trip in Bali that shows you the *real* island of the gods? This is the tour for you. Get collected from your accommodation and join your guide for a day of myths, legends, and a good old-fashioned soul cleanse.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/119ed77acbfd432f9c21f22018ab6605.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Sacred Temple with Spiritual Cleansing Private Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TIRTA EMPUL TEMPLE</span>
+        </div>
+        <div class="tq-card-title">Bali Sacred Temple with Spiritual Cleansing Private Tour</div>
+        <div class="tq-card-desc">Looking for a day trip in Bali that shows you the *real* island of the gods? This is the tour for you. Get collected from your accommodation and join your guide for a day of myths, legends, and a good old-fashioned soul cleanse.
 
 Discover a pre-Hindu temple complex at Gunung Kawi, undergo a purification blessing at Tirta Empul (or Holy Spring Temple), and head on to the Goa Gajah Temple, also known as the Elephant Cave Temple.
 
-The best tour for feeling blissed out, and blessed, in Bali.</p>
-          <div class="card-footer">
-            <span class="price">From €51.73</span>
-            <span class="rating">⭐ 4 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bali-sacred-temple-with-spiritual-cleansing-private-tour-p1002991/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The best tour for feeling blissed out, and blessed, in Bali.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.73</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bali-sacred-temple-with-spiritual-cleansing-private-tour-p1002991/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b04e73ac2d6e46788218127694aef829.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Eat, Pray & Love Private Tour with Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bali Eat, Pray & Love Private Tour with Guide</h3>
-          <p class="venue">📍 Tirta Empul Temple</p>
-          <p>You may have heard of Elizabeth Gilbert, who came to the island of Bali at the end of a year-long journey to search for balance and love in her life. Now you get to see the magical island through her eyes on a special, private Eat, Pray, Love tour!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b04e73ac2d6e46788218127694aef829.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Eat, Pray & Love Private Tour with Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TIRTA EMPUL TEMPLE</span>
+        </div>
+        <div class="tq-card-title">Bali Eat, Pray & Love Private Tour with Guide</div>
+        <div class="tq-card-desc">You may have heard of Elizabeth Gilbert, who came to the island of Bali at the end of a year-long journey to search for balance and love in her life. Now you get to see the magical island through her eyes on a special, private Eat, Pray, Love tour!
 
-Get collected from your hotel and get ready for a full day of Balinese wonders. Think rice paddy treks, yoga with eye-boggling views, a proper spiritual cleansing at an ancient temple, and even a meet-and-greet with a healer!</p>
-          <div class="card-footer">
-            <span class="price">From €64.67</span>
-            <span class="rating">⭐ 5 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bali-eat-pray-love-private-tour-with-guide-p1002062/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get collected from your hotel and get ready for a full day of Balinese wonders. Think rice paddy treks, yoga with eye-boggling views, a proper spiritual cleansing at an ancient temple, and even a meet-and-greet with a healer!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.67</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bali-eat-pray-love-private-tour-with-guide-p1002062/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e1e981bbd720474a877c45c96d863691.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ubud Instagram Private Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ubud Instagram Private Tour</h3>
-          <p class="venue">📍 Ubud Palace</p>
-          <p>Been posting in black and white on your Instagram? With this tour of Ubud, that'll soon change. Add a splash of color to your photos, and a day you won't forget to your memories, on this private tour of Ubud. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e1e981bbd720474a877c45c96d863691.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ubud Instagram Private Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>UBUD</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">UBUD PALACE</span>
+        </div>
+        <div class="tq-card-title">Ubud Instagram Private Tour</div>
+        <div class="tq-card-desc">Been posting in black and white on your Instagram? With this tour of Ubud, that'll soon change. Add a splash of color to your photos, and a day you won't forget to your memories, on this private tour of Ubud. 
 
-You'll enjoy a host of activities along the way, as well as the chance to learn more about the island's history and culture from your expert guide. Oh, and don't worry – you'll be able to visit the Ubud Monkey Forest too.</p>
-          <div class="card-footer">
-            <span class="price">From €47.42</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ubud-instagram-private-tour-p1000380/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll enjoy a host of activities along the way, as well as the chance to learn more about the island's history and culture from your expert guide. Oh, and don't worry – you'll be able to visit the Ubud Monkey Forest too.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.42</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ubud-instagram-private-tour-p1000380/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

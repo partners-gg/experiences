@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Rhodes | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Rhodes. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,240 +131,380 @@
     <p>25 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Poseidon Submarine Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Poseidon Submarine Cruise</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Discover Rhodes from a new perspective on the Submarine Poseidon tour. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Poseidon Submarine Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Poseidon Submarine Cruise</div>
+        <div class="tq-card-desc">Discover Rhodes from a new perspective on the Submarine Poseidon tour. 
 
-See iconic sites from a submerged cabin and witness colorful marine life up close. An unforgettable experience for all ages.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐ 3 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-poseidon-submarine-cruise-p1091598/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See iconic sites from a submerged cabin and witness colorful marine life up close. An unforgettable experience for all ages.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-poseidon-submarine-cruise-p1091598/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/92acab5123fb4952b939be9e2aa888b6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palace of the Knights of Rhodes: Entry Ticket + Digital Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palace of the Knights of Rhodes: Entry Ticket + Digital Guide</h3>
-          <p class="venue">📍 Palace of the Knights of Rhodes</p>
-          <p>During your visit to Rhodes, save some time for a deep dive into the island's history and book online tickets for the Palace of the Grand Master of the Knights of Rhodes. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/92acab5123fb4952b939be9e2aa888b6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palace of the Knights of Rhodes: Entry Ticket + Digital Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALACE OF THE KNIGHTS OF RHODES</span>
+        </div>
+        <div class="tq-card-title">Palace of the Knights of Rhodes: Entry Ticket + Digital Guide</div>
+        <div class="tq-card-desc">During your visit to Rhodes, save some time for a deep dive into the island's history and book online tickets for the Palace of the Grand Master of the Knights of Rhodes. 
 
 According to some legends, the palace was built over the remaining foundations of a temple dedicated to god Helios, and it was probably the same spot where the Colossus of Rhodes, one of the ancient world's seven wonders, once stood.
 
-The Palace is today one of the very rare examples of Gothic-style architecture in Greece, and thanks to its unique setting by the sea it makes for one of the must-see cultural visits during your Mediterranean escape.</p>
-          <div class="card-footer">
-            <span class="price">From €26</span>
-            <span class="rating">⭐ 4.3 (93)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palace-of-the-knights-of-rhodes-entry-ticket-digital-guide-p1037332/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Palace is today one of the very rare examples of Gothic-style architecture in Greece, and thanks to its unique setting by the sea it makes for one of the must-see cultural visits during your Mediterranean escape.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(93)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palace-of-the-knights-of-rhodes-entry-ticket-digital-guide-p1037332/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Rhodes: 1-Day Hop-on Hop-off Sightseeing Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: 1-Day Hop-on Hop-off Sightseeing Bus Tour</h3>
-          <p class="venue">📍 Rhodes Hop-on Hop-off Bus Tours</p>
-          <p>Visit Rhodes to learn about its history and culture through its many historical sites and monuments.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES HOP-ON HOP-OFF BUS TOURS</span>
+        </div>
+        <div class="tq-card-title">Rhodes: 1-Day Hop-on Hop-off Sightseeing Bus Tour</div>
+        <div class="tq-card-desc">Visit Rhodes to learn about its history and culture through its many historical sites and monuments.
 
 Hop on a sightseeing bus and hop off to see various landmarks along the way. 
 
 Stop at the Aquarium, Mandraki port, Government buildings, New Market, Old Town featuring the Palace of the Grand Master, New Marina, Monte Smith Hill with the Acropolis of ancient Rhodes, Temple of Apollo, Ancient Theatre, and Ancient Stadium. 
 
-Benefit from the multilingual audio guide available onboard and learn about the history and significance of these attractions.</p>
-          <div class="card-footer">
-            <span class="price">From €20</span>
-            <span class="rating">⭐ 3.6 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-1-day-hop-on-hop-off-sightseeing-bus-tour-p1114791/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Benefit from the multilingual audio guide available onboard and learn about the history and significance of these attractions.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.6</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-1-day-hop-on-hop-off-sightseeing-bus-tour-p1114791/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: High-Speed Boat to Symi Island with Swim Stop at St George’s Bay" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: High-Speed Boat to Symi Island with Swim Stop at St George’s Bay</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Join a high-speed boat adventure to Symi, one of the astonishing islands in the Dodecanese. Departing from Mandraki Harbor, a swift boat ensures you have plenty of time to explore.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: High-Speed Boat to Symi Island with Swim Stop at St George’s Bay" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: High-Speed Boat to Symi Island with Swim Stop at St George’s Bay</div>
+        <div class="tq-card-desc">Join a high-speed boat adventure to Symi, one of the astonishing islands in the Dodecanese. Departing from Mandraki Harbor, a swift boat ensures you have plenty of time to explore.
 
 Along the way, you'll make a pit stop at Saint George’s Bay for a refreshing break. Upon reaching Symi, you'll be greeted by the scenic turquoise fishing harbor, surrounded by colorful neoclassical buildings and church domes.
 
 Once on Symi, get three hours to explore the fishing town at your own pace. Grab a bite at one of the traditional tavernas (cost not included) or take a dip in the clear waters.
 
-As you bid farewell to Symi, admire the coastal beauty while cruising through Saint George’s Bay. Take a swim or relax on deck in the sunshine before heading back to Rhodes.</p>
-          <div class="card-footer">
-            <span class="price">From €59</span>
-            <span class="rating">⭐ 4.1 (12)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-high-speed-boat-to-symi-island-with-a-swim-stop-at-st-georges-bay-p1091536/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As you bid farewell to Symi, admire the coastal beauty while cruising through Saint George’s Bay. Take a swim or relax on deck in the sunshine before heading back to Rhodes.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(12)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€59.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-high-speed-boat-to-symi-island-with-a-swim-stop-at-st-georges-bay-p1091536/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Anthony Quinn Bay & Kallithea Bay: Express Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Anthony Quinn Bay & Kallithea Bay: Express Cruise</h3>
-          <p class="venue">📍 Rhodes Sightseeing Cruises</p>
-          <p>Take an express cruise to Rhodes Island's top spots. Depart from Mandraki Harbor. Take a quick swim at Kallithea Bay and Anthony Quinn Bay, with each stop lasting about 30 minutes. Return to Mandraki Harbor in the afternoon.</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-anthony-quinn-bay-kallithea-bay-express-cruise-p1114793/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES SIGHTSEEING CRUISES</span>
+        </div>
+        <div class="tq-card-title">Anthony Quinn Bay & Kallithea Bay: Express Cruise</div>
+        <div class="tq-card-desc">Take an express cruise to Rhodes Island's top spots. Depart from Mandraki Harbor. Take a quick swim at Kallithea Bay and Anthony Quinn Bay, with each stop lasting about 30 minutes. Return to Mandraki Harbor in the afternoon.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-anthony-quinn-bay-kallithea-bay-express-cruise-p1114793/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Rhodes: East Coast Cruise + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: East Coast Cruise + Lunch</h3>
-          <p class="venue">📍 Rhodes Sightseeing Cruises</p>
-          <p>Set off from Mandraki Harbour and sail along the east coast of Rhodes. First, stop at Anthony Quinn Bay for 30 minutes of swimming. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES SIGHTSEEING CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: East Coast Cruise + Lunch</div>
+        <div class="tq-card-desc">Set off from Mandraki Harbour and sail along the east coast of Rhodes. First, stop at Anthony Quinn Bay for 30 minutes of swimming. 
 
-Continue to Tsampika Beach for a 90-minute break. On the return trip, stop at Afandou Bay for 30 minutes. The final stop is at Kalithea Bay for another 30 minutes and return to Mandraki Harbour by late afternoon.</p>
-          <div class="card-footer">
-            <span class="price">From €60</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-east-coast-cruise-lunch-p1114792/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Continue to Tsampika Beach for a 90-minute break. On the return trip, stop at Afandou Bay for 30 minutes. The final stop is at Kalithea Bay for another 30 minutes and return to Mandraki Harbour by late afternoon.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-east-coast-cruise-lunch-p1114792/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Kallithea, Afandou Beach & Anthony Quinn Bay Cruise Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: Kallithea, Afandou Beach & Anthony Quinn Bay Cruise Tour</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Prepare for a guided tour from Mandraki Harbor and visit the Kallithea caves for swimming or snorkeling.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Kallithea, Afandou Beach & Anthony Quinn Bay Cruise Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: Kallithea, Afandou Beach & Anthony Quinn Bay Cruise Tour</div>
+        <div class="tq-card-desc">Prepare for a guided tour from Mandraki Harbor and visit the Kallithea caves for swimming or snorkeling.
 
 Enjoy an hour of swimming in the calm water at Afandou Beach.
 
-End the trip with an hour of swimming at Anthony Quinn Bay. Relax on the boat with music and refreshments available.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-kallithea-afandou-beach-anthony-quinn-bay-cruise-tour-p1098637/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End the trip with an hour of swimming at Anthony Quinn Bay. Relax on the boat with music and refreshments available.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-kallithea-afandou-beach-anthony-quinn-bay-cruise-tour-p1098637/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Anthony Quinn Bay, Afandou Beach & Kallithea Caves: Cruise from Rhodes + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Anthony Quinn Bay, Afandou Beach & Kallithea Caves: Cruise from Rhodes + Lunch</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Cruise around Rhodes Island and visit the Kallithea Caves, where you can enjoy swimming in the clear waters. Next, head to Afandou Beach and relax on the sandy beaches while taking in scenic views of the coastline. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Anthony Quinn Bay, Afandou Beach & Kallithea Caves: Cruise from Rhodes + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Anthony Quinn Bay, Afandou Beach & Kallithea Caves: Cruise from Rhodes + Lunch</div>
+        <div class="tq-card-desc">Cruise around Rhodes Island and visit the Kallithea Caves, where you can enjoy swimming in the clear waters. Next, head to Afandou Beach and relax on the sandy beaches while taking in scenic views of the coastline. 
 
-Enjoy a complimentary buffet lunch onboard and set out to explore Anthony Quinn Bay for more swimming and snorkeling. Listen to lively music and benefit from other facilities onboard, such as two spacious decks for lounging and a bar with drinks at half price.</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐ 4 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-anthony-quinn-bay-afandou-beach-kallithea-caves-cruise-from-rhodes-lunch-p1095529/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a complimentary buffet lunch onboard and set out to explore Anthony Quinn Bay for more swimming and snorkeling. Listen to lively music and benefit from other facilities onboard, such as two spacious decks for lounging and a bar with drinks at half price.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-anthony-quinn-bay-afandou-beach-kallithea-caves-cruise-from-rhodes-lunch-p1095529/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Cruise with Swimming Stops & Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: Cruise with Swimming Stops & Lunch</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Start your trip from Lindos and explore Rhodes' southeast shoreline, stopping at landmarks like the Kamares Pirate Caves and Agathi Beach. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Cruise with Swimming Stops & Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: Cruise with Swimming Stops & Lunch</div>
+        <div class="tq-card-desc">Start your trip from Lindos and explore Rhodes' southeast shoreline, stopping at landmarks like the Kamares Pirate Caves and Agathi Beach. 
 
 Swim in the clear waters of Saint Paul’s Bay and Charaki Bay, and relax on the beaches at Kamares Pirate Caves, Agathi Beach, and Navarone Bay in Lindos.
 
-Take a break from the sun on the lower deck, where you can relax in the shade or have a delicious traditional Greek lunch.</p>
-          <div class="card-footer">
-            <span class="price">From €65</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-cruise-with-swimming-stops-lunch-p1094222/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take a break from the sun on the lower deck, where you can relax in the shade or have a delicious traditional Greek lunch.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€65.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-cruise-with-swimming-stops-lunch-p1094222/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Boat Cruise + Snorkeling + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: Boat Cruise + Snorkeling + Lunch</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Begin your trip from Anthony Quinn's Bay, known for its emerald waters and lush greenery.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Boat Cruise + Snorkeling + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: Boat Cruise + Snorkeling + Lunch</div>
+        <div class="tq-card-desc">Begin your trip from Anthony Quinn's Bay, known for its emerald waters and lush greenery.
 
 Swim and snorkel in the sea or just relax on the spacious sundeck onboard. Capture amazing photos and make memories as you enjoy the journey.
 
-Next, visit Fun Island-Ladiko for water activities and end your trip at the Kallithea Thermal Springs, where you can enjoy a traditional Greek lunch with fresh salads, fruits, and drinks.</p>
-          <div class="card-footer">
-            <span class="price">From €65</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-boat-cruise-snorkeling-lunch-p1093074/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, visit Fun Island-Ladiko for water activities and end your trip at the Kallithea Thermal Springs, where you can enjoy a traditional Greek lunch with fresh salads, fruits, and drinks.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€65.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-boat-cruise-snorkeling-lunch-p1093074/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1dd6b409fbb24b839a539980a2575a57.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Nighttime Old Town E-bike Gastro Tour + Drink & Greek Meze" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: Nighttime Old Town E-bike Gastro Tour + Drink & Greek Meze</h3>
-          <p class="venue">📍 Rhodes Bike Tours</p>
-          <p>Prepare for the Rhodes Old Town night e-bike tour, a unique evening adventure through this ancient city. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1dd6b409fbb24b839a539980a2575a57.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Nighttime Old Town E-bike Gastro Tour + Drink & Greek Meze" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES BIKE TOURS</span>
+        </div>
+        <div class="tq-card-title">Rhodes: Nighttime Old Town E-bike Gastro Tour + Drink & Greek Meze</div>
+        <div class="tq-card-desc">Prepare for the Rhodes Old Town night e-bike tour, a unique evening adventure through this ancient city. 
 
 Ride through Rhodes's cobblestone streets and ancient walls illuminated by moonlight.
 
-Explore hidden gems and enjoy a drink paired with traditional Greek meze for an authentic experience.</p>
-          <div class="card-footer">
-            <span class="price">From €48</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-nighttime-old-town-ebike-gastro-tour-drink-greek-meze-p1093069/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore hidden gems and enjoy a drink paired with traditional Greek meze for an authentic experience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€48.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-nighttime-old-town-ebike-gastro-tour-drink-greek-meze-p1093069/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Rhodes: Guided E-bike Photo Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: Guided E-bike Photo Tour</h3>
-          <p class="venue">📍 Rhodes Bike Tours</p>
-          <p>Prepare for an e-bike sightseeing tour through Rhodes's old town's beauty and enjoy an amazing sunset. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES BIKE TOURS</span>
+        </div>
+        <div class="tq-card-title">Rhodes: Guided E-bike Photo Tour</div>
+        <div class="tq-card-desc">Prepare for an e-bike sightseeing tour through Rhodes's old town's beauty and enjoy an amazing sunset. 
 
 Explore Rhodes' famous attractions with frequent stops for photos and insightful information from local guides.
 
 Start your adventure in Rhodes city center near Mandraki port and ride along the medieval walls, passing Liberty Gate and Sea Gate.
 
-Visit the narrow streets of the old town, discovering landmarks like Knights' Street, the Grand Master's Palace, Suleyman mosque, and the Clocktower.</p>
-          <div class="card-footer">
-            <span class="price">From €39</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-guided-e-bike-photo-tour-p1093035/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit the narrow streets of the old town, discovering landmarks like Knights' Street, the Grand Master's Palace, Suleyman mosque, and the Clocktower.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-guided-e-bike-photo-tour-p1093035/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1dd6b409fbb24b839a539980a2575a57.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kallithea Springs: E-bike Tour from Rhodes + Snorkeling" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Kallithea Springs: E-bike Tour from Rhodes + Snorkeling</h3>
-          <p class="venue">📍 Rhodes Bike Tours</p>
-          <p>Join the e-bike and snorkeling tour along the beautiful coastline to have an adventurous day in Rhodes.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1dd6b409fbb24b839a539980a2575a57.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kallithea Springs: E-bike Tour from Rhodes + Snorkeling" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES BIKE TOURS</span>
+        </div>
+        <div class="tq-card-title">Kallithea Springs: E-bike Tour from Rhodes + Snorkeling</div>
+        <div class="tq-card-desc">Join the e-bike and snorkeling tour along the beautiful coastline to have an adventurous day in Rhodes.
 
-Cover 40 km on an e-bike, enjoying the breeze as you ride and explore nature. Swim and snorkel in the clear waters of the Kallithea Bay.</p>
-          <div class="card-footer">
-            <span class="price">From €65</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kallithea-springs-e-bike-tour-from-rhodes-snorkeling-p1092943/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Cover 40 km on an e-bike, enjoying the breeze as you ride and explore nature. Swim and snorkel in the clear waters of the Kallithea Bay.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€65.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kallithea-springs-e-bike-tour-from-rhodes-snorkeling-p1092943/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Power Catamaran Day Cruise with Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: Power Catamaran Day Cruise with Lunch</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Choose your catamaran and discover 3 or 4 swimming spots, each offering around an hour to explore. Visit these locations by swimming from the boat, as the shoreline is not directly accessible.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Power Catamaran Day Cruise with Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: Power Catamaran Day Cruise with Lunch</div>
+        <div class="tq-card-desc">Choose your catamaran and discover 3 or 4 swimming spots, each offering around an hour to explore. Visit these locations by swimming from the boat, as the shoreline is not directly accessible.
 
 Start your journey at Anthony Quinn Bay, known for its clear waters and as the shooting location for the movie Guns of Navarone.
 
@@ -273,21 +512,32 @@ Explore the Afandou Caves next, where you can snorkel alongside cliffs and explo
 
 Enjoy a buffet lunch and refreshing drinks throughout the tour, with homemade Mediterranean cuisine and fresh fruits prepared by the crew.
 
-End your trip at Kalithea Bay, famous for the Cave of Kalithea.</p>
-          <div class="card-footer">
-            <span class="price">From €105</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-power-catamaran-day-cruise-with-lunch-p1092403/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End your trip at Kalithea Bay, famous for the Cave of Kalithea.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€105.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-power-catamaran-day-cruise-with-lunch-p1092403/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Catamaran Day Cruise with Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: Catamaran Day Cruise with Lunch</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Sail from Mandraki Harbor and explore the beautiful East Coast beaches of Rhodes on this 6-hour cruise. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Catamaran Day Cruise with Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: Catamaran Day Cruise with Lunch</div>
+        <div class="tq-card-desc">Sail from Mandraki Harbor and explore the beautiful East Coast beaches of Rhodes on this 6-hour cruise. 
 
 Visit 3 or 4 great swimming spots, depending on the vessel chosen. At each location, the ship will anchor for an hour, giving you time to swim or snorkel in the clear waters.
 
@@ -295,192 +545,306 @@ Reach Anthony Quinn Bay, known for its role in the film Guns of Navarone, and sw
 
 Relax at Ladiko Bay with its calm, clear waters, and see the famous Cave of Kalithea in Kalithea Bay. 
 
-Enjoy a delicious lunch buffet with drinks included and taste the exquisite Mediterranean cuisine and fresh fruits prepared by the crew.</p>
-          <div class="card-footer">
-            <span class="price">From €105</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-catamaran-day-cruise-with-lunch-p1092401/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a delicious lunch buffet with drinks included and taste the exquisite Mediterranean cuisine and fresh fruits prepared by the crew.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€105.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-catamaran-day-cruise-with-lunch-p1092401/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: All-Inclusive Day Catamaran Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: All-Inclusive Day Catamaran Cruise</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Set sail on a 6-hour cruise from Mandraki Harbor along Rhodes' east coast beaches. Explore 3 or 4 attractive swimming spots, each offering an hour to enjoy.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: All-Inclusive Day Catamaran Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: All-Inclusive Day Catamaran Cruise</div>
+        <div class="tq-card-desc">Set sail on a 6-hour cruise from Mandraki Harbor along Rhodes' east coast beaches. Explore 3 or 4 attractive swimming spots, each offering an hour to enjoy.
 
 First, dive into Anthony Quinn Bay, known for its crystal-clear waters and vibrant marine life. Next, explore the mysteries of the Afandou Caves and snorkel along dramatic cliffs. Then, relax at Ladiko Bay, known for its shallow, calm waters. Lastly, visit Kalithea Bay and explore the Cave of Kalithea.
 
-Enjoy a lavish lunch buffet onboard with Mediterranean delicacies, fresh fruits, and complimentary drinks, meticulously prepared by the diligent crew.</p>
-          <div class="card-footer">
-            <span class="price">From €105</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-all-inclusive-day-catamaran-cruise-p1092188/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a lavish lunch buffet onboard with Mediterranean delicacies, fresh fruits, and complimentary drinks, meticulously prepared by the diligent crew.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€105.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-all-inclusive-day-catamaran-cruise-p1092188/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: All-Inclusive Sunset Catamaran Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: All-Inclusive Sunset Catamaran Cruise</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Join a sunset cruise from Mandraki Harbor to Kalithea Springs. Swim, snorkel, and see marine life up close. Watch the stunning Aegean sunset and return to Mandraki port.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: All-Inclusive Sunset Catamaran Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: All-Inclusive Sunset Catamaran Cruise</div>
+        <div class="tq-card-desc">Join a sunset cruise from Mandraki Harbor to Kalithea Springs. Swim, snorkel, and see marine life up close. Watch the stunning Aegean sunset and return to Mandraki port.
 
-Enjoy the sea breeze and moonlight. Relax under the stars and savor a Mediterranean lunch buffet prepared by the crew. Feast on grilled chicken, noodles, Greek salad, and more. Unlimited drinks are included!</p>
-          <div class="card-footer">
-            <span class="price">From €60</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-all-inclusive-sunset-catamara-cruise-p1092187/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy the sea breeze and moonlight. Relax under the stars and savor a Mediterranean lunch buffet prepared by the crew. Feast on grilled chicken, noodles, Greek salad, and more. Unlimited drinks are included!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-all-inclusive-sunset-catamara-cruise-p1092187/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: 45' Yellow Semi-Submarine City Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: 45' Yellow Semi-Submarine City Cruise</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Set sail for a 45-minute cruise on the Aphrodite Explorer from Mandraki Harbour. Pass by the windmills of Rhodes and admire the views of the Yacht Harbour and Medieval Old Town.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: 45' Yellow Semi-Submarine City Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: 45' Yellow Semi-Submarine City Cruise</div>
+        <div class="tq-card-desc">Set sail for a 45-minute cruise on the Aphrodite Explorer from Mandraki Harbour. Pass by the windmills of Rhodes and admire the views of the Yacht Harbour and Medieval Old Town.
 
 As the boat heads toward the Aquarium of Rhodes and Elli Beach, watch an underwater show from the air-conditioned cabin. The cabin's large windows provide a 360° view of the Aegean Sea.
 
-The Aphrodite Explorer is a semi-submarine, staying above sea level while its underwater observatory offers a glimpse 2.5 meters below.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-45-yellow-semi-submarine-city-cruise-p1091675/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Aphrodite Explorer is a semi-submarine, staying above sea level while its underwater observatory offers a glimpse 2.5 meters below.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-45-yellow-semi-submarine-city-cruise-p1091675/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Sunset Cruise with Greek BBQ and Unlimited Drinks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: Sunset Cruise with Greek BBQ and Unlimited Drinks</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Begin your sunset cruise journey from Mandraki Harbour and reach Kalithea Springs. Swim in clear waters or relax on the boat and look at the scenic views.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Sunset Cruise with Greek BBQ and Unlimited Drinks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: Sunset Cruise with Greek BBQ and Unlimited Drinks</div>
+        <div class="tq-card-desc">Begin your sunset cruise journey from Mandraki Harbour and reach Kalithea Springs. Swim in clear waters or relax on the boat and look at the scenic views.
 
 Have a delicious Greek BBQ while watching the sunset and enjoy unlimited drinks from the open bar, including cocktails, beer, wine, and soft drinks.
 
-End your tour post sunset and return back to Mandraki Harbour.</p>
-          <div class="card-footer">
-            <span class="price">From €55</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-sunset-cruise-with-greek-bbq-and-unlimited-drinks-p1091674/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End your tour post sunset and return back to Mandraki Harbour.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-sunset-cruise-with-greek-bbq-and-unlimited-drinks-p1091674/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Wind All-Inclusive Sunset Cruise on a Sailing Catamaran" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: Wind All-Inclusive Sunset Cruise on a Sailing Catamaran</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Experience the calm beauty of a moonlit cruise as you sail from the Mandraki Harbor at sunset.  
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Wind All-Inclusive Sunset Cruise on a Sailing Catamaran" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: Wind All-Inclusive Sunset Cruise on a Sailing Catamaran</div>
+        <div class="tq-card-desc">Experience the calm beauty of a moonlit cruise as you sail from the Mandraki Harbor at sunset.  
 
-End your day with a romantic dinner on board, complete with drinks. Sail along the Rhodes east coast, taking in the stunning colors of the Aegean sunset. Return to Mandraki Harbor, ending your peaceful and beautiful evening.</p>
-          <div class="card-footer">
-            <span class="price">From €120</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-wind-all-inclusive-sunset-cruise-on-a-sailing-catamaran-p1091616/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End your day with a romantic dinner on board, complete with drinks. Sail along the Rhodes east coast, taking in the stunning colors of the Aegean sunset. Return to Mandraki Harbor, ending your peaceful and beautiful evening.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€120.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-wind-all-inclusive-sunset-cruise-on-a-sailing-catamaran-p1091616/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Rhodes: All-Inclusive Sunset Cruise on Power Catamaran "Boss"" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: All-Inclusive Sunset Cruise on Power Catamaran "Boss"</h3>
-          <p class="venue">📍 Rhodes Sightseeing Cruises</p>
-          <p>Embark on a twilight journey on a sailing or power catamaran from Mandraki Harbor to Kalithea Springs. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES SIGHTSEEING CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: All-Inclusive Sunset Cruise on Power Catamaran "Boss"</div>
+        <div class="tq-card-desc">Embark on a twilight journey on a sailing or power catamaran from Mandraki Harbor to Kalithea Springs. 
 
 Dive or snorkel in crystal-clear waters with vibrant marine life. Enjoy a starlit dinner with drinks onboard. 
 
-Marvel at Rhodes' east coast vistas and the beautiful Aegean sunset on your way back.</p>
-          <div class="card-footer">
-            <span class="price">From €60</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-all-inclusive-sunset-cruise-on-power-catamaran-boss-p1091596/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Marvel at Rhodes' east coast vistas and the beautiful Aegean sunset on your way back.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-all-inclusive-sunset-cruise-on-power-catamaran-boss-p1091596/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: High-Speed Boat to Lindos" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: High-Speed Boat to Lindos</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Head to the beautiful town of Lindos, just a short distance from Rhodes town. Either spend four hours exploring the beauty of the town (available on Wednesdays & Saturdays) or split your time to explore Lindos for three hours and enjoy a half-hour refreshing dip in Tsambika Bay (available on Mondays & Thursdays).
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: High-Speed Boat to Lindos" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: High-Speed Boat to Lindos</div>
+        <div class="tq-card-desc">Head to the beautiful town of Lindos, just a short distance from Rhodes town. Either spend four hours exploring the beauty of the town (available on Wednesdays & Saturdays) or split your time to explore Lindos for three hours and enjoy a half-hour refreshing dip in Tsambika Bay (available on Mondays & Thursdays).
 
 Start your trip at Mandraki Harbor, where you'll set sail along the lovely east coast, passing the legendary site of the Colossus of Rhodes.
 
 Upon reaching Lindo's harbor, choose between a donkey ride or a scenic walk to the Acropolis. Admire the scenic views from the top before descending into the village of Lindos, with its shaded streets and whitewashed buildings.
 
-Finally, relax on the golden sandy beaches, take a dip in the crystal-clear water, drink a cold beer at a beach bar, and admire the ancient wonders of humanity.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 3 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-high-speed-boat-to-lindos-p1091532/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finally, relax on the golden sandy beaches, take a dip in the crystal-clear water, drink a cold beer at a beach bar, and admire the ancient wonders of humanity.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-high-speed-boat-to-lindos-p1091532/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Full-Day Trip + Lunch & Drinks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: Full-Day Trip + Lunch & Drinks</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Depart from Marina Mandraki at 10:00 and sail to Antony Quinn Bay. Have fun with a 45-minute swimming and snorkeling session in the crystal-clear waters. Ice-cold beer and wine are available onboard for a refreshing breather from the summer heat.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Full-Day Trip + Lunch & Drinks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: Full-Day Trip + Lunch & Drinks</div>
+        <div class="tq-card-desc">Depart from Marina Mandraki at 10:00 and sail to Antony Quinn Bay. Have fun with a 45-minute swimming and snorkeling session in the crystal-clear waters. Ice-cold beer and wine are available onboard for a refreshing breather from the summer heat.
 
 After that, the boat will head to Traounou Beach for a buffet-style Greek lunch. Take a quick dip in the water if you need to cool off before eating.
 
-The last stop is Kallithea Springs, a charming bay perfect for snorkeling. Spend 40 minutes exploring before returning to Marina Mandraki.</p>
-          <div class="card-footer">
-            <span class="price">From €80</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-full-day-trip-lunch-drinks-p1088096/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The last stop is Kallithea Springs, a charming bay perfect for snorkeling. Spend 40 minutes exploring before returning to Marina Mandraki.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€80.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-full-day-trip-lunch-drinks-p1088096/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Day Cruise with BBQ Meal + Unlimited Drinks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhodes: Day Cruise with BBQ Meal + Unlimited Drinks</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Set sail on the Aphrodite Duchess for a fun-filled adventure on Rhodes Island. The spacious boat, equipped with sunbeds, provides plenty of room for lazing around under the sun, swimming in the azure waters, or exploring the underwater world with a snorkel.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhodes: Day Cruise with BBQ Meal + Unlimited Drinks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rhodes: Day Cruise with BBQ Meal + Unlimited Drinks</div>
+        <div class="tq-card-desc">Set sail on the Aphrodite Duchess for a fun-filled adventure on Rhodes Island. The spacious boat, equipped with sunbeds, provides plenty of room for lazing around under the sun, swimming in the azure waters, or exploring the underwater world with a snorkel.
 
 Start your day with delightful donuts and refreshing iced frappe coffee. 'Hot dog hour' offers a hearty brunch, followed by a traditional Greek BBQ buffet for lunch.
 
 The voyage includes stops at Kallithea Springs and Traganou Caves, showcasing Rhodes' natural beauty. The final destination, Anthony Quinn Bay, is a snorkeler's paradise with vibrant marine life.
 
-Wrap up the day with a return to Mandraki Harbour. The open bar, featuring unlimited iced frappe coffee, beer, white wine, and soft drinks, ensures high spirits throughout the tour.</p>
-          <div class="card-footer">
-            <span class="price">From €85</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-day-cruise-with-bbq-meal-unlimited-drinks-p1088017/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Wrap up the day with a return to Mandraki Harbour. The open bar, featuring unlimited iced frappe coffee, beer, white wine, and soft drinks, ensures high spirits throughout the tour.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€85.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhodes-day-cruise-with-bbq-meal-unlimited-drinks-p1088017/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Saint Paul's Bay, Lindos & Navarone Bay: Hippo Submarine Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Saint Paul's Bay, Lindos & Navarone Bay: Hippo Submarine Tour</h3>
-          <p class="venue">📍 Rhodes Cruises</p>
-          <p>Why ride a boat when you can board *The Hippo Submarine*? On this aquatic excursion to Saint Paul's Bay, Lindos, and Navarone Bay, you'll have access to all levels of your unique vessel, including an underwater viewing area that's perfect for catching life on the seabed.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d5a2f10f86b142a2923b98fa2f7e5049.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Saint Paul's Bay, Lindos & Navarone Bay: Hippo Submarine Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RHODES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHODES CRUISES</span>
+        </div>
+        <div class="tq-card-title">Saint Paul's Bay, Lindos & Navarone Bay: Hippo Submarine Tour</div>
+        <div class="tq-card-desc">Why ride a boat when you can board *The Hippo Submarine*? On this aquatic excursion to Saint Paul's Bay, Lindos, and Navarone Bay, you'll have access to all levels of your unique vessel, including an underwater viewing area that's perfect for catching life on the seabed.
 
-After exploring beautiful spots like St Paul's Bay and Lion’s Head Cove – with opportunities for fish feeding – you'll stop for a swim in the crystal-clear waters at Navarone Bay. A memorable adventure is guaranteed aboard the Hippo Submarine!</p>
-          <div class="card-footer">
-            <span class="price">From €39</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-3-hour-adventure-with-hippo-submarine-in-vlicha-lindos-and-navarone-bay-p1015538/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After exploring beautiful spots like St Paul's Bay and Lion’s Head Cove – with opportunities for fish feeding – you'll stop for a swim in the crystal-clear waters at Navarone Bay. A memorable adventure is guaranteed aboard the Hippo Submarine!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-3-hour-adventure-with-hippo-submarine-in-vlicha-lindos-and-navarone-bay-p1015538/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

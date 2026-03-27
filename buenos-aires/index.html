@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Buenos Aires | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Buenos Aires. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,513 +131,854 @@
     <p>31 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5dbca1304d8a459db3a7a3382a85ae4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Hop-on Hop-off Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Buenos Aires: Hop-on Hop-off Bus Tour</h3>
-          <p class="venue">📍 Buenos Aires Hop-on Hop-off Bus</p>
-          <p>Discover Buenos Aires in a whole new way! Hop on the vibrant tourist bus and explore every corner of this bustling city with ease.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5dbca1304d8a459db3a7a3382a85ae4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Hop-on Hop-off Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BUENOS AIRES HOP-ON HOP-OFF BUS</span>
+        </div>
+        <div class="tq-card-title">Buenos Aires: Hop-on Hop-off Bus Tour</div>
+        <div class="tq-card-desc">Discover Buenos Aires in a whole new way! Hop on the vibrant tourist bus and explore every corner of this bustling city with ease.
 
 The tour includes an audio guide to help you uncover the secrets of Buenos Aires. From traditional neighborhoods like La Boca, San Telmo, and Puerto Madero to modern locales like Palermo and Belgrano, there's something for everyone.
 
-Starting in the city center, you'll see iconic buildings, historical sites, cultural spaces, and diverse neighborhoods. The bus makes designated stops so you can easily connect with other activities and attractions along the way.</p>
-          <div class="card-footer">
-            <span class="price">From €33.63</span>
-            <span class="rating">⭐ 4.4 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-hop-on-hop-off-bus-tour-p1092609/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Starting in the city center, you'll see iconic buildings, historical sites, cultural spaces, and diverse neighborhoods. The bus makes designated stops so you can easily connect with other activities and attractions along the way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.63</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-hop-on-hop-off-bus-tour-p1092609/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d570cd08887f44cbbd25e8c6bdd564e4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palacio Barolo: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palacio Barolo: Guided Tour</h3>
-          <p class="venue">📍 Palacio Barolo</p>
-          <p>The Barolo Palace is a work of pure love! Imaginative architect Mario Palanti's symbolic references to Dante Alighieri's poem the _Divine Comedy_ make this structure truly unique. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d570cd08887f44cbbd25e8c6bdd564e4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palacio Barolo: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALACIO BAROLO</span>
+        </div>
+        <div class="tq-card-title">Palacio Barolo: Guided Tour</div>
+        <div class="tq-card-desc">The Barolo Palace is a work of pure love! Imaginative architect Mario Palanti's symbolic references to Dante Alighieri's poem the _Divine Comedy_ make this structure truly unique. 
 
 Blending neo-Romanesque and neo-Gothic elements with a Hindu-designed dome, guests are reminded of the tantric union between the protagonists, Dante and Beatrice, and the three distinct realms of the _Comedy_. 
 
-At night, the lighthouse flickers into action, giving you great city views of exotic facades from up high.</p>
-          <div class="card-footer">
-            <span class="price">From €47.42</span>
-            <span class="rating">⭐ 4.5 (15)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-barolo-palace-guided-tour-p996056/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+At night, the lighthouse flickers into action, giving you great city views of exotic facades from up high.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(15)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-barolo-palace-guided-tour-p996056/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/afa9ba0ceaf24800bed9b33676cbb88b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Señor Tango Show" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Señor Tango Show</h3>
-          <p class="venue">📍 Señor Tango</p>
-          <p>Don't cry for me Argentina, the truth is, there's loads to be happy about at Señor Tango! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/afa9ba0ceaf24800bed9b33676cbb88b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Señor Tango Show" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEÑOR TANGO</span>
+        </div>
+        <div class="tq-card-title">Señor Tango Show</div>
+        <div class="tq-card-desc">Don't cry for me Argentina, the truth is, there's loads to be happy about at Señor Tango! 
 
 Enter one of the oldest _tanguerias_ in the tango scene, where a mash-up of talent with dazzling dancers and toe-tapping musicians combine with visual effects to wow spectators! This is tango like you've never seen it before.
 
-There's also the option to add dinner, so if you want to combine dinner and a show in Buenos Aires for a truly special occasion, you're in luck!</p>
-          <div class="card-footer">
-            <span class="price">From €54.32</span>
-            <span class="rating">⭐ 4.8 (33)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-senor-tango-show-with-optional-dinner-p1014810/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There's also the option to add dinner, so if you want to combine dinner and a show in Buenos Aires for a truly special occasion, you're in luck!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(33)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€54.32</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-senor-tango-show-with-optional-dinner-p1014810/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/65f5e769253a4bf2ba9e82c5e396df68.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="River Plate Stadium & Museum Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>River Plate Stadium & Museum Tour</h3>
-          <p class="venue">📍 Estadio Monumental Antonio Vespucio Liberti</p>
-          <p>Few football teams in South America are as decorated as Club Atlético River Plate, and their cauldron-like El Monumental stadium has been the venue for many of the club's most famous nights.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/65f5e769253a4bf2ba9e82c5e396df68.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="River Plate Stadium & Museum Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ESTADIO MONUMENTAL ANTONIO VESPUCIO LIBERTI</span>
+        </div>
+        <div class="tq-card-title">River Plate Stadium & Museum Tour</div>
+        <div class="tq-card-desc">Few football teams in South America are as decorated as Club Atlético River Plate, and their cauldron-like El Monumental stadium has been the venue for many of the club's most famous nights.
 
-A behind-the-scenes tour of the Buenos Aires club's fascinating old home is a must for ground-hopping football hipsters or even the most casual of sports fans.</p>
-          <div class="card-footer">
-            <span class="price">From €41.39</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-river-plate-stadium-p979165/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+A behind-the-scenes tour of the Buenos Aires club's fascinating old home is a must for ground-hopping football hipsters or even the most casual of sports fans.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€41.39</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-river-plate-stadium-p979165/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/65b3b561336a4d7bbf9e1158477b8444.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tango Show at Café de los Angelitos" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tango Show at Café de los Angelitos</h3>
-          <p class="venue">📍 Café de los Angelitos</p>
-          <p>Tango started in the suburbs around Buenos Aires, but the Café de los Angelitos exalted the dance into an art form and helped propel musicians to acclaim as they added their own flair to the sound.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/65b3b561336a4d7bbf9e1158477b8444.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tango Show at Café de los Angelitos" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAFÉ DE LOS ANGELITOS</span>
+        </div>
+        <div class="tq-card-title">Tango Show at Café de los Angelitos</div>
+        <div class="tq-card-desc">Tango started in the suburbs around Buenos Aires, but the Café de los Angelitos exalted the dance into an art form and helped propel musicians to acclaim as they added their own flair to the sound.
 
-Operating since 1890, the venue is famed for its contributions to dance, and now you can revel in the talent of the artists who take to the stage. Along with the show, you'll enjoy a delicious three-course meal and a glass of wine.</p>
-          <div class="card-footer">
-            <span class="price">From €99.16</span>
-            <span class="rating">⭐ 4.9 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tango-show-at-cafe-de-los-angelitos-p990842/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Operating since 1890, the venue is famed for its contributions to dance, and now you can revel in the talent of the artists who take to the stage. Along with the show, you'll enjoy a delicious three-course meal and a glass of wine.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€99.16</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tango-show-at-cafe-de-los-angelitos-p990842/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d8986a1ad0ac4f339bb6b778e2bb7297.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tango Show at El Querandí" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tango Show at El Querandí</h3>
-          <p class="venue">📍 El Querandí</p>
-          <p>Get transported through time on a moving journey to the roots of Argentina's iconic dance with this ticket for a tango show at El Querandí. Located in a beautifully restored 1920s mansion in the historic heart of Buenos Aires, the intimate ambiance of the place provides the perfect atmosphere for the romantic tale of tango to be told.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d8986a1ad0ac4f339bb6b778e2bb7297.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tango Show at El Querandí" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EL QUERANDÍ</span>
+        </div>
+        <div class="tq-card-title">Tango Show at El Querandí</div>
+        <div class="tq-card-desc">Get transported through time on a moving journey to the roots of Argentina's iconic dance with this ticket for a tango show at El Querandí. Located in a beautifully restored 1920s mansion in the historic heart of Buenos Aires, the intimate ambiance of the place provides the perfect atmosphere for the romantic tale of tango to be told.
 
-Dazzling dancers, sultry singers, and world-class musicians will enrapture you, as you tuck into a three-course dinner of classic Argentine cuisine.</p>
-          <div class="card-footer">
-            <span class="price">From €50.01</span>
-            <span class="rating">⭐ 4 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tango-show-at-el-querandi-p986651/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Dazzling dancers, sultry singers, and world-class musicians will enrapture you, as you tuck into a three-course dinner of classic Argentine cuisine.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.01</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tango-show-at-el-querandi-p986651/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7a9eb66ce44946e18bc5f767983146e4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tango Show at El Viejo Almacén" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tango Show at El Viejo Almacén</h3>
-          <p class="venue">📍 El Viejo Almacén</p>
-          <p>Looking for a place to have the last tango? The popular El Viejo Almacén in Buenos Aires welcomes you into a cozy, warm, and traditional tavern for a night of top-notch tango-infused entertainment. This historic building has been used as a tango house since 1969.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7a9eb66ce44946e18bc5f767983146e4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tango Show at El Viejo Almacén" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EL VIEJO ALMACÉN</span>
+        </div>
+        <div class="tq-card-title">Tango Show at El Viejo Almacén</div>
+        <div class="tq-card-desc">Looking for a place to have the last tango? The popular El Viejo Almacén in Buenos Aires welcomes you into a cozy, warm, and traditional tavern for a night of top-notch tango-infused entertainment. This historic building has been used as a tango house since 1969.
 
-Start with a delicious three-course meal before crossing to the theatre for a line-up of professional dancers and toe-tapping live music. You can even save the last dance for the transfer bus home!</p>
-          <div class="card-footer">
-            <span class="price">From €62.94</span>
-            <span class="rating">⭐ 4.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tango-show-at-el-viejo-almacen-p986190/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Start with a delicious three-course meal before crossing to the theatre for a line-up of professional dancers and toe-tapping live music. You can even save the last dance for the transfer bus home!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€62.94</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tango-show-at-el-viejo-almacen-p986190/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ab077d89eb5a4ffa80b4b5b1f2834d35.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: MALBA Museum & Teatro Colón + City Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Buenos Aires: MALBA Museum & Teatro Colón + City Walking Tour</h3>
-          <p class="venue">📍 Museo de Arte Latinoamericano de Buenos Aires - MALBA</p>
-          <p>Take a whistle-stop tour of some of Buenos Aires's greatest artistic and architectural achievements. Your tour shows off the lesser-seen parts of the San Telmo and Puerto Madero districts, with stops at Plaza de Mayo and the Obelisco.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ab077d89eb5a4ffa80b4b5b1f2834d35.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: MALBA Museum & Teatro Colón + City Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEO DE ARTE LATINOAMERICANO DE BUENOS AIRES - MALBA</span>
+        </div>
+        <div class="tq-card-title">Buenos Aires: MALBA Museum & Teatro Colón + City Walking Tour</div>
+        <div class="tq-card-desc">Take a whistle-stop tour of some of Buenos Aires's greatest artistic and architectural achievements. Your tour shows off the lesser-seen parts of the San Telmo and Puerto Madero districts, with stops at Plaza de Mayo and the Obelisco.
 
-After seeing these vibrant neighborhoods, it's time to appreciate South America's art scene. You'll see the Teatro Colón stage where eminent operatis have sang, before admiring works of Latin art from 1900-1970 at the MALBA.</p>
-          <div class="card-footer">
-            <span class="price">From €114.68</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-malba-museum-teatro-colon-city-walking-tour-p994707/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After seeing these vibrant neighborhoods, it's time to appreciate South America's art scene. You'll see the Teatro Colón stage where eminent operatis have sang, before admiring works of Latin art from 1900-1970 at the MALBA.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€114.68</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-malba-museum-teatro-colon-city-walking-tour-p994707/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ddf615602d7c472e87e2de644acc87dc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: MALBA Musem & City Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Buenos Aires: MALBA Musem & City Walking Tour</h3>
-          <p class="venue">📍 Museo de Arte Latinoamericano de Buenos Aires - MALBA</p>
-          <p>Spend four hours on a tour of some of Buenos Aires's greatest artistic and architectural achievements. Your tour shows off the lesser-seen parts of the San Telmo and Puerto Madero districts, with stops at Plaza de Mayo and the Obelisco, two of the city's most notable sights.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ddf615602d7c472e87e2de644acc87dc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: MALBA Musem & City Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEO DE ARTE LATINOAMERICANO DE BUENOS AIRES - MALBA</span>
+        </div>
+        <div class="tq-card-title">Buenos Aires: MALBA Musem & City Walking Tour</div>
+        <div class="tq-card-desc">Spend four hours on a tour of some of Buenos Aires's greatest artistic and architectural achievements. Your tour shows off the lesser-seen parts of the San Telmo and Puerto Madero districts, with stops at Plaza de Mayo and the Obelisco, two of the city's most notable sights.
 
-After passing by these neighborhoods, it's time to appreciate South America's art scene. You'll be able to admire works of art from Latin artists between 1900-1970, along with in-depth descriptions of major movements.</p>
-          <div class="card-footer">
-            <span class="price">From €67.25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-malba-musem-and-city-walking-tour-p994706/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After passing by these neighborhoods, it's time to appreciate South America's art scene. You'll be able to admire works of art from Latin artists between 1900-1970, along with in-depth descriptions of major movements.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€67.25</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-malba-musem-and-city-walking-tour-p994706/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce96b5e2257948b48a712c18c98f5b4b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Temaikèn Zoo: Entrance & Transport from Buenos Aires" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Temaikèn Zoo: Entrance & Transport from Buenos Aires</h3>
-          <p class="venue">📍 Temaikèn Zoo</p>
-          <p>Lions, tigers, bears, llamas, hippos – the list goes on! See the stars of the animal kingdom at Temaikèn Zoo, situated just outside Buenos Aires.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ce96b5e2257948b48a712c18c98f5b4b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Temaikèn Zoo: Entrance & Transport from Buenos Aires" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TEMAIKÈN ZOO</span>
+        </div>
+        <div class="tq-card-title">Temaikèn Zoo: Entrance & Transport from Buenos Aires</div>
+        <div class="tq-card-desc">Lions, tigers, bears, llamas, hippos – the list goes on! See the stars of the animal kingdom at Temaikèn Zoo, situated just outside Buenos Aires.
 
-Your guide will pick you up from your hotel in the center of Buenos Aires in the morning, then it's off to the zoo for a whole day of getting up close and personal with animals, plants, and maybe even some curious humans.</p>
-          <div class="card-footer">
-            <span class="price">From €93.98</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-temaiken-zoo-entrance-transport-from-buenos-aires-p979261/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your guide will pick you up from your hotel in the center of Buenos Aires in the morning, then it's off to the zoo for a whole day of getting up close and personal with animals, plants, and maybe even some curious humans.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€93.98</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-temaiken-zoo-entrance-transport-from-buenos-aires-p979261/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0eea0da06e4347798da1c934e830417d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires City Tour with Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Buenos Aires City Tour with Lunch</h3>
-          <p class="venue">📍 Obelisco de Buenos Aires</p>
-          <p>Take a capsule tour that lets you see a lot of Buenos Aires in a short amount of time. This comprehensive part walking, part driving tour is designed to show you the colors, sights, and smells of Buenos Aires, as your guide fills you in on its history. See the must-sees, and eat the must-eats!</p>
-          <div class="card-footer">
-            <span class="price">From €97.43</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-city-tour-with-lunch-p979260/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0eea0da06e4347798da1c934e830417d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires City Tour with Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">OBELISCO DE BUENOS AIRES</span>
+        </div>
+        <div class="tq-card-title">Buenos Aires City Tour with Lunch</div>
+        <div class="tq-card-desc">Take a capsule tour that lets you see a lot of Buenos Aires in a short amount of time. This comprehensive part walking, part driving tour is designed to show you the colors, sights, and smells of Buenos Aires, as your guide fills you in on its history. See the must-sees, and eat the must-eats!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€97.43</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-city-tour-with-lunch-p979260/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/96046df396f94d4fbdf9915c9984a539.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires Pope Francis Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Buenos Aires Pope Francis Tour</h3>
-          <p class="venue">📍 Catedral Metropolitana of Buenos Aires</p>
-          <p>Most popes aren't known to stir the pot, but Pope Francis isn't most popes. Dubbed the 'Pope of the People', this unique Pope prefers to drop the papal pomp and pageantry in favor of a more down-to-Earth approach to being God's messenger. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/96046df396f94d4fbdf9915c9984a539.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires Pope Francis Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CATEDRAL METROPOLITANA OF BUENOS AIRES</span>
+        </div>
+        <div class="tq-card-title">Buenos Aires Pope Francis Tour</div>
+        <div class="tq-card-desc">Most popes aren't known to stir the pot, but Pope Francis isn't most popes. Dubbed the 'Pope of the People', this unique Pope prefers to drop the papal pomp and pageantry in favor of a more down-to-Earth approach to being God's messenger. 
 
-Trace Pope Francis' humble beginnings in his hometown of Buenos Aires. Discover the stories of kindness, charity, and football fandom that marked his early years, and visit the beautiful holy buildings that inspired him to join the church.</p>
-          <div class="card-footer">
-            <span class="price">From €99.16</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-pope-francis-tour-p979259/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Trace Pope Francis' humble beginnings in his hometown of Buenos Aires. Discover the stories of kindness, charity, and football fandom that marked his early years, and visit the beautiful holy buildings that inspired him to join the church.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€99.16</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-pope-francis-tour-p979259/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7bd83639d9d54395b3a1fae2604631cc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Walking Tour & Teatro Colón Visit" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Walking Tour & Teatro Colón Visit</h3>
-          <p class="venue">📍 Teatro Colón</p>
-          <p>Buenos Aires is beautiful, but it can be tricky to find your way around. Join this walking tour of the Argentine capital, and tango your way across town with an expert guide by your side. Beginning at the artsy San Telmo neighborhood, you'll be spirited through charming markets and tree-lined avenues, from old town architecture to the towering modern skyscrapers.</p>
-          <div class="card-footer">
-            <span class="price">From €90.53</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-walking-tour-teatro-colon-visit-p979228/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7bd83639d9d54395b3a1fae2604631cc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Walking Tour & Teatro Colón Visit" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TEATRO COLÓN</span>
+        </div>
+        <div class="tq-card-title">Walking Tour & Teatro Colón Visit</div>
+        <div class="tq-card-desc">Buenos Aires is beautiful, but it can be tricky to find your way around. Join this walking tour of the Argentine capital, and tango your way across town with an expert guide by your side. Beginning at the artsy San Telmo neighborhood, you'll be spirited through charming markets and tree-lined avenues, from old town architecture to the towering modern skyscrapers.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€90.53</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-walking-tour-teatro-colon-visit-p979228/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/474a838409ca47f8829f78c0f8d042a7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Boca Juniors & River Plate Museums: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Boca Juniors & River Plate Museums: Guided Tour</h3>
-          <p class="venue">📍 La Bombonera</p>
-          <p>River Plate and Boca Juniors dominate football in Argentina – between them, the two sides boast over 70 league titles. The battle for supremacy and bragging rights in Buenos Aires is eternal.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/474a838409ca47f8829f78c0f8d042a7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Boca Juniors & River Plate Museums: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LA BOMBONERA</span>
+        </div>
+        <div class="tq-card-title">Boca Juniors & River Plate Museums: Guided Tour</div>
+        <div class="tq-card-desc">River Plate and Boca Juniors dominate football in Argentina – between them, the two sides boast over 70 league titles. The battle for supremacy and bragging rights in Buenos Aires is eternal.
 
-This guided tour of two footballing Meccas, _La Bombonera_ and _El Monumental_, is a journey inside the beating hearts of two world-famous clubs. Learn about their cultures and legendary players, get behind-the-scenes access, and hear stories of glorious triumphs and painful defeats.</p>
-          <div class="card-footer">
-            <span class="price">From €156.06</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-boca-juniors-river-plate-stadiums-guided-tour-p979164/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This guided tour of two footballing Meccas, _La Bombonera_ and _El Monumental_, is a journey inside the beating hearts of two world-famous clubs. Learn about their cultures and legendary players, get behind-the-scenes access, and hear stories of glorious triumphs and painful defeats.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€156.06</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-boca-juniors-river-plate-stadiums-guided-tour-p979164/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/65b3b561336a4d7bbf9e1158477b8444.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Michelangelo Tango Show" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Buenos Aires: Michelangelo Tango Show</h3>
-          <p class="venue">📍 Buenos Aires Tango Shows</p>
-          <p>Attend Michelangelo’s dinner and tango show and taste Argentine cuisine while watching a tango performance. Start with a multi-course dinner that includes steaks, empanadas, and regional wines.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/65b3b561336a4d7bbf9e1158477b8444.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Michelangelo Tango Show" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BUENOS AIRES TANGO SHOWS</span>
+        </div>
+        <div class="tq-card-title">Buenos Aires: Michelangelo Tango Show</div>
+        <div class="tq-card-desc">Attend Michelangelo’s dinner and tango show and taste Argentine cuisine while watching a tango performance. Start with a multi-course dinner that includes steaks, empanadas, and regional wines.
 
-After dinner, the atmosphere shifts to a tango show. Skilled dancers and musicians perform, demonstrating the passion and style of this famous dance. The choreography and storytelling offer a glimpse into the culture of Buenos Aires. Enjoy the mix of food and dance for an evening that showcases Argentine traditions.</p>
-          <div class="card-footer">
-            <span class="price">From €58.63</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-michelangelo-tango-show-p1103387/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After dinner, the atmosphere shifts to a tango show. Skilled dancers and musicians perform, demonstrating the passion and style of this famous dance. The choreography and storytelling offer a glimpse into the culture of Buenos Aires. Enjoy the mix of food and dance for an evening that showcases Argentine traditions.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€58.63</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-michelangelo-tango-show-p1103387/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Telmo Buenos Aires: Guided Walking Tour + El Zanjon de Granados Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>San Telmo Buenos Aires: Guided Walking Tour + El Zanjon de Granados Entry</h3>
-          <p class="venue">📍 Buenos Aires City Tours</p>
-          <p>Join a 3-hour guided tour of El Zanjon de Granados and the San Telmo Market. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Telmo Buenos Aires: Guided Walking Tour + El Zanjon de Granados Entry" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BUENOS AIRES CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">San Telmo Buenos Aires: Guided Walking Tour + El Zanjon de Granados Entry</div>
+        <div class="tq-card-desc">Join a 3-hour guided tour of El Zanjon de Granados and the San Telmo Market. 
 
 Walk through San Telmo to see cobblestone streets and colorful murals and hear tango music. 
 
-See antique shops and local crafts at the San Telmo Market to experience Argentine culture.</p>
-          <div class="card-footer">
-            <span class="price">From €84.5</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-telmo-buenos-aires-guided-walking-tour-el-zanjon-de-granados-entry-p1102727/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See antique shops and local crafts at the San Telmo Market to experience Argentine culture.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€84.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-san-telmo-buenos-aires-guided-walking-tour-el-zanjon-de-granados-entry-p1102727/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Guided Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Buenos Aires: Guided Food Tour</h3>
-          <p class="venue">📍 Buenos Aires City Tours</p>
-          <p>Taste traditional Latin American dishes like Tequeños, Arepas, Patacón, Ceviche, and ice cream, along with natural juice and vermouth. Visit over 6 venues, from street food to full dinners, with a guide. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Guided Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BUENOS AIRES CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Buenos Aires: Guided Food Tour</div>
+        <div class="tq-card-desc">Taste traditional Latin American dishes like Tequeños, Arepas, Patacón, Ceviche, and ice cream, along with natural juice and vermouth. Visit over 6 venues, from street food to full dinners, with a guide. 
 
-Walk through Palermo Soho, known for its fashion and design stores, and see the street art and graffiti in this lively area.</p>
-          <div class="card-footer">
-            <span class="price">From €76.74</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-guided-food-tour-p1102526/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Walk through Palermo Soho, known for its fashion and design stores, and see the street art and graffiti in this lively area.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€76.74</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-guided-food-tour-p1102526/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palermo Buenos Aires: Traditional Argentine Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palermo Buenos Aires: Traditional Argentine Food Tour</h3>
-          <p class="venue">📍 Buenos Aires City Tours</p>
-          <p>Try Argentine cuisine on a tour through Buenos Aires. Sample local dishes and drinks, including wine, empanadas, and ice cream.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palermo Buenos Aires: Traditional Argentine Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BUENOS AIRES CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Palermo Buenos Aires: Traditional Argentine Food Tour</div>
+        <div class="tq-card-desc">Try Argentine cuisine on a tour through Buenos Aires. Sample local dishes and drinks, including wine, empanadas, and ice cream.
 
 Begin with a glass of white wine and a small selection of cheeses. Next, enjoy a glass of Vermouth with soda. Then, taste a traditional Argentine empanada with a Patagonian beer.
 
 Move on to a Choripán, a popular Argentine street food, and try Chimichurri. Pause with a glass of Malbec wine and some cold cuts.
 
-For the main course, savor Argentine barbecue served with fries or salad. End the tour with a visit to an ice cream parlor for a sweet cone.</p>
-          <div class="card-footer">
-            <span class="price">From €64.67</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palermo-buenos-aires-traditional-argentine-food-tour-p1102469/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+For the main course, savor Argentine barbecue served with fries or salad. End the tour with a visit to an ice cream parlor for a sweet cone.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.67</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palermo-buenos-aires-traditional-argentine-food-tour-p1102469/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/65b3b561336a4d7bbf9e1158477b8444.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Tango Show + Dinner + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Buenos Aires: Tango Show + Dinner + Roundtrip Transfer</h3>
-          <p class="venue">📍 Buenos Aires Tango Shows</p>
-          <p>Witness the Rojo Tango show, designed by Philippe Starck, that brings the elegance of early 20th-century French cabarets to life. Enjoy a show at a vibrant venue that serves delicious food and showcases amazing performances with dynamic acts and impressive costumes.</p>
-          <div class="card-footer">
-            <span class="price">From €222.45</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-tango-show-dinner-roundtrip-transfer-p1100640/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/65b3b561336a4d7bbf9e1158477b8444.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Tango Show + Dinner + Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BUENOS AIRES TANGO SHOWS</span>
+        </div>
+        <div class="tq-card-title">Buenos Aires: Tango Show + Dinner + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Witness the Rojo Tango show, designed by Philippe Starck, that brings the elegance of early 20th-century French cabarets to life. Enjoy a show at a vibrant venue that serves delicious food and showcases amazing performances with dynamic acts and impressive costumes.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€222.45</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-tango-show-dinner-roundtrip-transfer-p1100640/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Empanadas Cooking Class" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Buenos Aires: Empanadas Cooking Class</h3>
-          <p class="venue">📍 Cooking Class Buenos Aires</p>
-          <p>Learn how to make Argentina’s classic dish, empanadas, with a hands-on cooking class led by a local host. Choose from meat or vegetarian options and make these popular pastries from scratch. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Empanadas Cooking Class" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COOKING CLASS BUENOS AIRES</span>
+        </div>
+        <div class="tq-card-title">Buenos Aires: Empanadas Cooking Class</div>
+        <div class="tq-card-desc">Learn how to make Argentina’s classic dish, empanadas, with a hands-on cooking class led by a local host. Choose from meat or vegetarian options and make these popular pastries from scratch. 
 
-Enjoy a family-friendly class offering clear instructions to help you master the art of empanada-making. Your host will guide you through each step, sharing techniques and tips for perfecting this traditional dish.</p>
-          <div class="card-footer">
-            <span class="price">From €39.66</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-empanadas-cooking-class-p1100509/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a family-friendly class offering clear instructions to help you master the art of empanada-making. Your host will guide you through each step, sharing techniques and tips for perfecting this traditional dish.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.66</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-empanadas-cooking-class-p1100509/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Small-Group Empanadas Cooking Class & Wine Blending" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Buenos Aires: Small-Group Empanadas Cooking Class & Wine Blending</h3>
-          <p class="venue">📍 Cooking Class Buenos Aires</p>
-          <p>Join an interactive Argentinian cooking class and wine tasting. Learn to make traditional Argentine empanadas from scratch with a local host. These versatile treats are perfect for any meal and can be paired with a selection of wines, including Malbec, Cabernet Sauvignon, and Cabernet Franc. Enjoy a fun and engaging environment while refining your palate and creating delicious blends.</p>
-          <div class="card-footer">
-            <span class="price">From €51.73</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-small-group-empanadas-cooking-class-wine-blending-p1093707/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Small-Group Empanadas Cooking Class & Wine Blending" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COOKING CLASS BUENOS AIRES</span>
+        </div>
+        <div class="tq-card-title">Buenos Aires: Small-Group Empanadas Cooking Class & Wine Blending</div>
+        <div class="tq-card-desc">Join an interactive Argentinian cooking class and wine tasting. Learn to make traditional Argentine empanadas from scratch with a local host. These versatile treats are perfect for any meal and can be paired with a selection of wines, including Malbec, Cabernet Sauvignon, and Cabernet Franc. Enjoy a fun and engaging environment while refining your palate and creating delicious blends.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.73</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-small-group-empanadas-cooking-class-wine-blending-p1093707/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Recoleta Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Buenos Aires: Recoleta Guided Walking Tour</h3>
-          <p class="venue">📍 Buenos Aires City Tours</p>
-          <p>Join a walking tour through Recoleta, the elegant heart of Buenos Aires. As the city's most aristocratic neighborhood, Recoleta sweeps you off your feet with its French-style Belle Époque buildings and lavish facades. Every corner whispers a reminder that you're strolling through the 'Paris of South America.'
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Recoleta Guided Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BUENOS AIRES CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Buenos Aires: Recoleta Guided Walking Tour</div>
+        <div class="tq-card-desc">Join a walking tour through Recoleta, the elegant heart of Buenos Aires. As the city's most aristocratic neighborhood, Recoleta sweeps you off your feet with its French-style Belle Époque buildings and lavish facades. Every corner whispers a reminder that you're strolling through the 'Paris of South America.'
 
-Explore the unique Recoleta Cemetery, unlike any other in the city. Every step is an adventure, creating lasting memories along the way.</p>
-          <div class="card-footer">
-            <span class="price">From €80.19</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-recoleta-guided-walking-tour-p1093706/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore the unique Recoleta Cemetery, unlike any other in the city. Every step is an adventure, creating lasting memories along the way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€80.19</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-recoleta-guided-walking-tour-p1093706/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Plaza de Mayo Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Buenos Aires: Plaza de Mayo Walking Tour</h3>
-          <p class="venue">📍 Buenos Aires City Tours</p>
-          <p>Join a walking tour to explore the iconic Plaza de Mayo and its lively surroundings. This bustling spot in Buenos Aires is famous for hosting major events like the Argentinean Centennial or Bicentennial celebrations. As the birthplace of the nation, it's filled with fascinating stories waiting to be discovered. Join this tour to uncover the rich history of this remarkable place.</p>
-          <div class="card-footer">
-            <span class="price">From €42.25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-plaza-de-mayo-walking-tour-p1093705/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Plaza de Mayo Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BUENOS AIRES CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Buenos Aires: Plaza de Mayo Walking Tour</div>
+        <div class="tq-card-desc">Join a walking tour to explore the iconic Plaza de Mayo and its lively surroundings. This bustling spot in Buenos Aires is famous for hosting major events like the Argentinean Centennial or Bicentennial celebrations. As the birthplace of the nation, it's filled with fascinating stories waiting to be discovered. Join this tour to uncover the rich history of this remarkable place.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.25</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-plaza-de-mayo-walking-tour-p1093705/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Small-Group Empanadas & Alfajores Cooking Class" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Buenos Aires: Small-Group Empanadas & Alfajores Cooking Class</h3>
-          <p class="venue">📍 Cooking Class Buenos Aires</p>
-          <p>Prepare for a family adventure into Argentina's vibrant culture with this cooking class. It's a perfect blend of learning, laughter, and luscious food, where the young and young at heart will enjoy cooking together.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Buenos Aires: Small-Group Empanadas & Alfajores Cooking Class" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COOKING CLASS BUENOS AIRES</span>
+        </div>
+        <div class="tq-card-title">Buenos Aires: Small-Group Empanadas & Alfajores Cooking Class</div>
+        <div class="tq-card-desc">Prepare for a family adventure into Argentina's vibrant culture with this cooking class. It's a perfect blend of learning, laughter, and luscious food, where the young and young at heart will enjoy cooking together.
 
 Under a seasoned local expert in Buenos Aires, you will learn the art of crafting Argentinian empanadas - a culinary staple beloved by all. Whether you're a meat lover or a veggie enthusiast, there's an option for everyone.
 
-The cooking class continues as you whip up Dulce de Leche alfajores, a sweet treat that's sure to make your taste buds dance.</p>
-          <div class="card-footer">
-            <span class="price">From €42.25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-small-group-empanadas-and-alfajores-cooking-class-p1093702/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The cooking class continues as you whip up Dulce de Leche alfajores, a sweet treat that's sure to make your taste buds dance.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.25</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-buenos-aires-small-group-empanadas-and-alfajores-cooking-class-p1093702/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="El Monumental: River Plate Stadium & Museum Tour + Transport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>El Monumental: River Plate Stadium & Museum Tour + Transport</h3>
-          <p class="venue">📍 Estadio Monumental Antonio Vespucio Liberti</p>
-          <p>Discover Argentina's greatest passion: football, as you take an incredible tour of River Plate's famous "El Monumental" stadium and museum. Experience its fascinating history and how it has evolved along with Argentina.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="El Monumental: River Plate Stadium & Museum Tour + Transport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ESTADIO MONUMENTAL ANTONIO VESPUCIO LIBERTI</span>
+        </div>
+        <div class="tq-card-title">El Monumental: River Plate Stadium & Museum Tour + Transport</div>
+        <div class="tq-card-desc">Discover Argentina's greatest passion: football, as you take an incredible tour of River Plate's famous "El Monumental" stadium and museum. Experience its fascinating history and how it has evolved along with Argentina.
 Meet your guide at our office in San Telmo and head to the neighbourhood of Nuñez, where the River Plate stadium awaits you. This historic venue, home of the FIFA World Cup in 1978, has fascinating anecdotes and moments that you will discover along the way. fascinating moments that you will discover along this tour.
-With your guide, explore the stadium and visit the River Plate Museum. Inside, you will learn about its interesting history and culture. Then we will enter this great stadium where you will be able to visit the pitch, take pictures and admire the immensity of the stadium. Once the tour is over, we will return to the same meeting point located in the San Telmo neighbourhood.</p>
-          <div class="card-footer">
-            <span class="price">From €174.17</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-el-monumental-river-plate-stadium-and-museum-tour-and-transport-p1087784/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With your guide, explore the stadium and visit the River Plate Museum. Inside, you will learn about its interesting history and culture. Then we will enter this great stadium where you will be able to visit the pitch, take pictures and admire the immensity of the stadium. Once the tour is over, we will return to the same meeting point located in the San Telmo neighbourhood.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€174.17</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-el-monumental-river-plate-stadium-and-museum-tour-and-transport-p1087784/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/094c9dbc2b38480db6c594ea925c8b6d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="La Bombonera: Boca Juniors Museum Tour with Transport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>La Bombonera: Boca Juniors Museum Tour with Transport</h3>
-          <p class="venue">📍 La Bombonera</p>
-          <p>Discover the Boca Juniors Stadium and its museum on this engaging tour. Learn about the history of one of Argentina's most renowned stadiums and its significant connection to the nation.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/094c9dbc2b38480db6c594ea925c8b6d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="La Bombonera: Boca Juniors Museum Tour with Transport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LA BOMBONERA</span>
+        </div>
+        <div class="tq-card-title">La Bombonera: Boca Juniors Museum Tour with Transport</div>
+        <div class="tq-card-desc">Discover the Boca Juniors Stadium and its museum on this engaging tour. Learn about the history of one of Argentina's most renowned stadiums and its significant connection to the nation.
 
 The adventure kicks off in the heart of Buenos Aires, heading south to the lively neighborhood of La Boca.
 
 Arriving at La Bombonera, the revered ground of Boca Juniors, you'll explore the history of the football club established in 1905. 
 
-The Museo de la Pasión Boquense (Museum of Boca Juniors Passion) provides captivating insights into the club's history and the evolution of its iconic jersey. A visit to the trophy room is the perfect conclusion to the journey, which ends back at the starting point.</p>
-          <div class="card-footer">
-            <span class="price">From €118.99</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-la-bombonera-boca-juniors-museum-tour-with-transport-p1087783/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Museo de la Pasión Boquense (Museum of Boca Juniors Passion) provides captivating insights into the club's history and the evolution of its iconic jersey. A visit to the trophy room is the perfect conclusion to the journey, which ends back at the starting point.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€118.99</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-la-bombonera-boca-juniors-museum-tour-with-transport-p1087783/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gala Tango Show" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Gala Tango Show</h3>
-          <p class="venue">📍 Gala Tango</p>
-          <p>How's a tango show in Buenos Aires' oldest neighborhood for an authentic cultural adventure?
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gala Tango Show" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GALA TANGO</span>
+        </div>
+        <div class="tq-card-title">Gala Tango Show</div>
+        <div class="tq-card-desc">How's a tango show in Buenos Aires' oldest neighborhood for an authentic cultural adventure?
 
 Inside an atmospheric San Telmo dance hall, you'll slip into a comfortable seat for a mesmerizing performance. As the slick and dashing performers go through routines that'll have your heart racing, you'll enjoy VIP table service from the venue staff – add dinner to your ticket for the full experience! 
 
-Book now for a unique night at Gala Tango, one of the most famous venues in Buenos Aires. You can also opt for transport from central Buenos Aires as part of your ticket.</p>
-          <div class="card-footer">
-            <span class="price">From €63.8</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-gala-tango-show-p1014813/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Book now for a unique night at Gala Tango, one of the most famous venues in Buenos Aires. You can also opt for transport from central Buenos Aires as part of your ticket.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€63.80</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-gala-tango-show-p1014813/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/048dbd2ab26143b59a1648e8c0883c4b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Piazzolla Tango Show Buenos Aires" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Piazzolla Tango Show Buenos Aires</h3>
-          <p class="venue">📍 Piazzolla Tango</p>
-          <p>Feel the passion of dance in Buenos Aires. Tango shows are a hit with visitors to 'The Paris of the South', and the Piazzolla Tango Show is one of the best in town!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/048dbd2ab26143b59a1648e8c0883c4b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Piazzolla Tango Show Buenos Aires" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PIAZZOLLA TANGO</span>
+        </div>
+        <div class="tq-card-title">Piazzolla Tango Show Buenos Aires</div>
+        <div class="tq-card-desc">Feel the passion of dance in Buenos Aires. Tango shows are a hit with visitors to 'The Paris of the South', and the Piazzolla Tango Show is one of the best in town!
 
-Take a seat inside the restored Art Nouveau Astor Piazzolla Theater for a memorable soirée. The powerful performances on-stage are accompanied by the music of legendary composer Astor Piazzolla, performed by internationally recognized singers and musicians.</p>
-          <div class="card-footer">
-            <span class="price">From €75.57</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-piazzolla-tango-show-p1014811/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take a seat inside the restored Art Nouveau Astor Piazzolla Theater for a memorable soirée. The powerful performances on-stage are accompanied by the music of legendary composer Astor Piazzolla, performed by internationally recognized singers and musicians.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€75.57</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-piazzolla-tango-show-p1014811/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f7a2186493d44a2d8bf735483e73f384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tango Porteño: Tango Show" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tango Porteño: Tango Show</h3>
-          <p class="venue">📍 Tango Porteño</p>
-          <p>Created with the unique style of a multi-award-winning dancer and choreographer, Mora Godoy, the Tango Porteño Show is a night out to remember in the heart of Buenos Aires, packed with all the passion you'd expect!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f7a2186493d44a2d8bf735483e73f384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tango Porteño: Tango Show" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TANGO PORTEÑO</span>
+        </div>
+        <div class="tq-card-title">Tango Porteño: Tango Show</div>
+        <div class="tq-card-desc">Created with the unique style of a multi-award-winning dancer and choreographer, Mora Godoy, the Tango Porteño Show is a night out to remember in the heart of Buenos Aires, packed with all the passion you'd expect!
 
-Settle in for the perfect union of the best tango dancers, combined with the talents of an exceptional orchestra. Feel the power of the singers' voices as they create a unique fusion with folklore in a converted Art Deco cinema that only enhances this magical, once-in-a-lifetime experience. If you're looking for Argentine flavor, and a top night out in Buenos Aires, look no further.</p>
-          <div class="card-footer">
-            <span class="price">From €37.08</span>
-            <span class="rating">⭐ 3.8 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tango-porteno-show-in-buenos-aires-with-optional-dinner-p1014803/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Settle in for the perfect union of the best tango dancers, combined with the talents of an exceptional orchestra. Feel the power of the singers' voices as they create a unique fusion with folklore in a converted Art Deco cinema that only enhances this magical, once-in-a-lifetime experience. If you're looking for Argentine flavor, and a top night out in Buenos Aires, look no further.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€37.08</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tango-porteno-show-in-buenos-aires-with-optional-dinner-p1014803/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fccbd8e444a14df79337fab0f7ee6537.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="El Aljibe Tango Show" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>El Aljibe Tango Show</h3>
-          <p class="venue">📍 Aljibe Tango</p>
-          <p>It wouldn't be a real trip to Buenos Aires without enjoying a classic, toe-tapping tango show. Watch over 30 performers take to the stage with a live orchestra, and be transported to old-time Argentina, when music spoke the stories of folklore.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fccbd8e444a14df79337fab0f7ee6537.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="El Aljibe Tango Show" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALJIBE TANGO</span>
+        </div>
+        <div class="tq-card-title">El Aljibe Tango Show</div>
+        <div class="tq-card-desc">It wouldn't be a real trip to Buenos Aires without enjoying a classic, toe-tapping tango show. Watch over 30 performers take to the stage with a live orchestra, and be transported to old-time Argentina, when music spoke the stories of folklore.
 
-This once-in-a-lifetime experience takes place in a historic tango theater in the heart of the San Telmo neighborhood – if you're planning a date, it's the perfect place for romance to blossom!</p>
-          <div class="card-footer">
-            <span class="price">From €40.52</span>
-            <span class="rating">⭐ 4.2 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-el-aljibe-tango-show-p1014802/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This once-in-a-lifetime experience takes place in a historic tango theater in the heart of the San Telmo neighborhood – if you're planning a date, it's the perfect place for romance to blossom!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.52</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-el-aljibe-tango-show-p1014802/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rojo Tango Show with Transport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rojo Tango Show with Transport</h3>
-          <p class="venue">📍 Rojo Tango Show</p>
-          <p>Set your evening alight with passion as tango dancers take the stage by storm. Dinner, drinks, and roundtrip private transfer are included, so you can enjoy a night of old-fashioned entertainment. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/67713bbdb0234a249cd91bf636b706d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rojo Tango Show with Transport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BUENOS AIRES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROJO TANGO SHOW</span>
+        </div>
+        <div class="tq-card-title">Rojo Tango Show with Transport</div>
+        <div class="tq-card-desc">Set your evening alight with passion as tango dancers take the stage by storm. Dinner, drinks, and roundtrip private transfer are included, so you can enjoy a night of old-fashioned entertainment. 
 
 Step into an intimate cabaret theater that will transport you back to the 1900s; Rojo Tango might well be the best tango show in Buenos Aires. A five-piece orchestra accompanied by a male or female vocalist (depending on the dance), provide the backdrop for the magical moves unfolding before you.
 
-Alongside a unique South American cultural experience, you'll get to enjoy a three-course menu with wine, or a glass of champagne.</p>
-          <div class="card-footer">
-            <span class="price">From €269.01</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rojo-tango-show-p1014800/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Alongside a unique South American cultural experience, you'll get to enjoy a three-course menu with wine, or a glass of champagne.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€269.01</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rojo-tango-show-p1014800/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

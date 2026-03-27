@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Roses | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Roses. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,48 +131,75 @@
     <p>14 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Costa Brava: Catamaran Tour + Barbecue Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Costa Brava: Catamaran Tour + Barbecue Lunch</h3>
-          <p class="venue">📍 Costa Brava Boat Tours</p>
-          <p>Put the wind in your sails (literally!) and set your mood to cruise control (figuratively!), with a chilled-out catamaran adventure on the sparkling Costa Brava. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Costa Brava: Catamaran Tour + Barbecue Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROSES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COSTA BRAVA BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Costa Brava: Catamaran Tour + Barbecue Lunch</div>
+        <div class="tq-card-desc">Put the wind in your sails (literally!) and set your mood to cruise control (figuratively!), with a chilled-out catamaran adventure on the sparkling Costa Brava. 
 
 Take the family-friendly morning cruise and sail around the stunning Catalan coastline with a stop off at a secluded beach for a paddle in the surf with some fun inflatables.
 
 Or opt for the adults-only cruise (18+) in the evening where the party gets started at sunset. 
 
-All that chilling out is hungry work; luckily a delicious BBQ lunch is included, with sizzling sausages and veggie options to munch on.</p>
-          <div class="card-footer">
-            <span class="price">From €50</span>
-            <span class="rating">⭐ 4.6 (113)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-catamaran-trip-in-costa-brava-with-barbecue-p1007111/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+All that chilling out is hungry work; luckily a delicious BBQ lunch is included, with sizzling sausages and veggie options to munch on.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(113)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-catamaran-trip-in-costa-brava-with-barbecue-p1007111/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/99459d3b1ad249ae85ebbab612023e85.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cap Norfeu: 2-Hr Glass Bottom Boat Trip from Roses or Santa Margarita" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cap Norfeu: 2-Hr Glass Bottom Boat Trip from Roses or Santa Margarita</h3>
-          <p class="venue">📍 Costa Brava Boat Tours</p>
-          <p>Take a step back from the beach towns and appreciate just how beautiful the coastline of the Costa Brava is on this cruise toward Cap Norfeu. The rocky cliffs, caves, and outcroppings of the peninsula make for a picture-perfect boat trip. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/99459d3b1ad249ae85ebbab612023e85.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cap Norfeu: 2-Hr Glass Bottom Boat Trip from Roses or Santa Margarita" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROSES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COSTA BRAVA BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Cap Norfeu: 2-Hr Glass Bottom Boat Trip from Roses or Santa Margarita</div>
+        <div class="tq-card-desc">Take a step back from the beach towns and appreciate just how beautiful the coastline of the Costa Brava is on this cruise toward Cap Norfeu. The rocky cliffs, caves, and outcroppings of the peninsula make for a picture-perfect boat trip. 
 
-You'll pass by islets southeast of the Illes Mòniques that have weathered away to animalistic shapes, notably El Cavall Bernat (the rampant horse), and El Gat (the cat). If rocky mammals aren't enough, don't forget about the boat's glass bottom!</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐ 4.4 (61)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cap-norfeu-2-hr-glass-bottom-boat-trip-from-roses-or-santa-margarita-p1127857/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll pass by islets southeast of the Illes Mòniques that have weathered away to animalistic shapes, notably El Cavall Bernat (the rampant horse), and El Gat (the cat). If rocky mammals aren't enough, don't forget about the boat's glass bottom!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(61)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cap-norfeu-2-hr-glass-bottom-boat-trip-from-roses-or-santa-margarita-p1127857/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cadaqués: Boat Tour from Roses" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cadaqués: Boat Tour from Roses</h3>
-          <p class="venue">📍 Costa Brava Boat Tours</p>
-          <p>Take a trip to the village of Cadaqués from Roses.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cadaqués: Boat Tour from Roses" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROSES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COSTA BRAVA BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Cadaqués: Boat Tour from Roses</div>
+        <div class="tq-card-desc">Take a trip to the village of Cadaqués from Roses.
 
 Cruise along the coast of the Cap de Creus Natural Park on a tour that blends nature, history, and culture.
 
@@ -81,21 +207,32 @@ Along the route, you will see the Rosas Yacht Club, the fishing port, Rosas Ligh
 
 A special highlight is Cabo Norfeu, where the Tamariu Cave (a natural hole in the rocks) and the rock formation called El Gato (named for its shape) can be seen.
 
-Before arriving in Cadaqués, the boat passes in front of the Bay of Jóncols.</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cadaques-boat-tour-from-roses-p1127847/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Before arriving in Cadaqués, the boat passes in front of the Bay of Jóncols.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cadaques-boat-tour-from-roses-p1127847/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cadaqués: Boat Tour from Roses" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cadaqués: Boat Tour from Roses</h3>
-          <p class="venue">📍 Costa Brava Boat Tours</p>
-          <p>Take a trip to the village of Cadaqués from Roses.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cadaqués: Boat Tour from Roses" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROSES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COSTA BRAVA BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Cadaqués: Boat Tour from Roses</div>
+        <div class="tq-card-desc">Take a trip to the village of Cadaqués from Roses.
 
 Cruise along the coast of the Cap de Creus Natural Park on a tour that blends nature, history, and culture.
 
@@ -103,196 +240,312 @@ Along the route, you will see the Rosas Yacht Club, the fishing port, Rosas Ligh
 
 A special highlight is Cabo Norfeu, where the Tamariu Cave (a natural hole in the rocks) and the rock formation called El Gato (named for its shape) can be seen.
 
-Before arriving in Cadaqués, the boat passes in front of the Bay of Jóncols.</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐ 4.3 (32)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cadaques-boat-tour-from-roses-p1127848/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Before arriving in Cadaqués, the boat passes in front of the Bay of Jóncols.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(32)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cadaques-boat-tour-from-roses-p1127848/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Roses: Boat Tour + Water Slide + Swim Stop" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Roses: Boat Tour + Water Slide + Swim Stop</h3>
-          <p class="venue">📍 Costa Brava Boat Tours</p>
-          <p>Take a boat tour on a catamaran equipped with underwater viewing facilities in Roses.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Roses: Boat Tour + Water Slide + Swim Stop" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROSES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COSTA BRAVA BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Roses: Boat Tour + Water Slide + Swim Stop</div>
+        <div class="tq-card-desc">Take a boat tour on a catamaran equipped with underwater viewing facilities in Roses.
 
 Travel along the coastline of Cap de Creus, take a break to swim at a cove with clear waters, and observe underwater life through the specially designed viewing areas.
 
-The catamaran also features a water slide over 6 m high that allows you to enter the water from the second deck of the ship. Facilities include music, an onboard bar with drinks (not included), and spacious areas for relaxation.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-roses-boat-tour-water-slide-swim-stop-p1127892/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The catamaran also features a water slide over 6 m high that allows you to enter the water from the second deck of the ship. Facilities include music, an onboard bar with drinks (not included), and spacious areas for relaxation.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-roses-boat-tour-water-slide-swim-stop-p1127892/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b7108d4cb7fe4d45b8297f9fc0066094.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="elBulli1846: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>elBulli1846: Entry Ticket</h3>
-          <p class="venue">📍 elBulli1846</p>
-          <p>In nearly 4,000m2, Michelin-star chef Ferran Adriá once again revolutionizes the world of food with an innovative museum concept at El Bulli 1846. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b7108d4cb7fe4d45b8297f9fc0066094.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="elBulli1846: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROSES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ELBULLI1846</span>
+        </div>
+        <div class="tq-card-title">elBulli1846: Entry Ticket</div>
+        <div class="tq-card-desc">In nearly 4,000m2, Michelin-star chef Ferran Adriá once again revolutionizes the world of food with an innovative museum concept at El Bulli 1846. 
 
 With 69 abstract audiovisual installations, Adriá aims to illustrate how and why El Bulli continues to be a pioneer in the culinary sphere. See a complete reconstruction of the restaurant's dining room, take a tour of the creative process that built the award-winning menu of El Bulli. 
 
-While El Bulli won't have food on the menu, an entry ticket to El Bulli 1846 instead provides food for the soul and insight into the mind of chef Ferran Adriá.</p>
-          <div class="card-footer">
-            <span class="price">From €27.5</span>
-            <span class="rating">⭐ 4.9 (40)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-elbulli1846-p1066385/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+While El Bulli won't have food on the menu, an entry ticket to El Bulli 1846 instead provides food for the soul and insight into the mind of chef Ferran Adriá.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(40)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-elbulli1846-p1066385/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Costa Brava: Boat Trip to Cadaqués from Roses" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Costa Brava: Boat Trip to Cadaqués from Roses</h3>
-          <p class="venue">📍 Costa Brava Boat Tours</p>
-          <p>Take a boat trip from Roses to discover the traditional Mediterranean village of Cadaqués, a time capsule of old world charm, where Salvador Dalí fell was inspired to establish his atelier and residence on the nearby beach of Port Lligat.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Costa Brava: Boat Trip to Cadaqués from Roses" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROSES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COSTA BRAVA BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Costa Brava: Boat Trip to Cadaqués from Roses</div>
+        <div class="tq-card-desc">Take a boat trip from Roses to discover the traditional Mediterranean village of Cadaqués, a time capsule of old world charm, where Salvador Dalí fell was inspired to establish his atelier and residence on the nearby beach of Port Lligat.
 
-The picturesque streets of Cadaqués are waiting for you, and you'll be dropped off in the ideal spot to visit the town with an hour and 30 minutes of free time to explore. Hop on a boat from Roses and admire the stunning landscapes of the south-east coast of the Natural Park of Cap de Creus along the way.</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐ 4.9 (25)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cadaques-1h30-p1064989/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The picturesque streets of Cadaqués are waiting for you, and you'll be dropped off in the ideal spot to visit the town with an hour and 30 minutes of free time to explore. Hop on a boat from Roses and admire the stunning landscapes of the south-east coast of the Natural Park of Cap de Creus along the way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(25)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cadaques-1h30-p1064989/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Illes Medes & L'Estartit: Catamaran Cruise from Roses" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Illes Medes & L'Estartit: Catamaran Cruise from Roses</h3>
-          <p class="venue">📍 Costa Brava Boat Tours</p>
-          <p>Discover the Costa Brava from the sea with a catamaran excursion.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Illes Medes & L'Estartit: Catamaran Cruise from Roses" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROSES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COSTA BRAVA BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Illes Medes & L'Estartit: Catamaran Cruise from Roses</div>
+        <div class="tq-card-desc">Discover the Costa Brava from the sea with a catamaran excursion.
 
 Sail along the coast, see quiet coves, and enjoy the views from the water as you explore this part of the region.
 
 The Medes Islands, part of a protected marine park, are home to rich underwater life that you can see through the catamaran’s underwater windows.
 
-The tour also stops in L’Estartit, where you will have free time to walk around the town, see local sights, and take in the coastal atmosphere.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-illes-medes-lestartit-catamaran-cruise-from-roses-p1127773/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The tour also stops in L’Estartit, where you will have free time to walk around the town, see local sights, and take in the coastal atmosphere.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-illes-medes-lestartit-catamaran-cruise-from-roses-p1127773/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cala Murtra: Evening Boat Cruise from Roses + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cala Murtra: Evening Boat Cruise from Roses + Audio Guide</h3>
-          <p class="venue">📍 Costa Brava Boat Tours</p>
-          <p>Take an evening cruise along the Costa Brava aboard *Aquarium II*. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cala Murtra: Evening Boat Cruise from Roses + Audio Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROSES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COSTA BRAVA BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Cala Murtra: Evening Boat Cruise from Roses + Audio Guide</div>
+        <div class="tq-card-desc">Take an evening cruise along the Costa Brava aboard *Aquarium II*. 
 
 See coves and cliffs within the Cap de Creus Natural Park, and visit Cala Murtra, a secluded natural inlet. 
 
 Use the underwater viewing rooms to observe aquatic life such as colorful fish, seagrass meadows, and starfish without entering the water. 
 
-Return to Roses with views of its bay.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cala-murtra-evening-boat-cruise-from-roses-audio-guide-p1127281/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Return to Roses with views of its bay.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cala-murtra-evening-boat-cruise-from-roses-audio-guide-p1127281/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8230007f87bc4731bd792eb616d1288d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Costa Brava: Catamaran Tour to Cadaqués from Roses or Santa Margarita" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Costa Brava: Catamaran Tour to Cadaqués from Roses or Santa Margarita</h3>
-          <p class="venue">📍 Costa Brava Boat Tours</p>
-          <p>See more of the Costa Brava with a cruise to Cadaqués. Your cruise will take you past the craggy, rugged terrain of the Cap de Creus peninsula towards the shining white light that is Cadaqués. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8230007f87bc4731bd792eb616d1288d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Costa Brava: Catamaran Tour to Cadaqués from Roses or Santa Margarita" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROSES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COSTA BRAVA BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Costa Brava: Catamaran Tour to Cadaqués from Roses or Santa Margarita</div>
+        <div class="tq-card-desc">See more of the Costa Brava with a cruise to Cadaqués. Your cruise will take you past the craggy, rugged terrain of the Cap de Creus peninsula towards the shining white light that is Cadaqués. 
 
-The white homes that line the shore are reminiscent of Santorini (minus the hills) and the fishing culture of the town promises interesting pictures and great food. Follow in the footsteps of Picasso, Joan Miró, and Marcel Duchamp with a visit to Cadaqués.</p>
-          <div class="card-footer">
-            <span class="price">From €35</span>
-            <span class="rating">⭐ 4.4 (77)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-boat-trip-to-cadaques-p1004438/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The white homes that line the shore are reminiscent of Santorini (minus the hills) and the fishing culture of the town promises interesting pictures and great food. Follow in the footsteps of Picasso, Joan Miró, and Marcel Duchamp with a visit to Cadaqués.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(77)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€35.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-boat-trip-to-cadaques-p1004438/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d9537c34e28b4e13b0ccaa183d91ac02.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blanes: Roundtrip Boat from Tossa de Mar" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blanes: Roundtrip Boat from Tossa de Mar</h3>
-          <p class="venue">📍 Costa Brava Boat Tours</p>
-          <p>Take a roundtrip boat from Tossa de Mar to Blanes.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d9537c34e28b4e13b0ccaa183d91ac02.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blanes: Roundtrip Boat from Tossa de Mar" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROSES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COSTA BRAVA BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Blanes: Roundtrip Boat from Tossa de Mar</div>
+        <div class="tq-card-desc">Take a roundtrip boat from Tossa de Mar to Blanes.
 
 Take a boat ride along the coast of Costa Brava for about an hour. See cliffs, hidden coves, and natural landscapes visible only from the sea.
 
 At Blanes, you’ll have free time to walk along the lively seafront, visit the Marimurtra Botanical Garden overlooking the Mediterranean, or relax at Cala Sant Francesc. 
 
-Blanes is the gateway to the Costa Brava, an ideal short trip to connect with the Catalan coast.</p>
-          <div class="card-footer">
-            <span class="price">From €32</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blanes-roundtrip-boat-from-tossa-de-mar-p1120817/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Blanes is the gateway to the Costa Brava, an ideal short trip to connect with the Catalan coast.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€32.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blanes-roundtrip-boat-from-tossa-de-mar-p1120817/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d9537c34e28b4e13b0ccaa183d91ac02.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lloret de Mar: Roundtrip Boat from Tossa de Mar" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lloret de Mar: Roundtrip Boat from Tossa de Mar</h3>
-          <p class="venue">📍 Costa Brava Boat Tours</p>
-          <p>Take a 45-minute boat from Tossa de Mar to Lloret de Mar along the Costa Brava. Travel between cliffs, hidden coves, and clear waters.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d9537c34e28b4e13b0ccaa183d91ac02.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lloret de Mar: Roundtrip Boat from Tossa de Mar" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROSES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COSTA BRAVA BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Lloret de Mar: Roundtrip Boat from Tossa de Mar</div>
+        <div class="tq-card-desc">Take a 45-minute boat from Tossa de Mar to Lloret de Mar along the Costa Brava. Travel between cliffs, hidden coves, and clear waters.
 
-Upon arrival in Lloret, explore its historic center, visit the Church of Sant Romà, or relax in the Gardens of Santa Clotilde.</p>
-          <div class="card-footer">
-            <span class="price">From €32</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lloret-de-mar-roundtrip-boat-from-tossa-de-mar-p1120771/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Upon arrival in Lloret, explore its historic center, visit the Church of Sant Romà, or relax in the Gardens of Santa Clotilde.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€32.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lloret-de-mar-roundtrip-boat-from-tossa-de-mar-p1120771/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d9537c34e28b4e13b0ccaa183d91ac02.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tossa de Mar: Roundtrip Boat from Lloret de Mar" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tossa de Mar: Roundtrip Boat from Lloret de Mar</h3>
-          <p class="venue">📍 Costa Brava Boat Tours</p>
-          <p>Take a roundtrip boat along the Costa Brava from Lloret de Mar to Tossa de Mar.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d9537c34e28b4e13b0ccaa183d91ac02.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tossa de Mar: Roundtrip Boat from Lloret de Mar" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROSES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COSTA BRAVA BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Tossa de Mar: Roundtrip Boat from Lloret de Mar</div>
+        <div class="tq-card-desc">Take a roundtrip boat along the Costa Brava from Lloret de Mar to Tossa de Mar.
 
 Travel by boat along the coast and see beaches and coves only visible from the sea.
 
-In Tossa de Mar, you have free time to see this historic town with a maritime past. Walk through medieval streets, visit the castle, or relax on the beach surrounded by natural rock formations.</p>
-          <div class="card-footer">
-            <span class="price">From €32</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tossa-de-mar-roundtrip-boat-from-lloret-de-mar-p1120690/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In Tossa de Mar, you have free time to see this historic town with a maritime past. Walk through medieval streets, visit the castle, or relax on the beach surrounded by natural rock formations.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€32.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tossa-de-mar-roundtrip-boat-from-lloret-de-mar-p1120690/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cap de Creus Natural Park: Catamaran Boat Trip from Roses" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cap de Creus Natural Park: Catamaran Boat Trip from Roses</h3>
-          <p class="venue">📍 Costa Brava Boat Tours</p>
-          <p>Sail along Costa Brava aboard the MAGIC catamaran. Start at the pier dels Ginjolers in Roses and follow the coastline between Roses and Cadaquès.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e737472d034996aff1dba985ff6ed6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cap de Creus Natural Park: Catamaran Boat Trip from Roses" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROSES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COSTA BRAVA BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Cap de Creus Natural Park: Catamaran Boat Trip from Roses</div>
+        <div class="tq-card-desc">Sail along Costa Brava aboard the MAGIC catamaran. Start at the pier dels Ginjolers in Roses and follow the coastline between Roses and Cadaquès.
 
 Pass by secluded coves, pine trees, and cliffs as you make your way to Cap de Creus. See the village of Cadaquès and Port Lligat, where Salvador Dalí once lived, along the rocky coast.
 
 The catamaran anchors at Cala Bona or Cala Culip, where you can swim, relax on floating inflatables, or snorkel with provided gear.
 
-On board, enjoy comfortable seating, sunbathe on the broad nets, or relax in the shade for a peaceful day at sea.</p>
-          <div class="card-footer">
-            <span class="price">From €56</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cap-de-creus-natural-park-catamaran-boat-trip-from-roses-p1103808/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+On board, enjoy comfortable seating, sunbathe on the broad nets, or relax in the shade for a peaceful day at sea.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€56.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cap-de-creus-natural-park-catamaran-boat-trip-from-roses-p1103808/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

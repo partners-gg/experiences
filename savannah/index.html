@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Savannah | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Savannah. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,194 +131,326 @@
     <p>12 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8c8cb7f312264ced8e7ca8ae974aa449.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Savannah: Hop-on Hop-off Old Town Trolley" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Savannah: Hop-on Hop-off Old Town Trolley</h3>
-          <p class="venue">📍 Savannah Tours by Old Town Trolley</p>
-          <p>Step aboard the Savannah Old Town Trolley and discover the storied past of The Peach State's oldest city. Be whisked from historic locations to the city's most popular modern attractions, while a knowledgeable driver shares amazing stories with a heapin' helpin' of southern charm.</p>
-          <div class="card-footer">
-            <span class="price">From €41.47</span>
-            <span class="rating">⭐ 4.2 (12)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-savannah-old-town-trolley-p976064/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8c8cb7f312264ced8e7ca8ae974aa449.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Savannah: Hop-on Hop-off Old Town Trolley" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAVANNAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SAVANNAH TOURS BY OLD TOWN TROLLEY</span>
+        </div>
+        <div class="tq-card-title">Savannah: Hop-on Hop-off Old Town Trolley</div>
+        <div class="tq-card-desc">Step aboard the Savannah Old Town Trolley and discover the storied past of The Peach State's oldest city. Be whisked from historic locations to the city's most popular modern attractions, while a knowledgeable driver shares amazing stories with a heapin' helpin' of southern charm.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(12)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€41.47</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-savannah-old-town-trolley-p976064/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5c9521464c9a46d8b39f9df157bd0ac1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="American Prohibition Museum: Entry Ticket or Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>American Prohibition Museum: Entry Ticket or Guided Tour</h3>
-          <p class="venue">📍 American Prohibition Museum</p>
-          <p>Description:
-Lift your spirits at the American Prohibition Museum! Meet the axe-wielding teetotalers of _The Temperance Movement_, witness the birth of Flapper culture and the rise of the speakeasy, and learn about the organized crime rings that met the illicit thirsts of the roaring 1920s and 1930s.</p>
-          <div class="card-footer">
-            <span class="price">From €17.05</span>
-            <span class="rating">⭐ 3.9 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-american-prohibition-museum-entry-or-guided-tour-p976027/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5c9521464c9a46d8b39f9df157bd0ac1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="American Prohibition Museum: Entry Ticket or Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAVANNAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AMERICAN PROHIBITION MUSEUM</span>
+        </div>
+        <div class="tq-card-title">American Prohibition Museum: Entry Ticket or Guided Tour</div>
+        <div class="tq-card-desc">Description:
+Lift your spirits at the American Prohibition Museum! Meet the axe-wielding teetotalers of _The Temperance Movement_, witness the birth of Flapper culture and the rise of the speakeasy, and learn about the organized crime rings that met the illicit thirsts of the roaring 1920s and 1930s.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.05</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-american-prohibition-museum-entry-or-guided-tour-p976027/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e7c12f01906846eea5a7a4e809fa4c85.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Davenport House Museum Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Davenport House Museum Tour</h3>
-          <p class="venue">📍 Davenport House Museum Entrance and Shop</p>
-          <p>Glimpse into America's colorful past, to a time when the nation was new and Isaiah Davenport, a young carpenter from New England, achieved great success as a builder in his adopted city.  
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e7c12f01906846eea5a7a4e809fa4c85.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Davenport House Museum Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAVANNAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAVENPORT HOUSE MUSEUM ENTRANCE AND SHOP</span>
+        </div>
+        <div class="tq-card-title">Davenport House Museum Tour</div>
+        <div class="tq-card-desc">Glimpse into America's colorful past, to a time when the nation was new and Isaiah Davenport, a young carpenter from New England, achieved great success as a builder in his adopted city.  
 
 The world of 1820's Savannah is presented here, through the outstanding Federal-style home Davenport built for his household. See the rooms, learn about the family and staff who lived and worked here, and find out how seven Savannah women came together in 1955 to save the structure from demolition. 
 
-This action prompted the founding of the Historic Savannah Foundation, which has brought about an architectural renaissance through historic preservation in the coastal Georgia city.</p>
-          <div class="card-footer">
-            <span class="price">From €10.35</span>
-            <span class="rating">⭐ 4.6 (11)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-tour-at-the-davenport-house-museum-p1030325/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This action prompted the founding of the Historic Savannah Foundation, which has brought about an architectural renaissance through historic preservation in the coastal Georgia city.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(11)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€10.35</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-museum-tour-at-the-davenport-house-museum-p1030325/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b8b5085fd2fa4024936367a1a55a7aff.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Savannah: Ghosts & Gravestones Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Savannah: Ghosts & Gravestones Tour</h3>
-          <p class="venue">📍 Ghosts and Gravestones Savannah</p>
-          <p>Georgia is famous for its peaches and peanuts, but to anyone who dabbles in the paranormal, it's also a well-known hotbed for ghostly spirits and ethereal apparitions. Pluck up your courage and set off to explore America's most haunted city with a Ghosts & Gravestones tour of Savannah.</p>
-          <div class="card-footer">
-            <span class="price">From €35.98</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ghosts-gravestones-savannah-p976079/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b8b5085fd2fa4024936367a1a55a7aff.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Savannah: Ghosts & Gravestones Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAVANNAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GHOSTS AND GRAVESTONES SAVANNAH</span>
+        </div>
+        <div class="tq-card-title">Savannah: Ghosts & Gravestones Tour</div>
+        <div class="tq-card-desc">Georgia is famous for its peaches and peanuts, but to anyone who dabbles in the paranormal, it's also a well-known hotbed for ghostly spirits and ethereal apparitions. Pluck up your courage and set off to explore America's most haunted city with a Ghosts & Gravestones tour of Savannah.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€35.98</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ghosts-gravestones-savannah-p976079/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/efa4b6603ce8461c87763b5b779693b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Savannah History Walk" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Savannah History Walk</h3>
-          <p class="venue">📍 Walking Tours in Savannah</p>
-          <p>Take a walking tour through Savannah's historical locations to learn about the city's foundation and growth. The tour highlights key events and figures that have influenced its development into the present.</p>
-          <div class="card-footer">
-            <span class="price">From €26.75</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-savannah-history-walk-p1127229/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/efa4b6603ce8461c87763b5b779693b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Savannah History Walk" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAVANNAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN SAVANNAH</span>
+        </div>
+        <div class="tq-card-title">Savannah History Walk</div>
+        <div class="tq-card-desc">Take a walking tour through Savannah's historical locations to learn about the city's foundation and growth. The tour highlights key events and figures that have influenced its development into the present.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.75</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-savannah-history-walk-p1127229/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/efa4b6603ce8461c87763b5b779693b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Spirits and Scoundrels: Ghost Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Spirits and Scoundrels: Ghost Tour</h3>
-          <p class="venue">📍 Walking Tours in Savannah</p>
-          <p>Join a guided nighttime walking tour of Savannah's historic district. Walk along cobblestone streets, visit notable squares, and stop by historically significant sites. Hear detailed historical and cultural accounts, including narratives about notable events and figures from Savannah's past. Learn about the city’s historical context and its societal developments. This tour focuses on delivering informative and factual content, ensuring an informative and enjoyable experience for participants.</p>
-          <div class="card-footer">
-            <span class="price">From €25.86</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-spirits-and-scoundrels-ghost-tour-p1127228/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/efa4b6603ce8461c87763b5b779693b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Spirits and Scoundrels: Ghost Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAVANNAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN SAVANNAH</span>
+        </div>
+        <div class="tq-card-title">Spirits and Scoundrels: Ghost Tour</div>
+        <div class="tq-card-desc">Join a guided nighttime walking tour of Savannah's historic district. Walk along cobblestone streets, visit notable squares, and stop by historically significant sites. Hear detailed historical and cultural accounts, including narratives about notable events and figures from Savannah's past. Learn about the city’s historical context and its societal developments. This tour focuses on delivering informative and factual content, ensuring an informative and enjoyable experience for participants.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.86</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-spirits-and-scoundrels-ghost-tour-p1127228/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/efa4b6603ce8461c87763b5b779693b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Original Haunted Savannah" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Original Haunted Savannah</h3>
-          <p class="venue">📍 Walking Tours in Savannah</p>
-          <p>Take a guided walk through Savannah's historic district, focusing on its reported haunted locations and their associated history. Walk along streets and squares as stories about events and individuals connected to these places are shared. The narrative is based on historical data and local accounts, presenting a perspective on the city's past involving war, losses, and unending tales. The activity aims to provide insight into the cultural and historical significance of the places visited, ensuring you learn details about the city while exploring its most well-known locations tied to folklore.</p>
-          <div class="card-footer">
-            <span class="price">From €21.55</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-original-haunted-savannah-p1127227/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/efa4b6603ce8461c87763b5b779693b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Original Haunted Savannah" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAVANNAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN SAVANNAH</span>
+        </div>
+        <div class="tq-card-title">Original Haunted Savannah</div>
+        <div class="tq-card-desc">Take a guided walk through Savannah's historic district, focusing on its reported haunted locations and their associated history. Walk along streets and squares as stories about events and individuals connected to these places are shared. The narrative is based on historical data and local accounts, presenting a perspective on the city's past involving war, losses, and unending tales. The activity aims to provide insight into the cultural and historical significance of the places visited, ensuring you learn details about the city while exploring its most well-known locations tied to folklore.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.55</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-original-haunted-savannah-p1127227/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/efa4b6603ce8461c87763b5b779693b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="13 Ghosts, Voodoo, Murder & Mystery Tour - Savannah, GA" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>13 Ghosts, Voodoo, Murder & Mystery Tour - Savannah, GA</h3>
-          <p class="venue">📍 Walking Tours in Savannah</p>
-          <p>Join a guided nighttime walking tour through the eerie streets of Savannah, Georgia. Learn about ghost stories, unsolved mysteries, traditional practices, and notable historic events tied to locations such as Monterey Square and Forsyth Park.</p>
-          <div class="card-footer">
-            <span class="price">From €23.06</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-13-ghosts-voodoo-murder-mystery-tour-savannah-ga-p1127194/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/efa4b6603ce8461c87763b5b779693b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="13 Ghosts, Voodoo, Murder & Mystery Tour - Savannah, GA" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAVANNAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN SAVANNAH</span>
+        </div>
+        <div class="tq-card-title">13 Ghosts, Voodoo, Murder & Mystery Tour - Savannah, GA</div>
+        <div class="tq-card-desc">Join a guided nighttime walking tour through the eerie streets of Savannah, Georgia. Learn about ghost stories, unsolved mysteries, traditional practices, and notable historic events tied to locations such as Monterey Square and Forsyth Park.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.06</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-13-ghosts-voodoo-murder-mystery-tour-savannah-ga-p1127194/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/efa4b6603ce8461c87763b5b779693b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Savannah Pirates & Treasure Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Savannah Pirates & Treasure Museum: Entry Ticket</h3>
-          <p class="venue">📍 Savannah Pirates & Treasure Museum</p>
-          <p>Learn about the era of swashbuckling rogues and legendary pirates who once sailed the seas and influenced American history.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/efa4b6603ce8461c87763b5b779693b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Savannah Pirates & Treasure Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAVANNAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SAVANNAH PIRATES & TREASURE MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Savannah Pirates & Treasure Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Learn about the era of swashbuckling rogues and legendary pirates who once sailed the seas and influenced American history.
 
 This museum showcases the Golden Age of Piracy with storytelling, interactive technology, and historical artifacts. 
 
-Situated below Savannah’s historic City Market, the museum provides an overview of pirate life globally and locally in Georgia’s oldest city.</p>
-          <div class="card-footer">
-            <span class="price">From €17.05</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-savannah-pirates-treasure-museum-entry-p1122135/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Situated below Savannah’s historic City Market, the museum provides an overview of pirate life globally and locally in Georgia’s oldest city.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.05</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-savannah-pirates-treasure-museum-entry-p1122135/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8c8cb7f312264ced8e7ca8ae974aa449.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Savannah: Ghost Hunters Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Savannah: Ghost Hunters Tour</h3>
-          <p class="venue">📍 Savannah Tours by Old Town Trolley</p>
-          <p>A team of seasoned professionals will guide you on a unique paranormal investigation at 416 W. Liberty Street, a place with a rich history, myth, and spooky stories.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8c8cb7f312264ced8e7ca8ae974aa449.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Savannah: Ghost Hunters Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAVANNAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SAVANNAH TOURS BY OLD TOWN TROLLEY</span>
+        </div>
+        <div class="tq-card-title">Savannah: Ghost Hunters Tour</div>
+        <div class="tq-card-desc">A team of seasoned professionals will guide you on a unique paranormal investigation at 416 W. Liberty Street, a place with a rich history, myth, and spooky stories.
 
 Join the tour in Savannah, known as the Most Haunted City in America. Experienced investigators will share their knowledge and help you prepare for any paranormal activity you might encounter.
 
 You can decide if 416 W. Liberty is truly haunted, but be prepared to leave with a new belief in the supernatural.
 
-Tip: Bring your cell phone to capture photos or record audio, perfect for detecting EVPs (electronic voice phenomena).</p>
-          <div class="card-footer">
-            <span class="price">From €64.54</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-savannah-ghost-hunters-tour-p1096626/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Tip: Bring your cell phone to capture photos or record audio, perfect for detecting EVPs (electronic voice phenomena).</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.54</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-savannah-ghost-hunters-tour-p1096626/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8c8cb7f312264ced8e7ca8ae974aa449.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Savannah for Morons" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Savannah for Morons</h3>
-          <p class="venue">📍 Savannah Tours by Old Town Trolley</p>
-          <p>Join the Savannah for Morons, a guided tour, for a history lesson that's both entertaining and educational. Led by the dynamic duo, Dannie and Danny, this lively tour will take you through Savannah's vibrant past with plenty of laughs along the way. Expect comedy skits, musical performances, and amusing stories covering Georgia's colonial era to the Civil War.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8c8cb7f312264ced8e7ca8ae974aa449.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Savannah for Morons" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAVANNAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SAVANNAH TOURS BY OLD TOWN TROLLEY</span>
+        </div>
+        <div class="tq-card-title">Savannah for Morons</div>
+        <div class="tq-card-desc">Join the Savannah for Morons, a guided tour, for a history lesson that's both entertaining and educational. Led by the dynamic duo, Dannie and Danny, this lively tour will take you through Savannah's vibrant past with plenty of laughs along the way. Expect comedy skits, musical performances, and amusing stories covering Georgia's colonial era to the Civil War.
 
-Perfect for those who enjoy history with a comedic twist, this tour features entertaining sketches, lively music, and unexpected surprises, all while delving into Savannah's rich history. Let Dannie and Danny show you a different side of the city as you buckle up for a fun-filled ride.</p>
-          <div class="card-footer">
-            <span class="price">From €50.74</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-savannah-90-minute-guided-tour-p1091088/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Perfect for those who enjoy history with a comedic twist, this tour features entertaining sketches, lively music, and unexpected surprises, all while delving into Savannah's rich history. Let Dannie and Danny show you a different side of the city as you buckle up for a fun-filled ride.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.74</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-savannah-90-minute-guided-tour-p1091088/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b8b5085fd2fa4024936367a1a55a7aff.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Savannah Ghost Tour: Self-Guided Walking Audio Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Savannah Ghost Tour: Self-Guided Walking Audio Tour</h3>
-          <p class="venue">📍 Ghosts and Gravestones Savannah</p>
-          <p>Take a tour through the supernatural in one of America’s most historic and haunted cities: Savannah, Georgia. Here, you’ll find a mix of rich antebellum history and hair-raising ghostly encounters, told in a spooky fashion by your enthusiastic audio guide. That's right, there's no tour guide here. You're as alone as you want to be with your headphones and audio tour. Are you still brave enough?
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b8b5085fd2fa4024936367a1a55a7aff.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Savannah Ghost Tour: Self-Guided Walking Audio Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SAVANNAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GHOSTS AND GRAVESTONES SAVANNAH</span>
+        </div>
+        <div class="tq-card-title">Savannah Ghost Tour: Self-Guided Walking Audio Tour</div>
+        <div class="tq-card-desc">Take a tour through the supernatural in one of America’s most historic and haunted cities: Savannah, Georgia. Here, you’ll find a mix of rich antebellum history and hair-raising ghostly encounters, told in a spooky fashion by your enthusiastic audio guide. That's right, there's no tour guide here. You're as alone as you want to be with your headphones and audio tour. Are you still brave enough?
 
 Marvel at the city’s beautiful architecture, take a stroll along the picture-perfect waterfront, and hear the true stories behind Savannah’s most notorious hauntings. This walking tour is the perfect thing to do if you're looking for something new to do in the city... or if you've just refreshed your proton pack.
 
-Recommended: Purchase one tour per group. Everyone can listen at the same time. The tour is available from the minute you book until forever!</p>
-          <div class="card-footer">
-            <span class="price">From €12.92</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-savannah-ghost-self-guided-walking-audio-tour-p1027516/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Recommended: Purchase one tour per group. Everyone can listen at the same time. The tour is available from the minute you book until forever!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.92</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-savannah-ghost-self-guided-walking-audio-tour-p1027516/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

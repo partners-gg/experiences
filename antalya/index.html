@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Antalya | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Antalya. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,78 +131,127 @@
     <p>13 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e3eed886eb8747dfaecb3f3747f66d02.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Land of Legends: Admission" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>The Land of Legends: Admission</h3>
-          <p class="venue">📍 The Land of Legends</p>
-          <p>There are theme parks, and then there's the Land of Legends. Think bigger, better and wetter! From its gargantuan roller coasters to the  monumental Legends Tower, entering Turkey's 800,000-square-meter theme park is like stepping into another world.</p>
-          <div class="card-footer">
-            <span class="price">From €50</span>
-            <span class="rating">⭐ 4.5 (250)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-land-of-legends-theme-park-p1000676/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e3eed886eb8747dfaecb3f3747f66d02.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Land of Legends: Admission" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANTALYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">THE LAND OF LEGENDS</span>
+        </div>
+        <div class="tq-card-title">The Land of Legends: Admission</div>
+        <div class="tq-card-desc">There are theme parks, and then there's the Land of Legends. Think bigger, better and wetter! From its gargantuan roller coasters to the  monumental Legends Tower, entering Turkey's 800,000-square-meter theme park is like stepping into another world.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(250)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-land-of-legends-theme-park-p1000676/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0dd7962ece024b628522e3d3df052352.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Antalya Aquarium & Face 2 Face Wax Museum" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Antalya Aquarium & Face 2 Face Wax Museum</h3>
-          <p class="venue">📍 Antalya Aquarium</p>
-          <p>Boasting the world's longest aquarium sea tunnel inside a tank with five million liters of water and thousands of exotic marine species, Antalya Aquarium is a wonderland of aquatic wildlife from around the world.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0dd7962ece024b628522e3d3df052352.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Antalya Aquarium & Face 2 Face Wax Museum" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANTALYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ANTALYA AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Antalya Aquarium & Face 2 Face Wax Museum</div>
+        <div class="tq-card-desc">Boasting the world's longest aquarium sea tunnel inside a tank with five million liters of water and thousands of exotic marine species, Antalya Aquarium is a wonderland of aquatic wildlife from around the world.
 
-On top of that, you'll have the chance to rub shoulders with A-listers and icons of the past at the Face 2 Face Wax Museum. Using cutting-edge silicon injection technology, these still-life celebs will leave you star-struck.</p>
-          <div class="card-footer">
-            <span class="price">From €43.5</span>
-            <span class="rating">⭐ 4.3 (238)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-antalya-aquarium-p979094/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+On top of that, you'll have the chance to rub shoulders with A-listers and icons of the past at the Face 2 Face Wax Museum. Using cutting-edge silicon injection technology, these still-life celebs will leave you star-struck.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(238)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€43.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-antalya-aquarium-p979094/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e3eed886eb8747dfaecb3f3747f66d02.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Selfie Park Antalya" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Selfie Park Antalya</h3>
-          <p class="venue">📍 Selfie Park</p>
-          <p>Smile for the camera with tickets for the largest selfie museum in Europe – Selfie Park Antalya!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e3eed886eb8747dfaecb3f3747f66d02.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Selfie Park Antalya" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANTALYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SELFIE PARK</span>
+        </div>
+        <div class="tq-card-title">Selfie Park Antalya</div>
+        <div class="tq-card-desc">Smile for the camera with tickets for the largest selfie museum in Europe – Selfie Park Antalya!
 
 With over 50 unique and colorful photogenic sets to try, you'll never run out of creative content for your social media feed. 
 
-Play with props and different lighting effects as you create memories with family and friends at the only selfie park in Turkey.</p>
-          <div class="card-footer">
-            <span class="price">From €20.42</span>
-            <span class="rating">⭐ 4.5 (17)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-selfie-park-antalya-p1035022/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Play with props and different lighting effects as you create memories with family and friends at the only selfie park in Turkey.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(17)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-selfie-park-antalya-p1035022/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0832c0c9c9c74c55942f15a1d9a7da15.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dinopark Antalya: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Dinopark Antalya: Entry Ticket</h3>
-          <p class="venue">📍 Dinopark Antalya</p>
-          <p>Luckily, the Velociraptors on the loose at Dinopark Antalya are strictly vegetarian.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0832c0c9c9c74c55942f15a1d9a7da15.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dinopark Antalya: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANTALYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DINOPARK ANTALYA</span>
+        </div>
+        <div class="tq-card-title">Dinopark Antalya: Entry Ticket</div>
+        <div class="tq-card-desc">Luckily, the Velociraptors on the loose at Dinopark Antalya are strictly vegetarian.
 
 You'll have a roaring good time navigating the green kingdom of these giant, animatronic beasts. Plus, there's plenty more fantastic fun to be had around the park. 
 
-Bounce as high as a Sauropod on bungee trampolines, and test your climbing skills in the adventure park. Soar like a Pterodactyl on the zip line, get photos riding a T. rex, and have your mind blown in a 7D cinema adventure!</p>
-          <div class="card-footer">
-            <span class="price">From €25.8</span>
-            <span class="rating">⭐ 3.3 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-dinopark-antalya-p980052/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Bounce as high as a Sauropod on bungee trampolines, and test your climbing skills in the adventure park. Soar like a Pterodactyl on the zip line, get photos riding a T. rex, and have your mind blown in a 7D cinema adventure!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.3</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.80</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-dinopark-antalya-p980052/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70d92a226dea458dad18af798abeab2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aspendos Theater: Fire of Anatolia Dance Show Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aspendos Theater: Fire of Anatolia Dance Show Entry Ticket</h3>
-          <p class="venue">📍 Aspendos Theater</p>
-          <p>Watch the Fire of Anatolia dance performance, recognized as a leading Turkish dance group, featuring 120 performers sharing Turkish classical and folk dance traditions. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/70d92a226dea458dad18af798abeab2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aspendos Theater: Fire of Anatolia Dance Show Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANTALYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ASPENDOS THEATER</span>
+        </div>
+        <div class="tq-card-title">Aspendos Theater: Fire of Anatolia Dance Show Entry Ticket</div>
+        <div class="tq-card-desc">Watch the Fire of Anatolia dance performance, recognized as a leading Turkish dance group, featuring 120 performers sharing Turkish classical and folk dance traditions. 
 
 They perform in the well-known Aspendos Theater, a large ancient Roman amphitheater with notable seating capacity. 
 
@@ -111,150 +259,244 @@ Performances showcase choreography, music, and stories reflecting the cultural h
 
 Expect a visual presentation of Turkish dance forms within a historically significant architectural venue. 
 
-Fire of Anatolia tours internationally and is presented during specific seasons and locations, so checking schedules is recommended for venues and times.</p>
-          <div class="card-footer">
-            <span class="price">From €55</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aspendos-theater-fire-of-anatolia-dance-show-entry-p1126781/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Fire of Anatolia tours internationally and is presented during specific seasons and locations, so checking schedules is recommended for venues and times.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aspendos-theater-fire-of-anatolia-dance-show-entry-p1126781/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70d92a226dea458dad18af798abeab2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Antalya: Göynük Canyon Zipline Adventure" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Antalya: Göynük Canyon Zipline Adventure</h3>
-          <p class="venue">📍 Antalya Outdoor Activities</p>
-          <p>Try the zipline adventure at Göynük Canyon. Fly above the landscapes and get clear views of the canyon. Guides ensure a safe ride, making this a good choice for those visiting the area. The zipline adventure offers a unique outdoor activity, whether alone or with others.</p>
-          <div class="card-footer">
-            <span class="price">From €36</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-antalya-goynuk-canyon-zipline-adventure-p1102602/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/70d92a226dea458dad18af798abeab2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Antalya: Göynük Canyon Zipline Adventure" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANTALYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ANTALYA OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Antalya: Göynük Canyon Zipline Adventure</div>
+        <div class="tq-card-desc">Try the zipline adventure at Göynük Canyon. Fly above the landscapes and get clear views of the canyon. Guides ensure a safe ride, making this a good choice for those visiting the area. The zipline adventure offers a unique outdoor activity, whether alone or with others.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€36.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-antalya-goynuk-canyon-zipline-adventure-p1102602/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70d92a226dea458dad18af798abeab2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Antalya: Canyoning & Zipline Adventure" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Antalya: Canyoning & Zipline Adventure</h3>
-          <p class="venue">📍 Antalya Outdoor Activities</p>
-          <p>Start by navigating through the rugged, water-carved gorges of Göynük Canyon. Rappel down waterfalls, wade through clear pools, and see ancient rock formations. Then, switch to the skies and zipline across the canyon. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/70d92a226dea458dad18af798abeab2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Antalya: Canyoning & Zipline Adventure" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANTALYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ANTALYA OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Antalya: Canyoning & Zipline Adventure</div>
+        <div class="tq-card-desc">Start by navigating through the rugged, water-carved gorges of Göynük Canyon. Rappel down waterfalls, wade through clear pools, and see ancient rock formations. Then, switch to the skies and zipline across the canyon. 
 
-The guides will ensure your safety throughout the adventure. This combo tour offers a day packed with activities in a remarkable natural setting. Whether you're an adventure enthusiast or new to exploring, this tour promises an action-filled experience in Göynük Canyon.</p>
-          <div class="card-footer">
-            <span class="price">From €79</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-antalya-canyoning-and-zipline-adventure-p1102390/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The guides will ensure your safety throughout the adventure. This combo tour offers a day packed with activities in a remarkable natural setting. Whether you're an adventure enthusiast or new to exploring, this tour promises an action-filled experience in Göynük Canyon.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€79.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-antalya-canyoning-and-zipline-adventure-p1102390/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70d92a226dea458dad18af798abeab2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Antalya: Canyoning Body Rafting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Antalya: Canyoning Body Rafting</h3>
-          <p class="venue">📍 Antalya Outdoor Activities</p>
-          <p>Go on a canyoning trip to Göynük Canyon. Rappel down waterfalls, glide through narrow gorges, and explore rock formations shaped over millions of years.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/70d92a226dea458dad18af798abeab2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Antalya: Canyoning Body Rafting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANTALYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ANTALYA OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Antalya: Canyoning Body Rafting</div>
+        <div class="tq-card-desc">Go on a canyoning trip to Göynük Canyon. Rappel down waterfalls, glide through narrow gorges, and explore rock formations shaped over millions of years.
 
-Join a group and take on the rugged terrain. This activity is perfect for adventure enthusiasts looking for a challenging outdoor experience.</p>
-          <div class="card-footer">
-            <span class="price">From €55</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-antalya-canyoning-body-rafting-p1102304/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Join a group and take on the rugged terrain. This activity is perfect for adventure enthusiasts looking for a challenging outdoor experience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-antalya-canyoning-body-rafting-p1102304/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/195553393ce94bdfa39e73999edf8ceb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Antalya: Traditional Turkish Bath Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Antalya: Traditional Turkish Bath Experience</h3>
-          <p class="venue">📍 Alanya Spas and Turkish Baths</p>
-          <p>Join the Antalya traditional Turkish bath and massage experience for a trip back to an era rich in tradition and pampering.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/195553393ce94bdfa39e73999edf8ceb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Antalya: Traditional Turkish Bath Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANTALYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALANYA SPAS AND TURKISH BATHS</span>
+        </div>
+        <div class="tq-card-title">Antalya: Traditional Turkish Bath Experience</div>
+        <div class="tq-card-desc">Join the Antalya traditional Turkish bath and massage experience for a trip back to an era rich in tradition and pampering.
 
 Start with a revitalizing Turkish bath to purify and energize the body. Then, enjoy a soothing massage from skilled therapists to feel relaxed and revitalized. Located in Antalya's beautiful landscape, the spa offers a calm escape from daily life.
 
-Whether you seek relaxation, rejuvenation, or tranquility, this Turkish bath experience promises to exceed expectations.</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-antalya-traditional-turkish-bath-experience-p1095220/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Whether you seek relaxation, rejuvenation, or tranquility, this Turkish bath experience promises to exceed expectations.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-antalya-traditional-turkish-bath-experience-p1095220/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70d92a226dea458dad18af798abeab2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Side: Full-Day Jeep Safari Tour + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Side: Full-Day Jeep Safari Tour + Lunch</h3>
-          <p class="venue">📍 Antalya Outdoor Activities</p>
-          <p>Get picked up from your hotel at dawn and hop on a jeep for an off-road adventure through the Taurus Mountains. Led by experienced drivers, explore areas inaccessible to regular vehicles and enjoy amazing views of Side.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/70d92a226dea458dad18af798abeab2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Side: Full-Day Jeep Safari Tour + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANTALYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ANTALYA OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Side: Full-Day Jeep Safari Tour + Lunch</div>
+        <div class="tq-card-desc">Get picked up from your hotel at dawn and hop on a jeep for an off-road adventure through the Taurus Mountains. Led by experienced drivers, explore areas inaccessible to regular vehicles and enjoy amazing views of Side.
 
 Visit the villages of Sartlar and Işıklar to learn more about the life of the locals and their religious traditions at a village mosque. Try some traditional Turkish bread (gözleme) at an old house in the village of Oymapinar.
 
-Next, head to the beautiful Manavgat Waterfall, soak up the scenic landscape, and witness the beauty and diversity of nature. Enjoy lunch at a picturesque location in the mountains, and end your tour with a visit to a small zoo before returning to your hotel in Side.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-side-full-day-jeep-safari-tour-lunch-p1093098/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, head to the beautiful Manavgat Waterfall, soak up the scenic landscape, and witness the beauty and diversity of nature. Enjoy lunch at a picturesque location in the mountains, and end your tour with a visit to a small zoo before returning to your hotel in Side.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-side-full-day-jeep-safari-tour-lunch-p1093098/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/195553393ce94bdfa39e73999edf8ceb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Antalya: City Tour with Cable Car Ride, Boat Trip & Duden Waterfalls" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Antalya: City Tour with Cable Car Ride, Boat Trip & Duden Waterfalls</h3>
-          <p class="venue">📍 Antalya Day Trips</p>
-          <p>Explore Antalya's treasures on this exciting tour. Discover the history and views of the city.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/195553393ce94bdfa39e73999edf8ceb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Antalya: City Tour with Cable Car Ride, Boat Trip & Duden Waterfalls" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANTALYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ANTALYA DAY TRIPS</span>
+        </div>
+        <div class="tq-card-title">Antalya: City Tour with Cable Car Ride, Boat Trip & Duden Waterfalls</div>
+        <div class="tq-card-desc">Explore Antalya's treasures on this exciting tour. Discover the history and views of the city.
 
 Start in Kaleiçi with a guided tour to see hidden gems and learn local stories. Enjoy a cable car ride for amazing views. Next, visit Kurşunlu Waterfall, a natural beauty. End the day with a tasty lunch in Kaleiçi, enjoying the ancient city's atmosphere.
 
-This tour is great for history buffs, nature lovers, or anyone seeking a unique experience.</p>
-          <div class="card-footer">
-            <span class="price">From €59</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-antalya-city-tour-with-cable-car-ride-boat-trip-duden-waterfalls-p1093094/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This tour is great for history buffs, nature lovers, or anyone seeking a unique experience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€59.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-antalya-city-tour-with-cable-car-ride-boat-trip-duden-waterfalls-p1093094/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70d92a226dea458dad18af798abeab2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Taurus Mountains & Yumaklar: Jeep Safari Adventure from Antalya" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Taurus Mountains & Yumaklar: Jeep Safari Adventure from Antalya</h3>
-          <p class="venue">📍 Antalya Outdoor Activities</p>
-          <p>Join the ultimate adventure with a jeep tour starting right from your hotel in Antalya. Travel from the bustling city to the scenic Taurus Mountains for a full day of exploration.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/70d92a226dea458dad18af798abeab2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Taurus Mountains & Yumaklar: Jeep Safari Adventure from Antalya" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANTALYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ANTALYA OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Taurus Mountains & Yumaklar: Jeep Safari Adventure from Antalya</div>
+        <div class="tq-card-desc">Join the ultimate adventure with a jeep tour starting right from your hotel in Antalya. Travel from the bustling city to the scenic Taurus Mountains for a full day of exploration.
 
 Witness beautiful villages along dusty mountain roads and capture astonishing views. As you climb to 920 meters, breathe in the scent of pine trees and wildflowers. Explore the simplicity of Turkish rural life in the village of Yumaklar.
 
 Refuel yourself with a delicious grilled fish or chicken meal complemented by seasonal fruits at a local eatery. Continue your tour to the Ucansu Waterfall, where you can take a refreshing dip in the natural pool surrounded by untouched wilderness.
 
-As the day concludes, the jeep will safely return you to your Antalya hotel, marking the end of an unforgettable trip to Turkey's natural beauty.</p>
-          <div class="card-footer">
-            <span class="price">From €42</span>
-            <span class="rating">⭐ 3 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-taurus-mountains-yumaklar-jeep-safari-adventure-from-antalya-p1092067/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As the day concludes, the jeep will safely return you to your Antalya hotel, marking the end of an unforgettable trip to Turkey's natural beauty.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-taurus-mountains-yumaklar-jeep-safari-adventure-from-antalya-p1092067/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/195553393ce94bdfa39e73999edf8ceb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pamukkale & Hierapolis: Day Trip from Antalya with Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pamukkale & Hierapolis: Day Trip from Antalya with Lunch</h3>
-          <p class="venue">📍 Antalya Day Trips</p>
-          <p>Prepare for an unforgettable day trip from Antalya to Pamukkale, where nature's beauty and ancient history converge. Pamukkale, known as the 'Cotton Castle,' features unique terraces formed by thermal waters over time, offering a therapeutic and beautiful view.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/195553393ce94bdfa39e73999edf8ceb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pamukkale & Hierapolis: Day Trip from Antalya with Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ANTALYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ANTALYA DAY TRIPS</span>
+        </div>
+        <div class="tq-card-title">Pamukkale & Hierapolis: Day Trip from Antalya with Lunch</div>
+        <div class="tq-card-desc">Prepare for an unforgettable day trip from Antalya to Pamukkale, where nature's beauty and ancient history converge. Pamukkale, known as the 'Cotton Castle,' features unique terraces formed by thermal waters over time, offering a therapeutic and beautiful view.
 
-Next, explore Hierapolis, a nearby ancient city and UNESCO World Heritage Site, with well-preserved ruins and a fascinating museum. Relax at the Cleopatra's Pool among ancient columns for a refreshing swim. Pamukkale promises a trip into Turkey's cultural heritage that you'll remember for years to come.</p>
-          <div class="card-footer">
-            <span class="price">From €60</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pamukkale-hierapolis-day-trip-from-antalya-with-lunch-p1092055/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, explore Hierapolis, a nearby ancient city and UNESCO World Heritage Site, with well-preserved ruins and a fascinating museum. Relax at the Cleopatra's Pool among ancient columns for a refreshing swim. Pamukkale promises a trip into Turkey's cultural heritage that you'll remember for years to come.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pamukkale-hierapolis-day-trip-from-antalya-with-lunch-p1092055/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Adelaide | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Adelaide. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,135 +131,223 @@
     <p>8 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gorge Wildlife Park: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Gorge Wildlife Park: Entry Ticket</h3>
-          <p class="venue">📍 Gorge Wildlife Park</p>
-          <p>Visit the Gorge Wildlife Park, established in 1965 and still managed by the same family. Walk through 14 acres of land shaded by trees. Follow paths leading to one of the largest privately owned collections of Australian and exotic animals, birds, and reptiles in the country. Get close to the wildlife for an unforgettable experience.</p>
-          <div class="card-footer">
-            <span class="price">From €15.63</span>
-            <span class="rating">⭐ 4.5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-gorge-wildlife-park-p1102480/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gorge Wildlife Park: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ADELAIDE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GORGE WILDLIFE PARK</span>
+        </div>
+        <div class="tq-card-title">Gorge Wildlife Park: Entry Ticket</div>
+        <div class="tq-card-desc">Visit the Gorge Wildlife Park, established in 1965 and still managed by the same family. Walk through 14 acres of land shaded by trees. Follow paths leading to one of the largest privately owned collections of Australian and exotic animals, birds, and reptiles in the country. Get close to the wildlife for an unforgettable experience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.63</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-gorge-wildlife-park-p1102480/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kangaroo Island: Day Tour from Adelaide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Kangaroo Island: Day Tour from Adelaide</h3>
-          <p class="venue">📍 Day Trips from Adelaide</p>
-          <p>Visit Kangaroo Island, South Australia's top nature spot. Walk on the beach at **Seal Bay Conservation Park** with a National Parks Ranger, where you can see rare Australian sea lions up close.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kangaroo Island: Day Tour from Adelaide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ADELAIDE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM ADELAIDE</span>
+        </div>
+        <div class="tq-card-title">Kangaroo Island: Day Tour from Adelaide</div>
+        <div class="tq-card-desc">Visit Kangaroo Island, South Australia's top nature spot. Walk on the beach at **Seal Bay Conservation Park** with a National Parks Ranger, where you can see rare Australian sea lions up close.
 
 After lunch, explore **Flinders Chase National Park**. See echidnas, wallabies, reptiles, and koalas as you go through the park. Walk among the **Remarkable Rocks** for unique photos, then follow the boardwalk at **Admirals Arch** to see a rock formation and long-nosed fur seals.
 
-Finish your trip at **Kangaroo Island Wildlife Park**, where you can feed kangaroos and meet koalas. On the way back to Penneshaw for your ferry and coach transfer to Adelaide, watch for more wildlife.</p>
-          <div class="card-footer">
-            <span class="price">From €233.92</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-adelaide-kangaroo-island-day-tour-experience-p1112023/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finish your trip at **Kangaroo Island Wildlife Park**, where you can feed kangaroos and meet koalas. On the way back to Penneshaw for your ferry and coach transfer to Adelaide, watch for more wildlife.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€233.92</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-adelaide-kangaroo-island-day-tour-experience-p1112023/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Murray River: Day Tour from Adelaide with Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Murray River: Day Tour from Adelaide with Cruise</h3>
-          <p class="venue">📍 Day Trips from Adelaide</p>
-          <p>Take a full-day **Murray River tour** from Adelaide, featuring a **2-hour cruise** along Australia's longest river. See South Australia's landscapes as you glide through the water, home to native fish, turtles, crayfish, and platypus.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Murray River: Day Tour from Adelaide with Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ADELAIDE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM ADELAIDE</span>
+        </div>
+        <div class="tq-card-title">Murray River: Day Tour from Adelaide with Cruise</div>
+        <div class="tq-card-desc">Take a full-day **Murray River tour** from Adelaide, featuring a **2-hour cruise** along Australia's longest river. See South Australia's landscapes as you glide through the water, home to native fish, turtles, crayfish, and platypus.
 
 Start in **Adelaide** and enjoy a **lunch** during your outing. Pass by the **Angus and Torrens Valleys** and the **Walker Flat cliffs**. Stop at a **Mannum lookout** for more views.
 
 Learn about the days when **riverboat men** navigated the Murray, now with the comfort of a modern cruise. This tour provides a look into South Australia's history and natural environment. 
 
-On the way back to Adelaide, enjoy a scenic drive through the beautiful **Adelaide Hills**, stopping at Melba’s Chocolate Factory for a sweet treat.</p>
-          <div class="card-footer">
-            <span class="price">From €119.66</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-murray-river-day-tour-with-cruise-from-adelaide-p1111970/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+On the way back to Adelaide, enjoy a scenic drive through the beautiful **Adelaide Hills**, stopping at Melba’s Chocolate Factory for a sweet treat.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€119.66</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-murray-river-day-tour-with-cruise-from-adelaide-p1111970/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Wine Centre of Australia: Australian Wine Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>National Wine Centre of Australia: Australian Wine Guided Tour</h3>
-          <p class="venue">📍 National Wine Centre of Australia</p>
-          <p>Take a guided tour of the National Wine Centre of Australia and learn about the history and science of Australian wines. Hear about the country’s 65 wine regions and key industry figures from your guide. Try the virtual blending simulator to blend your own wine and finish the tour with a tasting of Botanic Garden Rosé.</p>
-          <div class="card-footer">
-            <span class="price">From €15.03</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-national-wine-centre-of-australia-australian-wine-guided-tour-p1102901/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Wine Centre of Australia: Australian Wine Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ADELAIDE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NATIONAL WINE CENTRE OF AUSTRALIA</span>
+        </div>
+        <div class="tq-card-title">National Wine Centre of Australia: Australian Wine Guided Tour</div>
+        <div class="tq-card-desc">Take a guided tour of the National Wine Centre of Australia and learn about the history and science of Australian wines. Hear about the country’s 65 wine regions and key industry figures from your guide. Try the virtual blending simulator to blend your own wine and finish the tour with a tasting of Botanic Garden Rosé.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.03</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-national-wine-centre-of-australia-australian-wine-guided-tour-p1102901/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a9971f4a138143b881d1bc70cc4a0ca2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Adelaide Oval Stadium Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Adelaide Oval Stadium Tour</h3>
-          <p class="venue">📍 Adelaide Oval</p>
-          <p>Pull back the curtain of Australian sporting history with a 90-minute, behind-the-scenes tour of the iconic Adelaide Oval. The setting for titanic sporting occasions since it first opened its doors back in 1871, the vintage feel of the Oval has been preserved, and complemented with state-of-the-art facilities and architecture.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a9971f4a138143b881d1bc70cc4a0ca2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Adelaide Oval Stadium Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ADELAIDE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ADELAIDE OVAL</span>
+        </div>
+        <div class="tq-card-title">Adelaide Oval Stadium Tour</div>
+        <div class="tq-card-desc">Pull back the curtain of Australian sporting history with a 90-minute, behind-the-scenes tour of the iconic Adelaide Oval. The setting for titanic sporting occasions since it first opened its doors back in 1871, the vintage feel of the Oval has been preserved, and complemented with state-of-the-art facilities and architecture.
 
-This Adelaide Oval tour will take you on a journey across the Oval's storied past, narrating historic clashes that have unfolded before the roar of 50,000 fans. Climb the steps to the historic scoreboard, access usually off-limits areas, see gorgeous retro memorabilia, and more – all with the help of an expert guide.</p>
-          <div class="card-footer">
-            <span class="price">From €17.44</span>
-            <span class="rating">⭐ 4.9 (11)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-adelaide-oval-tour-p1010878/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This Adelaide Oval tour will take you on a journey across the Oval's storied past, narrating historic clashes that have unfolded before the roar of 50,000 fans. Climb the steps to the historic scoreboard, access usually off-limits areas, see gorgeous retro memorabilia, and more – all with the help of an expert guide.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(11)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.44</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-adelaide-oval-tour-p1010878/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8ae5206509dd4c9087c9619bf2e05f2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="RoofClimb Adelaide Oval" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>RoofClimb Adelaide Oval</h3>
-          <p class="venue">📍 RoofClimb Adelaide Oval</p>
-          <p>How about some adrenaline to go with your sightseeing? A RoofClimb Adelaide Oval experience provides 360° views of the city's coastline and rolling countryside, as well as the opportunity to see the Oval's hallowed turf from a unique vantage point.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8ae5206509dd4c9087c9619bf2e05f2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="RoofClimb Adelaide Oval" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ADELAIDE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROOFCLIMB ADELAIDE OVAL</span>
+        </div>
+        <div class="tq-card-title">RoofClimb Adelaide Oval</div>
+        <div class="tq-card-desc">How about some adrenaline to go with your sightseeing? A RoofClimb Adelaide Oval experience provides 360° views of the city's coastline and rolling countryside, as well as the opportunity to see the Oval's hallowed turf from a unique vantage point.
 
-Harness up and stroll across the Western Stand, peering down at the site of iconic cricketing battles and Aussie rules face-offs. Admire the stadium's award-winning architecture, and head to the Riverbank Platform to see the best seats in the house. Opt for a daytime, twilight, or nighttime climb!</p>
-          <div class="card-footer">
-            <span class="price">From €71.56</span>
-            <span class="rating">⭐ 5 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-roofclimb-adelaide-oval-p1010777/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Harness up and stroll across the Western Stand, peering down at the site of iconic cricketing battles and Aussie rules face-offs. Admire the stadium's award-winning architecture, and head to the Riverbank Platform to see the best seats in the house. Opt for a daytime, twilight, or nighttime climb!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€71.56</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-roofclimb-adelaide-oval-p1010777/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a9971f4a138143b881d1bc70cc4a0ca2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Adelaide Oval Stadium Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Adelaide Oval Stadium Tour</h3>
-          <p class="venue">📍 Adelaide Oval</p>
-          <p>Pull back the curtain of Australian sporting history with a 90-minute, behind-the-scenes tour of the iconic Adelaide Oval. The setting for titanic sporting occasions since it first opened its doors back in 1871, the vintage feel of the Oval has been preserved, and complemented with state-of-the-art facilities and architecture.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a9971f4a138143b881d1bc70cc4a0ca2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Adelaide Oval Stadium Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ADELAIDE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ADELAIDE OVAL</span>
+        </div>
+        <div class="tq-card-title">Adelaide Oval Stadium Tour</div>
+        <div class="tq-card-desc">Pull back the curtain of Australian sporting history with a 90-minute, behind-the-scenes tour of the iconic Adelaide Oval. The setting for titanic sporting occasions since it first opened its doors back in 1871, the vintage feel of the Oval has been preserved, and complemented with state-of-the-art facilities and architecture.
 
-This Adelaide Oval tour will take you on a journey across the Oval's storied past, narrating historic clashes that have unfolded before the roar of 50,000 fans. Climb the steps to the historic scoreboard, access usually off-limits areas, see gorgeous retro memorabilia, and more – all with the help of an expert guide.</p>
-          <div class="card-footer">
-            <span class="price">From €17.44</span>
-            <span class="rating">⭐ 4.9 (11)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-adelaide-oval-tour-p1010878/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This Adelaide Oval tour will take you on a journey across the Oval's storied past, narrating historic clashes that have unfolded before the roar of 50,000 fans. Climb the steps to the historic scoreboard, access usually off-limits areas, see gorgeous retro memorabilia, and more – all with the help of an expert guide.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(11)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.44</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-adelaide-oval-tour-p1010878/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8ae5206509dd4c9087c9619bf2e05f2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="RoofClimb Adelaide Oval" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>RoofClimb Adelaide Oval</h3>
-          <p class="venue">📍 RoofClimb Adelaide Oval</p>
-          <p>How about some adrenaline to go with your sightseeing? A RoofClimb Adelaide Oval experience provides 360° views of the city's coastline and rolling countryside, as well as the opportunity to see the Oval's hallowed turf from a unique vantage point.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8ae5206509dd4c9087c9619bf2e05f2f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="RoofClimb Adelaide Oval" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ADELAIDE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROOFCLIMB ADELAIDE OVAL</span>
+        </div>
+        <div class="tq-card-title">RoofClimb Adelaide Oval</div>
+        <div class="tq-card-desc">How about some adrenaline to go with your sightseeing? A RoofClimb Adelaide Oval experience provides 360° views of the city's coastline and rolling countryside, as well as the opportunity to see the Oval's hallowed turf from a unique vantage point.
 
-Harness up and stroll across the Western Stand, peering down at the site of iconic cricketing battles and Aussie rules face-offs. Admire the stadium's award-winning architecture, and head to the Riverbank Platform to see the best seats in the house. Opt for a daytime, twilight, or nighttime climb!</p>
-          <div class="card-footer">
-            <span class="price">From €71.56</span>
-            <span class="rating">⭐ 5 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-roofclimb-adelaide-oval-p1010777/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Harness up and stroll across the Western Stand, peering down at the site of iconic cricketing battles and Aussie rules face-offs. Admire the stadium's award-winning architecture, and head to the Riverbank Platform to see the best seats in the house. Opt for a daytime, twilight, or nighttime climb!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€71.56</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-roofclimb-adelaide-oval-p1010777/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

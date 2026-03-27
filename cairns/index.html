@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Cairns | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Cairns. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,290 +131,471 @@
     <p>50 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e1ab2ebfae2541209b65f6603f691a1d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Michaelmas Cay Great Barrier Reef Sailing Cruise from Cairns" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Michaelmas Cay Great Barrier Reef Sailing Cruise from Cairns</h3>
-          <p class="venue">📍 Michaelmas Cay</p>
-          <p>Start your morning on the deck of a catamaran with a coffee in hand and the great barrier reef on the horizon. By 09:00 you'll be on the open water being briefed on how to snorkel and learning about reef life from a marine biologist. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e1ab2ebfae2541209b65f6603f691a1d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Michaelmas Cay Great Barrier Reef Sailing Cruise from Cairns" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MICHAELMAS CAY</span>
+        </div>
+        <div class="tq-card-title">Michaelmas Cay Great Barrier Reef Sailing Cruise from Cairns</div>
+        <div class="tq-card-desc">Start your morning on the deck of a catamaran with a coffee in hand and the great barrier reef on the horizon. By 09:00 you'll be on the open water being briefed on how to snorkel and learning about reef life from a marine biologist. 
 
-You'll arrive at Michaelmas Cay around 10:30. A shuttle will whisk you between the boat and the island all-day. Lie back and watch the birdlife or explore the reef with a snorkel or an introductory dive (additional cost). Back on board, a buffet lunch awaits!</p>
-          <div class="card-footer">
-            <span class="price">From €165.97</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-michaelmas-cay-great-barrier-reef-sailing-cruise-from-cairns-p987641/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll arrive at Michaelmas Cay around 10:30. A shuttle will whisk you between the boat and the island all-day. Lie back and watch the birdlife or explore the reef with a snorkel or an introductory dive (additional cost). Back on board, a buffet lunch awaits!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€165.97</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-michaelmas-cay-great-barrier-reef-sailing-cruise-from-cairns-p987641/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/908a001a16f5459489b2cc2cdec469ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kuranda Scenic Railway" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Kuranda Scenic Railway</h3>
-          <p class="venue">📍 Kuranda Scenic Rail</p>
-          <p>For well over 100 years, the Kuranda Scenic Railway has been meandering through the World Heritage-listed rainforest in Barron Gorge National Park, to the picturesque mountainside village of Kuranda.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/908a001a16f5459489b2cc2cdec469ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kuranda Scenic Railway" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KURANDA SCENIC RAIL</span>
+        </div>
+        <div class="tq-card-title">Kuranda Scenic Railway</div>
+        <div class="tq-card-desc">For well over 100 years, the Kuranda Scenic Railway has been meandering through the World Heritage-listed rainforest in Barron Gorge National Park, to the picturesque mountainside village of Kuranda.
 
 Get your Kuranda Scenic Railway tickets and experience this iconic train ride, passing over endless bridges and ravines towards Kuranda. Your adventure begins at Cairns or Freshwater Station, and you'll chug along the 33-kilometre route through lush green valleys and past gushing waterfalls.
 
-If you opt for the Gold Class ticket, you'll enjoy drinks and locally sourced appetizers, as well as a dedicated host for your Kuranda train journey.</p>
-          <div class="card-footer">
-            <span class="price">From €33.98</span>
-            <span class="rating">⭐ 4.7 (36)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kuranda-scenic-railway-p1016583/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+If you opt for the Gold Class ticket, you'll enjoy drinks and locally sourced appetizers, as well as a dedicated host for your Kuranda train journey.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(36)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.98</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kuranda-scenic-railway-p1016583/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/908a001a16f5459489b2cc2cdec469ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Aquarium: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairns Aquarium: Entry Ticket</h3>
-          <p class="venue">📍 Cairns Aquarium</p>
-          <p>Australia's wildlife is like nothing else on Earth – that goes for life down under the waves too! _Sea_ for yourself, with a ticket to the jaw-dropping Cairns Aquarium: a sprawling, ultra-modern facility housing 16,000 incredible animals in 70 unique habitats – far out!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/908a001a16f5459489b2cc2cdec469ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Aquarium: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Cairns Aquarium: Entry Ticket</div>
+        <div class="tq-card-desc">Australia's wildlife is like nothing else on Earth – that goes for life down under the waves too! _Sea_ for yourself, with a ticket to the jaw-dropping Cairns Aquarium: a sprawling, ultra-modern facility housing 16,000 incredible animals in 70 unique habitats – far out!
 
-Witness fearsome shark feedings, get hands-on at the marine and reptile touch tanks, see stingrays, sawfish, pythons, seahorses, turtles, moray eels, a kaleidoscope of stunning tropical fish, and lots more.</p>
-          <div class="card-footer">
-            <span class="price">From €34.88</span>
-            <span class="rating">⭐ 4.6 (126)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairns-aquarium-p990183/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Witness fearsome shark feedings, get hands-on at the marine and reptile touch tanks, see stingrays, sawfish, pythons, seahorses, turtles, moray eels, a kaleidoscope of stunning tropical fish, and lots more.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(126)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€34.88</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairns-aquarium-p990183/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/908a001a16f5459489b2cc2cdec469ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Aquarium & Tomb of the Pharaohs: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairns Aquarium & Tomb of the Pharaohs: Entry Ticket</h3>
-          <p class="venue">📍 Cairns Aquarium</p>
-          <p>Visit two top attractions in Cairns, conveniently located in the city center: the Tomb of the Pharaohs and Cairns Aquarium.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/908a001a16f5459489b2cc2cdec469ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Aquarium & Tomb of the Pharaohs: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Cairns Aquarium & Tomb of the Pharaohs: Entry Ticket</div>
+        <div class="tq-card-desc">Visit two top attractions in Cairns, conveniently located in the city center: the Tomb of the Pharaohs and Cairns Aquarium.
 
 At the Tomb of the Pharaohs, view replicas of 11 ancient Egyptian tombs, featuring detailed hieroglyphics, exhibits, and replicas of burial items. With over 450 items from Egypt, this exhibition offers a unique experience in Australia.
 
-Next, visit the Cairns Aquarium to see 16,000 aquatic animals from the Great Barrier Reef, tropical rainforests, and local waterways. Learn about the ecosystems of Tropical North Queensland through informative displays and presentations. Watch rays and sharks during daily shows.</p>
-          <div class="card-footer">
-            <span class="price">From €61.16</span>
-            <span class="rating">⭐ 4.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairns-aquarium-tomb-of-the-pharaohs-entry-p1116297/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, visit the Cairns Aquarium to see 16,000 aquatic animals from the Great Barrier Reef, tropical rainforests, and local waterways. Learn about the ecosystems of Tropical North Queensland through informative displays and presentations. Watch rays and sharks during daily shows.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€61.16</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairns-aquarium-tomb-of-the-pharaohs-entry-p1116297/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kuranda, Scenic Rail & Skyrail: Full Day Tour from Cairns" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Kuranda, Scenic Rail & Skyrail: Full Day Tour from Cairns</h3>
-          <p class="venue">📍 Day Trips from Cairns</p>
-          <p>Enjoy a peaceful journey on the Kuranda Scenic Railway and discover the beauty of the Australian rainforest, without worrying about what's lurking in the bush.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kuranda, Scenic Rail & Skyrail: Full Day Tour from Cairns" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRNS</span>
+        </div>
+        <div class="tq-card-title">Kuranda, Scenic Rail & Skyrail: Full Day Tour from Cairns</div>
+        <div class="tq-card-desc">Enjoy a peaceful journey on the Kuranda Scenic Railway and discover the beauty of the Australian rainforest, without worrying about what's lurking in the bush.
 
 Board your train and relax as a tropical forest begins to flourish outside your window. When you step off, you'll be in peaceful Kuranda, with its heritage market and koala park.
 
-Once you've got some souvenirs, prepare to get high. Step onto the Skyrail and take in verdant green vistas as you climb above the canopy of Barron Gorge.</p>
-          <div class="card-footer">
-            <span class="price">From €125.68</span>
-            <span class="rating">⭐ 4.3 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kuranda-scenic-rail-skyrail-full-day-tour-from-cairns-p985166/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Once you've got some souvenirs, prepare to get high. Step onto the Skyrail and take in verdant green vistas as you climb above the canopy of Barron Gorge.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€125.68</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kuranda-scenic-rail-skyrail-full-day-tour-from-cairns-p985166/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9dbad8cc6a604796a8ddd4018bba32c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Great Barrier Reef Adventure from Cairns" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Great Barrier Reef Adventure from Cairns</h3>
-          <p class="venue">📍 Green Island</p>
-          <p>You can't get a more Australian experience than immersing yourself in the breathtaking beauty of the Outer Great Barrier Reef. The stable reef activity platform is the perfect base for swimmers and non-swimmers to explore. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9dbad8cc6a604796a8ddd4018bba32c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Great Barrier Reef Adventure from Cairns" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GREEN ISLAND</span>
+        </div>
+        <div class="tq-card-title">Great Barrier Reef Adventure from Cairns</div>
+        <div class="tq-card-desc">You can't get a more Australian experience than immersing yourself in the breathtaking beauty of the Outer Great Barrier Reef. The stable reef activity platform is the perfect base for swimmers and non-swimmers to explore. 
 
-On this amazing Great Barrier Reef tour you can snorkel and/or dive, visit the underwater observatory, cruise in a semi-sub, or just relax on the sundeck with a delicious buffet lunch. Don't miss this voyage into one of the most precious natural wonders of the world.</p>
-          <div class="card-footer">
-            <span class="price">From €179.8</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-adventure-p1020148/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+On this amazing Great Barrier Reef tour you can snorkel and/or dive, visit the underwater observatory, cruise in a semi-sub, or just relax on the sundeck with a delicious buffet lunch. Don't miss this voyage into one of the most precious natural wonders of the world.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€179.80</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-adventure-p1020148/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9dbad8cc6a604796a8ddd4018bba32c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Green Island Eco Adventure Tour: Catamaran Cruise from Cairns" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Green Island Eco Adventure Tour: Catamaran Cruise from Cairns</h3>
-          <p class="venue">📍 Green Island</p>
-          <p>If you're in Queensland, the Great Barrier Reef is a must. This catamaran trip from Cairns takes you to one of the reef's most idyllic islands, Green Island, and gives you the chance to spend the day as you please. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9dbad8cc6a604796a8ddd4018bba32c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Green Island Eco Adventure Tour: Catamaran Cruise from Cairns" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GREEN ISLAND</span>
+        </div>
+        <div class="tq-card-title">Green Island Eco Adventure Tour: Catamaran Cruise from Cairns</div>
+        <div class="tq-card-desc">If you're in Queensland, the Great Barrier Reef is a must. This catamaran trip from Cairns takes you to one of the reef's most idyllic islands, Green Island, and gives you the chance to spend the day as you please. 
 
-This ancient coral cay is home to an array of marine and birdlife. As a major sea turtle habitat, you just might meet one of the locals while snorkelling. If you prefer, relax on the island's white-sand beaches, explore the exotic jungle, or sip cocktails by the resort pool bar.</p>
-          <div class="card-footer">
-            <span class="price">From €73.36</span>
-            <span class="rating">⭐ 3.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-green-island-eco-adventure-catamaran-cruise-from-cairns-p987410/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This ancient coral cay is home to an array of marine and birdlife. As a major sea turtle habitat, you just might meet one of the locals while snorkelling. If you prefer, relax on the island's white-sand beaches, explore the exotic jungle, or sip cocktails by the resort pool bar.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€73.36</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-green-island-eco-adventure-catamaran-cruise-from-cairns-p987410/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e38d68d1286d4076a7dd7fb9f8810cd4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tomb of the Pharaohs: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tomb of the Pharaohs: Entry Ticket</h3>
-          <p class="venue">📍 Tomb of the Pharaohs</p>
-          <p>Visit the Tomb of the Pharaohs, an indoor Ancient Egypt exhibit. Walk through eleven detailed recreations of tombs and temples. See hieroglyphic wall inscriptions, stele plaques, mummified remains, and over 450 museum items made with traditional Egyptian methods.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e38d68d1286d4076a7dd7fb9f8810cd4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tomb of the Pharaohs: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TOMB OF THE PHARAOHS</span>
+        </div>
+        <div class="tq-card-title">Tomb of the Pharaohs: Entry Ticket</div>
+        <div class="tq-card-desc">Visit the Tomb of the Pharaohs, an indoor Ancient Egypt exhibit. Walk through eleven detailed recreations of tombs and temples. See hieroglyphic wall inscriptions, stele plaques, mummified remains, and over 450 museum items made with traditional Egyptian methods.
 
 See burial treasures of Kings and Queens just as early archaeologists did, before these artifacts were moved.
 
-Learn about one of history's richest civilizations and view the burial items that Egyptian royalty collected for the afterlife.</p>
-          <div class="card-footer">
-            <span class="price">From €28.86</span>
-            <span class="rating">⭐ 3 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tomb-of-the-pharaohs-entry-p1116228/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about one of history's richest civilizations and view the burial items that Egyptian royalty collected for the afterlife.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€28.86</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tomb-of-the-pharaohs-entry-p1116228/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6069a3d4128b418ca0e536bd31c5f00d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Magnetic Island: Roundtrip Ferry Transfer from Townsville" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Magnetic Island: Roundtrip Ferry Transfer from Townsville</h3>
-          <p class="venue">📍 Townsville Cruises & Boat Tours</p>
-          <p>Take a return ferry trip to Magnetic Island aboard a high-speed catamaran departing from Townsville. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6069a3d4128b418ca0e536bd31c5f00d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Magnetic Island: Roundtrip Ferry Transfer from Townsville" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TOWNSVILLE CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Magnetic Island: Roundtrip Ferry Transfer from Townsville</div>
+        <div class="tq-card-desc">Take a return ferry trip to Magnetic Island aboard a high-speed catamaran departing from Townsville. 
 
 The ride takes approximately 20 minutes to reach this destination within the Great Barrier Reef region. From there, you can choose to do such activities as snorkeling, jet-skiing, fishing, or walking the historic Forts Walk, where you might spot wild koalas in eucalyptus trees. 
 
-Alternatively, spend time on the beaches or enjoy the outdoor atmosphere. Ferries operate throughout the day from the Breakwater Ferry Terminal, providing flexible options for your visit.</p>
-          <div class="card-footer">
-            <span class="price">From €26.46</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-magnetic-island-return-ferry-transfer-from-townsville-p1128005/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Alternatively, spend time on the beaches or enjoy the outdoor atmosphere. Ferries operate throughout the day from the Breakwater Ferry Terminal, providing flexible options for your visit.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.46</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-magnetic-island-return-ferry-transfer-from-townsville-p1128005/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9dbad8cc6a604796a8ddd4018bba32c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Green Island Ferry Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Green Island Ferry Transfer</h3>
-          <p class="venue">📍 Green Island</p>
-          <p>Jump aboard the Great Adventures fast catamaran from Cairns, and your journey to the Great Barrier Reef will take just 45 minutes! This Green Island Ferry Transfer gets you there and back again, and gives you a whole seven hours of Green Island time!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9dbad8cc6a604796a8ddd4018bba32c9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Green Island Ferry Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GREEN ISLAND</span>
+        </div>
+        <div class="tq-card-title">Green Island Ferry Transfer</div>
+        <div class="tq-card-desc">Jump aboard the Great Adventures fast catamaran from Cairns, and your journey to the Great Barrier Reef will take just 45 minutes! This Green Island Ferry Transfer gets you there and back again, and gives you a whole seven hours of Green Island time!
 
-Surrounded by the reef and its diverse marine life, Green Island is home to a unique rainforest environment, plus a heap of exciting activities. Swim, dive or snorkel, walk in the magical forest, peek amongst the coral, or just relax on the beach and let your day unfold in a real tropical paradise.</p>
-          <div class="card-footer">
-            <span class="price">From €64.34</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-green-island-ferry-transfer-p1020146/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Surrounded by the reef and its diverse marine life, Green Island is home to a unique rainforest environment, plus a heap of exciting activities. Swim, dive or snorkel, walk in the magical forest, peek amongst the coral, or just relax on the beach and let your day unfold in a real tropical paradise.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.34</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-green-island-ferry-transfer-p1020146/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3ccb19f899ce4c949a0302ff4bc4966b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ocean Freedom Great Barrier Reef Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ocean Freedom Great Barrier Reef Tour</h3>
-          <p class="venue">📍 Cairns Cruises & Boat Tours</p>
-          <p>With six hours of reef time, this eco-friendly excursion gives you oceans of time to discover the natural wonder of the Great Barrier Reef. Whether you're snorkelling, diving, or on a glass-bottom boat tour, there's plenty of time to enjoy a tropical lunch on board and relax whilst taking in all the beauty of two unique reef sites. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3ccb19f899ce4c949a0302ff4bc4966b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ocean Freedom Great Barrier Reef Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Ocean Freedom Great Barrier Reef Tour</div>
+        <div class="tq-card-desc">With six hours of reef time, this eco-friendly excursion gives you oceans of time to discover the natural wonder of the Great Barrier Reef. Whether you're snorkelling, diving, or on a glass-bottom boat tour, there's plenty of time to enjoy a tropical lunch on board and relax whilst taking in all the beauty of two unique reef sites. 
 
-Acquaint yourself with vibrant clownfish, sea turtles, and marine life every color of the rainbow – you'll see lots on this tour. Accredited by Advanced Eco, it's a sustainable way to encounter and connect with this precious ecosystem and its beautiful array of inhabitants.</p>
-          <div class="card-footer">
-            <span class="price">From €173.78</span>
-            <span class="rating">⭐ 3.8 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ocean-freedom-great-barrier-reef-tour-personal-service-guaranteed-p1015691/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Acquaint yourself with vibrant clownfish, sea turtles, and marine life every color of the rainbow – you'll see lots on this tour. Accredited by Advanced Eco, it's a sustainable way to encounter and connect with this precious ecosystem and its beautiful array of inhabitants.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€173.78</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ocean-freedom-great-barrier-reef-tour-personal-service-guaranteed-p1015691/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kuranda Rainforestation with Kuranda Scenic Railway" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Kuranda Rainforestation with Kuranda Scenic Railway</h3>
-          <p class="venue">📍 Day Trips from Cairns</p>
-          <p>This wild Queensland adventure includes transport from your Cairns hotel, a visit to the award-winning Rainforestation Nature Park, plus a memorable return home aboard the Kuranda Scenic Railway.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kuranda Rainforestation with Kuranda Scenic Railway" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRNS</span>
+        </div>
+        <div class="tq-card-title">Kuranda Rainforestation with Kuranda Scenic Railway</div>
+        <div class="tq-card-desc">This wild Queensland adventure includes transport from your Cairns hotel, a visit to the award-winning Rainforestation Nature Park, plus a memorable return home aboard the Kuranda Scenic Railway.
 
 Having been picked up from your hotel by an ultra-green electric bus, you'll head straight to Rainforestation Nature Park. 
 
 Your ticket includes a tour on a historic World War Two Army Duck, as well as the chance to hand-feed kangaroos and meet a cassowary. You'll also visit the Pamagirri Aboriginal Experience, which includes educational displays, boomerang and spear throwing, and traditional Aboriginal dances.
 
-Then head back down the mountain to Cairns with a ride on the incredible Kuranda Scenic Railway. This includes a brief stop at the breathtaking Barron Gorge!</p>
-          <div class="card-footer">
-            <span class="price">From €111.25</span>
-            <span class="rating">⭐ 5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kuranda-rainforestation-with-kuranda-scenic-rail-r1bt-p1014908/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Then head back down the mountain to Cairns with a ride on the incredible Kuranda Scenic Railway. This includes a brief stop at the breathtaking Barron Gorge!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€111.25</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kuranda-rainforestation-with-kuranda-scenic-rail-r1bt-p1014908/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns: Outer Great Barrier Reef Full-Day Tour with Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairns: Outer Great Barrier Reef Full-Day Tour with Lunch</h3>
-          <p class="venue">📍 Cairns Cruises & Boat Tours</p>
-          <p>There's no better way to see the world's most famous reef than from the water! This full-day tour takes you out into the crystal blue magic of the Great Barrier Reef, where you'll spend a sunny five hours in two unique outer reef locations, teeming with ocean life to explore. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns: Outer Great Barrier Reef Full-Day Tour with Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Cairns: Outer Great Barrier Reef Full-Day Tour with Lunch</div>
+        <div class="tq-card-desc">There's no better way to see the world's most famous reef than from the water! This full-day tour takes you out into the crystal blue magic of the Great Barrier Reef, where you'll spend a sunny five hours in two unique outer reef locations, teeming with ocean life to explore. 
 
 Snorkel and swim – there are so many fish, you won't believe your eyes. Or just relax on the loungers of the 35-metre luxury superyacht. Then it's time for a BBQ lunch on the deck with fresh fish, prawns, steak, veggie options and fresh salads to refuel you. A glass of wine is included, and the bar is always open for more. 
 
-**Note:** Admin/fuel levy of AU$20 per person to be paid on board.</p>
-          <div class="card-footer">
-            <span class="price">From €159.35</span>
-            <span class="rating">⭐ 5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-outer-great-barrier-reef-full-day-tour-with-lunch-p1013749/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+**Note:** Admin/fuel levy of AU$20 per person to be paid on board.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€159.35</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-outer-great-barrier-reef-full-day-tour-with-lunch-p1013749/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/482c475a3d4a44b3879790eaac66bb84.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Nocturnal Rainforest & Wildlife Tour from Cairns" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Nocturnal Rainforest & Wildlife Tour from Cairns</h3>
-          <p class="venue">📍 Day Trips from Cairns</p>
-          <p>This nocturnal wildlife experience in Far North Queensland gets you up close to Australia's unique native wildlife, day and night! During your tour you'll visit the scenic Atherton Tablelands, an area rich in biodiversity that features a range of habitats including lush tropical rainforest and volcanic crater lakes. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/482c475a3d4a44b3879790eaac66bb84.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Nocturnal Rainforest & Wildlife Tour from Cairns" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRNS</span>
+        </div>
+        <div class="tq-card-title">Nocturnal Rainforest & Wildlife Tour from Cairns</div>
+        <div class="tq-card-desc">This nocturnal wildlife experience in Far North Queensland gets you up close to Australia's unique native wildlife, day and night! During your tour you'll visit the scenic Atherton Tablelands, an area rich in biodiversity that features a range of habitats including lush tropical rainforest and volcanic crater lakes. 
 
-Start your experience with afternoon tea at the world renowned Lake Barrine, then set out (before the sun goes down) and go looking for the musky rat-kangaroo, Boyd's forest dragon, a selection of rainforest birds, butterflies and flying foxes. At dusk, you'll venture to the viewing area by the river to search for the platypus, one of the most unique mammals on earth.</p>
-          <div class="card-footer">
-            <span class="price">From €141.31</span>
-            <span class="rating">⭐ 3.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-nocturnal-rainforest-wildlife-tour-from-cairns-p996650/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Start your experience with afternoon tea at the world renowned Lake Barrine, then set out (before the sun goes down) and go looking for the musky rat-kangaroo, Boyd's forest dragon, a selection of rainforest birds, butterflies and flying foxes. At dusk, you'll venture to the viewing area by the river to search for the platypus, one of the most unique mammals on earth.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€141.31</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-nocturnal-rainforest-wildlife-tour-from-cairns-p996650/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e146139953c4ea591d18238a167db7c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns: Spirit of Cairns Dinner Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairns: Spirit of Cairns Dinner Cruise</h3>
-          <p class="venue">📍 Cairns Cruises & Boat Tours</p>
-          <p>The Spirit of Cairns dinner cruise lets you end your day in paradise with style. Step aboard a sailing catamaran for a smooth-water tour of Trinity Inlet. Watch as the tropical port city of Cairns transforms at sunset. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4e146139953c4ea591d18238a167db7c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns: Spirit of Cairns Dinner Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Cairns: Spirit of Cairns Dinner Cruise</div>
+        <div class="tq-card-desc">The Spirit of Cairns dinner cruise lets you end your day in paradise with style. Step aboard a sailing catamaran for a smooth-water tour of Trinity Inlet. Watch as the tropical port city of Cairns transforms at sunset. 
 
 Start your evening with a refreshing pre-dinner drink as you explore the interior or exterior decks, soaking in panoramic views. 
 
 Your cruise will take you deep into Trinity Inlet and along Cairns' waterfront, passing landmarks like the Cruise Liner Terminal and the Esplanade. 
 
-Inside the air-conditioned dining room, treat yourself to a buffet of fresh seafood and local produce. The catamaran is fully licensed, offering a selection of beverages to enhance your dining experience.</p>
-          <div class="card-footer">
-            <span class="price">From €83.58</span>
-            <span class="rating">⭐ 5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairns-spirit-of-cairns-dinner-cruise-p993748/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Inside the air-conditioned dining room, treat yourself to a buffet of fresh seafood and local produce. The catamaran is fully licensed, offering a selection of beverages to enhance your dining experience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€83.58</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairns-spirit-of-cairns-dinner-cruise-p993748/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Frankland Islands Reef: Boat Tour from Cairns" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Frankland Islands Reef: Boat Tour from Cairns</h3>
-          <p class="venue">📍 Cairns Cruises & Boat Tours</p>
-          <p>Join a tour of the Great Barrier Reef that offers a later start and an earlier return. It's suitable for families with young children, cruise ship passengers, or those with a packed Cairns itinerary.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Frankland Islands Reef: Boat Tour from Cairns" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Frankland Islands Reef: Boat Tour from Cairns</div>
+        <div class="tq-card-desc">Join a tour of the Great Barrier Reef that offers a later start and an earlier return. It's suitable for families with young children, cruise ship passengers, or those with a packed Cairns itinerary.
 
 Visit Normanby Island with activities like kayaking, stand-up paddleboarding, swimming, exploring the island, or relaxing on the beach. Choose one guided activity: a semi-submarine tour or a beach snorkelling tour.
 
-Opt for an additional picnic lunch to make your trip more flexible and budget-friendly.</p>
-          <div class="card-footer">
-            <span class="price">From €105.23</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-frankland-islands-reef-boat-tour-from-cairns-p1119877/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Opt for an additional picnic lunch to make your trip more flexible and budget-friendly.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€105.23</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-frankland-islands-reef-boat-tour-from-cairns-p1119877/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Great Barrier Reef: Cruise from Cairns + Semi-Submersible Tour + Snorkelling" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Great Barrier Reef: Cruise from Cairns + Semi-Submersible Tour + Snorkelling</h3>
-          <p class="venue">📍 Cairns Cruises & Boat Tours</p>
-          <p>Sail to the Great Barrier Reef on a catamaran from Cairns. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Great Barrier Reef: Cruise from Cairns + Semi-Submersible Tour + Snorkelling" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Great Barrier Reef: Cruise from Cairns + Semi-Submersible Tour + Snorkelling</div>
+        <div class="tq-card-desc">Sail to the Great Barrier Reef on a catamaran from Cairns. 
 
 Choose snorkelling, diving, or view the reef through a glass-bottom boat. Enjoy a buffet lunch during the trip. 
 
@@ -325,61 +605,94 @@ Snorkel in the coral lagoon, join a marine biologist for a guided snorkel, or tr
 
 For an alternative, opt for a helmet dive (at your own expense), which keeps your hair dry. Relax on the spacious sundeck. 
 
-Select from activities like snorkelling, diving, and guided snorkel tours. You can also book a helicopter flight (at your own expense) for a different perspective.</p>
-          <div class="card-footer">
-            <span class="price">From €216.48</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-cruise-from-cairns-semi-submarine-tour-snorkelling-p1123245/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Select from activities like snorkelling, diving, and guided snorkel tours. You can also book a helicopter flight (at your own expense) for a different perspective.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€216.48</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-cruise-from-cairns-semi-submarine-tour-snorkelling-p1123245/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fitzroy Island: Roundtrip Ferry from Cairns" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Fitzroy Island: Roundtrip Ferry from Cairns</h3>
-          <p class="venue">📍 Cairns Cruises & Boat Tours</p>
-          <p>Visit Fitzroy Island on a trip from Cairns. Take a ferry ride and hike the trails. Snorkel or use a glass-bottom boat to see the coral reef's marine life. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fitzroy Island: Roundtrip Ferry from Cairns" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Fitzroy Island: Roundtrip Ferry from Cairns</div>
+        <div class="tq-card-desc">Visit Fitzroy Island on a trip from Cairns. Take a ferry ride and hike the trails. Snorkel or use a glass-bottom boat to see the coral reef's marine life. 
 
 Explore the Island's 339 hectares of rainforest, most of which is a protected National Park. Walking trails suit all fitness levels, letting you explore at your own pace. 
 
 Cruise along the coastline to reach Fitzroy Island in about 45 minutes, giving you up to 6 hours to explore the island.
 
-Choose packages with transfers for solo exploring or packages that include snorkel gear or glass-bottom boat access.</p>
-          <div class="card-footer">
-            <span class="price">From €63.14</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fitzroy-island-roundtrip-boat-ferry-from-cairns-p1123241/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Choose packages with transfers for solo exploring or packages that include snorkel gear or glass-bottom boat access.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€63.14</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fitzroy-island-roundtrip-boat-ferry-from-cairns-p1123241/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Green Island: Day Cruise from Cairns" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Green Island: Day Cruise from Cairns</h3>
-          <p class="venue">📍 Cairns Cruises & Boat Tours</p>
-          <p>Board a modern catamaran to sail to Green Island National Park for a beach and snorkelling trip from Cairns.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Green Island: Day Cruise from Cairns" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Green Island: Day Cruise from Cairns</div>
+        <div class="tq-card-desc">Board a modern catamaran to sail to Green Island National Park for a beach and snorkelling trip from Cairns.
 
 Head over to the Marlin Marina to meet your crew and board the catamaran. Sail toward the Great Barrier Reef as you relax in the sun.
 
 Snorkel in the coral reefs of the Great Barrier Reef. You have the option to enjoy a buffet lunch, glass-bottomed boat tour and take a semi-submarine tour.
 
-See the ocean as you reach Green Island National Park. Walk around the island and its beaches. Choose a spot to relax or take a swim.</p>
-          <div class="card-footer">
-            <span class="price">From €72.16</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-green-island-day-cruise-from-cairns-p1123131/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See the ocean as you reach Green Island National Park. Walk around the island and its beaches. Choose a spot to relax or take a swim.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€72.16</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-green-island-day-cruise-from-cairns-p1123131/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Great Barrier Reef: Snorkelling Tour from Cairns + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Great Barrier Reef: Snorkelling Tour from Cairns + Lunch</h3>
-          <p class="venue">📍 Cairns Cruises & Boat Tours</p>
-          <p>Spend five hours engaging in water activities at two distinct sites on The Great Barrier Reef. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Great Barrier Reef: Snorkelling Tour from Cairns + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Great Barrier Reef: Snorkelling Tour from Cairns + Lunch</div>
+        <div class="tq-card-desc">Spend five hours engaging in water activities at two distinct sites on The Great Barrier Reef. 
 
 Snorkel over coral gardens where anemones, sea whips, clams, and plate corals host clownfish, angelfish, and batfish. 
 
@@ -387,21 +700,32 @@ Observe large schools of giant trevally, red bass, and sweetlip swimming between
 
 A guide will explain its significance to the local indigenous tribes, including the Gimuy Walubara Yidinji, Gunggandji, Mandingalbay, and Yirrganydji people. 
 
-Learn about their stories and connection to the reef. Refresh with morning and afternoon tea, and have a buffet lunch during the trip.</p>
-          <div class="card-footer">
-            <span class="price">From €153.34</span>
-            <span class="rating">⭐ 3 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-guided-snorkeling-tour-from-cairns-lunch-p1122969/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about their stories and connection to the reef. Refresh with morning and afternoon tea, and have a buffet lunch during the trip.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€153.34</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-guided-snorkeling-tour-from-cairns-lunch-p1122969/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Moore Reef: Pontoon Tour from Cairns + Lunch + Snorkeling" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Moore Reef: Pontoon Tour from Cairns + Lunch + Snorkeling</h3>
-          <p class="venue">📍 Cairns Cruises & Boat Tours</p>
-          <p>Take a trip to the Outer Great Barrier Reef with Moore Reef day tour. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Moore Reef: Pontoon Tour from Cairns + Lunch + Snorkeling" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Moore Reef: Pontoon Tour from Cairns + Lunch + Snorkeling</div>
+        <div class="tq-card-desc">Take a trip to the Outer Great Barrier Reef with Moore Reef day tour. 
 
 Cruise from Cairns to a custom-built pontoon. You can access clear waters, coral gardens, and marine life like turtles and parrotfish.
 
@@ -409,329 +733,527 @@ Snorkel in a large supervised zone, or join glass bottom boat and semi-submersib
 
 Families will find an enclosed ocean pool and giant waterslide. Learn from guided marine biology presentations and fish feeding sessions.
 
-Facilities include freshwater showers, a sun deck, buffet lunch, and tea and coffee (available for purchase onboard).</p>
-          <div class="card-footer">
-            <span class="price">From €177.39</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-moore-pontoon-tour-from-cairns-lunch-snorkeling-p1122930/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Facilities include freshwater showers, a sun deck, buffet lunch, and tea and coffee (available for purchase onboard).</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€177.39</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-moore-pontoon-tour-from-cairns-lunch-snorkeling-p1122930/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4ce0826e91ec45a4804275610c0df098.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns: Hot Air Balloon Flight + Transfer + Snacks + Optional Activities" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairns: Hot Air Balloon Flight + Transfer + Snacks + Optional Activities</h3>
-          <p class="venue">📍 Cairns Aviation Activities</p>
-          <p>Fly above the rainforest-covered hills. An experienced pilot will guide the balloon over the lush Atherton Tableland. Take photos from a hot air balloon as the sun rises.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4ce0826e91ec45a4804275610c0df098.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns: Hot Air Balloon Flight + Transfer + Snacks + Optional Activities" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS AVIATION ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Cairns: Hot Air Balloon Flight + Transfer + Snacks + Optional Activities</div>
+        <div class="tq-card-desc">Fly above the rainforest-covered hills. An experienced pilot will guide the balloon over the lush Atherton Tableland. Take photos from a hot air balloon as the sun rises.
 
 After landing, have a light snack and a glass of sparkling wine or orange juice. Choose from multiple activities to spend your day.
 
-You can visit the Cairns Aquarium to see Australia's largest freshwater exhibit, enjoy a Bad Fishy Jetboat ride, or get vouchers like the Ochre lunch voucher or the Lemoncello meal voucher.</p>
-          <div class="card-footer">
-            <span class="price">From €333.74</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairns-hot-air-balloon-flight-transfer-snacks-optional-activities-p1120399/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You can visit the Cairns Aquarium to see Australia's largest freshwater exhibit, enjoy a Bad Fishy Jetboat ride, or get vouchers like the Ochre lunch voucher or the Lemoncello meal voucher.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€333.74</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairns-hot-air-balloon-flight-transfer-snacks-optional-activities-p1120399/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Great Barrier Reef & Daintree Rainforest: 2-Day Tour + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Great Barrier Reef & Daintree Rainforest: 2-Day Tour + Lunch</h3>
-          <p class="venue">📍 Day Trips from Cairns</p>
-          <p>Spend two days exploring top attractions in far north Queensland. Start with a full-day cruise to the Great Barrier Reef. Have the chance to snorkel and see underwater life up close. On the second day, explore the Daintree Rainforest and Cape Tribulation. Walk through lush, tropical landscapes and see unique plant and animal species. Visit these sites with a family-owned company that has been operating locally for over 30 years and is known for professionalism and service.</p>
-          <div class="card-footer">
-            <span class="price">From €255.56</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-daintree-rainforest-2-day-tour-from-cairns-lunch-p1104094/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Great Barrier Reef & Daintree Rainforest: 2-Day Tour + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRNS</span>
+        </div>
+        <div class="tq-card-title">Great Barrier Reef & Daintree Rainforest: 2-Day Tour + Lunch</div>
+        <div class="tq-card-desc">Spend two days exploring top attractions in far north Queensland. Start with a full-day cruise to the Great Barrier Reef. Have the chance to snorkel and see underwater life up close. On the second day, explore the Daintree Rainforest and Cape Tribulation. Walk through lush, tropical landscapes and see unique plant and animal species. Visit these sites with a family-owned company that has been operating locally for over 30 years and is known for professionalism and service.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€255.56</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-daintree-rainforest-2-day-tour-from-cairns-lunch-p1104094/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/908a001a16f5459489b2cc2cdec469ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Aquarium: Night Entry + 2-Course Dinner" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairns Aquarium: Night Entry + 2-Course Dinner</h3>
-          <p class="venue">📍 Cairns Aquarium</p>
-          <p>As night falls on the Great Barrier Reef, a busy underwater world comes alive. Corals emit a soft light, reef fish hide, and predators begin their hunt. Nearby, coastal forests also become active with reptiles, amphibians, and insects emerging to find food.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/908a001a16f5459489b2cc2cdec469ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Aquarium: Night Entry + 2-Course Dinner" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Cairns Aquarium: Night Entry + 2-Course Dinner</div>
+        <div class="tq-card-desc">As night falls on the Great Barrier Reef, a busy underwater world comes alive. Corals emit a soft light, reef fish hide, and predators begin their hunt. Nearby, coastal forests also become active with reptiles, amphibians, and insects emerging to find food.
 
-The 'Night at the Aquarium' tour offers a glimpse into this nighttime world. Watch as these creatures go about their lives. The tour ends with a two-course dinner at Dundee’s restaurant, where you can enjoy the view of the aquatic life.</p>
-          <div class="card-footer">
-            <span class="price">From €87.19</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairns-night-at-the-aquarium-with-2-course-dinner-p1097610/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The 'Night at the Aquarium' tour offers a glimpse into this nighttime world. Watch as these creatures go about their lives. The tour ends with a two-course dinner at Dundee’s restaurant, where you can enjoy the view of the aquatic life.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€87.19</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairns-night-at-the-aquarium-with-2-course-dinner-p1097610/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e36d590e18f945a499ffde2a1c7c191d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Barron Falls & Cattana Wetlands: Tour + Lunch + Cableway or Scenic Railway Ride" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Barron Falls & Cattana Wetlands: Tour + Lunch + Cableway or Scenic Railway Ride</h3>
-          <p class="venue">📍 Skyrail Rainforest Cableway</p>
-          <p>Set off on a guided tour of the Cattana Wetlands with a local expert. Stroll along a boardwalk located in a lush forest and move past Jabiru Lake.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e36d590e18f945a499ffde2a1c7c191d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Barron Falls & Cattana Wetlands: Tour + Lunch + Cableway or Scenic Railway Ride" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SKYRAIL RAINFOREST CABLEWAY</span>
+        </div>
+        <div class="tq-card-title">Barron Falls & Cattana Wetlands: Tour + Lunch + Cableway or Scenic Railway Ride</div>
+        <div class="tq-card-desc">Set off on a guided tour of the Cattana Wetlands with a local expert. Stroll along a boardwalk located in a lush forest and move past Jabiru Lake.
 
 Discover the Barron Falls with a Djabugay Aboriginal guide. It is locally known as Din Din and holds deep spiritual significance for the Djabugay people. Learn about the waterfall's deep spiritual and historical importance in a storytelling session.
 
 Next, feast on a delicious lunch at the Skybury Coffee Plantation, featuring dishes with Skybury's signature coffee and papaya accents. Save room for dessert at the Emerald Creek Ice Creamery, where you can try four locally-produced ice cream flavors.
 
-Wrap up your day with a ride on the Skyrail Rainforest Cableway or Kuranda Scenic Railway (depending on selection).</p>
-          <div class="card-footer">
-            <span class="price">From €179.8</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-barron-falls-cattana-wetlands-tour-lunch-cableway-or-scenic-railway-ride-p1089192/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Wrap up your day with a ride on the Skyrail Rainforest Cableway or Kuranda Scenic Railway (depending on selection).</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€179.80</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-barron-falls-cattana-wetlands-tour-lunch-cableway-or-scenic-railway-ride-p1089192/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns: Skyrail Rainforest Cableway" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairns: Skyrail Rainforest Cableway</h3>
-          <p class="venue">📍 Skyrail Rainforest Cableway</p>
-          <p>Get on top of the treetops of the world's oldest living rainforest during your stay in Cairns by way of cable car. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns: Skyrail Rainforest Cableway" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SKYRAIL RAINFOREST CABLEWAY</span>
+        </div>
+        <div class="tq-card-title">Cairns: Skyrail Rainforest Cableway</div>
+        <div class="tq-card-desc">Get on top of the treetops of the world's oldest living rainforest during your stay in Cairns by way of cable car. 
 
 Ascend to the rainforest canopy in a gondola and gain stunning views of the rainforest and Great Barrier Reef beyond. 
 
 Make frequent stops along the 7.5 km route to take pictures and get out to do some exploring of each level of the rainforest – from the bright canopy to the lush forest floor.
 
-Spend up to two hours of free time discovering the famous markets, rainforest walks, tours, and attractions in Kuranda, the Village of the Rainforest.</p>
-          <div class="card-footer">
-            <span class="price">From €55.82</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairns-skyrail-rainforest-cableway-p1050610/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Spend up to two hours of free time discovering the famous markets, rainforest walks, tours, and attractions in Kuranda, the Village of the Rainforest.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.82</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairns-skyrail-rainforest-cableway-p1050610/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Bad Fishy Jet Boat Ride" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairns Bad Fishy Jet Boat Ride</h3>
-          <p class="venue">📍 Cairns Cruises & Boat Tours</p>
-          <p>Get ready for the ride of your life! The Bad Fishy Jet Boat ride is the perfect combination of adrenaline and sightseeing in Cairns. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Bad Fishy Jet Boat Ride" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Cairns Bad Fishy Jet Boat Ride</div>
+        <div class="tq-card-desc">Get ready for the ride of your life! The Bad Fishy Jet Boat ride is the perfect combination of adrenaline and sightseeing in Cairns. 
 
 Join an experienced captain aboard one of the coolest boats you'll ever step foot in. Your skipper will provide live commentary about the sights of the Trinity Inlet and the unique flora and fauna that Far North Queensland produces. 
 
-Between biology lessons, the captain will open up the throttle and let her rip, so hold on tight as you experience some serious speed on the open water.</p>
-          <div class="card-footer">
-            <span class="price">From €48.11</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bad-fishy-jet-boat-ride-cairns-p1032911/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Between biology lessons, the captain will open up the throttle and let her rip, so hold on tight as you experience some serious speed on the open water.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€48.11</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bad-fishy-jet-boat-ride-cairns-p1032911/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Green Island Fly and Cruise from Carins" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Green Island Fly and Cruise from Carins</h3>
-          <p class="venue">📍 Cairns Cruises & Boat Tours</p>
-          <p>This amazing full-day experience starts with a birds-eye view of Cairns, Green Island and the Great Barrier Reef. Soar above the reef aboard a high-wing aircraft, with guaranteed window seats for everyone on-board. Your 40-minute Reef Hopper flight departs from Cairns Airport and gives you an appreciation of the region that you can only get from the air. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5d8d8bf3dd8c4ab1b46f248a748afa4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Green Island Fly and Cruise from Carins" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Green Island Fly and Cruise from Carins</div>
+        <div class="tq-card-desc">This amazing full-day experience starts with a birds-eye view of Cairns, Green Island and the Great Barrier Reef. Soar above the reef aboard a high-wing aircraft, with guaranteed window seats for everyone on-board. Your 40-minute Reef Hopper flight departs from Cairns Airport and gives you an appreciation of the region that you can only get from the air. 
 
-Following the flight, you'll find yourself at the Cairns Reef Terminal ready to depart on a full-day adventure cruise to Green Island aboard the _Reef Rocket_. Your cruise includes everything you need for the day, with a range of extras and activities available for no extra charge.</p>
-          <div class="card-footer">
-            <span class="price">From €257.97</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fly-and-cruise-green-island-p1032479/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Following the flight, you'll find yourself at the Cairns Reef Terminal ready to depart on a full-day adventure cruise to Green Island aboard the _Reef Rocket_. Your cruise includes everything you need for the day, with a range of extras and activities available for no extra charge.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€257.97</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fly-and-cruise-green-island-p1032479/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ca74405fb6ff43bd9dd3518c82535e6f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giant Swing at Skypark Cairns" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Giant Swing at Skypark Cairns</h3>
-          <p class="venue">📍 Skypark Cairns by AJ Hackett</p>
-          <p>This isn't your average swing – Skypark's Giant Swing will have you flying at up to 120 km per hour in just 3.5 seconds! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ca74405fb6ff43bd9dd3518c82535e6f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giant Swing at Skypark Cairns" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SKYPARK CAIRNS BY AJ HACKETT</span>
+        </div>
+        <div class="tq-card-title">Giant Swing at Skypark Cairns</div>
+        <div class="tq-card-desc">This isn't your average swing – Skypark's Giant Swing will have you flying at up to 120 km per hour in just 3.5 seconds! 
 
 Ride alone, or rope friends and family into riding with you. You'll fly through the rainforest canopy, weaving between trees and hugging the hillside as you reach maximum velocity. 
 
-If you're looking for some extreme fun in Cairns, this is it.</p>
-          <div class="card-footer">
-            <span class="price">From €77.57</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-giant-swing-at-skypark-cairns-p1022299/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+If you're looking for some extreme fun in Cairns, this is it.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€77.57</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-giant-swing-at-skypark-cairns-p1022299/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/908a001a16f5459489b2cc2cdec469ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marine Life Encounter at Cairns Aquarium" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Marine Life Encounter at Cairns Aquarium</h3>
-          <p class="venue">📍 Cairns Aquarium</p>
-          <p>Get the most from your day at Cairns Aquarium with a marine life encounter! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/908a001a16f5459489b2cc2cdec469ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Marine Life Encounter at Cairns Aquarium" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Marine Life Encounter at Cairns Aquarium</div>
+        <div class="tq-card-desc">Get the most from your day at Cairns Aquarium with a marine life encounter! 
 
 Your guide will take you behind the scenes, so you can see how the aquarium cares for its marine creatures. Hand-feed the cownose sting rays their favourite food on a specially designed feeding platform. At the _River Monsters_ exhibit, scatter-feed the giant freshwater rays and barramundi, followed by a visit to the Cairns Turtle Hospital to meet the sea turtles that Cairns Aquarium cares for. You'll also learn about the aquarium's rescue, rehabilitation and conservation efforts and how you can help. 
 
-After your day of discovery, relax and unwind with a gourmet lunch at the aquatic-themed restaurant.</p>
-          <div class="card-footer">
-            <span class="price">From €179.8</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-marine-life-encounter-at-cairns-aquarium-p1020840/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After your day of discovery, relax and unwind with a gourmet lunch at the aquatic-themed restaurant.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€179.80</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-marine-life-encounter-at-cairns-aquarium-p1020840/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8ccd7e829df740e4b9b118e86f53d999.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Frankland Islands Reef: Guided Day Cruise from Cairns + Snorkeling + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Frankland Islands Reef: Guided Day Cruise from Cairns + Snorkeling + Lunch</h3>
-          <p class="venue">📍 Frankland Islands Reef Cruises</p>
-          <p>Embark on a Frankland Islands Reef Tour for a memorable day in Far North Queensland. Start with a scenic coach ride from Cairns through lush UNESCO World Heritage-listed rainforest.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8ccd7e829df740e4b9b118e86f53d999.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Frankland Islands Reef: Guided Day Cruise from Cairns + Snorkeling + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FRANKLAND ISLANDS REEF CRUISES</span>
+        </div>
+        <div class="tq-card-title">Frankland Islands Reef: Guided Day Cruise from Cairns + Snorkeling + Lunch</div>
+        <div class="tq-card-desc">Embark on a Frankland Islands Reef Tour for a memorable day in Far North Queensland. Start with a scenic coach ride from Cairns through lush UNESCO World Heritage-listed rainforest.
 
 After a calm river cruise on the Mulgrave River, you’ll arrive at Normanby Island in the heart of the Great Barrier Reef, having enjoyed the shortest open water crossing from Cairns.
 
 As the only commercial operator licensed to land on the island, explore at your own pace with activities like a guided snorkel safari, semi-submarine tour, and island walk led by a knowledgeable crew member.
 
-You can use the kayaks or stand-up paddleboards before enjoying a beachside buffet lunch. Finish your adventure with a relaxing cruise back to Cairns.</p>
-          <div class="card-footer">
-            <span class="price">From €150.33</span>
-            <span class="rating">⭐ 4.5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-frankland-islands-reef-guided-day-cruise-from-cairns-snorkeling-lunch-p1020179/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You can use the kayaks or stand-up paddleboards before enjoying a beachside buffet lunch. Finish your adventure with a relaxing cruise back to Cairns.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€150.33</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-frankland-islands-reef-guided-day-cruise-from-cairns-snorkeling-lunch-p1020179/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ca74405fb6ff43bd9dd3518c82535e6f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Skypark Cairns by AJ Hackett: Bungy Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Skypark Cairns by AJ Hackett: Bungy Experience</h3>
-          <p class="venue">📍 Skypark Cairns by AJ Hackett</p>
-          <p>If you’re going to bungy, you might as well do it with a view! The Cairns Bungy Tower – Australia’s only bungy – stands 140 metres above sea level and offers up amazing views of the nearby rainforest and the Great Barrier Reef. Now, you just have to hope you can focus on it before you take your big leap! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ca74405fb6ff43bd9dd3518c82535e6f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Skypark Cairns by AJ Hackett: Bungy Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SKYPARK CAIRNS BY AJ HACKETT</span>
+        </div>
+        <div class="tq-card-title">Skypark Cairns by AJ Hackett: Bungy Experience</div>
+        <div class="tq-card-desc">If you’re going to bungy, you might as well do it with a view! The Cairns Bungy Tower – Australia’s only bungy – stands 140 metres above sea level and offers up amazing views of the nearby rainforest and the Great Barrier Reef. Now, you just have to hope you can focus on it before you take your big leap! 
 
 Get ready for an insane 50-metre bungy, and experience a thrill like no other. There’s no chute and no one there to help you but your bungee cord – this is one hell of a ride and a real test of inner bravery. There's 16 different kinds of jumps you can decide to take, like taking a running leap from the roof, hanging from a bar and letting go when you're ready, diving low enough to touch the water at the bottom of the tower, and even cycling off the platform on a BMX!
 
-If you want a major hit of adrenaline and an equally sizeable personal challenge, you’ve found it. This is one you want to tick off your bucket list.</p>
-          <div class="card-footer">
-            <span class="price">From €137.7</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-skypark-cairns-by-aj-hackett-bungy-experience-p1018727/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+If you want a major hit of adrenaline and an equally sizeable personal challenge, you’ve found it. This is one you want to tick off your bucket list.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€137.70</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-skypark-cairns-by-aj-hackett-bungy-experience-p1018727/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4ce0826e91ec45a4804275610c0df098.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Skydive Mission Beach" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Skydive Mission Beach</h3>
-          <p class="venue">📍 Cairns Aviation Activities</p>
-          <p>Skydiving at Mission Beach is an exhilarating, adrenaline-pumping, unforgettable adventure that will leave you feeling 15,000ft high – even after your feet have touched the ground! Let Skydive Mission Beach's professional and qualified skydive crew guide you on this thrilling tandem skydive above some of the most beautiful scenery in the world.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4ce0826e91ec45a4804275610c0df098.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Skydive Mission Beach" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS AVIATION ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Skydive Mission Beach</div>
+        <div class="tq-card-desc">Skydiving at Mission Beach is an exhilarating, adrenaline-pumping, unforgettable adventure that will leave you feeling 15,000ft high – even after your feet have touched the ground! Let Skydive Mission Beach's professional and qualified skydive crew guide you on this thrilling tandem skydive above some of the most beautiful scenery in the world.
 
-The views of 14km of pristine white beaches, lush rainforest and tropical islands will take your breath away. Not just that, but you'll jump from 15,000ft and freefall for up to 60 seconds, travelling at speeds of over 200km/hr. Beat your fears, push your boundaries and step outside your comfort zone; once you’ve taken the plunge you'll feel like you can achieve anything!</p>
-          <div class="card-footer">
-            <span class="price">From €209.86</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-skydive-mission-beach-p1018694/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The views of 14km of pristine white beaches, lush rainforest and tropical islands will take your breath away. Not just that, but you'll jump from 15,000ft and freefall for up to 60 seconds, travelling at speeds of over 200km/hr. Beat your fears, push your boundaries and step outside your comfort zone; once you’ve taken the plunge you'll feel like you can achieve anything!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€209.86</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-skydive-mission-beach-p1018694/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Great Barrier Reef: Reef Hopper Flight Tickets" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Great Barrier Reef: Reef Hopper Flight Tickets</h3>
-          <p class="venue">📍 Day Trips from Cairns</p>
-          <p>It's one thing to snorkel in the Great Barrier Reef, but when you see the range of blue hues that make up the Coral Sea from the sky, you'll truly appreciate Far North Queensland's coastal beauty. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Great Barrier Reef: Reef Hopper Flight Tickets" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRNS</span>
+        </div>
+        <div class="tq-card-title">Great Barrier Reef: Reef Hopper Flight Tickets</div>
+        <div class="tq-card-desc">It's one thing to snorkel in the Great Barrier Reef, but when you see the range of blue hues that make up the Coral Sea from the sky, you'll truly appreciate Far North Queensland's coastal beauty. 
 
 Travel from Cairns and board a private flight – with a guaranteed window seat and in-flight commentary – which will give you a view you'll never forget. 
 
-You'll also soar over Green Island, Arlington Reef, Upolu Reef, Double Island, and more.</p>
-          <div class="card-footer">
-            <span class="price">From €161.76</span>
-            <span class="rating">⭐ 4.3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-reef-hopper-p1017770/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll also soar over Green Island, Arlington Reef, Upolu Reef, Double Island, and more.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€161.76</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-great-barrier-reef-reef-hopper-p1017770/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4ce0826e91ec45a4804275610c0df098.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Skydive Cairns" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Skydive Cairns</h3>
-          <p class="venue">📍 Cairns Aviation Activities</p>
-          <p>Hungry for adventure? It's high time you got this Cairns skydive experience ticket and jumped from Australia's highest altitude – up to 15,000 feet, directly over the Queensland coast!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4ce0826e91ec45a4804275610c0df098.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Skydive Cairns" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS AVIATION ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Skydive Cairns</div>
+        <div class="tq-card-desc">Hungry for adventure? It's high time you got this Cairns skydive experience ticket and jumped from Australia's highest altitude – up to 15,000 feet, directly over the Queensland coast!
 
 This tandem skydive adventure lets your soar over reefs, rainforest and beaches, strapped to an instructor, while you soak up some of the most prized views in Australia. But you have to be brave for this. Are you ready for up to 60 seconds of free fall?
 
 It's the ultimate thrill, speeding through the sky at over 200 kms per hour! After that you'll float dreamily under the canopy for up to seven minutes, before landing in a beautiful field 20 minutes south of Cairns with the famous Walsh's Pyramid in the background.
 
-That's one more tick for the bucket list!</p>
-          <div class="card-footer">
-            <span class="price">From €209.86</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairns-skydive-experience-p1015962/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+That's one more tick for the bucket list!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€209.86</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairns-skydive-experience-p1015962/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3ae5a5dfe53b4fd8b5dd740bad66e8a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Walk, Sail and Snorkel: Great Barrier Reef & Green Island Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Walk, Sail and Snorkel: Great Barrier Reef & Green Island Tour</h3>
-          <p class="venue">📍 Cairns Cruises & Boat Tours</p>
-          <p>This is your all-in-one Great Barrier Reef and tropical island experience! Snorkel around an exclusive mooring on Pinnacle Reef, where the coral outcrops – known locally as “bommies” – can be seen just one metre below the surface. If you're a qualified diver, opt to scuba dive instead.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3ae5a5dfe53b4fd8b5dd740bad66e8a2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Walk, Sail and Snorkel: Great Barrier Reef & Green Island Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Walk, Sail and Snorkel: Great Barrier Reef & Green Island Tour</div>
+        <div class="tq-card-desc">This is your all-in-one Great Barrier Reef and tropical island experience! Snorkel around an exclusive mooring on Pinnacle Reef, where the coral outcrops – known locally as “bommies” – can be seen just one metre below the surface. If you're a qualified diver, opt to scuba dive instead.
 
 On the deck, there's a delicious lunch of tropical goodies to fill your rumbling tummy. After lunch, hop into the tender to transfer to Green Island. Take a walk through some of Australia's most lush tropical rainforests. Visit Marineland Melanesia, home to Cassius, the largest crocodile in captivity. Laze around on the beautiful white sands and take a cooling dip in the shallow waters off Green Island Beach. With 4.5 hours in total (including lunch), you'll have lots of time to snorkel in the exclusive reef and explore or relax on the island.
 
-On the peaceful sail home, indulge in platters of tropical fruit, cakes, cheeses, and crackers, and a glass of champagne to end your day.</p>
-          <div class="card-footer">
-            <span class="price">From €155.74</span>
-            <span class="rating">⭐ 5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ocean-free-sail-snorkel-dive-personal-great-barrier-reef-green-island-tour-p1015696/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+On the peaceful sail home, indulge in platters of tropical fruit, cakes, cheeses, and crackers, and a glass of champagne to end your day.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€155.74</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ocean-free-sail-snorkel-dive-personal-great-barrier-reef-green-island-tour-p1015696/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kuranda Rainforestation & Transfer from Cairns" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Kuranda Rainforestation & Transfer from Cairns</h3>
-          <p class="venue">📍 Day Trips from Cairns</p>
-          <p>Queensland's beautiful rainforest is waiting to be discovered at Rainforestation Nature Park. And what's more, this ticket-plus-travel package means you don't need to stress about transport!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kuranda Rainforestation & Transfer from Cairns" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRNS</span>
+        </div>
+        <div class="tq-card-title">Kuranda Rainforestation & Transfer from Cairns</div>
+        <div class="tq-card-desc">Queensland's beautiful rainforest is waiting to be discovered at Rainforestation Nature Park. And what's more, this ticket-plus-travel package means you don't need to stress about transport!
 
 Having been whisked away from your Cairns hotel by an electric bus, you'll head straight to Kuranda Rainforestation.
 
 Along with heaps of animals and the chance to learn more about the region's Indigenous culture, you can also explore the area aboard a World War Two Army Duck. 
 
-You'll have the chance to wield a boomerang, watch spears being thrown, and hear the sound of the didgeridoo in the Pamagirri Aboriginal Experience. And, the wildest wildlife is waiting to meet you too – keep an eye out for kangaroos and cassowaries!</p>
-          <div class="card-footer">
-            <span class="price">From €72.16</span>
-            <span class="rating">⭐ 4 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kuranda-rainforestation-transfer-p1014909/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll have the chance to wield a boomerang, watch spears being thrown, and hear the sound of the didgeridoo in the Pamagirri Aboriginal Experience. And, the wildest wildlife is waiting to meet you too – keep an eye out for kangaroos and cassowaries!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€72.16</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kuranda-rainforestation-transfer-p1014909/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kuranda Rainforestation with Skyrail Rainforest Cable" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Kuranda Rainforestation with Skyrail Rainforest Cable</h3>
-          <p class="venue">📍 Day Trips from Cairns</p>
-          <p>This wild excursion includes transport from your Cairns hotel, a visit to the award-winning Rainforestation Nature Park, plus a scenic return journey aboard the Skyrail Rainforest Cable.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kuranda Rainforestation with Skyrail Rainforest Cable" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRNS</span>
+        </div>
+        <div class="tq-card-title">Kuranda Rainforestation with Skyrail Rainforest Cable</div>
+        <div class="tq-card-desc">This wild excursion includes transport from your Cairns hotel, a visit to the award-winning Rainforestation Nature Park, plus a scenic return journey aboard the Skyrail Rainforest Cable.
 
 Having been whisked up from your hotel by an ultra-green electric bus, you'll head straight to Rainforestation Nature Park. 
 
 Your ticket includes a tour on a historic World War Two Army Duck, as well as the chance to hand-feed kangaroos and meet a cassowary. You'll also visit the Pamagirri Aboriginal Experience, which includes educational displays, boomerang and spear throwing, and traditional Aboriginal dances.
 
-You'll then take to the canopy for the trip home, with a beautiful journey back to Cairns aboard the Skyrail Rainforest Cableway.</p>
-          <div class="card-footer">
-            <span class="price">From €117.26</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-kuranda-rainforestation-skyrail-rainforest-cableway-p1014907/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll then take to the canopy for the trip home, with a beautiful journey back to Cairns aboard the Skyrail Rainforest Cableway.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€117.26</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-kuranda-rainforestation-skyrail-rainforest-cableway-p1014907/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Kuranda Day Tour & Transfer from Cairns" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Grand Kuranda Day Tour & Transfer from Cairns</h3>
-          <p class="venue">📍 Day Trips from Cairns</p>
-          <p>It's a full day full of adventure ahead in Kuranda, tucked away in a World Heritage Rainforest. You can expect native flora and fauna, an impressive array of fluttering butterflies, and the chance to learn the ins and outs of indigenous culture.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Kuranda Day Tour & Transfer from Cairns" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRNS</span>
+        </div>
+        <div class="tq-card-title">Grand Kuranda Day Tour & Transfer from Cairns</div>
+        <div class="tq-card-desc">It's a full day full of adventure ahead in Kuranda, tucked away in a World Heritage Rainforest. You can expect native flora and fauna, an impressive array of fluttering butterflies, and the chance to learn the ins and outs of indigenous culture.
 
 Stop in at the Australian Butterfly Sanctuary, where you'll be surrounded by thousands of butterflies. Can you spot the rare Cairns Birdwing? 
 
@@ -739,202 +1261,329 @@ Keep the animal theme going with a visit to the award-winning Rainforestation Na
 
 At the Pamagirri Aboriginal Experience, get a few lessons in culture with a colorful tribal rainforest dance, and tuck into a sumptuous lunch. There's the chance to test a boomerang and learn how spears were used for hunting. 
 
-You'll also get to enjoy the Kuranda Scenic Railway and the Skyrail Rainforest Cableway as part of your transfers.</p>
-          <div class="card-footer">
-            <span class="price">From €189.42</span>
-            <span class="rating">⭐ 4 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-kuranda-day-tour-and-transfer-from-cairns-p1014906/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll also get to enjoy the Kuranda Scenic Railway and the Skyrail Rainforest Cableway as part of your transfers.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€189.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-grand-kuranda-day-tour-and-transfer-from-cairns-p1014906/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Classic Kuranda Day Tour & Transfer from Cairns" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Classic Kuranda Day Tour & Transfer from Cairns</h3>
-          <p class="venue">📍 Day Trips from Cairns</p>
-          <p>Get ready for a day full of adventure in Kuranda, located in a World Heritage Rainforest. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Classic Kuranda Day Tour & Transfer from Cairns" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRNS</span>
+        </div>
+        <div class="tq-card-title">Classic Kuranda Day Tour & Transfer from Cairns</div>
+        <div class="tq-card-desc">Get ready for a day full of adventure in Kuranda, located in a World Heritage Rainforest. 
 
 During your trip, you'll get to visit the award-winning Rainforestation Nature Park, where you can feed a kangaroo and meet a cassowary in the Koala & Wildlife Park, then take a tour on a historic World War II Army Duck.
 
 Next up, visit the Pamagirri Aboriginal Experience to learn about the culture and enjoy a sumptuous lunch. There's the chance to see traditional dance, and boomerang and spear throwing.
 
-You'll also get to enjoy the Kuranda Scenic Railway and the Skyrail Rainforest Cableway as part of your transfers.</p>
-          <div class="card-footer">
-            <span class="price">From €175.59</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-classic-kuranda-day-tour-and-transfer-from-cairns-p1014905/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll also get to enjoy the Kuranda Scenic Railway and the Skyrail Rainforest Cableway as part of your transfers.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€175.59</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-classic-kuranda-day-tour-and-transfer-from-cairns-p1014905/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Daintree and Cape Tribulation Full-Day Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Daintree and Cape Tribulation Full-Day Tour</h3>
-          <p class="venue">📍 Day Trips from Cairns</p>
-          <p>The Cairns tour starts with Barron Falls Lookout and the Kuranda rainforest canopy walk. In the afternoon, you explore the Mossman Gorge Cultural Centre and the Daintree Rainforest, including a guided walk and swim. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Daintree and Cape Tribulation Full-Day Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRNS</span>
+        </div>
+        <div class="tq-card-title">Daintree and Cape Tribulation Full-Day Tour</div>
+        <div class="tq-card-desc">The Cairns tour starts with Barron Falls Lookout and the Kuranda rainforest canopy walk. In the afternoon, you explore the Mossman Gorge Cultural Centre and the Daintree Rainforest, including a guided walk and swim. 
 
 Lunch is at Daintree Village, followed by a croc-spotting tour with the Daintree River Cruise Centre. The return trip includes an ice cream stop at Emerald Creek Ice Creamery outside Mareeba.
 
-Pickup times will be confirmed before travel.</p>
-          <div class="card-footer">
-            <span class="price">From €143.72</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-daintree-and-cape-tribulation-full-day-tour-p1013748/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Pickup times will be confirmed before travel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€143.72</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-daintree-and-cape-tribulation-full-day-tour-p1013748/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/15f298d33d9c4e429953f2cb66277c2d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Self-Drive Kuranda Experience: Skyrail Rainforest Cableway & Scenic Rail" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Self-Drive Kuranda Experience: Skyrail Rainforest Cableway & Scenic Rail</h3>
-          <p class="venue">📍 Skyrail Rainforest Cableway</p>
-          <p>During this day of exploration the sights simply don't stop! After you've driven yourself to the Skyrail Smithfield Terminal, you'll enjoy much more unique ways to enjoy the exotic views ahead. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/15f298d33d9c4e429953f2cb66277c2d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Self-Drive Kuranda Experience: Skyrail Rainforest Cableway & Scenic Rail" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SKYRAIL RAINFOREST CABLEWAY</span>
+        </div>
+        <div class="tq-card-title">Self-Drive Kuranda Experience: Skyrail Rainforest Cableway & Scenic Rail</div>
+        <div class="tq-card-desc">During this day of exploration the sights simply don't stop! After you've driven yourself to the Skyrail Smithfield Terminal, you'll enjoy much more unique ways to enjoy the exotic views ahead. 
 
 First up, float over the Barron Gorge National Park on the Skyrail Rainforest Cableway to Kuranda. After you arrive in the town you can explore its attractions – including the Australian Butterfly Sanctuary and the Rainforestation Nature Park.
  
-Before you head home, you'll take a ride on the historic Kuranda Scenic Railway, one of Australia's most unique rail journeys! After you've chugged your way past waterfalls to Freshwater Station, a shuttle will return you to your car.</p>
-          <div class="card-footer">
-            <span class="price">From €107.04</span>
-            <span class="rating">⭐ 4 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-self-drive-kuranda-experience-skyrail-rainforest-cableway-scenic-rail-p1011204/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Before you head home, you'll take a ride on the historic Kuranda Scenic Railway, one of Australia's most unique rail journeys! After you've chugged your way past waterfalls to Freshwater Station, a shuttle will return you to your car.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€107.04</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-self-drive-kuranda-experience-skyrail-rainforest-cableway-scenic-rail-p1011204/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4ce0826e91ec45a4804275610c0df098.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Hot Air Balloon Experience with Return Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairns Hot Air Balloon Experience with Return Transfers</h3>
-          <p class="venue">📍 Cairns Aviation Activities</p>
-          <p>The hiss of gas, the bellow of flame, and then take off! The lead-up to your flying in a hot air balloon is as spectacular as what you'll see in the air! During this Cairns hot air balloon experience with return transfers, you'll get to watch the sun rise from the sky, and see the Earth light up across the Atherton Tablelands. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4ce0826e91ec45a4804275610c0df098.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Hot Air Balloon Experience with Return Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS AVIATION ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Cairns Hot Air Balloon Experience with Return Transfers</div>
+        <div class="tq-card-desc">The hiss of gas, the bellow of flame, and then take off! The lead-up to your flying in a hot air balloon is as spectacular as what you'll see in the air! During this Cairns hot air balloon experience with return transfers, you'll get to watch the sun rise from the sky, and see the Earth light up across the Atherton Tablelands. 
 
-Whether you're here for romance, or simply a thrill, you're sure to make unforgettable memories. Enjoy some live commentary during your flight, and a few pack-up games once you land. You'll even get photos of the experience e-mailed to you after your trip. Bon voyage!</p>
-          <div class="card-footer">
-            <span class="price">From €297.66</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairns-hot-air-balloon-experience-with-return-transfers-p1010977/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Whether you're here for romance, or simply a thrill, you're sure to make unforgettable memories. Enjoy some live commentary during your flight, and a few pack-up games once you land. You'll even get photos of the experience e-mailed to you after your trip. Bon voyage!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€297.66</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairns-hot-air-balloon-experience-with-return-transfers-p1010977/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7edd3c0041aa4039bcf84a942b6849b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Aquarium by Twilight with Dinner" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairns Aquarium by Twilight with Dinner</h3>
-          <p class="venue">📍 Cairns Aquarium</p>
-          <p>A feast for the senses! Not only does this ticket get you up close to the aquatic life at Cairns Aquarium after-hours, with an exclusive tour by a wildlife educator, you get to dine in the aquatic-themed restaurant too.“
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7edd3c0041aa4039bcf84a942b6849b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Aquarium by Twilight with Dinner" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Cairns Aquarium by Twilight with Dinner</div>
+        <div class="tq-card-desc">A feast for the senses! Not only does this ticket get you up close to the aquatic life at Cairns Aquarium after-hours, with an exclusive tour by a wildlife educator, you get to dine in the aquatic-themed restaurant too.“
 
-Explore ten tropical ecosystems without the regular crowds around. Observe the amazing marine life and then indulge in a sit-down dinner with three delicious courses.</p>
-          <div class="card-footer">
-            <span class="price">From €107.64</span>
-            <span class="rating">⭐ 4.9 (13)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairns-aquarium-by-twilight-with-dinner-p1010810/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore ten tropical ecosystems without the regular crowds around. Observe the amazing marine life and then indulge in a sit-down dinner with three delicious courses.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(13)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€107.64</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairns-aquarium-by-twilight-with-dinner-p1010810/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e342c10629974779bd8381456180041d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Aquarium by Twilight" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairns Aquarium by Twilight</h3>
-          <p class="venue">📍 Cairns Aquarium</p>
-          <p>What a treat for ocean lovers! Enjoy exclusive after-hours entry at Cairns Aquarium, where you'll get a two-hour tour through ten tropical ecosystems by a wildlife educator. Watch the sharks and jellyfish indulge in their evening routines, and learn about aquatic life without the crowds.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e342c10629974779bd8381456180041d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Aquarium by Twilight" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Cairns Aquarium by Twilight</div>
+        <div class="tq-card-desc">What a treat for ocean lovers! Enjoy exclusive after-hours entry at Cairns Aquarium, where you'll get a two-hour tour through ten tropical ecosystems by a wildlife educator. Watch the sharks and jellyfish indulge in their evening routines, and learn about aquatic life without the crowds.
 
-You'll also enjoy a 3-course dinner (if dinner ticket is selected). Water you waiting for?</p>
-          <div class="card-footer">
-            <span class="price">From €51.11</span>
-            <span class="rating">⭐ 4.2 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairns-aquarium-by-twilight-p1009990/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll also enjoy a 3-course dinner (if dinner ticket is selected). Water you waiting for?</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.11</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairns-aquarium-by-twilight-p1009990/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Daintree and Cape Tribulation Full-Day Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Daintree and Cape Tribulation Full-Day Tour</h3>
-          <p class="venue">📍 Day Trips from Cairns</p>
-          <p>The Cairns tour starts with Barron Falls Lookout and the Kuranda rainforest canopy walk. In the afternoon, you explore the Mossman Gorge Cultural Centre and the Daintree Rainforest, including a guided walk and swim. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ddd4488bacbc4fbaa7701ed08b1ded16.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Daintree and Cape Tribulation Full-Day Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRNS</span>
+        </div>
+        <div class="tq-card-title">Daintree and Cape Tribulation Full-Day Tour</div>
+        <div class="tq-card-desc">The Cairns tour starts with Barron Falls Lookout and the Kuranda rainforest canopy walk. In the afternoon, you explore the Mossman Gorge Cultural Centre and the Daintree Rainforest, including a guided walk and swim. 
 
 Lunch is at Daintree Village, followed by a croc-spotting tour with the Daintree River Cruise Centre. The return trip includes an ice cream stop at Emerald Creek Ice Creamery outside Mareeba.
 
-Pickup times will be confirmed before travel.</p>
-          <div class="card-footer">
-            <span class="price">From €143.72</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-daintree-and-cape-tribulation-full-day-tour-p1013748/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Pickup times will be confirmed before travel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€143.72</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-daintree-and-cape-tribulation-full-day-tour-p1013748/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/15f298d33d9c4e429953f2cb66277c2d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Self-Drive Kuranda Experience: Skyrail Rainforest Cableway & Scenic Rail" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Self-Drive Kuranda Experience: Skyrail Rainforest Cableway & Scenic Rail</h3>
-          <p class="venue">📍 Skyrail Rainforest Cableway</p>
-          <p>During this day of exploration the sights simply don't stop! After you've driven yourself to the Skyrail Smithfield Terminal, you'll enjoy much more unique ways to enjoy the exotic views ahead. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/15f298d33d9c4e429953f2cb66277c2d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Self-Drive Kuranda Experience: Skyrail Rainforest Cableway & Scenic Rail" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SKYRAIL RAINFOREST CABLEWAY</span>
+        </div>
+        <div class="tq-card-title">Self-Drive Kuranda Experience: Skyrail Rainforest Cableway & Scenic Rail</div>
+        <div class="tq-card-desc">During this day of exploration the sights simply don't stop! After you've driven yourself to the Skyrail Smithfield Terminal, you'll enjoy much more unique ways to enjoy the exotic views ahead. 
 
 First up, float over the Barron Gorge National Park on the Skyrail Rainforest Cableway to Kuranda. After you arrive in the town you can explore its attractions – including the Australian Butterfly Sanctuary and the Rainforestation Nature Park.
  
-Before you head home, you'll take a ride on the historic Kuranda Scenic Railway, one of Australia's most unique rail journeys! After you've chugged your way past waterfalls to Freshwater Station, a shuttle will return you to your car.</p>
-          <div class="card-footer">
-            <span class="price">From €107.04</span>
-            <span class="rating">⭐ 4 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-self-drive-kuranda-experience-skyrail-rainforest-cableway-scenic-rail-p1011204/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Before you head home, you'll take a ride on the historic Kuranda Scenic Railway, one of Australia's most unique rail journeys! After you've chugged your way past waterfalls to Freshwater Station, a shuttle will return you to your car.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€107.04</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-self-drive-kuranda-experience-skyrail-rainforest-cableway-scenic-rail-p1011204/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4ce0826e91ec45a4804275610c0df098.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Hot Air Balloon Experience with Return Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairns Hot Air Balloon Experience with Return Transfers</h3>
-          <p class="venue">📍 Cairns Aviation Activities</p>
-          <p>The hiss of gas, the bellow of flame, and then take off! The lead-up to your flying in a hot air balloon is as spectacular as what you'll see in the air! During this Cairns hot air balloon experience with return transfers, you'll get to watch the sun rise from the sky, and see the Earth light up across the Atherton Tablelands. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4ce0826e91ec45a4804275610c0df098.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Hot Air Balloon Experience with Return Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS AVIATION ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Cairns Hot Air Balloon Experience with Return Transfers</div>
+        <div class="tq-card-desc">The hiss of gas, the bellow of flame, and then take off! The lead-up to your flying in a hot air balloon is as spectacular as what you'll see in the air! During this Cairns hot air balloon experience with return transfers, you'll get to watch the sun rise from the sky, and see the Earth light up across the Atherton Tablelands. 
 
-Whether you're here for romance, or simply a thrill, you're sure to make unforgettable memories. Enjoy some live commentary during your flight, and a few pack-up games once you land. You'll even get photos of the experience e-mailed to you after your trip. Bon voyage!</p>
-          <div class="card-footer">
-            <span class="price">From €297.66</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairns-hot-air-balloon-experience-with-return-transfers-p1010977/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Whether you're here for romance, or simply a thrill, you're sure to make unforgettable memories. Enjoy some live commentary during your flight, and a few pack-up games once you land. You'll even get photos of the experience e-mailed to you after your trip. Bon voyage!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€297.66</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairns-hot-air-balloon-experience-with-return-transfers-p1010977/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7edd3c0041aa4039bcf84a942b6849b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Aquarium by Twilight with Dinner" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairns Aquarium by Twilight with Dinner</h3>
-          <p class="venue">📍 Cairns Aquarium</p>
-          <p>A feast for the senses! Not only does this ticket get you up close to the aquatic life at Cairns Aquarium after-hours, with an exclusive tour by a wildlife educator, you get to dine in the aquatic-themed restaurant too.“
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7edd3c0041aa4039bcf84a942b6849b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Aquarium by Twilight with Dinner" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Cairns Aquarium by Twilight with Dinner</div>
+        <div class="tq-card-desc">A feast for the senses! Not only does this ticket get you up close to the aquatic life at Cairns Aquarium after-hours, with an exclusive tour by a wildlife educator, you get to dine in the aquatic-themed restaurant too.“
 
-Explore ten tropical ecosystems without the regular crowds around. Observe the amazing marine life and then indulge in a sit-down dinner with three delicious courses.</p>
-          <div class="card-footer">
-            <span class="price">From €107.64</span>
-            <span class="rating">⭐ 4.9 (13)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairns-aquarium-by-twilight-with-dinner-p1010810/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore ten tropical ecosystems without the regular crowds around. Observe the amazing marine life and then indulge in a sit-down dinner with three delicious courses.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(13)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€107.64</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairns-aquarium-by-twilight-with-dinner-p1010810/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e342c10629974779bd8381456180041d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Aquarium by Twilight" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairns Aquarium by Twilight</h3>
-          <p class="venue">📍 Cairns Aquarium</p>
-          <p>What a treat for ocean lovers! Enjoy exclusive after-hours entry at Cairns Aquarium, where you'll get a two-hour tour through ten tropical ecosystems by a wildlife educator. Watch the sharks and jellyfish indulge in their evening routines, and learn about aquatic life without the crowds.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e342c10629974779bd8381456180041d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairns Aquarium by Twilight" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRNS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRNS AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Cairns Aquarium by Twilight</div>
+        <div class="tq-card-desc">What a treat for ocean lovers! Enjoy exclusive after-hours entry at Cairns Aquarium, where you'll get a two-hour tour through ten tropical ecosystems by a wildlife educator. Watch the sharks and jellyfish indulge in their evening routines, and learn about aquatic life without the crowds.
 
-You'll also enjoy a 3-course dinner (if dinner ticket is selected). Water you waiting for?</p>
-          <div class="card-footer">
-            <span class="price">From €51.11</span>
-            <span class="rating">⭐ 4.2 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairns-aquarium-by-twilight-p1009990/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll also enjoy a 3-course dinner (if dinner ticket is selected). Water you waiting for?</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.11</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairns-aquarium-by-twilight-p1009990/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

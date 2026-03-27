@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Lauterbrunnen | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Lauterbrunnen. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,157 +131,256 @@
     <p>9 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/245d9a837c8f4fa9a528089a77d34e33.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grindelwald First: Roundtrip Gondola to Cliff Walk from Grindelwald" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Grindelwald First: Roundtrip Gondola to Cliff Walk from Grindelwald</h3>
-          <p class="venue">📍 Jungfraujoch</p>
-          <p>Get ready for an exciting sky-high adventure on the spectacular Firstbahn cable car, lifting you to the dizzying heights of Grindelwald-First. '
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/245d9a837c8f4fa9a528089a77d34e33.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grindelwald First: Roundtrip Gondola to Cliff Walk from Grindelwald" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAUTERBRUNNEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">JUNGFRAUJOCH</span>
+        </div>
+        <div class="tq-card-title">Grindelwald First: Roundtrip Gondola to Cliff Walk from Grindelwald</div>
+        <div class="tq-card-desc">Get ready for an exciting sky-high adventure on the spectacular Firstbahn cable car, lifting you to the dizzying heights of Grindelwald-First. '
 
 This mountaintop paradise, situated over 2,000 meters above sea level, is a dream come true for thrill-seekers and nature lovers alike. The journey from Grindelwald is just a tantalizing teaser of the fun that awaits you at the summit.
 
-Prepare to be stunned by the panoramic views of the Bernese Oberland mountain range. This breathtaking spectacle alone is worth the trip. But the Grindelwald-First offers a trove of activities, ensuring you find a perfect adventure.</p>
-          <div class="card-footer">
-            <span class="price">From €39.32</span>
-            <span class="rating">⭐ 4.9 (12)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-grindelwald-first-roundtrip-gondola-to-cliff-walk-from-grindelwald-p1080821/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Prepare to be stunned by the panoramic views of the Bernese Oberland mountain range. This breathtaking spectacle alone is worth the trip. But the Grindelwald-First offers a trove of activities, ensuring you find a perfect adventure.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(12)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.32</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-grindelwald-first-roundtrip-gondola-to-cliff-walk-from-grindelwald-p1080821/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/245d9a837c8f4fa9a528089a77d34e33.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jungfraujoch – Top of Europe: Tour from Interlaken" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Jungfraujoch – Top of Europe: Tour from Interlaken</h3>
-          <p class="venue">📍 Jungfraujoch</p>
-          <p>Aside from the fondue, this return trip from Interlaken will be the highlight of your Swiss holiday! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/245d9a837c8f4fa9a528089a77d34e33.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jungfraujoch – Top of Europe: Tour from Interlaken" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAUTERBRUNNEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">JUNGFRAUJOCH</span>
+        </div>
+        <div class="tq-card-title">Jungfraujoch – Top of Europe: Tour from Interlaken</div>
+        <div class="tq-card-desc">Aside from the fondue, this return trip from Interlaken will be the highlight of your Swiss holiday! 
 
 Board the Eiger Express, the state-of-the-art V-Cableway opened in 2020, and move towards the Eiger Glacier station. Then, ride the classic cogwheel train via Kleine Scheidegg up to Jungfraujoch, soaking up amazing, panoramic mountain views as you go.
 
-Jungfraujoch is home to Europe's highest train station, mountain scenery, a glacier, and lots more. At the top, a snowy alpine wonderland of eternal ice, snow, and rock awaits. You can even stroll through the tunnels of the Ice Palace at the heart of the glacier.</p>
-          <div class="card-footer">
-            <span class="price">From €289.43</span>
-            <span class="rating">⭐ 4.2 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-jungfraujoch-top-of-europe-tour-from-interlaken-p991040/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Jungfraujoch is home to Europe's highest train station, mountain scenery, a glacier, and lots more. At the top, a snowy alpine wonderland of eternal ice, snow, and rock awaits. You can even stroll through the tunnels of the Ice Palace at the heart of the glacier.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€289.43</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-jungfraujoch-top-of-europe-tour-from-interlaken-p991040/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c196f42a71204271a2b696c164ef85b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Swiss Ski Experience at Jungfraujoch with Transport from Zurich" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Swiss Ski Experience at Jungfraujoch with Transport from Zurich</h3>
-          <p class="venue">📍 Jungfraujoch</p>
-          <p>Admiring the mountain ranges of Switzerland from the city is all well and good, but speeding down them is even better. Journey out of Zurich to the Bernese Alps and enjoy guided commentary on your way to your first stop at Interlaken.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c196f42a71204271a2b696c164ef85b2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Swiss Ski Experience at Jungfraujoch with Transport from Zurich" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAUTERBRUNNEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">JUNGFRAUJOCH</span>
+        </div>
+        <div class="tq-card-title">Swiss Ski Experience at Jungfraujoch with Transport from Zurich</div>
+        <div class="tq-card-desc">Admiring the mountain ranges of Switzerland from the city is all well and good, but speeding down them is even better. Journey out of Zurich to the Bernese Alps and enjoy guided commentary on your way to your first stop at Interlaken.
 
-After a snack break at Interlaken, you'll be ready to hit the slopes in Grindelwald. bodmiARENA is the perfect location for first-time skiers, so don't expect any double black diamonds. You'll still be 1,200 meters above sea level, though!</p>
-          <div class="card-footer">
-            <span class="price">From €322.19</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-swiss-ski-experience-at-jungfraujoch-with-transport-from-zurich-p988565/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After a snack break at Interlaken, you'll be ready to hit the slopes in Grindelwald. bodmiARENA is the perfect location for first-time skiers, so don't expect any double black diamonds. You'll still be 1,200 meters above sea level, though!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€322.19</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-swiss-ski-experience-at-jungfraujoch-with-transport-from-zurich-p988565/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/80ec2bd1842c46c7879c780529986ab5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jungfraujoch with Transport from Zurich" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Jungfraujoch with Transport from Zurich</h3>
-          <p class="venue">📍 Jungfraujoch</p>
-          <p>Take a stunning coach ride through alpine scenery to Interlaken for a look around an idyllic Swiss village between Lakes Brienz and Thun. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/80ec2bd1842c46c7879c780529986ab5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jungfraujoch with Transport from Zurich" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAUTERBRUNNEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">JUNGFRAUJOCH</span>
+        </div>
+        <div class="tq-card-title">Jungfraujoch with Transport from Zurich</div>
+        <div class="tq-card-desc">Take a stunning coach ride through alpine scenery to Interlaken for a look around an idyllic Swiss village between Lakes Brienz and Thun. 
 
-Ride the cogwheel train up to Europe's highest altitude railway station for sublime mountain peak views. Enjoy panoramic views from the Sphinx Observatory and the plateau, and walk through the ice tunnels of the glacier. Also, access the 250-meter long Alpine Sensation corridor. This is _snow_ experience to miss during your Swiss holiday!</p>
-          <div class="card-footer">
-            <span class="price">From €310.18</span>
-            <span class="rating">⭐ 4.9 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-jungfraujoch-with-transport-from-zurich-p988400/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Ride the cogwheel train up to Europe's highest altitude railway station for sublime mountain peak views. Enjoy panoramic views from the Sphinx Observatory and the plateau, and walk through the ice tunnels of the glacier. Also, access the 250-meter long Alpine Sensation corridor. This is _snow_ experience to miss during your Swiss holiday!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€310.18</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-jungfraujoch-with-transport-from-zurich-p988400/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/442275fb696b4355856063351c9cccf9.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jungfraujoch: Roundtrip Train from Interlaken Ost" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Jungfraujoch: Roundtrip Train from Interlaken Ost</h3>
-          <p class="venue">📍 Jungfraujoch</p>
-          <p>The beauty of the Alps is hard to grasp, and as you pass from lush valleys to the first sprinklings of snow, you know that something fantastic is waiting for you further down the line. The Jungfrau rail takes you on a magical journey from Interlaken to the saddle of Jungfraujoch, where you'll stand amidst the mountains.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/442275fb696b4355856063351c9cccf9.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jungfraujoch: Roundtrip Train from Interlaken Ost" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAUTERBRUNNEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">JUNGFRAUJOCH</span>
+        </div>
+        <div class="tq-card-title">Jungfraujoch: Roundtrip Train from Interlaken Ost</div>
+        <div class="tq-card-desc">The beauty of the Alps is hard to grasp, and as you pass from lush valleys to the first sprinklings of snow, you know that something fantastic is waiting for you further down the line. The Jungfrau rail takes you on a magical journey from Interlaken to the saddle of Jungfraujoch, where you'll stand amidst the mountains.
 
-Via Grindelwald, you take the cable car "Eiger Express" from Grindelwald Terminal to the station Eigergletscher. The modern cable car, which opened in 2020, will take you from Grindelwald to the station in just 15 minutes. On the way, a magnificent view of the mighty 1800 m high Eiger North Face awaits you. At the Eiger glacier, you change to the rack railroad and ride through the mountain massif of the Eiger and Mönch to the Jungfraujoch.</p>
-          <div class="card-footer">
-            <span class="price">From €255.35</span>
-            <span class="rating">⭐ 4.3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-jungfraujoch-roundtrip-train-from-interlaken-ost-p985265/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Via Grindelwald, you take the cable car "Eiger Express" from Grindelwald Terminal to the station Eigergletscher. The modern cable car, which opened in 2020, will take you from Grindelwald to the station in just 15 minutes. On the way, a magnificent view of the mighty 1800 m high Eiger North Face awaits you. At the Eiger glacier, you change to the rack railroad and ride through the mountain massif of the Eiger and Mönch to the Jungfraujoch.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€255.35</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-jungfraujoch-roundtrip-train-from-interlaken-ost-p985265/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jungfrau: Unlimited Travel Pass for 3 to 8 Days" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Jungfrau: Unlimited Travel Pass for 3 to 8 Days</h3>
-          <p class="venue">📍 Jungfraujoch</p>
-          <p>The Jungfrau Travel Pass is your all-access ticket to the world of striking Swiss landscapes. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jungfrau: Unlimited Travel Pass for 3 to 8 Days" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAUTERBRUNNEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">JUNGFRAUJOCH</span>
+        </div>
+        <div class="tq-card-title">Jungfrau: Unlimited Travel Pass for 3 to 8 Days</div>
+        <div class="tq-card-desc">The Jungfrau Travel Pass is your all-access ticket to the world of striking Swiss landscapes. 
 
 Stroll from the countryside valleys of the Jungfrau region to its rugged peaks with a selection of trains, buses, and ships. Travel as often as you would like for up to 8 days throughout the summer season. 
 
-Say goodbye to the fuss of purchasing individual tickets for each trip and chart your own journey in Switzerland.</p>
-          <div class="card-footer">
-            <span class="price">From €180.21</span>
-            <span class="rating">⭐ 4 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-jungfrau-unlimited-travel-pass-for-3-to-8-days-p1079222/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Say goodbye to the fuss of purchasing individual tickets for each trip and chart your own journey in Switzerland.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€180.21</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-jungfrau-unlimited-travel-pass-for-3-to-8-days-p1079222/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jungfrau: Unlimited Winter Travel Pass for 3 to 8 Days" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Jungfrau: Unlimited Winter Travel Pass for 3 to 8 Days</h3>
-          <p class="venue">📍 Jungfraujoch</p>
-          <p>Step off the beaten ski path and enjoy the stunning winter scenery of the Top of Europe, perfect for hikers and sledders looking for an alpine adventure. The Jungfrau region provides a great winter destination for those seeking outdoor adventures.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jungfrau: Unlimited Winter Travel Pass for 3 to 8 Days" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAUTERBRUNNEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">JUNGFRAUJOCH</span>
+        </div>
+        <div class="tq-card-title">Jungfrau: Unlimited Winter Travel Pass for 3 to 8 Days</div>
+        <div class="tq-card-desc">Step off the beaten ski path and enjoy the stunning winter scenery of the Top of Europe, perfect for hikers and sledders looking for an alpine adventure. The Jungfrau region provides a great winter destination for those seeking outdoor adventures.
 
 Take on the challenge of hiking from Grindelwald First to Faulhorn, the world's longest descent.
 
-Just a quick 45-minute trip from the Grindelwald Terminal, you'll find Jungfraujoch, Europe's highest railway station. Ride the Eiger Express tricable car, pause at Eigergletscher for a moment, and then continue your journey on the Jungfrau Railway.</p>
-          <div class="card-footer">
-            <span class="price">From €180.21</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-jungfrau-unlimited-winter-travel-pass-for-3-to-8-days-p1090137/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Just a quick 45-minute trip from the Grindelwald Terminal, you'll find Jungfraujoch, Europe's highest railway station. Ride the Eiger Express tricable car, pause at Eigergletscher for a moment, and then continue your journey on the Jungfrau Railway.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€180.21</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-jungfrau-unlimited-winter-travel-pass-for-3-to-8-days-p1090137/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ea0f49edb5134e29b975ab73e9d63fa2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Train Ride: Lauterbrunnen - Jungfraujoch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Train Ride: Lauterbrunnen - Jungfraujoch</h3>
-          <p class="venue">📍 Jungfraujoch</p>
-          <p>Set off from deep in the valley of Lauterbrunnen, with sheer cliff faces facing you on either side and snow-capped peaks not far off on the horizon. You'll pass rolling hills and cross raging rivers on your trip that just keeps on climbing.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ea0f49edb5134e29b975ab73e9d63fa2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Train Ride: Lauterbrunnen - Jungfraujoch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAUTERBRUNNEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">JUNGFRAUJOCH</span>
+        </div>
+        <div class="tq-card-title">Train Ride: Lauterbrunnen - Jungfraujoch</div>
+        <div class="tq-card-desc">Set off from deep in the valley of Lauterbrunnen, with sheer cliff faces facing you on either side and snow-capped peaks not far off on the horizon. You'll pass rolling hills and cross raging rivers on your trip that just keeps on climbing.
 
-Snow will start to appear as you get closer to the 3,500-meter-high destination, the alpine station of Jungfraujoch, nestled inside a mountain. The Top of Europe has shopping, snow sports, and even art made of ice. There's also the opportunity to step onto Aletsch Glacier, a UNESCO World Natural Heritage Site!</p>
-          <div class="card-footer">
-            <span class="price">From €138.27</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-train-ride-lauterbrunnen-jungfraujoch-roundtrip-p1009223/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Snow will start to appear as you get closer to the 3,500-meter-high destination, the alpine station of Jungfraujoch, nestled inside a mountain. The Top of Europe has shopping, snow sports, and even art made of ice. There's also the opportunity to step onto Aletsch Glacier, a UNESCO World Natural Heritage Site!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€138.27</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-train-ride-lauterbrunnen-jungfraujoch-roundtrip-p1009223/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ea0f49edb5134e29b975ab73e9d63fa2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Train Ride: Lauterbrunnen - Jungfraujoch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Train Ride: Lauterbrunnen - Jungfraujoch</h3>
-          <p class="venue">📍 Jungfraujoch</p>
-          <p>Set off from deep in the valley of Lauterbrunnen, with sheer cliff faces facing you on either side and snow-capped peaks not far off on the horizon. You'll pass rolling hills and cross raging rivers on your trip that just keeps on climbing.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ea0f49edb5134e29b975ab73e9d63fa2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Train Ride: Lauterbrunnen - Jungfraujoch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAUTERBRUNNEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">JUNGFRAUJOCH</span>
+        </div>
+        <div class="tq-card-title">Train Ride: Lauterbrunnen - Jungfraujoch</div>
+        <div class="tq-card-desc">Set off from deep in the valley of Lauterbrunnen, with sheer cliff faces facing you on either side and snow-capped peaks not far off on the horizon. You'll pass rolling hills and cross raging rivers on your trip that just keeps on climbing.
 
-Snow will start to appear as you get closer to the 3,500-meter-high destination, the alpine station of Jungfraujoch, nestled inside a mountain. The Top of Europe has shopping, snow sports, and even art made of ice. There's also the opportunity to step onto Aletsch Glacier, a UNESCO World Natural Heritage Site!</p>
-          <div class="card-footer">
-            <span class="price">From €138.27</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-train-ride-lauterbrunnen-jungfraujoch-roundtrip-p1009223/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Snow will start to appear as you get closer to the 3,500-meter-high destination, the alpine station of Jungfraujoch, nestled inside a mountain. The Top of Europe has shopping, snow sports, and even art made of ice. There's also the opportunity to step onto Aletsch Glacier, a UNESCO World Natural Heritage Site!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€138.27</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-train-ride-lauterbrunnen-jungfraujoch-roundtrip-p1009223/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

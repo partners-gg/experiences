@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Faro | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Faro. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,260 +131,419 @@
     <p>22 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Train Tavira" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hop-on Hop-off Train Tavira</h3>
-          <p class="venue">📍 Algarve Bus Tours</p>
-          <p>With this comprehensive train tour you can see all the sights from your comfy seat, and then hop off at any stop you like! Let the sights come to you and explore at your own pace. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Train Tavira" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALGARVE BUS TOURS</span>
+        </div>
+        <div class="tq-card-title">Hop-on Hop-off Train Tavira</div>
+        <div class="tq-card-desc">With this comprehensive train tour you can see all the sights from your comfy seat, and then hop off at any stop you like! Let the sights come to you and explore at your own pace. 
 
 Wander around the old city of Tavira and imagine life at the Castle of Tavira, once a magnet for pirates. Spot seagulls, waders and other native bird species who call the Tavira Salines home, and step into stunning churches. 
 
-When you're done exploring, simply hop back on the next Hop-on Hop-off Train Tavira, and continue with your adventure!</p>
-          <div class="card-footer">
-            <span class="price">From €6</span>
-            <span class="rating">⭐ 3.2 (18)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-train-tavira-p1034602/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+When you're done exploring, simply hop back on the next Hop-on Hop-off Train Tavira, and continue with your adventure!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.2</strong>
+            <span class="tq-reviews">(18)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€6.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-train-tavira-p1034602/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa: Solar Eco Boat Tour from Faro" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ria Formosa: Solar Eco Boat Tour from Faro</h3>
-          <p class="venue">📍 Faro Cruises</p>
-          <p>Witness the beauty of Ria Formosa on an eco-friendly boat tour. Sail through the calm waters of this protected lagoon in Faro on a solar-powered electric boat guided by knowledgeable locals. This 1-hour tour is designed for zero environmental impact, ensuring a responsible and enjoyable exploration of Ria Formosa.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa: Solar Eco Boat Tour from Faro" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FARO CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ria Formosa: Solar Eco Boat Tour from Faro</div>
+        <div class="tq-card-desc">Witness the beauty of Ria Formosa on an eco-friendly boat tour. Sail through the calm waters of this protected lagoon in Faro on a solar-powered electric boat guided by knowledgeable locals. This 1-hour tour is designed for zero environmental impact, ensuring a responsible and enjoyable exploration of Ria Formosa.
 
-Ideal for families, this tour offers a memorable experience for all ages. Discover the wonders of nature with expert guides while preserving the pristine environment of Ria Formosa. Eco-friendly boats leave no trace, guaranteeing a clean environment for future generations.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ria-formosa-solar-eco-boat-tour-from-faro-p1091400/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Ideal for families, this tour offers a memorable experience for all ages. Discover the wonders of nature with expert guides while preserving the pristine environment of Ria Formosa. Eco-friendly boats leave no trace, guaranteeing a clean environment for future generations.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ria-formosa-solar-eco-boat-tour-from-faro-p1091400/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa: 1-Hr Guided Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ria Formosa: 1-Hr Guided Boat Tour</h3>
-          <p class="venue">📍 Faro Cruises</p>
-          <p>Enjoy an hour-long catamaran cruise through the beautiful Ria Formosa, one of Portugal's 7 Natural Wonders. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa: 1-Hr Guided Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FARO CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ria Formosa: 1-Hr Guided Boat Tour</div>
+        <div class="tq-card-desc">Enjoy an hour-long catamaran cruise through the beautiful Ria Formosa, one of Portugal's 7 Natural Wonders. 
 
 Departing from Faro's Marina, the cruise navigates the peaceful waters of the Ria Formosa National Park. 
 
 Travel through beautiful channels, observe wading birds in the marshes, and appreciate the region's wildlife up close. 
 
-End the tour with the architectural view of Faro’s Old Town Walls.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 4.7 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ria-formosa-1-hr-guided-boat-tour-p1098059/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End the tour with the architectural view of Faro’s Old Town Walls.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ria-formosa-1-hr-guided-boat-tour-p1098059/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Train Faro" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hop-on Hop-off Train Faro</h3>
-          <p class="venue">📍 Algarve Bus Tours</p>
-          <p>With this comprehensive train tour you can see all the sights from your comfy seat, and then hop off at any stop you like! Let the sights come to you and explore at your own pace. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Train Faro" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALGARVE BUS TOURS</span>
+        </div>
+        <div class="tq-card-title">Hop-on Hop-off Train Faro</div>
+        <div class="tq-card-desc">With this comprehensive train tour you can see all the sights from your comfy seat, and then hop off at any stop you like! Let the sights come to you and explore at your own pace. 
 
 See the most important monuments of the city, including the picturesque Old City and the Jardim Manuel Bivar. Take your time at Igreja da Misericórdia, snap some photos at Sé de Faro, Teatro Lethes, Igreja do Carmo, Igreja São Pedro and Zona Comercial da Baixa de Faro. And don't miss The Ria Formosa - a coastal lagoon with sandbars, islands and lots of native birds.
 
-When you're done exploring, simply hop back on the next Hop-on Hop-off Train Faro, and continue with your adventure!</p>
-          <div class="card-footer">
-            <span class="price">From €6</span>
-            <span class="rating">⭐ 2.1 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-train-faro-p1034604/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+When you're done exploring, simply hop back on the next Hop-on Hop-off Train Faro, and continue with your adventure!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2.1</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€6.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-train-faro-p1034604/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/72ee585f596a475b96503b6ccc9261c5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Algarve: Whale & Dolphin Spotting Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Algarve: Whale & Dolphin Spotting Boat Tour</h3>
-          <p class="venue">📍 Vilamoura Cruises</p>
-          <p>Join a 3-hour trip on a 12-passenger RIB boat and see marine life up close. Depart from Vilamoura Marina to spot dolphins, whales, porpoises, and seabirds. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/72ee585f596a475b96503b6ccc9261c5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Algarve: Whale & Dolphin Spotting Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">VILAMOURA CRUISES</span>
+        </div>
+        <div class="tq-card-title">Algarve: Whale & Dolphin Spotting Boat Tour</div>
+        <div class="tq-card-desc">Join a 3-hour trip on a 12-passenger RIB boat and see marine life up close. Depart from Vilamoura Marina to spot dolphins, whales, porpoises, and seabirds. 
 
-Expert guides will help you find dolphins and whales, and you can even look for rare wildlife in large areas.</p>
-          <div class="card-footer">
-            <span class="price">From €50</span>
-            <span class="rating">⭐ 3 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-algarve-whale-dolphin-spotting-boat-tour-p1117050/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Expert guides will help you find dolphins and whales, and you can even look for rare wildlife in large areas.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-algarve-whale-dolphin-spotting-boat-tour-p1117050/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/72ee585f596a475b96503b6ccc9261c5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Benagil Cave, Marinha Beach & Dolphin Spotting: Guided Tour from Vilamoura" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Benagil Cave, Marinha Beach & Dolphin Spotting: Guided Tour from Vilamoura</h3>
-          <p class="venue">📍 Vilamoura Cruises</p>
-          <p>Join a 2.5-hour cruise along the Algarve coastline on a 12-passenger rib boat. Depart from Vilamoura Marina to see top natural sites.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/72ee585f596a475b96503b6ccc9261c5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Benagil Cave, Marinha Beach & Dolphin Spotting: Guided Tour from Vilamoura" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">VILAMOURA CRUISES</span>
+        </div>
+        <div class="tq-card-title">Benagil Cave, Marinha Beach & Dolphin Spotting: Guided Tour from Vilamoura</div>
+        <div class="tq-card-desc">Join a 2.5-hour cruise along the Algarve coastline on a 12-passenger rib boat. Depart from Vilamoura Marina to see top natural sites.
 
 Visit the Benagil Cave and take some photos inside. Explore the rock formations and small coves at Marinha Beach. 
 
 See the caves and grottoes along the coast while local guides share stories and try to spot dolphins during the boat ride.
 
-This small-group tour allows for personalized service and insights from experienced local guides. Sustainable practices are in place.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-benagil-cave-marinha-beach-dolphin-spotting-guided-tour-from-vilamoura-p1112180/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This small-group tour allows for personalized service and insights from experienced local guides. Sustainable practices are in place.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-benagil-cave-marinha-beach-dolphin-spotting-guided-tour-from-vilamoura-p1112180/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa: 2-Hour Guided Bird Watching Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ria Formosa: 2-Hour Guided Bird Watching Boat Tour</h3>
-          <p class="venue">📍 Faro Cruises</p>
-          <p>Take a guided boat tour of Ria Formosa, an essential European wetland perfect for bird enthusiasts. See diverse bird species up close as you glide through channels and past oyster farms.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa: 2-Hour Guided Bird Watching Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FARO CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ria Formosa: 2-Hour Guided Bird Watching Boat Tour</div>
+        <div class="tq-card-desc">Take a guided boat tour of Ria Formosa, an essential European wetland perfect for bird enthusiasts. See diverse bird species up close as you glide through channels and past oyster farms.
 
-Spot species like the greater flamingo and spoonbill in their natural habitat. A nature guide will lead the tour, focusing on the Algarve's wildlife and scenery.</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ria-formosa-2-hour-guided-bird-watching-boat-tour-p1102457/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Spot species like the greater flamingo and spoonbill in their natural habitat. A nature guide will lead the tour, focusing on the Algarve's wildlife and scenery.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ria-formosa-2-hour-guided-bird-watching-boat-tour-p1102457/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa: Sunset Eco Boat Tour from Faro" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ria Formosa: Sunset Eco Boat Tour from Faro</h3>
-          <p class="venue">📍 Faro Cruises</p>
-          <p>Take a sunset boat tour through Ria Formosa's calm waters, departing from Faro's Marina. This small-group tour is limited to 10 guests for a more personal experience. Travel on a solar-powered boat, which minimizes impact on the environment and wildlife.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa: Sunset Eco Boat Tour from Faro" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FARO CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ria Formosa: Sunset Eco Boat Tour from Faro</div>
+        <div class="tq-card-desc">Take a sunset boat tour through Ria Formosa's calm waters, departing from Faro's Marina. This small-group tour is limited to 10 guests for a more personal experience. Travel on a solar-powered boat, which minimizes impact on the environment and wildlife.
 
-Lastly, conclude your tour by enjoying the sunset views over the lagoon and Faro's Old Town.</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ria-formosa-sunset-eco-boat-tour-from-faro-p1102345/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Lastly, conclude your tour by enjoying the sunset views over the lagoon and Faro's Old Town.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ria-formosa-sunset-eco-boat-tour-from-faro-p1102345/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a986db47a2a4402bb02a36e303ba4037.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lagoa: Bus Transfer To/From Faro Airport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lagoa: Bus Transfer To/From Faro Airport</h3>
-          <p class="venue">📍 Airport Transfer Algarve</p>
-          <p>Travel between Faro Airport and Lagoa with Vamus Algarve. This service works for both arrivals and departures, ensuring an easy and hassle-free ride.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a986db47a2a4402bb02a36e303ba4037.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lagoa: Bus Transfer To/From Faro Airport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AIRPORT TRANSFER ALGARVE</span>
+        </div>
+        <div class="tq-card-title">Lagoa: Bus Transfer To/From Faro Airport</div>
+        <div class="tq-card-desc">Travel between Faro Airport and Lagoa with Vamus Algarve. This service works for both arrivals and departures, ensuring an easy and hassle-free ride.
 
 Trust this reliable service to keep your travel on schedule. The modern vehicles include air-conditioning and comfortable seating. Professional drivers prioritize safety and help with luggage and questions.
 
-Whether you visit Lagoa for business or leisure, choose Vamus Algarve for efficient transport.</p>
-          <div class="card-footer">
-            <span class="price">From €12</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-faro-airport-bus-transfer-to-or-from-lagoa-p1101845/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Whether you visit Lagoa for business or leisure, choose Vamus Algarve for efficient transport.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-faro-airport-bus-transfer-to-or-from-lagoa-p1101845/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a986db47a2a4402bb02a36e303ba4037.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Albufeira: Bus Transfer To/From Faro Airport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Albufeira: Bus Transfer To/From Faro Airport</h3>
-          <p class="venue">📍 Airport Transfer Algarve</p>
-          <p>Travel between Faro Airport and Albufeira with Vamus Algarve. Find direct, reliable service for both arrivals and departures. Enjoy timely departures and arrivals, maximizing your time in the region. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a986db47a2a4402bb02a36e303ba4037.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Albufeira: Bus Transfer To/From Faro Airport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AIRPORT TRANSFER ALGARVE</span>
+        </div>
+        <div class="tq-card-title">Albufeira: Bus Transfer To/From Faro Airport</div>
+        <div class="tq-card-desc">Travel between Faro Airport and Albufeira with Vamus Algarve. Find direct, reliable service for both arrivals and departures. Enjoy timely departures and arrivals, maximizing your time in the region. 
 
 Ride in modern vehicles equipped with air-conditioning and comfortable seating for a pleasant journey. Depend on professional drivers who assist with luggage and answer questions.
 
-Suitable for both business and leisure trips, Vamus Algarve offers efficient transport to and from Albufeira.</p>
-          <div class="card-footer">
-            <span class="price">From €10</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-faro-airport-bus-transfer-from-to-albufeira-p1101835/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Suitable for both business and leisure trips, Vamus Algarve offers efficient transport to and from Albufeira.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€10.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-faro-airport-bus-transfer-from-to-albufeira-p1101835/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a986db47a2a4402bb02a36e303ba4037.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Portimao: Bus Transfer To/From Faro Airport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Portimao: Bus Transfer To/From Faro Airport</h3>
-          <p class="venue">📍 Airport Transfer Algarve</p>
-          <p>Take Vamus Algarve for direct trips from Faro Airport to Portimão. Enjoy a stress-free journey whether you're arriving or departing.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a986db47a2a4402bb02a36e303ba4037.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Portimao: Bus Transfer To/From Faro Airport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AIRPORT TRANSFER ALGARVE</span>
+        </div>
+        <div class="tq-card-title">Portimao: Bus Transfer To/From Faro Airport</div>
+        <div class="tq-card-desc">Take Vamus Algarve for direct trips from Faro Airport to Portimão. Enjoy a stress-free journey whether you're arriving or departing.
 
 Enjoy on-time departures and arrivals and relax in their vehicles with air-conditioning and comfortable seats for a pleasant ride.
 
-The drivers ensure your safety and comfort. They help with luggage and can answer any questions, making your trip smooth and easy.</p>
-          <div class="card-footer">
-            <span class="price">From €13</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-faro-airport-bus-transfer-from-to-portimao-p1101044/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The drivers ensure your safety and comfort. They help with luggage and can answer any questions, making your trip smooth and easy.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-faro-airport-bus-transfer-from-to-portimao-p1101044/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a986db47a2a4402bb02a36e303ba4037.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lagos: Bus Transfer To/From Faro Airport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lagos: Bus Transfer To/From Faro Airport</h3>
-          <p class="venue">📍 Airport Transfer Algarve</p>
-          <p>Jump onboard Vamus Algarve for transport between Faro Airport and Lagos. Whether you're arriving or departing, the service ensures a stress-free trip.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a986db47a2a4402bb02a36e303ba4037.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lagos: Bus Transfer To/From Faro Airport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AIRPORT TRANSFER ALGARVE</span>
+        </div>
+        <div class="tq-card-title">Lagos: Bus Transfer To/From Faro Airport</div>
+        <div class="tq-card-desc">Jump onboard Vamus Algarve for transport between Faro Airport and Lagos. Whether you're arriving or departing, the service ensures a stress-free trip.
 
 With multiple daily trips, connecting Faro Airport with Lagos. The route includes stops at Albufeira, Lagoa, and Portimão.
 
 Timely departures and arrivals allow you to maximize your time in this beautiful area. Step into a modern, air-conditioned vehicle and enjoy comfortable seating.
 
-The professional drivers ensure a safe and enjoyable experience. They assist with luggage and answer any questions you may have.</p>
-          <div class="card-footer">
-            <span class="price">From €16</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-faro-airport-bus-transfer-from-to-lagos-p1101043/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The professional drivers ensure a safe and enjoyable experience. They assist with luggage and answer any questions you may have.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€16.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-faro-airport-bus-transfer-from-to-lagos-p1101043/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Farmosa: Guided Sunset Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ria Farmosa: Guided Sunset Boat Tour</h3>
-          <p class="venue">📍 Faro Cruises</p>
-          <p>Prepare for the Ria Formosa sunset boat tour to spend a relaxing evening on the lagoon. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Farmosa: Guided Sunset Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FARO CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ria Farmosa: Guided Sunset Boat Tour</div>
+        <div class="tq-card-desc">Prepare for the Ria Formosa sunset boat tour to spend a relaxing evening on the lagoon. 
 
-Enjoy a peaceful ride as the sun sets, casting beautiful colors over the water.</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ria-farmosa-guided-sunset-boat-tour-p1098165/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a peaceful ride as the sun sets, casting beautiful colors over the water.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ria-farmosa-guided-sunset-boat-tour-p1098165/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Faro: Marine Life and Dolphin Watching Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Faro: Marine Life and Dolphin Watching Boat Tour</h3>
-          <p class="venue">📍 Faro Cruises</p>
-          <p>Join the dolphin-watching boat trip from Faro, Portugal. Guided by an expert, you'll sail along the Algarve coastlines.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Faro: Marine Life and Dolphin Watching Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FARO CRUISES</span>
+        </div>
+        <div class="tq-card-title">Faro: Marine Life and Dolphin Watching Boat Tour</div>
+        <div class="tq-card-desc">Join the dolphin-watching boat trip from Faro, Portugal. Guided by an expert, you'll sail along the Algarve coastlines.
 
 Starting from Ria Formosa, travel up to five miles into the ocean. Watch common and bottlenose dolphins, and look out for northern gannets, Balearic shearwaters, sea turtles, ocean sunfish, and possibly a minke whale or harbor porpoise.
 
-This two-hour trip offers a chance to see diverse marine life and learn about the Algarve's biodiversity. Ideal for a fun day with loved ones, this boat trip promises exciting wildlife sightings and memorable experiences.</p>
-          <div class="card-footer">
-            <span class="price">From €55</span>
-            <span class="rating">⭐ 3 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-faro-marine-life-and-dolphin-watching-boat-tour-p1098164/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This two-hour trip offers a chance to see diverse marine life and learn about the Algarve's biodiversity. Ideal for a fun day with loved ones, this boat trip promises exciting wildlife sightings and memorable experiences.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-faro-marine-life-and-dolphin-watching-boat-tour-p1098164/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa: Boat Tour to Deserta and Farol Islands" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ria Formosa: Boat Tour to Deserta and Farol Islands</h3>
-          <p class="venue">📍 Faro Cruises</p>
-          <p>"Journey into the Heart of Ria Formosa: An Intimate Boat Tour Adventure"
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa: Boat Tour to Deserta and Farol Islands" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FARO CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ria Formosa: Boat Tour to Deserta and Farol Islands</div>
+        <div class="tq-card-desc">"Journey into the Heart of Ria Formosa: An Intimate Boat Tour Adventure"
 
 Dive into a day of discovery within the stunning landscapes of Ria Formosa Natural Park. The journey begins aboard a plush catamaran, setting sail from the historic Docks of Faro. Glide through tranquil channels, cradled by breathtaking vistas and a symphony of birdlife – spot the majestic Grey Herons and elegant White Storks.
 
@@ -293,142 +551,225 @@ As the tour progresses, the distant silhouette of Culatra Island's lighthouse be
 
 The catamaran first docks at Farol Island, a haven of enchanting houses, a towering lighthouse, and a sprawling white sandy beach that kisses the southernmost edge of Portugal. The adventure continues to Deserta Island, an unspoiled sanctuary where you can commune with nature, delve into a world of unique flora and fauna, or simply bask in the crystalline waters.
 
-As the tour concludes, the catamaran returns to Faro, offering a final glimpse of Ria Formosa's alluring beauty, a treasure among Portugal's 7 Natura wonders. Don't miss this captivating voyage – book your ticket now!</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐ 4.8 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-boat-tour-to-deserta-and-farol-islands-in-ria-formosa-p1097671/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As the tour concludes, the catamaran returns to Faro, offering a final glimpse of Ria Formosa's alluring beauty, a treasure among Portugal's 7 Natura wonders. Don't miss this captivating voyage – book your ticket now!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-boat-tour-to-deserta-and-farol-islands-in-ria-formosa-p1097671/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa: Ecological Boat Tour with Bird Watching from Faro" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ria Formosa: Ecological Boat Tour with Bird Watching from Faro</h3>
-          <p class="venue">📍 Faro Cruises</p>
-          <p>Discover the dazzling Ria Formosa on an eco-friendly boat tour in Algarve, a unique bird-watching experience aboard a solar-powered vessel. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa: Ecological Boat Tour with Bird Watching from Faro" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FARO CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ria Formosa: Ecological Boat Tour with Bird Watching from Faro</div>
+        <div class="tq-card-desc">Discover the dazzling Ria Formosa on an eco-friendly boat tour in Algarve, a unique bird-watching experience aboard a solar-powered vessel. 
 
 This unforgettable 2.5-hour experience allows visitors to learn about the rich fauna and flora of Ria Formosa. 
 
-The expert guide provides undisturbed bird-watching, exploring channels and marshes to spot diverse species while sharing insights about the importance of local activities.</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐ 5 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-faro-boat-tour-and-bird-watching-p1091599/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The expert guide provides undisturbed bird-watching, exploring channels and marshes to spot diverse species while sharing insights about the importance of local activities.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-faro-boat-tour-and-bird-watching-p1091599/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Benagil Cave, Marinha Beach & Algar Seco: Guided Tour from Faro" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Benagil Cave, Marinha Beach & Algar Seco: Guided Tour from Faro</h3>
-          <p class="venue">📍 Faro Cruises</p>
-          <p>Gear up for an adventure from Faro to the Benagil Cave and beyond. This tour is an exploration filled with discovery and scenic landscapes along the Algarve coast.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Benagil Cave, Marinha Beach & Algar Seco: Guided Tour from Faro" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FARO CRUISES</span>
+        </div>
+        <div class="tq-card-title">Benagil Cave, Marinha Beach & Algar Seco: Guided Tour from Faro</div>
+        <div class="tq-card-desc">Gear up for an adventure from Faro to the Benagil Cave and beyond. This tour is an exploration filled with discovery and scenic landscapes along the Algarve coast.
 
 Start your journey in Faro, where a knowledgeable local guide will lead you on an exciting coastal expedition.
 
 Experience a variety of highlights during this adventure. Begin by exploring Algar Seco, scenic coastal trails, and the intriguing Boneca Cave. Admire the lovely view of the impressive Benagil Cave, followed by an opportunity to witness the beautiful cliffs and clear waters of Marinha Beach.
 
-Furthermore, there are excursions to secret caves and grottos, accessible only to those seeking a more daring adventure.</p>
-          <div class="card-footer">
-            <span class="price">From €50</span>
-            <span class="rating">⭐ 4.3 (13)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-benagil-cave-marinha-beach-algar-seco-guided-tour-from-faro-p1088105/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Furthermore, there are excursions to secret caves and grottos, accessible only to those seeking a more daring adventure.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(13)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-benagil-cave-marinha-beach-algar-seco-guided-tour-from-faro-p1088105/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa Island: Boat Tour from Olhão" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ria Formosa Island: Boat Tour from Olhão</h3>
-          <p class="venue">📍 Faro Cruises</p>
-          <p>Embark on an unforgettable Olhão island adventure as you explore the beautiful Ria Formosa Natural Park. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa Island: Boat Tour from Olhão" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FARO CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ria Formosa Island: Boat Tour from Olhão</div>
+        <div class="tq-card-desc">Embark on an unforgettable Olhão island adventure as you explore the beautiful Ria Formosa Natural Park. 
 
 Cruise past Deserta and Hangares islands, and step onto the shores of Culatra and Farol for an incredible experience in Portugal's Algarve region. Delve into Olhão's rich fishing history, marvel at oyster and shellfish farms, and enjoy leisurely breaks for lunch and relaxation. 
 
-With two hours on land and two hours onboard, this tour promises a captivating blend of nature, culture, and leisure in Portugal.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 3.4 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-4-hour-boat-tour-in-ria-formosa-island-tour-from-olhao-p1064233/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With two hours on land and two hours onboard, this tour promises a captivating blend of nature, culture, and leisure in Portugal.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.4</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-4-hour-boat-tour-in-ria-formosa-island-tour-from-olhao-p1064233/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa & Islands: Sunset Tour from Olhão" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ria Formosa & Islands: Sunset Tour from Olhão</h3>
-          <p class="venue">📍 Faro Cruises</p>
-          <p>This guided sunset tour in Olhão is the perfect way to see out the day. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa & Islands: Sunset Tour from Olhão" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FARO CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ria Formosa & Islands: Sunset Tour from Olhão</div>
+        <div class="tq-card-desc">This guided sunset tour in Olhão is the perfect way to see out the day. 
 
 Go for a spot of island hopping with visits to Ilha da Armona (refreshing beverage included) and Culatra, which boasts one of the quietest beaches in the Algarve, Praia Deserta.
 
-Sit back, relax, and enjoy changing colors in the sunset sky, with a backdrop of tranquil Portuguese nature. It's a memorable and unique experience!</p>
-          <div class="card-footer">
-            <span class="price">From €35</span>
-            <span class="rating">⭐ 4.3 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-olhao-ria-formosa-and-islands-sunset-tour-culatra-deserta-p1013516/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Sit back, relax, and enjoy changing colors in the sunset sky, with a backdrop of tranquil Portuguese nature. It's a memorable and unique experience!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€35.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-olhao-ria-formosa-and-islands-sunset-tour-culatra-deserta-p1013516/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa Island: 5.5-Hr Boat Tour from Olhão" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ria Formosa Island: 5.5-Hr Boat Tour from Olhão</h3>
-          <p class="venue">📍 Faro Cruises</p>
-          <p>Travel between islands on this idyllic tour covering everything between Olhão and Faro, and discover the mysteries and secrets of the beautiful Ria Formosa Natural Park.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa Island: 5.5-Hr Boat Tour from Olhão" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FARO CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ria Formosa Island: 5.5-Hr Boat Tour from Olhão</div>
+        <div class="tq-card-desc">Travel between islands on this idyllic tour covering everything between Olhão and Faro, and discover the mysteries and secrets of the beautiful Ria Formosa Natural Park.
 
 Cruise between scenic spots and appreciate the local flora and fauna while exploring three beautiful islands – Ilha da Culatra, Ilha da Armona, and Ilha Deserta – and visit the small fishing community of Farol.
 
-Your captain is a true local with a vast knowledge of the region, who'll share stories, facts, and regional customs with you along the way. During the stops, you're free to explore the islands at your own leisure!</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 4.7 (22)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ria-formosa-3-islands-boat-tour-p1013366/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your captain is a true local with a vast knowledge of the region, who'll share stories, facts, and regional customs with you along the way. During the stops, you're free to explore the islands at your own leisure!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(22)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ria-formosa-3-islands-boat-tour-p1013366/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa & Islands: Sunset Tour from Olhão" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ria Formosa & Islands: Sunset Tour from Olhão</h3>
-          <p class="venue">📍 Faro Cruises</p>
-          <p>This guided sunset tour in Olhão is the perfect way to see out the day. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa & Islands: Sunset Tour from Olhão" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FARO CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ria Formosa & Islands: Sunset Tour from Olhão</div>
+        <div class="tq-card-desc">This guided sunset tour in Olhão is the perfect way to see out the day. 
 
 Go for a spot of island hopping with visits to Ilha da Armona (refreshing beverage included) and Culatra, which boasts one of the quietest beaches in the Algarve, Praia Deserta.
 
-Sit back, relax, and enjoy changing colors in the sunset sky, with a backdrop of tranquil Portuguese nature. It's a memorable and unique experience!</p>
-          <div class="card-footer">
-            <span class="price">From €35</span>
-            <span class="rating">⭐ 4.3 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-olhao-ria-formosa-and-islands-sunset-tour-culatra-deserta-p1013516/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Sit back, relax, and enjoy changing colors in the sunset sky, with a backdrop of tranquil Portuguese nature. It's a memorable and unique experience!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€35.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-olhao-ria-formosa-and-islands-sunset-tour-culatra-deserta-p1013516/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa Island: 5.5-Hr Boat Tour from Olhão" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ria Formosa Island: 5.5-Hr Boat Tour from Olhão</h3>
-          <p class="venue">📍 Faro Cruises</p>
-          <p>Travel between islands on this idyllic tour covering everything between Olhão and Faro, and discover the mysteries and secrets of the beautiful Ria Formosa Natural Park.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ria Formosa Island: 5.5-Hr Boat Tour from Olhão" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>FARO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FARO CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ria Formosa Island: 5.5-Hr Boat Tour from Olhão</div>
+        <div class="tq-card-desc">Travel between islands on this idyllic tour covering everything between Olhão and Faro, and discover the mysteries and secrets of the beautiful Ria Formosa Natural Park.
 
 Cruise between scenic spots and appreciate the local flora and fauna while exploring three beautiful islands – Ilha da Culatra, Ilha da Armona, and Ilha Deserta – and visit the small fishing community of Farol.
 
-Your captain is a true local with a vast knowledge of the region, who'll share stories, facts, and regional customs with you along the way. During the stops, you're free to explore the islands at your own leisure!</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 4.7 (22)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ria-formosa-3-islands-boat-tour-p1013366/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your captain is a true local with a vast knowledge of the region, who'll share stories, facts, and regional customs with you along the way. During the stops, you're free to explore the islands at your own leisure!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(22)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ria-formosa-3-islands-boat-tour-p1013366/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>
