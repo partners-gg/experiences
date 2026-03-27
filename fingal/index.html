@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,43 +32,41 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/166360654c424dfab49bfc06b3e345a4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mornington Peninsula Hot Springs & Bathing Boxes" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Mornington Peninsula Hot Springs & Bathing Boxes</h3>
-        <p class="venue">📍 Peninsula Hot Springs</p>
-        <p>On this guided adventure on the Mornington Peninsula, you'll enjoy some of Victoria's most popular attractions. With return travel from Melbourne included, it's the most convenient way to experience the Mornington Peninsula Hot Springs.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/166360654c424dfab49bfc06b3e345a4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mornington Peninsula Hot Springs & Bathing Boxes" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Mornington Peninsula Hot Springs & Bathing Boxes</h3>
+          <p class="venue">📍 Peninsula Hot Springs</p>
+          <p>On this guided adventure on the Mornington Peninsula, you'll enjoy some of Victoria's most popular attractions. With return travel from Melbourne included, it's the most convenient way to experience the Mornington Peninsula Hot Springs.
 
 Head straight to the Mornington Hot Springs and soak in the mineral-laden water. With a hilltop pool that boasts panoramic views of the region, it's an oasis of calm and natural beauty. Muscles soothed, you'll stop at Murrays Lookout in Arthurs Seat. Admire stunning views stretching from across the bay to the city from the highest point of the Mornington Peninsula, then cap off a dreamy day with a visit to Mount Martha's colourful beachside bathing boxes.</p>
-        <div class="card-footer">
-         <span class="price">From €113.65</span>
-         <span class="rating">⭐ 4.6 (5)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-mornington-peninsula-hot-springs-bathing-boxes-p1010675/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €113.65</span>
+            <span class="rating">⭐ 4.6 (5)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-mornington-peninsula-hot-springs-bathing-boxes-p1010675/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/11bf0e1295704649ac505e9864f12b2b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Peninsula Hot Springs: Entry Ticket + Transport" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Peninsula Hot Springs: Entry Ticket + Transport</h3>
-        <p class="venue">📍 Peninsula Hot Springs</p>
-        <p>At Peninsula Hot Springs, you can move between over 50 different pools, hydrotherapy areas, saunas, and a Turkish hammam. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/11bf0e1295704649ac505e9864f12b2b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Peninsula Hot Springs: Entry Ticket + Transport" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Peninsula Hot Springs: Entry Ticket + Transport</h3>
+          <p class="venue">📍 Peninsula Hot Springs</p>
+          <p>At Peninsula Hot Springs, you can move between over 50 different pools, hydrotherapy areas, saunas, and a Turkish hammam. 
 
 Natural mineral-rich water fills each setup, giving you several ways to unwind. 
 
 There are spaces suited for both quiet time and family visits, with private bath options if you want more privacy. 
 
 You’ll find a hilltop pool with a wide view, along with areas designed for different ages. When you need a break, the Bath House kiosk offers light meals and snacks for purchase.</p>
-        <div class="card-footer">
-         <span class="price">From €108.24</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-peninsula-hot-springs-express-p1125500/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €108.24</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-peninsula-hot-springs-express-p1125500/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

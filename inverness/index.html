@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,95 +32,93 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1a55dd3be374507a039501d7d0510e8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Complete Loch Ness Experience: Day Tour from Inverness" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Complete Loch Ness Experience: Day Tour from Inverness</h3>
-        <p class="venue">📍 Inverness City Tours</p>
-        <p>Get whisked around the misty hillsides and airy glens of the Highlands on a guided monster-hunting expedition of epic proportions. A friendly English-speaking guide will regale you with tales of monster sightings, old myths, and local history.</p>
-        <div class="card-footer">
-         <span class="price">From €90.35</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-complete-loch-ness-experience-day-tour-from-inverness-p977186/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1a55dd3be374507a039501d7d0510e8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Complete Loch Ness Experience: Day Tour from Inverness" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Complete Loch Ness Experience: Day Tour from Inverness</h3>
+          <p class="venue">📍 Inverness City Tours</p>
+          <p>Get whisked around the misty hillsides and airy glens of the Highlands on a guided monster-hunting expedition of epic proportions. A friendly English-speaking guide will regale you with tales of monster sightings, old myths, and local history.</p>
+          <div class="card-footer">
+            <span class="price">From €90.35</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-complete-loch-ness-experience-day-tour-from-inverness-p977186/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/42bf2206351d4de38f14ae609f9af654.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Inverness Spirit Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Inverness Spirit Cruise</h3>
-        <p class="venue">📍 Marina Inverness</p>
-        <p>See more of Scotland the fun way with this easy-access boat tour and cruise around the Inverness and Beauly Firth!
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/42bf2206351d4de38f14ae609f9af654.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Inverness Spirit Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Inverness Spirit Cruise</h3>
+          <p class="venue">📍 Marina Inverness</p>
+          <p>See more of Scotland the fun way with this easy-access boat tour and cruise around the Inverness and Beauly Firth!
 
 Travel up the Beauly Firth towards the Caledonian Canal, then turn and head out to the Inverness Firth under the Kessock bridge. You'll cruise out as far as Munlochy Bay before returning to the marina. Throughout the trip, you’ll be regaled with fascinating onboard commentary and your guide will answer all your burning questions whilst pointing out any wildlife or points of interest along the way.
 
 The Moray Firth is home to all kinds of wildlife, from seals and otters to an abundance of birdlife.</p>
-        <div class="card-footer">
-         <span class="price">From €24.25</span>
-         <span class="rating">⭐ 4 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-spirit-cruise-p1047320/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €24.25</span>
+            <span class="rating">⭐ 4 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-spirit-cruise-p1047320/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/42bf2206351d4de38f14ae609f9af654.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Isle of Skye and Eilean Donan Castle Tour From Inverness" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Isle of Skye and Eilean Donan Castle Tour From Inverness</h3>
-        <p class="venue">📍 Inverness City Tours</p>
-        <p>Join a full-day Isle of Skye tour from Inverness. Travel along Loch Ness and continue west to Eilean Donan Castle, where you can take an optional tour.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/42bf2206351d4de38f14ae609f9af654.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Isle of Skye and Eilean Donan Castle Tour From Inverness" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Isle of Skye and Eilean Donan Castle Tour From Inverness</h3>
+          <p class="venue">📍 Inverness City Tours</p>
+          <p>Join a full-day Isle of Skye tour from Inverness. Travel along Loch Ness and continue west to Eilean Donan Castle, where you can take an optional tour.
 
 After crossing the Skye Bridge, head to Portree for lunch and get time to visit the harbour.
 
 In the afternoon, explore several key sights on the Trotternish Peninsula, including the Old Man of Storr, Kilt Rock, and the Quiraing.
 
 After taking in these views, we return to Inverness in the evening.</p>
-        <div class="card-footer">
-         <span class="price">From €78.52</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-isle-of-skye-and-eilean-donan-castle-departing-from-inverness-p1033591/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €78.52</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-isle-of-skye-and-eilean-donan-castle-departing-from-inverness-p1033591/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/e7e8764439304a18ba22f2a7ed244487.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Loch Ness, Whisky & Outlander" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Loch Ness, Whisky & Outlander</h3>
-        <p class="venue">📍 Inverness City Tours</p>
-        <p>Join a Loch Ness tour from Inverness and experience several key Scottish highlights in one day.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e7e8764439304a18ba22f2a7ed244487.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Loch Ness, Whisky & Outlander" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Loch Ness, Whisky & Outlander</h3>
+          <p class="venue">📍 Inverness City Tours</p>
+          <p>Join a Loch Ness tour from Inverness and experience several key Scottish highlights in one day.
 
 Start with a cruise on Loch Ness and a visit to the 13th-century ruins of Urquhart Castle. Enjoy free time in Beauly for lunch in local cafés and a visit to Beauly Priory, which appears in the Outlander book *Dragonfly in Amber*.
 
 Next, visit a Highland whisky distillery, where you can learn about whisky and choose whether to sample a dram. Then, continue to Culloden Battlefield and Clava Cairns to explore their history.
 
 The tour returns to Inverness in the early evening. In winter, the route runs in reverse.</p>
-        <div class="card-footer">
-         <span class="price">From €98.15</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-loch-ness-whisky-outlander-p1032250/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €98.15</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-loch-ness-whisky-outlander-p1032250/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/42bf2206351d4de38f14ae609f9af654.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Inverness City Walking Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Inverness City Walking Tour</h3>
-        <p class="venue">📍 Inverness City Tours</p>
-        <p>On this 1.5 hour tour with a passionate Scot for a guide, you'll cast your eyes and your cameras on the main sights of Inverness! From castles to cathedrals, to churches and maybe even the Loch Ness Monster, you'll see it all in the capital of the Highlands. You might even discover a few hidden gems sparkling about the bonnie wee city, too. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/42bf2206351d4de38f14ae609f9af654.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Inverness City Walking Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Inverness City Walking Tour</h3>
+          <p class="venue">📍 Inverness City Tours</p>
+          <p>On this 1.5 hour tour with a passionate Scot for a guide, you'll cast your eyes and your cameras on the main sights of Inverness! From castles to cathedrals, to churches and maybe even the Loch Ness Monster, you'll see it all in the capital of the Highlands. You might even discover a few hidden gems sparkling about the bonnie wee city, too. 
 
 Learn how the city has grown from its humble beginnings as a royal city. Hear stories of castle sieges and Jacobite risings and see for yourself why Inverness is officially the happiest city in Scotland.</p>
-        <div class="card-footer">
-         <span class="price">From €16.17</span>
-         <span class="rating">⭐ 4.6 (5)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-inverness-city-walking-tour-p1027099/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €16.17</span>
+            <span class="rating">⭐ 4.6 (5)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-inverness-city-walking-tour-p1027099/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

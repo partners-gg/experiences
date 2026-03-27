@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,55 +32,53 @@
     <p>3 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/1ad323e3fa754c2ba5b363fec8c2ab19.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pirate's Dinner Adventure Show: General Admission Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Pirate's Dinner Adventure Show: General Admission Ticket</h3>
-        <p class="venue">📍 Pirate’s Dinner Adventure at Buena Park</p>
-        <p>Visit Pirates Dinner Adventure for a pirate-themed dining experience. Enter an arena designed to look like a pirate ship. See towering masts, sails, and a busy crew. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1ad323e3fa754c2ba5b363fec8c2ab19.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pirate's Dinner Adventure Show: General Admission Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Pirate's Dinner Adventure Show: General Admission Ticket</h3>
+          <p class="venue">📍 Pirate’s Dinner Adventure at Buena Park</p>
+          <p>Visit Pirates Dinner Adventure for a pirate-themed dining experience. Enter an arena designed to look like a pirate ship. See towering masts, sails, and a busy crew. 
 
 Enjoy a delicious meal while watching a lively pirate show.</p>
-        <div class="card-footer">
-         <span class="price">From €63.8</span>
-         <span class="rating">⭐ 4 (4)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-pirate-s-dinner-adventure-p1101708/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €63.8</span>
+            <span class="rating">⭐ 4 (4)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-pirate-s-dinner-adventure-p1101708/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/126c69a8bfa641acae6b046d9813871b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Knott's Berry Farm" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Knott's Berry Farm</h3>
-        <p class="venue">📍 Knott's Berry Farm</p>
-        <p>At Knott’s Berry Farm, fun is always in season, with dozens of thrilling rides, shows and attractions across four themed areas inspired by the history and culture of California. A day at Knott’s Berry Farm means taking on mammoth roller coasters, embarking on Old West adventures in the authentic 1800s Ghost Town, paying tribute to California’s Hispanic roots in Fiesta Village, experiencing the Southern California beach lifestyle along the Boardwalk, and exploring the High Sierras with the world’s most lovable beagle — SNOOPY®. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/126c69a8bfa641acae6b046d9813871b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Knott's Berry Farm" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Knott's Berry Farm</h3>
+          <p class="venue">📍 Knott's Berry Farm</p>
+          <p>At Knott’s Berry Farm, fun is always in season, with dozens of thrilling rides, shows and attractions across four themed areas inspired by the history and culture of California. A day at Knott’s Berry Farm means taking on mammoth roller coasters, embarking on Old West adventures in the authentic 1800s Ghost Town, paying tribute to California’s Hispanic roots in Fiesta Village, experiencing the Southern California beach lifestyle along the Boardwalk, and exploring the High Sierras with the world’s most lovable beagle — SNOOPY®. 
 
 Located just 10 minutes from the Anaheim resort area, the once–small family farm has grown into today’s family fun destination, home to Knott’s Berry Farm theme park, Knott’s Soak City Waterpark and Knott’s Hotel. Whether you’re looking for a weekend getaway, family road trip or overnight stay, you’ll find something for everyone at Knott’s Berry Farm.</p>
-        <div class="card-footer">
-         <span class="price">From €</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-knott-s-berry-farm-p975944/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-knott-s-berry-farm-p975944/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/1ad323e3fa754c2ba5b363fec8c2ab19.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pirate's Dinner Adventure: Entry Ticket + Hotel Transfer" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Pirate's Dinner Adventure: Entry Ticket + Hotel Transfer</h3>
-        <p class="venue">📍 Pirate’s Dinner Adventure at Buena Park</p>
-        <p>Visit Pirates Dinner Adventure for a pirate-themed dinner show. See a pirate ship with large masts and sails. Watch a crew of pirates create a lively atmosphere. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1ad323e3fa754c2ba5b363fec8c2ab19.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pirate's Dinner Adventure: Entry Ticket + Hotel Transfer" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Pirate's Dinner Adventure: Entry Ticket + Hotel Transfer</h3>
+          <p class="venue">📍 Pirate’s Dinner Adventure at Buena Park</p>
+          <p>Visit Pirates Dinner Adventure for a pirate-themed dinner show. See a pirate ship with large masts and sails. Watch a crew of pirates create a lively atmosphere. 
 
 Enjoy a meal while the show takes place and get taken back to your hotel after.</p>
-        <div class="card-footer">
-         <span class="price">From €89.67</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-pirates-dinner-adventure-with-hotel-transfer-p1102187/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €89.67</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-pirates-dinner-adventure-with-hotel-transfer-p1102187/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

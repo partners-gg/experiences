@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,29 +32,28 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/5536032e50cb4b079dc24bc572e5ef03.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Canyon: 45-Min. Aerial Tour by Airplane" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Grand Canyon: 45-Min. Aerial Tour by Airplane</h3>
-        <p class="venue">📍 Grand Canyon National Park</p>
-        <p>Capture the grandeur of the **Grand Canyon South Rim** with tickets for an **airplane aerial tour** and enjoy unobstructed views of this incredible natural wonder. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5536032e50cb4b079dc24bc572e5ef03.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Canyon: 45-Min. Aerial Tour by Airplane" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Grand Canyon: 45-Min. Aerial Tour by Airplane</h3>
+          <p class="venue">📍 Grand Canyon National Park</p>
+          <p>Capture the grandeur of the **Grand Canyon South Rim** with tickets for an **airplane aerial tour** and enjoy unobstructed views of this incredible natural wonder. 
 
 You'll fly over the **Kaibab National Forest, Kaibab Plateau, Imperial Point**, and **Zuni Corridor**, carved from the surging **Colorado River** over millenia.</p>
-        <div class="card-footer">
-         <span class="price">From €167.27</span>
-         <span class="rating">⭐ 4.2 (12)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-canyon--45-min-aerial-tour-by-airplane-p1056393/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €167.27</span>
+            <span class="rating">⭐ 4.2 (12)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-canyon--45-min-aerial-tour-by-airplane-p1056393/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/5536032e50cb4b079dc24bc572e5ef03.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Canyon IMAX Theater: Rivers of Time Movie" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Grand Canyon IMAX Theater: Rivers of Time Movie</h3>
-        <p class="venue">📍 Grand Canyon National Park</p>
-        <p>Get ready to travel through time at one of the most breathtaking natural wonders of the world with Grand Canyon Rivers of Time!
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5536032e50cb4b079dc24bc572e5ef03.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Canyon IMAX Theater: Rivers of Time Movie" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Grand Canyon IMAX Theater: Rivers of Time Movie</h3>
+          <p class="venue">📍 Grand Canyon National Park</p>
+          <p>Get ready to travel through time at one of the most breathtaking natural wonders of the world with Grand Canyon Rivers of Time!
 
 Going large on the IMAX screen, Grand Canyon: Rivers of Time whisks you away on journey through time, with one of the world’s greatest natural wonders. 
 
@@ -63,72 +62,71 @@ From Native American mythology and geologic explanations, explore the origins of
 Experience the “discovery” of the Canyon by Spanish conquistadors, frontiersmen, and John Wesley Powell as he and his men plunge down the never-before conquered whitewater rapids of the Colorado River.
 
 See Nostalgic photos of visitors from as early as the 1890’s, the animals of the region, and be wowed by soaring flights above the Canyon. It's a real deep dive beyond the rim of this world wonder.</p>
-        <div class="card-footer">
-         <span class="price">From €13.15</span>
-         <span class="rating">⭐ 4.8 (6)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-canyon-visitor-center-imax-p974903/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €13.15</span>
+            <span class="rating">⭐ 4.8 (6)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-canyon-visitor-center-imax-p974903/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/677be9bd04a541a5b3528cb44d1e55cf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Canyon National Park: 25 or 45-Min Helicopter Flight" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Grand Canyon National Park: 25 or 45-Min Helicopter Flight</h3>
-        <p class="venue">📍 Grand Canyon National Park</p>
-        <p>Choose from two helicopter flight options over Grand Canyon National Park.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/677be9bd04a541a5b3528cb44d1e55cf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Canyon National Park: 25 or 45-Min Helicopter Flight" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Grand Canyon National Park: 25 or 45-Min Helicopter Flight</h3>
+          <p class="venue">📍 Grand Canyon National Park</p>
+          <p>Choose from two helicopter flight options over Grand Canyon National Park.
 
 With Canyon Dancer (about 25 minutes), fly over the Kaibab National Forest and into the Grand Canyon via the Dragon Corridor. Continue over the Colorado River toward the North Rim, with views of the Tower of Ra and Vishnu Schist.
 
 Select Canyon Spirit (about 45 minutes) to travel over the Kaibab National Forest before reaching the Grand Canyon. See the Colorado River, the Painted Desert, Desert View Watchtower, Point Imperial, and Marble Canyon, offering a wider range of aerial views.</p>
-        <div class="card-footer">
-         <span class="price">From €251.93</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-canyon-national-park-25-or-45-min-helicopter-flight-p1128097/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €251.93</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-canyon-national-park-25-or-45-min-helicopter-flight-p1128097/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/37f43e9f5ef54fa09f81dd54c80e079f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Canyon Airplane Tour + IMAX Experience" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Grand Canyon Airplane Tour + IMAX Experience</h3>
-        <p class="venue">📍 Grand Canyon National Park</p>
-        <p>Experience the Grand Canyon like never before with this larger-than-life package!
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/37f43e9f5ef54fa09f81dd54c80e079f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Canyon Airplane Tour + IMAX Experience" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Grand Canyon Airplane Tour + IMAX Experience</h3>
+          <p class="venue">📍 Grand Canyon National Park</p>
+          <p>Experience the Grand Canyon like never before with this larger-than-life package!
 
 **Grand Canyon: 45-Min. Aerial Tour by Airplane**  
 Capture views of the Grand Canyon South Rim from above, flying over the Kaibab National Forest, Kaibab Plateau, Imperial Point, and Zuni Corridor.
 
 **Grand Canyon IMAX Theater: Rivers of Time Movie**  
 Experience the Grand Canyon's history, from Native American myths to dramatic recreations of explorers, on a massive 82-ft IMAX screen.</p>
-        <div class="card-footer">
-         <span class="price">From €157.36</span>
-         <span class="rating">⭐ 3.7 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-canyon-package-p1106977/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €157.36</span>
+            <span class="rating">⭐ 3.7 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-canyon-package-p1106977/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/37f43e9f5ef54fa09f81dd54c80e079f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Canyon Airplane Tour + IMAX Experience" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Grand Canyon Airplane Tour + IMAX Experience</h3>
-        <p class="venue">📍 Grand Canyon National Park</p>
-        <p>Experience the Grand Canyon like never before with this larger-than-life package!
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/37f43e9f5ef54fa09f81dd54c80e079f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Canyon Airplane Tour + IMAX Experience" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Grand Canyon Airplane Tour + IMAX Experience</h3>
+          <p class="venue">📍 Grand Canyon National Park</p>
+          <p>Experience the Grand Canyon like never before with this larger-than-life package!
 
 **Grand Canyon: 45-Min. Aerial Tour by Airplane**  
 Capture views of the Grand Canyon South Rim from above, flying over the Kaibab National Forest, Kaibab Plateau, Imperial Point, and Zuni Corridor.
 
 **Grand Canyon IMAX Theater: Rivers of Time Movie**  
 Experience the Grand Canyon's history, from Native American myths to dramatic recreations of explorers, on a massive 82-ft IMAX screen.</p>
-        <div class="card-footer">
-         <span class="price">From €157.36</span>
-         <span class="rating">⭐ 3.7 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-canyon-package-p1106977/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €157.36</span>
+            <span class="rating">⭐ 3.7 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-canyon-package-p1106977/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

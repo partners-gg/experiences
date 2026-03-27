@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,63 +32,61 @@
     <p>3 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/52109fba64f5406792ba796d63f2e95d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="1-Day Hop On-Hop Off Johannesburg Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>1-Day Hop On-Hop Off Johannesburg Ticket</h3>
-        <p class="venue">📍 Johannesburg Bus Tours</p>
-        <p>Hop on the Johannesburg Green Tour at the main departure point in Rosebank and explore the leafy suburbs around Zoo Lake. Stop at all the top attractions, including Zoo lake, the Johannesburg Zoo and the Military Museum, before reaching Constitution Hill. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/52109fba64f5406792ba796d63f2e95d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="1-Day Hop On-Hop Off Johannesburg Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>1-Day Hop On-Hop Off Johannesburg Ticket</h3>
+          <p class="venue">📍 Johannesburg Bus Tours</p>
+          <p>Hop on the Johannesburg Green Tour at the main departure point in Rosebank and explore the leafy suburbs around Zoo Lake. Stop at all the top attractions, including Zoo lake, the Johannesburg Zoo and the Military Museum, before reaching Constitution Hill. 
 
 Change buses here, and hop on the Red City Tour to continue your journey around the inner city. Visit the James Hall Museum of Transport, Gold Reef City Theme Park and the Apartheid Museum, before returning to Constitution Hill via Newtown, and then back to Rosebank. 
 
 You’ll soon see why Johannesburg is not only considered Africa’s economic playground, but also one of the most greenest cities in the world.</p>
-        <div class="card-footer">
-         <span class="price">From €20</span>
-         <span class="rating">⭐ 5 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-1-day-hop-on-hop-off-ticket-p1038139/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €20</span>
+            <span class="rating">⭐ 5 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-1-day-hop-on-hop-off-ticket-p1038139/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="" alt="Apartheid & Soweto: Half-Day Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Apartheid & Soweto: Half-Day Tour</h3>
-        <p class="venue">📍 Day Trips from Johannesburg</p>
-        <p>Step foot into a captivating journey through time with a visit to the vibrant township of Soweto and the Apartheid Museum, key icons of South Africa's profound history. This is more than just a ticket; it's an opportunity to immerse oneself into the rich culture, traditions, and diversity of the South African people.
+      <div class="card">
+        <img src="" alt="Apartheid & Soweto: Half-Day Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Apartheid & Soweto: Half-Day Tour</h3>
+          <p class="venue">📍 Day Trips from Johannesburg</p>
+          <p>Step foot into a captivating journey through time with a visit to the vibrant township of Soweto and the Apartheid Museum, key icons of South Africa's profound history. This is more than just a ticket; it's an opportunity to immerse oneself into the rich culture, traditions, and diversity of the South African people.
 
 Get a glimpse into the Apartheid era, a period that shaped the nation, where the black, coloured, and Indian communities faced adversity and injustice. Originating from the 1930s colonial government's separation policies, the township of Soweto stands today as a testament to resilience and unity.
 
 Feel the pulse of history as you traverse Soweto, a township teeming with tales of migrant mine workers from neighboring countries who sought prosperity in Johannesburg and made Soweto their home. 
 
 This visit promises more than just sightseeing. It assures an unforgettable experience, embedding memories of South Africa’s unique narrative and indomitable spirit. Book now, and embark on an adventure through time that will leave you forever changed.</p>
-        <div class="card-footer">
-         <span class="price">From €114.44</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-apartheid-and-soweto-half-day-tour-p1095247/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €114.44</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-apartheid-and-soweto-half-day-tour-p1095247/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/1a38aa945464495ca36f776d87266ad1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Johannesburg: Hop-on Hop-off Soweto Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Johannesburg: Hop-on Hop-off Soweto Tour</h3>
-        <p class="venue">📍 Johannesburg Bus Tours</p>
-        <p>Explore more of Johannesburg with tickets for a flexible and convenient hop-on hop-off bus tour around the city, including an optional two-hour guided tour of Soweto, the "New York of Africa".
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1a38aa945464495ca36f776d87266ad1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Johannesburg: Hop-on Hop-off Soweto Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Johannesburg: Hop-on Hop-off Soweto Tour</h3>
+          <p class="venue">📍 Johannesburg Bus Tours</p>
+          <p>Explore more of Johannesburg with tickets for a flexible and convenient hop-on hop-off bus tour around the city, including an optional two-hour guided tour of Soweto, the "New York of Africa".
 
 Tickets for this hop-on hop-off bus tour get you onto a bright red double-decker at your leisure, with live commentary onboard of all of Johannesburg's famous sights. 
 
 Extend your Johannesburg experience and head to Soweto, where you'll follow the footsteps of Nelson Mandela on the path to equality, and see where Mahatma Gandhi started his legal career, all with the same hop-on hop-on bus tour ticket.</p>
-        <div class="card-footer">
-         <span class="price">From €50</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-johannesburg-hop-on-hop-off-soweto-tour-p1037928/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €50</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-johannesburg-hop-on-hop-off-soweto-tour-p1037928/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

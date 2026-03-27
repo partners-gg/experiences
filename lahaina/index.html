@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,77 +32,75 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/53cc2ec9e11b4ccd91cb28aca9fe141d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Holo Holo: Sunset Cocktail Sail" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Holo Holo: Sunset Cocktail Sail</h3>
-        <p class="venue">📍 Sailing Trips in Lahaina</p>
-        <p>Spend the evening on the water along Maui's west coast. See the mountains of West Maui and the leeward waters. An open bar provides drinks including beer, wine, champagne, and cocktails paired with appetizers. In the winter season, observe whales in their natural habitat.</p>
-        <div class="card-footer">
-         <span class="price">From €107.61</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-holo-holo-sunset-cocktail-sail-p1128006/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/53cc2ec9e11b4ccd91cb28aca9fe141d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Holo Holo: Sunset Cocktail Sail" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Holo Holo: Sunset Cocktail Sail</h3>
+          <p class="venue">📍 Sailing Trips in Lahaina</p>
+          <p>Spend the evening on the water along Maui's west coast. See the mountains of West Maui and the leeward waters. An open bar provides drinks including beer, wine, champagne, and cocktails paired with appetizers. In the winter season, observe whales in their natural habitat.</p>
+          <div class="card-footer">
+            <span class="price">From €107.61</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-holo-holo-sunset-cocktail-sail-p1128006/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/53cc2ec9e11b4ccd91cb28aca9fe141d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Akialoa Sunset Sail" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Akialoa Sunset Sail</h3>
-        <p class="venue">📍 Sailing Trips in Lahaina</p>
-        <p>Board the vessel Akialoa to observe the setting sun over the water. During the months between December and March, to catch sight of humpback whales migrating southward from Alaska to warmer water. These whales gather here for mating and birthing, providing visitors with an opportunity to see behaviors such as breaching, tail-slapping, and spouting as they stay in the area.</p>
-        <div class="card-footer">
-         <span class="price">From €93.22</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-akialoa-sunset-sail-p1127832/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/53cc2ec9e11b4ccd91cb28aca9fe141d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Akialoa Sunset Sail" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Akialoa Sunset Sail</h3>
+          <p class="venue">📍 Sailing Trips in Lahaina</p>
+          <p>Board the vessel Akialoa to observe the setting sun over the water. During the months between December and March, to catch sight of humpback whales migrating southward from Alaska to warmer water. These whales gather here for mating and birthing, providing visitors with an opportunity to see behaviors such as breaching, tail-slapping, and spouting as they stay in the area.</p>
+          <div class="card-footer">
+            <span class="price">From €93.22</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-akialoa-sunset-sail-p1127832/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/53cc2ec9e11b4ccd91cb28aca9fe141d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ka'anapali: Sunset Dinner Sail" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Ka'anapali: Sunset Dinner Sail</h3>
-        <p class="venue">📍 Sailing Trips in Lahaina</p>
-        <p>Sail along West Maui's shore on a catamaran to dine on a four-course meal prepared with local ingredients. The bar offers beverages including cocktails. Observe marine wildlife and view the sunset.</p>
-        <div class="card-footer">
-         <span class="price">From €137.34</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-ka-anapali-sunset-dinner-sail-p1127831/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/53cc2ec9e11b4ccd91cb28aca9fe141d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ka'anapali: Sunset Dinner Sail" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Ka'anapali: Sunset Dinner Sail</h3>
+          <p class="venue">📍 Sailing Trips in Lahaina</p>
+          <p>Sail along West Maui's shore on a catamaran to dine on a four-course meal prepared with local ingredients. The bar offers beverages including cocktails. Observe marine wildlife and view the sunset.</p>
+          <div class="card-footer">
+            <span class="price">From €137.34</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-ka-anapali-sunset-dinner-sail-p1127831/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/53cc2ec9e11b4ccd91cb28aca9fe141d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxury Private Half-Day Maui Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Luxury Private Half-Day Maui Tour</h3>
-        <p class="venue">📍 Day trips in Lahaina</p>
-        <p>Book a private tour in Maui. Visit waterfalls, volcanic high points, and notable local sites. Travel in a comfortable vehicle designed for sightseeing and flexibility. Take photographs, participate in brief walks, and learn about the culture through detailed narratives. Stay refreshed with included beverages and light snacks sourced from local products. Opt for the itinerary to adjust as per preference, giving ample time at selected stops. The tailored program allows focus on activities of interest while maintaining efficiency and organization.</p>
-        <div class="card-footer">
-         <span class="price">From €270.86</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-luxury-private-half-day-maui-tour-p1127392/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/53cc2ec9e11b4ccd91cb28aca9fe141d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxury Private Half-Day Maui Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Luxury Private Half-Day Maui Tour</h3>
+          <p class="venue">📍 Day trips in Lahaina</p>
+          <p>Book a private tour in Maui. Visit waterfalls, volcanic high points, and notable local sites. Travel in a comfortable vehicle designed for sightseeing and flexibility. Take photographs, participate in brief walks, and learn about the culture through detailed narratives. Stay refreshed with included beverages and light snacks sourced from local products. Opt for the itinerary to adjust as per preference, giving ample time at selected stops. The tailored program allows focus on activities of interest while maintaining efficiency and organization.</p>
+          <div class="card-footer">
+            <span class="price">From €270.86</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-luxury-private-half-day-maui-tour-p1127392/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/53cc2ec9e11b4ccd91cb28aca9fe141d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxury Private Full-Day Maui Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Luxury Private Full-Day Maui Tour</h3>
-        <p class="venue">📍 Day trips in Lahaina</p>
-        <p>Take a private tour of Maui that provides personal transportation in a comfortable, climate-controlled vehicle. See waterfalls, drive to elevated volcanic sites, or visit notable local places. Refreshments and snacks are provided during the trip. Benefit from the flexibility to choose where to go or to spend more time at specific spots. Customize the route to align with your preferences and make stops for photographs or other activities.</p>
-        <div class="card-footer">
-         <span class="price">From €361.14</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-luxury-private-full-day-maui-tour-p1127391/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/53cc2ec9e11b4ccd91cb28aca9fe141d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Luxury Private Full-Day Maui Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Luxury Private Full-Day Maui Tour</h3>
+          <p class="venue">📍 Day trips in Lahaina</p>
+          <p>Take a private tour of Maui that provides personal transportation in a comfortable, climate-controlled vehicle. See waterfalls, drive to elevated volcanic sites, or visit notable local places. Refreshments and snacks are provided during the trip. Benefit from the flexibility to choose where to go or to spend more time at specific spots. Customize the route to align with your preferences and make stops for photographs or other activities.</p>
+          <div class="card-footer">
+            <span class="price">From €361.14</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-luxury-private-full-day-maui-tour-p1127391/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,67 +32,66 @@
     <p>6 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/bcb5e92f51d04e2dad8f1ecfc31617c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="EasyKart Ko Samui" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>EasyKart Ko Samui</h3>
-        <p class="venue">📍 EasyKart Ko Samui</p>
-        <p>Jostle for pole position as you feel the thrill of pure racing. EasyKart Ko Sumui is one of the largest and best-equipped go-kart circuits in all of Asia. It has over a kilometer of tracks specially geared to beginners and experts alike! Choose from a variety of kart and race options, then put the pedal to the metal – winner takes it all!</p>
-        <div class="card-footer">
-         <span class="price">From €18.45</span>
-         <span class="rating">⭐ 4 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-easykart-ko-samui-p975343/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bcb5e92f51d04e2dad8f1ecfc31617c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="EasyKart Ko Samui" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>EasyKart Ko Samui</h3>
+          <p class="venue">📍 EasyKart Ko Samui</p>
+          <p>Jostle for pole position as you feel the thrill of pure racing. EasyKart Ko Sumui is one of the largest and best-equipped go-kart circuits in all of Asia. It has over a kilometer of tracks specially geared to beginners and experts alike! Choose from a variety of kart and race options, then put the pedal to the metal – winner takes it all!</p>
+          <div class="card-footer">
+            <span class="price">From €18.45</span>
+            <span class="rating">⭐ 4 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-easykart-ko-samui-p975343/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd015bdfa3c84901aefe694c8f74a61a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Full Day Tour to Koh Tean & Koh Madsum from Koh Samui" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Full Day Tour to Koh Tean & Koh Madsum from Koh Samui</h3>
-        <p class="venue">📍 Day Trips from Koh Samui</p>
-        <p>A trip to **Koh Samui** isn’t complete without a little island-hopping. Discover two islands – **Koh Tean and Koh Madsum** – with tickets for a **full day boat tour** from Koh Samui.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd015bdfa3c84901aefe694c8f74a61a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Full Day Tour to Koh Tean & Koh Madsum from Koh Samui" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Full Day Tour to Koh Tean & Koh Madsum from Koh Samui</h3>
+          <p class="venue">📍 Day Trips from Koh Samui</p>
+          <p>A trip to **Koh Samui** isn’t complete without a little island-hopping. Discover two islands – **Koh Tean and Koh Madsum** – with tickets for a **full day boat tour** from Koh Samui.
 
 Start your Thailand adventure with **hotel pick-up** and head to Thong Krut Pier. From there, board a boat and sail to **Koh Madsum** where you'll discover **wild pigs** basking in the sun (and going for a dip in the water!). 
 
 Once you've had your fill of pig pictures, float to **Koh Tean**. Relax on the beach, go for a swim, try snorkeling, paddle on a kayak, and enjoy an **included lunch**. 
 
 After a full afternoon of sunkissed beach day fun, make your way back to **Thong Krut Pier** and home to your hotel.</p>
-        <div class="card-footer">
-         <span class="price">From €47.42</span>
-         <span class="rating">⭐ 4.5 (11)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-koh-samui-island-hopping-relaxing-tour-coral-and-pigs-island-full-day-p1045492/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €47.42</span>
+            <span class="rating">⭐ 4.5 (11)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-koh-samui-island-hopping-relaxing-tour-coral-and-pigs-island-full-day-p1045492/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7757a4e9441c41c693f3dbbd928257cc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Koh Samui: Guided Thai Cooking Class with Local Market Tour + Transfers" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Koh Samui: Guided Thai Cooking Class with Local Market Tour + Transfers</h3>
-        <p class="venue">📍 Ko Samui Workshops and Classes</p>
-        <p>Join a cooking session in Koh Samui with a local guide. Ideal for families, couples, or solo travelers, this includes a market tour and a cooking class in small groups for personalized help.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7757a4e9441c41c693f3dbbd928257cc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Koh Samui: Guided Thai Cooking Class with Local Market Tour + Transfers" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Koh Samui: Guided Thai Cooking Class with Local Market Tour + Transfers</h3>
+          <p class="venue">📍 Ko Samui Workshops and Classes</p>
+          <p>Join a cooking session in Koh Samui with a local guide. Ideal for families, couples, or solo travelers, this includes a market tour and a cooking class in small groups for personalized help.
 
 Start with a hotel pickup, reach at a location, then choose three dishes to cook, such as Spring Rolls, Tom Yum soup, Pad Thai, and Banana Coconut Milk for dessert. Take a 30-minute guided tour of a local market to see Thai herbs, vegetables, and spices.
 
 After the market tour, head to a fully equipped kitchen for a 2-hour cooking session. Learn to make four authentic dishes with guidance from a certified Thai teacher. 
 
 Eat your handmade dishes and end your day with a transfer back to your hotel, leaving you with practical cooking skills and good memories.</p>
-        <div class="card-footer">
-         <span class="price">From €77.87</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-koh-samui-guided-thai-cooking-class-with-local-market-tour-transfers-p1104193/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €77.87</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-koh-samui-guided-thai-cooking-class-with-local-market-tour-transfers-p1104193/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd015bdfa3c84901aefe694c8f74a61a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ko Tao & Ko Nang Yuan: Guided Speedboat Tour from Koh Samui + Meal" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Ko Tao & Ko Nang Yuan: Guided Speedboat Tour from Koh Samui + Meal</h3>
-        <p class="venue">📍 Day Trips from Koh Samui</p>
-        <p>Start your island-hopping adventure from Koh Samui to Ko Tao and Ko Nang Yuan. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd015bdfa3c84901aefe694c8f74a61a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ko Tao & Ko Nang Yuan: Guided Speedboat Tour from Koh Samui + Meal" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Ko Tao & Ko Nang Yuan: Guided Speedboat Tour from Koh Samui + Meal</h3>
+          <p class="venue">📍 Day Trips from Koh Samui</p>
+          <p>Start your island-hopping adventure from Koh Samui to Ko Tao and Ko Nang Yuan. 
 
 Begin with hotel pickup and check-in at the pier, where you'll enjoy a light breakfast before boarding the speedboat. 
 
@@ -103,40 +102,40 @@ Stop at Hin Wong Bay or Lighthouse Bay, where you can snorkel among natural cora
 Enjoy a Thai buffet lunch and fresh fruit at Ko Tao Montra. Reach Ko Nang Yuan to hike to a viewpoint for views of the sandbar connecting three islets or relax on the beach. 
 
 As the day ends, return to Koh Samui, hand in your snorkeling gear, and enjoy a transfer back to your hotel.</p>
-        <div class="card-footer">
-         <span class="price">From €65.99</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-ko-tao-ko-nang-yuan-guided-speedboat-tour-from-koh-samui-meal-p1104028/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €65.99</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-ko-tao-ko-nang-yuan-guided-speedboat-tour-from-koh-samui-meal-p1104028/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd015bdfa3c84901aefe694c8f74a61a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tan & Pig Islands: Guided Speedboat Tour from Koh Samui + Pink Dolphin Spotting" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Tan & Pig Islands: Guided Speedboat Tour from Koh Samui + Pink Dolphin Spotting</h3>
-        <p class="venue">📍 Day Trips from Koh Samui</p>
-        <p>Take a speedboat day trip to see nature and wildlife off Koh Samui's coast. Spot unique pink dolphins, snorkel at Tan Island, meet the boars of Pig Island, and have lunch.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd015bdfa3c84901aefe694c8f74a61a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tan & Pig Islands: Guided Speedboat Tour from Koh Samui + Pink Dolphin Spotting" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Tan & Pig Islands: Guided Speedboat Tour from Koh Samui + Pink Dolphin Spotting</h3>
+          <p class="venue">📍 Day Trips from Koh Samui</p>
+          <p>Take a speedboat day trip to see nature and wildlife off Koh Samui's coast. Spot unique pink dolphins, snorkel at Tan Island, meet the boars of Pig Island, and have lunch.
 
 See the rare pink dolphins near Koh Samui. These animals swim close to the Thai mainland, offering a unique sight for all ages.
 
 After that, snorkel at Tan Island among coral reefs with clams, tropical fish, and marine life. Then, visit Pig Island, where wild boars wander freely.
 
 Have lunch on Mainland Beach. The trip includes hotel pickup and drop-off and a local guide for a smooth day on the ocean.</p>
-        <div class="card-footer">
-         <span class="price">From €65.99</span>
-         <span class="rating">⭐ 3 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-tan-and-pig-islands-guided-speedboat-tour-from-koh-samui-with-pink-dolphin-spotting-p1104018/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €65.99</span>
+            <span class="rating">⭐ 3 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-tan-and-pig-islands-guided-speedboat-tour-from-koh-samui-with-pink-dolphin-spotting-p1104018/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd015bdfa3c84901aefe694c8f74a61a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ang Thong Marine Park: Guided Kayaking & Snorkeling Tour from Koh Samui + Meal" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Ang Thong Marine Park: Guided Kayaking & Snorkeling Tour from Koh Samui + Meal</h3>
-        <p class="venue">📍 Day Trips from Koh Samui</p>
-        <p>Take a speedboat tour of Angthong Marine Park from Koh Samui. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd015bdfa3c84901aefe694c8f74a61a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ang Thong Marine Park: Guided Kayaking & Snorkeling Tour from Koh Samui + Meal" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Ang Thong Marine Park: Guided Kayaking & Snorkeling Tour from Koh Samui + Meal</h3>
+          <p class="venue">📍 Day Trips from Koh Samui</p>
+          <p>Take a speedboat tour of Angthong Marine Park from Koh Samui. 
 
 Get picked up from your hotel and have a light breakfast at the pier. Then, board the speedboat and head to "Koh Wow," where you can snorkel in clear waters and see coral reefs and marine life.
 
@@ -147,14 +146,13 @@ Enjoy a Thai buffet lunch with fresh fruits on another island.
 Visit Hua Ta Lap Island, where you can hike to a viewpoint, kayak, swim, or relax on the beach. 
 
 Conclude the tour by returning to Koh Samui, dropping off your snorkeling gear, and receiving a transfer back to your hotel.</p>
-        <div class="card-footer">
-         <span class="price">From €65.99</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-ang-thong-marine-park-guided-kayaking-snorkeling-tour-from-koh-samui-meal-p1104015/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €65.99</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-ang-thong-marine-park-guided-kayaking-snorkeling-tour-from-koh-samui-meal-p1104015/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

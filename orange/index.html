@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,63 +32,61 @@
     <p>3 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/cb9d8cf5c05a4d3f959d9f9b67fc26a0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orange: The Sound Odyssey Show Admission" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Orange: The Sound Odyssey Show Admission</h3>
-        <p class="venue">📍 Théâtre Antique d'Orange</p>
-        <p>For the first time in the world of entertainment, state-of-the-art technology meets artificial intelligence and adds new dimensions to the Ancient Theatre of Orange.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cb9d8cf5c05a4d3f959d9f9b67fc26a0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orange: The Sound Odyssey Show Admission" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Orange: The Sound Odyssey Show Admission</h3>
+          <p class="venue">📍 Théâtre Antique d'Orange</p>
+          <p>For the first time in the world of entertainment, state-of-the-art technology meets artificial intelligence and adds new dimensions to the Ancient Theatre of Orange.
 
 Experience a multitude of deities and mythological characters and cross marvelous and fantastic landscapes, all to a soundtrack that celebrates the major mythological stages of the creation of the world
 
 From the original chaos of the universe, to a journey through the history of music, this is a journey like no other!</p>
-        <div class="card-footer">
-         <span class="price">From €22</span>
-         <span class="rating">⭐ 3.9 (56)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-sound-odyssey-p1062707/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €22</span>
+            <span class="rating">⭐ 3.9 (56)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-sound-odyssey-p1062707/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/cb9d8cf5c05a4d3f959d9f9b67fc26a0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orange: Triumphal Arch, Museum of Art & History and Roman Theatre" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Orange: Triumphal Arch, Museum of Art & History and Roman Theatre</h3>
-        <p class="venue">📍 Théâtre Antique d'Orange</p>
-        <p>Tread through the ruins of the Ancient Theatre of Orange and listen to the captivating history narrated by your audio guide.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cb9d8cf5c05a4d3f959d9f9b67fc26a0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orange: Triumphal Arch, Museum of Art & History and Roman Theatre" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Orange: Triumphal Arch, Museum of Art & History and Roman Theatre</h3>
+          <p class="venue">📍 Théâtre Antique d'Orange</p>
+          <p>Tread through the ruins of the Ancient Theatre of Orange and listen to the captivating history narrated by your audio guide.
 
 Visit the Triumphal Arc of Orange built in the 1st century, one of the oldest and most beautiful monuments from ancient Rome, standing tall for you to admire. 
 
 Finally, follow your audio guide to the Museum of Art and History, near the Ancient Theatre. Uncover the Roman past of Orange and immerse yourself in the art and artifacts of ancient times.</p>
-        <div class="card-footer">
-         <span class="price">From €11.5</span>
-         <span class="rating">⭐ 4.6 (16)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-orange-triumphal-arc-museum-of-art-and-history-and-ancient-theatre-p1062674/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €11.5</span>
+            <span class="rating">⭐ 4.6 (16)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-orange-triumphal-arc-museum-of-art-and-history-and-ancient-theatre-p1062674/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/1089fc41f1cf44409483d685f01171cc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orange: Triumphal Arch, Museum of Art and History, Roman Theatre + VR Experience" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Orange: Triumphal Arch, Museum of Art and History, Roman Theatre + VR Experience</h3>
-        <p class="venue">📍 Théâtre Antique d'Orange</p>
-        <p>Walk through the ruins of the Ancient Theatre of Orange and hear its history with your audio guide (subject to availability).
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1089fc41f1cf44409483d685f01171cc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orange: Triumphal Arch, Museum of Art and History, Roman Theatre + VR Experience" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Orange: Triumphal Arch, Museum of Art and History, Roman Theatre + VR Experience</h3>
+          <p class="venue">📍 Théâtre Antique d'Orange</p>
+          <p>Walk through the ruins of the Ancient Theatre of Orange and hear its history with your audio guide (subject to availability).
 
 See the Triumphal Arc of Orange from the 1st century, one of the oldest monuments from ancient Rome, standing tall for you to see.
 
 Next, follow your audio guide to the Museum of Art and History near the Ancient Theatre. Learn about Orange's Roman past and see art and artifacts from ancient times.
 
 Check out the virtual reality historical experience *Theatre secrets, an unexpected journey*. This uses innovative technology to take you into the past.</p>
-        <div class="card-footer">
-         <span class="price">From €16.5</span>
-         <span class="rating">⭐ 2.5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-orange-triumphal-arch-museum-of-art-and-history-roman-theatre-vr-experience-p1119917/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €16.5</span>
+            <span class="rating">⭐ 2.5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-orange-triumphal-arch-museum-of-art-and-history-roman-theatre-vr-experience-p1119917/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>
