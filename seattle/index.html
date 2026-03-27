@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Seattle | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Seattle. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,12 +131,17 @@
     <p>28 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fa0f684e848746689a50615ab8e9a48c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Aquarium: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle Aquarium: Entry Ticket</h3>
-          <p class="venue">📍 Seattle Aquarium</p>
-          <p>Visit the Seattle Aquarium and explore the marine life of the Pacific Northwest and the South Pacific.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fa0f684e848746689a50615ab8e9a48c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Aquarium: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEATTLE AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Seattle Aquarium: Entry Ticket</div>
+        <div class="tq-card-desc">Visit the Seattle Aquarium and explore the marine life of the Pacific Northwest and the South Pacific.
 
 The Aquarium includes three buildings, including the new Ocean Pavilion. See a tropical reef from both above and below. Watch fish swim in schools and get a close look at sharks and rays.
 
@@ -47,283 +151,470 @@ Step inside a 360° underwater dome and watch fish from local waters swim. Walk 
 
 See what life is like off the coast of Washington. This exhibit features a range of local sea creatures. Touch pools give you the chance to feel sea stars, urchins, and other tide pool animals.
 
-Throughout your visit, Aquarium staff will be available to answer questions and talk about the animals and conservation efforts.</p>
-          <div class="card-footer">
-            <span class="price">From €43.07</span>
-            <span class="rating">⭐ 4.2 (271)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-aquarium-p1066951/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Throughout your visit, Aquarium staff will be available to answer questions and talk about the animals and conservation efforts.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(271)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€43.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-aquarium-p1066951/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bubble Planet Bellevue: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bubble Planet Bellevue: Entry Ticket</h3>
-          <p class="venue">📍 Bubble Planet Bellevue</p>
-          <p>Visit Bubble Planet, where the bubbles reach impressive sizes. Discover a planet filled with fascinating bubbles and science.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bubble Planet Bellevue: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BUBBLE PLANET BELLEVUE</span>
+        </div>
+        <div class="tq-card-title">Bubble Planet Bellevue: Entry Ticket</div>
+        <div class="tq-card-desc">Visit Bubble Planet, where the bubbles reach impressive sizes. Discover a planet filled with fascinating bubbles and science.
 
 Move through different sections designed to engage all your senses. Encounter oversized bubbles, balloons, and soap in a sensory universe.
 
-Experience unique and interactive installations that showcase the wonders of bubbles. Bubble Planet offers a fun and educational adventure for visitors of all ages.</p>
-          <div class="card-footer">
-            <span class="price">From €21.47</span>
-            <span class="rating">⭐ 4.6 (17)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bubble-planet-bellevue-entry-p1123816/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Experience unique and interactive installations that showcase the wonders of bubbles. Bubble Planet offers a fun and educational adventure for visitors of all ages.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(17)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.47</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bubble-planet-bellevue-entry-p1123816/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b0f69e0ba548465ab2b0e80ae254e19b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Woodland Park Zoo: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Woodland Park Zoo: Skip The Line Ticket</h3>
-          <p class="venue">📍 Woodland Park Zoo</p>
-          <p>This is how we zoo it! Skip the lines to Woodland Park Zoo and hang with over 300 different animal species in lush green surroundings. Woodland Park Zoo has sparked delight, discovery, and unforgettable memories for more than 120 years, teaching people of all ages, backgrounds, and abilities to understand and protect wildlife. Get your Woodland Park Zoo tickets and watch animal keeper talks, see birds of prey in flight, and witness the habits of gorillas, primates, grizzlies, and more at Seattle’s award-winning zoo.</p>
-          <div class="card-footer">
-            <span class="price">From €23.24</span>
-            <span class="rating">⭐ 4.6 (136)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-woodland-park-zoo-skip-the-line-p976089/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b0f69e0ba548465ab2b0e80ae254e19b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Woodland Park Zoo: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WOODLAND PARK ZOO</span>
+        </div>
+        <div class="tq-card-title">Woodland Park Zoo: Skip The Line Ticket</div>
+        <div class="tq-card-desc">This is how we zoo it! Skip the lines to Woodland Park Zoo and hang with over 300 different animal species in lush green surroundings. Woodland Park Zoo has sparked delight, discovery, and unforgettable memories for more than 120 years, teaching people of all ages, backgrounds, and abilities to understand and protect wildlife. Get your Woodland Park Zoo tickets and watch animal keeper talks, see birds of prey in flight, and witness the habits of gorillas, primates, grizzlies, and more at Seattle’s award-winning zoo.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(136)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.24</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-woodland-park-zoo-skip-the-line-p976089/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fa0f684e848746689a50615ab8e9a48c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Smith Tower Observatory: Entry Ticket + Self-Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Smith Tower Observatory: Entry Ticket + Self-Guided Tour</h3>
-          <p class="venue">📍 Smith Tower</p>
-          <p>Visit the Smith Tower Observatory & Bar in the Pioneer Square district of Downtown Seattle. Step into the history of rum runners, guns, typewriters, romantic superstitions, and connections to Chinese royalty, all part of this iconic landmark that offers a glimpse into Seattle’s past.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fa0f684e848746689a50615ab8e9a48c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Smith Tower Observatory: Entry Ticket + Self-Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SMITH TOWER</span>
+        </div>
+        <div class="tq-card-title">Smith Tower Observatory: Entry Ticket + Self-Guided Tour</div>
+        <div class="tq-card-desc">Visit the Smith Tower Observatory & Bar in the Pioneer Square district of Downtown Seattle. Step into the history of rum runners, guns, typewriters, romantic superstitions, and connections to Chinese royalty, all part of this iconic landmark that offers a glimpse into Seattle’s past.
 
 Witness the classic architecture and enjoy carefully crafted cocktails from an incredible vantage point high above the city.
 
-Join the generations of visitors who have come to admire Seattle from above, relax, and have fun. Don't miss the Wishing Chair, and keep an eye out for more legends on the thirty-fifth floor.</p>
-          <div class="card-footer">
-            <span class="price">From €22.63</span>
-            <span class="rating">⭐ 4.2 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-smith-tower-observatory-entry-self-guided-tour-p1093666/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Join the generations of visitors who have come to admire Seattle from above, relax, and have fun. Don't miss the Wishing Chair, and keep an eye out for more legends on the thirty-fifth floor.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.63</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-smith-tower-observatory-entry-self-guided-tour-p1093666/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/58ed6cb38df54123a37ed00f4f5d2605.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Harbor Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle Harbor Cruise</h3>
-          <p class="venue">📍 Seattle Cruises</p>
-          <p>This Argosy Seattle Harbor Cruise is the ideal way to see the city and learn about its history. Spend an hour cruising around Elliott Bay, taking in the skyline while a live narrator provides fascinating insights. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/58ed6cb38df54123a37ed00f4f5d2605.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Harbor Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEATTLE CRUISES</span>
+        </div>
+        <div class="tq-card-title">Seattle Harbor Cruise</div>
+        <div class="tq-card-desc">This Argosy Seattle Harbor Cruise is the ideal way to see the city and learn about its history. Spend an hour cruising around Elliott Bay, taking in the skyline while a live narrator provides fascinating insights. 
 
-On a clear day you'll gaze out to Puget Sound and the towering Olympic Mountains, as you discover the Emerald City's past and present. There's a fully stocked bar on board – why not grab a cocktail and experience the city in style?</p>
-          <div class="card-footer">
-            <span class="price">From €39.4</span>
-            <span class="rating">⭐ 4.6 (17)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-harbor-cruise-p1010809/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+On a clear day you'll gaze out to Puget Sound and the towering Olympic Mountains, as you discover the Emerald City's past and present. There's a fully stocked bar on board – why not grab a cocktail and experience the city in style?</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(17)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.40</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-harbor-cruise-p1010809/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6b540a0c0e3542668586df7bba055e88.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle CityPASS®" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle CityPASS®</h3>
-          <p class="venue">📍 Seattle Aquarium</p>
-          <p>Seattle isn't just home to the world's first Starbucks – there's plenty more to the Emerald City than that. With the Seattle CityPASS® you'll get to experience five of the city's most popular attractions for a fraction of the usual price, with one handy ticket. And it'll get your name right!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6b540a0c0e3542668586df7bba055e88.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle CityPASS®" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEATTLE AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Seattle CityPASS®</div>
+        <div class="tq-card-desc">Seattle isn't just home to the world's first Starbucks – there's plenty more to the Emerald City than that. With the Seattle CityPASS® you'll get to experience five of the city's most popular attractions for a fraction of the usual price, with one handy ticket. And it'll get your name right!
 
-Visit the My CityPASS® App to secure attraction reservations and other important attraction information.</p>
-          <div class="card-footer">
-            <span class="price">From €119.85</span>
-            <span class="rating">⭐ 4.5 (31)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-citypass-p1002135/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit the My CityPASS® App to secure attraction reservations and other important attraction information.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(31)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€119.85</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-citypass-p1002135/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6381cedc1c044d9a4e14c9d49f35fd0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sky View Observatory: Standard Admission" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sky View Observatory: Standard Admission</h3>
-          <p class="venue">📍 Sky View Observatory</p>
-          <p>Seattle is a pretty chilled out place as far as American cities go, perhaps thanks to the level-headed locals and its mountainous surroundings. Gain a full appreciation of the city when you see it from the 73rd floor of the Columbia Center.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6381cedc1c044d9a4e14c9d49f35fd0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sky View Observatory: Standard Admission" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SKY VIEW OBSERVATORY</span>
+        </div>
+        <div class="tq-card-title">Sky View Observatory: Standard Admission</div>
+        <div class="tq-card-desc">Seattle is a pretty chilled out place as far as American cities go, perhaps thanks to the level-headed locals and its mountainous surroundings. Gain a full appreciation of the city when you see it from the 73rd floor of the Columbia Center.
 
 A ticket for the Sky View Observatory will let you see an amazing skyline unfurled before you in one magical panorama, with Mount Rainier, the Olympic Mountains, and Mount Baker looming dramatically in the distance.
 
-Up and away!</p>
-          <div class="card-footer">
-            <span class="price">From €24.44</span>
-            <span class="rating">⭐ 4.8 (24)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sky-view-observatory-fast-track-p978438/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Up and away!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(24)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€24.44</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sky-view-observatory-fast-track-p978438/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Center Monorail: Transport Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle Center Monorail: Transport Ticket</h3>
-          <p class="venue">📍 Seattle Center Monorail</p>
-          <p>Seattle Center Monorail provides a fast, direct connection between downtown Seattle and the Seattle Center. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Center Monorail: Transport Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEATTLE CENTER MONORAIL</span>
+        </div>
+        <div class="tq-card-title">Seattle Center Monorail: Transport Ticket</div>
+        <div class="tq-card-desc">Seattle Center Monorail provides a fast, direct connection between downtown Seattle and the Seattle Center. 
 
 The Monorail's downtown Westlake Station is on the third floor of Westlake Center Mall near Pike Place Market, the Seattle Convention Center, and all major downtown Seattle hotels. 
 
-The Monorail's Seattle Center Station is located at Seattle Center, a premier arts and culture hub featuring over 30 popular attractions including the Space Needle, Chihuly Garden and Glass, Pacific Science Center, Museum of Pop Culture, and more.</p>
-          <div class="card-footer">
-            <span class="price">From €3.45</span>
-            <span class="rating">⭐ 4.2 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-center-monorail-p1098522/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Monorail's Seattle Center Station is located at Seattle Center, a premier arts and culture hub featuring over 30 popular attractions including the Space Needle, Chihuly Garden and Glass, Pacific Science Center, Museum of Pop Culture, and more.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€3.45</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-center-monorail-p1098522/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Nordic Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>National Nordic Museum: Entry Ticket</h3>
-          <p class="venue">📍 National Nordic Museum</p>
-          <p>Linger in the East Garden, home to the oldest working Finnish Sauna on display in North America. Trace the paths of the Labyrinth on the South Terrace, and navigate the light-filled Fjord Hall on the first floor, which showcases both temporary exhibitions and a permanent installation of glass birds. These birds symbolize the constant migration of ideas and influences between the Nordic countries and the Pacific Northwest.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Nordic Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NATIONAL NORDIC MUSEUM</span>
+        </div>
+        <div class="tq-card-title">National Nordic Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Linger in the East Garden, home to the oldest working Finnish Sauna on display in North America. Trace the paths of the Labyrinth on the South Terrace, and navigate the light-filled Fjord Hall on the first floor, which showcases both temporary exhibitions and a permanent installation of glass birds. These birds symbolize the constant migration of ideas and influences between the Nordic countries and the Pacific Northwest.
 
 The National Nordic Museum opened in its current location in 2018 to award-winning acclaim. It has since become a "must-see" on several tourism lists. Rick Steves even raved about it!  
 
-Flash your National Nordic Museum tickets inside and explore a rotating schedule of exhibitions from top Nordic museums, galleries, and artists. There are also over 100 events a year to get involved in!</p>
-          <div class="card-footer">
-            <span class="price">From €17.24</span>
-            <span class="rating">⭐ 5 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-national-nordic-museum-p1028296/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Flash your National Nordic Museum tickets inside and explore a rotating schedule of exhibitions from top Nordic museums, galleries, and artists. There are also over 100 events a year to get involved in!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.24</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-national-nordic-museum-p1028296/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Center & Space Needle: Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle Center & Space Needle: Guided Walking Tour</h3>
-          <p class="venue">📍 Space Needle</p>
-          <p>Begin your Seattle visit at the Seattle Center and the Space Needle.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Center & Space Needle: Guided Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SPACE NEEDLE</span>
+        </div>
+        <div class="tq-card-title">Seattle Center & Space Needle: Guided Walking Tour</div>
+        <div class="tq-card-desc">Begin your Seattle visit at the Seattle Center and the Space Needle.
 
 Start at the Museum of Pop Culture with exhibits on global trends and Seattle’s music legends. Walk through Seattle Center with your guide and learn about its architecture and public art, including a pass by Chihuly Garden and Glass.
 
 Stop at the Seattle Center Armory, which now serves as a busy food hall with local vendors. If time allows, visit a local radio station and Light in the Attic Records label. Continue to the International Fountain before reaching the Space Needle.
 
-With timed entry, visit the glass observation deck for views of the city and Mount Rainier on clear days. Your guide will point out key landmarks and share helpful tips for your Seattle stay.</p>
-          <div class="card-footer">
-            <span class="price">From €116.4</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-center-space-needle-guided-walking-tour-p1119614/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With timed entry, visit the glass observation deck for views of the city and Mount Rainier on clear days. Your guide will point out key landmarks and share helpful tips for your Seattle stay.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€116.40</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-center-space-needle-guided-walking-tour-p1119614/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d309f2ecd64545a486302f7f7d35c52b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Olympic National Park: All-Inclusive Small Group Day Trip from Seattle" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Olympic National Park: All-Inclusive Small Group Day Trip from Seattle</h3>
-          <p class="venue">📍 Olympic National Park</p>
-          <p>Dust off your explorer hat and venture into the wild heart of the Pacific Northwest, with a guided tour of Olympic National Park. This rugged landscape of mossy rain forests, azure lakes, and towering mountains is home to an abundance of stunning wildlife and some of the most breathtaking scenery in North America. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d309f2ecd64545a486302f7f7d35c52b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Olympic National Park: All-Inclusive Small Group Day Trip from Seattle" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">OLYMPIC NATIONAL PARK</span>
+        </div>
+        <div class="tq-card-title">Olympic National Park: All-Inclusive Small Group Day Trip from Seattle</div>
+        <div class="tq-card-desc">Dust off your explorer hat and venture into the wild heart of the Pacific Northwest, with a guided tour of Olympic National Park. This rugged landscape of mossy rain forests, azure lakes, and towering mountains is home to an abundance of stunning wildlife and some of the most breathtaking scenery in North America. 
 
-Take a ferry across Puget Sound to the Olympic Peninsula (keeping an eye out for orcas on the way) and explore the vast majesty of this untamed wilderness.</p>
-          <div class="card-footer">
-            <span class="price">From €275.65</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-olympic-national-park-all-inclusive-small-group-day-trip-from-seattle-p976790/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take a ferry across Puget Sound to the Olympic Peninsula (keeping an eye out for orcas on the way) and explore the vast majesty of this untamed wilderness.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€275.65</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-olympic-national-park-all-inclusive-small-group-day-trip-from-seattle-p976790/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9bd64738b4e64d63adf851c7d7c08853.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mt. Rainier: All-Inclusive Small-Group Day Trip from Seattle" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mt. Rainier: All-Inclusive Small-Group Day Trip from Seattle</h3>
-          <p class="venue">📍 Mt. Rainier National Park</p>
-          <p>Explore the vast majesty of the American wilderness with a guided expedition into the heart of  Mt. Rainier National Park. Hike alongside an experienced guide through ancient cedar forests, sweeping valleys, and subalpine meadows under the colossal shadow of Mount Rainier. See bubbling hot springs, and feel the cool mist blowing off huge tumbling waterfalls. Hear the chorus of birds, woodland critters, and the wind through the trees, and keep an eye out for beautiful free-roaming wildlife.</p>
-          <div class="card-footer">
-            <span class="price">From €275.65</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mt-rainier-all-inclusive-small-group-day-trip-from-seattle-p976787/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9bd64738b4e64d63adf851c7d7c08853.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mt. Rainier: All-Inclusive Small-Group Day Trip from Seattle" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MT. RAINIER NATIONAL PARK</span>
+        </div>
+        <div class="tq-card-title">Mt. Rainier: All-Inclusive Small-Group Day Trip from Seattle</div>
+        <div class="tq-card-desc">Explore the vast majesty of the American wilderness with a guided expedition into the heart of  Mt. Rainier National Park. Hike alongside an experienced guide through ancient cedar forests, sweeping valleys, and subalpine meadows under the colossal shadow of Mount Rainier. See bubbling hot springs, and feel the cool mist blowing off huge tumbling waterfalls. Hear the chorus of birds, woodland critters, and the wind through the trees, and keep an eye out for beautiful free-roaming wildlife.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€275.65</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mt-rainier-all-inclusive-small-group-day-trip-from-seattle-p976787/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle: Wine, Bread, Cheese & Chocolate Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle: Wine, Bread, Cheese & Chocolate Tour</h3>
-          <p class="venue">📍 Food Tours in Seattle</p>
-          <p>Participate in a guided tour that takes you to multiple locations, each featuring a selection of wines primarily from the Pacific Northwest. At each stop, sample wines while receiving relevant context about their characteristics and origins. Along with the wines, a selection of foods is offered to complement the tasting. This tour provides a chance to visit various places and learn about the wines and their pairings during the journey.</p>
-          <div class="card-footer">
-            <span class="price">From €97.31</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-wine-bread-cheese-chocolate-tour-p1127239/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle: Wine, Bread, Cheese & Chocolate Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FOOD TOURS IN SEATTLE</span>
+        </div>
+        <div class="tq-card-title">Seattle: Wine, Bread, Cheese & Chocolate Tour</div>
+        <div class="tq-card-desc">Participate in a guided tour that takes you to multiple locations, each featuring a selection of wines primarily from the Pacific Northwest. At each stop, sample wines while receiving relevant context about their characteristics and origins. Along with the wines, a selection of foods is offered to complement the tasting. This tour provides a chance to visit various places and learn about the wines and their pairings during the journey.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€97.31</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-wine-bread-cheese-chocolate-tour-p1127239/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f44bd81f9abf479499e8448591fc5f2d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Seattle" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hop-on Hop-off Bus Seattle</h3>
-          <p class="venue">📍 Seattle City Tours</p>
-          <p>With buses every 30 minutes, the hop-on-hop-off bus is the best way to see Seattle! Choose your own adventure with stops at the soaring Space Needle and Seattle Center, the Waterfront, Occidental Park, the Seattle Art Museum, and more. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f44bd81f9abf479499e8448591fc5f2d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Seattle" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEATTLE CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Hop-on Hop-off Bus Seattle</div>
+        <div class="tq-card-desc">With buses every 30 minutes, the hop-on-hop-off bus is the best way to see Seattle! Choose your own adventure with stops at the soaring Space Needle and Seattle Center, the Waterfront, Occidental Park, the Seattle Art Museum, and more. 
 
 Make your way around the Emerald City at your own pace on board the handy Hop-on Hop-off Bus Seattle. With 16 convenient stops around the city, you can see the best attractions and never ever worry about transport.
 
 Stop at Bell Street Pier Cruise Terminal (Pier 66) at the Central Waterfront of Seattle. Hop off at Miner's Landing Pier 57 for some delicious seafood at The Crab Pot, take a breezy stroll through Occidental Park in the Pioneer Square district, or sniff your way through Chinatown. The choice is yours.
 
-You'll also get a free, self-guided Historic Pioneer Square Walking Tour from Washington Street Landing to Prefontaine Place.</p>
-          <div class="card-footer">
-            <span class="price">From €56.04</span>
-            <span class="rating">⭐ 3.6 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-seattle-p976131/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll also get a free, self-guided Historic Pioneer Square Walking Tour from Washington Street Landing to Prefontaine Place.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.6</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€56.04</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-seattle-p976131/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Craft Cocktail Gourmet Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Craft Cocktail Gourmet Food Tour</h3>
-          <p class="venue">📍 Food Tours in Seattle</p>
-          <p>Visit three distinct venues in Seattle that highlight notable aspects of the city's culture and identity. Try crafted cocktails and sample foods that represent the local cuisine. Learn about the city's connection to the music scene, the local environment, and the welcoming nature of its people through the guide's insights. Each destination reflects unique traits of Seattle, and this tour offers a structured approach to understanding its cultural offerings through local flavors and venues. Conversations with the guide will provide further context to the experience.</p>
-          <div class="card-footer">
-            <span class="price">From €110.39</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-craft-cocktail-gourmet-food-tour-p1126740/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Craft Cocktail Gourmet Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FOOD TOURS IN SEATTLE</span>
+        </div>
+        <div class="tq-card-title">Craft Cocktail Gourmet Food Tour</div>
+        <div class="tq-card-desc">Visit three distinct venues in Seattle that highlight notable aspects of the city's culture and identity. Try crafted cocktails and sample foods that represent the local cuisine. Learn about the city's connection to the music scene, the local environment, and the welcoming nature of its people through the guide's insights. Each destination reflects unique traits of Seattle, and this tour offers a structured approach to understanding its cultural offerings through local flavors and venues. Conversations with the guide will provide further context to the experience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€110.39</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-craft-cocktail-gourmet-food-tour-p1126740/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Seafood Brunch Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle Seafood Brunch Tour</h3>
-          <p class="venue">📍 Food Tours in Seattle</p>
-          <p>Visit three seafood restaurants in Seattle, tasting dishes such as salmon, Dungeness crab, oysters, mussels, and chowder. Between stops, walk through Pike Place Market and try local specialties like smoked salmon. Learn about the connection of these foods to the Puget Sound and Pacific Ocean, reflecting Seattle's heritage.</p>
-          <div class="card-footer">
-            <span class="price">From €102.22</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-seafood-brunch-tour-p1126737/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Seafood Brunch Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FOOD TOURS IN SEATTLE</span>
+        </div>
+        <div class="tq-card-title">Seattle Seafood Brunch Tour</div>
+        <div class="tq-card-desc">Visit three seafood restaurants in Seattle, tasting dishes such as salmon, Dungeness crab, oysters, mussels, and chowder. Between stops, walk through Pike Place Market and try local specialties like smoked salmon. Learn about the connection of these foods to the Puget Sound and Pacific Ocean, reflecting Seattle's heritage.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€102.22</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-seafood-brunch-tour-p1126737/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Chocolate Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle Chocolate Tour</h3>
-          <p class="venue">📍 Food Tours in Seattle</p>
-          <p>Take a Seattle chocolate tour and learn about the process and history of chocolate. Start at Dahlia Bakery where you taste a locally known dessert. Compare the traditions of chocolate-making among different regions such as South America, Mexico, and Europe, and understand their distinct approaches. Learn what makes chocolate unique and about the contributions Seattle has made to the chocolate industry. Engage in tasting chocolate in various forms, such as truffles and fudge, gaining insight into its diverse styles and preparations. This tour provides an engaging exploration of chocolate culture and craftsmanship.</p>
-          <div class="card-footer">
-            <span class="price">From €69.5</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-chocolate-tour-p1126736/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Chocolate Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FOOD TOURS IN SEATTLE</span>
+        </div>
+        <div class="tq-card-title">Seattle Chocolate Tour</div>
+        <div class="tq-card-desc">Take a Seattle chocolate tour and learn about the process and history of chocolate. Start at Dahlia Bakery where you taste a locally known dessert. Compare the traditions of chocolate-making among different regions such as South America, Mexico, and Europe, and understand their distinct approaches. Learn what makes chocolate unique and about the contributions Seattle has made to the chocolate industry. Engage in tasting chocolate in various forms, such as truffles and fudge, gaining insight into its diverse styles and preparations. This tour provides an engaging exploration of chocolate culture and craftsmanship.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€69.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-chocolate-tour-p1126736/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle: Guided Coffee Tasting Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle: Guided Coffee Tasting Tour</h3>
-          <p class="venue">📍 Seattle Food & Drinks</p>
-          <p>Join a small-group walking tour of Seattle’s Capitol Hill neighborhood, known for its coffee and culture. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle: Guided Coffee Tasting Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEATTLE FOOD & DRINKS</span>
+        </div>
+        <div class="tq-card-title">Seattle: Guided Coffee Tasting Tour</div>
+        <div class="tq-card-desc">Join a small-group walking tour of Seattle’s Capitol Hill neighborhood, known for its coffee and culture. 
 
 Meet your guide at the Jimi Hendrix statue and visit top cafés and roasteries. 
 
@@ -331,188 +622,304 @@ Taste various coffee types, including unique brews and locally-invented espresso
 
 Learn about roasting, sourcing, and sustainable beans. Discover Capitol Hill’s music history and LGBTIQ+ community. 
 
-Find local spots worth exploring. Get coffee insights and tips to enjoy even after the tour.</p>
-          <div class="card-footer">
-            <span class="price">From €42.25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-guided-coffee-tasting-tour-p1121467/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Find local spots worth exploring. Get coffee insights and tips to enjoy even after the tour.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.25</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-guided-coffee-tasting-tour-p1121467/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2f1668dfbeb64c98954a4e9b8c85f438.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle: One-Way Locks Cruise + Hop-on Hop-off Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle: One-Way Locks Cruise + Hop-on Hop-off Bus Tour</h3>
-          <p class="venue">📍 Seattle City Tours</p>
-          <p>**Ballard Locks Cruise**
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2f1668dfbeb64c98954a4e9b8c85f438.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle: One-Way Locks Cruise + Hop-on Hop-off Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEATTLE CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Seattle: One-Way Locks Cruise + Hop-on Hop-off Bus Tour</div>
+        <div class="tq-card-desc">**Ballard Locks Cruise**
 
 Start at the Ballard Locks, also known as the Hiram M. Chittenden Locks. This fully-narrated cruise takes you on a two-hour journey along the waterway. During the trip, see boathouses, seaplanes, fishing boats, and the Ballard Locks fish ladder, which helps migrating salmon reach their mating grounds.
 
 **Hop-on Hop-off Seattle**
 
-Choose between 24 or 48 hours on the hop-on hop-off bus around Seattle. Hop off at any stop that interests you and hop back on to continue your trip. Visit the scenic Seattle waterfront and Pier 55, where the Locks Cruise boards.</p>
-          <div class="card-footer">
-            <span class="price">From €108.64</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-one-way-locks-cruise-hop-on-hop-off-bus-tour-p1105365/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Choose between 24 or 48 hours on the hop-on hop-off bus around Seattle. Hop off at any stop that interests you and hop back on to continue your trip. Visit the scenic Seattle waterfront and Pier 55, where the Locks Cruise boards.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€108.64</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-one-way-locks-cruise-hop-on-hop-off-bus-tour-p1105365/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle: Luggage Storage at Key Arena" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle: Luggage Storage at Key Arena</h3>
-          <p class="venue">📍 Luggage Storage Seattle</p>
-          <p>Store your luggage in Seattle with a convenient and secure luggage storage service. To begin, secure your ticket and visit the designated storage point during opening hours. Show your booking or confirmation email to store your baggage for the day securely.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle: Luggage Storage at Key Arena" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LUGGAGE STORAGE SEATTLE</span>
+        </div>
+        <div class="tq-card-title">Seattle: Luggage Storage at Key Arena</div>
+        <div class="tq-card-desc">Store your luggage in Seattle with a convenient and secure luggage storage service. To begin, secure your ticket and visit the designated storage point during opening hours. Show your booking or confirmation email to store your baggage for the day securely.
 
-When you're ready to retrieve your luggage, return to the same spot during operating hours. Show your booking or email and receive your belongings.</p>
-          <div class="card-footer">
-            <span class="price">From €6.75</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-luggage-storage-at-key-arena-p1097623/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+When you're ready to retrieve your luggage, return to the same spot during operating hours. Show your booking or email and receive your belongings.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€6.75</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-luggage-storage-at-key-arena-p1097623/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Mariners Baseball Game at T-Mobile Park" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle Mariners Baseball Game at T-Mobile Park</h3>
-          <p class="venue">📍 T-Mobile Park</p>
-          <p>Step into the vibrant world of T-Mobile Park and experience the exhilarating thrill of watching the Seattle Mariners, some of Major League Baseball's finest, in action! The ticket guarantees a reserved spot amidst the buzzing crowd, offering a front-row seat to the dynamic spectacle of baseball at its best. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/46f79f79a2524aadbe9e678fea6787c8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Mariners Baseball Game at T-Mobile Park" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">T-MOBILE PARK</span>
+        </div>
+        <div class="tq-card-title">Seattle Mariners Baseball Game at T-Mobile Park</div>
+        <div class="tq-card-desc">Step into the vibrant world of T-Mobile Park and experience the exhilarating thrill of watching the Seattle Mariners, some of Major League Baseball's finest, in action! The ticket guarantees a reserved spot amidst the buzzing crowd, offering a front-row seat to the dynamic spectacle of baseball at its best. 
 
-T-Mobile Park, with its futuristic retractable roof, ensures that the unpredictable Pacific Northwest weather doesn't rain on the parade, allowing for an undisturbed, full-throttle game experience. Plus, the ballpark's unique "Hit It Here Café" in right field dishes up a tantalizing dining experience. The seats here aren't just any seats - they're vantage points providing a nail-bitingly close view of the game and even a chance to nab a home run ball!</p>
-          <div class="card-footer">
-            <span class="price">From €49.31</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-mariners-baseball-game-at-t-mobile-park-p1097066/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+T-Mobile Park, with its futuristic retractable roof, ensures that the unpredictable Pacific Northwest weather doesn't rain on the parade, allowing for an undisturbed, full-throttle game experience. Plus, the ballpark's unique "Hit It Here Café" in right field dishes up a tantalizing dining experience. The seats here aren't just any seats - they're vantage points providing a nail-bitingly close view of the game and even a chance to nab a home run ball!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€49.31</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-mariners-baseball-game-at-t-mobile-park-p1097066/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/92f312d0b1ad4ba0b75ca62b53fcd8df.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle: Scenic Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle: Scenic Tour</h3>
-          <p class="venue">📍 Seattle City Tours</p>
-          <p>Explore Puget Sound, forests, and mountains, and find out how Seattle became know by the nickname, **The Emerald City**, on this city tour. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/92f312d0b1ad4ba0b75ca62b53fcd8df.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle: Scenic Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEATTLE CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Seattle: Scenic Tour</div>
+        <div class="tq-card-desc">Explore Puget Sound, forests, and mountains, and find out how Seattle became know by the nickname, **The Emerald City**, on this city tour. 
 
-Visit neighborhoods like Ballard and Queen Anne known for their unique culture and architecture.</p>
-          <div class="card-footer">
-            <span class="price">From €68.12</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-scenic-tour-p1092147/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit neighborhoods like Ballard and Queen Anne known for their unique culture and architecture.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€68.12</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-scenic-tour-p1092147/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/92f312d0b1ad4ba0b75ca62b53fcd8df.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle: Night Tour + Space Needle and Skywheel Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle: Night Tour + Space Needle and Skywheel Entry</h3>
-          <p class="venue">📍 Seattle City Tours</p>
-          <p>This tour takes you to Seattle's Great Wheel, the tallest of its kind in the United States, for views over Seattle's skyline and its shimmering Elliott Bay waters. From there, the tour continues to Kerry Park, known for its eye-catching views of Mount Rainier.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/92f312d0b1ad4ba0b75ca62b53fcd8df.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle: Night Tour + Space Needle and Skywheel Entry" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEATTLE CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Seattle: Night Tour + Space Needle and Skywheel Entry</div>
+        <div class="tq-card-desc">This tour takes you to Seattle's Great Wheel, the tallest of its kind in the United States, for views over Seattle's skyline and its shimmering Elliott Bay waters. From there, the tour continues to Kerry Park, known for its eye-catching views of Mount Rainier.
 
 Then, it's time to scale the Space Needle, an observation deck with a jaw-dropping 360-degree panorama of the cityscape awaits, ready to take your breath away.
 
-Next, a city drive that captures the lively rhythm of Seattle takes you through busy streets, to view iconic landmarks before a hassle-free drop-off.</p>
-          <div class="card-footer">
-            <span class="price">From €154.34</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-space-needle-skywheel-entry-ticket-tour-p1084399/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, a city drive that captures the lively rhythm of Seattle takes you through busy streets, to view iconic landmarks before a hassle-free drop-off.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€154.34</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-space-needle-skywheel-entry-ticket-tour-p1084399/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a9acf31d10a4d3f8e9637b9d1b99ba8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Original Selfie Museum - Seattle: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Original Selfie Museum - Seattle: Entry Ticket</h3>
-          <p class="venue">📍 Original Selfie Museum - Seattle</p>
-          <p>Get ready to flash those pearly whites at The Original Selfie Museum! This trailblazer of interactive spaces propels the art of selfies to new heights of creativity and fun. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a9acf31d10a4d3f8e9637b9d1b99ba8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Original Selfie Museum - Seattle: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ORIGINAL SELFIE MUSEUM - SEATTLE</span>
+        </div>
+        <div class="tq-card-title">Original Selfie Museum - Seattle: Entry Ticket</div>
+        <div class="tq-card-desc">Get ready to flash those pearly whites at The Original Selfie Museum! This trailblazer of interactive spaces propels the art of selfies to new heights of creativity and fun. 
 
 Sprinkled across the country, The Original Selfie Museum is far from your run-of-the-mill gallery. Here, you'll find a riot of Instagrammable Walls designed for maximum fun, unforgettable moments, and picture-perfect snaps!
 
 Strut into the limelight with a VIP Pass and flit in and out at your leisure during opening hours. It's like a magic key to more than 35 unique photo zones, an abundance of whimsical props, and professional lighting that would make Tinseltown's finest green with envy!
 
-And if you have a photogenic pup, small dogs are allowed in with you on the first Monday of the month!</p>
-          <div class="card-footer">
-            <span class="price">From €33.63</span>
-            <span class="rating">⭐ 2 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-original-selfie-museum-seattle-p1079120/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+And if you have a photogenic pup, small dogs are allowed in with you on the first Monday of the month!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.63</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-original-selfie-museum-seattle-p1079120/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8531ba0afb4a43db9c11422c093bc590.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle One Way Locks Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle One Way Locks Cruise</h3>
-          <p class="venue">📍 Seattle Cruises</p>
-          <p>See a different side to Washington State's biggest city on this Seattle Locks Cruise. This one-way Ballard Locks cruise allows you to see the spectacular Seattle skyline, and learn about the city's Hiram M. Chittenden Locks.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8531ba0afb4a43db9c11422c093bc590.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle One Way Locks Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEATTLE CRUISES</span>
+        </div>
+        <div class="tq-card-title">Seattle One Way Locks Cruise</div>
+        <div class="tq-card-desc">See a different side to Washington State's biggest city on this Seattle Locks Cruise. This one-way Ballard Locks cruise allows you to see the spectacular Seattle skyline, and learn about the city's Hiram M. Chittenden Locks.
 
-Your salt-to-freshwater cruise is narrated by a live guide, who'll entertain you with nuggets of local history as you float past fishing boats, seaplanes, and floating homes. Grab a cocktail or soft drink from the bar while passing under historical bridges, and experience the boat rising, and lowering with the locks that control the action on the Puget Sound.</p>
-          <div class="card-footer">
-            <span class="price">From €54.56</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-locks-cruise-p1010840/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your salt-to-freshwater cruise is narrated by a live guide, who'll entertain you with nuggets of local history as you float past fishing boats, seaplanes, and floating homes. Grab a cocktail or soft drink from the bar while passing under historical bridges, and experience the boat rising, and lowering with the locks that control the action on the Puget Sound.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€54.56</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-locks-cruise-p1010840/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c641cd0619ef42d68309c41fec60ec9f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Harbor Tour & Sky View Seattle" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle Harbor Tour & Sky View Seattle</h3>
-          <p class="venue">📍 Sky View Observatory</p>
-          <p>Discover the best of Seattle with a fantastic package that includes a harbor cruise and admission to a sky-high observatory. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c641cd0619ef42d68309c41fec60ec9f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Harbor Tour & Sky View Seattle" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SKY VIEW OBSERVATORY</span>
+        </div>
+        <div class="tq-card-title">Seattle Harbor Tour & Sky View Seattle</div>
+        <div class="tq-card-desc">Discover the best of Seattle with a fantastic package that includes a harbor cruise and admission to a sky-high observatory. 
 
 Take a one-hour cruise around Elliott Bay and enjoy stunning views of the Seattle skyline. You'll also get to hear interesting information about the city's history from a live guide. While you’re at it, relax with a cocktail from the onboard bar.
 
-Then, head up to the Sky View Observatory on the 73rd floor of the Columbia Center. From up there, you can take in panoramic views of the city, including Mount Rainier and the Olympic Mountains. It's a great way to see Seattle from both the water and the sky!</p>
-          <div class="card-footer">
-            <span class="price">From €67.25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-harbor-tour-and-sky-view-seattle-p1097241/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Then, head up to the Sky View Observatory on the 73rd floor of the Columbia Center. From up there, you can take in panoramic views of the city, including Mount Rainier and the Olympic Mountains. It's a great way to see Seattle from both the water and the sky!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€67.25</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-harbor-tour-and-sky-view-seattle-p1097241/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8531ba0afb4a43db9c11422c093bc590.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle One Way Locks Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle One Way Locks Cruise</h3>
-          <p class="venue">📍 Seattle Cruises</p>
-          <p>See a different side to Washington State's biggest city on this Seattle Locks Cruise. This one-way Ballard Locks cruise allows you to see the spectacular Seattle skyline, and learn about the city's Hiram M. Chittenden Locks.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8531ba0afb4a43db9c11422c093bc590.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle One Way Locks Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEATTLE CRUISES</span>
+        </div>
+        <div class="tq-card-title">Seattle One Way Locks Cruise</div>
+        <div class="tq-card-desc">See a different side to Washington State's biggest city on this Seattle Locks Cruise. This one-way Ballard Locks cruise allows you to see the spectacular Seattle skyline, and learn about the city's Hiram M. Chittenden Locks.
 
-Your salt-to-freshwater cruise is narrated by a live guide, who'll entertain you with nuggets of local history as you float past fishing boats, seaplanes, and floating homes. Grab a cocktail or soft drink from the bar while passing under historical bridges, and experience the boat rising, and lowering with the locks that control the action on the Puget Sound.</p>
-          <div class="card-footer">
-            <span class="price">From €54.56</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-locks-cruise-p1010840/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your salt-to-freshwater cruise is narrated by a live guide, who'll entertain you with nuggets of local history as you float past fishing boats, seaplanes, and floating homes. Grab a cocktail or soft drink from the bar while passing under historical bridges, and experience the boat rising, and lowering with the locks that control the action on the Puget Sound.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€54.56</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-locks-cruise-p1010840/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c641cd0619ef42d68309c41fec60ec9f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Harbor Tour & Sky View Seattle" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seattle Harbor Tour & Sky View Seattle</h3>
-          <p class="venue">📍 Sky View Observatory</p>
-          <p>Discover the best of Seattle with a fantastic package that includes a harbor cruise and admission to a sky-high observatory. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c641cd0619ef42d68309c41fec60ec9f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seattle Harbor Tour & Sky View Seattle" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SEATTLE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SKY VIEW OBSERVATORY</span>
+        </div>
+        <div class="tq-card-title">Seattle Harbor Tour & Sky View Seattle</div>
+        <div class="tq-card-desc">Discover the best of Seattle with a fantastic package that includes a harbor cruise and admission to a sky-high observatory. 
 
 Take a one-hour cruise around Elliott Bay and enjoy stunning views of the Seattle skyline. You'll also get to hear interesting information about the city's history from a live guide. While you’re at it, relax with a cocktail from the onboard bar.
 
-Then, head up to the Sky View Observatory on the 73rd floor of the Columbia Center. From up there, you can take in panoramic views of the city, including Mount Rainier and the Olympic Mountains. It's a great way to see Seattle from both the water and the sky!</p>
-          <div class="card-footer">
-            <span class="price">From €67.25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seattle-harbor-tour-and-sky-view-seattle-p1097241/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Then, head up to the Sky View Observatory on the 73rd floor of the Columbia Center. From up there, you can take in panoramic views of the city, including Mount Rainier and the Olympic Mountains. It's a great way to see Seattle from both the water and the sky!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€67.25</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seattle-harbor-tour-and-sky-view-seattle-p1097241/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

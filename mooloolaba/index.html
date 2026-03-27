@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Mooloolaba | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Mooloolaba. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,93 +131,148 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fbd765174b25493ea08e53f8e79bd11b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SEA LIFE Sunshine Coast Aquarium: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>SEA LIFE Sunshine Coast Aquarium: Entry Ticket</h3>
-          <p class="venue">📍 SEA LIFE Sunshine Coast Aquarium</p>
-          <p>Australia's marine life already has incredible diversity, and you can see a slice of the sea inside SEA LIFE. Disney lovers can rejoice in the special collaboration between Pixar and the aquarium that showcases the animals of Finding Dory. The collab also offers up fun games like an echolocation maze. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fbd765174b25493ea08e53f8e79bd11b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SEA LIFE Sunshine Coast Aquarium: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MOOLOOLABA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEA LIFE SUNSHINE COAST AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">SEA LIFE Sunshine Coast Aquarium: Entry Ticket</div>
+        <div class="tq-card-desc">Australia's marine life already has incredible diversity, and you can see a slice of the sea inside SEA LIFE. Disney lovers can rejoice in the special collaboration between Pixar and the aquarium that showcases the animals of Finding Dory. The collab also offers up fun games like an echolocation maze. 
 
-Find out just how smart seals are and learn more about them as they play with their trainers, and marvel at sand tiger sharks – this is the only place in Queensland that houses them!</p>
-          <div class="card-footer">
-            <span class="price">From €21.65</span>
-            <span class="rating">⭐ 4.4 (91)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sea-life-sunshine-coast-p992228/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Find out just how smart seals are and learn more about them as they play with their trainers, and marvel at sand tiger sharks – this is the only place in Queensland that houses them!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(91)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.65</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sea-life-sunshine-coast-p992228/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70bb5f1bd4ce4b4e93cd68da35e02ce8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquaduck Sunshine Coast" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aquaduck Sunshine Coast</h3>
-          <p class="venue">📍 Aquaduck Safaris Sunshine Coast</p>
-          <p>Is it a bird? Is it a tour bus? No! It's Aquaduck! This sturdy, duck-shaped vessel will whisk you around the Sunshine Coast on a lighthearted sightseeing adventure – with an amphibious twist!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/70bb5f1bd4ce4b4e93cd68da35e02ce8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquaduck Sunshine Coast" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MOOLOOLABA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AQUADUCK SAFARIS SUNSHINE COAST</span>
+        </div>
+        <div class="tq-card-title">Aquaduck Sunshine Coast</div>
+        <div class="tq-card-desc">Is it a bird? Is it a tour bus? No! It's Aquaduck! This sturdy, duck-shaped vessel will whisk you around the Sunshine Coast on a lighthearted sightseeing adventure – with an amphibious twist!
 
 Upon arriving at the water's edge, the Aquaduck does not falter. Instead, it plops triumphantly into the water, instantly transforming into an aquatic floating watercraft, and speeding off as quack as lightning!
 
-If you're looking for something fun to do on the Sunshine Coast, an Aquaduck safari fits the bill.</p>
-          <div class="card-footer">
-            <span class="price">From €30.07</span>
-            <span class="rating">⭐ 4.7 (38)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aquaduck-sunshine-coast-p1010347/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+If you're looking for something fun to do on the Sunshine Coast, an Aquaduck safari fits the bill.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(38)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aquaduck-sunshine-coast-p1010347/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fbd765174b25493ea08e53f8e79bd11b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Shark Dive Xtreme at SEA LIFE Sunshine Coast" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Shark Dive Xtreme at SEA LIFE Sunshine Coast</h3>
-          <p class="venue">📍 SEA LIFE Sunshine Coast Aquarium</p>
-          <p>There’s no barrier between you and the sharks during this dive! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fbd765174b25493ea08e53f8e79bd11b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Shark Dive Xtreme at SEA LIFE Sunshine Coast" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MOOLOOLABA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEA LIFE SUNSHINE COAST AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Shark Dive Xtreme at SEA LIFE Sunshine Coast</div>
+        <div class="tq-card-desc">There’s no barrier between you and the sharks during this dive! 
 
 During this two-hour adventure At SEA LIFE Sunshine Coast, you can share a tank with a colony of grey nurse sharks and giant stingrays. Don’t worry if you haven’t dived before, you’ll be given a full safety briefing and dive training before you take the dip into the aquarium’s Ocean Tunnel. 
 
-This exhilarating experience puts nothing between you and these amazing creatures, but fear not – your instructors will be there every step of the way.</p>
-          <div class="card-footer">
-            <span class="price">From €179.8</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-shark-dive-at-sea-life-sunshine-coast-p1021371/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This exhilarating experience puts nothing between you and these amazing creatures, but fear not – your instructors will be there every step of the way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€179.80</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-shark-dive-at-sea-life-sunshine-coast-p1021371/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fbd765174b25493ea08e53f8e79bd11b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seal Swim at SEA LIFE Sunshine Coast" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Seal Swim at SEA LIFE Sunshine Coast</h3>
-          <p class="venue">📍 SEA LIFE Sunshine Coast Aquarium</p>
-          <p>Dive in at the deep end with this unmissable experience and swim with seals at SEA LIFE Sunshine Coast. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fbd765174b25493ea08e53f8e79bd11b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Seal Swim at SEA LIFE Sunshine Coast" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MOOLOOLABA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEA LIFE SUNSHINE COAST AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Seal Swim at SEA LIFE Sunshine Coast</div>
+        <div class="tq-card-desc">Dive in at the deep end with this unmissable experience and swim with seals at SEA LIFE Sunshine Coast. 
 
 These critters might swim circles around you, but get in touch with these incredible animals during this once-in-a-lifetime interactive experience. 
 
-This behind the scenes tour puts you in the same tank as SEA LIFE's resident seals, teaching you about their habits and just how natural they are in the water.</p>
-          <div class="card-footer">
-            <span class="price">From €107.04</span>
-            <span class="rating">⭐ 4 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seal-swim-at-sea-life-sunshine-coast-p1021367/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This behind the scenes tour puts you in the same tank as SEA LIFE's resident seals, teaching you about their habits and just how natural they are in the water.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€107.04</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seal-swim-at-sea-life-sunshine-coast-p1021367/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/be44b3ba04cc42ceba2659997836f7ad.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="2-Hour Sunshine Coast Whale Watching Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>2-Hour Sunshine Coast Whale Watching Experience</h3>
-          <p class="venue">📍 Sunshine Coast Cruises</p>
-          <p>This Sunshine Coast whale watching excursion allows you to see majestic creatures in their natural habitat, above and below the water! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/be44b3ba04cc42ceba2659997836f7ad.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="2-Hour Sunshine Coast Whale Watching Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MOOLOOLABA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SUNSHINE COAST CRUISES</span>
+        </div>
+        <div class="tq-card-title">2-Hour Sunshine Coast Whale Watching Experience</div>
+        <div class="tq-card-desc">This Sunshine Coast whale watching excursion allows you to see majestic creatures in their natural habitat, above and below the water! 
 
 With a maximum group size of 20, you'll take to the sea aboard a vessel designed for speed and comfort. Your expert skippers will sail out to known whale waters, where you'll be mesmerized by breaches, loud tail slaps, spy hops and peduncle throws performed by giants of the ocean. 
 
-As well as informative commentary and your all-natural live stream, the boat is equipped with HD cameras so you can scan beneath the blue for a unique view. Better still, a hydrophone on board lets you hear the whales sing as they play – it's an unforgettable experience in the making!</p>
-          <div class="card-footer">
-            <span class="price">From €53.52</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-2hr-sunshine-coast-whale-watching-experience-p1015661/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As well as informative commentary and your all-natural live stream, the boat is equipped with HD cameras so you can scan beneath the blue for a unique view. Better still, a hydrophone on board lets you hear the whales sing as they play – it's an unforgettable experience in the making!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€53.52</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-2hr-sunshine-coast-whale-watching-experience-p1015661/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

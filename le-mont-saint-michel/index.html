@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Le Mont-Saint-Michel | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Le Mont-Saint-Michel. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,116 +131,187 @@
     <p>10 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26136bb930684e35a34dc383b7026bd6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel Abbey: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mont Saint-Michel Abbey: Entry Ticket</h3>
-          <p class="venue">📍 Mont Saint-Michel Abbey</p>
-          <p>It looks straight out of a fantasy film – as if dragons might swoop down as you enter. But you haven't stepped into a parallel universe, this is the Abbaye du Mont Saint-Michel. This astounding World Heritage Site lies just off the windswept coast of Normandy. Explore 20 rooms, stunning gardens, and get panoramic views from this famous medieval fortress.</p>
-          <div class="card-footer">
-            <span class="price">From €13</span>
-            <span class="rating">⭐ 4.7 (8886)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-abbey-entry-p974575/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26136bb930684e35a34dc383b7026bd6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel Abbey: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LE MONT-SAINT-MICHEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONT SAINT-MICHEL ABBEY</span>
+        </div>
+        <div class="tq-card-title">Mont Saint-Michel Abbey: Entry Ticket</div>
+        <div class="tq-card-desc">It looks straight out of a fantasy film – as if dragons might swoop down as you enter. But you haven't stepped into a parallel universe, this is the Abbaye du Mont Saint-Michel. This astounding World Heritage Site lies just off the windswept coast of Normandy. Explore 20 rooms, stunning gardens, and get panoramic views from this famous medieval fortress.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(8,886)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-abbey-entry-p974575/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d7a376b2fdf248ff93cfef57e0c6beb5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel: Guided Walking Tour & Optional Abbey Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mont Saint-Michel: Guided Walking Tour & Optional Abbey Entry</h3>
-          <p class="venue">📍 Mont Saint-Michel Abbey</p>
-          <p>Visit Mont Saint-Michel village on a tidal island with a licensed local tour guide. First, meet your guide and take the shuttle bus to the village. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d7a376b2fdf248ff93cfef57e0c6beb5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel: Guided Walking Tour & Optional Abbey Entry" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LE MONT-SAINT-MICHEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONT SAINT-MICHEL ABBEY</span>
+        </div>
+        <div class="tq-card-title">Mont Saint-Michel: Guided Walking Tour & Optional Abbey Entry</div>
+        <div class="tq-card-desc">Visit Mont Saint-Michel village on a tidal island with a licensed local tour guide. First, meet your guide and take the shuttle bus to the village. 
 
 On a two-hour walking tour, you will learn about its history and walk the narrow cobblestone streets along the Grande Rue to the Abbey. 
 
 You will also see the parish church of Saint-Pierre and its cemetery, which houses a silver statue dedicated to Saint-Michel. 
 
-Walk along the ramparts to see views of the coast and the bay. Also included is an entrance ticket to the Abbey to see it on your own.</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐ 4.1 (53)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-guided-walking-tour-optional-abbey-entry-p1112182/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Walk along the ramparts to see views of the coast and the bay. Also included is an entrance ticket to the Abbey to see it on your own.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(53)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-guided-walking-tour-optional-abbey-entry-p1112182/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/19440fbd9a98499ab34705b04a432d35.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel: Admission + Transport from Paris" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mont Saint-Michel: Admission + Transport from Paris</h3>
-          <p class="venue">📍 Mont Saint-Michel Day Trips from Paris</p>
-          <p>Design your own itinerary on this day trip from Paris, and see one of France's most iconic and jaw-dropping sites! The UNESCO World Heritage island of Mont Saint-Michel and its bay holds a big slice of medieval history. Get ready to learn the riveting details of it all with your optional audio guide, and explore the 8th-century Gothic Benedictine Abbey.</p>
-          <div class="card-footer">
-            <span class="price">From €85</span>
-            <span class="rating">⭐ 4.5 (90)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-abbaye-du-mont-saint-michel-transport-from-paris-p977018/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/19440fbd9a98499ab34705b04a432d35.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel: Admission + Transport from Paris" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LE MONT-SAINT-MICHEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONT SAINT-MICHEL DAY TRIPS FROM PARIS</span>
+        </div>
+        <div class="tq-card-title">Mont Saint-Michel: Admission + Transport from Paris</div>
+        <div class="tq-card-desc">Design your own itinerary on this day trip from Paris, and see one of France's most iconic and jaw-dropping sites! The UNESCO World Heritage island of Mont Saint-Michel and its bay holds a big slice of medieval history. Get ready to learn the riveting details of it all with your optional audio guide, and explore the 8th-century Gothic Benedictine Abbey.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(90)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€85.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-abbaye-du-mont-saint-michel-transport-from-paris-p977018/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d458bc89fb6449869754b35fb7ea977d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel: Entry Ticket with Audio Guide + Transport from Paris" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mont Saint-Michel: Entry Ticket with Audio Guide + Transport from Paris</h3>
-          <p class="venue">📍 Mont Saint-Michel Day Trips from Paris</p>
-          <p>Set off from Paris for this round-trip tour to Mont-Saint Michel. It even comes with an audio-guided commentary to accompany you throughout your visit.  
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d458bc89fb6449869754b35fb7ea977d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel: Entry Ticket with Audio Guide + Transport from Paris" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LE MONT-SAINT-MICHEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONT SAINT-MICHEL DAY TRIPS FROM PARIS</span>
+        </div>
+        <div class="tq-card-title">Mont Saint-Michel: Entry Ticket with Audio Guide + Transport from Paris</div>
+        <div class="tq-card-desc">Set off from Paris for this round-trip tour to Mont-Saint Michel. It even comes with an audio-guided commentary to accompany you throughout your visit.  
 
 Journey north to Normandy on a luxury air-conditioned coach where you can appreciate the French countryside and listen to some initial commentaries on a personal audio guide in the language of your choice. 
 
 After reaching Mont-Saint-Michel, around noon, you’ll be given tickets to enter the abbey. Admire its beauty while finding out more about its history from your audio guide. 
 
-After visiting the abbey, take time to stroll through the streets of the village and enjoy the view of the sea. You’ll have plenty of time to find a restaurant and have lunch at your own pace.</p>
-          <div class="card-footer">
-            <span class="price">From €95</span>
-            <span class="rating">⭐ 4 (15)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-audio-guided-tour-from-paris-p1028774/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After visiting the abbey, take time to stroll through the streets of the village and enjoy the view of the sea. You’ll have plenty of time to find a restaurant and have lunch at your own pace.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(15)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€95.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-audio-guided-tour-from-paris-p1028774/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7b2008ec20fb4d10a1d8a15844385f6c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel: Entry Ticket and Guided Tour + Transport from Paris" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mont Saint-Michel: Entry Ticket and Guided Tour + Transport from Paris</h3>
-          <p class="venue">📍 Mont Saint-Michel Day Trips from Paris</p>
-          <p>Take a roundtrip journey from Paris to Mont-Saint Michel where you'll have the chance to visit the abbey and take a guided tour. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7b2008ec20fb4d10a1d8a15844385f6c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel: Entry Ticket and Guided Tour + Transport from Paris" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LE MONT-SAINT-MICHEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONT SAINT-MICHEL DAY TRIPS FROM PARIS</span>
+        </div>
+        <div class="tq-card-title">Mont Saint-Michel: Entry Ticket and Guided Tour + Transport from Paris</div>
+        <div class="tq-card-desc">Take a roundtrip journey from Paris to Mont-Saint Michel where you'll have the chance to visit the abbey and take a guided tour. 
 
 As you set off from Paris and travel through Normandy, your guide will tell you about the rich history of the region that's been marked by invasions, from the Romans to the barbarians. When you arrive, enjoy a leisurely lunch in one of the restaurants on Mont-Saint Michel so you're full and fuelled ahead of a day of exploring. 
 
 Inside the abbey, admire the layered Gothic architecture. Over the centuries, Gothic buildings have been built on top of each other, such as the cloisters and the monks' refectory. 
 
-Finally, you can wander freely over the hills, soaking up the medieval atmosphere of the cobbled streets and exploring the museums and shops.</p>
-          <div class="card-footer">
-            <span class="price">From €105</span>
-            <span class="rating">⭐ 4.8 (11)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-guided-tour-from-paris-p1028773/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finally, you can wander freely over the hills, soaking up the medieval atmosphere of the cobbled streets and exploring the museums and shops.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(11)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€105.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-guided-tour-from-paris-p1028773/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26136bb930684e35a34dc383b7026bd6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel Island: Audio Guide App by TouringBee" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mont Saint-Michel Island: Audio Guide App by TouringBee</h3>
-          <p class="venue">📍 Mont Saint-Michel Abbey</p>
-          <p>Journey back to the age of knights, castles, and legendary tales on the island of Mont Saint-Michel. As you traverse the winding streets of this walled town, let this audio guide whisk you away on an adventure through history. Marvel at museums and churches, pay your respects at the cemetery, and gaze from the lookouts at vistas that have captured hearts for centuries. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26136bb930684e35a34dc383b7026bd6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel Island: Audio Guide App by TouringBee" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LE MONT-SAINT-MICHEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONT SAINT-MICHEL ABBEY</span>
+        </div>
+        <div class="tq-card-title">Mont Saint-Michel Island: Audio Guide App by TouringBee</div>
+        <div class="tq-card-desc">Journey back to the age of knights, castles, and legendary tales on the island of Mont Saint-Michel. As you traverse the winding streets of this walled town, let this audio guide whisk you away on an adventure through history. Marvel at museums and churches, pay your respects at the cemetery, and gaze from the lookouts at vistas that have captured hearts for centuries. 
 
-Your audio guide app peels back the layers of time to reveal the secrets behind the famed Mont Saint-Michel Island. Navigate the narrow alleyways with ease, thanks to the handy offline map.</p>
-          <div class="card-footer">
-            <span class="price">From €7</span>
-            <span class="rating">⭐ 3.8 (36)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-island-audio-guide-app-by-touringbee-p1092048/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your audio guide app peels back the layers of time to reveal the secrets behind the famed Mont Saint-Michel Island. Navigate the narrow alleyways with ease, thanks to the handy offline map.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(36)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€7.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-island-audio-guide-app-by-touringbee-p1092048/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a394eeb12029423f982ee47e0bba0c5b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel: Entry Ticket and Guided Day Tour from Paris" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mont Saint-Michel: Entry Ticket and Guided Day Tour from Paris</h3>
-          <p class="venue">📍 Mont Saint-Michel Day Trips from Paris</p>
-          <p>Join a day-long tour from Paris to Mont Saint-Michel. Board a private bus in the early morning, where you can catch up on sleep or grab breakfast during a mid-route stop.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a394eeb12029423f982ee47e0bba0c5b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel: Entry Ticket and Guided Day Tour from Paris" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LE MONT-SAINT-MICHEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONT SAINT-MICHEL DAY TRIPS FROM PARIS</span>
+        </div>
+        <div class="tq-card-title">Mont Saint-Michel: Entry Ticket and Guided Day Tour from Paris</div>
+        <div class="tq-card-desc">Join a day-long tour from Paris to Mont Saint-Michel. Board a private bus in the early morning, where you can catch up on sleep or grab breakfast during a mid-route stop.
 
 Your knowledgeable guide will share background information on this UNESCO-listed site, offering insights into its history and the surrounding region of Normandy. 
 
@@ -149,59 +319,92 @@ Upon arrival, your guide will lead an orientation tour to ensure you see the key
 
 For lunch, choose from various dining options, ranging from rustic meat-focused eateries to seafood restaurants with bay-view terraces. Crêperies serving galettes and Normandy cider are also available for a more casual experience
 
-In the late afternoon, board the bus for the return journey to Paris, ensuring you're back in the City of Lights well before bedtime.</p>
-          <div class="card-footer">
-            <span class="price">From €84</span>
-            <span class="rating">⭐ 4.5 (23)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-entry-ticket-and-guided-tour-from-paris-p997079/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In the late afternoon, board the bus for the return journey to Paris, ensuring you're back in the City of Lights well before bedtime.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(23)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€84.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-entry-ticket-and-guided-tour-from-paris-p997079/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/01a04d878d664e8a859a8edd47f906bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="La Merveille Retrouvée – The Rediscovered Wonder" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>La Merveille Retrouvée – The Rediscovered Wonder</h3>
-          <p class="venue">📍 Mont Saint-Michel Abbey</p>
-          <p>When the sun sets, a different side of Mont-Saint-Michel Abbey will reveal itself to you. A captivating show awaits, shedding new light on this incredible location. Through the use of sound, light, and video, every corner of the abbey becomes a living picture, showcasing its stunning architecture.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/01a04d878d664e8a859a8edd47f906bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="La Merveille Retrouvée – The Rediscovered Wonder" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LE MONT-SAINT-MICHEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONT SAINT-MICHEL ABBEY</span>
+        </div>
+        <div class="tq-card-title">La Merveille Retrouvée – The Rediscovered Wonder</div>
+        <div class="tq-card-desc">When the sun sets, a different side of Mont-Saint-Michel Abbey will reveal itself to you. A captivating show awaits, shedding new light on this incredible location. Through the use of sound, light, and video, every corner of the abbey becomes a living picture, showcasing its stunning architecture.
 
 This isn't just an ordinary evening tour. It's a celebration of art and history that engages all your senses, taking you beyond the present moment.
 
-This summer, allow yourself to become immersed in this unique artistic experience. It's like entering a magical, poetic world.</p>
-          <div class="card-footer">
-            <span class="price">From €18</span>
-            <span class="rating">⭐ 4.5 (132)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-la-merveille-retrouvee-the-rediscovered-wonder-p1069962/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This summer, allow yourself to become immersed in this unique artistic experience. It's like entering a magical, poetic world.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(132)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-la-merveille-retrouvee-the-rediscovered-wonder-p1069962/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26136bb930684e35a34dc383b7026bd6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel & Abbey: Full-Day Guided Tour from Bayeux" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mont Saint-Michel & Abbey: Full-Day Guided Tour from Bayeux</h3>
-          <p class="venue">📍 Mont Saint-Michel Abbey</p>
-          <p>Travel to Mont Saint-Michel, a landmark in France. Depart from Bayeux in an air-conditioned minivan, passing through the landscapes of Normandy toward this tidal island.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26136bb930684e35a34dc383b7026bd6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel & Abbey: Full-Day Guided Tour from Bayeux" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LE MONT-SAINT-MICHEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONT SAINT-MICHEL ABBEY</span>
+        </div>
+        <div class="tq-card-title">Mont Saint-Michel & Abbey: Full-Day Guided Tour from Bayeux</div>
+        <div class="tq-card-desc">Travel to Mont Saint-Michel, a landmark in France. Depart from Bayeux in an air-conditioned minivan, passing through the landscapes of Normandy toward this tidal island.
 
 Follow an English-speaking guide through the medieval village and climb the 350 steps leading to the Abbey, a Gothic site and UNESCO World Heritage Site. 
 
 Hear stories of monks and medieval architecture as you walk through the Abbey's halls and view the bay.
 
-After the guided tour, spend free time wandering the cobbled streets, shopping for local items, or eating a soufflé omelet at La Mère Poulard restaurant.</p>
-          <div class="card-footer">
-            <span class="price">From €160</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-abbey-full-day-guided-tour-from-bayeux-p1112778/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After the guided tour, spend free time wandering the cobbled streets, shopping for local items, or eating a soufflé omelet at La Mère Poulard restaurant.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€160.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-abbey-full-day-guided-tour-from-bayeux-p1112778/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/44c05b98311e4f86a96a201a905d526a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel: Small Group Day Trip from Paris with Cider Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mont Saint-Michel: Small Group Day Trip from Paris with Cider Tasting</h3>
-          <p class="venue">📍 Mont Saint-Michel Day Trips from Paris</p>
-          <p>When the tide goes out, that's when you can uncover the mystique of **Mont Saint-Michel**, a medieval abbey built on an island off the coast of France. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/44c05b98311e4f86a96a201a905d526a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mont Saint-Michel: Small Group Day Trip from Paris with Cider Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LE MONT-SAINT-MICHEL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONT SAINT-MICHEL DAY TRIPS FROM PARIS</span>
+        </div>
+        <div class="tq-card-title">Mont Saint-Michel: Small Group Day Trip from Paris with Cider Tasting</div>
+        <div class="tq-card-desc">When the tide goes out, that's when you can uncover the mystique of **Mont Saint-Michel**, a medieval abbey built on an island off the coast of France. 
 
 Over **1,000 years** of fascinating history is revealed at low tide as the abbey of Mont Saint-Michel seems to rise from the sea. Visitors walk from mainland France where water once was to enter the castle-like exterior of the abbey. 
 
@@ -209,14 +412,20 @@ Once inside, these Mont Saint-Michel tickets get you access to the entire comple
 
 With a **multilingual audio guide**, you can linger inside this **UNESCO World Heritage Site** as long as you'd like before joining your **professional guide** to explore the cobbled streets of the village. 
 
-After your tour, you'll **sip on hard cider**, a spirit originating from the Normandy region of France, and reflect on your visit to one of the most unique spiritual sites in the world.</p>
-          <div class="card-footer">
-            <span class="price">From €220</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-day-trip-from-paris-with-cider-tasting-p1052001/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After your tour, you'll **sip on hard cider**, a spirit originating from the Normandy region of France, and reflect on your visit to one of the most unique spiritual sites in the world.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€220.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mont-saint-michel-day-trip-from-paris-with-cider-tasting-p1052001/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

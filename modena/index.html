@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Modena | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Modena. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,110 +131,176 @@
     <p>6 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b10d7362a8904b068adb7d0bf5fd6062.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Enzo Ferrari Museums Modena: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Enzo Ferrari Museums Modena: Entry Ticket</h3>
-          <p class="venue">📍 Enzo Ferrari Museum</p>
-          <p>Start your engines and prepare for a breakneck tour through the life and work of maverick racing driver and entrepreneur Enzo Ferrari, father of the Ferrari empire. Inside the sleekly designed building, you'll see some of the most beautiful performance cars ever made, and learn all about the man who made his dreams into a high-speed reality.</p>
-          <div class="card-footer">
-            <span class="price">From €27</span>
-            <span class="rating">⭐ 4.6 (334)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-enzo-ferrari-museum-p975157/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b10d7362a8904b068adb7d0bf5fd6062.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Enzo Ferrari Museums Modena: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MODENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ENZO FERRARI MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Enzo Ferrari Museums Modena: Entry Ticket</div>
+        <div class="tq-card-desc">Start your engines and prepare for a breakneck tour through the life and work of maverick racing driver and entrepreneur Enzo Ferrari, father of the Ferrari empire. Inside the sleekly designed building, you'll see some of the most beautiful performance cars ever made, and learn all about the man who made his dreams into a high-speed reality.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(334)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-enzo-ferrari-museum-p975157/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/367dc0bbb4634bc29188e9611cda3726.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Enzo Ferrari Museum + Ferrari Museum Maranello + F1 Simulator" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Enzo Ferrari Museum + Ferrari Museum Maranello + F1 Simulator</h3>
-          <p class="venue">📍 Enzo Ferrari Museum</p>
-          <p>Experience speed and luxury at two Ferrari museums: the Ferrari Museum in Maranello and the Enzo Ferrari Museum in Modena. Discover the world's most renowned vehicles and the engineering behind them.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/367dc0bbb4634bc29188e9611cda3726.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Enzo Ferrari Museum + Ferrari Museum Maranello + F1 Simulator" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MODENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ENZO FERRARI MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Enzo Ferrari Museum + Ferrari Museum Maranello + F1 Simulator</div>
+        <div class="tq-card-desc">Experience speed and luxury at two Ferrari museums: the Ferrari Museum in Maranello and the Enzo Ferrari Museum in Modena. Discover the world's most renowned vehicles and the engineering behind them.
 
-In addition, feel the excitement of driving a Formula One with the Ferrari F1 simulator, all included in the ticket price.</p>
-          <div class="card-footer">
-            <span class="price">From €95</span>
-            <span class="rating">⭐ 3.9 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-enzo-ferrari-museum-ferrari-museum-maranello-f1-simulator-p1090621/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In addition, feel the excitement of driving a Formula One with the Ferrari F1 simulator, all included in the ticket price.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€95.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-enzo-ferrari-museum-ferrari-museum-maranello-f1-simulator-p1090621/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e578efcc7b64fbca96cf240c8ca5038.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Modena: Guided Tour + Balsamic Vinegar Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Modena: Guided Tour + Balsamic Vinegar Tasting</h3>
-          <p class="venue">📍 Modena Food Tours</p>
-          <p>Visit Acetaia Marchi, located just outside Modena. This family business has been producing balsamic vinegar since 1910. The estate uses only native grape varieties, like Trebbiano Modenese and various Lambrusco types. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0e578efcc7b64fbca96cf240c8ca5038.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Modena: Guided Tour + Balsamic Vinegar Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MODENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MODENA FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Modena: Guided Tour + Balsamic Vinegar Tasting</div>
+        <div class="tq-card-desc">Visit Acetaia Marchi, located just outside Modena. This family business has been producing balsamic vinegar since 1910. The estate uses only native grape varieties, like Trebbiano Modenese and various Lambrusco types. 
 
 Take a guided tour to see the aging rooms, where Balsamic Vinegar of Modena IGP ages in wooden barrels. Learn to distinguish artisanal products from industrial ones while viewing rows of barrels where vinegar ages for 12 to 25 years. Visit the onsite shop offering local specialties.
 
 ** There are two tasting options (depending on selection)**:
 
 * Classic Tasting: Includes four types of Modena PGI Balsamic Vinegar (one aged and one reserve), two types of traditional Modena PDO Balsamic Vinegar aged 12 and 25 years, and two toppings with different aging periods.
-* Prestige Tasting: Includes everything offered in the classic tasting, along with Parmigiano Reggiano, sweet and sour jams made with Balsamic Vinegar, Balsamic Pearls, and a liqueur or glass of wine.</p>
-          <div class="card-footer">
-            <span class="price">From €18</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-modena-guided-tour-and-tasting-of-balsamic-vinegar-p1119653/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+* Prestige Tasting: Includes everything offered in the classic tasting, along with Parmigiano Reggiano, sweet and sour jams made with Balsamic Vinegar, Balsamic Pearls, and a liqueur or glass of wine.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-modena-guided-tour-and-tasting-of-balsamic-vinegar-p1119653/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e578efcc7b64fbca96cf240c8ca5038.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Emilia-Romagna: Pasta Making Class + Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Emilia-Romagna: Pasta Making Class + Wine Tasting</h3>
-          <p class="venue">📍 Modena Food Tours</p>
-          <p>Join Chef Massimiliano in a hands-on cooking class to learn traditional fresh pasta from Romagna. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0e578efcc7b64fbca96cf240c8ca5038.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Emilia-Romagna: Pasta Making Class + Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MODENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MODENA FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Emilia-Romagna: Pasta Making Class + Wine Tasting</div>
+        <div class="tq-card-desc">Join Chef Massimiliano in a hands-on cooking class to learn traditional fresh pasta from Romagna. 
 
 Follow step-by-step guidance to create long pastas like tagliatelle, tagliolini, and spaghetti alla chitarra, along with stuffed varieties such as ravioli, tortelli, and cappellacci. 
 
 Roll the dough, shape it, and fill it using locally sourced ingredients. After cooking, enjoy the meal with a local wine. 
 
-Gain practical pasta-making skills and an understanding of Romagna’s culinary traditions.</p>
-          <div class="card-footer">
-            <span class="price">From €170</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-emilia-romagna-pasta-making-class-wine-tasting-p1122353/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Gain practical pasta-making skills and an understanding of Romagna’s culinary traditions.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€170.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-emilia-romagna-pasta-making-class-wine-tasting-p1122353/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Modena Tasting Experiences: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Modena Tasting Experiences: Guided Tour</h3>
-          <p class="venue">📍 Modena Tasting Experiences</p>
-          <p>Discover the world of balsamic vinegar! This unique condiment, rich in tradition, is waiting for you to explore. You'll be guided by either Claudio or his grandfather Franco through the Acetaia, where this special vinegar is made.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dd042e03f1564cf6ac01614562412c98.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Modena Tasting Experiences: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MODENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MODENA TASTING EXPERIENCES</span>
+        </div>
+        <div class="tq-card-title">Modena Tasting Experiences: Guided Tour</div>
+        <div class="tq-card-desc">Discover the world of balsamic vinegar! This unique condiment, rich in tradition, is waiting for you to explore. You'll be guided by either Claudio or his grandfather Franco through the Acetaia, where this special vinegar is made.
 
-The tour includes a walk through the 10-hectare vineyard, with five hectares dedicated to Trebbiano Modenese grapes. These grapes are key to making the excellent balsamic vinegar here. Tasting this vinegar will show you the difference between traditional and commercial balsamic, offering a new perspective on this delicious product.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐ 4 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-modena-guided-tour-of-balsamic-vinegar-cellar-p1095876/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The tour includes a walk through the 10-hectare vineyard, with five hectares dedicated to Trebbiano Modenese grapes. These grapes are key to making the excellent balsamic vinegar here. Tasting this vinegar will show you the difference between traditional and commercial balsamic, offering a new perspective on this delicious product.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-modena-guided-tour-of-balsamic-vinegar-cellar-p1095876/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e578efcc7b64fbca96cf240c8ca5038.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Casa Museo Luciano Pavarotti: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Casa Museo Luciano Pavarotti: Entry Ticket</h3>
-          <p class="venue">📍 Casa Museo Luciano Pavarotti</p>
-          <p>He had a voice. A big voice, so big it will move us forever. With Casa Museo Luciano Pavarotti tickets, take a behind-the-scenes look at the famous Luciano Pavarotti, through everyday items and objects that reflect the personality of the world-renowned opera singer. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0e578efcc7b64fbca96cf240c8ca5038.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Casa Museo Luciano Pavarotti: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MODENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CASA MUSEO LUCIANO PAVAROTTI</span>
+        </div>
+        <div class="tq-card-title">Casa Museo Luciano Pavarotti: Entry Ticket</div>
+        <div class="tq-card-desc">He had a voice. A big voice, so big it will move us forever. With Casa Museo Luciano Pavarotti tickets, take a behind-the-scenes look at the famous Luciano Pavarotti, through everyday items and objects that reflect the personality of the world-renowned opera singer. 
 
 Get up close to costumes and letters exchanged with friends; some of whom are Frank Sinatra and Bono.
 
-See fascinating memorabilia, the awards Pavarotti received during his long career, and relive his revered work, which left an indelible mark on the world of opera music.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐ 4.7 (18)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-casa-museo-luciano-pavarotti-p1036833/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See fascinating memorabilia, the awards Pavarotti received during his long career, and relive his revered work, which left an indelible mark on the world of opera music.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(18)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-casa-museo-luciano-pavarotti-p1036833/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

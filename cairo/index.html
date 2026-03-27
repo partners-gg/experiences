@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Cairo | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Cairo. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,228 +131,365 @@
     <p>25 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Saladin Citadel & Mosque of Muhammad Ali: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Saladin Citadel & Mosque of Muhammad Ali: Skip The Line Ticket</h3>
-          <p class="venue">📍 Cairo Citadel</p>
-          <p>Visit the Saladin Citadel and the Mosque of Muhammad Ali in Islamic Cairo. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Saladin Citadel & Mosque of Muhammad Ali: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRO CITADEL</span>
+        </div>
+        <div class="tq-card-title">Saladin Citadel & Mosque of Muhammad Ali: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Visit the Saladin Citadel and the Mosque of Muhammad Ali in Islamic Cairo. 
 
 The citadel, dating back to the 12th century, showcases medieval military building techniques and offers an elevated view over parts of Cairo. 
 
 The Mohamed Ali Mosque within features Ottoman-style design with its domes and minarets and displays ornate interior decoration. 
 
-Access these sites using a QR ticket for straightforward entry.</p>
-          <div class="card-footer">
-            <span class="price">From €12.07</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-saladin-citadel-mosque-of-mohamed-ali-skip-the-line-p1128083/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Access these sites using a QR ticket for straightforward entry.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-saladin-citadel-mosque-of-mohamed-ali-skip-the-line-p1128083/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Egyptian Museum Cairo: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Egyptian Museum Cairo: Skip The Line Ticket</h3>
-          <p class="venue">📍 Egyptian Museum Cairo</p>
-          <p>Book your skip-the-line tickets to the Cairo Egyptian Museum to explore 120,000 items, including ancient Egyptian artifacts, statues, jewelry, mummies, and papyrus scrolls.</p>
-          <div class="card-footer">
-            <span class="price">From €12.93</span>
-            <span class="rating">⭐ 4.3 (22)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairo-egyptian-museum-of-antiquities-entry-p1115262/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Egyptian Museum Cairo: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EGYPTIAN MUSEUM CAIRO</span>
+        </div>
+        <div class="tq-card-title">Egyptian Museum Cairo: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Book your skip-the-line tickets to the Cairo Egyptian Museum to explore 120,000 items, including ancient Egyptian artifacts, statues, jewelry, mummies, and papyrus scrolls.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(22)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.93</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairo-egyptian-museum-of-antiquities-entry-p1115262/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Museum of Egyptian Civilization: Entry Ticket + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>National Museum of Egyptian Civilization: Entry Ticket + Transfers</h3>
-          <p class="venue">📍 National Museum of Egyptian Civilization</p>
-          <p>Visit the National Museum of Egyptian Civilization (NMEC) in Cairo and learn about 7,000 years of history.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Museum of Egyptian Civilization: Entry Ticket + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NATIONAL MUSEUM OF EGYPTIAN CIVILIZATION</span>
+        </div>
+        <div class="tq-card-title">National Museum of Egyptian Civilization: Entry Ticket + Transfers</div>
+        <div class="tq-card-desc">Visit the National Museum of Egyptian Civilization (NMEC) in Cairo and learn about 7,000 years of history.
 
-See Egypt’s heritage from prehistoric times to the modern era. Walk through the Royal Mummies Hall and view rare artifacts. Interactive displays provide insight into ancient civilizations.</p>
-          <div class="card-footer">
-            <span class="price">From €35</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-national-museum-of-the-egyptian-civilization-entry-transfers-p1119800/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See Egypt’s heritage from prehistoric times to the modern era. Walk through the Royal Mummies Hall and view rare artifacts. Interactive displays provide insight into ancient civilizations.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€35.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-national-museum-of-the-egyptian-civilization-entry-transfers-p1119800/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Private Transfer from Cairo Airport to Cairo or Giza Hotel" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairo: Private Transfer from Cairo Airport to Cairo or Giza Hotel</h3>
-          <p class="venue">📍 Cairo Airport Transfer</p>
-          <p>Arrive at Cairo International Airport (CAI) and find a driver holding a sign with “Black Camel Tours.” The driver will help with your luggage and lead you to an air-conditioned vehicle. Vehicles are available for individuals, families, or small groups, with sizes depending on the number of passengers and luggage.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Private Transfer from Cairo Airport to Cairo or Giza Hotel" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRO AIRPORT TRANSFER</span>
+        </div>
+        <div class="tq-card-title">Cairo: Private Transfer from Cairo Airport to Cairo or Giza Hotel</div>
+        <div class="tq-card-desc">Arrive at Cairo International Airport (CAI) and find a driver holding a sign with “Black Camel Tours.” The driver will help with your luggage and lead you to an air-conditioned vehicle. Vehicles are available for individuals, families, or small groups, with sizes depending on the number of passengers and luggage.
 
 Transfer to your hotel in Giza or central Cairo without the hassle of negotiating taxi fares or waiting for public transport. The ride to Giza generally takes between 45-60 minutes, while central Cairo hotels are about 30-45 minutes from the airport.
 
-Transfers are available 24/7 to fit any flight schedule.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairo-private-transfer-from-cairo-airport-to-cairo-or-giza-hotel-p1105022/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Transfers are available 24/7 to fit any flight schedule.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairo-private-transfer-from-cairo-airport-to-cairo-or-giza-hotel-p1105022/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Nile River Memphis Dinner Cruise + Show + Private Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairo: Nile River Memphis Dinner Cruise + Show + Private Transfers</h3>
-          <p class="venue">📍 Nile River Cruises</p>
-          <p>Set sail on a sunset dinner cruise along the Nile with a show. This experience begins with a private transfer for a smooth start to your evening on the river.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Nile River Memphis Dinner Cruise + Show + Private Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NILE RIVER CRUISES</span>
+        </div>
+        <div class="tq-card-title">Cairo: Nile River Memphis Dinner Cruise + Show + Private Transfers</div>
+        <div class="tq-card-desc">Set sail on a sunset dinner cruise along the Nile with a show. This experience begins with a private transfer for a smooth start to your evening on the river.
 
 Board the cruise and watch the sunset over Cairo, with views of the city skyline.
 
-Feast on a buffet dinner with local and international dishes. As night falls, enjoy a show featuring traditional performances, live music, and cultural displays that highlight Egyptian heritage.</p>
-          <div class="card-footer">
-            <span class="price">From €27</span>
-            <span class="rating">⭐ 4.6 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairo-nile-river-dinner-cruise-show-private-transfers-p1101194/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Feast on a buffet dinner with local and international dishes. As night falls, enjoy a show featuring traditional performances, live music, and cultural displays that highlight Egyptian heritage.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairo-nile-river-dinner-cruise-show-private-transfers-p1101194/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Nile Crystal Dinner Cruise + Dance & Music Show + Optional Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairo: Nile Crystal Dinner Cruise + Dance & Music Show + Optional Transfers</h3>
-          <p class="venue">📍 Nile River Cruises</p>
-          <p>Get picked up from your hotel by a private driver (if option is selected) and head to the port on the Nile River to board a luxurious boat. The Nile River is the longest river in the world and vital to Egypt. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Nile Crystal Dinner Cruise + Dance & Music Show + Optional Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NILE RIVER CRUISES</span>
+        </div>
+        <div class="tq-card-title">Cairo: Nile Crystal Dinner Cruise + Dance & Music Show + Optional Transfers</div>
+        <div class="tq-card-desc">Get picked up from your hotel by a private driver (if option is selected) and head to the port on the Nile River to board a luxurious boat. The Nile River is the longest river in the world and vital to Egypt. 
 
 Enjoy local dishes during your meal on the boat. There's entertainment with belly dancers and whirling Dervish dancers, along with live music. 
 
-While cruising, feel the breeze and take pictures of the show and Cairo's illuminated cityscape from the top deck. The city looks different when seen from the river at night.</p>
-          <div class="card-footer">
-            <span class="price">From €23.28</span>
-            <span class="rating">⭐ 4.3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairo-nile-crystal-dinner-cruise-dance-music-show-optional-transfers-p1116286/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+While cruising, feel the breeze and take pictures of the show and Cairo's illuminated cityscape from the top deck. The city looks different when seen from the river at night.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.28</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairo-nile-crystal-dinner-cruise-dance-music-show-optional-transfers-p1116286/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Pyramids, Saqqara & Memphis: Guided Tour from Cairo + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Giza Pyramids, Saqqara & Memphis: Guided Tour from Cairo + Lunch</h3>
-          <p class="venue">📍 Day Trips from Cairo</p>
-          <p>Prepare for a full-day adventure exploring the Giza Pyramids with a knowledgeable guide who will pick you up from your hotel in Cairo or Giza. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Pyramids, Saqqara & Memphis: Guided Tour from Cairo + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRO</span>
+        </div>
+        <div class="tq-card-title">Giza Pyramids, Saqqara & Memphis: Guided Tour from Cairo + Lunch</div>
+        <div class="tq-card-desc">Prepare for a full-day adventure exploring the Giza Pyramids with a knowledgeable guide who will pick you up from your hotel in Cairo or Giza. 
 
 Visit the Great Pyramids of Giza – Cheops, Chephren, and Mykerinos. Explore the Valley Temple, where ancient priests once mummified King Chephren. See the Sphinx, a legendary guardian with a lion's body and the head of King Chephren.
 
 Move to Sakkara, just 27 km southwest of Cairo, to explore the Step Pyramid built for King Zoser. Learn about the evolution of pyramid construction from simple mastabas to their present form.
 
-Explore the historic city of Memphis, Egypt's ancient capital, home to the colossal statue of Ramses II and the great Alabaster Sphinx.</p>
-          <div class="card-footer">
-            <span class="price">From €47</span>
-            <span class="rating">⭐ 4.8 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-giza-pyramids-saqqara-memphis-guided-tour-from-cairo-lunch-p1092400/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore the historic city of Memphis, Egypt's ancient capital, home to the colossal statue of Ramses II and the great Alabaster Sphinx.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-giza-pyramids-saqqara-memphis-guided-tour-from-cairo-lunch-p1092400/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Private Sailboat Cruise on the Nile" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairo: Private Sailboat Cruise on the Nile</h3>
-          <p class="venue">📍 Nile River Cruises</p>
-          <p>Book a private sailing boat tour in Cairo and see the Nile at sunset, away from the city's noise.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Private Sailboat Cruise on the Nile" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NILE RIVER CRUISES</span>
+        </div>
+        <div class="tq-card-title">Cairo: Private Sailboat Cruise on the Nile</div>
+        <div class="tq-card-desc">Book a private sailing boat tour in Cairo and see the Nile at sunset, away from the city's noise.
 
 Suitable for solo travelers, families, and couples, this tour compares well to visiting the pyramids.
 
-A night tour option is also available for those who prefer evenings.</p>
-          <div class="card-footer">
-            <span class="price">From €12.93</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairo-private-sailboat-cruise-on-the-nile-p1119839/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+A night tour option is also available for those who prefer evenings.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.93</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairo-private-sailboat-cruise-on-the-nile-p1119839/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Old Cairo: Guided Walking Tour + Snacks + Optional Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Old Cairo: Guided Walking Tour + Snacks + Optional Transfer</h3>
-          <p class="venue">📍 Cairo City Tours</p>
-          <p>Start your visit to Cairo’s history at Bab al-Futuh, one of the key gates of the old city walls. An Egyptologist guide will share stories of Old Cairo. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Old Cairo: Guided Walking Tour + Snacks + Optional Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRO CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Old Cairo: Guided Walking Tour + Snacks + Optional Transfer</div>
+        <div class="tq-card-desc">Start your visit to Cairo’s history at Bab al-Futuh, one of the key gates of the old city walls. An Egyptologist guide will share stories of Old Cairo. 
 
 Enter the Al-Hakim Mosque, one of the oldest Fatimid mosques in the city, known for its tall minarets and stone walls. Next, walk through Bayt al-Suhaymi, a 17th-century Ottoman house, and explore its rooms and courtyards. 
 
 Proceed along El Moez Street, which is known for its Islamic buildings, shops, and cafés. Visit the Sultan Barquq Mosque for its Mamluk designs and the nearby Qalawun Complex, which includes a mosque, madrasa, and mausoleum.
 
-Head to Khan el Khalili Bazaar, a market with a variety of spices, jewelry, crafts, and textiles. Conclude your trip at the Al Hussein Mosque, a significant religious site.</p>
-          <div class="card-footer">
-            <span class="price">From €24.19</span>
-            <span class="rating">⭐ 2.8 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-old-cairo-guided-walking-tour-snacks-optional-transfer-p1120606/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Head to Khan el Khalili Bazaar, a market with a variety of spices, jewelry, crafts, and textiles. Conclude your trip at the Al Hussein Mosque, a significant religious site.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2.8</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€24.19</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-old-cairo-guided-walking-tour-snacks-optional-transfer-p1120606/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo & Giza: Open Air Nile Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairo & Giza: Open Air Nile Cruise</h3>
-          <p class="venue">📍 Nile River Cruises</p>
-          <p>Prepare for an open-air boat tour of the Nile River in Cairo. Avoid the crowds and traffic of the city by sailing on a motorized boat for about two hours. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo & Giza: Open Air Nile Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NILE RIVER CRUISES</span>
+        </div>
+        <div class="tq-card-title">Cairo & Giza: Open Air Nile Cruise</div>
+        <div class="tq-card-desc">Prepare for an open-air boat tour of the Nile River in Cairo. Avoid the crowds and traffic of the city by sailing on a motorized boat for about two hours. 
 
-Pass under bridges and see the city from the water. On this boat tour, see the beauty of Giza as you sail on the Nile River.</p>
-          <div class="card-footer">
-            <span class="price">From €30.18</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairo-giza-open-air-nile-cruise-p1115362/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Pass under bridges and see the city from the water. On this boat tour, see the beauty of Giza as you sail on the Nile River.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.18</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairo-giza-open-air-nile-cruise-p1115362/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Black & White Desert: 2-Day Tour from Cairo + Bedouin Camp, Stargazing & Meals" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Black & White Desert: 2-Day Tour from Cairo + Bedouin Camp, Stargazing & Meals</h3>
-          <p class="venue">📍 Day Trips from Cairo</p>
-          <p>Travel through Egypt’s unique landscapes. Start from Cairo or Giza in a 4x4 vehicle. Visit the Black Desert with its dark volcanic hills. See the Crystal Mountain and head to Agabat Valley to view unusual white rock formations.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Black & White Desert: 2-Day Tour from Cairo + Bedouin Camp, Stargazing & Meals" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRO</span>
+        </div>
+        <div class="tq-card-title">Black & White Desert: 2-Day Tour from Cairo + Bedouin Camp, Stargazing & Meals</div>
+        <div class="tq-card-desc">Travel through Egypt’s unique landscapes. Start from Cairo or Giza in a 4x4 vehicle. Visit the Black Desert with its dark volcanic hills. See the Crystal Mountain and head to Agabat Valley to view unusual white rock formations.
 
 Explore the White Desert, known for its natural rock sculptures shaped by wind erosion, like the Mushroom and Chicken Rocks. At sunset, relax at a Bedouin camp with a traditional dinner under a clear, star-filled sky.
 
 At sunrise, head back to Cairo. Stop at the Bahariya Oasis hot springs for a break.
 
-This trip offers a mix of nature and culture, perfect for those seeking a break from the city.</p>
-          <div class="card-footer">
-            <span class="price">From €80</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-black-white-desert-2-day-tour-from-cairo-bedouin-camp-stargazing-meals-p1122892/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This trip offers a mix of nature and culture, perfect for those seeking a break from the city.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€80.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-black-white-desert-2-day-tour-from-cairo-bedouin-camp-stargazing-meals-p1122892/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Nile Maxim Dinner Cruise + Tanouraor Show + Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairo: Nile Maxim Dinner Cruise + Tanouraor Show + Transfer</h3>
-          <p class="venue">📍 Nile River Cruises</p>
-          <p>Take a Nile River dinner cruise on the _Nile Maxim_ boat. Depart from a dock 2.3 km from Tahrir Square for a two-hour trip. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Nile Maxim Dinner Cruise + Tanouraor Show + Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NILE RIVER CRUISES</span>
+        </div>
+        <div class="tq-card-title">Cairo: Nile Maxim Dinner Cruise + Tanouraor Show + Transfer</div>
+        <div class="tq-card-desc">Take a Nile River dinner cruise on the _Nile Maxim_ boat. Depart from a dock 2.3 km from Tahrir Square for a two-hour trip. 
 
 Enjoy a set menu featuring Egyptian cuisine and various salads. 
 
-See Cairo landmarks lit up against the night sky. The evening includes a belly dance performance, a Tanoura dance show, and live music.</p>
-          <div class="card-footer">
-            <span class="price">From €114.68</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairo-nile-river-dinner-cruise-tanouraor-show-transfer-p1122052/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See Cairo landmarks lit up against the night sky. The evening includes a belly dance performance, a Tanoura dance show, and live music.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€114.68</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairo-nile-river-dinner-cruise-tanouraor-show-transfer-p1122052/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Manial Palace, Ibn Tulun Mosque & Gayer-Anderson Museum: Guided Tour + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Manial Palace, Ibn Tulun Mosque & Gayer-Anderson Museum: Guided Tour + Lunch</h3>
-          <p class="venue">📍 Cairo City Tours</p>
-          <p>Join a guided heritage tour with pickup and drop-off from your accommodation in Cairo or Giza.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Manial Palace, Ibn Tulun Mosque & Gayer-Anderson Museum: Guided Tour + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRO CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Manial Palace, Ibn Tulun Mosque & Gayer-Anderson Museum: Guided Tour + Lunch</div>
+        <div class="tq-card-desc">Join a guided heritage tour with pickup and drop-off from your accommodation in Cairo or Giza.
 
 Start with the Golden Palace of Prince Mohamed Ali (Manial Palace), a 19th-century royal residence featuring golden halls, marble rooms, fine artwork, and gardens. Learn how it reflects Ottoman and European design styles.
 
@@ -261,236 +497,370 @@ Next, visit the Ibn Tulun Mosque, one of Cairo’s oldest and largest mosques, b
 
 Continue to the Gayer-Anderson Museum, housed in two 17th-century buildings. View antique furniture, rare art pieces, and collections gathered by a British officer in the 1930s. Each room shares a part of Cairo’s past.
 
-Enjoy lunch at a traditional restaurant before returning to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €62.3</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-manial-palace-ibn-tulun-mosque-gayer-anderson-museum-lunch-p1120600/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy lunch at a traditional restaurant before returning to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€62.30</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-manial-palace-ibn-tulun-mosque-gayer-anderson-museum-lunch-p1120600/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Al-Hakim Mosque Cairo: Guided Tour + Roundtrip Transport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Al-Hakim Mosque Cairo: Guided Tour + Roundtrip Transport</h3>
-          <p class="venue">📍 Al-Hakim Mosque Cairo</p>
-          <p>Prepare for a guided tour of Al-Hakim Mosque, a key Islamic landmark in Cairo built in the 10th century. Observe its architecture, including carvings, courtyards, and columns. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AL-HAKIM MOSQUE CAIRO</span>
+        </div>
+        <div class="tq-card-title">Al-Hakim Mosque Cairo: Guided Tour + Roundtrip Transport</div>
+        <div class="tq-card-desc">Prepare for a guided tour of Al-Hakim Mosque, a key Islamic landmark in Cairo built in the 10th century. Observe its architecture, including carvings, courtyards, and columns. 
 
-Learn the mosque’s history, from its role in education to its 20th-century restoration. See the minarets, prayer hall, and interior details. Understand its importance in Islamic architecture and Egypt’s religious history.</p>
-          <div class="card-footer">
-            <span class="price">From €73.29</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-al-hakim-mosque-cairo-guided-tour-roundtrip-transport-p1116558/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn the mosque’s history, from its role in education to its 20th-century restoration. See the minarets, prayer hall, and interior details. Understand its importance in Islamic architecture and Egypt’s religious history.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€73.29</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-al-hakim-mosque-cairo-guided-tour-roundtrip-transport-p1116558/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Egyptian Museum Cairo & National Museum of Egyptian Civilization: Private Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Egyptian Museum Cairo & National Museum of Egyptian Civilization: Private Tour</h3>
-          <p class="venue">📍 Egyptian Museum Cairo</p>
-          <p>Join a private tour of Egypt’s key museums with an expert Egyptologist.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Egyptian Museum Cairo & National Museum of Egyptian Civilization: Private Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EGYPTIAN MUSEUM CAIRO</span>
+        </div>
+        <div class="tq-card-title">Egyptian Museum Cairo & National Museum of Egyptian Civilization: Private Tour</div>
+        <div class="tq-card-desc">Join a private tour of Egypt’s key museums with an expert Egyptologist.
 
 Visit the Egyptian Museum, which houses over 250,000 artifacts. See the treasures of King Tutankhamun and main exhibits of ancient Egyptian history.
 
 Next, have lunch at a local restaurant. Then, go to the National Museum of Egyptian Civilization (NMEC). Learn about Egypt's history, from prehistoric times to modern days.
 
-Go to the Royal Mummies Hall at NMEC to see the preserved remains and gold coffins of rulers like Ramses II and Queen Hatshepsut. Finally, return to your hotel with a transfer.</p>
-          <div class="card-footer">
-            <span class="price">From €86.22</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-egyptian-museum-cairo-national-museum-of-egyptian-civilization-private-tour-p1116288/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Go to the Royal Mummies Hall at NMEC to see the preserved remains and gold coffins of rulers like Ramses II and Queen Hatshepsut. Finally, return to your hotel with a transfer.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€86.22</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-egyptian-museum-cairo-national-museum-of-egyptian-civilization-private-tour-p1116288/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Amr ibn al-As Mosque: Guided Tour + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Amr ibn al-As Mosque: Guided Tour + Roundtrip Transfer</h3>
-          <p class="venue">📍 Cairo City Tours</p>
-          <p>Take a guided tour to the Mosque of Amr ibn al-As, the first mosque in Egypt, located in Cairo. Built-in 641 AD by Amr ibn al-As, this site showcases the blend of Islamic and Coptic architecture. Discover its historical significance and how it contributed to the spread of Islam and the growth of Cairo.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Amr ibn al-As Mosque: Guided Tour + Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRO CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Amr ibn al-As Mosque: Guided Tour + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Take a guided tour to the Mosque of Amr ibn al-As, the first mosque in Egypt, located in Cairo. Built-in 641 AD by Amr ibn al-As, this site showcases the blend of Islamic and Coptic architecture. Discover its historical significance and how it contributed to the spread of Islam and the growth of Cairo.
 
-Walk through its courtyards and prayer halls. After the tour, take a walk around the surrounding area to explore traditional markets and experience local life in Islamic Cairo.</p>
-          <div class="card-footer">
-            <span class="price">From €73.29</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-amr-ibn-al-as-mosque-guided-tour-roundtrip-transfer-p1115845/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Walk through its courtyards and prayer halls. After the tour, take a walk around the surrounding area to explore traditional markets and experience local life in Islamic Cairo.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€73.29</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-amr-ibn-al-as-mosque-guided-tour-roundtrip-transfer-p1115845/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Guided Tour + Opera House Entry + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairo: Guided Tour + Opera House Entry + Roundtrip Transfer</h3>
-          <p class="venue">📍 Cairo City Tours</p>
-          <p>Start your guided tour with a hotel pickup in an air-conditioned vehicle.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Guided Tour + Opera House Entry + Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRO CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Cairo: Guided Tour + Opera House Entry + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Start your guided tour with a hotel pickup in an air-conditioned vehicle.
 
 Drive through Downtown Cairo, passing landmarks such as Tahrir Square, the Egyptian Museum, and older buildings. Stop at the Cairo Opera House to learn about its architecture and cultural importance. 
 
 Walk along the Nile Corniche while your guide shares information about modern Cairo life. 
 
-Optionally, visit a local art café or gallery to have a drink and look at artworks by emerging Egyptian artists. The tour ends with a drop-off at your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €81.91</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairo-guided-tour-opera-house-entry-roundtrip-transfer-p1115844/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Optionally, visit a local art café or gallery to have a drink and look at artworks by emerging Egyptian artists. The tour ends with a drop-off at your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€81.91</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairo-guided-tour-opera-house-entry-roundtrip-transfer-p1115844/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Guided Day Tour + Roundtrip Transfer + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairo: Guided Day Tour + Roundtrip Transfer + Lunch</h3>
-          <p class="venue">📍 Day Trips from Cairo</p>
-          <p>Prepare to visit the main attractions of Old Cairo on this guided day tour. Start the tour at the Citadel of Saladin, built in the 12th century. Then, see the Mohamed Ali Mosque, an Ottoman-era building of historical importance. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Guided Day Tour + Roundtrip Transfer + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRO</span>
+        </div>
+        <div class="tq-card-title">Cairo: Guided Day Tour + Roundtrip Transfer + Lunch</div>
+        <div class="tq-card-desc">Prepare to visit the main attractions of Old Cairo on this guided day tour. Start the tour at the Citadel of Saladin, built in the 12th century. Then, see the Mohamed Ali Mosque, an Ottoman-era building of historical importance. 
 
 Then, go to the Hanging Church, dating back to the 3rd century, and view its icons and religious artifacts. Walk through the alleys of Khan El Khalili, a centuries-old market where you can shop for souvenirs. 
 
-End the tour with an Egyptian meal at a local restaurant. You'll see significant landmarks and understand the area's rich history.</p>
-          <div class="card-footer">
-            <span class="price">From €47</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairo-guided-day-tour-roundtrip-transfer-lunch-p1105891/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End the tour with an Egyptian meal at a local restaurant. You'll see significant landmarks and understand the area's rich history.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairo-guided-day-tour-roundtrip-transfer-lunch-p1105891/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Alexandria: Guided Day Tour from Cairo + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Alexandria: Guided Day Tour from Cairo + Lunch</h3>
-          <p class="venue">📍 Day Trips from Cairo</p>
-          <p>Depart from Cairo in the morning for a 2.5 to 3-hour drive to Alexandria. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Alexandria: Guided Day Tour from Cairo + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRO</span>
+        </div>
+        <div class="tq-card-title">Alexandria: Guided Day Tour from Cairo + Lunch</div>
+        <div class="tq-card-desc">Depart from Cairo in the morning for a 2.5 to 3-hour drive to Alexandria. 
 
 Begin your visit at Pompey's Pillar, a large Roman column and one of Alexandria's most recognizable landmarks. Next, explore the Catacombs of Kom El Shoqafa, a fascinating underground tomb complex that reflects a blend of Egyptian, Greek, and Roman cultures. 
 
 Continue to the Qaitbay Citadel, a 15th-century fortress built on the site of the ancient Lighthouse of Alexandria, offering insights into the city’s historical significance. Then, visit the modern Alexandria Library, which pays tribute to the intellectual history of its ancient predecessor.
 
-Enjoy lunch, usually at a seafood restaurant along the Mediterranean coast, where you can sample local dishes. Return to Cairo in the late afternoon or evening.</p>
-          <div class="card-footer">
-            <span class="price">From €77.5</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-alexandria-guided-day-tour-from-cairo-lunch-p1104968/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy lunch, usually at a seafood restaurant along the Mediterranean coast, where you can sample local dishes. Return to Cairo in the late afternoon or evening.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€77.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-alexandria-guided-day-tour-from-cairo-lunch-p1104968/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Egyptian Civilization, Citadel & Old Cairo: Tour from Cairo/Giza" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum of Egyptian Civilization, Citadel & Old Cairo: Tour from Cairo/Giza</h3>
-          <p class="venue">📍 Day Trips from Cairo</p>
-          <p>Start your day with a pickup from your Cairo or Giza accommodation in an air-conditioned vehicle. First, visit the National Museum of Egyptian Civilization and see over 50,000 artifacts with an Egyptologist guide.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Egyptian Civilization, Citadel & Old Cairo: Tour from Cairo/Giza" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRO</span>
+        </div>
+        <div class="tq-card-title">Museum of Egyptian Civilization, Citadel & Old Cairo: Tour from Cairo/Giza</div>
+        <div class="tq-card-desc">Start your day with a pickup from your Cairo or Giza accommodation in an air-conditioned vehicle. First, visit the National Museum of Egyptian Civilization and see over 50,000 artifacts with an Egyptologist guide.
 
 Visit the Citadel of Saladin, a UNESCO World Heritage Site with views of Cairo. Then, go to the historic Khan El-Khalili Bazaar. Walk through the old lanes and browse for antiques or handicrafts.
 
-After a traditional Cairo lunch, visit the landmarks of Old Cairo, including the Hanging Church, the Church of St. Barbara, and the Church of Abu Serga, before returning to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €85</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-egyptian-civilization-citadel-old-cairo-guided-tour-from-cairo-giza-p1104412/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After a traditional Cairo lunch, visit the landmarks of Old Cairo, including the Hanging Church, the Church of St. Barbara, and the Church of Abu Serga, before returning to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€85.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-egyptian-civilization-citadel-old-cairo-guided-tour-from-cairo-giza-p1104412/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Tahiri Square Cairo: Guided Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tahiri Square Cairo: Guided Food Tour</h3>
-          <p class="venue">📍 Tahrir Square</p>
-          <p>Prepare for a street food tour in Cairo and taste local dishes. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TAHRIR SQUARE</span>
+        </div>
+        <div class="tq-card-title">Tahiri Square Cairo: Guided Food Tour</div>
+        <div class="tq-card-desc">Prepare for a street food tour in Cairo and taste local dishes. 
 
 Discover Cairo's food heritage with a focus on flavors and history.
 
 Walk through markets, try authentic food, and learn about its history. Use Egyptian sign language to connect with the community.
 
-Listen to your guide, who will share stories and facts about the city.</p>
-          <div class="card-footer">
-            <span class="price">From €115</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tahiri-square-cairo-guided-food-tour-p1102532/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Listen to your guide, who will share stories and facts about the city.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€115.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tahiri-square-cairo-guided-food-tour-p1102532/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Full-Day Private Tour + Lunch + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairo: Full-Day Private Tour + Lunch + Roundtrip Transfer</h3>
-          <p class="venue">📍 Day Trips from Cairo</p>
-          <p>Start your tour with a hotel pickup and explore historic sites in Islamic and Coptic Cairo in an air-conditioned vehicle. Visit the Citadel of Salah al-Din and El Moez Street to see amazing Islamic architecture.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Full-Day Private Tour + Lunch + Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRO</span>
+        </div>
+        <div class="tq-card-title">Cairo: Full-Day Private Tour + Lunch + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Start your tour with a hotel pickup and explore historic sites in Islamic and Coptic Cairo in an air-conditioned vehicle. Visit the Citadel of Salah al-Din and El Moez Street to see amazing Islamic architecture.
 
 Stop at a local restaurant for lunch and try traditional cuisine. Then, explore Old Cairo's main attractions, including the Hanging Church, the Saints Sergius, and the Bacchus Church.
 
-Wander through the Khan El Khalili Bazaar, where you can shop for local, handmade items. The tour concludes with a drop-off back at your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €46</span>
-            <span class="rating">⭐ 4 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairo-full-day-private-tour-lunch-roundtrip-transfer-p1102154/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Wander through the Khan El Khalili Bazaar, where you can shop for local, handmade items. The tour concludes with a drop-off back at your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€46.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairo-full-day-private-tour-lunch-roundtrip-transfer-p1102154/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Transfer from Airport to Hotel" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairo: Transfer from Airport to Hotel</h3>
-          <p class="venue">📍 Cairo Airport Transfer</p>
-          <p>Arrive in town in a comfortable, air-conditioned car with an English-speaking driver. Your driver will pick you up from the Cairo International Airport and drive you to your hotel.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Transfer from Airport to Hotel" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAIRO AIRPORT TRANSFER</span>
+        </div>
+        <div class="tq-card-title">Cairo: Transfer from Airport to Hotel</div>
+        <div class="tq-card-desc">Arrive in town in a comfortable, air-conditioned car with an English-speaking driver. Your driver will pick you up from the Cairo International Airport and drive you to your hotel.
  
-With a private transfer, you don’t have to wait in line to get a bus or haggle with local taxis over the fare. Instead, get a comfortable ride at a fixed price.</p>
-          <div class="card-footer">
-            <span class="price">From €34.49</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/Tickets-to-cairo-transfer-from-airport-to-hotel-p1100598/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With a private transfer, you don’t have to wait in line to get a bus or haggle with local taxis over the fare. Instead, get a comfortable ride at a fixed price.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€34.49</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/Tickets-to-cairo-transfer-from-airport-to-hotel-p1100598/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Islamic and Coptic Cairo: Architecture and Art Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Islamic and Coptic Cairo: Architecture and Art Tour</h3>
-          <p class="venue">📍 Day Trips from Cairo</p>
-          <p>Explore the Citadel of Saladin, an important site that stood strong for 700 years during the Islamic period. Built by Saladin, it includes attractions like the Mosque of Muhammad Ali, considered Egypt's most beautiful mosque.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Islamic and Coptic Cairo: Architecture and Art Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRO</span>
+        </div>
+        <div class="tq-card-title">Islamic and Coptic Cairo: Architecture and Art Tour</div>
+        <div class="tq-card-desc">Explore the Citadel of Saladin, an important site that stood strong for 700 years during the Islamic period. Built by Saladin, it includes attractions like the Mosque of Muhammad Ali, considered Egypt's most beautiful mosque.
 
 The tour also includes the Military Museum, the mosque of Sultan Nasser Ben Qalawon, and the National Police Museum. Admire scenic views of Cairo from the Citadel's peak, the highest point in the city.
 
 Next, visit Coptic Cairo and see the Hanging Church, Egypt's oldest church, built on the ruins of the ancient Roman Babylon Fortress. Then, see the Cavern Church, where the Holy Family stayed for three months.
 
-Finally, visit the Ibraham Ben-Ezra Synagogue, the most famous of Cairo's 25 synagogues, and end the day at the historic Khan el-Khalili market.</p>
-          <div class="card-footer">
-            <span class="price">From €51.73</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-islamic-and-coptic-cairo-architecture-and-art-tour-p1092402/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finally, visit the Ibraham Ben-Ezra Synagogue, the most famous of Cairo's 25 synagogues, and end the day at the historic Khan el-Khalili market.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.73</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-islamic-and-coptic-cairo-architecture-and-art-tour-p1092402/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Pyramids and Great Sphinx: Private Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Giza Pyramids and Great Sphinx: Private Guided Tour</h3>
-          <p class="venue">📍 Day Trips from Cairo</p>
-          <p>Set off on a half-day tour of the Pyramids of Giza and the Sphinx. An expert Egyptologist tour guide will pick you up from your Cairo/Giza hotel in an air-conditioned car.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Pyramids and Great Sphinx: Private Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAIRO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM CAIRO</span>
+        </div>
+        <div class="tq-card-title">Giza Pyramids and Great Sphinx: Private Guided Tour</div>
+        <div class="tq-card-desc">Set off on a half-day tour of the Pyramids of Giza and the Sphinx. An expert Egyptologist tour guide will pick you up from your Cairo/Giza hotel in an air-conditioned car.
 
 On the way, the guide will share interesting stories and facts about these ancient sites. At the Giza Pyramid complex, you'll see the three pyramids and the Sphinx.
 
 Admire the Great Pyramid of Khufu, the largest of the three. Walk around and take in the views of the Pyramids - Cheops, Chephren, and Menkaure, the three essential structures of the Giza complex.
 
-Then, visit the Sphinx of Giza, a unique statue with the body of a lion and the head of a pharaoh.</p>
-          <div class="card-footer">
-            <span class="price">From €56.04</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-giza-pyramids-and-great-sphinx-private-guided-tour-p1092399/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Then, visit the Sphinx of Giza, a unique statue with the body of a lion and the head of a pharaoh.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€56.04</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-giza-pyramids-and-great-sphinx-private-guided-tour-p1092399/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

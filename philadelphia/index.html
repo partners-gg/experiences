@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Philadelphia | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Philadelphia. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,12 +131,17 @@
     <p>37 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/05dc861ce66f4c8cb88547ac4b7be664.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Franklin Institute: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>The Franklin Institute: Entry Ticket</h3>
-          <p class="venue">📍 The Franklin Institute</p>
-          <p>Founded to honor Benjamin Franklin, America's first scientist, The Franklin Institute is one of the oldest and most prestigious science museums in the United States. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/05dc861ce66f4c8cb88547ac4b7be664.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Franklin Institute: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">THE FRANKLIN INSTITUTE</span>
+        </div>
+        <div class="tq-card-title">The Franklin Institute: Entry Ticket</div>
+        <div class="tq-card-desc">Founded to honor Benjamin Franklin, America's first scientist, The Franklin Institute is one of the oldest and most prestigious science museums in the United States. 
 
 Dedicated to public education, the museum brings science and technology to life. 
 
@@ -47,89 +151,144 @@ Catch a live science demonstration and watch experts conduct experiments that sh
 
 The Fels Planetarium is a must-see, with shows that take you to far-off galaxies and explain the night sky. 
 
-For another learning experience, consider joining an educational workshop or guided tour. These programs offer more detailed explanations and hands-on activities for both kids and adults.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 4.5 (48)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-franklin-insititute-general-admission-ticket-p1097021/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+For another learning experience, consider joining an educational workshop or guided tour. These programs offer more detailed explanations and hands-on activities for both kids and adults.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(48)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-franklin-insititute-general-admission-ticket-p1097021/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/33d208106d074b04915d84bce2d32e95.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Illusions Philadelphia: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum of Illusions Philadelphia: Entry Ticket</h3>
-          <p class="venue">📍 Museum of Illusions Philadelphia</p>
-          <p>Don't forget to add this mind-boggling adventure at the Museum of Illusions to your Philly itinerary. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/33d208106d074b04915d84bce2d32e95.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Illusions Philadelphia: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEUM OF ILLUSIONS PHILADELPHIA</span>
+        </div>
+        <div class="tq-card-title">Museum of Illusions Philadelphia: Entry Ticket</div>
+        <div class="tq-card-desc">Don't forget to add this mind-boggling adventure at the Museum of Illusions to your Philly itinerary. 
 
 Just an hour inside will leave you feeling inspired. Each unique exhibit inside the Museum of Illusions Philidelphia features head-scratching construction and graphics to keep you guessing – _"how did they do that?"_
 
-Look for the Insta-perfect photo opportunity with prompts in each exhibit to maximize the optical effect. Strike off-the-wall poses in the Rotation Room, duplicate your best angles in the Kaleidoscope, and get trippy in the Vortex Tunnel. Feeling competitive? Challenge your friends and family to some gameplay in the Smart Playroom.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 4.4 (70)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-illusions-philadelphia-p1029879/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Look for the Insta-perfect photo opportunity with prompts in each exhibit to maximize the optical effect. Strike off-the-wall poses in the Rotation Room, duplicate your best angles in the Kaleidoscope, and get trippy in the Vortex Tunnel. Feeling competitive? Challenge your friends and family to some gameplay in the Smart Playroom.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(70)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-illusions-philadelphia-p1029879/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7e9544d4becf44eeb746d491cc726d7f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of the American Revolution: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum of the American Revolution: Entry Ticket</h3>
-          <p class="venue">📍 Museum of the American Revolution</p>
-          <p>Without the revolutionaries, the Philly cheesesteak would be plain-old English scones. The _Land of the Free_ owes its existence to the American Revolution of 1765–1783.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7e9544d4becf44eeb746d491cc726d7f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of the American Revolution: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEUM OF THE AMERICAN REVOLUTION</span>
+        </div>
+        <div class="tq-card-title">Museum of the American Revolution: Entry Ticket</div>
+        <div class="tq-card-desc">Without the revolutionaries, the Philly cheesesteak would be plain-old English scones. The _Land of the Free_ owes its existence to the American Revolution of 1765–1783.
 
-The Museum of the American Revolution adds to Philadelphia's rich historical landscape, exploring the patriots' against-all-odds journey from insurrection to independence. Learn about the Boston Tea Party, key battles, and the historic penning of the Constitution on this interactive ride through American history!</p>
-          <div class="card-footer">
-            <span class="price">From €23.28</span>
-            <span class="rating">⭐ 4.9 (94)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-the-american-revolution-skip-the-line-p977615/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Museum of the American Revolution adds to Philadelphia's rich historical landscape, exploring the patriots' against-all-odds journey from insurrection to independence. Learn about the Boston Tea Party, key battles, and the historic penning of the Constitution on this interactive ride through American history!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(94)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.28</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-the-american-revolution-skip-the-line-p977615/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8314ea818e7d4ebdb4c4579490594cba.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia Hop-on Hop-off Bus" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia Hop-on Hop-off Bus</h3>
-          <p class="venue">📍 Philadelphia Hop-On Hop-Off Bus Tours</p>
-          <p>All aboard the Philly bus! Discover the 'City of Brotherly Love' in style on board a fancy red London-style bus. Start the adventure right in the heart of Philadelphia, at the Bourse Building. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8314ea818e7d4ebdb4c4579490594cba.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia Hop-on Hop-off Bus" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA HOP-ON HOP-OFF BUS TOURS</span>
+        </div>
+        <div class="tq-card-title">Philadelphia Hop-on Hop-off Bus</div>
+        <div class="tq-card-desc">All aboard the Philly bus! Discover the 'City of Brotherly Love' in style on board a fancy red London-style bus. Start the adventure right in the heart of Philadelphia, at the Bourse Building. 
 
 From then, the bus will drive you past the wonders of the city, taking you to 28 stops, strategically located to cover the best attractions! Remember, you can hop off and hop back on the buses whenever you want and travel at your own pace. 
 
-Just show your valid ticket when hopping back on and get ready to continue to your next destination. Buy your ticket online today and start deciding where to hop off at!</p>
-          <div class="card-footer">
-            <span class="price">From €46.56</span>
-            <span class="rating">⭐ 4.7 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-hop-on-hop-off-bus-p1058594/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Just show your valid ticket when hopping back on and get ready to continue to your next destination. Buy your ticket online today and start deciding where to hop off at!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€46.56</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-hop-on-hop-off-bus-p1058594/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4c2c4f4413e54ddcaf616dfd50831e47.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Penn Museum of Archaeology and Anthropology: Fast Track" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Penn Museum of Archaeology and Anthropology: Fast Track</h3>
-          <p class="venue">📍 Penn Museum</p>
-          <p>Love ancient artifacts but aren't the tomb-raiding, boulder-escaping type? Lasso a ticket for Penn Museum, and uncover countless kingdoms' worth of cultural treasures from all corners of the world, without all those pesky booby traps!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4c2c4f4413e54ddcaf616dfd50831e47.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Penn Museum of Archaeology and Anthropology: Fast Track" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PENN MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Penn Museum of Archaeology and Anthropology: Fast Track</div>
+        <div class="tq-card-desc">Love ancient artifacts but aren't the tomb-raiding, boulder-escaping type? Lasso a ticket for Penn Museum, and uncover countless kingdoms' worth of cultural treasures from all corners of the world, without all those pesky booby traps!
 
-From ancient Egypt to ancient China, Japan, Africa, the Middle East, Mesoamerica, Rome, Greece, North America, and beyond, you will find a cornucopia of remarkable cultural artifacts within.</p>
-          <div class="card-footer">
-            <span class="price">From €19.83</span>
-            <span class="rating">⭐ 4.5 (22)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-penn-museum-of-archaeology-and-anthropology-fast-track-p995561/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+From ancient Egypt to ancient China, Japan, Africa, the Middle East, Mesoamerica, Rome, Greece, North America, and beyond, you will find a cornucopia of remarkable cultural artifacts within.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(22)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.83</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-penn-museum-of-archaeology-and-anthropology-fast-track-p995561/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/60ef5f9cceea43bfae02d1b42462f9e2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Go City Philadelphia: All Inclusive Pass with 35+ Attractions" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Go City Philadelphia: All Inclusive Pass with 35+ Attractions</h3>
-          <p class="venue">📍 Philadelphia City Cards</p>
-          <p>Make your stay in Philly a montage Rocky would be proud of with the Go City Philadelphia: All-Inclusive Pass. Your key to the City of Brotherly Love, the Go City Philadelphia: All-Inclusive Pass, puts America's hometown in the palm of your hand. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/60ef5f9cceea43bfae02d1b42462f9e2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Go City Philadelphia: All Inclusive Pass with 35+ Attractions" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Go City Philadelphia: All Inclusive Pass with 35+ Attractions</div>
+        <div class="tq-card-desc">Make your stay in Philly a montage Rocky would be proud of with the Go City Philadelphia: All-Inclusive Pass. Your key to the City of Brotherly Love, the Go City Philadelphia: All-Inclusive Pass, puts America's hometown in the palm of your hand. 
 
 Choose a 1, 2, 3, or 5-day pass, and get daily access to a list of over 35 of the city's top attractions and activities.
 
@@ -139,473 +298,770 @@ Zoom around the city on the Big Bus Philadelphia, take a walk on the wild side a
 
 You can also brush up on your history with the Independence Tour or at the Museum of the American Revolution, the African American Museum, and lots more.
 
-*Savings based on sample itineraries on the Go City website.</p>
-          <div class="card-footer">
-            <span class="price">From €50.87</span>
-            <span class="rating">⭐ 4.1 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-go-city-philadelphia-all-inclusive-pass-p987509/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+*Savings based on sample itineraries on the Go City website.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.87</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-go-city-philadelphia-all-inclusive-pass-p987509/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/99c3b316ffa84540b0dede075032d58c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Italian Market Immersion: Philadelphia Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Italian Market Immersion: Philadelphia Walking Tour</h3>
-          <p class="venue">📍 Philadelphia City Tours</p>
-          <p>Philadelphia's market scene always promises something exciting to try. The Italian Market is an integral part of the city's culture, and you'll get to know the city like a local by soaking up the atmosphere on this guided tour.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/99c3b316ffa84540b0dede075032d58c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Italian Market Immersion: Philadelphia Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Italian Market Immersion: Philadelphia Walking Tour</div>
+        <div class="tq-card-desc">Philadelphia's market scene always promises something exciting to try. The Italian Market is an integral part of the city's culture, and you'll get to know the city like a local by soaking up the atmosphere on this guided tour.
 
 This iconic collection of butchers, bakers, specialty shops, and restaurants has been the backbone of this historic neighborhood since its creation in the late 1800s. It has survived throughout the passing decades by welcoming vendors from around the world and, today, remains a popular destination for tourists and locals alike.
 
 Your local tour guide will also introduce you to other Italian Market staples and immigrant-inspired fare, savoring the flavors of the market as you make your way down this iconic street.
 
-Wherever your tour guide leads you, your senses will be popping as you explore one of the most unique, thriving, and diverse areas of the City of Brotherly Love.</p>
-          <div class="card-footer">
-            <span class="price">From €52.6</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-italian-market-immersion-philadelphia-walking-tour-p990809/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Wherever your tour guide leads you, your senses will be popping as you explore one of the most unique, thriving, and diverse areas of the City of Brotherly Love.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€52.60</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-italian-market-immersion-philadelphia-walking-tour-p990809/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d781dac88ce641a6a2c5be0982818c01.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Markets, Mosaics & Magic: Philadelphia Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Markets, Mosaics & Magic: Philadelphia Walking Tour</h3>
-          <p class="venue">📍 Philadelphia's Magic Gardens</p>
-          <p>Philly is more than cheesesteaks and the Rocky Steps. Get a local's perspective on the Birthplace of America with this intriguing tour.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d781dac88ce641a6a2c5be0982818c01.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Markets, Mosaics & Magic: Philadelphia Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA'S MAGIC GARDENS</span>
+        </div>
+        <div class="tq-card-title">Markets, Mosaics & Magic: Philadelphia Walking Tour</div>
+        <div class="tq-card-desc">Philly is more than cheesesteaks and the Rocky Steps. Get a local's perspective on the Birthplace of America with this intriguing tour.
 
 On this guided street art tour, you’ll head into the heart of the Queen Village and Bella Vista neighborhoods to explore beautiful and surprising pieces of public art, including breathtaking Philadelphia murals and mind-bending mosaics.
 
 Your local art tour guide will explain the history of each piece and how they blend together into a magical tapestry that drapes across the entire city. You’ll come to appreciate how public art and creators are intertwined and appreciated by the neighborhoods that they call home, and how amazingly accessible art is throughout a major city like Philadelphia.
 
-After exploring the street art and a gallery or two, your tour concludes at the incredible Magic Gardens - one of the most impressive and fantastical works of art and sculpture you’ll ever see!</p>
-          <div class="card-footer">
-            <span class="price">From €36.21</span>
-            <span class="rating">⭐ 4.3 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-markets-mosaics-magic-philadelphia-walking-tour-p990281/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After exploring the street art and a gallery or two, your tour concludes at the incredible Magic Gardens - one of the most impressive and fantastical works of art and sculpture you’ll ever see!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€36.21</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-markets-mosaics-magic-philadelphia-walking-tour-p990281/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/01de180dde5d4d19b22f2931ce2c3cbf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: History, Highlights & Revolution Small Group Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia: History, Highlights & Revolution Small Group Walking Tour</h3>
-          <p class="venue">📍 Philadelphia City Tours</p>
-          <p>Forget watching History Channel documentaries. Why not see the landmarks that shaped America in real life on this Philadelphia tour? You'll see the building where the Declaration of Independence and the US Constitution were signed, the Liberty Bell, Betsy Ross's House, and much more! This tour even includes a special presentation about George Washington in the Museum of the American Revolution.</p>
-          <div class="card-footer">
-            <span class="price">From €42.68</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-history-highlights-revolution-small-group-walking-tour-p989822/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/01de180dde5d4d19b22f2931ce2c3cbf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: History, Highlights & Revolution Small Group Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Philadelphia: History, Highlights & Revolution Small Group Walking Tour</div>
+        <div class="tq-card-desc">Forget watching History Channel documentaries. Why not see the landmarks that shaped America in real life on this Philadelphia tour? You'll see the building where the Declaration of Independence and the US Constitution were signed, the Liberty Bell, Betsy Ross's House, and much more! This tour even includes a special presentation about George Washington in the Museum of the American Revolution.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.68</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-history-highlights-revolution-small-group-walking-tour-p989822/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8829ae2d9f5c43f684f2a97948b16867.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Philadelphia" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hop-on Hop-off Bus Philadelphia</h3>
-          <p class="venue">📍 Philadelphia Hop-On Hop-Off Bus Tours</p>
-          <p>Discover the birthplace of America through a hop-on, hop-off sightseeing tour of the history-filled streets of Philadelphia. Thanks to a route encompassing the city's top landmarks, exploring is a breeze – thus ensuring your mood is always sunny and filled with brotherly love!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8829ae2d9f5c43f684f2a97948b16867.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Philadelphia" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA HOP-ON HOP-OFF BUS TOURS</span>
+        </div>
+        <div class="tq-card-title">Hop-on Hop-off Bus Philadelphia</div>
+        <div class="tq-card-desc">Discover the birthplace of America through a hop-on, hop-off sightseeing tour of the history-filled streets of Philadelphia. Thanks to a route encompassing the city's top landmarks, exploring is a breeze – thus ensuring your mood is always sunny and filled with brotherly love!
 
-See some of the most important cultural sites in the U.S., like the Liberty Bell, Independence Hall, the Philadelphia Museum of Art (aka, the Rocky Steps), the _Love_ sculpture, the Betsy Ross House, and much more.</p>
-          <div class="card-footer">
-            <span class="price">From €46.56</span>
-            <span class="rating">⭐ 4.1 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-philadelphia-p985991/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See some of the most important cultural sites in the U.S., like the Liberty Bell, Independence Hall, the Philadelphia Museum of Art (aka, the Rocky Steps), the _Love_ sculpture, the Betsy Ross House, and much more.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€46.56</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-philadelphia-p985991/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b90ad30cbd744af68850135e76894e76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia Signature Dinner Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia Signature Dinner Cruise</h3>
-          <p class="venue">📍 Philadelphia Cruises</p>
-          <p>Hop aboard your special cruise and see the sights of Philly from a new angle. Your live DJ will pump the tunes as you feast from a brilliant buffet and watch sights like the Naval Shipyard, the Ben Franklin Bridge, Battleship New Jersey, the historic Olympia warship and more float past.</p>
-          <div class="card-footer">
-            <span class="price">From €94</span>
-            <span class="rating">⭐ 4.7 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-dinner-cruise-p974876/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b90ad30cbd744af68850135e76894e76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia Signature Dinner Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA CRUISES</span>
+        </div>
+        <div class="tq-card-title">Philadelphia Signature Dinner Cruise</div>
+        <div class="tq-card-desc">Hop aboard your special cruise and see the sights of Philly from a new angle. Your live DJ will pump the tunes as you feast from a brilliant buffet and watch sights like the Naval Shipyard, the Ben Franklin Bridge, Battleship New Jersey, the historic Olympia warship and more float past.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€94.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-dinner-cruise-p974876/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/942ae840efd946acab39f259e88c3507.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cirque du Soleil LUZIA Oaks: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cirque du Soleil LUZIA Oaks: Entry Ticket</h3>
-          <p class="venue">📍 Cirque du Soleil LUZIA Oaks</p>
-          <p>Attend Cirque du Soleil's *LUZIA* in Oaks, a performance themed around facets of Mexican culture, mythology, and natural elements.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/942ae840efd946acab39f259e88c3507.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cirque du Soleil LUZIA Oaks: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CIRQUE DU SOLEIL LUZIA OAKS</span>
+        </div>
+        <div class="tq-card-title">Cirque du Soleil LUZIA Oaks: Entry Ticket</div>
+        <div class="tq-card-desc">Attend Cirque du Soleil's *LUZIA* in Oaks, a performance themed around facets of Mexican culture, mythology, and natural elements.
 
 This show displays its narrative through acrobatics and visual elements that focus on lighting and water. You will observe segments showcasing Mexican traditional and contemporary music styles like cumbia and marimba.
 
-This performance also employs unique water effects, a feature for touring productions.</p>
-          <div class="card-footer">
-            <span class="price">From €36.63</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cirque-du-soleil-luzia-oaks-entry-p1127588/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This performance also employs unique water effects, a feature for touring productions.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€36.63</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cirque-du-soleil-luzia-oaks-entry-p1127588/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b90ad30cbd744af68850135e76894e76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: South Philly Guided Art Tour + Magic Gardens Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia: South Philly Guided Art Tour + Magic Gardens Entry</h3>
-          <p class="venue">📍 Philadelphia City Tours</p>
-          <p>Explore public art in Philadelphia by visiting South Philly areas such as Queen Village and Bella Vista.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b90ad30cbd744af68850135e76894e76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: South Philly Guided Art Tour + Magic Gardens Entry" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Philadelphia: South Philly Guided Art Tour + Magic Gardens Entry</div>
+        <div class="tq-card-desc">Explore public art in Philadelphia by visiting South Philly areas such as Queen Village and Bella Vista.
 
 Observe various public art installations, including murals and mosaics. The guide will explain the history and significance of these works.
 
-The walk includes access to the Magic Gardens, showcasing notable art and sculpture collections.</p>
-          <div class="card-footer">
-            <span class="price">From €36.21</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-south-philly-guided-art-tour-magic-gardens-entry-p1126186/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The walk includes access to the Magic Gardens, showcasing notable art and sculpture collections.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€36.21</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-south-philly-guided-art-tour-magic-gardens-entry-p1126186/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/60ef5f9cceea43bfae02d1b42462f9e2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Holiday Lights Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia: Holiday Lights Bus Tour</h3>
-          <p class="venue">📍 Philadelphia Bus Tours</p>
-          <p>Join Philadelphia's holiday lights tour. Drive through the city to view some of the best holiday light displays.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/60ef5f9cceea43bfae02d1b42462f9e2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Holiday Lights Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA BUS TOURS</span>
+        </div>
+        <div class="tq-card-title">Philadelphia: Holiday Lights Bus Tour</div>
+        <div class="tq-card-desc">Join Philadelphia's holiday lights tour. Drive through the city to view some of the best holiday light displays.
 
-Travel on a decorated Victorian-style trolley with festive lights and decor. Sing along to your favorite Christmas songs during the ride.</p>
-          <div class="card-footer">
-            <span class="price">From €38.76</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-holiday-lights-bus-tour-p1123240/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Travel on a decorated Victorian-style trolley with festive lights and decor. Sing along to your favorite Christmas songs during the ride.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.76</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-holiday-lights-bus-tour-p1123240/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/942ae840efd946acab39f259e88c3507.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="A Day in Amish Country" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>A Day in Amish Country</h3>
-          <p class="venue">📍 Philadelphia Day Trips</p>
-          <p>Visit Pennsylvania's rural farmlands outside of Philadelphia to learn about the Amish community.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/942ae840efd946acab39f259e88c3507.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="A Day in Amish Country" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA DAY TRIPS</span>
+        </div>
+        <div class="tq-card-title">A Day in Amish Country</div>
+        <div class="tq-card-desc">Visit Pennsylvania's rural farmlands outside of Philadelphia to learn about the Amish community.
 
 Start with a ride to Lancaster County, home to the second-largest Amish settlement in the world, in a comfortable van. See farmers working in the fields and learn about the origins of Amish culture in the US.
 
 Visit an 1800s farmhouse with your local guide and check out the Amish Village Museum. Gain insight into Amish traditions and philosophies.
 
-The tour includes stops in small towns with Amish-made goods like quilts, bakeries, and roadside stands. You can support the community by purchasing food recommended by your guide.</p>
-          <div class="card-footer">
-            <span class="price">From €154.34</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-a-day-in-amish-country-p1121471/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The tour includes stops in small towns with Amish-made goods like quilts, bakeries, and roadside stands. You can support the community by purchasing food recommended by your guide.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€154.34</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-a-day-in-amish-country-p1121471/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Guided Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia: Guided Food Tour</h3>
-          <p class="venue">📍 Philadelphia Food Tours</p>
-          <p>Begin your culinary tour of Philadelphia at the city's Masonic Temple. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Guided Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Philadelphia: Guided Food Tour</div>
+        <div class="tq-card-desc">Begin your culinary tour of Philadelphia at the city's Masonic Temple. 
 
 Taste a range of the city's food, from traditional dishes to modern favorites. 
 
-Visit different eateries and hear about their history. A local guide will provide insights during the tour.</p>
-          <div class="card-footer">
-            <span class="price">From €50.87</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-guided-food-tour-p1121464/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit different eateries and hear about their history. A local guide will provide insights during the tour.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.87</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-guided-food-tour-p1121464/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/60ef5f9cceea43bfae02d1b42462f9e2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Old City Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia: Old City Guided Walking Tour</h3>
-          <p class="venue">📍 Philadelphia City Tours</p>
-          <p>Explore Philadelphia’s historic Old City with a guided walking tour focused on the events of 1776.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/60ef5f9cceea43bfae02d1b42462f9e2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Old City Guided Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Philadelphia: Old City Guided Walking Tour</div>
+        <div class="tq-card-desc">Explore Philadelphia’s historic Old City with a guided walking tour focused on the events of 1776.
 
 You’ll visit Independence Mall, where you’ll see the Liberty Bell, Independence Hall, and the President’s House. 
 
 Then continue to Benjamin Franklin’s grave, Arch Street Meeting House, Betsy Ross’ House, Elfreth’s Alley, and Christ Church.
 
-Along the way, your guide will share how leaders, Quakers, women, and everyday people shaped the city during the Revolutionary era.</p>
-          <div class="card-footer">
-            <span class="price">From €26.73</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-old-city-guided-walking-tour-p1121223/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Along the way, your guide will share how leaders, Quakers, women, and everyday people shaped the city during the Revolutionary era.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.73</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-old-city-guided-walking-tour-p1121223/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b90ad30cbd744af68850135e76894e76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Dark Philly Guided Night Tour (Adults Only)" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia: Dark Philly Guided Night Tour (Adults Only)</h3>
-          <p class="venue">📍 Philadelphia City Tours</p>
-          <p>Take a guided walking tour from the Liberty Bell to key sites related to Hamilton, Washington, and Franklin. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b90ad30cbd744af68850135e76894e76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Dark Philly Guided Night Tour (Adults Only)" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Philadelphia: Dark Philly Guided Night Tour (Adults Only)</div>
+        <div class="tq-card-desc">Take a guided walking tour from the Liberty Bell to key sites related to Hamilton, Washington, and Franklin. 
 
-Learn lesser-known facts about the Founders, including a few ghost stories. This tour is thoroughly researched and led by a historian.</p>
-          <div class="card-footer">
-            <span class="price">From €32.76</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-dark-philly-guided-night-tour-adults-only-p1118276/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn lesser-known facts about the Founders, including a few ghost stories. This tour is thoroughly researched and led by a historian.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€32.76</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-dark-philly-guided-night-tour-adults-only-p1118276/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b90ad30cbd744af68850135e76894e76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Guided American Revolution History Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia: Guided American Revolution History Tour</h3>
-          <p class="venue">📍 Philadelphia City Tours</p>
-          <p>Join a walking tour that covers the Liberty Bell, Independence Hall, and the homes of George Washington, Benjamin Franklin, and Alexander Hamilton.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b90ad30cbd744af68850135e76894e76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Guided American Revolution History Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Philadelphia: Guided American Revolution History Tour</div>
+        <div class="tq-card-desc">Join a walking tour that covers the Liberty Bell, Independence Hall, and the homes of George Washington, Benjamin Franklin, and Alexander Hamilton.
 
 See sites connected to historical figures like Adams, Madison, Jefferson, Monroe, Patrick Henry, and Paul Revere. This tour highlights key locations from the American Revolution in Philadelphia.
 
-This walk gives a comprehensive introduction to 1776 in just two hours. Led by a knowledgeable historian, you will quickly understand important locations and their significance.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-guided-history-tour-p1117844/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This walk gives a comprehensive introduction to 1776 in just two hours. Led by a knowledgeable historian, you will quickly understand important locations and their significance.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-guided-history-tour-p1117844/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/60ef5f9cceea43bfae02d1b42462f9e2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia C3®, C4® & C5®: Admission to 3, 4, or 5 Attractions" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia C3®, C4® & C5®: Admission to 3, 4, or 5 Attractions</h3>
-          <p class="venue">📍 Philadelphia City Cards</p>
-          <p>Save up to 48% with Philadelphia CityPASS® tickets. One purchase covers admission to 3, 4, or 5 popular attractions. Use your tickets over 9 days and see the main sights at your own pace without stressing about individual tickets.</p>
-          <div class="card-footer">
-            <span class="price">From €46.56</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-citypass-admission-to-3-4-or-5-attractions-p1115654/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/60ef5f9cceea43bfae02d1b42462f9e2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia C3®, C4® & C5®: Admission to 3, 4, or 5 Attractions" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Philadelphia C3®, C4® & C5®: Admission to 3, 4, or 5 Attractions</div>
+        <div class="tq-card-desc">Save up to 48% with Philadelphia CityPASS® tickets. One purchase covers admission to 3, 4, or 5 popular attractions. Use your tickets over 9 days and see the main sights at your own pace without stressing about individual tickets.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€46.56</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-citypass-admission-to-3-4-or-5-attractions-p1115654/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b90ad30cbd744af68850135e76894e76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Buffet Lunch Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia: Buffet Lunch Cruise</h3>
-          <p class="venue">📍 Philadelphia Cruises</p>
-          <p>Enjoy an afternoon cruise on the Delaware River with views of Philadelphia’s skyline. Enjoy a chef-prepared buffet and see landmarks like the Ben Franklin Bridge from the comfort of a climate-controlled cabin or the open-air deck.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b90ad30cbd744af68850135e76894e76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Buffet Lunch Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA CRUISES</span>
+        </div>
+        <div class="tq-card-title">Philadelphia: Buffet Lunch Cruise</div>
+        <div class="tq-card-desc">Enjoy an afternoon cruise on the Delaware River with views of Philadelphia’s skyline. Enjoy a chef-prepared buffet and see landmarks like the Ben Franklin Bridge from the comfort of a climate-controlled cabin or the open-air deck.
 
-The cruise features a DJ, games, and a fully stocked bar to keep the fun going throughout the trip.</p>
-          <div class="card-footer">
-            <span class="price">From €82.1</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-buffet-lunch-cruise-p1115375/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The cruise features a DJ, games, and a fully stocked bar to keep the fun going throughout the trip.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€82.10</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-buffet-lunch-cruise-p1115375/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b90ad30cbd744af68850135e76894e76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Buffet Brunch Cruise + Bottomless Mimosas" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia: Buffet Brunch Cruise + Bottomless Mimosas</h3>
-          <p class="venue">📍 Philadelphia Cruises</p>
-          <p>Dine and enjoy a meal on the Delaware River with views of the city’s skyline. See Philadelphia's architecture while savoring a chef-prepared buffet.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b90ad30cbd744af68850135e76894e76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Buffet Brunch Cruise + Bottomless Mimosas" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA CRUISES</span>
+        </div>
+        <div class="tq-card-title">Philadelphia: Buffet Brunch Cruise + Bottomless Mimosas</div>
+        <div class="tq-card-desc">Dine and enjoy a meal on the Delaware River with views of the city’s skyline. See Philadelphia's architecture while savoring a chef-prepared buffet.
 
-Spot landmarks like the Ben Franklin Bridge from a comfortable indoor area or open-air decks. Access a fully stocked bar, play games, and listen to music from a DJ.</p>
-          <div class="card-footer">
-            <span class="price">From €81.89</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-buffet-brunch-cruise-bottomless-mimosas-p1115374/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Spot landmarks like the Ben Franklin Bridge from a comfortable indoor area or open-air decks. Access a fully stocked bar, play games, and listen to music from a DJ.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€81.89</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-buffet-brunch-cruise-bottomless-mimosas-p1115374/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b90ad30cbd744af68850135e76894e76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Guided Night Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia: Guided Night Bus Tour</h3>
-          <p class="venue">📍 Philadelphia City Tours</p>
-          <p>See Philadelphia at night on a bus tour as the city’s landmarks light up.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b90ad30cbd744af68850135e76894e76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Guided Night Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Philadelphia: Guided Night Bus Tour</div>
+        <div class="tq-card-desc">See Philadelphia at night on a bus tour as the city’s landmarks light up.
 
 Pass well-known buildings such as One Liberty Place, illuminated in changing colors, and the Comcast Technology Center, one of the city’s tallest skyscrapers.
 
 Along the way, a live guide shares information about Philadelphia’s history and points out notable sights across the city.
 
-This tour offers elevated views of Philadelphia’s skyline and major landmarks after dark while you ride on board.</p>
-          <div class="card-footer">
-            <span class="price">From €33.63</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-guided-night-bus-tour-p1100706/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This tour offers elevated views of Philadelphia’s skyline and major landmarks after dark while you ride on board.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.63</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-guided-night-bus-tour-p1100706/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Chinatown Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia: Chinatown Food Tour</h3>
-          <p class="venue">📍 Philadelphia Food Tours</p>
-          <p>Explore Philadelphia's Chinatown on a flavorful food tour. Taste a variety of Asian dishes, including dumplings, Szechuan, Cantonese food, and bubble tea.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Chinatown Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Philadelphia: Chinatown Food Tour</div>
+        <div class="tq-card-desc">Explore Philadelphia's Chinatown on a flavorful food tour. Taste a variety of Asian dishes, including dumplings, Szechuan, Cantonese food, and bubble tea.
 
-Visit local restaurants and cultural stores in this vibrant neighborhood while learning about Chinatown’s history and diverse communities. Enjoy the tour with a local guide, who will share insights and make sure everyone has a great time.</p>
-          <div class="card-footer">
-            <span class="price">From €93.98</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-chinatown-food-tour-p1100557/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit local restaurants and cultural stores in this vibrant neighborhood while learning about Chinatown’s history and diverse communities. Enjoy the tour with a local guide, who will share insights and make sure everyone has a great time.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€93.98</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-chinatown-food-tour-p1100557/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Reading Terminal Market: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Reading Terminal Market: Guided Tour</h3>
-          <p class="venue">📍 Reading Terminal Market</p>
-          <p>The Reading Terminal Market is a must-see in Philadelphia. Explore the market's history, see traditional cooking styles, and enjoy the scents from over 80 merchants' food.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Reading Terminal Market: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">READING TERMINAL MARKET</span>
+        </div>
+        <div class="tq-card-title">Reading Terminal Market: Guided Tour</div>
+        <div class="tq-card-desc">The Reading Terminal Market is a must-see in Philadelphia. Explore the market's history, see traditional cooking styles, and enjoy the scents from over 80 merchants' food.
 
-Starting with a famous Philly snack, this 45-minute tour will delight your taste buds and share the market's history. Guides will show you must-see spots and tell stories about the market's past. At the end, take home an Amish-inspired treat from a bakery.</p>
-          <div class="card-footer">
-            <span class="price">From €29.75</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-reading-terminal-market-guided-tour-p1100258/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Starting with a famous Philly snack, this 45-minute tour will delight your taste buds and share the market's history. Guides will show you must-see spots and tell stories about the market's past. At the end, take home an Amish-inspired treat from a bakery.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.75</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-reading-terminal-market-guided-tour-p1100258/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: East Passyunk Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia: East Passyunk Food Tour</h3>
-          <p class="venue">📍 Philadelphia Food Tours</p>
-          <p>Explore South Philly on a walking tour through East Passyunk Avenue, known for its trendy boutiques and innovative eateries. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: East Passyunk Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Philadelphia: East Passyunk Food Tour</div>
+        <div class="tq-card-desc">Explore South Philly on a walking tour through East Passyunk Avenue, known for its trendy boutiques and innovative eateries. 
 
-Discover why it's listed as one of the top 10 foodie destinations in America by Food and Wine Magazine. The tour starts at popular restaurants and bars, covering iconic landmarks and murals along the way.</p>
-          <div class="card-footer">
-            <span class="price">From €93.98</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-east-passyunk-food-tour-p1099664/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover why it's listed as one of the top 10 foodie destinations in America by Food and Wine Magazine. The tour starts at popular restaurants and bars, covering iconic landmarks and murals along the way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€93.98</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-east-passyunk-food-tour-p1099664/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Local Food Tasting Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia: Local Food Tasting Tour</h3>
-          <p class="venue">📍 Philadelphia Food Tours</p>
-          <p>Prepare for a 2.5-hour Philadelphia local food tour, enjoying food from 5 of the city's top foodie spots, all local family-run businesses. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Local Food Tasting Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Philadelphia: Local Food Tasting Tour</div>
+        <div class="tq-card-desc">Prepare for a 2.5-hour Philadelphia local food tour, enjoying food from 5 of the city's top foodie spots, all local family-run businesses. 
 
 Start at the famous Reading Terminal Market with molten cheese curds, corndogs, Middle Eastern foods, and an Amish dessert. 
 
 As you walk, take in the city's architecture and a few trendy restaurants on the way to Di Bruno Bros. 
 
-Enjoy a guided cheese tasting with four farmstead and imported cheeses. End the tour with a sweet and salty dessert from a well-known bakery.</p>
-          <div class="card-footer">
-            <span class="price">From €57.83</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-local-food-tasting-tour-p1099663/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a guided cheese tasting with four farmstead and imported cheeses. End the tour with a sweet and salty dessert from a well-known bakery.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€57.83</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-local-food-tasting-tour-p1099663/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Historic Old City Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philadelphia: Historic Old City Food Tour</h3>
-          <p class="venue">📍 Philadelphia Food Tours</p>
-          <p>Learn about Philadelphia’s history through a food tour in its most historic neighborhood. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philadelphia: Historic Old City Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Philadelphia: Historic Old City Food Tour</div>
+        <div class="tq-card-desc">Learn about Philadelphia’s history through a food tour in its most historic neighborhood. 
 
 Start near Independence Hall and enjoy traditional dishes while learning about the city's past. 
 
 Stroll past famous landmarks, visit a historic pub, and end the tour with a sweet treat at the oldest confectionery in the U.S. 
 
-For an added experience, you can choose the beverage package to enjoy three drinks along the way.</p>
-          <div class="card-footer">
-            <span class="price">From €146.58</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-historic-old-city-food-tour-p1099661/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+For an added experience, you can choose the beverage package to enjoy three drinks along the way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€146.58</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philadelphia-historic-old-city-food-tour-p1099661/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/60ef5f9cceea43bfae02d1b42462f9e2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philly By Night Sightseeing Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Philly By Night Sightseeing Tour</h3>
-          <p class="venue">📍 Philadelphia Bus Tours</p>
-          <p>The Big Bus Philly by Night Tour is the perfect way to spend your evening and slip into nighttime in Philadelphia. See the dazzling lights of the city from atop a double decker bus, which puts a whole new spin on the city! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/60ef5f9cceea43bfae02d1b42462f9e2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Philly By Night Sightseeing Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA BUS TOURS</span>
+        </div>
+        <div class="tq-card-title">Philly By Night Sightseeing Tour</div>
+        <div class="tq-card-desc">The Big Bus Philly by Night Tour is the perfect way to spend your evening and slip into nighttime in Philadelphia. See the dazzling lights of the city from atop a double decker bus, which puts a whole new spin on the city! 
 
 Sit back and enjoy the view as your professional guide tells you all about the historic sites, cultural attractions, and regales you with colorful stories about the people who shaped the City of Brotherly Love. 
 
 This 90-minute tour is not hop-on/hop-off, but it does make a stop at the Philadelphia Museum of Art so you can run the Rocky Steps!
 
-The top of the Rocky Steps offers a beautiful view of City Hall and the Benjamin Franklin Parkway and is a lovely photo opportunity, especially at night. Don't miss it on your next trip to Philly.</p>
-          <div class="card-footer">
-            <span class="price">From €44.84</span>
-            <span class="rating">⭐ 3 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-philly-by-night-sightseeing-tour-p1064032/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The top of the Rocky Steps offers a beautiful view of City Hall and the Benjamin Franklin Parkway and is a lovely photo opportunity, especially at night. Don't miss it on your next trip to Philly.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€44.84</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-philly-by-night-sightseeing-tour-p1064032/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2d3d606542b5448d95b9beb7bf02a882.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hard Rock Cafe Philadelphia" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hard Rock Cafe Philadelphia</h3>
-          <p class="venue">📍 Hard Rock Cafe Philadelphia</p>
-          <p>Nothing is more American than enjoying a burger and fries at the Hard Rock Cafe in the nation's birthplace – Philadelphia.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2d3d606542b5448d95b9beb7bf02a882.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hard Rock Cafe Philadelphia" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HARD ROCK CAFE PHILADELPHIA</span>
+        </div>
+        <div class="tq-card-title">Hard Rock Cafe Philadelphia</div>
+        <div class="tq-card-desc">Nothing is more American than enjoying a burger and fries at the Hard Rock Cafe in the nation's birthplace – Philadelphia.
 
 Dine in plush velvet booths or sit on Victorian-style couches, and groove with the many live shows hosted at the Hard Rock Cafe Philadelphia!
 
-Don’t forget to stop by the Rock Shop to buy authentic merchandise and make your experience a memorable one.</p>
-          <div class="card-footer">
-            <span class="price">From €31.95</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hard-rock-cafe-philadelphia-p1054752/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Don’t forget to stop by the Rock Shop to buy authentic merchandise and make your experience a memorable one.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€31.95</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hard-rock-cafe-philadelphia-p1054752/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d824f86f83c04db6a378a59810617bb0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Liberty Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>National Liberty Museum: Entry Ticket</h3>
-          <p class="venue">📍 National Liberty Museum</p>
-          <p>Conveniently located in the heart of Philadelphia's Old City, the National Liberty Museum brings the idea of liberty to life with the stories of people, past and present, whose courageous actions inspire us to defend and advance freedom for all. Take a walk in the shoes of the selfless people who have helped to shape the free world through acts of defiance, bravery, and sacrifice, and regain a deeper appreciation for the liberty you enjoy. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d824f86f83c04db6a378a59810617bb0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Liberty Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NATIONAL LIBERTY MUSEUM</span>
+        </div>
+        <div class="tq-card-title">National Liberty Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Conveniently located in the heart of Philadelphia's Old City, the National Liberty Museum brings the idea of liberty to life with the stories of people, past and present, whose courageous actions inspire us to defend and advance freedom for all. Take a walk in the shoes of the selfless people who have helped to shape the free world through acts of defiance, bravery, and sacrifice, and regain a deeper appreciation for the liberty you enjoy. 
 
-With a combination of special temporary exhibitions that highlight specific stories and people, as well as a cutting-edge permanent exhibition, the National Liberty Museum is an absolute must for anyone who truly values the real meaning and substance of freedom.</p>
-          <div class="card-footer">
-            <span class="price">From €12.93</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-general-admission-p1016021/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With a combination of special temporary exhibitions that highlight specific stories and people, as well as a cutting-edge permanent exhibition, the National Liberty Museum is an absolute must for anyone who truly values the real meaning and substance of freedom.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.93</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-general-admission-p1016021/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b1fd3210aea4dd2a287f6512f0adfd7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of the American Revolution: Guided Tour + Early Access" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum of the American Revolution: Guided Tour + Early Access</h3>
-          <p class="venue">📍 Museum of the American Revolution</p>
-          <p>Start your day with a big bowl of patriotism, and enjoy a special early-morning tour of Philadelphia's Museum of the American Revolution. Before the daytime crowds begin milling around, you'll have the undivided attention of an expert guide, who'll lead you through the story of America's revolutionary beginnings.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b1fd3210aea4dd2a287f6512f0adfd7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of the American Revolution: Guided Tour + Early Access" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEUM OF THE AMERICAN REVOLUTION</span>
+        </div>
+        <div class="tq-card-title">Museum of the American Revolution: Guided Tour + Early Access</div>
+        <div class="tq-card-desc">Start your day with a big bowl of patriotism, and enjoy a special early-morning tour of Philadelphia's Museum of the American Revolution. Before the daytime crowds begin milling around, you'll have the undivided attention of an expert guide, who'll lead you through the story of America's revolutionary beginnings.
 
-This unique behind-the-scenes experience provides deeper insight into the museum's artifacts and exhibits, as well as the story of the museum's founding. Explore the cutting-edge galleries, interactive exhibits, stirring theater experiences, and see incredible pieces of history, from George Washington's restored field tent to muskets that were used to overthrow the British.</p>
-          <div class="card-footer">
-            <span class="price">From €51.73</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-the-american-revolution-early-access-guided-tour-p1012365/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This unique behind-the-scenes experience provides deeper insight into the museum's artifacts and exhibits, as well as the story of the museum's founding. Explore the cutting-edge galleries, interactive exhibits, stirring theater experiences, and see incredible pieces of history, from George Washington's restored field tent to muskets that were used to overthrow the British.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.73</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-the-american-revolution-early-access-guided-tour-p1012365/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c578d87fd57d4011ab87d5b1494dfe62.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Go City Philadelphia: Explorer Pass with 3 to 7 Attractions" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Go City Philadelphia: Explorer Pass with 3 to 7 Attractions</h3>
-          <p class="venue">📍 Philadelphia City Cards</p>
-          <p>Make no Philly Cheese mis-steak; the Go City Philadelphia: Explorer Pass will save you big bucks on your next big city adventure.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c578d87fd57d4011ab87d5b1494dfe62.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Go City Philadelphia: Explorer Pass with 3 to 7 Attractions" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Go City Philadelphia: Explorer Pass with 3 to 7 Attractions</div>
+        <div class="tq-card-desc">Make no Philly Cheese mis-steak; the Go City Philadelphia: Explorer Pass will save you big bucks on your next big city adventure.
 
 Access the Hop-On Hop-Off Big Bus Philadelphia Tour, Eastern State Penitentiary - where Al-Capone himself was once held, the Franklin Institute, and more with your Go City Philadelphia: Explorer Pass.
 
@@ -615,55 +1071,88 @@ Stay flexible. Create your own itinerary from dozens of top attraction choices, 
 
 Expect no limitations. Do as much as you want each day; just keep flashing that pass for the full money-saving benefits. You'll even get a free Go City app with attraction information, an itinerary planner and map.
 
-*Savings based on sample itineraries on the Go City website.</p>
-          <div class="card-footer">
-            <span class="price">From €50.87</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-go-city-philadelphia-explorer-pass-p1007078/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+*Savings based on sample itineraries on the Go City website.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.87</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-go-city-philadelphia-explorer-pass-p1007078/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Flavors of Philly Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Flavors of Philly Food Tour</h3>
-          <p class="venue">📍 Philadelphia Food Tours</p>
-          <p>It's always yummy in Philadelphia! Join the hugely popular Flavors of Philly Food Tour and find out first-hand as a Philly native guides you away from the tourist sightseeing beat, and shows you the down-to-earth eateries that locals love.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Flavors of Philly Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Flavors of Philly Food Tour</div>
+        <div class="tq-card-desc">It's always yummy in Philadelphia! Join the hugely popular Flavors of Philly Food Tour and find out first-hand as a Philly native guides you away from the tourist sightseeing beat, and shows you the down-to-earth eateries that locals love.
 
 From an authentic mom-and-pop pizzeria to a soft pretzel bakery, you'll chew your way through Philly's finest food, and do a bit of architecture-hunting along the way too.
 
-It wouldn't be a food tour of Philly without a cheesesteak. So arrive hungry!</p>
-          <div class="card-footer">
-            <span class="price">From €55.18</span>
-            <span class="rating">⭐ 4.6 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-flavors-of-philly-food-tour-p1005924/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+It wouldn't be a food tour of Philly without a cheesesteak. So arrive hungry!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.18</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-flavors-of-philly-food-tour-p1005924/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b1fd3210aea4dd2a287f6512f0adfd7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of the American Revolution: Guided Tour + Early Access" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum of the American Revolution: Guided Tour + Early Access</h3>
-          <p class="venue">📍 Museum of the American Revolution</p>
-          <p>Start your day with a big bowl of patriotism, and enjoy a special early-morning tour of Philadelphia's Museum of the American Revolution. Before the daytime crowds begin milling around, you'll have the undivided attention of an expert guide, who'll lead you through the story of America's revolutionary beginnings.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b1fd3210aea4dd2a287f6512f0adfd7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of the American Revolution: Guided Tour + Early Access" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEUM OF THE AMERICAN REVOLUTION</span>
+        </div>
+        <div class="tq-card-title">Museum of the American Revolution: Guided Tour + Early Access</div>
+        <div class="tq-card-desc">Start your day with a big bowl of patriotism, and enjoy a special early-morning tour of Philadelphia's Museum of the American Revolution. Before the daytime crowds begin milling around, you'll have the undivided attention of an expert guide, who'll lead you through the story of America's revolutionary beginnings.
 
-This unique behind-the-scenes experience provides deeper insight into the museum's artifacts and exhibits, as well as the story of the museum's founding. Explore the cutting-edge galleries, interactive exhibits, stirring theater experiences, and see incredible pieces of history, from George Washington's restored field tent to muskets that were used to overthrow the British.</p>
-          <div class="card-footer">
-            <span class="price">From €51.73</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-the-american-revolution-early-access-guided-tour-p1012365/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This unique behind-the-scenes experience provides deeper insight into the museum's artifacts and exhibits, as well as the story of the museum's founding. Explore the cutting-edge galleries, interactive exhibits, stirring theater experiences, and see incredible pieces of history, from George Washington's restored field tent to muskets that were used to overthrow the British.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.73</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-the-american-revolution-early-access-guided-tour-p1012365/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c578d87fd57d4011ab87d5b1494dfe62.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Go City Philadelphia: Explorer Pass with 3 to 7 Attractions" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Go City Philadelphia: Explorer Pass with 3 to 7 Attractions</h3>
-          <p class="venue">📍 Philadelphia City Cards</p>
-          <p>Make no Philly Cheese mis-steak; the Go City Philadelphia: Explorer Pass will save you big bucks on your next big city adventure.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c578d87fd57d4011ab87d5b1494dfe62.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Go City Philadelphia: Explorer Pass with 3 to 7 Attractions" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Go City Philadelphia: Explorer Pass with 3 to 7 Attractions</div>
+        <div class="tq-card-desc">Make no Philly Cheese mis-steak; the Go City Philadelphia: Explorer Pass will save you big bucks on your next big city adventure.
 
 Access the Hop-On Hop-Off Big Bus Philadelphia Tour, Eastern State Penitentiary - where Al-Capone himself was once held, the Franklin Institute, and more with your Go City Philadelphia: Explorer Pass.
 
@@ -673,32 +1162,49 @@ Stay flexible. Create your own itinerary from dozens of top attraction choices, 
 
 Expect no limitations. Do as much as you want each day; just keep flashing that pass for the full money-saving benefits. You'll even get a free Go City app with attraction information, an itinerary planner and map.
 
-*Savings based on sample itineraries on the Go City website.</p>
-          <div class="card-footer">
-            <span class="price">From €50.87</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-go-city-philadelphia-explorer-pass-p1007078/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+*Savings based on sample itineraries on the Go City website.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.87</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-go-city-philadelphia-explorer-pass-p1007078/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Flavors of Philly Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Flavors of Philly Food Tour</h3>
-          <p class="venue">📍 Philadelphia Food Tours</p>
-          <p>It's always yummy in Philadelphia! Join the hugely popular Flavors of Philly Food Tour and find out first-hand as a Philly native guides you away from the tourist sightseeing beat, and shows you the down-to-earth eateries that locals love.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7e47f74a44a64bb7b9aa2e4df447c6cb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Flavors of Philly Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PHILADELPHIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PHILADELPHIA FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Flavors of Philly Food Tour</div>
+        <div class="tq-card-desc">It's always yummy in Philadelphia! Join the hugely popular Flavors of Philly Food Tour and find out first-hand as a Philly native guides you away from the tourist sightseeing beat, and shows you the down-to-earth eateries that locals love.
 
 From an authentic mom-and-pop pizzeria to a soft pretzel bakery, you'll chew your way through Philly's finest food, and do a bit of architecture-hunting along the way too.
 
-It wouldn't be a food tour of Philly without a cheesesteak. So arrive hungry!</p>
-          <div class="card-footer">
-            <span class="price">From €55.18</span>
-            <span class="rating">⭐ 4.6 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-flavors-of-philly-food-tour-p1005924/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+It wouldn't be a food tour of Philly without a cheesesteak. So arrive hungry!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.18</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-flavors-of-philly-food-tour-p1005924/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

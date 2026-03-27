@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Dallas | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Dallas. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,171 +131,281 @@
     <p>10 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d57d4cf0bd9c4c47baa93f5fe3972222.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Balloon Museum Dallas: Let’s Fly Exhibition Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Balloon Museum Dallas: Let’s Fly Exhibition Entry Ticket</h3>
-          <p class="venue">📍 Balloon Museum Dallas</p>
-          <p>Visit the Balloon Museum's *Let’s Fly* event in Dallas, the third stop on its Texas tour, located at the South Side Studios. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d57d4cf0bd9c4c47baa93f5fe3972222.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Balloon Museum Dallas: Let’s Fly Exhibition Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DALLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BALLOON MUSEUM DALLAS</span>
+        </div>
+        <div class="tq-card-title">Balloon Museum Dallas: Let’s Fly Exhibition Entry Ticket</div>
+        <div class="tq-card-desc">Visit the Balloon Museum's *Let’s Fly* event in Dallas, the third stop on its Texas tour, located at the South Side Studios. 
 
 The event includes large, inflatable works designed by international artists. These display the possibilities of form and space using inflatable structures and promote interaction with the audience. 
 
-Witness intriguing installations and engage directly with the art pieces. You have the opportunity to observe how air elements are used creatively in artistic forms.</p>
-          <div class="card-footer">
-            <span class="price">From €38.9</span>
-            <span class="rating">⭐ 4 (17)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-balloon-museum-dallas-lets-fly-exhibition-entry-p1125581/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Witness intriguing installations and engage directly with the art pieces. You have the opportunity to observe how air elements are used creatively in artistic forms.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(17)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-balloon-museum-dallas-lets-fly-exhibition-entry-p1125581/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/211ac70af837403684604a5199c022de.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LEGOLAND® Discovery Center Dallas: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>LEGOLAND® Discovery Center Dallas: Entry Ticket</h3>
-          <p class="venue">📍 LEGOLAND® Discovery Center Dallas</p>
-          <p>Whether you're an aspiring pirate, a nimble ninja in-training, or a valiant knight who moonlights as an astronaut, LEGOLAND® Discovery Center Dallas is a guaranteed good time. Explore incredible themed worlds of imaginative fun, wacky humor, creative thinking, and just a few million multicolored bricks!</p>
-          <div class="card-footer">
-            <span class="price">From €20.52</span>
-            <span class="rating">⭐ 4.2 (19)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-legoland-r-discovery-center-dallas-p976498/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/211ac70af837403684604a5199c022de.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LEGOLAND® Discovery Center Dallas: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DALLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LEGOLAND® DISCOVERY CENTER DALLAS</span>
+        </div>
+        <div class="tq-card-title">LEGOLAND® Discovery Center Dallas: Entry Ticket</div>
+        <div class="tq-card-desc">Whether you're an aspiring pirate, a nimble ninja in-training, or a valiant knight who moonlights as an astronaut, LEGOLAND® Discovery Center Dallas is a guaranteed good time. Explore incredible themed worlds of imaginative fun, wacky humor, creative thinking, and just a few million multicolored bricks!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(19)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.52</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-legoland-r-discovery-center-dallas-p976498/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/35fbe43c6ab148a8a3013d61bb70358b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Reunion Tower: Entry Ticket + Self-Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Reunion Tower: Entry Ticket + Self-Guided Tour</h3>
-          <p class="venue">📍 Reunion Tower</p>
-          <p>Reunion Tower, an iconic Dallas landmark, offers amazing 360-degree views of the city skyline. Visit the indoor/outdoor observation deck, 470 feet up, for an unforgettable experience.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/35fbe43c6ab148a8a3013d61bb70358b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Reunion Tower: Entry Ticket + Self-Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DALLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">REUNION TOWER</span>
+        </div>
+        <div class="tq-card-title">Reunion Tower: Entry Ticket + Self-Guided Tour</div>
+        <div class="tq-card-desc">Reunion Tower, an iconic Dallas landmark, offers amazing 360-degree views of the city skyline. Visit the indoor/outdoor observation deck, 470 feet up, for an unforgettable experience.
 
 Admire the views, day or night, up to 32 miles away, including Fort Worth. Use the free zoom cameras and telescopes for close-up views of Dallas landmarks.
 
-Before you go, stop by the photo kiosk to email yourself a free digital souvenir photo.</p>
-          <div class="card-footer">
-            <span class="price">From €17.74</span>
-            <span class="rating">⭐ 4.1 (42)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-reunion-tower-entry-self-guided-tour-p1093741/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Before you go, stop by the photo kiosk to email yourself a free digital souvenir photo.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(42)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.74</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-reunion-tower-entry-self-guided-tour-p1093741/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a185de2475bc48748fdaf2da036a7a11.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SEA LIFE Grapevine" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>SEA LIFE Grapevine</h3>
-          <p class="venue">📍 SEA LIFE Grapevine Aquarium Dallas</p>
-          <p>If watching ocean documentaries on TV feels like paddling in the shallows, dive into a deep blue world of marine wildlife at SEA LIFE Grapevine. Get immersed in close encounters with gliding sharks, graceful rays, crafty octopuses, colorful clownfish, adorable sea turtles, and lots more.</p>
-          <div class="card-footer">
-            <span class="price">From €17.74</span>
-            <span class="rating">⭐ 4 (40)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sea-life-grapevine-p976500/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a185de2475bc48748fdaf2da036a7a11.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SEA LIFE Grapevine" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DALLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEA LIFE GRAPEVINE AQUARIUM DALLAS</span>
+        </div>
+        <div class="tq-card-title">SEA LIFE Grapevine</div>
+        <div class="tq-card-desc">If watching ocean documentaries on TV feels like paddling in the shallows, dive into a deep blue world of marine wildlife at SEA LIFE Grapevine. Get immersed in close encounters with gliding sharks, graceful rays, crafty octopuses, colorful clownfish, adorable sea turtles, and lots more.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(40)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.74</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sea-life-grapevine-p976500/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/35fbe43c6ab148a8a3013d61bb70358b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dallas CityPASS®" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Dallas CityPASS®</h3>
-          <p class="venue">📍 Perot Museum of Nature and Science</p>
-          <p>Dallas is so much more than shoulder pads and beef steaks. Now you can enjoy admission to any four top Texas attractions in Dallas, and save 56% on the regular ticket prices to Perot Museum of Nature and Science & Reunion Tower GeO-Dec. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/35fbe43c6ab148a8a3013d61bb70358b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dallas CityPASS®" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DALLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PEROT MUSEUM OF NATURE AND SCIENCE</span>
+        </div>
+        <div class="tq-card-title">Dallas CityPASS®</div>
+        <div class="tq-card-desc">Dallas is so much more than shoulder pads and beef steaks. Now you can enjoy admission to any four top Texas attractions in Dallas, and save 56% on the regular ticket prices to Perot Museum of Nature and Science & Reunion Tower GeO-Dec. 
 
 Visit the My CityPASS® App to secure attraction reservations and other important attraction information.
 
-The ticket includes a small-group tour led by knowledgeable guides. Guests may choose the guided tour of the Dallas Cowboys' headquarters and practice facility at The Star in Frisco instead. (All tours are subject to availability).</p>
-          <div class="card-footer">
-            <span class="price">From €55.18</span>
-            <span class="rating">⭐ 4.5 (15)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-dallas-citypass-p1002100/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The ticket includes a small-group tour led by knowledgeable guides. Guests may choose the guided tour of the Dallas Cowboys' headquarters and practice facility at The Star in Frisco instead. (All tours are subject to availability).</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(15)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.18</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-dallas-citypass-p1002100/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/211ac70af837403684604a5199c022de.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rainbow Vomit Art Exhibition" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rainbow Vomit Art Exhibition</h3>
-          <p class="venue">📍 Rainbow Vomit</p>
-          <p>Rainbow Vomit is "sick" in all the right ways! Welcome to one of Dallas’ top-rated museums and a hilarious day out in Dallas.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/211ac70af837403684604a5199c022de.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rainbow Vomit Art Exhibition" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DALLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RAINBOW VOMIT</span>
+        </div>
+        <div class="tq-card-title">Rainbow Vomit Art Exhibition</div>
+        <div class="tq-card-desc">Rainbow Vomit is "sick" in all the right ways! Welcome to one of Dallas’ top-rated museums and a hilarious day out in Dallas.
 
 Get your Rainbow Vomit tickets and dive into a colorful, immersive art experience that's both an interactive photography exhibit and a unique event space designed to transport you into a world of art, light, and sound. Become the hero of your own comic, ride a hot air balloon, and capture the fun in over 20 Instagram-worthy photo spots.
 
-The installations at Rainbow Vomit were built by a team of over 15 artists and creatives, led by creators Deanna Theis, Robert Andrews, and Jason Mendez. The current installation features over 10,000 LEDs, 2,000 balloons, 300 pounds of cotton, 4 miles of ribbon, *and* a life-sized unicorn!</p>
-          <div class="card-footer">
-            <span class="price">From €23.28</span>
-            <span class="rating">⭐ 4.4 (20)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rainbow-vomit-art-exhibition-p1034004/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The installations at Rainbow Vomit were built by a team of over 15 artists and creatives, led by creators Deanna Theis, Robert Andrews, and Jason Mendez. The current installation features over 10,000 LEDs, 2,000 balloons, 300 pounds of cotton, 4 miles of ribbon, *and* a life-sized unicorn!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(20)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.28</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rainbow-vomit-art-exhibition-p1034004/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/014a3af6c4a84619817925c4c30591be.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Plaza Premium Lounge at Dallas Fort Worth International Airport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Plaza Premium Lounge at Dallas Fort Worth International Airport</h3>
-          <p class="venue">📍 Plaza Premium Lounge at Dallas Fort Worth International Airport</p>
-          <p>Ready for a taste of Texas hospitality? Even if you're just passing through you'll get the full VIP treatment at Plaza Premium Lounge’s very first lounge in the United States.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/014a3af6c4a84619817925c4c30591be.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Plaza Premium Lounge at Dallas Fort Worth International Airport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DALLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PLAZA PREMIUM LOUNGE AT DALLAS FORT WORTH INTERNATIONAL AIRPORT</span>
+        </div>
+        <div class="tq-card-title">Plaza Premium Lounge at Dallas Fort Worth International Airport</div>
+        <div class="tq-card-desc">Ready for a taste of Texas hospitality? Even if you're just passing through you'll get the full VIP treatment at Plaza Premium Lounge’s very first lounge in the United States.
  
-Located at Terminal E near Gate E31, the lounge is a 2-minute walk from the Skylink train that connects to Terminal A, B, C and D. Enjoy comfy seats, local authentic and international food, free WiFi and the signature Aerobar serving up a selection of locally crafted beers, cocktails, wine and liquors. Treat yourself, ya'll!</p>
-          <div class="card-footer">
-            <span class="price">From €59.49</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-plaza-premium-lounge-at-dallas-fort-worth-international-airport-p1011013/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Located at Terminal E near Gate E31, the lounge is a 2-minute walk from the Skylink train that connects to Terminal A, B, C and D. Enjoy comfy seats, local authentic and international food, free WiFi and the signature Aerobar serving up a selection of locally crafted beers, cocktails, wine and liquors. Treat yourself, ya'll!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€59.49</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-plaza-premium-lounge-at-dallas-fort-worth-international-airport-p1011013/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef9f577d5684467ab97b553abffb155c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="AT&T Stadium: Dallas Cowboys Football Game" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>AT&T Stadium: Dallas Cowboys Football Game</h3>
-          <p class="venue">📍 AT&T Stadium</p>
-          <p>Watch the Dallas Cowboys play at AT&T Stadium in Arlington, Texas. Enjoy pre-assigned seating and the excitement of an NFL game. AT&T Stadium, also known as Jerry World, can hold over 100,000 fans and features a retractable roof and the world's largest video board.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef9f577d5684467ab97b553abffb155c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="AT&T Stadium: Dallas Cowboys Football Game" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DALLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AT&T STADIUM</span>
+        </div>
+        <div class="tq-card-title">AT&T Stadium: Dallas Cowboys Football Game</div>
+        <div class="tq-card-desc">Watch the Dallas Cowboys play at AT&T Stadium in Arlington, Texas. Enjoy pre-assigned seating and the excitement of an NFL game. AT&T Stadium, also known as Jerry World, can hold over 100,000 fans and features a retractable roof and the world's largest video board.
 
-Join the sea of Navy and Silver fans and enjoy great concessions, facilities, and entertainment. Whether you're alone or with a group, an outing to see the Dallas Cowboys in action is truly unforgettable.</p>
-          <div class="card-footer">
-            <span class="price">From €125.08</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-att-stadium-dallas-cowboys-football-game-p1099405/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Join the sea of Navy and Silver fans and enjoy great concessions, facilities, and entertainment. Whether you're alone or with a group, an outing to see the Dallas Cowboys in action is truly unforgettable.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€125.08</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-att-stadium-dallas-cowboys-football-game-p1099405/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d57d4cf0bd9c4c47baa93f5fe3972222.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fort Worth Stockyards: Ghost Tour Pub Crawl" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Fort Worth Stockyards: Ghost Tour Pub Crawl</h3>
-          <p class="venue">📍 Dallas Food & Drinks</p>
-          <p>Calling all ghost enthusiasts and nightlife lovers to join an exciting Fort Worth Haunted Pub Tour. The tour promises a memorable evening of spine-chilling tales, historic charm, and libations galore.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d57d4cf0bd9c4c47baa93f5fe3972222.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fort Worth Stockyards: Ghost Tour Pub Crawl" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DALLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DALLAS FOOD & DRINKS</span>
+        </div>
+        <div class="tq-card-title">Fort Worth Stockyards: Ghost Tour Pub Crawl</div>
+        <div class="tq-card-desc">Calling all ghost enthusiasts and nightlife lovers to join an exciting Fort Worth Haunted Pub Tour. The tour promises a memorable evening of spine-chilling tales, historic charm, and libations galore.
 
 The group will be led by a costumed guide through the legendary Fort Worth Stockyards, starting at a notoriously haunted watering hole. The chance to relish a favorite spirit exists as the guide amuses the group with eerie tales and intriguing history of how "Cowtown" earned its name.
 
-The trip then winds through the historic streets of Fort Worth, including the iconic Exchange Avenue. Within the confines of the Stockyards, to-go beverages are permitted, providing ample opportunities to satisfy your thirst and calm your nerves as the haunted stories unfold.</p>
-          <div class="card-footer">
-            <span class="price">From €29.07</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fort-worth-stockyards-ghost-tour-pub-crawl-p1086413/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The trip then winds through the historic streets of Fort Worth, including the iconic Exchange Avenue. Within the confines of the Stockyards, to-go beverages are permitted, providing ample opportunities to satisfy your thirst and calm your nerves as the haunted stories unfold.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fort-worth-stockyards-ghost-tour-pub-crawl-p1086413/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d57d4cf0bd9c4c47baa93f5fe3972222.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dallas: Ghost Tour and Pub Crawl" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Dallas: Ghost Tour and Pub Crawl</h3>
-          <p class="venue">📍 Dallas Food & Drinks</p>
-          <p>Prepare for a spooky evening in Dallas. This interesting blend of ghost tour and pub crawl offers a night brimming with spectral surprises, shocking stories, and perhaps a pint or two. Join a costumed guide for an exciting tour through the city's historical district, where the architecture is as rich in mysterious tales as it is in history.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d57d4cf0bd9c4c47baa93f5fe3972222.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dallas: Ghost Tour and Pub Crawl" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DALLAS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DALLAS FOOD & DRINKS</span>
+        </div>
+        <div class="tq-card-title">Dallas: Ghost Tour and Pub Crawl</div>
+        <div class="tq-card-desc">Prepare for a spooky evening in Dallas. This interesting blend of ghost tour and pub crawl offers a night brimming with spectral surprises, shocking stories, and perhaps a pint or two. Join a costumed guide for an exciting tour through the city's historical district, where the architecture is as rich in mysterious tales as it is in history.
 
-Each haunting halt on the tour is a lively bar, each swarming with its own ghostly inhabitants and spine-chilling chronicles. As you explore the pulsating Dallas nightlife, the guide unravels the city's intriguing history and its eeriest ghostly tales.</p>
-          <div class="card-footer">
-            <span class="price">From €29.07</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-dallas-ghost-tour-pub-crawl-p1078247/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Each haunting halt on the tour is a lively bar, each swarming with its own ghostly inhabitants and spine-chilling chronicles. As you explore the pulsating Dallas nightlife, the guide unravels the city's intriguing history and its eeriest ghostly tales.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.07</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-dallas-ghost-tour-pub-crawl-p1078247/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

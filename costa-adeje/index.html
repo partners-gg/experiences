@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Costa Adeje | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Costa Adeje. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,329 +131,538 @@
     <p>19 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c508448720ef46a2bfbefe37421dac9f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siam Park: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siam Park: Entry Ticket</h3>
-          <p class="venue">📍 Siam Park</p>
-          <p>Get ready to make waves, as you splash around the world's greatest water park. With dozens of pulse-pounding rides and family-friendly aquatic experiences, you can look forward to a wet and wild adventure, surrounded by a lush tropical 'jungle' and the stunning Tenerife vistas beyond.</p>
-          <div class="card-footer">
-            <span class="price">From €44</span>
-            <span class="rating">⭐ 4.5 (3141)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siam-park-p975155/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c508448720ef46a2bfbefe37421dac9f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siam Park: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIAM PARK</span>
+        </div>
+        <div class="tq-card-title">Siam Park: Entry Ticket</div>
+        <div class="tq-card-desc">Get ready to make waves, as you splash around the world's greatest water park. With dozens of pulse-pounding rides and family-friendly aquatic experiences, you can look forward to a wet and wild adventure, surrounded by a lush tropical 'jungle' and the stunning Tenerife vistas beyond.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(3,141)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€44.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siam-park-p975155/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="History: The Evolution of Music Show" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>History: The Evolution of Music Show</h3>
-          <p class="venue">📍 History the Show</p>
-          <p>Step into the musical history with a musical spectacle in Tenerife. This energetic musical event brings together over 30 musicians, singers, dancers, and acrobats to recreate iconic moments from music history.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="History: The Evolution of Music Show" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HISTORY THE SHOW</span>
+        </div>
+        <div class="tq-card-title">History: The Evolution of Music Show</div>
+        <div class="tq-card-desc">Step into the musical history with a musical spectacle in Tenerife. This energetic musical event brings together over 30 musicians, singers, dancers, and acrobats to recreate iconic moments from music history.
 
 From Mozart to Michael Jackson, Gregorian chants to Coldplay, Beethoven to Queen, Chopin to The Beatles, and Caruso to Elvis Presley, the show features a wide range of artists spanning genres and eras. With vibrant costumes, dynamic choreography, and fascinating staging, audiences will be transported through the evolution of music.
 
-Perfect for the entire family, this show offers an exciting time travel through the annals of music.</p>
-          <div class="card-footer">
-            <span class="price">From €49</span>
-            <span class="rating">⭐ 4.8 (119)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-history-the-evolution-of-music-show-p1093459/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Perfect for the entire family, this show offers an exciting time travel through the annals of music.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(119)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€49.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-history-the-evolution-of-music-show-p1093459/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aqua Thermal Spa: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aqua Thermal Spa: Entry Ticket</h3>
-          <p class="venue">📍 Thermal Water Club</p>
-          <p>Appreciate a spa experience that includes hot tubs, a relaxation pool, a toning pool, a Turkish bath, a shower temple, a foot soak, a pre-sauna Templarium, a traditional sauna, and a flotarium.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aqua Thermal Spa: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">THERMAL WATER CLUB</span>
+        </div>
+        <div class="tq-card-title">Aqua Thermal Spa: Entry Ticket</div>
+        <div class="tq-card-desc">Appreciate a spa experience that includes hot tubs, a relaxation pool, a toning pool, a Turkish bath, a shower temple, a foot soak, a pre-sauna Templarium, a traditional sauna, and a flotarium.
 
-The designated relaxation area provides a peaceful space to unwind. Furthermore, the spa's therapeutic water jets aim to ease everyday stresses and strains.</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐ 4.4 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aqua-thermal-spa-entry-p1088092/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The designated relaxation area provides a peaceful space to unwind. Furthermore, the spa's therapeutic water jets aim to ease everyday stresses and strains.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aqua-thermal-spa-entry-p1088092/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/309a3b8ad5184a79b76a921bdf2051b3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Loro Parque & Siam Park: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Loro Parque & Siam Park: Entry Ticket</h3>
-          <p class="venue">📍 Siam Park</p>
-          <p>Enjoy a two-for-one adrenaline-packed adventure, with this special ticket to Tenerife's wildest attractions. Get back to nature amid thousands of exotic animals at the famous Loro Parque zoo, then go wild at one of the world's greatest waterparks – the awe-inspiring Siam Park.</p>
-          <div class="card-footer">
-            <span class="price">From €78</span>
-            <span class="rating">⭐ 4.7 (1173)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-loro-parque-siam-park-p975161/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/309a3b8ad5184a79b76a921bdf2051b3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Loro Parque & Siam Park: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIAM PARK</span>
+        </div>
+        <div class="tq-card-title">Loro Parque & Siam Park: Entry Ticket</div>
+        <div class="tq-card-desc">Enjoy a two-for-one adrenaline-packed adventure, with this special ticket to Tenerife's wildest attractions. Get back to nature amid thousands of exotic animals at the famous Loro Parque zoo, then go wild at one of the world's greatest waterparks – the awe-inspiring Siam Park.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(1,173)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€78.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-loro-parque-siam-park-p975161/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/543a88967feb49799aa19fb3edbf5835.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Music Hall Tavern Tenerife: Comedy Drag Show Ticket + Dinner" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Music Hall Tavern Tenerife: Comedy Drag Show Ticket + Dinner</h3>
-          <p class="venue">📍 MHT - Music Hall Tavern Tenerife</p>
-          <p>Enjoy a 3-course dinner before a lively comedy drag show at the Music Hall Tavern. Enjoy a meal that includes seasonal vegetable soup, turkey roast dinner, and ice cream for dessert.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/543a88967feb49799aa19fb3edbf5835.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Music Hall Tavern Tenerife: Comedy Drag Show Ticket + Dinner" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MHT - MUSIC HALL TAVERN TENERIFE</span>
+        </div>
+        <div class="tq-card-title">Music Hall Tavern Tenerife: Comedy Drag Show Ticket + Dinner</div>
+        <div class="tq-card-desc">Enjoy a 3-course dinner before a lively comedy drag show at the Music Hall Tavern. Enjoy a meal that includes seasonal vegetable soup, turkey roast dinner, and ice cream for dessert.
 
 Watch a variety of performances featuring music, mime, and dance during the drag show. The evening includes a dynamic 2-part show with a brief 15-minute interval between acts.
 
-Choose the hotel pickup option for a convenient start to your evening and relax while enjoying the entertainment.</p>
-          <div class="card-footer">
-            <span class="price">From €44</span>
-            <span class="rating">⭐ 4.8 (17)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-music-hall-tavern-tenerife-comedy-drag-show-ticket-dinner-p1098853/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Choose the hotel pickup option for a convenient start to your evening and relax while enjoying the entertainment.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(17)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€44.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-music-hall-tavern-tenerife-comedy-drag-show-ticket-dinner-p1098853/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c508448720ef46a2bfbefe37421dac9f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 3-Hour Whale & Dolphin Watching Eco-Catamaran Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tenerife: 3-Hour Whale & Dolphin Watching Eco-Catamaran Tour</h3>
-          <p class="venue">📍 Tenerife Sailing Tours</p>
-          <p>Looking to go Whale Watching in Tenerfie? Why not add some dolphins, free refreshments and an eco-friendly vessel?
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c508448720ef46a2bfbefe37421dac9f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 3-Hour Whale & Dolphin Watching Eco-Catamaran Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TENERIFE SAILING TOURS</span>
+        </div>
+        <div class="tq-card-title">Tenerife: 3-Hour Whale & Dolphin Watching Eco-Catamaran Tour</div>
+        <div class="tq-card-desc">Looking to go Whale Watching in Tenerfie? Why not add some dolphins, free refreshments and an eco-friendly vessel?
 
 Dolphins and whales banter just as much as humans, and now's your chance to hear them thanks to underwater sound equipment and speakers. On this eco-catamaran adventure, you'll sail in search of the underwater sonar calls of majestic marine mammals, and see life from their perspective as you swim and snorkel in their serene marine habitat.
 
 Slap on a snorkel, jump in, and enjoy some swimmingly good fun in the water yourself – you'll have a whale of a time! Enjoy whale- and dolphin-watching, swim in crystal clear waters, and navigate along the south coast of the island of Tenerife. To top it all off, complimentary refreshments are served on board.
 
-Depending on which date you select, the tour can last either three or five hours, covering largely the same area. So double-check your date and time slot to pick the tour length that suits you best.</p>
-          <div class="card-footer">
-            <span class="price">From €44</span>
-            <span class="rating">⭐ 4.6 (114)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tenerife-whale-and-dolphin-watching-and-listening-in-an-eco-catamaran-p976444/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Depending on which date you select, the tour can last either three or five hours, covering largely the same area. So double-check your date and time slot to pick the tour length that suits you best.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(114)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€44.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tenerife-whale-and-dolphin-watching-and-listening-in-an-eco-catamaran-p976444/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: Las Americas Outdoor Kart Racing" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tenerife: Las Americas Outdoor Kart Racing</h3>
-          <p class="venue">📍 Karting Las Americas</p>
-          <p>Ready, set, and GO with online tickets for outdoor karting at Las Americas in Tenerife – the fastest track in the country.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: Las Americas Outdoor Kart Racing" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KARTING LAS AMERICAS</span>
+        </div>
+        <div class="tq-card-title">Tenerife: Las Americas Outdoor Kart Racing</div>
+        <div class="tq-card-desc">Ready, set, and GO with online tickets for outdoor karting at Las Americas in Tenerife – the fastest track in the country.
 
 Whip around curves, fly down the straights, and put the pedal to the metal with a powerful 270cc 4-stroke Honda engine. Rush to overtake your competitors at speeds up to 21 km/h (75 mph) and strive for record speed with each thrilling lap. 
 
-Perfect for adults and families alike – no racing experience required!</p>
-          <div class="card-footer">
-            <span class="price">From €20</span>
-            <span class="rating">⭐ 4.6 (49)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tenerife-las-americas-outdoor-kart-racing-p1037543/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Perfect for adults and families alike – no racing experience required!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(49)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tenerife-las-americas-outdoor-kart-racing-p1037543/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9060a4af981445e992dde9e4196c4039.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aqualand Costa Adeje: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aqualand Costa Adeje: Entry Ticket</h3>
-          <p class="venue">📍 Aqualand Costa Adeje</p>
-          <p>Dive into a world of watery adventure in Tenerife's Aqualand Costa Adeje. The park's giant waterslides, like the new and fun *Tsunami and Cyclones*, or *Tornado* and *Kamikaze*, *Twister Racer* and *Multisurf* are guaranteed to have you screaming for more, while the *Lava River* and wave pool are perfect for relaxing.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9060a4af981445e992dde9e4196c4039.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aqualand Costa Adeje: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AQUALAND COSTA ADEJE</span>
+        </div>
+        <div class="tq-card-title">Aqualand Costa Adeje: Entry Ticket</div>
+        <div class="tq-card-desc">Dive into a world of watery adventure in Tenerife's Aqualand Costa Adeje. The park's giant waterslides, like the new and fun *Tsunami and Cyclones*, or *Tornado* and *Kamikaze*, *Twister Racer* and *Multisurf* are guaranteed to have you screaming for more, while the *Lava River* and wave pool are perfect for relaxing.
 
 Kids will have a blast splashing around in *Adventure Island* and *Pirate Port*, while grownups can get some me-time in the open-air spa, complete with jacuzzis and powerful hydro-massage showers.
 
 And then there are the majestic dolphins! You'll be able to catch your finned friends doing their fabulous thing with live shows at 3:30 pm every day in the dedicated arena.
 
-The whole family can make a splash in this watery wonderland!</p>
-          <div class="card-footer">
-            <span class="price">From €37</span>
-            <span class="rating">⭐ 4.4 (202)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aqualand-costa-adeje-p975457/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The whole family can make a splash in this watery wonderland!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(202)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€37.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aqualand-costa-adeje-p975457/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c508448720ef46a2bfbefe37421dac9f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siam Park: All-Inclusive Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siam Park: All-Inclusive Ticket</h3>
-          <p class="venue">📍 Siam Park</p>
-          <p>Enjoy a full day at one of the world’s best water parks with an all-inclusive ticket. Skip the lines with unlimited fast pass access and make the most of the park’s water rides and family attractions. Your ticket also covers a towel and locker, so you don’t need to bring extra gear.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c508448720ef46a2bfbefe37421dac9f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siam Park: All-Inclusive Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIAM PARK</span>
+        </div>
+        <div class="tq-card-title">Siam Park: All-Inclusive Ticket</div>
+        <div class="tq-card-desc">Enjoy a full day at one of the world’s best water parks with an all-inclusive ticket. Skip the lines with unlimited fast pass access and make the most of the park’s water rides and family attractions. Your ticket also covers a towel and locker, so you don’t need to bring extra gear.
 
 The park offers a wide range of water rides, slides, and play areas for all ages. Kids have their own special zones, while everyone can relax or have fun surrounded by tropical plants. As you explore, you’ll also enjoy great views of Tenerife.
 
-Food and drinks are included at the Beach Club, Thai House, Coco Beach, Thai Bar, and Sports Bar. Chocolate bars, ice cream, and alcoholic drinks are not included.</p>
-          <div class="card-footer">
-            <span class="price">From €169</span>
-            <span class="rating">⭐ 4.9 (23)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siam-park-all-inclusive-ticket-p1117007/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Food and drinks are included at the Beach Club, Thai House, Coco Beach, Thai Bar, and Sports Bar. Chocolate bars, ice cream, and alcoholic drinks are not included.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(23)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€169.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siam-park-all-inclusive-ticket-p1117007/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/55d1a12a5ff04418b236529b9a37cb40.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siam Park: Admission Ticket & Transport from Puerto De La Cruz" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siam Park: Admission Ticket & Transport from Puerto De La Cruz</h3>
-          <p class="venue">📍 Siam Park</p>
-          <p>Whether you want white-sand beaches or white-knuckle rides, you'll find it at Siam Park. Grab hold of your mates and take on the Dragon or Kinnaree for exciting tube rides, before you work up the courage to speed down the toboggan-style Singha slide. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/55d1a12a5ff04418b236529b9a37cb40.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siam Park: Admission Ticket & Transport from Puerto De La Cruz" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIAM PARK</span>
+        </div>
+        <div class="tq-card-title">Siam Park: Admission Ticket & Transport from Puerto De La Cruz</div>
+        <div class="tq-card-desc">Whether you want white-sand beaches or white-knuckle rides, you'll find it at Siam Park. Grab hold of your mates and take on the Dragon or Kinnaree for exciting tube rides, before you work up the courage to speed down the toboggan-style Singha slide. 
 
-There's rapids, a huge wave pool, and splash zones the little ones will love. When everyone's tired from the non-stop action, it's time to hop on your transport back to Puerto De La Cruz. It's a day well-spent in Tenerife's thrill-packed park.</p>
-          <div class="card-footer">
-            <span class="price">From €66</span>
-            <span class="rating">⭐ 3.8 (109)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siam-park-entrance-transport-from-puerto-de-la-cruz-p992624/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There's rapids, a huge wave pool, and splash zones the little ones will love. When everyone's tired from the non-stop action, it's time to hop on your transport back to Puerto De La Cruz. It's a day well-spent in Tenerife's thrill-packed park.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(109)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€66.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siam-park-entrance-transport-from-puerto-de-la-cruz-p992624/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Costa Adeje: Scandal Dinner Show" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Costa Adeje: Scandal Dinner Show</h3>
-          <p class="venue">📍 Las Olas Showroom</p>
-          <p>Enjoy an evening at the Scandal Dinner Show, where a vibrant troupe delivers creative and lively performances. The show celebrates self-assurance and welcomes all identities, offering delicious cuisine and non-stop entertainment.</p>
-          <div class="card-footer">
-            <span class="price">From €94</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-costa-adeje-scandal-dinner-show-p1098087/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Costa Adeje: Scandal Dinner Show" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAS OLAS SHOWROOM</span>
+        </div>
+        <div class="tq-card-title">Costa Adeje: Scandal Dinner Show</div>
+        <div class="tq-card-desc">Enjoy an evening at the Scandal Dinner Show, where a vibrant troupe delivers creative and lively performances. The show celebrates self-assurance and welcomes all identities, offering delicious cuisine and non-stop entertainment.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€94.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-costa-adeje-scandal-dinner-show-p1098087/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 3-Hour Whale & Dolphin Watching Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tenerife: 3-Hour Whale & Dolphin Watching Tour</h3>
-          <p class="venue">📍 Tenerife Sailing Tours</p>
-          <p>Whale watching in Tenerife is one of the best activities you can do in the Canary Islands – its waters have the optimal conditions for a great marine diversity to live. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 3-Hour Whale & Dolphin Watching Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TENERIFE SAILING TOURS</span>
+        </div>
+        <div class="tq-card-title">Tenerife: 3-Hour Whale & Dolphin Watching Tour</div>
+        <div class="tq-card-desc">Whale watching in Tenerife is one of the best activities you can do in the Canary Islands – its waters have the optimal conditions for a great marine diversity to live. 
 
 During this catamaran excursion, you can enjoy beautiful views of the southwest coast of Tenerife as you sail in search of whales and dolphins in the area of Costa Adeje. 
 
-Your specialized guide will teach you about the characteristics of the species of whales and dolphins that you will be able to see living in their natural habitat – pilot whales, bottlenose dolphins, Atlantic spotted dolphins, and more!</p>
-          <div class="card-footer">
-            <span class="price">From €47</span>
-            <span class="rating">⭐ 4.1 (11)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tenerife-3-hour-dolphin-and-whale-watching-tour-p1072409/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your specialized guide will teach you about the characteristics of the species of whales and dolphins that you will be able to see living in their natural habitat – pilot whales, bottlenose dolphins, Atlantic spotted dolphins, and more!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(11)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tenerife-3-hour-dolphin-and-whale-watching-tour-p1072409/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c508448720ef46a2bfbefe37421dac9f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siam Park & Loro Parque: Entry Ticket + Siam Park Transfer from North" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siam Park & Loro Parque: Entry Ticket + Siam Park Transfer from North</h3>
-          <p class="venue">📍 Siam Park</p>
-          <p>Get entry to both Loro Parque and Siam Park with one ticket that also includes transfer to Siam Park from South Tenerife.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c508448720ef46a2bfbefe37421dac9f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siam Park & Loro Parque: Entry Ticket + Siam Park Transfer from North" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIAM PARK</span>
+        </div>
+        <div class="tq-card-title">Siam Park & Loro Parque: Entry Ticket + Siam Park Transfer from North</div>
+        <div class="tq-card-desc">Get entry to both Loro Parque and Siam Park with one ticket that also includes transfer to Siam Park from South Tenerife.
 
 Head to Siam Park in Costa Adeje for water attractions. You can ride slides, enjoy a giant artificial wave, and explore a Thai-themed setting.
 
-Visit Loro Parque in Puerto de la Cruz. It has a large collection of parrots, exotic animals, and tropical gardens. You can also see various animal shows.</p>
-          <div class="card-footer">
-            <span class="price">From €98</span>
-            <span class="rating">⭐ 3.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siam-park-loro-parque-entry-siam-park-transfer-from-north-p1118555/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit Loro Parque in Puerto de la Cruz. It has a large collection of parrots, exotic animals, and tropical gardens. You can also see various animal shows.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€98.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siam-park-loro-parque-entry-siam-park-transfer-from-north-p1118555/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6446860331594f3e833cd89a365d2e78.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 3-Hour Whale & Dolphin Watching Sailboat Tour with Sandwich & Drinks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tenerife: 3-Hour Whale & Dolphin Watching Sailboat Tour with Sandwich & Drinks</h3>
-          <p class="venue">📍 Tenerife Sailing Tours</p>
-          <p>Hop on board a speedy sailboat and set out across Tenerife's beautiful waters for a bit of whale and dolphin watching. See these majestic creatures breaching and leaping out of the water during this three-hour cruise. Kick back with snacks and various refreshments as you float on gentle waves and soak up some rays.</p>
-          <div class="card-footer">
-            <span class="price">From €58</span>
-            <span class="rating">⭐ 4.3 (12)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-whale-and-dolphin-watching-from-a-sailboat-p976446/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6446860331594f3e833cd89a365d2e78.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 3-Hour Whale & Dolphin Watching Sailboat Tour with Sandwich & Drinks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TENERIFE SAILING TOURS</span>
+        </div>
+        <div class="tq-card-title">Tenerife: 3-Hour Whale & Dolphin Watching Sailboat Tour with Sandwich & Drinks</div>
+        <div class="tq-card-desc">Hop on board a speedy sailboat and set out across Tenerife's beautiful waters for a bit of whale and dolphin watching. See these majestic creatures breaching and leaping out of the water during this three-hour cruise. Kick back with snacks and various refreshments as you float on gentle waves and soak up some rays.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(12)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€58.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-whale-and-dolphin-watching-from-a-sailboat-p976446/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siam Park & Siam Night: Twin Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siam Park & Siam Night: Twin Entry Ticket</h3>
-          <p class="venue">📍 Siam Park</p>
-          <p>Get ready for Siam Night at Siam Park, a tropical waterpark. Enjoy DJ music, dancing lights, laser beams, disco fog, fire effects, and shadows. Ride the water slides, float on the lazy river, and relax on the sandy beach.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siam Park & Siam Night: Twin Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIAM PARK</span>
+        </div>
+        <div class="tq-card-title">Siam Park & Siam Night: Twin Entry Ticket</div>
+        <div class="tq-card-desc">Get ready for Siam Night at Siam Park, a tropical waterpark. Enjoy DJ music, dancing lights, laser beams, disco fog, fire effects, and shadows. Ride the water slides, float on the lazy river, and relax on the sandy beach.
 
-From July 2nd to August 31st, Siam Night transforms the park into a realm of excitement and joy. Walk under palm trees and dense greenery. The wave palace and lazy river will captivate you even more at night with the fun addition of lights.</p>
-          <div class="card-footer">
-            <span class="price">From €78</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siam-park-and-siam-night-twin-ticket-p1100174/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+From July 2nd to August 31st, Siam Night transforms the park into a realm of excitement and joy. Walk under palm trees and dense greenery. The wave palace and lazy river will captivate you even more at night with the fun addition of lights.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€78.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siam-park-and-siam-night-twin-ticket-p1100174/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 6-Hour Private Sailing Tour to Los Gigantes with Swim, Drink & Tapas" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tenerife: 6-Hour Private Sailing Tour to Los Gigantes with Swim, Drink & Tapas</h3>
-          <p class="venue">📍 Tenerife Sailing Tours</p>
-          <p>Set sail from the Port of the Giants aboard the Sangria to explore the coastline of the Cliffs of the Giants on this fun 6-hour sailing tour.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 6-Hour Private Sailing Tour to Los Gigantes with Swim, Drink & Tapas" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TENERIFE SAILING TOURS</span>
+        </div>
+        <div class="tq-card-title">Tenerife: 6-Hour Private Sailing Tour to Los Gigantes with Swim, Drink & Tapas</div>
+        <div class="tq-card-desc">Set sail from the Port of the Giants aboard the Sangria to explore the coastline of the Cliffs of the Giants on this fun 6-hour sailing tour.
 
 Watch the dolphins and whales as you travel between tranquil bays and coves. Stop for a swim or snorkel and admire marine life, such as sea turtles, and octopuses, or just relax on the sunny deck. Setting off again, you'll be able to enjoy a drink and tapas.
 
-If your hotel is located in the Los Gigantes area, you can take advantage of a free shuttle service to the harbor, where you'll meet your skipper and board the Sangria. After the trip, you will be transferred to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €850</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-los-gigantes-6-hour-private-sailing-tour-with-swim-drink-tapas-p1067088/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+If your hotel is located in the Los Gigantes area, you can take advantage of a free shuttle service to the harbor, where you'll meet your skipper and board the Sangria. After the trip, you will be transferred to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€850.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-los-gigantes-6-hour-private-sailing-tour-with-swim-drink-tapas-p1067088/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 3-Hour Whale & Dolphin Watching Catamaran Tour with Catering" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tenerife: 3-Hour Whale & Dolphin Watching Catamaran Tour with Catering</h3>
-          <p class="venue">📍 Tenerife Sailing Tours</p>
-          <p>Experience an unforgettable excursion aboard the exclusive Chill-out Catamaran, where you'll indulge in three hours of pure bliss. This magnificent vessel takes you on a journey along the captivating south coast of Tenerife, providing the perfect opportunity for whale and dolphin watching. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 3-Hour Whale & Dolphin Watching Catamaran Tour with Catering" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TENERIFE SAILING TOURS</span>
+        </div>
+        <div class="tq-card-title">Tenerife: 3-Hour Whale & Dolphin Watching Catamaran Tour with Catering</div>
+        <div class="tq-card-desc">Experience an unforgettable excursion aboard the exclusive Chill-out Catamaran, where you'll indulge in three hours of pure bliss. This magnificent vessel takes you on a journey along the captivating south coast of Tenerife, providing the perfect opportunity for whale and dolphin watching. 
 
 As you lounge on the bow nets or relax in the aft cockpit, keep your eyes peeled for these majestic marine creatures gracefully swimming by. Our knowledgeable crew will share fascinating insights about the diverse whale and dolphin species that call the protected natural area of Teno-Rasca their home.
 
-When hunger strikes, treat yourself to an array of delectable sandwiches that come as part of the package. Quench your thirst with a choice of complimentary beverages, including beer, water, or soft drinks, tailored to your preferences. With complimentary provisions, you'll have everything you need to unwind and enjoy every moment of this extraordinary journey.</p>
-          <div class="card-footer">
-            <span class="price">From €83</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-chill-out-catamaran-hug-p1066384/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+When hunger strikes, treat yourself to an array of delectable sandwiches that come as part of the package. Quench your thirst with a choice of complimentary beverages, including beer, water, or soft drinks, tailored to your preferences. With complimentary provisions, you'll have everything you need to unwind and enjoy every moment of this extraordinary journey.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€83.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-chill-out-catamaran-hug-p1066384/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 4.5-Hour Whale & Dolphin Watching Tour to Masca & Los Gigantes" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tenerife: 4.5-Hour Whale & Dolphin Watching Tour to Masca & Los Gigantes</h3>
-          <p class="venue">📍 Tenerife Sailing Tours</p>
-          <p>This exhilarating 4.5-hour whale and dolphin-watching tour aboard the Freebird Catamaran in Masca puts you in the best place to meet some new finned friends! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 4.5-Hour Whale & Dolphin Watching Tour to Masca & Los Gigantes" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TENERIFE SAILING TOURS</span>
+        </div>
+        <div class="tq-card-title">Tenerife: 4.5-Hour Whale & Dolphin Watching Tour to Masca & Los Gigantes</div>
+        <div class="tq-card-desc">This exhilarating 4.5-hour whale and dolphin-watching tour aboard the Freebird Catamaran in Masca puts you in the best place to meet some new finned friends! 
 
 Departing daily from Puerto Colón, Costa Adeje in Tenerife, your catamaran will set sail towards Los Gigantes and Masca, ready to spot magnificent whales and playful dolphins in their natural habitat. As you go, your guides will fill you in on some fascinating facts about the characteristics, behaviors, and migrations of these incredible cetacean species, immersing you in their captivating world.
 
-Once you've witnessed the freedom and beauty of pilot whales, bottlenose dolphins, and spotted dolphins, it's time to relax under the warm sun. Or you can dive into the refreshing waters for a swim surrounded by breathtaking natural scenery.</p>
-          <div class="card-footer">
-            <span class="price">From €60</span>
-            <span class="rating">⭐ 3.3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-masca-los-gigantes-whale-and-dolphin-watching-tour-p1065290/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Once you've witnessed the freedom and beauty of pilot whales, bottlenose dolphins, and spotted dolphins, it's time to relax under the warm sun. Or you can dive into the refreshing waters for a swim surrounded by breathtaking natural scenery.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-masca-los-gigantes-whale-and-dolphin-watching-tour-p1065290/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 3-Hour Sailing Tour to Los Gigantes with Snorkelling, Drink & Tapas" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tenerife: 3-Hour Sailing Tour to Los Gigantes with Snorkelling, Drink & Tapas</h3>
-          <p class="venue">📍 Tenerife Sailing Tours</p>
-          <p>Set sail from the Port of the Giants aboard the Sangria to explore the coastline of the Cliffs of the Giants on thiis 2-hour sailing tour. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f74495a5214ce0b81ecb6315aff5ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tenerife: 3-Hour Sailing Tour to Los Gigantes with Snorkelling, Drink & Tapas" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COSTA ADEJE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TENERIFE SAILING TOURS</span>
+        </div>
+        <div class="tq-card-title">Tenerife: 3-Hour Sailing Tour to Los Gigantes with Snorkelling, Drink & Tapas</div>
+        <div class="tq-card-desc">Set sail from the Port of the Giants aboard the Sangria to explore the coastline of the Cliffs of the Giants on thiis 2-hour sailing tour. 
 
 Watch the dolphins and whales as you travel between tranquil bays and coves. Stop for a swim or snorkel and admire marine life, such as sea turtles, and octopuses, or just relax on the sunny deck. Setting off again, you'll be able to enjoy a drink and tapas.
 
-If your hotel is located in the Los Gigantes area, you can take advantage of a free shuttle service to the harbor, where you'll meet your skipper and board the Sangria. After the trip, you will be transferred to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €70</span>
-            <span class="rating">⭐ 5 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-los-gigantes-3-hour-sailing-tour-with-bath-drink-and-tapas-p1065289/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+If your hotel is located in the Los Gigantes area, you can take advantage of a free shuttle service to the harbor, where you'll meet your skipper and board the Sangria. After the trip, you will be transferred to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€70.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-los-gigantes-3-hour-sailing-tour-with-bath-drink-and-tapas-p1065289/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

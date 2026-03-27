@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Copenhagen | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Copenhagen. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,122 +131,204 @@
     <p>55 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen Card - DISCOVER: 80+ Attractions incl. Tivoli Gardens + Transport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen Card - DISCOVER: 80+ Attractions incl. Tivoli Gardens + Transport</h3>
-          <p class="venue">📍 Copenhagen Cards</p>
-          <p>Get your personal sightseeing pass to Copenhagen with the digital Copenhagen Card-Discover and enjoy free entrance to 80+ different museums and attractions. Available for periods of 24, 48, 72, 96, and 120 hours, the card grants access to some of the city’s best museums and attractions.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen Card - DISCOVER: 80+ Attractions incl. Tivoli Gardens + Transport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN CARDS</span>
+        </div>
+        <div class="tq-card-title">Copenhagen Card - DISCOVER: 80+ Attractions incl. Tivoli Gardens + Transport</div>
+        <div class="tq-card-desc">Get your personal sightseeing pass to Copenhagen with the digital Copenhagen Card-Discover and enjoy free entrance to 80+ different museums and attractions. Available for periods of 24, 48, 72, 96, and 120 hours, the card grants access to some of the city’s best museums and attractions.
 
 While best known for its colorful architecture and friendly locals, Copenhagen comes with a hefty price tag! Save money on your holiday when you combine admission fees into one handy digital ticket to unlock all that Copenhagen has to offer.  
 
-Get from site-to-site with free and unlimited use of the transportation system, including city buses, trains, the harbor buses, and the metro. Learn more about the Danish capital at sites such as the Royal Palace, or enjoy all the thrills of one of Europe’s oldest amusement parks at Tivoli Garden.</p>
-          <div class="card-footer">
-            <span class="price">From €78.83</span>
-            <span class="rating">⭐ 4.4 (418)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-card-discover-p1068607/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get from site-to-site with free and unlimited use of the transportation system, including city buses, trains, the harbor buses, and the metro. Learn more about the Danish capital at sites such as the Royal Palace, or enjoy all the thrills of one of Europe’s oldest amusement parks at Tivoli Garden.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(418)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€78.83</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-card-discover-p1068607/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a25aa0822ec546abb1991e08e23c9486.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen City Hall: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen City Hall: Guided Tour</h3>
-          <p class="venue">📍 Copenhagen City Hall</p>
-          <p>Join your guide and tour the Copenhagen City Hall, standing proud on the City Hall Square in central Copenhagen. Find out all there is to know about the Lord Mayor and municipal council's headquarters.</p>
-          <div class="card-footer">
-            <span class="price">From €10.71</span>
-            <span class="rating">⭐ 4.8 (591)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-city-hall-guided-tour-in-english-p976620/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a25aa0822ec546abb1991e08e23c9486.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen City Hall: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN CITY HALL</span>
+        </div>
+        <div class="tq-card-title">Copenhagen City Hall: Guided Tour</div>
+        <div class="tq-card-desc">Join your guide and tour the Copenhagen City Hall, standing proud on the City Hall Square in central Copenhagen. Find out all there is to know about the Lord Mayor and municipal council's headquarters.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(591)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€10.71</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-city-hall-guided-tour-in-english-p976620/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/abec9809d41d49b082dce1d013c062fb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Museum of Denmark: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>National Museum of Denmark: Entry Ticket</h3>
-          <p class="venue">📍 National Museum of Denmark</p>
-          <p>Deep dive into a vast tapestry of Nordic (and international) cultural history at the National Museum of Denmark. Turn back the clocks with amazing exhibitions, and discover the treasures and people that played a starring role in Danish history. There's even an entire Children's Museum, where kids can absorb a healthy dose of history while they play.</p>
-          <div class="card-footer">
-            <span class="price">From €18.07</span>
-            <span class="rating">⭐ 4.4 (162)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-national-museum-of-denmark-p976347/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/abec9809d41d49b082dce1d013c062fb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Museum of Denmark: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NATIONAL MUSEUM OF DENMARK</span>
+        </div>
+        <div class="tq-card-title">National Museum of Denmark: Entry Ticket</div>
+        <div class="tq-card-desc">Deep dive into a vast tapestry of Nordic (and international) cultural history at the National Museum of Denmark. Turn back the clocks with amazing exhibitions, and discover the treasures and people that played a starring role in Danish history. There's even an entire Children's Museum, where kids can absorb a healthy dose of history while they play.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(162)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-national-museum-of-denmark-p976347/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/00c49506dd124696a3ea1064834d104b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen City Hall: Tower Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen City Hall: Tower Tour</h3>
-          <p class="venue">📍 Copenhagen City Hall</p>
-          <p>Enjoy the view from the tower at Copenhagen City Hall, accompanied by a friendly host. As one of the most iconic observation spots in the city, you'll enjoy stellar views of Tivoli Gardens, City Hall Square, and the famous shopping street, Strøget.</p>
-          <div class="card-footer">
-            <span class="price">From €8.03</span>
-            <span class="rating">⭐ 4.6 (107)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-city-hall-tower-tour-p976621/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/00c49506dd124696a3ea1064834d104b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen City Hall: Tower Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN CITY HALL</span>
+        </div>
+        <div class="tq-card-title">Copenhagen City Hall: Tower Tour</div>
+        <div class="tq-card-desc">Enjoy the view from the tower at Copenhagen City Hall, accompanied by a friendly host. As one of the most iconic observation spots in the city, you'll enjoy stellar views of Tivoli Gardens, City Hall Square, and the famous shopping street, Strøget.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(107)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8.03</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-city-hall-tower-tour-p976621/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tivoli Gardens: Christmas Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tivoli Gardens: Christmas Entry Ticket</h3>
-          <p class="venue">📍 Tivoli Gardens</p>
-          <p>Step into a true Christmas fairytale...Magical Christmas experiences for all ages await you at Christmas in Tivoli. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tivoli Gardens: Christmas Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TIVOLI GARDENS</span>
+        </div>
+        <div class="tq-card-title">Tivoli Gardens: Christmas Entry Ticket</div>
+        <div class="tq-card-desc">Step into a true Christmas fairytale...Magical Christmas experiences for all ages await you at Christmas in Tivoli. 
 
 The gardens sparkle, the scent of pine trees fills the air, and thousands of twinkling lights are sure to get you into the holiday spirit. 
 
-Christmas at Tivoli was featured on CNN's list of the world's best Christmas markets, so get ready to enjoy a cosy stroll, rosy cheeks from the rides, and treats from the snow-covered stalls.</p>
-          <div class="card-footer">
-            <span class="price">From €25.43</span>
-            <span class="rating">⭐ 4.5 (120)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tivoli-gardens-copenhagen-christmas-entry-ticket-p1121311/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Christmas at Tivoli was featured on CNN's list of the world's best Christmas markets, so get ready to enjoy a cosy stroll, rosy cheeks from the rides, and treats from the snow-covered stalls.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(120)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.43</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tivoli-gardens-copenhagen-christmas-entry-ticket-p1121311/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tivoli Gardens: Entry Ticket + Ride Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tivoli Gardens: Entry Ticket + Ride Pass</h3>
-          <p class="venue">📍 Tivoli Gardens</p>
-          <p>Tivoli Gardens opened in 1843, and it's still delighting visitors almost two hundred years later! From past to present to future – this fairground is bursting with thrills, attractions, and enchanting atmosphere.</p>
-          <div class="card-footer">
-            <span class="price">From €20.08</span>
-            <span class="rating">⭐ 4.6 (910)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tivoli-gardens-entry-ticket-p1121827/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tivoli Gardens: Entry Ticket + Ride Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TIVOLI GARDENS</span>
+        </div>
+        <div class="tq-card-title">Tivoli Gardens: Entry Ticket + Ride Pass</div>
+        <div class="tq-card-desc">Tivoli Gardens opened in 1843, and it's still delighting visitors almost two hundred years later! From past to present to future – this fairground is bursting with thrills, attractions, and enchanting atmosphere.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(910)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.08</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tivoli-gardens-entry-ticket-p1121827/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Stromma Classic Canal Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Stromma Classic Canal Tour</h3>
-          <p class="venue">📍 Copenhagen Cruises</p>
-          <p>Join this 1-hour trip through the canals of Copenhagen that starts from Nyhavn or Ved Stranden.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Stromma Classic Canal Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN CRUISES</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Stromma Classic Canal Tour</div>
+        <div class="tq-card-desc">Join this 1-hour trip through the canals of Copenhagen that starts from Nyhavn or Ved Stranden.
 
 Pass many of the city’s main attractions and landmarks, including the Little Mermaid, Amalienborg Castle – home of the royal family, and the Opera House. You’ll also sail through the city’s harbor and canals.
 
-Most tours have live guides, and some departures include an audio guide in multiple languages.</p>
-          <div class="card-footer">
-            <span class="price">From €22.62</span>
-            <span class="rating">⭐ 4.4 (64)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-stromma-canal-tour-p1086332/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Most tours have live guides, and some departures include an audio guide in multiple languages.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(64)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.62</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-stromma-canal-tour-p1086332/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/73f1d6ff8fa7410bb429aa5c5775a316.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Home of Carlsberg: Entry Ticket + Drink" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Home of Carlsberg: Entry Ticket + Drink</h3>
-          <p class="venue">📍 Home of Carlsberg</p>
-          <p>Visit the original brewery site in central Copenhagen and learn about Carlsberg's beer-brewing history, dating back to 1847. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/73f1d6ff8fa7410bb429aa5c5775a316.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Home of Carlsberg: Entry Ticket + Drink" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HOME OF CARLSBERG</span>
+        </div>
+        <div class="tq-card-title">Home of Carlsberg: Entry Ticket + Drink</div>
+        <div class="tq-card-desc">Visit the original brewery site in central Copenhagen and learn about Carlsberg's beer-brewing history, dating back to 1847. 
 
 Home of Carlsberg provides insight on everything Carlsberg, but also sheds light on special aspects of Danish culture, history, architecture of the authentic brewery buildings, and gets geeky on the brewing process behind the Carlsberg beer. In this way, the venue truly offers something to accommodate every interest. 
 
@@ -155,215 +336,347 @@ Take a break in the Carlsberg bar and courtyard, where you can enjoy a chilled C
 
 Get 20% discount at Carlsberg Aviator Lounge at Copenhagen Airport by showing your Home of Carlsberg Wristband or e-mail confirmation.
 
-Get 20% discount to AIRE Ancient Baths Copenhagen by showing your Home of Carlsberg Wristband or e-mail confirmation.</p>
-          <div class="card-footer">
-            <span class="price">From €30.11</span>
-            <span class="rating">⭐ 4.4 (34)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-home-of-carlsberg-entry-ticket-drink-p1096829/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get 20% discount to AIRE Ancient Baths Copenhagen by showing your Home of Carlsberg Wristband or e-mail confirmation.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(34)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.11</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-home-of-carlsberg-entry-ticket-drink-p1096829/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="IKONO Copenhagen: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>IKONO Copenhagen: Entry Ticket</h3>
-          <p class="venue">📍 IKONO Copenhagen</p>
-          <p>Visit IKONO in Copenhagen for a unique experience with over 10 rooms to explore in about an hour. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="IKONO Copenhagen: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">IKONO COPENHAGEN</span>
+        </div>
+        <div class="tq-card-title">IKONO Copenhagen: Entry Ticket</div>
+        <div class="tq-card-desc">Visit IKONO in Copenhagen for a unique experience with over 10 rooms to explore in about an hour. 
 
 Bring your imagination and enjoy this creative journey with friends and family.
 
-Discover new and surprising spaces that you can shape to your liking and leave with memorable experiences to share.</p>
-          <div class="card-footer">
-            <span class="price">From €22.22</span>
-            <span class="rating">⭐ 3.8 (44)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ikono-copenhagen-entry-p1102724/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover new and surprising spaces that you can shape to your liking and leave with memorable experiences to share.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(44)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.22</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ikono-copenhagen-entry-p1102724/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0f2d3682fd154387b32c1d241e9c5dfa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Red Sightseeing Copenhagen: 24H Hop-on Hop-Off Bus and Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Red Sightseeing Copenhagen: 24H Hop-on Hop-Off Bus and Boat Tour</h3>
-          <p class="venue">📍 Copenhagen Hop-on Hop-off Tours</p>
-          <p>Discover the beautiful city of Copenhagen with this open-air, double-decker bus! Hop on and off as much as you like at any of the conveniently located stops around the city.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0f2d3682fd154387b32c1d241e9c5dfa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Red Sightseeing Copenhagen: 24H Hop-on Hop-Off Bus and Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN HOP-ON HOP-OFF TOURS</span>
+        </div>
+        <div class="tq-card-title">Red Sightseeing Copenhagen: 24H Hop-on Hop-Off Bus and Boat Tour</div>
+        <div class="tq-card-desc">Discover the beautiful city of Copenhagen with this open-air, double-decker bus! Hop on and off as much as you like at any of the conveniently located stops around the city.
 
 With 22 stops around the city, the bus stops near all of Copenhagen's attractions and must-see sights. From the second oldest amusement park in the world, Tivoli, to the winter residence of the royal family, Amalienborg Palace, and many other top attractions.
 
-During the 60-minute boat tour, you’ll pass the colorful Nyhaven, the hip and happening Christianshavn, and even the world-famous statue of the Little Mermaid.</p>
-          <div class="card-footer">
-            <span class="price">From €35.5</span>
-            <span class="rating">⭐ 3.9 (101)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-red-sightseeing-copenhagen-hop-on-hop-off-bus-and-boat-tour-p1059428/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+During the 60-minute boat tour, you’ll pass the colorful Nyhaven, the hip and happening Christianshavn, and even the world-famous statue of the Little Mermaid.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(101)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€35.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-red-sightseeing-copenhagen-hop-on-hop-off-bus-and-boat-tour-p1059428/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/af1b5fc1324b4a7aa226e63466ce9d9e.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: 48-Hr Hop-on Hop-off Bus & Audio Guide + 1-Hr Canal Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: 48-Hr Hop-on Hop-off Bus & Audio Guide + 1-Hr Canal Tour</h3>
-          <p class="venue">📍 Copenhagen Hop-on Hop-off Tours</p>
-          <p>The tour commences with an intriguing 1-hour classic canal sightseeing tour as your seasoned guide will tell stories about Copenhagen's rich culture. The voyage sails past iconic landmarks like the Little Mermaid, the regal Amalienborg Palace, and the architectural wonder, the Opera House.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/af1b5fc1324b4a7aa226e63466ce9d9e.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: 48-Hr Hop-on Hop-off Bus & Audio Guide + 1-Hr Canal Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN HOP-ON HOP-OFF TOURS</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: 48-Hr Hop-on Hop-off Bus & Audio Guide + 1-Hr Canal Tour</div>
+        <div class="tq-card-desc">The tour commences with an intriguing 1-hour classic canal sightseeing tour as your seasoned guide will tell stories about Copenhagen's rich culture. The voyage sails past iconic landmarks like the Little Mermaid, the regal Amalienborg Palace, and the architectural wonder, the Opera House.
 
-This ticket gives you the liberty to craft your own city tour. Aboard hop-on-hop-off buses, you can visit gems like the magical Tivoli Gardens, the historic Christiansborg Palace, or the lively Nyhavn harbor. Each bus comes with a multilingual audio guide and complimentary earphones for a personal tour experience.</p>
-          <div class="card-footer">
-            <span class="price">From €46.71</span>
-            <span class="rating">⭐ 4.5 (17)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-48-hr-hop-on-hop-off-bus-1-hour-canal-tour-audio-guide-p1086230/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This ticket gives you the liberty to craft your own city tour. Aboard hop-on-hop-off buses, you can visit gems like the magical Tivoli Gardens, the historic Christiansborg Palace, or the lively Nyhavn harbor. Each bus comes with a multilingual audio guide and complimentary earphones for a personal tour experience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(17)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€46.71</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-48-hr-hop-on-hop-off-bus-1-hour-canal-tour-audio-guide-p1086230/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5ef7e12dd1f04f31b91cf41a70c12120.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Guinness World Records Museum Copenhagen: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Guinness World Records Museum Copenhagen: Entry Ticket</h3>
-          <p class="venue">📍 Guinness World Records Museum</p>
-          <p>Visit 11 galleries across two floors filled with records, trivia, videos, and interactives. You will find authentic memorabilia and exhibits inspired by world records. Compete in interactive games and see records from around the globe.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5ef7e12dd1f04f31b91cf41a70c12120.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Guinness World Records Museum Copenhagen: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GUINNESS WORLD RECORDS MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Guinness World Records Museum Copenhagen: Entry Ticket</div>
+        <div class="tq-card-desc">Visit 11 galleries across two floors filled with records, trivia, videos, and interactives. You will find authentic memorabilia and exhibits inspired by world records. Compete in interactive games and see records from around the globe.
 
 Try to set a new world record and attempt to solve a Rubik’s Cube quickly or stack cups with great skill. Test your memory and compare your weight to the world’s heaviest man.
 
-Challenge friends and family in the Game Zone. Meet a model with the longest legs, play Atari Pong in 3D, and see how you stack up against world records.</p>
-          <div class="card-footer">
-            <span class="price">From €22.62</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-guinness-world-records-museum-copenhagen-entry-p1113359/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Challenge friends and family in the Game Zone. Meet a model with the longest legs, play Atari Pong in 3D, and see how you stack up against world records.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.62</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-guinness-world-records-museum-copenhagen-entry-p1113359/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/af1b5fc1324b4a7aa226e63466ce9d9e.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Red Sightseeing Copenhagen: Hop-on Hop-Off Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Red Sightseeing Copenhagen: Hop-on Hop-Off Bus Tour</h3>
-          <p class="venue">📍 Copenhagen Hop-on Hop-off Tours</p>
-          <p>Make your mark in Denmark - hop on and off this Copenhagen Sightseeing Bus at different stops around the city. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/af1b5fc1324b4a7aa226e63466ce9d9e.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Red Sightseeing Copenhagen: Hop-on Hop-Off Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN HOP-ON HOP-OFF TOURS</span>
+        </div>
+        <div class="tq-card-title">Red Sightseeing Copenhagen: Hop-on Hop-Off Bus Tour</div>
+        <div class="tq-card-desc">Make your mark in Denmark - hop on and off this Copenhagen Sightseeing Bus at different stops around the city. 
 
 With 23 stops positioned strategically at cultural highlights across the Danish capital, and the ability to hop on and off as often as you like, this ticket gives you complete control over your Nordic adventure. 
 
 Ride the famous wheel in Tivoli Gardens, say hi to Hans Christian Andersen's Little Mermaid, and see the colorful storefronts by the water at Nyhavn. Hop off and stretch your legs on a waterfront stroll, relax with a coffee and a Danish pastry, and hop back on when the mood strikes.
 
-You'll learn the history as you go via your audio guide. For instance, you might learn that Copenhagen was originally a quiet fishing village which used to suffer from frequent pirate raids!</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐ 4 (97)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-copenhagen-p975081/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll learn the history as you go via your audio guide. For instance, you might learn that Copenhagen was originally a quiet fishing village which used to suffer from frequent pirate raids!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(97)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-copenhagen-p975081/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/73f1d6ff8fa7410bb429aa5c5775a316.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Self-drive Boat Rental (No License Required)" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Self-drive Boat Rental (No License Required)</h3>
-          <p class="venue">📍 Copenhagen Water Activities</p>
-          <p>Set off for an aquatic adventure with premium electric boat rentals. Experience the freedom of cruising the city's waterways in a whisper-quiet electric picnic boat. Gather your favorite people and dine on delicious food and drinks while creating memories onboard.</p>
-          <div class="card-footer">
-            <span class="price">From €73.47</span>
-            <span class="rating">⭐ 4 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-1-2-or-3-hour-boat-rental-no-license-required-p1095223/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/73f1d6ff8fa7410bb429aa5c5775a316.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Self-drive Boat Rental (No License Required)" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Self-drive Boat Rental (No License Required)</div>
+        <div class="tq-card-desc">Set off for an aquatic adventure with premium electric boat rentals. Experience the freedom of cruising the city's waterways in a whisper-quiet electric picnic boat. Gather your favorite people and dine on delicious food and drinks while creating memories onboard.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€73.47</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-1-2-or-3-hour-boat-rental-no-license-required-p1095223/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/313d9039b87a4957809f2dbe56376b7f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Danish Architecture Center: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Danish Architecture Center: Entry Ticket</h3>
-          <p class="venue">📍 Danish Architecture Center</p>
-          <p>Denmark is rather proud of its architecture, and the Danish have positioned themselves at the forefront of modern building design on a global level.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/313d9039b87a4957809f2dbe56376b7f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Danish Architecture Center: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DANISH ARCHITECTURE CENTER</span>
+        </div>
+        <div class="tq-card-title">Danish Architecture Center: Entry Ticket</div>
+        <div class="tq-card-desc">Denmark is rather proud of its architecture, and the Danish have positioned themselves at the forefront of modern building design on a global level.
 
-The Danish Architecture Center (DAC), located at the Tetris-like BLOX building in Copenhagen, celebrates this achievement by being an ideal place to discover, build, play, and explore the fundamentals of Danish architecture.</p>
-          <div class="card-footer">
-            <span class="price">From €18.07</span>
-            <span class="rating">⭐ 4.6 (51)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-danish-architecture-center-p980780/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Danish Architecture Center (DAC), located at the Tetris-like BLOX building in Copenhagen, celebrates this achievement by being an ideal place to discover, build, play, and explore the fundamentals of Danish architecture.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(51)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-danish-architecture-center-p980780/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tivoli Gardens: Halloween Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tivoli Gardens: Halloween Entry Ticket</h3>
-          <p class="venue">📍 Tivoli Gardens</p>
-          <p>Prepare for thrills and chills as witches and ghosts descend upon Tivoli! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tivoli Gardens: Halloween Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TIVOLI GARDENS</span>
+        </div>
+        <div class="tq-card-title">Tivoli Gardens: Halloween Entry Ticket</div>
+        <div class="tq-card-desc">Prepare for thrills and chills as witches and ghosts descend upon Tivoli! 
 
 Throughout the gardens, you'll encounter magical, mysterious, and dancing witches, carve pumpkins, and indulge in the many tempting treats at the stalls. 
 
 Dare to enter the two haunted houses (available for purchase onsite), but be warned – these experiences are not for the faint of heart or young children!
 
-The rides continue to whirl, and no matter your age, a delightful Halloween experience awaits you in Tivoli Gardens.</p>
-          <div class="card-footer">
-            <span class="price">From €25.43</span>
-            <span class="rating">⭐ 4.3 (15)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tivoli-gardens-halloween-entry-ticket-p1121312/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The rides continue to whirl, and no matter your age, a delightful Halloween experience awaits you in Tivoli Gardens.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(15)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.43</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tivoli-gardens-halloween-entry-ticket-p1121312/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Guided Classic Canal Tour & Harbour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Guided Classic Canal Tour & Harbour</h3>
-          <p class="venue">📍 Copenhagen Cruises</p>
-          <p>Hop onboard the Grand Canal Tour and discover Copenhagen's vibrant history and culture. Sail past the regal, centuries-old Christiansborg Palace and under the storied arches of the city's ancient bridges. This voyage, guided by a live history buff, takes you on an epic tour from the Stone Age to the present day.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Guided Classic Canal Tour & Harbour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN CRUISES</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Guided Classic Canal Tour & Harbour</div>
+        <div class="tq-card-desc">Hop onboard the Grand Canal Tour and discover Copenhagen's vibrant history and culture. Sail past the regal, centuries-old Christiansborg Palace and under the storied arches of the city's ancient bridges. This voyage, guided by a live history buff, takes you on an epic tour from the Stone Age to the present day.
 
 Go to the hip Nordhavn and sail towards the raw charm of Sydhavnen. Admire iconic sights like the Little Mermaid and the Old Stock Exchange, and discover hidden gems like the Deconstructed Diva.
 
-As the boat cuts through the waves, the guide's intriguing tales of the city's evolution will enhance your amazement at this dynamic and modern capital.</p>
-          <div class="card-footer">
-            <span class="price">From €27.97</span>
-            <span class="rating">⭐ 4.4 (17)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-guided-classic-canal-tour-harbour-p1086331/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As the boat cuts through the waves, the guide's intriguing tales of the city's evolution will enhance your amazement at this dynamic and modern capital.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(17)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.97</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-guided-classic-canal-tour-harbour-p1086331/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Christiansborg Palace: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Christiansborg Palace: Guided Tour</h3>
-          <p class="venue">📍 Christiansborg Palace</p>
-          <p>Tour Christiansborg Palace, a key site in Danish history and the seat of power in Copenhagen.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Christiansborg Palace: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CHRISTIANSBORG PALACE</span>
+        </div>
+        <div class="tq-card-title">Christiansborg Palace: Guided Tour</div>
+        <div class="tq-card-desc">Tour Christiansborg Palace, a key site in Danish history and the seat of power in Copenhagen.
 
 This guided tour covers the palace's dual role in democracy and as a royal venue.
 
-Visit the Royal Reception Rooms still used for state events, and the historic Throne Room. See the Great Tapestry Hall, where tapestries tell Denmark’s history.</p>
-          <div class="card-footer">
-            <span class="price">From €100</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-christiansborg-palace-guided-tour-p1123626/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit the Royal Reception Rooms still used for state events, and the historic Throne Room. See the Great Tapestry Hall, where tapestries tell Denmark’s history.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€100.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-christiansborg-palace-guided-tour-p1123626/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="MACA Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>MACA Museum: Entry Ticket</h3>
-          <p class="venue">📍 MACA Museum</p>
-          <p>Experience contemporary art at the MACA Museum in the vibrant city of Copenhagen. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="MACA Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MACA MUSEUM</span>
+        </div>
+        <div class="tq-card-title">MACA Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Experience contemporary art at the MACA Museum in the vibrant city of Copenhagen. 
 
 Explore a diverse collection of innovative works from both Danish and international artists, including names like Warhol, Basquiat, Banksy, RETNA, KAWS, Haring, Koons, Hirst, Emin, and Kusama. 
 
-The museum showcases a range of mediums, from paintings and sculptures to digital installations, as well as an enticing program of rotating exhibitions.</p>
-          <div class="card-footer">
-            <span class="price">From €21.41</span>
-            <span class="rating">⭐ 4.4 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-maca-museum-entry-ticket-p1090950/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The museum showcases a range of mediums, from paintings and sculptures to digital installations, as well as an enticing program of rotating exhibitions.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.41</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-maca-museum-entry-ticket-p1090950/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Stromma Copenhagen: 48-Hour Hop-on Hop-off Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Stromma Copenhagen: 48-Hour Hop-on Hop-off Bus Tour</h3>
-          <p class="venue">📍 Copenhagen Hop-on Hop-off Tours</p>
-          <p>Explore Copenhagen effortlessly with Stromma’s 48-hour hop-on hop-off bus featuring flexible routes that cover the city's main attractions. All lines run daily with multiple departures year-round.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Stromma Copenhagen: 48-Hour Hop-on Hop-off Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN HOP-ON HOP-OFF TOURS</span>
+        </div>
+        <div class="tq-card-title">Stromma Copenhagen: 48-Hour Hop-on Hop-off Bus Tour</div>
+        <div class="tq-card-desc">Explore Copenhagen effortlessly with Stromma’s 48-hour hop-on hop-off bus featuring flexible routes that cover the city's main attractions. All lines run daily with multiple departures year-round.
 
 The Classic Copenhagen route (Red Line) takes you through the city, showcasing its rich history and incredible architecture. Stops include museums, churches, and royal palaces.
 
@@ -371,75 +684,119 @@ The Home of Carlsberg route (Green Line) takes you to some of Copenhagen’s pop
 
 For a vibrant experience, choose the Colorful Copenhagen route (Purple Line). Travel through Christianshavn, home to many colorful houses; Refshaleøen, where you can visit the Reffen Street Food Market (summer only); and Freetown Christiania.
 
-Open-top buses run in summer. In winter, the buses are covered and heated for a comfortable ride.</p>
-          <div class="card-footer">
-            <span class="price">From €36</span>
-            <span class="rating">⭐ 3.3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-stromma-copenhagen-hop-on-hop-off-bus-tour-p1089603/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Open-top buses run in summer. In winter, the buses are covered and heated for a comfortable ride.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€36.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-stromma-copenhagen-hop-on-hop-off-bus-tour-p1089603/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen Card - HOP: 40+ Attractions incl. Tivoli + Hop-on Hop-off Bus" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen Card - HOP: 40+ Attractions incl. Tivoli + Hop-on Hop-off Bus</h3>
-          <p class="venue">📍 Copenhagen Cards</p>
-          <p>Get access to more than 40 attractions in central Copenhagen, plus unlimited access to Stromma's hop-on hop-off buses, which include an audio guide in six different languages.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen Card - HOP: 40+ Attractions incl. Tivoli + Hop-on Hop-off Bus" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN CARDS</span>
+        </div>
+        <div class="tq-card-title">Copenhagen Card - HOP: 40+ Attractions incl. Tivoli + Hop-on Hop-off Bus</div>
+        <div class="tq-card-desc">Get access to more than 40 attractions in central Copenhagen, plus unlimited access to Stromma's hop-on hop-off buses, which include an audio guide in six different languages.
 
 Denmark's capital city is known for its picturesque architecture, friendly locals, and serene canals – and it's price tag! Save money on your holiday by combining attraction admission fees with a Copenhagen Card, your digital pass for everything you need in Copenhagen.
 
-Just download the Copenhagen Card app on your smartphone and tap in the card code. After redeeming and activating the card you are ready to explore Copenhagen!</p>
-          <div class="card-footer">
-            <span class="price">From €80.3</span>
-            <span class="rating">⭐ 3.3 (30)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-card-hop-p1068998/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Just download the Copenhagen Card app on your smartphone and tap in the card code. After redeeming and activating the card you are ready to explore Copenhagen!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.3</strong>
+            <span class="tq-reviews">(30)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€80.30</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-card-hop-p1068998/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/abf99f60cba94bac8bbfbb72d8b19c8b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Danish Resistance: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum of Danish Resistance: Entry Ticket</h3>
-          <p class="venue">📍 Museum of Danish Resistance</p>
-          <p>The Museum of Danish Resistance tells the story about the Danish resistance during the German occupation of Denmark from 1940 to 1945.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/abf99f60cba94bac8bbfbb72d8b19c8b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Danish Resistance: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEUM OF DANISH RESISTANCE</span>
+        </div>
+        <div class="tq-card-title">Museum of Danish Resistance: Entry Ticket</div>
+        <div class="tq-card-desc">The Museum of Danish Resistance tells the story about the Danish resistance during the German occupation of Denmark from 1940 to 1945.
 
 In subterranean displays, visitors can go "underground" and be transported to the occupation years in Denmark with authentic artifacts representative of the time. Through different interactive scenes, you will discover how the German occupation affected the Danish population, and how the resistance movement began.
 
-Five historical characters will tell their stories about the difficult choices and dilemmas they faced to change the course of Danish history forever.</p>
-          <div class="card-footer">
-            <span class="price">From €17.4</span>
-            <span class="rating">⭐ 4.5 (11)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-danish-resistance-p1049240/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Five historical characters will tell their stories about the difficult choices and dilemmas they faced to change the course of Danish history forever.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(11)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.40</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-danish-resistance-p1049240/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fa6c2702411240ef9d4d13970eaf3008.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Believe It or Not! Copenhagen: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ripley's Believe It or Not! Copenhagen: Entry Ticket</h3>
-          <p class="venue">📍 Ripley's Believe It or Not! Copenhagen</p>
-          <p>Visit Ripley's Believe It or Not! in Copenhagen and see hundreds of rare artifacts and use hands-on interactive exhibits. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fa6c2702411240ef9d4d13970eaf3008.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Believe It or Not! Copenhagen: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RIPLEY'S BELIEVE IT OR NOT! COPENHAGEN</span>
+        </div>
+        <div class="tq-card-title">Ripley's Believe It or Not! Copenhagen: Entry Ticket</div>
+        <div class="tq-card-desc">Visit Ripley's Believe It or Not! in Copenhagen and see hundreds of rare artifacts and use hands-on interactive exhibits. 
 
 View unique pop art made from lint, candy, horseshoes, and butterfly wings. Meet Robert Wadlow, the world’s tallest man at 2.72 meters, and compare your height to his. 
 
-Learn about the shrunken heads in Ripley's collection, which includes over 100 authentic items. Each artifact and exhibit offers a glimpse into something unexpected.</p>
-          <div class="card-footer">
-            <span class="price">From €22.62</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ripley-s-believe-it-or-not-copenhagen-entry-p1112821/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about the shrunken heads in Ripley's collection, which includes over 100 authentic items. Each artifact and exhibit offers a glimpse into something unexpected.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.62</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ripley-s-believe-it-or-not-copenhagen-entry-p1112821/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="City Sightseeing Copenhagen: 48-Hour All Routes Hop-On Hop-Off Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>City Sightseeing Copenhagen: 48-Hour All Routes Hop-On Hop-Off Bus Tour</h3>
-          <p class="venue">📍 Copenhagen Hop-on Hop-off Tours</p>
-          <p>You absolutely cannot visit Copenhagen without a trip to the Nyhavn canal. Hop on the Classic Copenhagen route and hop off to explore the charming waterfront at your leisure.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="City Sightseeing Copenhagen: 48-Hour All Routes Hop-On Hop-Off Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN HOP-ON HOP-OFF TOURS</span>
+        </div>
+        <div class="tq-card-title">City Sightseeing Copenhagen: 48-Hour All Routes Hop-On Hop-Off Bus Tour</div>
+        <div class="tq-card-desc">You absolutely cannot visit Copenhagen without a trip to the Nyhavn canal. Hop on the Classic Copenhagen route and hop off to explore the charming waterfront at your leisure.
 
 Walk by jazz bars, try local food, and see the colorful terraces by the canal. This area has a history built by Swedish war prisoners in the 17th century and was once known for its wild nightlife.
 
@@ -447,89 +804,144 @@ The spirit of Hans Christian Andersen, Denmark's national hero, is felt here. Ta
 
 Then visit the Little Mermaid statue, a tribute to Andersen’s famous story. Nearby, walk along the Langelinie pier to see parks and luxury cruise ships.
 
-With this 48 hour ticket covering all routes, your tour to all must-see attractions in Copenhagen is secured!</p>
-          <div class="card-footer">
-            <span class="price">From €39</span>
-            <span class="rating">⭐ 4.4 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-city-sightseeing-copenhagen-48-hour-all-routes-hop-on-hop-off-bus-tour-p1098392/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With this 48 hour ticket covering all routes, your tour to all must-see attractions in Copenhagen is secured!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-city-sightseeing-copenhagen-48-hour-all-routes-hop-on-hop-off-bus-tour-p1098392/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Illusions Copenhagen: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum of Illusions Copenhagen: Entry Ticket</h3>
-          <p class="venue">📍 Museum of Illusions Copenhagen</p>
-          <p>Visit the Museum of Illusions in Copenhagen. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Illusions Copenhagen: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEUM OF ILLUSIONS COPENHAGEN</span>
+        </div>
+        <div class="tq-card-title">Museum of Illusions Copenhagen: Entry Ticket</div>
+        <div class="tq-card-desc">Visit the Museum of Illusions in Copenhagen. 
 
-See over 65 hands-on exhibitions such as vortex tunnels, rooms with fascinating visual manipulatives, and walk-in kaleidoscopes.</p>
-          <div class="card-footer">
-            <span class="price">From €26.63</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-illusions-copenhagen-entry-p1129333/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See over 65 hands-on exhibitions such as vortex tunnels, rooms with fascinating visual manipulatives, and walk-in kaleidoscopes.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.63</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-illusions-copenhagen-entry-p1129333/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="City Sightseeing Copenhagen: 72H Classic Route Hop-on Hop-off Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>City Sightseeing Copenhagen: 72H Classic Route Hop-on Hop-off Bus Tour</h3>
-          <p class="venue">📍 Copenhagen Hop-on Hop-off Tours</p>
-          <p>Wonderful, wonderful Copenhagen. You just know that if a city’s had a song written about it, it’s got to be something special! And Copenhagen is nothing if not special. With this 72-hour Classic Route ticket, you’ll be able to see and discover so many of the reasons why.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="City Sightseeing Copenhagen: 72H Classic Route Hop-on Hop-off Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN HOP-ON HOP-OFF TOURS</span>
+        </div>
+        <div class="tq-card-title">City Sightseeing Copenhagen: 72H Classic Route Hop-on Hop-off Bus Tour</div>
+        <div class="tq-card-desc">Wonderful, wonderful Copenhagen. You just know that if a city’s had a song written about it, it’s got to be something special! And Copenhagen is nothing if not special. With this 72-hour Classic Route ticket, you’ll be able to see and discover so many of the reasons why.
 
 One of the best parts about hop-on hop-off tour is if you can see something great, you can hop off to take a closer look. That will likely be the case when you pass Rosenborg Castle, a spectacular Renaissance building that was originally built as a summer house for King Christian IV. Some summer house, eh? But with 14 kids that survived childhood, maybe he needed the space!
 
-After you’ve seen a castle, it makes sense to visit a palace. And Amalienborg won’t disappoint. It’s actually four palaces with identical facades and has been home to the Danish Royal Family since their previous home burnt down at the end of the 18th century.</p>
-          <div class="card-footer">
-            <span class="price">From €42</span>
-            <span class="rating">⭐ 3.9 (25)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-classic-route-open-top-bus-hop-on-hop-off-copenhagen-p1043398/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After you’ve seen a castle, it makes sense to visit a palace. And Amalienborg won’t disappoint. It’s actually four palaces with identical facades and has been home to the Danish Royal Family since their previous home burnt down at the end of the 18th century.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(25)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-classic-route-open-top-bus-hop-on-hop-off-copenhagen-p1043398/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/abf99f60cba94bac8bbfbb72d8b19c8b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Danish War Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Danish War Museum: Entry Ticket</h3>
-          <p class="venue">📍 Danish War Museum</p>
-          <p>Load up the cannons and get ready to march into battle at The Danish War Museum, located in king Christian IVs arsenal on Slotsholmen in the heart of Copenhagen. Discover the models of historical war ships from the Danish navy, explore the stories of 21 Danish wars in the last 500 years. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/abf99f60cba94bac8bbfbb72d8b19c8b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Danish War Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DANISH WAR MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Danish War Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Load up the cannons and get ready to march into battle at The Danish War Museum, located in king Christian IVs arsenal on Slotsholmen in the heart of Copenhagen. Discover the models of historical war ships from the Danish navy, explore the stories of 21 Danish wars in the last 500 years. 
 
 Experience life as a deployed soldier as you step into Danish military camps from famous battles of the past against Sweden, England and Germany, and the present battles on international missions in Iraq, Afghanistan and Libya. Stay alert in the watchtower, and climb into an actual PMV hit by a roadside bomb. 
 
-From knights in shining armour, to wars with the Swedish and the English, to World War II, the Cold War and the war in Iraq, learn all about strategy, weapons and tactics, including the newest exhibition about drones in modern warfare.</p>
-          <div class="card-footer">
-            <span class="price">From €17.4</span>
-            <span class="rating">⭐ 4.8 (12)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-entrance-to-the-danish-war-museum-p1028017/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+From knights in shining armour, to wars with the Swedish and the English, to World War II, the Cold War and the war in Iraq, learn all about strategy, weapons and tactics, including the newest exhibition about drones in modern warfare.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(12)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.40</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-entrance-to-the-danish-war-museum-p1028017/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8de9cf1ba61d440aace975103400ab5c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hard Rock Cafe Copenhagen" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hard Rock Cafe Copenhagen</h3>
-          <p class="venue">📍 Hard Rock Cafe Copenhagen</p>
-          <p>Just a skip from the Danish capital's best attractions, The Hard Rock Cafe Copenhagen is also home to a vest once owned by Elvis Presley, and a drum kit that provided the beats to Metallica's world tour!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8de9cf1ba61d440aace975103400ab5c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hard Rock Cafe Copenhagen" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HARD ROCK CAFE COPENHAGEN</span>
+        </div>
+        <div class="tq-card-title">Hard Rock Cafe Copenhagen</div>
+        <div class="tq-card-desc">Just a skip from the Danish capital's best attractions, The Hard Rock Cafe Copenhagen is also home to a vest once owned by Elvis Presley, and a drum kit that provided the beats to Metallica's world tour!
 
-While you're surrounded by rock 'n roll memorabilia, bite into the Original Legendary® Burger – a taste of America that comes with a Black Angus steak burger, smoked bacon, cheddar cheese, leaf lettuce, vine-ripened tomato, and a crispy onion ring. A refreshing soft drink is included too!</p>
-          <div class="card-footer">
-            <span class="price">From €33.46</span>
-            <span class="rating">⭐ 4.8 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hard-rock-cafe-copenhagen-p1008564/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+While you're surrounded by rock 'n roll memorabilia, bite into the Original Legendary® Burger – a taste of America that comes with a Black Angus steak burger, smoked bacon, cheddar cheese, leaf lettuce, vine-ripened tomato, and a crispy onion ring. A refreshing soft drink is included too!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.46</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hard-rock-cafe-copenhagen-p1008564/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Helsingør, Lund & Malmö: Day Tour from Copenhagen + Ferry Ride" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Helsingør, Lund & Malmö: Day Tour from Copenhagen + Ferry Ride</h3>
-          <p class="venue">📍 Copenhagen Day Trips</p>
-          <p>Reach Helsingør and explore the town at your own pace. Visit Kronborg or Hamlet’s Castle, or walk along the ramparts for views of the Øresund Strait.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Helsingør, Lund & Malmö: Day Tour from Copenhagen + Ferry Ride" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN DAY TRIPS</span>
+        </div>
+        <div class="tq-card-title">Helsingør, Lund & Malmö: Day Tour from Copenhagen + Ferry Ride</div>
+        <div class="tq-card-desc">Reach Helsingør and explore the town at your own pace. Visit Kronborg or Hamlet’s Castle, or walk along the ramparts for views of the Øresund Strait.
 
 You can also explore the town center or visit the Maritime Museum to learn about Helsingør’s seafaring history.
 
@@ -537,375 +949,606 @@ After Helsingør, take a short ferry ride across the Øresund to southern Sweden
 
 In Lund, you can visit the cathedral, which dates to 1145 and features an astronomical clock, bells, and organs. You might also visit Lund University, explore Lundagård Park, or check out the nearby Lund University Historical Museum (ticket not included) and Kulturen, an open-air museum.
 
-After Lund, the tour continues to Malmö. There, you can explore Stortorget and Lilletorget, walk along the main shopping street, visit the Moderna Museet, or see Malmöhuset, a 16th-century castle that houses art and natural history museums.</p>
-          <div class="card-footer">
-            <span class="price">From €123.8</span>
-            <span class="rating">⭐ 4.8 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-helsingor-lund-malmo-day-tour-from-copenhagen-ferry-ride-p1115095/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After Lund, the tour continues to Malmö. There, you can explore Stortorget and Lilletorget, walk along the main shopping street, visit the Moderna Museet, or see Malmöhuset, a 16th-century castle that houses art and natural history museums.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€123.80</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-helsingor-lund-malmo-day-tour-from-copenhagen-ferry-ride-p1115095/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Guided Harbor Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Guided Harbor Boat Tour</h3>
-          <p class="venue">📍 Copenhagen Water Activities</p>
-          <p>Prepare for a boat tour from Islands Brygge and see Copenhagen from a new angle. This canal tour takes you past key landmarks, with the captain sharing historical insights. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Guided Harbor Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Guided Harbor Boat Tour</div>
+        <div class="tq-card-desc">Prepare for a boat tour from Islands Brygge and see Copenhagen from a new angle. This canal tour takes you past key landmarks, with the captain sharing historical insights. 
 
 This is a shared tour for up to nine people to see the city's main sights and meet others along the way
 
 Pass the colorful buildings of Nyhavn and continue to Skuespilhuset and Ofelia Plads. This area offers views of the Opera House and Amalienborg.
 
-Close to Amalienborg Palace, view the royal residence and the Marble Church. The tour ends with a route around Holmen, featuring the modern Opera House and Opera Park.</p>
-          <div class="card-footer">
-            <span class="price">From €26.63</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-guided-harbor-boat-tour-p1113706/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Close to Amalienborg Palace, view the royal residence and the Marble Church. The tour ends with a route around Holmen, featuring the modern Opera House and Opera Park.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.63</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-guided-harbor-boat-tour-p1113706/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Amalienborg Palace: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Amalienborg Palace: Guided Tour</h3>
-          <p class="venue">📍 Amalienborg Palace</p>
-          <p>Start in Octagonal Square at Amalienborg. See the four identical palaces and hear from your guide how a fire led the Royal Family to make this their main home. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Amalienborg Palace: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AMALIENBORG PALACE</span>
+        </div>
+        <div class="tq-card-title">Amalienborg Palace: Guided Tour</div>
+        <div class="tq-card-desc">Start in Octagonal Square at Amalienborg. See the four identical palaces and hear from your guide how a fire led the Royal Family to make this their main home. 
 
 Enter the Amalienborg Museum inside Christian VIII's Palace with your included ticket. Walk through preserved rooms, from former monarchs' private offices to grand reception areas. See the original royal furniture, personal items, and historical decorations.
 
-Visit key rooms like the Pompeii Room and Queen Louise's Salon. End the tour in the Fabergé Chamber to see Russian imperial goldsmithing connected to the Danish crown.</p>
-          <div class="card-footer">
-            <span class="price">From €100</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-amalienborg-palace-guided-tour-p1123625/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit key rooms like the Pompeii Room and Queen Louise's Salon. End the tour in the Fabergé Chamber to see Russian imperial goldsmithing connected to the Danish crown.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€100.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-amalienborg-palace-guided-tour-p1123625/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rosenborg Castle: Guided Visit + Canal Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rosenborg Castle: Guided Visit + Canal Tour</h3>
-          <p class="venue">📍 Rosenborg Castle</p>
-          <p>Learn about the Danish crown jewels and their history. Walk through the gardens around the palace and see where royalty relaxed.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rosenborg Castle: Guided Visit + Canal Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROSENBORG CASTLE</span>
+        </div>
+        <div class="tq-card-title">Rosenborg Castle: Guided Visit + Canal Tour</div>
+        <div class="tq-card-desc">Learn about the Danish crown jewels and their history. Walk through the gardens around the palace and see where royalty relaxed.
 
 See King Christian IV’s castle. Step inside to explore collections and rooms filled with Denmark's royal history. Get detailed insights into Danish royalty.
 
-End the tour at Nyhavn with a canal tour ticket.</p>
-          <div class="card-footer">
-            <span class="price">From €321</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rosenborg-castle-guided-visit-canal-tour-p1123553/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End the tour at Nyhavn with a canal tour ticket.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€321.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rosenborg-castle-guided-visit-canal-tour-p1123553/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/73f1d6ff8fa7410bb429aa5c5775a316.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Guided Christmas Tour + Tivoli Gardens Entry + Food & Drinks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Guided Christmas Tour + Tivoli Gardens Entry + Food & Drinks</h3>
-          <p class="venue">📍 Copenhagen City Tours</p>
-          <p>Join a tour of Copenhagen's festive atmosphere. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/73f1d6ff8fa7410bb429aa5c5775a316.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Guided Christmas Tour + Tivoli Gardens Entry + Food & Drinks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Guided Christmas Tour + Tivoli Gardens Entry + Food & Drinks</div>
+        <div class="tq-card-desc">Join a tour of Copenhagen's festive atmosphere. 
 
 See holiday decorations and lights while hearing stories about Danish Christmas traditions. 
 
 Taste Danish holiday foods like æbleskiver pancakes and warm gløgg or hot chocolate. Learn to make traditional paper hearts inspired by Hans Christian Andersen. 
 
-Finish the tour with skip-the-line entry to Tivoli Gardens.</p>
-          <div class="card-footer">
-            <span class="price">From €168</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-guided-christmas-tour-tivoli-gardens-entry-food-drinks-p1123550/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finish the tour with skip-the-line entry to Tivoli Gardens.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€168.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-guided-christmas-tour-tivoli-gardens-entry-food-drinks-p1123550/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/af1b5fc1324b4a7aa226e63466ce9d9e.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="24-Hour Hop-on Hop-off Bus Tour & 1-Hour Guided GoBoat Harbor Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>24-Hour Hop-on Hop-off Bus Tour & 1-Hour Guided GoBoat Harbor Boat Tour</h3>
-          <p class="venue">📍 Copenhagen Hop-on Hop-off Tours</p>
-          <p>See the city from the top deck of a hop-on hop-off bus and then switch to a boat to view Copenhagen from the water. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/af1b5fc1324b4a7aa226e63466ce9d9e.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="24-Hour Hop-on Hop-off Bus Tour & 1-Hour Guided GoBoat Harbor Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN HOP-ON HOP-OFF TOURS</span>
+        </div>
+        <div class="tq-card-title">24-Hour Hop-on Hop-off Bus Tour & 1-Hour Guided GoBoat Harbor Boat Tour</div>
+        <div class="tq-card-desc">See the city from the top deck of a hop-on hop-off bus and then switch to a boat to view Copenhagen from the water. 
 
 Board the hop-on hop-off bus for an easy way to get to all the main attractions in Copenhagen. 
 
 The bus has multiple stops, including Tivoli Amusement Park and Amalienborg Palace, the royal family's winter residence.
 
-Your harbor cruise starts and ends at Brygge Island, and runs throughout the day. Pass by the colorful buildings of Nyhavn and see the Opera House.</p>
-          <div class="card-footer">
-            <span class="price">From €50.5</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-24-hour-bus-tour-1-hour-guided-goboat-harbor-boat-tour-p1123130/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your harbor cruise starts and ends at Brygge Island, and runs throughout the day. Pass by the colorful buildings of Nyhavn and see the Opera House.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-24-hour-bus-tour-1-hour-guided-goboat-harbor-boat-tour-p1123130/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Party Crawl" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Party Crawl</h3>
-          <p class="venue">📍 Copenhagen Food & Drinks</p>
-          <p>Join a Copenhagen nightlife tour through Scandinavia's largest nightlife scene. Visit five different venues in the city center, each with a unique atmosphere. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Party Crawl" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN FOOD & DRINKS</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Party Crawl</div>
+        <div class="tq-card-desc">Join a Copenhagen nightlife tour through Scandinavia's largest nightlife scene. Visit five different venues in the city center, each with a unique atmosphere. 
 
-Meet people from around the globe while you drink, dance, and socialize. The tour wraps up at a large dance bar open until early morning.</p>
-          <div class="card-footer">
-            <span class="price">From €40.15</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-party-crawl-p1115574/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Meet people from around the globe while you drink, dance, and socialize. The tour wraps up at a large dance bar open until early morning.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.15</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-party-crawl-p1115574/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/73f1d6ff8fa7410bb429aa5c5775a316.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Politically Incorrect Beer Walk" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Politically Incorrect Beer Walk</h3>
-          <p class="venue">📍 Copenhagen Food & Drinks</p>
-          <p>Take a beer walk through the Vesterbro neighborhood in Copenhagen. Starting near Central Station, explore the city’s former red-light district while tasting 9 different beers along the way—about one liter per person.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/73f1d6ff8fa7410bb429aa5c5775a316.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Politically Incorrect Beer Walk" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN FOOD & DRINKS</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Politically Incorrect Beer Walk</div>
+        <div class="tq-card-desc">Take a beer walk through the Vesterbro neighborhood in Copenhagen. Starting near Central Station, explore the city’s former red-light district while tasting 9 different beers along the way—about one liter per person.
 
-Hear stories about Vesterbro’s past, from poverty and crime to its modern transformation into a popular residential and nightlife area. The tour ends in the old Meatpacking District, now known for food and bars.</p>
-          <div class="card-footer">
-            <span class="price">From €53.53</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-politically-incorrect-beer-walk-p1115573/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Hear stories about Vesterbro’s past, from poverty and crime to its modern transformation into a popular residential and nightlife area. The tour ends in the old Meatpacking District, now known for food and bars.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€53.53</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-politically-incorrect-beer-walk-p1115573/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Guided Walking Tour + Ferry Ride" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Guided Walking Tour + Ferry Ride</h3>
-          <p class="venue">📍 Copenhagen Day Trips</p>
-          <p>See Copenhagen’s top attractions with a local guide on a 5 km walk and ferry ride through the historic harbor.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Guided Walking Tour + Ferry Ride" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN DAY TRIPS</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Guided Walking Tour + Ferry Ride</div>
+        <div class="tq-card-desc">See Copenhagen’s top attractions with a local guide on a 5 km walk and ferry ride through the historic harbor.
 
 Start with a 2 km walk featuring major landmarks and lesser-known spots. Then, board the electric public ferry for a 25-minute cruise. The guide will provide information and point out landmarks.
 
 After the ride, walk past the Citadel and the Little Mermaid. Pause for a short café break before reaching Amalienborg Palace and witnessing the historic Changing of the Guards ceremony.
 
-Note: If the ferry is unavailable, follow a scenic walking route along the canal, covering the full itinerary (adds 2 km).</p>
-          <div class="card-footer">
-            <span class="price">From €27.44</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-guided-walking-tour-ferry-ride-p1113501/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Note: If the ferry is unavailable, follow a scenic walking route along the canal, covering the full itinerary (adds 2 km).</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.44</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-guided-walking-tour-ferry-ride-p1113501/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9b0c080c51134749a6a718edb461cc1b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley’s Fun Pass: 4 Attractions" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ripley’s Fun Pass: 4 Attractions</h3>
-          <p class="venue">📍 Guinness World Records Museum</p>
-          <p>From fairy tales to fear, records to the ridiculous — this is Copenhagen’s most unbelievable day out!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9b0c080c51134749a6a718edb461cc1b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley’s Fun Pass: 4 Attractions" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GUINNESS WORLD RECORDS MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Ripley’s Fun Pass: 4 Attractions</div>
+        <div class="tq-card-desc">From fairy tales to fear, records to the ridiculous — this is Copenhagen’s most unbelievable day out!
 
 Visit Ripley's Believe It or Not! to see hundreds of rare artifacts and try out interactive exhibits. Learn about the origins of the shrunken head, one of Ripley's most famous items. There are more than 100 genuine shrunken heads in the collection.
 
-View records of all kinds with amazing displays and games at the Guinness World Records Museum. Discover 11 galleries across two floors featuring memorabilia, trivia, videos, and interactive exhibits. Compete in games and uncover records from around the world.</p>
-          <div class="card-footer">
-            <span class="price">From €38.68</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ripleys-believe-it-or-not-copenhagen-4-attraction-fun-pass-p1113397/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+View records of all kinds with amazing displays and games at the Guinness World Records Museum. Discover 11 galleries across two floors featuring memorabilia, trivia, videos, and interactive exhibits. Compete in games and uncover records from around the world.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.68</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ripleys-believe-it-or-not-copenhagen-4-attraction-fun-pass-p1113397/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5f41cdc903b94a998a9617c22430a9c3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: City Quest Exploration Game" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: City Quest Exploration Game</h3>
-          <p class="venue">📍 Copenhagen Self-Guided City Games</p>
-          <p>Begin the City Quest in Copenhagen by arriving at the starting point. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5f41cdc903b94a998a9617c22430a9c3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: City Quest Exploration Game" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN SELF-GUIDED CITY GAMES</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: City Quest Exploration Game</div>
+        <div class="tq-card-desc">Begin the City Quest in Copenhagen by arriving at the starting point. 
 
 Follow clues to different checkpoints around the city, solve puzzles, and unlock codes while learning about Copenhagen's history and landmarks. 
 
 Complete the adventure by solving the final puzzle and receive a summary of your achievements and time spent. 
 
-Continue exploring the city on your own from a great location once the quest is finished.</p>
-          <div class="card-footer">
-            <span class="price">From €29</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-city-quest-exploration-game-p1102612/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Continue exploring the city on your own from a great location once the quest is finished.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-city-quest-exploration-game-p1102612/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Guided Walking Tour in French" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Guided Walking Tour in French</h3>
-          <p class="venue">📍 Copenhagen City Tours</p>
-          <p>Take a guided tour conducted entirely in French and explore Copenhagen's historical landmarks. Join a group of limited participants to ensure safety and better interaction and learn about the history of the city's popular attractions.</p>
-          <div class="card-footer">
-            <span class="price">From €59</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-guided-walking-tour-in-french-p1101202/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Guided Walking Tour in French" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Guided Walking Tour in French</div>
+        <div class="tq-card-desc">Take a guided tour conducted entirely in French and explore Copenhagen's historical landmarks. Join a group of limited participants to ensure safety and better interaction and learn about the history of the city's popular attractions.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€59.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-guided-walking-tour-in-french-p1101202/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: 2, 3, 4, or 5-Hour Private Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: 2, 3, 4, or 5-Hour Private Boat Tour</h3>
-          <p class="venue">📍 Copenhagen Cruises</p>
-          <p>Discover the scenic beauty of Copenhagen on an electric boat tour. The boat moves smoothly at up to 7 knots, and a captain will handle the navigation. So, you can appreciate the company of your friends, family, or colleagues.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: 2, 3, 4, or 5-Hour Private Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN CRUISES</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: 2, 3, 4, or 5-Hour Private Boat Tour</div>
+        <div class="tq-card-desc">Discover the scenic beauty of Copenhagen on an electric boat tour. The boat moves smoothly at up to 7 knots, and a captain will handle the navigation. So, you can appreciate the company of your friends, family, or colleagues.
 
-On this private tour, you can buy drinks and snacks onboard. Furthermore, you can also choose to swim in designated areas or continue your voyage to Trekroner or Ungdomsøen.</p>
-          <div class="card-footer">
-            <span class="price">From €227.38</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-2-3-4-or-5-hour-private-boat-tour-p1101058/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+On this private tour, you can buy drinks and snacks onboard. Furthermore, you can also choose to swim in designated areas or continue your voyage to Trekroner or Ungdomsøen.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€227.38</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-2-3-4-or-5-hour-private-boat-tour-p1101058/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Private Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Private Boat Tour</h3>
-          <p class="venue">📍 Copenhagen Cruises</p>
-          <p>Enjoy a unique view of Copenhagen on a boat tour. This eco-friendly boat moves at a comfortable speed, letting you see the city's sights. A captain will handle the boat, so you can focus on enjoying the company of your friends without worrying about navigation. Refreshments and snacks are available for purchase onboard, making it a floating picnic with incredible views.</p>
-          <div class="card-footer">
-            <span class="price">From €160.47</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-private-boat-tour-p1101057/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Private Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN CRUISES</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Private Boat Tour</div>
+        <div class="tq-card-desc">Enjoy a unique view of Copenhagen on a boat tour. This eco-friendly boat moves at a comfortable speed, letting you see the city's sights. A captain will handle the boat, so you can focus on enjoying the company of your friends without worrying about navigation. Refreshments and snacks are available for purchase onboard, making it a floating picnic with incredible views.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€160.47</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-private-boat-tour-p1101057/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1480286ef15a40e5b2c5e3410a65e7d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Møns Klint & Forest Tower: Day Trip from Copenhagen" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Møns Klint & Forest Tower: Day Trip from Copenhagen</h3>
-          <p class="venue">📍 The Forest Tower</p>
-          <p>Begin your trip with a visit to the Forest Tower, which offers a unique adventure in Denmark's beautiful countryside. Enjoy 360° views from the top of this 45-meter tower, connected to a 900-meter-long treetop walkway.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1480286ef15a40e5b2c5e3410a65e7d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Møns Klint & Forest Tower: Day Trip from Copenhagen" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">THE FOREST TOWER</span>
+        </div>
+        <div class="tq-card-title">Møns Klint & Forest Tower: Day Trip from Copenhagen</div>
+        <div class="tq-card-desc">Begin your trip with a visit to the Forest Tower, which offers a unique adventure in Denmark's beautiful countryside. Enjoy 360° views from the top of this 45-meter tower, connected to a 900-meter-long treetop walkway.
 
-Next, head to Møns Klint, a must-see attraction popular among tourists. Learn about its history and witness the natural beauty of this beautiful destination. Climb the 200 steps to the cliffs, collect unique stones, and explore the area.</p>
-          <div class="card-footer">
-            <span class="price">From €187.37</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mons-klint-forest-tower-day-trip-from-copenhagen-p1093730/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, head to Møns Klint, a must-see attraction popular among tourists. Learn about its history and witness the natural beauty of this beautiful destination. Climb the 200 steps to the cliffs, collect unique stones, and explore the area.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€187.37</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mons-klint-forest-tower-day-trip-from-copenhagen-p1093730/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Guided Bike Tour in French" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Guided Bike Tour in French</h3>
-          <p class="venue">📍 Copenhagen City Tours</p>
-          <p>Join a bicycle tour of Copenhagen led by a knowledgeable guide fluent in French. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Guided Bike Tour in French" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Guided Bike Tour in French</div>
+        <div class="tq-card-desc">Join a bicycle tour of Copenhagen led by a knowledgeable guide fluent in French. 
 
 Enjoy a tour that is conducted exclusively in French and limited to a maximum of 9 participants for safety and quality interaction.
 
-Explore Copenhagen's rich cultural history, modern architecture, and urban developments.</p>
-          <div class="card-footer">
-            <span class="price">From €59</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-guided-bike-tour-in-french-p1092942/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore Copenhagen's rich cultural history, modern architecture, and urban developments.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€59.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-guided-bike-tour-in-french-p1092942/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/73f1d6ff8fa7410bb429aa5c5775a316.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Harbor Guided Kayak Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Harbor Guided Kayak Tour</h3>
-          <p class="venue">📍 Copenhagen Water Activities</p>
-          <p>Set off on a two-hour kayak tour through Copenhagen's beautiful canals and explore the nooks of Christianshavn, starting from Kalvebod Bølge. Certified instructors will guide you in double sea kayaks, suitable for all skill levels.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/73f1d6ff8fa7410bb429aa5c5775a316.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Harbor Guided Kayak Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Harbor Guided Kayak Tour</div>
+        <div class="tq-card-desc">Set off on a two-hour kayak tour through Copenhagen's beautiful canals and explore the nooks of Christianshavn, starting from Kalvebod Bølge. Certified instructors will guide you in double sea kayaks, suitable for all skill levels.
 
-As you paddle, learn about iconic landmarks like Christiansborg Palace, the Danish National Museum, Gammel Strand, Thorvaldsens Museum, and the Copenhagen Stock Exchange. In addition, witness spots like C.F. Tigtgens Hus, Christianshavn Canal, The Royal Library, The Black Diamond, and Blox.</p>
-          <div class="card-footer">
-            <span class="price">From €60.09</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-harbor-guided-kayak-tour-p1091584/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As you paddle, learn about iconic landmarks like Christiansborg Palace, the Danish National Museum, Gammel Strand, Thorvaldsens Museum, and the Copenhagen Stock Exchange. In addition, witness spots like C.F. Tigtgens Hus, Christianshavn Canal, The Royal Library, The Black Diamond, and Blox.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.09</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-harbor-guided-kayak-tour-p1091584/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Kayak Tour in May and September" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Kayak Tour in May and September</h3>
-          <p class="venue">📍 Copenhagen Water Activities</p>
-          <p>Join a guided kayaking tour through Copenhagen's canals, led by a certified instructor. Perfect for water lovers and adventurers alike, this leisurely tour offers plenty of opportunities to chat, laugh, and enjoy incredible views.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Kayak Tour in May and September" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Kayak Tour in May and September</div>
+        <div class="tq-card-desc">Join a guided kayaking tour through Copenhagen's canals, led by a certified instructor. Perfect for water lovers and adventurers alike, this leisurely tour offers plenty of opportunities to chat, laugh, and enjoy incredible views.
 
 Paddle past landmarks like Christiansborg Palace, the Danish National Museum, and Gammel Strand, Copenhagen's oldest harbor. Don't miss seeing The Black Diamond, a modern architectural masterpiece.
 
 The tour starts and ends at Kalvebod Bølge, where the guide provides instructions and assistance. Young adventurers under 15 years old can share a double kayak with an adult.
 
-Enjoy approximately 1 hour and 15 minutes of pure joy on the water. Note that this experience is available only from May 1-31 and September 1-30.</p>
-          <div class="card-footer">
-            <span class="price">From €60.09</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-kayak-tour-in-may-and-september-p1091580/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy approximately 1 hour and 15 minutes of pure joy on the water. Note that this experience is available only from May 1-31 and September 1-30.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.09</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-kayak-tour-in-may-and-september-p1091580/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5f41cdc903b94a998a9617c22430a9c3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Europe: 33 Regions eSIM" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Europe: 33 Regions eSIM</h3>
-          <p class="venue">📍 Europe SIM Cards</p>
-          <p>Prepare for seamless connectivity across 34 regions of Europe, offering uninterrupted 4G data for globetrotters. Whether you're exploring France, Germany, Sweden, or Spain, this eSIM has you covered.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5f41cdc903b94a998a9617c22430a9c3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Europe: 33 Regions eSIM" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EUROPE SIM CARDS</span>
+        </div>
+        <div class="tq-card-title">Europe: 33 Regions eSIM</div>
+        <div class="tq-card-desc">Prepare for seamless connectivity across 34 regions of Europe, offering uninterrupted 4G data for globetrotters. Whether you're exploring France, Germany, Sweden, or Spain, this eSIM has you covered.
 
 Forget about hotspot or tethering settings; this data-only plan ensures a hassle-free experience with constant speed, only pausing when high-speed data is exhausted. Stream, post, browse, and share without interruptions.
 
-In addition, enjoy the convenience of an eSIM that activates instantly upon installation, providing continuous connectivity for 24-hour periods from activation.</p>
-          <div class="card-footer">
-            <span class="price">From €4.22</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-europe-34-regions-esim-p1091539/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In addition, enjoy the convenience of an eSIM that activates instantly upon installation, providing continuous connectivity for 24-hour periods from activation.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€4.22</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-europe-34-regions-esim-p1091539/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5f41cdc903b94a998a9617c22430a9c3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Self-Guided Sherlock Holmes Murder Mystery Game" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Self-Guided Sherlock Holmes Murder Mystery Game</h3>
-          <p class="venue">📍 Copenhagen Self-Guided City Games</p>
-          <p>Join the exciting Sherlock Holmes City Game and engage yourself in a world of intrigue. This self-guided adventure turns the city into a giant puzzle playground. Armed only with your smartphone and a sense of adventure, you'll dive into a world of interesting tasks and trials.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5f41cdc903b94a998a9617c22430a9c3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Self-Guided Sherlock Holmes Murder Mystery Game" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN SELF-GUIDED CITY GAMES</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Self-Guided Sherlock Holmes Murder Mystery Game</div>
+        <div class="tq-card-desc">Join the exciting Sherlock Holmes City Game and engage yourself in a world of intrigue. This self-guided adventure turns the city into a giant puzzle playground. Armed only with your smartphone and a sense of adventure, you'll dive into a world of interesting tasks and trials.
 
-After booking, you'll receive all the essential details via email. Then, it's time to hit the streets and uncover exciting tasks around every corner. Engage with characters, solve puzzles, complete fun photo missions, and race to solve the mystery of Balthasar's demise.</p>
-          <div class="card-footer">
-            <span class="price">From €19.95</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-self-guided-sherlock-holmes-murder-mystery-game-p1091519/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After booking, you'll receive all the essential details via email. Then, it's time to hit the streets and uncover exciting tasks around every corner. Engage with characters, solve puzzles, complete fun photo missions, and race to solve the mystery of Balthasar's demise.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.95</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-self-guided-sherlock-holmes-murder-mystery-game-p1091519/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/73f1d6ff8fa7410bb429aa5c5775a316.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt=" City Sightseeing Copenhagen: 72H All Routes Hop-on Hop-off Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3> City Sightseeing Copenhagen: 72H All Routes Hop-on Hop-off Bus Tour</h3>
-          <p class="venue">📍 Copenhagen Hop-on Hop-off Tours</p>
-          <p>You absolutely cannot visit Copenhagen without a trip to the Nyhavn canal. Hop on the Classic Copenhagen route and hop off to explore the charming waterfront at your leisure. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/73f1d6ff8fa7410bb429aa5c5775a316.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt=" City Sightseeing Copenhagen: 72H All Routes Hop-on Hop-off Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN HOP-ON HOP-OFF TOURS</span>
+        </div>
+        <div class="tq-card-title"> City Sightseeing Copenhagen: 72H All Routes Hop-on Hop-off Bus Tour</div>
+        <div class="tq-card-desc">You absolutely cannot visit Copenhagen without a trip to the Nyhavn canal. Hop on the Classic Copenhagen route and hop off to explore the charming waterfront at your leisure. 
 
 You’ll find jazz bars, food stalls and rows of rainbow-coloured terraces. This colourful area has a colourful history to match. Constructed by Swedish prisoners of war in the 17th Century, the port was infamous for drunkenness, debauchery and prostitution. Hans Christian Andersen grew up here, too. 
 
 Snap a selfie in front of the quaint lemon-yellow house where Denmark’s national hero penned his first-ever fairy tale. Hop back on and head to the famous Little Mermaid statue, a tribute to the tragic (at least in the original story) heroine of Andersen’s most famous tale! 
 
-Nearby, stroll down the lovely park-lined Langelinie pier and admire the colossal luxury cruise ships. With this 72 hour ticket covering all routes, your tour to all must-see attractions in Copenhagen is secured!</p>
-          <div class="card-footer">
-            <span class="price">From €42</span>
-            <span class="rating">⭐ 4.2 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-copenhagen-all-routes-p1058211/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Nearby, stroll down the lovely park-lined Langelinie pier and admire the colossal luxury cruise ships. With this 72 hour ticket covering all routes, your tour to all must-see attractions in Copenhagen is secured!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-copenhagen-all-routes-p1058211/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen Segway Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen Segway Tour</h3>
-          <p class="venue">📍 Copenhagen City Tours</p>
-          <p>Choose between a 1 or 2-hour Segway Tour and explore Copenhagen the fun way.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen Segway Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Copenhagen Segway Tour</div>
+        <div class="tq-card-desc">Choose between a 1 or 2-hour Segway Tour and explore Copenhagen the fun way.
 
 **1-hour tour** 
 A fast and fun way to see over 10 of the major sights in Copenhagen including The Little Mermaid, Amalienborg and Marble Church.
@@ -917,96 +1560,157 @@ Arrive 15 min before start for check-in and training. Your experienced guide wil
 
 You will begin in a non-traffic zone, which is a great way to start and really comfortable with the machine! 
 
-Enjoy a complimentary beverage after the tour and a fun Segway souvenir.</p>
-          <div class="card-footer">
-            <span class="price">From €56.21</span>
-            <span class="rating">⭐ 4.5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-segway-tour-p1046814/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a complimentary beverage after the tour and a fun Segway souvenir.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€56.21</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-segway-tour-p1046814/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Christmas Spirit Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Christmas Spirit Tour</h3>
-          <p class="venue">📍 Copenhagen City Tours</p>
-          <p>Nothing will get you in the holiday spirit quite like Christmas in Copenhagen. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Christmas Spirit Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Christmas Spirit Tour</div>
+        <div class="tq-card-desc">Nothing will get you in the holiday spirit quite like Christmas in Copenhagen. 
 
-With tickets for this private guided walking tour, you'll celebrate the Christmas season in the capital of Denmark – ranked as one of the happiest countries in the world.</p>
-          <div class="card-footer">
-            <span class="price">From €478.05</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagens-christmas-spirit-p1032908/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With tickets for this private guided walking tour, you'll celebrate the Christmas season in the capital of Denmark – ranked as one of the happiest countries in the world.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€478.05</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagens-christmas-spirit-p1032908/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Must-Sees – Private Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Must-Sees – Private Walking Tour</h3>
-          <p class="venue">📍 Christiansborg Palace</p>
-          <p>This fun Copenhagen Must-Sees private walking tour begins with a tribute to the memory of Hans Christian Andersen, and the tales of the fishermen of Nyhavn. The colorful houses of Nyhavn are genuinely one of the must-sees of Denmark's capital, and you'll learn all about their history from your local guide. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Must-Sees – Private Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CHRISTIANSBORG PALACE</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Must-Sees – Private Walking Tour</div>
+        <div class="tq-card-desc">This fun Copenhagen Must-Sees private walking tour begins with a tribute to the memory of Hans Christian Andersen, and the tales of the fishermen of Nyhavn. The colorful houses of Nyhavn are genuinely one of the must-sees of Denmark's capital, and you'll learn all about their history from your local guide. 
 
 Encounter scientific discoveries at The Round Tower. Discover some of the oldest parts of the inner city at the picturesque Gråbrødretorv (square) and see where Copenhageners go to shop till they drop. This tour spills all the secrets, and then some.
 
-Next up, it's time to cover some Royal ground. Straighten out your shirt as you marvel at the pomp and circumstance surrounding the powerhouse of Denmark. Christiansborg Palace has always been home to Copenhagen's creme de la creme. Roam its halls and dance in the footsteps of politicians and royalty alike. Any questions - just ask your guide!</p>
-          <div class="card-footer">
-            <span class="price">From €80.43</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-must-sees-p1031690/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next up, it's time to cover some Royal ground. Straighten out your shirt as you marvel at the pomp and circumstance surrounding the powerhouse of Denmark. Christiansborg Palace has always been home to Copenhagen's creme de la creme. Roam its halls and dance in the footsteps of politicians and royalty alike. Any questions - just ask your guide!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€80.43</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-must-sees-p1031690/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Private Old Town Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen: Private Old Town Walking Tour</h3>
-          <p class="venue">📍 Copenhagen City Tours</p>
-          <p>Looking for hidden secrets of Old Town Copenhagen behind its cozy street corners? Or where a plethora of quaint, creaky buildings give way to a bygone era? Search no further with a guided walking tour of Denmark's capital city!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e53467a7700e4f8faf3e4b3a3862b6fa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen: Private Old Town Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Copenhagen: Private Old Town Walking Tour</div>
+        <div class="tq-card-desc">Looking for hidden secrets of Old Town Copenhagen behind its cozy street corners? Or where a plethora of quaint, creaky buildings give way to a bygone era? Search no further with a guided walking tour of Denmark's capital city!
 
 On your private walking tour of Old Town Copenhagen, your local expert guide will help you trace the footsteps of Copenhagen's most prominent figures and events. 
 
 Wander through the Rådhusplatsen, home to Copenhagen City Hall, and spot the symbols of the city. Make your way through Nytorv and Gammeltorv, adjoined public squares where you can find Neoclassical buildings built during the city's recovery from a devastating 18th-century fire.
 
-Finally, take in the magnificent spectacle of Old Town Copenhagen: the Church of Our Lady, Copenhagen's cathedral.</p>
-          <div class="card-footer">
-            <span class="price">From €394.01</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-old-town-walk-p1031689/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finally, take in the magnificent spectacle of Old Town Copenhagen: the Church of Our Lady, Copenhagen's cathedral.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€394.01</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-copenhagen-old-town-walk-p1031689/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/217f6be7109a4620ac3372734e4db64d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen Zoo + 48H Hop on Hop off Bus" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen Zoo + 48H Hop on Hop off Bus</h3>
-          <p class="venue">📍 Copenhagen Hop-on Hop-off Tours</p>
-          <p>Experience the beauty of Copenhagen with a 48-hour, all-routes hop-on hop-off bus tour, allowing you to explore the enchanting waterfront, historical landmarks, and the spirit of Hans Christian Andersen at your leisure. Plus, gain access to the Copenhagen Zoo, one of the oldest zoos in Europe.</p>
-          <div class="card-footer">
-            <span class="price">From €64</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/copenhagen-zoo-48-hr-hope-on-hop-off-bus-package-p1098689/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/217f6be7109a4620ac3372734e4db64d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen Zoo + 48H Hop on Hop off Bus" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN HOP-ON HOP-OFF TOURS</span>
+        </div>
+        <div class="tq-card-title">Copenhagen Zoo + 48H Hop on Hop off Bus</div>
+        <div class="tq-card-desc">Experience the beauty of Copenhagen with a 48-hour, all-routes hop-on hop-off bus tour, allowing you to explore the enchanting waterfront, historical landmarks, and the spirit of Hans Christian Andersen at your leisure. Plus, gain access to the Copenhagen Zoo, one of the oldest zoos in Europe.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/copenhagen-zoo-48-hr-hope-on-hop-off-bus-package-p1098689/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/217f6be7109a4620ac3372734e4db64d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen Zoo + 48H Hop on Hop off Bus" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Copenhagen Zoo + 48H Hop on Hop off Bus</h3>
-          <p class="venue">📍 Copenhagen Hop-on Hop-off Tours</p>
-          <p>Experience the beauty of Copenhagen with a 48-hour, all-routes hop-on hop-off bus tour, allowing you to explore the enchanting waterfront, historical landmarks, and the spirit of Hans Christian Andersen at your leisure. Plus, gain access to the Copenhagen Zoo, one of the oldest zoos in Europe.</p>
-          <div class="card-footer">
-            <span class="price">From €64</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/copenhagen-zoo-48-hr-hope-on-hop-off-bus-package-p1098689/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/217f6be7109a4620ac3372734e4db64d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Copenhagen Zoo + 48H Hop on Hop off Bus" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>COPENHAGEN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">COPENHAGEN HOP-ON HOP-OFF TOURS</span>
+        </div>
+        <div class="tq-card-title">Copenhagen Zoo + 48H Hop on Hop off Bus</div>
+        <div class="tq-card-desc">Experience the beauty of Copenhagen with a 48-hour, all-routes hop-on hop-off bus tour, allowing you to explore the enchanting waterfront, historical landmarks, and the spirit of Hans Christian Andersen at your leisure. Plus, gain access to the Copenhagen Zoo, one of the oldest zoos in Europe.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/copenhagen-zoo-48-hr-hope-on-hop-off-bus-package-p1098689/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in The Hague | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in The Hague. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,279 +131,455 @@
     <p>16 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef86ae7399404ddf99b421cb4c099894.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Escher in The Palace The Hague: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Escher in The Palace The Hague: Entry Ticket</h3>
-          <p class="venue">📍 Escher in The Palace</p>
-          <p>You have to see it to believe this exhibition dedicated to M.C. Escher. Infinite staircases, impossible ziggurats, and metamorphizing animals abound in this collection. Walk around the twisted works that took the world by storm in the former Winter Palace of Queen Mother Emma of the Netherlands, in The Hague.</p>
-          <div class="card-footer">
-            <span class="price">From €14.5</span>
-            <span class="rating">⭐ 4.2 (1016)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-escher-in-the-palace-the-hague-p974982/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef86ae7399404ddf99b421cb4c099894.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Escher in The Palace The Hague: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ESCHER IN THE PALACE</span>
+        </div>
+        <div class="tq-card-title">Escher in The Palace The Hague: Entry Ticket</div>
+        <div class="tq-card-desc">You have to see it to believe this exhibition dedicated to M.C. Escher. Infinite staircases, impossible ziggurats, and metamorphizing animals abound in this collection. Walk around the twisted works that took the world by storm in the former Winter Palace of Queen Mother Emma of the Netherlands, in The Hague.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(1,016)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-escher-in-the-palace-the-hague-p974982/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9281f7c28bf04d89b664edfc72fb1d85.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Mauritshuis Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>The Mauritshuis Museum: Entry Ticket</h3>
-          <p class="venue">📍 The Mauritshuis Museum</p>
-          <p>Girl with a Pearl Earring' is right up there with 'The Starry Night' and 'The Night Watch' as one of the most famous Dutch paintings in history. And Vermeer's iconic portrait is just one of the many masterpieces you'll uncover in The Hague with tickets for the Mauritshuis!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9281f7c28bf04d89b664edfc72fb1d85.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Mauritshuis Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">THE MAURITSHUIS MUSEUM</span>
+        </div>
+        <div class="tq-card-title">The Mauritshuis Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Girl with a Pearl Earring' is right up there with 'The Starry Night' and 'The Night Watch' as one of the most famous Dutch paintings in history. And Vermeer's iconic portrait is just one of the many masterpieces you'll uncover in The Hague with tickets for the Mauritshuis!
 
-Boasting a permanent collection of works by Rembrandt, Van Dyck, Rubens, Brueghel, Holbein, Hals, Steen, and more, the Mauritshuis is one of The Hague's most essential cultural experiences.</p>
-          <div class="card-footer">
-            <span class="price">From €21</span>
-            <span class="rating">⭐ 4.7 (1036)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-mauritshuis-museum-p1005201/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Boasting a permanent collection of works by Rembrandt, Van Dyck, Rubens, Brueghel, Holbein, Hals, Steen, and more, the Mauritshuis is one of The Hague's most essential cultural experiences.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(1,036)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-mauritshuis-museum-p1005201/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/97126ff5356f49ccab5a687fdf2dc677.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mauritshuis Museum + Escher in The Palace" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mauritshuis Museum + Escher in The Palace</h3>
-          <p class="venue">📍 Escher in The Palace</p>
-          <p>Dive into the mesmerizing world of **M.C. Escher** with an entry ticket to his permanent exhibition in The Hague, where you'll marvel at his mind-boggling optical illusions housed in the historic Lange Voorhout Palace. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/97126ff5356f49ccab5a687fdf2dc677.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mauritshuis Museum + Escher in The Palace" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ESCHER IN THE PALACE</span>
+        </div>
+        <div class="tq-card-title">Mauritshuis Museum + Escher in The Palace</div>
+        <div class="tq-card-desc">Dive into the mesmerizing world of **M.C. Escher** with an entry ticket to his permanent exhibition in The Hague, where you'll marvel at his mind-boggling optical illusions housed in the historic Lange Voorhout Palace. 
 
-Then, enrich your art journey with an entry ticket to the **Mauritshuis Museum**, where you can admire Vermeer's iconic 'Girl with a Pearl Earring' and other masterpieces by renowned artists like Rembrandt, Van Dyck, and Rubens.</p>
-          <div class="card-footer">
-            <span class="price">From €31.5</span>
-            <span class="rating">⭐ 4.8 (148)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mauritshuis-museum-escher-in-the-palace-p1094354/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Then, enrich your art journey with an entry ticket to the **Mauritshuis Museum**, where you can admire Vermeer's iconic 'Girl with a Pearl Earring' and other masterpieces by renowned artists like Rembrandt, Van Dyck, and Rubens.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(148)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€31.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mauritshuis-museum-escher-in-the-palace-p1094354/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5f8d1c118a5c4779a2a81a1babcff105.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Madurodam: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Madurodam: Entry Ticket</h3>
-          <p class="venue">📍 Madurodam</p>
-          <p>Madurodam stands out as a must-see and must-do during your visit to the Netherlands. Step into a miniature town and see famous Dutch highlights in just one day. See 430 carefully crafted miniatures. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5f8d1c118a5c4779a2a81a1babcff105.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Madurodam: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MADURODAM</span>
+        </div>
+        <div class="tq-card-title">Madurodam: Entry Ticket</div>
+        <div class="tq-card-desc">Madurodam stands out as a must-see and must-do during your visit to the Netherlands. Step into a miniature town and see famous Dutch highlights in just one day. See 430 carefully crafted miniatures. 
 
-Create your own beats with Dutch DJ Armin van Buuren, load cargo ships in the port of Rotterdam, or help Hansje Brinker as he keeps the country safe from flooding. Walk through the cheese market and get to know Amsterdam – all in one place.</p>
-          <div class="card-footer">
-            <span class="price">From €21.45</span>
-            <span class="rating">⭐ 4.7 (709)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-madurodam-fast-track-p974535/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Create your own beats with Dutch DJ Armin van Buuren, load cargo ships in the port of Rotterdam, or help Hansje Brinker as he keeps the country safe from flooding. Walk through the cheese market and get to know Amsterdam – all in one place.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(709)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.45</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-madurodam-fast-track-p974535/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/43316d4322ff4e0780724eea4fa618d7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum Panorama Mesdag: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum Panorama Mesdag: Entry Ticket</h3>
-          <p class="venue">📍 Museum Panorama Mesdag</p>
-          <p>Mesdag's stunning, giant seascape is almost like an old-school optical illusion, or an IMAX initiative created before its time! It lures you in and makes you feel like you're really there.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/43316d4322ff4e0780724eea4fa618d7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum Panorama Mesdag: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEUM PANORAMA MESDAG</span>
+        </div>
+        <div class="tq-card-title">Museum Panorama Mesdag: Entry Ticket</div>
+        <div class="tq-card-desc">Mesdag's stunning, giant seascape is almost like an old-school optical illusion, or an IMAX initiative created before its time! It lures you in and makes you feel like you're really there.
 
 The Panorama Mesdag is the impressive result of the Belgian Panorama craze, which erupted around 1875. The inviting vista of the sea, dunes and old fishing village of ScheveningeIn was created in 1881 after some Belgian entrepreneurs asked Hendrik Willem Mesdag to paint a 'Hague Maritime Panorama.'
 
-Stand on a viewpoint above the dune, and witness the panoramic spectacular for yourself.</p>
-          <div class="card-footer">
-            <span class="price">From €17.5</span>
-            <span class="rating">⭐ 4.8 (97)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-panorama-mesdag-p1021730/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Stand on a viewpoint above the dune, and witness the panoramic spectacular for yourself.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(97)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-panorama-mesdag-p1021730/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c3f16673ea4b47d6abea04c232a2bf95.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Escher in The Palace + Museum Panorama Mesdag" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Escher in The Palace + Museum Panorama Mesdag</h3>
-          <p class="venue">📍 Escher in The Palace</p>
-          <p>Experience Dutch art with entry to both Escher in The Palace and the Museum Panorama Mesdag. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c3f16673ea4b47d6abea04c232a2bf95.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Escher in The Palace + Museum Panorama Mesdag" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ESCHER IN THE PALACE</span>
+        </div>
+        <div class="tq-card-title">Escher in The Palace + Museum Panorama Mesdag</div>
+        <div class="tq-card-desc">Experience Dutch art with entry to both Escher in The Palace and the Museum Panorama Mesdag. 
 
 See M.C. Escher's mind-bending optical illusions and attractions in the former Winter Palace. You'll see Escher's Room and the 7-meter long _Metamorphosis III._ 
 
-At Museum Panorama Mesdag, see the 19th-century panoramic beach painting by Hendrik Mesdag. The vista of the sea, dunes and old fishing village of Scheveningen create a sense that you're standing right there!</p>
-          <div class="card-footer">
-            <span class="price">From €29</span>
-            <span class="rating">⭐ 4.4 (41)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-escher-in-the-palace-and-panorama-mesdag-p1097672/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+At Museum Panorama Mesdag, see the 19th-century panoramic beach painting by Hendrik Mesdag. The vista of the sea, dunes and old fishing village of Scheveningen create a sense that you're standing right there!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(41)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-escher-in-the-palace-and-panorama-mesdag-p1097672/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/54706772edcf4a1dbbeef8b00952a1af.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SkyView de Pier: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>SkyView de Pier: Entry Ticket</h3>
-          <p class="venue">📍 SkyView de Pier</p>
-          <p>Prepare to be swept away – literally – as this luxury Ferris wheel carries you high above the North Sea. This isn't some rickety fairground attraction – this is a truly 'executive' experience, with fully equipped 6-person gondolas letting you gawp at the stunning vistas in absolute comfort. What's more, you can enjoy some fine pastry and tea or coffee as you ascend into the clouds. Prepare for take off!</p>
-          <div class="card-footer">
-            <span class="price">From €16</span>
-            <span class="rating">⭐ 4.4 (464)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-skyview-de-pier-p975063/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/54706772edcf4a1dbbeef8b00952a1af.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SkyView de Pier: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SKYVIEW DE PIER</span>
+        </div>
+        <div class="tq-card-title">SkyView de Pier: Entry Ticket</div>
+        <div class="tq-card-desc">Prepare to be swept away – literally – as this luxury Ferris wheel carries you high above the North Sea. This isn't some rickety fairground attraction – this is a truly 'executive' experience, with fully equipped 6-person gondolas letting you gawp at the stunning vistas in absolute comfort. What's more, you can enjoy some fine pastry and tea or coffee as you ascend into the clouds. Prepare for take off!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(464)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€16.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-skyview-de-pier-p975063/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6037ae2a42b94f8d83bb606f7821bc48.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LEGOLAND® Discovery Centre Scheveningen: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>LEGOLAND® Discovery Centre Scheveningen: Entry Ticket</h3>
-          <p class="venue">📍 LEGOLAND® Discovery Centre Scheveningen</p>
-          <p>Immerse yourself in the world of LEGO® during your stay in The Hague with tickets for LEGOLAND® Discovery Centre Scheveningen.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6037ae2a42b94f8d83bb606f7821bc48.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LEGOLAND® Discovery Centre Scheveningen: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LEGOLAND® DISCOVERY CENTRE SCHEVENINGEN</span>
+        </div>
+        <div class="tq-card-title">LEGOLAND® Discovery Centre Scheveningen: Entry Ticket</div>
+        <div class="tq-card-desc">Immerse yourself in the world of LEGO® during your stay in The Hague with tickets for LEGOLAND® Discovery Centre Scheveningen.
 
 Build, play, and learn in the ultimate LEGO® experience of the Netherlands. Use your imagination and build whimsical creations in multiple play zones, marvel at the buildings of MINILAND®, and watch a cool LEGO® 4D Movie. 
 
-Make your way to the LEGO® interactive ride for a quick thrill, or stop in for an educational workshop to learn and play.</p>
-          <div class="card-footer">
-            <span class="price">From €21</span>
-            <span class="rating">⭐ 4.3 (53)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-legoland-discovery-centre-scheveningen-p1039271/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Make your way to the LEGO® interactive ride for a quick thrill, or stop in for an educational workshop to learn and play.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(53)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-legoland-discovery-centre-scheveningen-p1039271/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/538ca2e2b12649c08408446da3239d8c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Madurodam + Mauritshouse Museum" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Madurodam + Mauritshouse Museum</h3>
-          <p class="venue">📍 Madurodam</p>
-          <p>Learn about Dutch heritage and culture with a special package, including access to Madurodam and the Mauritshuis Museum. See the miniature world of Madurodam, appreciate historic master paintings, and experience the world of famous Dutch artists.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/538ca2e2b12649c08408446da3239d8c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Madurodam + Mauritshouse Museum" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MADURODAM</span>
+        </div>
+        <div class="tq-card-title">Madurodam + Mauritshouse Museum</div>
+        <div class="tq-card-desc">Learn about Dutch heritage and culture with a special package, including access to Madurodam and the Mauritshuis Museum. See the miniature world of Madurodam, appreciate historic master paintings, and experience the world of famous Dutch artists.
 
 **Madurodam: Entry Ticket**
 
 Explore this magnificent miniature town, discover Dutch highlights in just one day, and dive into the remarkable stories and inventions that shaped the Netherlands! 
 
-Create your own beats with famous Dutch DJ Armin van Buuren, load cargo ships in the port of Rotterdam, and help Hansje Brinker save the country from flooding! Or stroll peacefully through a famous cheese market and explore Amsterdam in one day.</p>
-          <div class="card-footer">
-            <span class="price">From €44</span>
-            <span class="rating">⭐ 4.2 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-madurodam-mauritshouse-museum-p1099913/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Create your own beats with famous Dutch DJ Armin van Buuren, load cargo ships in the port of Rotterdam, and help Hansje Brinker save the country from flooding! Or stroll peacefully through a famous cheese market and explore Amsterdam in one day.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€44.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-madurodam-mauritshouse-museum-p1099913/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7403fd9cd8be4796a6a6fcae986f3e1d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Tourist Tram" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hop-on Hop-off Tourist Tram</h3>
-          <p class="venue">📍 The Hague Bus Tours</p>
-          <p>Hopping around The Hague? Let the 65-year-old Tourist Tram transport you. Hop on and off as often as you like across 16 different stops, covering all the sights you want. See the shopping areas, the Houses of Parliament, the Peace Palace, Scheveningen Beach, and more!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7403fd9cd8be4796a6a6fcae986f3e1d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Tourist Tram" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">THE HAGUE BUS TOURS</span>
+        </div>
+        <div class="tq-card-title">Hop-on Hop-off Tourist Tram</div>
+        <div class="tq-card-desc">Hopping around The Hague? Let the 65-year-old Tourist Tram transport you. Hop on and off as often as you like across 16 different stops, covering all the sights you want. See the shopping areas, the Houses of Parliament, the Peace Palace, Scheveningen Beach, and more!
 
 The Tourist Tram has the whole of The Hague covered. Hop on and off between 10:15 (first ride) and 16:45 (last ride). There are 16 different stops, ensuring you can get to all the sights.
 
-Discover The Hague's hotspots on board a 65-year-old tram and enjoy an audio tour offered in 10 languages.</p>
-          <div class="card-footer">
-            <span class="price">From €18</span>
-            <span class="rating">⭐ 4.6 (226)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-tourist-tram-p975172/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover The Hague's hotspots on board a 65-year-old tram and enjoy an audio tour offered in 10 languages.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(226)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-tourist-tram-p975172/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Hague Bike Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>The Hague Bike Tour</h3>
-          <p class="venue">📍 The Hague City Tours</p>
-          <p>If you're going to explore a city, there's no better way than by bike! And with the Netherlands' infrastructure built to embrace two-wheeled transport, you can easily make it from one side of the city to the other without any stress.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Hague Bike Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">THE HAGUE CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">The Hague Bike Tour</div>
+        <div class="tq-card-desc">If you're going to explore a city, there's no better way than by bike! And with the Netherlands' infrastructure built to embrace two-wheeled transport, you can easily make it from one side of the city to the other without any stress.
 
-Pick up your bike, meet your guide, and grab a free rain poncho (you can never trust Dutch weather)! Hear the history of the city, see the sights, and enjoy a day of aerobic adventure.</p>
-          <div class="card-footer">
-            <span class="price">From €29.5</span>
-            <span class="rating">⭐ 4.8 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-hague-bike-tour-p1007574/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Pick up your bike, meet your guide, and grab a free rain poncho (you can never trust Dutch weather)! Hear the history of the city, see the sights, and enjoy a day of aerobic adventure.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-hague-bike-tour-p1007574/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5890c5f962574164bf7343ec95ef2cf3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Airport Transfer (Schiphol To/From The Hague)" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Private Airport Transfer (Schiphol To/From The Hague)</h3>
-          <p class="venue">📍 Airport Transfers The Hague</p>
-          <p>Make sure your trip to Amsterdam Airport Schiphol (AMS) is hassle-free with this convenient private transfer between Amsterdam Airport Schiphol (AMS) and your accommodation in the city! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5890c5f962574164bf7343ec95ef2cf3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Airport Transfer (Schiphol To/From The Hague)" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AIRPORT TRANSFERS THE HAGUE</span>
+        </div>
+        <div class="tq-card-title">Private Airport Transfer (Schiphol To/From The Hague)</div>
+        <div class="tq-card-desc">Make sure your trip to Amsterdam Airport Schiphol (AMS) is hassle-free with this convenient private transfer between Amsterdam Airport Schiphol (AMS) and your accommodation in the city! 
 
 Or, switch it around and opt for a private transfer between your accommodation in The Hague and Amsterdam Airport Schiphol (AMS).
 
-You can complete your travel plans by selecting the transfer you want, based on vehicle type and price, and enjoy peace of mind from the first to  the last mile of your journey.</p>
-          <div class="card-footer">
-            <span class="price">From €110</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-private-airport-transfer-schiphol-to-from-the-hague-p1062318/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You can complete your travel plans by selecting the transfer you want, based on vehicle type and price, and enjoy peace of mind from the first to  the last mile of your journey.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€110.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-private-airport-transfer-schiphol-to-from-the-hague-p1062318/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e23ed5c8d75c482980e3b038fbbcb92c.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="RIB Experience Scheveningen" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>RIB Experience Scheveningen</h3>
-          <p class="venue">📍 Go Fast Scheveningen</p>
-          <p>Feel the rush of a lifetime with Go Fast Scheveningen. Board a boat that can reach an amazing 100 km/h, made to maneuver across the ocean with seamless ease. The expert crew will give you a safety briefing, a life vest, and an adventure you won't want to forget anytime soon. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e23ed5c8d75c482980e3b038fbbcb92c.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="RIB Experience Scheveningen" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GO FAST SCHEVENINGEN</span>
+        </div>
+        <div class="tq-card-title">RIB Experience Scheveningen</div>
+        <div class="tq-card-desc">Feel the rush of a lifetime with Go Fast Scheveningen. Board a boat that can reach an amazing 100 km/h, made to maneuver across the ocean with seamless ease. The expert crew will give you a safety briefing, a life vest, and an adventure you won't want to forget anytime soon. 
 
-Enjoy the whip of the wind as you cut a path across the water, and take in the sights of The Hague in between twists and turns that will leave your stomach in knots.</p>
-          <div class="card-footer">
-            <span class="price">From €42.5</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rib-experience-scheveningen-p1005202/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy the whip of the wind as you cut a path across the water, and take in the sights of The Hague in between twists and turns that will leave your stomach in knots.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rib-experience-scheveningen-p1005202/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/44ea6053e3284ff485456f626b76984f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Madurodam + Amsterdam Canal Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Madurodam + Amsterdam Canal Cruise</h3>
-          <p class="venue">📍 Madurodam</p>
-          <p>This package lets you experience these two famous Dutch attractions in one.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/44ea6053e3284ff485456f626b76984f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Madurodam + Amsterdam Canal Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MADURODAM</span>
+        </div>
+        <div class="tq-card-title">Madurodam + Amsterdam Canal Cruise</div>
+        <div class="tq-card-desc">This package lets you experience these two famous Dutch attractions in one.
 
 Learn about Dutch culture and history with a visit to Madurodam, where you can see a miniature world of Dutch art and history. 
 
 Discover all the Dutch highlights in just one day and dive into the remarkable stories and inventions that shaped the Netherlands, with interactive attractions including works by artists like Vincent van Gogh and Rembrandt van Rijn!
 
-After that, take a Lovers Canal Cruise from Central Station in Amsterdam to get a unique view of the city’s canals, architecture, and sites.</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐ 4.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-madurodam-amsterdam-canal-cruise-p1099917/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After that, take a Lovers Canal Cruise from Central Station in Amsterdam to get a unique view of the city’s canals, architecture, and sites.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-madurodam-amsterdam-canal-cruise-p1099917/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e23ed5c8d75c482980e3b038fbbcb92c.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="RIB Experience Scheveningen" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>RIB Experience Scheveningen</h3>
-          <p class="venue">📍 Go Fast Scheveningen</p>
-          <p>Feel the rush of a lifetime with Go Fast Scheveningen. Board a boat that can reach an amazing 100 km/h, made to maneuver across the ocean with seamless ease. The expert crew will give you a safety briefing, a life vest, and an adventure you won't want to forget anytime soon. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e23ed5c8d75c482980e3b038fbbcb92c.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="RIB Experience Scheveningen" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GO FAST SCHEVENINGEN</span>
+        </div>
+        <div class="tq-card-title">RIB Experience Scheveningen</div>
+        <div class="tq-card-desc">Feel the rush of a lifetime with Go Fast Scheveningen. Board a boat that can reach an amazing 100 km/h, made to maneuver across the ocean with seamless ease. The expert crew will give you a safety briefing, a life vest, and an adventure you won't want to forget anytime soon. 
 
-Enjoy the whip of the wind as you cut a path across the water, and take in the sights of The Hague in between twists and turns that will leave your stomach in knots.</p>
-          <div class="card-footer">
-            <span class="price">From €42.5</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rib-experience-scheveningen-p1005202/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy the whip of the wind as you cut a path across the water, and take in the sights of The Hague in between twists and turns that will leave your stomach in knots.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rib-experience-scheveningen-p1005202/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/44ea6053e3284ff485456f626b76984f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Madurodam + Amsterdam Canal Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Madurodam + Amsterdam Canal Cruise</h3>
-          <p class="venue">📍 Madurodam</p>
-          <p>This package lets you experience these two famous Dutch attractions in one.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/44ea6053e3284ff485456f626b76984f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Madurodam + Amsterdam Canal Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>THE HAGUE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MADURODAM</span>
+        </div>
+        <div class="tq-card-title">Madurodam + Amsterdam Canal Cruise</div>
+        <div class="tq-card-desc">This package lets you experience these two famous Dutch attractions in one.
 
 Learn about Dutch culture and history with a visit to Madurodam, where you can see a miniature world of Dutch art and history. 
 
 Discover all the Dutch highlights in just one day and dive into the remarkable stories and inventions that shaped the Netherlands, with interactive attractions including works by artists like Vincent van Gogh and Rembrandt van Rijn!
 
-After that, take a Lovers Canal Cruise from Central Station in Amsterdam to get a unique view of the city’s canals, architecture, and sites.</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐ 4.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-madurodam-amsterdam-canal-cruise-p1099917/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After that, take a Lovers Canal Cruise from Central Station in Amsterdam to get a unique view of the city’s canals, architecture, and sites.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-madurodam-amsterdam-canal-cruise-p1099917/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

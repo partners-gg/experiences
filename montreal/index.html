@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Montreal | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Montreal. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,200 +131,322 @@
     <p>25 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4701e39c4fa347f19d5985fef603b54f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="La Grande Roue de Montréal: Ferris Wheel Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>La Grande Roue de Montréal: Ferris Wheel Entry Ticket</h3>
-          <p class="venue">📍 La Grande Roue de Montréal</p>
-          <p>Take your Montréal adventure to new heights, and rise above the rooftops aboard the iconic Grande Roue de Montréal. This grand feat of Ferris wheel engineering will take you soaring 197 feet through the Montréal skyline, for unrivaled views across the city through ultra-clear tempered glass windows. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4701e39c4fa347f19d5985fef603b54f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="La Grande Roue de Montréal: Ferris Wheel Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LA GRANDE ROUE DE MONTRÉAL</span>
+        </div>
+        <div class="tq-card-title">La Grande Roue de Montréal: Ferris Wheel Entry Ticket</div>
+        <div class="tq-card-desc">Take your Montréal adventure to new heights, and rise above the rooftops aboard the iconic Grande Roue de Montréal. This grand feat of Ferris wheel engineering will take you soaring 197 feet through the Montréal skyline, for unrivaled views across the city through ultra-clear tempered glass windows. 
 
 The perfect way to begin a day or end a memorable evening, step aboard a state-of-the-art gondola and rise slowly above your earthly concerns, as your line of sight opens up into a spectacular panorama stretching from Downtown to the Old Port. 
 
-Come for the views, stay for the food! The Bistro de la Grande Roue has plenty of spacious, scenic seating areas and a mouthwatering menu designed to wow. From gourmet grilled sandwiches to succulent topped crepes and decadent desserts, it's a good idea to arrive hungry!</p>
-          <div class="card-footer">
-            <span class="price">From €21.23</span>
-            <span class="rating">⭐ 4.6 (522)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-la-grande-roue-de-montreal-p1012787/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Come for the views, stay for the food! The Bistro de la Grande Roue has plenty of spacious, scenic seating areas and a mouthwatering menu designed to wow. From gourmet grilled sandwiches to succulent topped crepes and decadent desserts, it's a good idea to arrive hungry!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(522)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.23</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-la-grande-roue-de-montreal-p1012787/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4701e39c4fa347f19d5985fef603b54f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Illusions Montréal: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum of Illusions Montréal: Entry Ticket</h3>
-          <p class="venue">📍 Museum of Illusions Montréal</p>
-          <p>Visit a collection of rooms that change your perspective, installations that engage your mind, and images that challenge what you see. Exhibits teach that things are not always as they appear, especially in the Museum of Illusions.</p>
-          <div class="card-footer">
-            <span class="price">From €21.91</span>
-            <span class="rating">⭐ 4.3 (35)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-illusions-montreal-p1104036/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4701e39c4fa347f19d5985fef603b54f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Illusions Montréal: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEUM OF ILLUSIONS MONTRÉAL</span>
+        </div>
+        <div class="tq-card-title">Museum of Illusions Montréal: Entry Ticket</div>
+        <div class="tq-card-desc">Visit a collection of rooms that change your perspective, installations that engage your mind, and images that challenge what you see. Exhibits teach that things are not always as they appear, especially in the Museum of Illusions.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(35)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.91</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-illusions-montreal-p1104036/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/04832720169249eab0aba3bac9c858bf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Musée Imaginarium Montreal: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Musée Imaginarium Montreal: Entry Ticket</h3>
-          <p class="venue">📍 Musée Imaginarium Montreal</p>
-          <p>Visit the Musée Imaginarium in Montreal for a unique photo studio experience. See an art exhibition featuring 16 creative worlds designed by local artists. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/04832720169249eab0aba3bac9c858bf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Musée Imaginarium Montreal: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSÉE IMAGINARIUM MONTREAL</span>
+        </div>
+        <div class="tq-card-title">Musée Imaginarium Montreal: Entry Ticket</div>
+        <div class="tq-card-desc">Visit the Musée Imaginarium in Montreal for a unique photo studio experience. See an art exhibition featuring 16 creative worlds designed by local artists. 
 
-This 60-minute tour showcases a diverse range of decor, including pop art, maximalism, and contemporary art. Also, the gallery offers a space where you can capture your own creative photos.</p>
-          <div class="card-footer">
-            <span class="price">From €25.2</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-musee-imaginarium-montreal-entry-p1124711/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This 60-minute tour showcases a diverse range of decor, including pop art, maximalism, and contemporary art. Also, the gallery offers a space where you can capture your own creative photos.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.20</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-musee-imaginarium-montreal-entry-p1124711/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e019f925d5a64e6ba71b0b5efdee9b54.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Musée des Hospitalières: Entry ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Musée des Hospitalières: Entry ticket</h3>
-          <p class="venue">📍 Musée des Hospitalières de l'Hôtel-Dieu de Montréal</p>
-          <p>As you explore the Musée des Hospitalières, you'll be transported back in time to the 17th century, discovering the lives of the Hospitaller sisters who dedicated their lives to caring for the sick and wounded. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e019f925d5a64e6ba71b0b5efdee9b54.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Musée des Hospitalières: Entry ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSÉE DES HOSPITALIÈRES DE L'HÔTEL-DIEU DE MONTRÉAL</span>
+        </div>
+        <div class="tq-card-title">Musée des Hospitalières: Entry ticket</div>
+        <div class="tq-card-desc">As you explore the Musée des Hospitalières, you'll be transported back in time to the 17th century, discovering the lives of the Hospitaller sisters who dedicated their lives to caring for the sick and wounded. 
 
 Admire the exquisite collection of artifacts, religious art, and medical instruments, which highlight the evolution of healthcare practices and the daily routines of the sisters. 
 
 Don't miss the chance to step inside the reconstructed pharmacy, filled with facts about the world of traditional herbal remedies and apothecary practices. 
 
-The Musée des Hospitalières offers a unique and insightful experience that intertwines healthcare history, spirituality, and the resilience of those who dedicated themselves to the service of others.</p>
-          <div class="card-footer">
-            <span class="price">From €8.76</span>
-            <span class="rating">⭐ 5 (11)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-musee-des-hospitalieres-entry-ticket-p1075778/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Musée des Hospitalières offers a unique and insightful experience that intertwines healthcare history, spirituality, and the resilience of those who dedicated themselves to the service of others.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(11)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8.76</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-musee-des-hospitalieres-entry-ticket-p1075778/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bd3f10d1f3004306bf04a49da50dfb82.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Laurentian Mountains & Mont-Tremblant: Day Trip from Montreal" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Laurentian Mountains & Mont-Tremblant: Day Trip from Montreal</h3>
-          <p class="venue">📍 Montreal City Tours</p>
-          <p>Visit southern Quebec's Laurentian Mountains on a full-day tour from Montreal. Travel along country roads and see Mont-Tremblant, known for its ski resort.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bd3f10d1f3004306bf04a49da50dfb82.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Laurentian Mountains & Mont-Tremblant: Day Trip from Montreal" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Laurentian Mountains & Mont-Tremblant: Day Trip from Montreal</div>
+        <div class="tq-card-desc">Visit southern Quebec's Laurentian Mountains on a full-day tour from Montreal. Travel along country roads and see Mont-Tremblant, known for its ski resort.
 
-Stop in towns like Saint-Sauveur, Saint-Adolphe-d'Howard, and Mont-Tremblant. Use your free time to eat (own expense), shop, and walk in these French-style villages.</p>
-          <div class="card-footer">
-            <span class="price">From €78.25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-laurentian-mountains-mont-tremblant-day-trip-from-montreal-p1114440/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Stop in towns like Saint-Sauveur, Saint-Adolphe-d'Howard, and Mont-Tremblant. Use your free time to eat (own expense), shop, and walk in these French-style villages.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€78.25</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-laurentian-mountains-mont-tremblant-day-trip-from-montreal-p1114440/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Montreal: Signature Dinner Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montreal: Signature Dinner Cruise</h3>
-          <p class="venue">📍 Montreal Cruises</p>
-          <p>Join the VIP dinner cruise for a relaxed evening on the water. You’ll have a reserved window seat to enjoy the city views.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CRUISES</span>
+        </div>
+        <div class="tq-card-title">Montreal: Signature Dinner Cruise</div>
+        <div class="tq-card-desc">Join the VIP dinner cruise for a relaxed evening on the water. You’ll have a reserved window seat to enjoy the city views.
 
 Your experience includes priority boarding, a welcome cocktail, a 5-course meal, a bottle of wine for two, and a digestif. The food is prepared onboard by the executive chef and features local ingredients.
 
-The cruise passes under the Jacques-Cartier Bridge and offers great views of the city. There’s live entertainment and bars on the outdoor terraces, all set in the vibrant atmosphere of Old Montreal.</p>
-          <div class="card-footer">
-            <span class="price">From €200.32</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montreal-signature-dinner-cruise-p1114031/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The cruise passes under the Jacques-Cartier Bridge and offers great views of the city. There’s live entertainment and bars on the outdoor terraces, all set in the vibrant atmosphere of Old Montreal.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€200.32</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montreal-signature-dinner-cruise-p1114031/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/04832720169249eab0aba3bac9c858bf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: Happy Hour River Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montreal: Happy Hour River Cruise</h3>
-          <p class="venue">📍 Montreal Cruises</p>
-          <p>Set sail from the historic Old Port for a 90-minute voyage along the St. Lawrence River. As the city’s iconic landmarks—the Biosphere, Jacques Cartier Bridge, and Olympic Stadium—glide into view, bilingual guides provide a captivating narrative of Montréal’s storied past and vibrant culture.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/04832720169249eab0aba3bac9c858bf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: Happy Hour River Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CRUISES</span>
+        </div>
+        <div class="tq-card-title">Montreal: Happy Hour River Cruise</div>
+        <div class="tq-card-desc">Set sail from the historic Old Port for a 90-minute voyage along the St. Lawrence River. As the city’s iconic landmarks—the Biosphere, Jacques Cartier Bridge, and Olympic Stadium—glide into view, bilingual guides provide a captivating narrative of Montréal’s storied past and vibrant culture.
 
-Departing from the Grand Quay in the heart of Old Montréal, this journey offers the perfect vantage point from the open-air decks. For an elevated experience, the Happy Hour Cruise includes a complimentary drink (for guests 13 and over), allowing guests to soak up the lively maritime atmosphere and picturesque city skyline.</p>
-          <div class="card-footer">
-            <span class="price">From €31.3</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montreal-river-cruise-p1114030/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Departing from the Grand Quay in the heart of Old Montréal, this journey offers the perfect vantage point from the open-air decks. For an elevated experience, the Happy Hour Cruise includes a complimentary drink (for guests 13 and over), allowing guests to soak up the lively maritime atmosphere and picturesque city skyline.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€31.30</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montreal-river-cruise-p1114030/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Montreal: 3-Course Dinner Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montreal: 3-Course Dinner Cruise</h3>
-          <p class="venue">📍 Montreal Cruises</p>
-          <p>Enjoy a 3-course meal in Montreal while watching the city and the Jacques-Cartier Bridge light up at night.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CRUISES</span>
+        </div>
+        <div class="tq-card-title">Montreal: 3-Course Dinner Cruise</div>
+        <div class="tq-card-desc">Enjoy a 3-course meal in Montreal while watching the city and the Jacques-Cartier Bridge light up at night.
 
 Get served a table d’hôte menu prepared by the chef and team. After dinner, head to the outdoor terraces for music from a DJ and time on the dance floor.
 
-The atmosphere is relaxed and welcoming, making it a fun night out in the city.</p>
-          <div class="card-footer">
-            <span class="price">From €112.68</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montreal-dinner-cruise-p1113995/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The atmosphere is relaxed and welcoming, making it a fun night out in the city.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€112.68</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montreal-dinner-cruise-p1113995/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4701e39c4fa347f19d5985fef603b54f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: 90-Min Brunch Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montreal: 90-Min Brunch Cruise</h3>
-          <p class="venue">📍 Montreal Cruises</p>
-          <p>Savor a seasonal, locally inspired brunch as you glide along the tranquil St. Lawrence River. This family-friendly journey begins with an artisanal three-course meal served in glass-enclosed dining rooms, featuring fresh pastries and a yogurt parfait with wild blueberries.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4701e39c4fa347f19d5985fef603b54f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: 90-Min Brunch Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CRUISES</span>
+        </div>
+        <div class="tq-card-title">Montreal: 90-Min Brunch Cruise</div>
+        <div class="tq-card-desc">Savor a seasonal, locally inspired brunch as you glide along the tranquil St. Lawrence River. This family-friendly journey begins with an artisanal three-course meal served in glass-enclosed dining rooms, featuring fresh pastries and a yogurt parfait with wild blueberries.
 
 Choose from five signature mains, including a gourmet breakfast casserole, traditional Québécois "Captain’s plate," or golden maple waffles. A dedicated children's menu and savory vegan options ensure a delight for every palate, all topped off with decadent profiteroles and homemade chocolate sauce.
 
-Once the feast concludes, the experience transitions into a 90-minute scenic guided cruise. From the open-air terraces, a bilingual guide will share captivating stories of Montréal's maritime heritage and historic figures, offering a perfect blend of culinary indulgence and cultural discovery.</p>
-          <div class="card-footer">
-            <span class="price">From €62.6</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montreal-90-min-brunch-cruise-p1113993/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Once the feast concludes, the experience transitions into a 90-minute scenic guided cruise. From the open-air terraces, a bilingual guide will share captivating stories of Montréal's maritime heritage and historic figures, offering a perfect blend of culinary indulgence and cultural discovery.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€62.60</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montreal-90-min-brunch-cruise-p1113993/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bd3f10d1f3004306bf04a49da50dfb82.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: Hop-on Hop-off Bus Night Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montreal: Hop-on Hop-off Bus Night Tour</h3>
-          <p class="venue">📍 Montreal City Tours</p>
-          <p>Experience Montréal's vibrant districts after dark on this double-decker tour.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bd3f10d1f3004306bf04a49da50dfb82.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: Hop-on Hop-off Bus Night Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Montreal: Hop-on Hop-off Bus Night Tour</div>
+        <div class="tq-card-desc">Experience Montréal's vibrant districts after dark on this double-decker tour.
 
-See Ile Notre-Dame, Ile Sainte-Helene, Montreal Casino, Old Montreal, Old Port, and the Festival District. Travel through Downtown "District MTL", Crescent Street, and Mont-Royal. Stop at Camilien Houde lookout and, during the right season, catch the fireworks.</p>
-          <div class="card-footer">
-            <span class="price">From €25.04</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montreal-hop-on-hop-off-bus-night-tour-p1116727/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See Ile Notre-Dame, Ile Sainte-Helene, Montreal Casino, Old Montreal, Old Port, and the Festival District. Travel through Downtown "District MTL", Crescent Street, and Mont-Royal. Stop at Camilien Houde lookout and, during the right season, catch the fireworks.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.04</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montreal-hop-on-hop-off-bus-night-tour-p1116727/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/16e51b00f86a4398911fe288d4c6cc1b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: Murals Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montreal: Murals Walking Tour</h3>
-          <p class="venue">📍 Montreal City Tours</p>
-          <p>Join a walking tour of Montréal’s murals alongside a professional guide and learn about the origin and current role of mural art in Montréal. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/16e51b00f86a4398911fe288d4c6cc1b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: Murals Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Montreal: Murals Walking Tour</div>
+        <div class="tq-card-desc">Join a walking tour of Montréal’s murals alongside a professional guide and learn about the origin and current role of mural art in Montréal. 
 
 Follow a path marked with unique works of art. Montréal is a significant place for street art in North America, comparable to other major cities known for graffiti and outdoor murals.
 
-Mainly focusing on St-Laurent Boulevard, take interesting detours through nearby streets and alleys. See some of the most lively and creative murals and learn about the artists and collectives behind them.</p>
-          <div class="card-footer">
-            <span class="price">From €20.66</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montreal-murals-walking-tour-p1112399/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Mainly focusing on St-Laurent Boulevard, take interesting detours through nearby streets and alleys. See some of the most lively and creative murals and learn about the artists and collectives behind them.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.66</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montreal-murals-walking-tour-p1112399/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a7730580e1b54e37b6ef81eac07b8f71.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Heart of Montreal: Guided Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Heart of Montreal: Guided Bus Tour</h3>
-          <p class="venue">📍 Montreal City Tours</p>
-          <p>Visit Montréal and see its unique blend of culture and architecture. On this tour, follow the guide to various historical sites. You will visit museums like the Museum of Fine Arts, McCord, and Pointe-à-Callière. Along the way, get information about local restaurants and shops that you can visit on your own later.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a7730580e1b54e37b6ef81eac07b8f71.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Heart of Montreal: Guided Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Heart of Montreal: Guided Bus Tour</div>
+        <div class="tq-card-desc">Visit Montréal and see its unique blend of culture and architecture. On this tour, follow the guide to various historical sites. You will visit museums like the Museum of Fine Arts, McCord, and Pointe-à-Callière. Along the way, get information about local restaurants and shops that you can visit on your own later.
 
 Key stops include:
 Old Montreal
@@ -233,236 +454,385 @@ Olympic Park
 Saint Joseph's Oratory
 Mount Royal park
 
-Take photos at these attractions and learn more about this French-speaking city.</p>
-          <div class="card-footer">
-            <span class="price">From €22.54</span>
-            <span class="rating">⭐ 4 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montreal-guided-bus-tour-p1108245/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take photos at these attractions and learn more about this French-speaking city.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.54</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montreal-guided-bus-tour-p1108245/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/79c64e61f82f4578be0c04b5e32b8f69.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Quebec City & Montmorency Falls: Guided Day Tour from Montreal" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Quebec City & Montmorency Falls: Guided Day Tour from Montreal</h3>
-          <p class="venue">📍 Montreal City Tours</p>
-          <p>Join a guided tour of Quebec City, founded by Samuel de Champlain. Start with a 45-minute walk through Place Royale, rich in history. Then, board the Gray Line coach to see Montmorency Falls, standing 83 meters tall. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/79c64e61f82f4578be0c04b5e32b8f69.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Quebec City & Montmorency Falls: Guided Day Tour from Montreal" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Quebec City & Montmorency Falls: Guided Day Tour from Montreal</div>
+        <div class="tq-card-desc">Join a guided tour of Quebec City, founded by Samuel de Champlain. Start with a 45-minute walk through Place Royale, rich in history. Then, board the Gray Line coach to see Montmorency Falls, standing 83 meters tall. 
 
-Return to Old Quebec to see landmarks such as the Plains of Abraham, the Citadel, Quebec Parliament, and Ile D’Orleans. After the 3-hour guided tour, spend an additional 3 hours on your own in Petit Champlain. Find restaurants, boutiques, and many opportunities for photos and souvenirs.</p>
-          <div class="card-footer">
-            <span class="price">From €31.3</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-quebec-city-montmorency-falls-guided-day-tour-from-montreal-p1108206/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Return to Old Quebec to see landmarks such as the Plains of Abraham, the Citadel, Quebec Parliament, and Ile D’Orleans. After the 3-hour guided tour, spend an additional 3 hours on your own in Petit Champlain. Find restaurants, boutiques, and many opportunities for photos and souvenirs.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€31.30</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-quebec-city-montmorency-falls-guided-day-tour-from-montreal-p1108206/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4701e39c4fa347f19d5985fef603b54f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: Hop-on Hop-off Double-Decker Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montreal: Hop-on Hop-off Double-Decker Bus Tour</h3>
-          <p class="venue">📍 Montreal City Tours</p>
-          <p>Join a sightseeing tour to see what Montreal has to offer. Ride a double-decker bus and view the city from above. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4701e39c4fa347f19d5985fef603b54f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: Hop-on Hop-off Double-Decker Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Montreal: Hop-on Hop-off Double-Decker Bus Tour</div>
+        <div class="tq-card-desc">Join a sightseeing tour to see what Montreal has to offer. Ride a double-decker bus and view the city from above. 
 
-Learn about Montreal’s history from a certified guide. The tour has 10 stops where you can get off and look around. Visit museums, Old Montreal, famous churches, and many other sites.</p>
-          <div class="card-footer">
-            <span class="price">From €42.57</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montreal-hop-on-hop-off-double-decker-bus-tour-p1108204/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about Montreal’s history from a certified guide. The tour has 10 stops where you can get off and look around. Visit museums, Old Montreal, famous churches, and many other sites.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.57</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montreal-hop-on-hop-off-double-decker-bus-tour-p1108204/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b83799cc938b4b5191baa5c26f7540e0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: Bon Voyage Immersive Show by Cirque Éloize" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montreal: Bon Voyage Immersive Show by Cirque Éloize</h3>
-          <p class="venue">📍 Shows and Entertainment in Montreal</p>
-          <p>Witness 'Bon Voyage,' a 60-minute show by Cirque Éloize featuring artistry, acrobatics, and 360-degree visuals. Set in 1885 Montreal, the show highlights the challenges of the time and the impact of the trans-Canadian railway on the Canadian Confederation. Join the Cirque Éloize artists in exploring this vibrant period and the excitement of the first train journey from Dalhousie Station to Port Moody, British Columbia, on June 28, 1886.</p>
-          <div class="card-footer">
-            <span class="price">From €33.1</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montreal-cirque-eloizes-bon-voyage-show-p1100156/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b83799cc938b4b5191baa5c26f7540e0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: Bon Voyage Immersive Show by Cirque Éloize" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SHOWS AND ENTERTAINMENT IN MONTREAL</span>
+        </div>
+        <div class="tq-card-title">Montreal: Bon Voyage Immersive Show by Cirque Éloize</div>
+        <div class="tq-card-desc">Witness 'Bon Voyage,' a 60-minute show by Cirque Éloize featuring artistry, acrobatics, and 360-degree visuals. Set in 1885 Montreal, the show highlights the challenges of the time and the impact of the trans-Canadian railway on the Canadian Confederation. Join the Cirque Éloize artists in exploring this vibrant period and the excitement of the first train journey from Dalhousie Station to Port Moody, British Columbia, on June 28, 1886.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.10</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montreal-cirque-eloizes-bon-voyage-show-p1100156/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bbe0e02740394525a2f3d95ee1ed25f9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal Guided Sightseeing River Cruise + Observation Tower Admission" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montreal Guided Sightseeing River Cruise + Observation Tower Admission</h3>
-          <p class="venue">📍 Montreal Cruises</p>
-          <p>Journey across the St. Lawrence River, setting sail from the unique charm of the Old Port of Montreal, and explore the enchanting Boucherville Islands, boasting a view that will steal your breath away! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bbe0e02740394525a2f3d95ee1ed25f9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal Guided Sightseeing River Cruise + Observation Tower Admission" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CRUISES</span>
+        </div>
+        <div class="tq-card-title">Montreal Guided Sightseeing River Cruise + Observation Tower Admission</div>
+        <div class="tq-card-desc">Journey across the St. Lawrence River, setting sail from the unique charm of the Old Port of Montreal, and explore the enchanting Boucherville Islands, boasting a view that will steal your breath away! 
 
-Next, ascend to the heights of the freshly minted Port of Montreal Tower - a 65-metre-high beacon of beauty offering panoramic views of the buzzing city and the serene St. Lawrence River. It's a sightseer's paradise with viewfinders scattered across the observation deck, ready to guide you through Montreal's treasure trove of hotspots. So, why wait? Book your ticket now for a once-in-a-lifetime voyage filled with unforgettable vistas!</p>
-          <div class="card-footer">
-            <span class="price">From €43.19</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montreal-guided-sightseeing-river-cruise-with-observation-tower-admission-p1071868/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, ascend to the heights of the freshly minted Port of Montreal Tower - a 65-metre-high beacon of beauty offering panoramic views of the buzzing city and the serene St. Lawrence River. It's a sightseer's paradise with viewfinders scattered across the observation deck, ready to guide you through Montreal's treasure trove of hotspots. So, why wait? Book your ticket now for a once-in-a-lifetime voyage filled with unforgettable vistas!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€43.19</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montreal-guided-sightseeing-river-cruise-with-observation-tower-admission-p1071868/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bbe0e02740394525a2f3d95ee1ed25f9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montréal: Sightseeing River Cruise + AURA Experience at Notre-Dame" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montréal: Sightseeing River Cruise + AURA Experience at Notre-Dame</h3>
-          <p class="venue">📍 Montreal Cruises</p>
-          <p>Glide along the tranquil St. Lawrence River for 90 minutes with the cityscape of Montréal as your backdrop. Along the way, a bilingual guide, well-versed in the city's lore, will regale you with tales of Montréal's historic figures and maritime heritage.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bbe0e02740394525a2f3d95ee1ed25f9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montréal: Sightseeing River Cruise + AURA Experience at Notre-Dame" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CRUISES</span>
+        </div>
+        <div class="tq-card-title">Montréal: Sightseeing River Cruise + AURA Experience at Notre-Dame</div>
+        <div class="tq-card-desc">Glide along the tranquil St. Lawrence River for 90 minutes with the cityscape of Montréal as your backdrop. Along the way, a bilingual guide, well-versed in the city's lore, will regale you with tales of Montréal's historic figures and maritime heritage.
 
 Then, prepare to be transported to another dimension with the AURA experience. Conceived by the creative minds at Moment Factory, AURA is a mesmerizing blend of visual wizardry and melodic magic, set within the Gothic Revival grandeur of the Notre-Dame Basilica of Montréal.
 
-This spectacle of light, sound, and architecture lasts around 40 minutes, allowing ample time to explore illuminated stations and dive into an immersive multimedia journey.</p>
-          <div class="card-footer">
-            <span class="price">From €61.97</span>
-            <span class="rating">⭐ 3 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montreal-sightseeing-river-cruise-with-aura-experience-at-notre-dame-p1071867/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This spectacle of light, sound, and architecture lasts around 40 minutes, allowing ample time to explore illuminated stations and dive into an immersive multimedia journey.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€61.97</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montreal-sightseeing-river-cruise-with-aura-experience-at-notre-dame-p1071867/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bbe0e02740394525a2f3d95ee1ed25f9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: 5-Course Dinner Sightseeing Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montreal: 5-Course Dinner Sightseeing Cruise</h3>
-          <p class="venue">📍 Montreal Cruises</p>
-          <p>Calling all foodies and sunset lovers! Sail into the evening while delighting in a five-course feast, expertly crafted by the AML Cavalier Maxim’s executive chef. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bbe0e02740394525a2f3d95ee1ed25f9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: 5-Course Dinner Sightseeing Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CRUISES</span>
+        </div>
+        <div class="tq-card-title">Montreal: 5-Course Dinner Sightseeing Cruise</div>
+        <div class="tq-card-desc">Calling all foodies and sunset lovers! Sail into the evening while delighting in a five-course feast, expertly crafted by the AML Cavalier Maxim’s executive chef. 
 
-Every course on this Montreal Sightseeing Dinner Cruise is cooked on board, using only the freshest ingredients. The view? A stunning panorama of the Metropolis, best enjoyed from the water.</p>
-          <div class="card-footer">
-            <span class="price">From €129.58</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montreal-5-course-dinner-sightseeing-cruise-p1071591/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Every course on this Montreal Sightseeing Dinner Cruise is cooked on board, using only the freshest ingredients. The view? A stunning panorama of the Metropolis, best enjoyed from the water.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€129.58</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montreal-5-course-dinner-sightseeing-cruise-p1071591/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4701e39c4fa347f19d5985fef603b54f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal Guided Evening River Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montreal Guided Evening River Cruise</h3>
-          <p class="venue">📍 Montreal Cruises</p>
-          <p>Bask in the glow of a Montreal summer on the city's sole floating terrace! Perfectly suited for groups of friends or a romantic date night, this Montreal Guided Evening River Cruise offers a chance to enjoy the ambiance of the St. Lawrence River in a whole new way. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4701e39c4fa347f19d5985fef603b54f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal Guided Evening River Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CRUISES</span>
+        </div>
+        <div class="tq-card-title">Montreal Guided Evening River Cruise</div>
+        <div class="tq-card-desc">Bask in the glow of a Montreal summer on the city's sole floating terrace! Perfectly suited for groups of friends or a romantic date night, this Montreal Guided Evening River Cruise offers a chance to enjoy the ambiance of the St. Lawrence River in a whole new way. 
 
 As twilight descends, a spectacular show begins - the cityscape and the iconic Jacques-Cartier Bridge burst into vibrant light, casting a mesmerizing glow over the water. 
 
-Don't miss out, secure a ticket today for the best view in Montreal.</p>
-          <div class="card-footer">
-            <span class="price">From €57.59</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montreal-guided-evening-river-cruise-p1071586/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Don't miss out, secure a ticket today for the best view in Montreal.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€57.59</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montreal-guided-evening-river-cruise-p1071586/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4701e39c4fa347f19d5985fef603b54f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: Guided Sightseeing River Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montreal: Guided Sightseeing River Cruise</h3>
-          <p class="venue">📍 Montreal Cruises</p>
-          <p>Discover Montreal's majestic beauty with the wind in your hair, as you set sail on a fascinating guided cruise on the St. Lawrence River. You'll pass by many of Montreal's iconic landmarks, including the Jacques Cartier Bridge, Habitat 67, and the Old Port. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4701e39c4fa347f19d5985fef603b54f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: Guided Sightseeing River Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CRUISES</span>
+        </div>
+        <div class="tq-card-title">Montreal: Guided Sightseeing River Cruise</div>
+        <div class="tq-card-desc">Discover Montreal's majestic beauty with the wind in your hair, as you set sail on a fascinating guided cruise on the St. Lawrence River. You'll pass by many of Montreal's iconic landmarks, including the Jacques Cartier Bridge, Habitat 67, and the Old Port. 
 
 Along the way, you might also spot some of the local wildlife and various bird species. Keep your eyes peeled and your cameras primed.
 
 Feeling hungry? Let yourself be tempted by the bistro menu, available on board at all times.
 
-Sail from the Old Port of Montreal to the Boucherville Islands and enjoy a breathtaking view of downtown. Learn more about Quebec's metropolis with a guide, or simply relax on the outdoor terraces. A great way for first-time visitors to the city to see the sights.</p>
-          <div class="card-footer">
-            <span class="price">From €40.69</span>
-            <span class="rating">⭐ 4.1 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montreal-guided-sightseeing-river-cruise-p1061914/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Sail from the Old Port of Montreal to the Boucherville Islands and enjoy a breathtaking view of downtown. Learn more about Quebec's metropolis with a guide, or simply relax on the outdoor terraces. A great way for first-time visitors to the city to see the sights.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.69</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montreal-guided-sightseeing-river-cruise-p1061914/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/79c64e61f82f4578be0c04b5e32b8f69.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Old Montréal Traditional Ghost Walk" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Old Montréal Traditional Ghost Walk</h3>
-          <p class="venue">📍 Montreal City Tours</p>
-          <p>Legends, sinister stories and spine-tingling intrigue await on this thrilling nighttime walk around Old Montréal, where your storyteller played by professional actors will unveil the spooky, dark past of Old Montréal. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/79c64e61f82f4578be0c04b5e32b8f69.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Old Montréal Traditional Ghost Walk" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Old Montréal Traditional Ghost Walk</div>
+        <div class="tq-card-desc">Legends, sinister stories and spine-tingling intrigue await on this thrilling nighttime walk around Old Montréal, where your storyteller played by professional actors will unveil the spooky, dark past of Old Montréal. 
 
-Discover unexplained phenomena and outdoor locations where disturbing and significant events have taken place. Hear chilling ghost stories as you go, and find out which places are haunted. This unusual pedestrian circuit through the streets and alleyways will whisk you and your imagination right back to the grim times of New France!</p>
-          <div class="card-footer">
-            <span class="price">From €21.91</span>
-            <span class="rating">⭐ 4.5 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-old-montreal-traditional-ghost-walk-p1027514/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover unexplained phenomena and outdoor locations where disturbing and significant events have taken place. Hear chilling ghost stories as you go, and find out which places are haunted. This unusual pedestrian circuit through the streets and alleyways will whisk you and your imagination right back to the grim times of New France!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.91</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-old-montreal-traditional-ghost-walk-p1027514/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b64d7f78c96f4597a9a338a3fb08eb9e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montréal: The Original Old Montréal Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montréal: The Original Old Montréal Walking Tour</h3>
-          <p class="venue">📍 Montreal City Tours</p>
-          <p>This 2-hour guided experience, led by a certified local guide, brings the city’s unique joie de vivre to life. Stroll through cobblestone streets, admire architecture, and see hidden places as the guide shares stories and tidbits that make Montréal a French metropolis. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b64d7f78c96f4597a9a338a3fb08eb9e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montréal: The Original Old Montréal Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Montréal: The Original Old Montréal Walking Tour</div>
+        <div class="tq-card-desc">This 2-hour guided experience, led by a certified local guide, brings the city’s unique joie de vivre to life. Stroll through cobblestone streets, admire architecture, and see hidden places as the guide shares stories and tidbits that make Montréal a French metropolis. 
 
-Easy, fun, and authentic, this tour is the result of decades of experience – a perfect introduction to the city! Please note: This tour covers both the East and West circuits mentioned in past reviews.</p>
-          <div class="card-footer">
-            <span class="price">From €21.91</span>
-            <span class="rating">⭐ 5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-old-montreal-walking-tour-p1026866/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Easy, fun, and authentic, this tour is the result of decades of experience – a perfect introduction to the city! Please note: This tour covers both the East and West circuits mentioned in past reviews.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.91</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-old-montreal-walking-tour-p1026866/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4701e39c4fa347f19d5985fef603b54f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: Scenic Night Tour + La Grande Roue de Montreal Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montreal: Scenic Night Tour + La Grande Roue de Montreal Entry Ticket</h3>
-          <p class="venue">📍 La Grande Roue de Montréal</p>
-          <p>Fun and excitement lie ahead on this scenic Montreal night tour. The tour begins with pick-up directly from your hotel in downtown Montreal, before heading out on a narrated driving tour of Mont Royal and Saint Joseph’s Oratory, Canada’s largest church with one of the largest domes in the world. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4701e39c4fa347f19d5985fef603b54f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montreal: Scenic Night Tour + La Grande Roue de Montreal Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LA GRANDE ROUE DE MONTRÉAL</span>
+        </div>
+        <div class="tq-card-title">Montreal: Scenic Night Tour + La Grande Roue de Montreal Entry Ticket</div>
+        <div class="tq-card-desc">Fun and excitement lie ahead on this scenic Montreal night tour. The tour begins with pick-up directly from your hotel in downtown Montreal, before heading out on a narrated driving tour of Mont Royal and Saint Joseph’s Oratory, Canada’s largest church with one of the largest domes in the world. 
 
 After the driving tour, your guide will bring you to the Mont Royal Lookout, the tallest spot in the city, where you can look out at Montreal's illuminated skyline and surrounding nature.  
 
 You will then explore more of the local nightlife with a narrated drive through Old Montreal, where you will stop to view the Notre Dame Basilica, the mother church of Montreal and a masterpiece of Gothic Revival architecture. 
 
-After admiring the Gothic architecture of the Notre Dame Basilica, you'll head to your final stop, La Grand Roue (French for The Big Wheel). Here you will ride the largest Ferris wheel in Canada and enjoy a tasty local snack from nearby vendors.</p>
-          <div class="card-footer">
-            <span class="price">From €93.28</span>
-            <span class="rating">⭐ 4.7 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-scenic-montreal-night-tour-with-la-grande-roue-de-montreal-admission-p1015869/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After admiring the Gothic architecture of the Notre Dame Basilica, you'll head to your final stop, La Grand Roue (French for The Big Wheel). Here you will ride the largest Ferris wheel in Canada and enjoy a tasty local snack from nearby vendors.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€93.28</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-scenic-montreal-night-tour-with-la-grande-roue-de-montreal-admission-p1015869/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1eb7f33aa0e04dea8dd2325c5c440e4f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Best of Montreal Tour with Boat Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>The Best of Montreal Tour with Boat Cruise</h3>
-          <p class="venue">📍 Montreal City Tours</p>
-          <p>Navigating a city can be daunting. Where to start? With the Best of Montreal Tour, your small group is privy to a beginner's guide to MTL.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1eb7f33aa0e04dea8dd2325c5c440e4f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Best of Montreal Tour with Boat Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">The Best of Montreal Tour with Boat Cruise</div>
+        <div class="tq-card-desc">Navigating a city can be daunting. Where to start? With the Best of Montreal Tour, your small group is privy to a beginner's guide to MTL.
 
 An insightful local guide will pick you up from downtown, and whisk you up to Mount Royal for a view of the city. You'll pass through various neighborhoods on your way to the Olympic Park (built for the city's hosting of the 1976 Olympics), and explore four ecosystems of the Americas at the incredible Biodome.
 
-Plus, from Thursday to Sunday, you'll end at the Old Port of Montreal with a relaxing cruise down St. Lawrence River. If your tour is between Monday and Wednesday or out of season, you'll instead take in panoramic views of the city with a ride on the Grand Roue, Canada's largest observation wheel.</p>
-          <div class="card-footer">
-            <span class="price">From €143.36</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-best-of-montreal-tour-p1001567/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Plus, from Thursday to Sunday, you'll end at the Old Port of Montreal with a relaxing cruise down St. Lawrence River. If your tour is between Monday and Wednesday or out of season, you'll instead take in panoramic views of the city with a ride on the Grand Roue, Canada's largest observation wheel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€143.36</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-best-of-montreal-tour-p1001567/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1eb7f33aa0e04dea8dd2325c5c440e4f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Best of Montreal Tour with Boat Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>The Best of Montreal Tour with Boat Cruise</h3>
-          <p class="venue">📍 Montreal City Tours</p>
-          <p>Navigating a city can be daunting. Where to start? With the Best of Montreal Tour, your small group is privy to a beginner's guide to MTL.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1eb7f33aa0e04dea8dd2325c5c440e4f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Best of Montreal Tour with Boat Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MONTREAL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONTREAL CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">The Best of Montreal Tour with Boat Cruise</div>
+        <div class="tq-card-desc">Navigating a city can be daunting. Where to start? With the Best of Montreal Tour, your small group is privy to a beginner's guide to MTL.
 
 An insightful local guide will pick you up from downtown, and whisk you up to Mount Royal for a view of the city. You'll pass through various neighborhoods on your way to the Olympic Park (built for the city's hosting of the 1976 Olympics), and explore four ecosystems of the Americas at the incredible Biodome.
 
-Plus, from Thursday to Sunday, you'll end at the Old Port of Montreal with a relaxing cruise down St. Lawrence River. If your tour is between Monday and Wednesday or out of season, you'll instead take in panoramic views of the city with a ride on the Grand Roue, Canada's largest observation wheel.</p>
-          <div class="card-footer">
-            <span class="price">From €143.36</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-best-of-montreal-tour-p1001567/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Plus, from Thursday to Sunday, you'll end at the Old Port of Montreal with a relaxing cruise down St. Lawrence River. If your tour is between Monday and Wednesday or out of season, you'll instead take in panoramic views of the city with a ride on the Grand Roue, Canada's largest observation wheel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€143.36</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-best-of-montreal-tour-p1001567/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

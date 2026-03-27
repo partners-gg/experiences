@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Giza | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Giza. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,64 +131,102 @@
     <p>23 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Egyptian Museum: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Grand Egyptian Museum: Skip The Line Ticket</h3>
-          <p class="venue">📍 Grand Egyptian Museum</p>
-          <p>Visit the Grand Egyptian Museum in Cairo.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Egyptian Museum: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GRAND EGYPTIAN MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Grand Egyptian Museum: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Visit the Grand Egyptian Museum in Cairo.
 
 Enter the world’s largest archaeological museum quickly with this ticket. 
 
-See thousands of artifacts, including treasures from Tutankhamun. Walk through exhibits that display Egypt’s history, culture, and art.</p>
-          <div class="card-footer">
-            <span class="price">From €30.18</span>
-            <span class="rating">⭐ 4.4 (129)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-egyptian-museum-skip-the-line-p1123804/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See thousands of artifacts, including treasures from Tutankhamun. Walk through exhibits that display Egypt’s history, culture, and art.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(129)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.18</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-grand-egyptian-museum-skip-the-line-p1123804/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pyramids of Giza: Entry Ticket</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Visit the Pyramids of Giza to see one of the most famous ancient wonders. Explore the Great Pyramid, the largest and oldest of the three, and see the intricate construction and massive stones. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Pyramids of Giza: Entry Ticket</div>
+        <div class="tq-card-desc">Visit the Pyramids of Giza to see one of the most famous ancient wonders. Explore the Great Pyramid, the largest and oldest of the three, and see the intricate construction and massive stones. 
 
-Walk around the complex to view the Sphinx, a colossal statue with a lion's body and a human head. Take photos of the famous structures and the desert landscape surrounding them.</p>
-          <div class="card-footer">
-            <span class="price">From €15.52</span>
-            <span class="rating">⭐ 4.5 (44)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-entry-ticket-p1121146/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Walk around the complex to view the Sphinx, a colossal statue with a lion's body and a human head. Take photos of the famous structures and the desert landscape surrounding them.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(44)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.52</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-entry-ticket-p1121146/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza & The Great Pyramid: Entry Ticket + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pyramids of Giza & The Great Pyramid: Entry Ticket + Transfers</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Get convenient hotel transfers and QR entry tickets to the Great Pyramids of Giza. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza & The Great Pyramid: Entry Ticket + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Pyramids of Giza & The Great Pyramid: Entry Ticket + Transfers</div>
+        <div class="tq-card-desc">Get convenient hotel transfers and QR entry tickets to the Great Pyramids of Giza. 
 
 Avoid transport hassle with a direct, comfortable ride to the site.
 
-Enter the Great Pyramid of Khufu, the largest of the three pyramids. Walk through its narrow passages and ancient chambers for a direct look at one of the Seven Wonders of the Ancient World.</p>
-          <div class="card-footer">
-            <span class="price">From €58.63</span>
-            <span class="rating">⭐ 4 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-the-great-pyramid-entry-transfer-p1121949/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enter the Great Pyramid of Khufu, the largest of the three pyramids. Walk through its narrow passages and ancient chambers for a direct look at one of the Seven Wonders of the Ancient World.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€58.63</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-the-great-pyramid-entry-transfer-p1121949/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/08944f6c97ab4137b224a18901d28e64.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Saqqara Necropolis: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Saqqara Necropolis: Entry Ticket</h3>
-          <p class="venue">📍 Saqqara Necropolis</p>
-          <p>Visit Saqqara, the extensive burial site associated with ancient Memphis.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/08944f6c97ab4137b224a18901d28e64.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Saqqara Necropolis: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SAQQARA NECROPOLIS</span>
+        </div>
+        <div class="tq-card-title">Saqqara Necropolis: Entry Ticket</div>
+        <div class="tq-card-desc">Visit Saqqara, the extensive burial site associated with ancient Memphis.
 
 The area includes the Step Pyramid of Djoser, designed by Imhotep over 4,600 years ago. It is considered the first major stone structure. Beyond the Step Pyramid are mastabas, temples, and underground galleries.
 
@@ -97,121 +234,198 @@ These structures are decorated with ancient Egyptian hieroglyphs and reliefs fro
 
 See well-preserved stone walls and chapels that demonstrate early engineering and artistic skill.
 
-Learn about the early development of pyramid design and pharaonic culture through ongoing archaeological discoveries.</p>
-          <div class="card-footer">
-            <span class="price">From €13.8</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-saqqara-necropolis-entry-p1128180/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about the early development of pyramid design and pharaonic culture through ongoing archaeological discoveries.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.80</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-saqqara-necropolis-entry-p1128180/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Egyptian Museum: Entry Ticket + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Grand Egyptian Museum: Entry Ticket + Transfers</h3>
-          <p class="venue">📍 Grand Egyptian Museum</p>
-          <p>Start with a pickup from centrally located hotels in Cairo or Giza to visit the Grand Egyptian Museum (GEM). Located near the Pyramids of Giza, this museum holds the largest collection of ancient Egyptian artifacts, including all the treasures of King Tutankhamun displayed together for the first time.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Egyptian Museum: Entry Ticket + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GRAND EGYPTIAN MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Grand Egyptian Museum: Entry Ticket + Transfers</div>
+        <div class="tq-card-desc">Start with a pickup from centrally located hotels in Cairo or Giza to visit the Grand Egyptian Museum (GEM). Located near the Pyramids of Giza, this museum holds the largest collection of ancient Egyptian artifacts, including all the treasures of King Tutankhamun displayed together for the first time.
 
-Walk through halls, interactive exhibits, and curated galleries at your own pace. Ideal for families, history buffs, and first-time visitors, the Grand Egyptian Museum offers a deep look into over 5,000 years of Egyptian history.</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐ 4.6 (12)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-egyptian-museum-entry-transfers-p1115351/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Walk through halls, interactive exhibits, and curated galleries at your own pace. Ideal for families, history buffs, and first-time visitors, the Grand Egyptian Museum offers a deep look into over 5,000 years of Egyptian history.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(12)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-grand-egyptian-museum-entry-transfers-p1115351/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza + Grand Egyptian Museum (GEM)" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pyramids of Giza + Grand Egyptian Museum (GEM)</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Visit the Pyramids of Giza to see the monumental structures that have stood for thousands of years. Observe the intricate details of the Great Pyramid, the Sphinx, and the lesser-known pyramids nearby. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza + Grand Egyptian Museum (GEM)" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Pyramids of Giza + Grand Egyptian Museum (GEM)</div>
+        <div class="tq-card-desc">Visit the Pyramids of Giza to see the monumental structures that have stood for thousands of years. Observe the intricate details of the Great Pyramid, the Sphinx, and the lesser-known pyramids nearby. 
 
-Explore the Grand Egyptian Museum, home to a vast collection of artifacts from ancient Egypt. View the treasures of King Tutankhamun, including his famous golden mask. Survey the museum's extensive displays, featuring statues, jewelry, and other relics from Egypt's storied past.</p>
-          <div class="card-footer">
-            <span class="price">From €43.97</span>
-            <span class="rating">⭐ 2.8 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-and-grand-egyptian-museum-p1121151/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore the Grand Egyptian Museum, home to a vast collection of artifacts from ancient Egypt. View the treasures of King Tutankhamun, including his famous golden mask. Survey the museum's extensive displays, featuring statues, jewelry, and other relics from Egypt's storied past.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2.8</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€43.97</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-and-grand-egyptian-museum-p1121151/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza: Sound & Light Show" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pyramids of Giza: Sound & Light Show</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Visit the Pyramids of Giza to see the Sound & Light Show. Watch as lights illuminate the ancient structures against the night sky. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza: Sound & Light Show" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Pyramids of Giza: Sound & Light Show</div>
+        <div class="tq-card-desc">Visit the Pyramids of Giza to see the Sound & Light Show. Watch as lights illuminate the ancient structures against the night sky. 
 
-Hear the stories of the pharaohs through synchronized audio and observe the Sphinx as it comes to life with projections. Enjoy the visual and auditory display that brings history to the present.</p>
-          <div class="card-footer">
-            <span class="price">From €30.18</span>
-            <span class="rating">⭐ 3.3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-sound-light-show-p1121149/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Hear the stories of the pharaohs through synchronized audio and observe the Sphinx as it comes to life with projections. Enjoy the visual and auditory display that brings history to the present.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.18</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-sound-light-show-p1121149/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza & Grand Egyptian Museum: Entry + Transfers + Optional Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pyramids of Giza & Grand Egyptian Museum: Entry + Transfers + Optional Guide</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Visit two major sites in Egypt in one trip. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza & Grand Egyptian Museum: Entry + Transfers + Optional Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Pyramids of Giza & Grand Egyptian Museum: Entry + Transfers + Optional Guide</div>
+        <div class="tq-card-desc">Visit two major sites in Egypt in one trip. 
 
 Start at the Giza Plateau, where you can see the Great Pyramids and the Sphinx. 
 
 Next, head to the Grand Egyptian Museum (GEM), the largest archaeological museum in the world. Here, see thousands of artifacts, including those of Tutankhamun.
 
-If selected, a licensed Egyptologist guide will join the tour to share stories and little-known details along the way.</p>
-          <div class="card-footer">
-            <span class="price">From €50.01</span>
-            <span class="rating">⭐ 4 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-grand-egyptian-museum-entry-transfers-p1122152/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+If selected, a licensed Egyptologist guide will join the tour to share stories and little-known details along the way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.01</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-grand-egyptian-museum-entry-transfers-p1122152/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Egyptian Museum: Skip The Line Ticket + Guided Tour + Lunch + Transport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Grand Egyptian Museum: Skip The Line Ticket + Guided Tour + Lunch + Transport</h3>
-          <p class="venue">📍 Grand Egyptian Museum</p>
-          <p>Visit the Grand Egyptian Museum, located near the Giza Pyramids of Cheops, Chephren, and Mycerinus. Explore the museum's collection of ancient Egyptian artifacts, including items from the New Kingdom like the treasures of Tutankhamun.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Egyptian Museum: Skip The Line Ticket + Guided Tour + Lunch + Transport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GRAND EGYPTIAN MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Grand Egyptian Museum: Skip The Line Ticket + Guided Tour + Lunch + Transport</div>
+        <div class="tq-card-desc">Visit the Grand Egyptian Museum, located near the Giza Pyramids of Cheops, Chephren, and Mycerinus. Explore the museum's collection of ancient Egyptian artifacts, including items from the New Kingdom like the treasures of Tutankhamun.
 
-Your guide will show you the museum’s sections, including conservation laboratories, and provide information on Egyptian history and new discoveries. After the visit, have lunch in Cairo before returning to the starting point.</p>
-          <div class="card-footer">
-            <span class="price">From €96.57</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-egyptian-museum-skip-the-line-guided-tour-lunch-transport-p1115717/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your guide will show you the museum’s sections, including conservation laboratories, and provide information on Egyptian history and new discoveries. After the visit, have lunch in Cairo before returning to the starting point.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€96.57</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-grand-egyptian-museum-skip-the-line-guided-tour-lunch-transport-p1115717/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Dinner at The Great Pyramid Inn + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairo: Dinner at The Great Pyramid Inn + Transfers</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Begin your evening at The Great Pyramid Inn with a hotel pickup from Cairo or Giza. Have a dinner that includes a main course, dessert, a soft drink, and bottled water. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo: Dinner at The Great Pyramid Inn + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Cairo: Dinner at The Great Pyramid Inn + Transfers</div>
+        <div class="tq-card-desc">Begin your evening at The Great Pyramid Inn with a hotel pickup from Cairo or Giza. Have a dinner that includes a main course, dessert, a soft drink, and bottled water. 
 
-Get views of the Giza Pyramids from your seating area. If the Sound and Light Show is running, it can be seen from your table. The evening ends with a transfer back to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €60.36</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairo-dinner-at-the-great-pyramid-inn-transfers-p1115096/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get views of the Giza Pyramids from your seating area. If the Sound and Light Show is running, it can be seen from your table. The evening ends with a transfer back to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.36</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairo-dinner-at-the-great-pyramid-inn-transfers-p1115096/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Egyptian Museum: Entry + Optional Guided Tour & Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Grand Egyptian Museum: Entry + Optional Guided Tour & Transfer</h3>
-          <p class="venue">📍 Grand Egyptian Museum</p>
-          <p>Get picked up from your accommodation in Cairo or Giza by an expert Egyptologist tour guide. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grand Egyptian Museum: Entry + Optional Guided Tour & Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GRAND EGYPTIAN MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Grand Egyptian Museum: Entry + Optional Guided Tour & Transfer</div>
+        <div class="tq-card-desc">Get picked up from your accommodation in Cairo or Giza by an expert Egyptologist tour guide. 
 
 Start the museum visit with the Hanging Obelisk, one of the unique exhibits in the museum. Next, see the Ramses II Statue, one of the largest pieces in the collection. 
 
@@ -221,163 +435,262 @@ Continue the tour to the Ptolemaic King and Queen exhibits, highlighting the his
 
 Next, view the Victory Columns, examples of ancient Egyptian art. Move on to the Royal Regalia exhibits, showing the royal jewels, crowns, and other accessories used by the ancient Egyptian kings and queens. 
 
-Later, get dropped off at your hotel in Cairo or Giza.</p>
-          <div class="card-footer">
-            <span class="price">From €58.63</span>
-            <span class="rating">⭐ 3.4 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-grand-egyptian-museum-entry-optional-guided-tour-transfer-p1110632/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Later, get dropped off at your hotel in Cairo or Giza.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.4</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€58.63</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-grand-egyptian-museum-entry-optional-guided-tour-transfer-p1110632/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1fd98bb2461f4083a56f1299b88c6957.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza and Sphinx Tour with Nile River Felucca Ride" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pyramids of Giza and Sphinx Tour with Nile River Felucca Ride</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Your tour begins with pickup from your hotel or chosen location and a drive to the Great Pyramids of Giza. Along the way, your guide will share information about the sights and landmarks you pass.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1fd98bb2461f4083a56f1299b88c6957.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza and Sphinx Tour with Nile River Felucca Ride" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Pyramids of Giza and Sphinx Tour with Nile River Felucca Ride</div>
+        <div class="tq-card-desc">Your tour begins with pickup from your hotel or chosen location and a drive to the Great Pyramids of Giza. Along the way, your guide will share information about the sights and landmarks you pass.
 
 Upon arrival at the pyramids area, see the Pyramids of Cheops, Chephren, and Mycerinus. Then, visit the Great Sphinx and the Valley Temple, where mummification took place before burial. Get plenty of time to take photos and learn about the site's history.
 
-After the pyramids, board a traditional felucca boat for a ride on the Nile River. From the boat, see landmarks along the river while learning more about Ancient Egypt. The tour ends with a drop-off at your hotel or chosen location.</p>
-          <div class="card-footer">
-            <span class="price">From €56.43</span>
-            <span class="rating">⭐ 4.8 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-and-sphinx-tour-with-river-nile-felucca-ride-p1002656/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After the pyramids, board a traditional felucca boat for a ride on the Nile River. From the boat, see landmarks along the river while learning more about Ancient Egypt. The tour ends with a drop-off at your hotel or chosen location.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€56.43</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-and-sphinx-tour-with-river-nile-felucca-ride-p1002656/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza: Skip The Line Ticket + Quad or Camel Ride + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pyramids of Giza: Skip The Line Ticket + Quad or Camel Ride + Transfers</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Visit the Pyramids of Giza to see the iconic structures that date back thousands of years. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza: Skip The Line Ticket + Quad or Camel Ride + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Pyramids of Giza: Skip The Line Ticket + Quad or Camel Ride + Transfers</div>
+        <div class="tq-card-desc">Visit the Pyramids of Giza to see the iconic structures that date back thousands of years. 
 
 Look at the Great Pyramid of Khufu, the largest of the three, known for its massive limestone blocks. Capture photos of the Sphinx, an impressive statue with a lion's body and a human head. 
 
-Take a quad or camel ride across the desert for a unique perspective of the landscape. Benefit from transfers for a hassle-free trip to this historic site.</p>
-          <div class="card-footer">
-            <span class="price">From €22.42</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-skip-the-line-ticket-quad-or-camel-ride-transfers-p1126002/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take a quad or camel ride across the desert for a unique perspective of the landscape. Benefit from transfers for a hassle-free trip to this historic site.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-skip-the-line-ticket-quad-or-camel-ride-transfers-p1126002/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Pyramids & Sphinx: Guided Tour + Transfer + Lunch + Nile River Felucca Ride" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Giza Pyramids & Sphinx: Guided Tour + Transfer + Lunch + Nile River Felucca Ride</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Start the day with a hotel pickup in a private air-conditioned vehicle, accompanied by a knowledgeable guide.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Pyramids & Sphinx: Guided Tour + Transfer + Lunch + Nile River Felucca Ride" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Giza Pyramids & Sphinx: Guided Tour + Transfer + Lunch + Nile River Felucca Ride</div>
+        <div class="tq-card-desc">Start the day with a hotel pickup in a private air-conditioned vehicle, accompanied by a knowledgeable guide.
 
 Visit the Giza Pyramids, including those attributed to Cheops, Chephren, and Mykerinos. Learn about their history and construction.
 
 Have lunch at a local restaurant offering Egyptian cuisine, with particular settings near the pyramids or the Nile River.
 
-Sail the Nile River on a traditional felucca and observe the riverfront cityscape of Cairo. Finally, conclude the tour with a convenient return to your hotel in a private vehicle.</p>
-          <div class="card-footer">
-            <span class="price">From €65</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-giza-pyramids-sphinx-guided-tour-transfer-lunch-nile-river-felucca-ride-p1125318/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Sail the Nile River on a traditional felucca and observe the riverfront cityscape of Cairo. Finally, conclude the tour with a convenient return to your hotel in a private vehicle.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€65.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-giza-pyramids-sphinx-guided-tour-transfer-lunch-nile-river-felucca-ride-p1125318/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo & Pyramids of Giza: Private Guided Tour + Transfers + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairo & Pyramids of Giza: Private Guided Tour + Transfers + Lunch</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Visit Cairo and explore its key historical and cultural sites on this private guided tour. See the Pyramids of Giza, the Great Sphinx, and the Egyptian Museum with its collection of ancient artifacts.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cairo & Pyramids of Giza: Private Guided Tour + Transfers + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Cairo & Pyramids of Giza: Private Guided Tour + Transfers + Lunch</div>
+        <div class="tq-card-desc">Visit Cairo and explore its key historical and cultural sites on this private guided tour. See the Pyramids of Giza, the Great Sphinx, and the Egyptian Museum with its collection of ancient artifacts.
 
- View the Citadel of Saladin and the Mosque of Mohamed Ali. Walk through Khan el-Khalili Bazaar to observe local crafts.</p>
-          <div class="card-footer">
-            <span class="price">From €47</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairo-pyramids-of-giza-private-guided-tour-transfers-lunch-p1125316/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+ View the Citadel of Saladin and the Mosque of Mohamed Ali. Walk through Khan el-Khalili Bazaar to observe local crafts.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairo-pyramids-of-giza-private-guided-tour-transfers-lunch-p1125316/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Plateau & Grand Egyptian Museum: Guided Tour + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Giza Plateau & Grand Egyptian Museum: Guided Tour + Transfers</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Visit Egypt’s famous sites with a licensed Egyptologist guide. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Plateau & Grand Egyptian Museum: Guided Tour + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Giza Plateau & Grand Egyptian Museum: Guided Tour + Transfers</div>
+        <div class="tq-card-desc">Visit Egypt’s famous sites with a licensed Egyptologist guide. 
 
 Start at the Giza Plateau to see the Great Pyramids and the Sphinx. 
 
 Your guide will share stories and little-known details along the way. 
 
-Proceed to the Grand Egyptian Museum (GEM) to see items from Egypt's history, including Tutankhamun’s collection.</p>
-          <div class="card-footer">
-            <span class="price">From €84.5</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-giza-plateau-grand-egyptian-museum-guided-tour-transfers-p1122102/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Proceed to the Grand Egyptian Museum (GEM) to see items from Egypt's history, including Tutankhamun’s collection.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€84.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-giza-plateau-grand-egyptian-museum-guided-tour-transfers-p1122102/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza + Egyptian Museum Cairo (EMC)" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pyramids of Giza + Egyptian Museum Cairo (EMC)</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Visit the Pyramids of Giza Plateau to see the ancient pyramids and the Sphinx. Walk among these historic structures and imagine their past. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza + Egyptian Museum Cairo (EMC)" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Pyramids of Giza + Egyptian Museum Cairo (EMC)</div>
+        <div class="tq-card-desc">Visit the Pyramids of Giza Plateau to see the ancient pyramids and the Sphinx. Walk among these historic structures and imagine their past. 
 
-Head to the Egyptian Museum Cairo (EMC) to view a vast collection of artifacts. See treasures from Tutankhamun's tomb and numerous other antiquities. Observe mummies and learn about Egypt's long history.</p>
-          <div class="card-footer">
-            <span class="price">From €60.36</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-egyptian-museum-cairo-p1121152/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Head to the Egyptian Museum Cairo (EMC) to view a vast collection of artifacts. See treasures from Tutankhamun's tomb and numerous other antiquities. Observe mummies and learn about Egypt's long history.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.36</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-egyptian-museum-cairo-p1121152/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pyramids of Giza: Guided Tour</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Visit the Pyramids of Giza and see one of the most renowned ancient structures in the world. Observe the Great Pyramid, the last standing wonder of the ancient world. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pyramids of Giza: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Pyramids of Giza: Guided Tour</div>
+        <div class="tq-card-desc">Visit the Pyramids of Giza and see one of the most renowned ancient structures in the world. Observe the Great Pyramid, the last standing wonder of the ancient world. 
 
-Walk around the Sphinx and examine its detailed craftsmanship, while learning about ancient Egyptian history and architecture from knowledgeable guides.</p>
-          <div class="card-footer">
-            <span class="price">From €47.42</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-guided-tour-p1121147/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Walk around the Sphinx and examine its detailed craftsmanship, while learning about ancient Egyptian history and architecture from knowledgeable guides.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pyramids-of-giza-guided-tour-p1121147/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Pyramids, Sphinx & National Museum: Guided Tour + Transfer + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Giza Pyramids, Sphinx & National Museum: Guided Tour + Transfer + Lunch</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Start by meeting your guide at your hotel. First, visit the National Museum of Egyptian Civilization (NMEC) in Cairo. See the artifacts and learn about their history.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Pyramids, Sphinx & National Museum: Guided Tour + Transfer + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Giza Pyramids, Sphinx & National Museum: Guided Tour + Transfer + Lunch</div>
+        <div class="tq-card-desc">Start by meeting your guide at your hotel. First, visit the National Museum of Egyptian Civilization (NMEC) in Cairo. See the artifacts and learn about their history.
 
 Next, head to the Pyramids of Giza, including the Great Pyramid of Cheops, the Pyramid of Chephren, and the smaller Pyramid of Menkaure.
 
-Take a break for lunch at a local restaurant or place you prefer. Continue by visiting the Valley Temple of Chephren. End the tour at the Great Sphinx before returning to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €112.09</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-giza-pyramids-sphinx-national-museum-guided-tour-transfer-lunch-p1115884/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take a break for lunch at a local restaurant or place you prefer. Continue by visiting the Valley Temple of Chephren. End the tour at the Great Sphinx before returning to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€112.09</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-giza-pyramids-sphinx-national-museum-guided-tour-transfer-lunch-p1115884/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Pyramids, Sphinx & Egyptian Museum: Guided Tour from Hurghada" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Giza Pyramids, Sphinx & Egyptian Museum: Guided Tour from Hurghada</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Visit Cairo on a full-day trip from Hurghada. Pickup is from your hotel early in the morning, where you can rest on a comfortable seat as you travel.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Pyramids, Sphinx & Egyptian Museum: Guided Tour from Hurghada" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Giza Pyramids, Sphinx & Egyptian Museum: Guided Tour from Hurghada</div>
+        <div class="tq-card-desc">Visit Cairo on a full-day trip from Hurghada. Pickup is from your hotel early in the morning, where you can rest on a comfortable seat as you travel.
 
 Upon arrival in Cairo, meet your Egyptologist tour guide. First, go to the Giza Plateau to see the Great Pyramid of Giza and the other two pyramids. Then, visit the Great Sphinx and the Valley Temple.
 
@@ -385,68 +698,107 @@ Enjoy lunch and then head to the Museum of Egyptian Antiquities, also known as t
 
 End the tour with a visit to the Khan El-Khalili Bazaar, where you can experience the atmosphere of the old city.
 
-You will then travel back to Hurghada and get dropped off directly at your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €45.96</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-giza-pyramids-sphinx-egyptian-museum-guided-tour-from-hurghada-p1109806/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You will then travel back to Hurghada and get dropped off directly at your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.96</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-giza-pyramids-sphinx-egyptian-museum-guided-tour-from-hurghada-p1109806/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza: ATV Adventure Around the Pyramids" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Giza: ATV Adventure Around the Pyramids</h3>
-          <p class="venue">📍 Giza Outdoor Activities</p>
-          <p>Climb aboard a zesty ATV and set off on a rip-roaring ride through the sun-baked desert encircling the majestic Giza Pyramids. The adventure begins with a convenient hotel pickup in either Cairo or Giza, where the friendly guide awaits to whisk away thrill-seekers. Upon arrival at the Giza Pyramids, the adrenaline starts pumping as explorers saddle up on their quad bikes, primed for discovery. Speeding over the undulating dunes at a thrilling 20-30mph, they'll experience the Great Pyramids from a completely fresh perspective. Once the exhilarating tour concludes, the guide ensures a safe and comfortable return to the hotel. So, why wait? Secure a spot on this unforgettable adventure and uncover a new way to experience the pyramids!</p>
-          <div class="card-footer">
-            <span class="price">From €64.67</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-atv-adventure-around-the-pyramids-of-giza-p1096662/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/90ce0f4499b64326beebc6dbc2b39dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza: ATV Adventure Around the Pyramids" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GIZA OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Giza: ATV Adventure Around the Pyramids</div>
+        <div class="tq-card-desc">Climb aboard a zesty ATV and set off on a rip-roaring ride through the sun-baked desert encircling the majestic Giza Pyramids. The adventure begins with a convenient hotel pickup in either Cairo or Giza, where the friendly guide awaits to whisk away thrill-seekers. Upon arrival at the Giza Pyramids, the adrenaline starts pumping as explorers saddle up on their quad bikes, primed for discovery. Speeding over the undulating dunes at a thrilling 20-30mph, they'll experience the Great Pyramids from a completely fresh perspective. Once the exhilarating tour concludes, the guide ensures a safe and comfortable return to the hotel. So, why wait? Secure a spot on this unforgettable adventure and uncover a new way to experience the pyramids!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.67</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-atv-adventure-around-the-pyramids-of-giza-p1096662/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Pyramids, Sphinx, Sakkara & Memphis: Guided Tour from Cairo + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Giza Pyramids, Sphinx, Sakkara & Memphis: Guided Tour from Cairo + Lunch</h3>
-          <p class="venue">📍 Pyramids of Giza</p>
-          <p>Prepare for a day exploring history, mystery, and local cuisine, which begins with hotel pickup to reach the Giza Pyramids. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Pyramids, Sphinx, Sakkara & Memphis: Guided Tour from Cairo + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PYRAMIDS OF GIZA</span>
+        </div>
+        <div class="tq-card-title">Giza Pyramids, Sphinx, Sakkara & Memphis: Guided Tour from Cairo + Lunch</div>
+        <div class="tq-card-desc">Prepare for a day exploring history, mystery, and local cuisine, which begins with hotel pickup to reach the Giza Pyramids. 
 
 See the Great Pyramids of Cheops, Chephren, and Mykerinos, click a photo with the Sphinx, and visit the Valley Temple where King Chephren was mummified with a knowledgeable Egyptologist guide. 
 
 Enjoy a 2.5-hour drive and then stop for lunch at a local restaurant (beverages not included). Then, head 27 km southwest to Sakkara to see the Step Pyramid of King Zoser, an early pyramid.
 
-End the day by visiting Memphis City (ancient Egypt's capital), the statue of Ramses II, the Alabaster Sphinx, and return to the hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €47.42</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-giza-pyramids-sphinx-sakkara-memphis-guided-tour-from-cairo-lunch-p1094693/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End the day by visiting Memphis City (ancient Egypt's capital), the statue of Ramses II, the Alabaster Sphinx, and return to the hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-giza-pyramids-sphinx-sakkara-memphis-guided-tour-from-cairo-lunch-p1094693/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/67732469351342b9a6946e1e391aa335.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Pyramids, Egyptian Museum & Khan el-Khalili: Day Tour with Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Giza Pyramids, Egyptian Museum & Khan el-Khalili: Day Tour with Lunch</h3>
-          <p class="venue">📍 Giza City Tours</p>
-          <p>Explore the Giza Plateau on this tour to see the Pyramids of Cheops, Chephren, and Mykerinus. These structures, among the best-preserved edifices from antiquity, are ancient wonders of Egyptian architecture and engineering.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/67732469351342b9a6946e1e391aa335.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Giza Pyramids, Egyptian Museum & Khan el-Khalili: Day Tour with Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GIZA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GIZA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Giza Pyramids, Egyptian Museum & Khan el-Khalili: Day Tour with Lunch</div>
+        <div class="tq-card-desc">Explore the Giza Plateau on this tour to see the Pyramids of Cheops, Chephren, and Mykerinus. These structures, among the best-preserved edifices from antiquity, are ancient wonders of Egyptian architecture and engineering.
 
 Visit the Great Sphinx of Giza, built during Pharaoh Chephren's reign. After a morning of wonder, feast on a delicious lunch at a local restaurant with authentic Egyptian cuisine.
 
 Continue your adventure with a visit to the Egyptian Museum in Cairo, home to artifacts spanning over 5,000 years of Pharaonic history.
 
-Wrap up your day at the lively Khan el-Khalili bazaar, where you can feel its bustling atmosphere and explore a variety of goods.</p>
-          <div class="card-footer">
-            <span class="price">From €47</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-giza-pyramids-egyptian-museum-khan-el-khalili-day-tour-with-lunch-p1093075/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Wrap up your day at the lively Khan el-Khalili bazaar, where you can feel its bustling atmosphere and explore a variety of goods.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-giza-pyramids-egyptian-museum-khan-el-khalili-day-tour-with-lunch-p1093075/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

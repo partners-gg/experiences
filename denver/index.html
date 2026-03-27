@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Denver | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Denver. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,70 +131,108 @@
     <p>18 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/07d9e621ace8469d9efbfed2605998c4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Downtown Aquarium Denver: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Downtown Aquarium Denver: Entry Ticket</h3>
-          <p class="venue">📍 Downtown Aquarium Denver</p>
-          <p>Downtown Aquarium Denver is more than just an aquarium. It's an aquatic experience, theme park, educational attraction, retail store, and restaurant rolled into one.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/07d9e621ace8469d9efbfed2605998c4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Downtown Aquarium Denver: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DOWNTOWN AQUARIUM DENVER</span>
+        </div>
+        <div class="tq-card-title">Downtown Aquarium Denver: Entry Ticket</div>
+        <div class="tq-card-desc">Downtown Aquarium Denver is more than just an aquarium. It's an aquatic experience, theme park, educational attraction, retail store, and restaurant rolled into one.
 
 Your Downtown Aquarium Denver tickets include admission to the themed Aquarium Adventure Exhibit, home to marine animals from around North America. There are areas like the Rainforest, the Sunken Lagoon, At the Beach and Under the Sea for you to explore.
 
 You'll also be able to take advantage of one 4D movie experience and take your pick of two value items: stingray fish food, face paint, or a small soda with the purchase of the "Value Pass.”
 
-Feeling peckish after all that exploration? Dive into a dining experience at the Aquarium Restaurant, and enjoy a delectable meal surrounded by mesmerizing marine life, with captivating underwater views that transport you to hidden depths. Immerse yourself in the culinary delights and aquatic wonders for a truly unforgettable dining adventure.</p>
-          <div class="card-footer">
-            <span class="price">From €23.5</span>
-            <span class="rating">⭐ 4.3 (1139)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-downtown-aquarium-denver-p1022593/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Feeling peckish after all that exploration? Dive into a dining experience at the Aquarium Restaurant, and enjoy a delectable meal surrounded by mesmerizing marine life, with captivating underwater views that transport you to hidden depths. Immerse yourself in the culinary delights and aquatic wonders for a truly unforgettable dining adventure.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(1,139)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-downtown-aquarium-denver-p1022593/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/07d9e621ace8469d9efbfed2605998c4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver Museum of Nature & Science: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Denver Museum of Nature & Science: Entry Ticket</h3>
-          <p class="venue">📍 Denver Museum of Nature & Science</p>
-          <p>Explore the Denver Museum of Nature & Science, Denver's premier spot for cultural discovery. Travel through the cosmos, be amazed by gems and minerals, and enjoy the cinematic experience of the Sturm Infinity theater and planetarium.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/07d9e621ace8469d9efbfed2605998c4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver Museum of Nature & Science: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DENVER MUSEUM OF NATURE & SCIENCE</span>
+        </div>
+        <div class="tq-card-title">Denver Museum of Nature & Science: Entry Ticket</div>
+        <div class="tq-card-desc">Explore the Denver Museum of Nature & Science, Denver's premier spot for cultural discovery. Travel through the cosmos, be amazed by gems and minerals, and enjoy the cinematic experience of the Sturm Infinity theater and planetarium.
 
 Go on an adventure through fascinating exhibits. Discover ancient worlds with dinosaurs, explore diverse ecosystems in Colorado and beyond, and absorb yourself in the magical realm of space and planetary sciences.
 
 Authentic artifacts from space missions and a variety of fossils take you on an exciting trip through time. Furthermore, you also get access to exciting temporary exhibitions like Mysteries of the Ice Ages and Wild Color at no extra cost.
 
-The museum is a gateway to wonder that sparks your curiosity with exciting exhibits and educational programs. It invites everyone to explore, investigate, and appreciate the wonders of our planet and the vast universe.</p>
-          <div class="card-footer">
-            <span class="price">From €22.37</span>
-            <span class="rating">⭐ 4.8 (30)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-denver-museum-of-nature-science-p1088724/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The museum is a gateway to wonder that sparks your curiosity with exciting exhibits and educational programs. It invites everyone to explore, investigate, and appreciate the wonders of our planet and the vast universe.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(30)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.37</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-denver-museum-of-nature-science-p1088724/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3a470140842b4ea58eb1c7ad6248afd4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver CityPASS®" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Denver CityPASS®</h3>
-          <p class="venue">📍 Denver City Pass</p>
-          <p>Make Denver your Rocky Mountain oyster, and enjoy everything the Mile High City has to offer for less, with the Denver CityPASS®. Choose 3, 4, or 5 of the city's must-visits, and hear your wallet breathe a sigh of relief, as you save top dollar on incredible activities and cultural attractions.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3a470140842b4ea58eb1c7ad6248afd4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver CityPASS®" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DENVER CITY PASS</span>
+        </div>
+        <div class="tq-card-title">Denver CityPASS®</div>
+        <div class="tq-card-desc">Make Denver your Rocky Mountain oyster, and enjoy everything the Mile High City has to offer for less, with the Denver CityPASS®. Choose 3, 4, or 5 of the city's must-visits, and hear your wallet breathe a sigh of relief, as you save top dollar on incredible activities and cultural attractions.
 
 Feel the call of your barracuda brethren? Add the Downtown Aquarium Denver to your pass. More in the mood to vegetate in nature? Get on down to Denver Botanic Gardens. There are lots more awesome attractions to check out and save money on. Like the Denver Art Museum, History Colorado Center, Denver Museum of Nature & Science, and lots more.
 
-Visit the My CityPASS® App to secure attraction reservations and other important attraction information.</p>
-          <div class="card-footer">
-            <span class="price">From €46.56</span>
-            <span class="rating">⭐ 4.4 (42)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-citypass-denver-p1012326/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit the My CityPASS® App to secure attraction reservations and other important attraction information.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(42)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€46.56</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-citypass-denver-p1012326/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Elitch Gardens Theme & Water Park" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Elitch Gardens Theme & Water Park</h3>
-          <p class="venue">📍 Elitch Gardens</p>
-          <p>Whether you're into the thrills of a theme park or the slipping, sliding adventure of a water park, you can take your pick with these combo Elitch Gardens tickets! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Elitch Gardens Theme & Water Park" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ELITCH GARDENS</span>
+        </div>
+        <div class="tq-card-title">Elitch Gardens Theme & Water Park</div>
+        <div class="tq-card-desc">Whether you're into the thrills of a theme park or the slipping, sliding adventure of a water park, you can take your pick with these combo Elitch Gardens tickets! 
 
 There's something for everyone at Elitch Gardens. Located in the heart of Denver, your day pass gives you the choice of 54 epic rides, as well as a whole raft of slides, attractions, and pint-sized activities for the little ones. 
 
@@ -103,214 +240,374 @@ Take a trip Down Under on the Boomerang, and go for a mind-melting loop-the-loop
 
 Don't miss amazing views of Denver and the Rocky Mountains – it's the last thing you'll see before plummeting 200 feet on the Tower of Doom!
 
-Over at the tubetastic water park, you can walk the Gangplank, go over Canonball Falls, and experience the mysteriously named Mega Wedgie slides. Hold on to your swimsuit!</p>
-          <div class="card-footer">
-            <span class="price">From €47.41</span>
-            <span class="rating">⭐ 4.3 (51)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-elitch-gardens-theme-water-park-p1015235/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Over at the tubetastic water park, you can walk the Gangplank, go over Canonball Falls, and experience the mysteriously named Mega Wedgie slides. Hold on to your swimsuit!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(51)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.41</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-elitch-gardens-theme-water-park-p1015235/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver: Red Rocks Park & Amphitheatre Small Group Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Denver: Red Rocks Park & Amphitheatre Small Group Guided Tour</h3>
-          <p class="venue">📍 Red Rocks Park and Amphitheatre</p>
-          <p>Join a walking tour of Colorado’s Red Rocks, beginning at the Trading Post. Follow a guide to rock formations, the Spirit Statue of John Denver, and the Trading Post Trail. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver: Red Rocks Park & Amphitheatre Small Group Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RED ROCKS PARK AND AMPHITHEATRE</span>
+        </div>
+        <div class="tq-card-title">Denver: Red Rocks Park & Amphitheatre Small Group Guided Tour</div>
+        <div class="tq-card-desc">Join a walking tour of Colorado’s Red Rocks, beginning at the Trading Post. Follow a guide to rock formations, the Spirit Statue of John Denver, and the Trading Post Trail. 
 
 Learn about dinosaurs, Indigenous Ute ceremonies, and the amphitheatre’s acoustics. Hear stories about artists like The Beatles and Stevie Nicks and visit the Red Rocks Hall of Fame. 
 
-Spot local wildlife and explore geological sites. Get tips for nearby places to eat and hike after the tour. This tour offers insights into natural history and music legends.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-denver-red-rocks-park-amphitheatre-small-group-guided-tour-p1119435/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Spot local wildlife and explore geological sites. Get tips for nearby places to eat and hike after the tour. This tour offers insights into natural history and music legends.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-denver-red-rocks-park-amphitheatre-small-group-guided-tour-p1119435/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="RiNo Arts District: Walking Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>RiNo Arts District: Walking Food Tour</h3>
-          <p class="venue">📍 Food Tours in Denver</p>
-          <p>Take part in a food-focused walking tour in Denver's RiNo Arts District, a neighborhood renowned for street art and an innovative dining scene. Visit five eateries to taste a variety of dishes, including distinctive street tacos, unique sandwiches, fresh pizza, pasta options, and locally produced ice cream. Learn about the area's culinary growth and observe urban murals during the walk.</p>
-          <div class="card-footer">
-            <span class="price">From €64.67</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rino-arts-district-walking-food-tour-p1128077/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="RiNo Arts District: Walking Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FOOD TOURS IN DENVER</span>
+        </div>
+        <div class="tq-card-title">RiNo Arts District: Walking Food Tour</div>
+        <div class="tq-card-desc">Take part in a food-focused walking tour in Denver's RiNo Arts District, a neighborhood renowned for street art and an innovative dining scene. Visit five eateries to taste a variety of dishes, including distinctive street tacos, unique sandwiches, fresh pizza, pasta options, and locally produced ice cream. Learn about the area's culinary growth and observe urban murals during the walk.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.67</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rino-arts-district-walking-food-tour-p1128077/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LoDo: Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>LoDo: Guided Walking Tour</h3>
-          <p class="venue">📍 Walking Tours in Denver</p>
-          <p>Take a guided walking tour through Lower Downtown, Denver's historic district. Walk through the area while learning about its development from historical times to today. See significant locations such as Union Station and the city's oldest continuously operating hotel. Learn about the local stories, including the underground tunnels, a famous former bordello, and the history of Denver's first Chinatown. Pass by various notable sites and establishments, gaining insight into the heritage of this historic neighborhood.</p>
-          <div class="card-footer">
-            <span class="price">From €21.56</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lodo-guided-walking-tour-p1127761/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LoDo: Guided Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN DENVER</span>
+        </div>
+        <div class="tq-card-title">LoDo: Guided Walking Tour</div>
+        <div class="tq-card-desc">Take a guided walking tour through Lower Downtown, Denver's historic district. Walk through the area while learning about its development from historical times to today. See significant locations such as Union Station and the city's oldest continuously operating hotel. Learn about the local stories, including the underground tunnels, a famous former bordello, and the history of Denver's first Chinatown. Pass by various notable sites and establishments, gaining insight into the heritage of this historic neighborhood.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.56</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lodo-guided-walking-tour-p1127761/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver: Guided Graffiti Tour of North RiNo" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Denver: Guided Graffiti Tour of North RiNo</h3>
-          <p class="venue">📍 Walking Tours in Denver</p>
-          <p>Walk through the North RiNo Art District and view approximately 25-35 murals and street art pieces. Learn about their origins, the creative minds behind them, and the area's cultural context.</p>
-          <div class="card-footer">
-            <span class="price">From €25.87</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-denver-guided-graffiti-tour-of-north-rino-p1127760/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver: Guided Graffiti Tour of North RiNo" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN DENVER</span>
+        </div>
+        <div class="tq-card-title">Denver: Guided Graffiti Tour of North RiNo</div>
+        <div class="tq-card-desc">Walk through the North RiNo Art District and view approximately 25-35 murals and street art pieces. Learn about their origins, the creative minds behind them, and the area's cultural context.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.87</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-denver-guided-graffiti-tour-of-north-rino-p1127760/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver Graffiti Happy Hour Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Denver Graffiti Happy Hour Tour</h3>
-          <p class="venue">📍 Walking Tours in Denver</p>
-          <p>Take a guided walk through Denver's RiNo Art District to learn about the murals and their creation. Gain understanding of the city's growth dynamics, and visit a local bar for beverages. Continue exploring the district independently if desired.</p>
-          <div class="card-footer">
-            <span class="price">From €25.87</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-denver-graffiti-happy-hour-tour-p1127759/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver Graffiti Happy Hour Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN DENVER</span>
+        </div>
+        <div class="tq-card-title">Denver Graffiti Happy Hour Tour</div>
+        <div class="tq-card-desc">Take a guided walk through Denver's RiNo Art District to learn about the murals and their creation. Gain understanding of the city's growth dynamics, and visit a local bar for beverages. Continue exploring the district independently if desired.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.87</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-denver-graffiti-happy-hour-tour-p1127759/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver Graffiti Original Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Denver Graffiti Original Tour</h3>
-          <p class="venue">📍 Walking Tours in Denver</p>
-          <p>Take part in a walking tour through Denver's urban areas, featuring the RiNo Art District. Learn about the history and messages behind its murals and meet some of the creator stories. Engage in a discussion on the complexities of a city undergoing rapid development. The walk concludes at Denver Central Market where you can choose to have a refreshment. Expect to view around 25-35 pieces of street art, navigating through flat city streets and several alleys. A short stop for amenities is incorporated during the route.</p>
-          <div class="card-footer">
-            <span class="price">From €25.87</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-denver-graffiti-original-tour-p1127758/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver Graffiti Original Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN DENVER</span>
+        </div>
+        <div class="tq-card-title">Denver Graffiti Original Tour</div>
+        <div class="tq-card-desc">Take part in a walking tour through Denver's urban areas, featuring the RiNo Art District. Learn about the history and messages behind its murals and meet some of the creator stories. Engage in a discussion on the complexities of a city undergoing rapid development. The walk concludes at Denver Central Market where you can choose to have a refreshment. Expect to view around 25-35 pieces of street art, navigating through flat city streets and several alleys. A short stop for amenities is incorporated during the route.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.87</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-denver-graffiti-original-tour-p1127758/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Best Of Denver Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Best Of Denver Tour</h3>
-          <p class="venue">📍 Walking Tours in Denver</p>
-          <p>Attend a tour showcasing notable spots in Denver, including landmarks, historical locations, and dining establishments. Walk in downtown Denver to view tall skyscrapers and distinguished older buildings. The route includes the 16th Street Mall where you can see shops, restaurants, and performers. Pass by the Denver Art Museum, the Colorado State Capitol, and other buildings representing the rich history. Learn about events, individuals, and old tales as you progress. This activity ensures easy accessibility to downtown amenities and ends at the Brown Palace Hotel, providing a convenient way to appreciate the city's offerings efficiently.</p>
-          <div class="card-footer">
-            <span class="price">From €22.42</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-best-of-denver-tour-p1127757/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Best Of Denver Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN DENVER</span>
+        </div>
+        <div class="tq-card-title">Best Of Denver Tour</div>
+        <div class="tq-card-desc">Attend a tour showcasing notable spots in Denver, including landmarks, historical locations, and dining establishments. Walk in downtown Denver to view tall skyscrapers and distinguished older buildings. The route includes the 16th Street Mall where you can see shops, restaurants, and performers. Pass by the Denver Art Museum, the Colorado State Capitol, and other buildings representing the rich history. Learn about events, individuals, and old tales as you progress. This activity ensures easy accessibility to downtown amenities and ends at the Brown Palace Hotel, providing a convenient way to appreciate the city's offerings efficiently.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-best-of-denver-tour-p1127757/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Twilight Ghost Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Twilight Ghost Tour</h3>
-          <p class="venue">📍 Walking Tours in Denver</p>
-          <p>Attend an evening tour focused on the history and folklore surrounding purported ghostly activities in Denver. Visit notable historical locations in the city associated with haunted legends and listen to narrated stories regarding past events that include accounts of betrayal, crime, and other significant occurrences. The tour aims to present historical stories and their associations with alleged paranormal claims, allowing you to hear about the places connected to these narratives. Some participants have reportedly observed unusual phenomena during the event, making it an interesting outing for those interested in such topics.</p>
-          <div class="card-footer">
-            <span class="price">From €22.42</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-twilight-ghost-tour-p1127756/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Twilight Ghost Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN DENVER</span>
+        </div>
+        <div class="tq-card-title">Twilight Ghost Tour</div>
+        <div class="tq-card-desc">Attend an evening tour focused on the history and folklore surrounding purported ghostly activities in Denver. Visit notable historical locations in the city associated with haunted legends and listen to narrated stories regarding past events that include accounts of betrayal, crime, and other significant occurrences. The tour aims to present historical stories and their associations with alleged paranormal claims, allowing you to hear about the places connected to these narratives. Some participants have reportedly observed unusual phenomena during the event, making it an interesting outing for those interested in such topics.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-twilight-ghost-tour-p1127756/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver Foothills: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Denver Foothills: Guided Tour</h3>
-          <p class="venue">📍 Day trips in Denver</p>
-          <p>Visit the Rockies and observe the expanse of the plains and the Rocky Mountains at Red Rocks. The Red Rocks Amphitheater displays notable architecture integrated into massive tilted rocks. Walk around the serene surroundings of Evergreen Lake, offering open natural views. From Lookout Mountain, view the landscapes commonly associated with the region's Western heritage, also marking the burial site of Buffalo Bill. Drive along the Lariat Loop, and pass through downtown Golden, near the long-standing Coors Brewery.</p>
-          <div class="card-footer">
-            <span class="price">From €76.74</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-denver-foothills-guided-tour-p1127429/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver Foothills: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS IN DENVER</span>
+        </div>
+        <div class="tq-card-title">Denver Foothills: Guided Tour</div>
+        <div class="tq-card-desc">Visit the Rockies and observe the expanse of the plains and the Rocky Mountains at Red Rocks. The Red Rocks Amphitheater displays notable architecture integrated into massive tilted rocks. Walk around the serene surroundings of Evergreen Lake, offering open natural views. From Lookout Mountain, view the landscapes commonly associated with the region's Western heritage, also marking the burial site of Buffalo Bill. Drive along the Lariat Loop, and pass through downtown Golden, near the long-standing Coors Brewery.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€76.74</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-denver-foothills-guided-tour-p1127429/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver Bike & Brew Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Denver Bike & Brew Tour</h3>
-          <p class="venue">📍 Bike Tours in Denver</p>
-          <p>Take part in a guided journey through Denver's notable locations and attractions on a paved path with minimal elevation changes and several stops along the way. Toward the end of the engagement, visit the RiNo District (River North). Guides highlight breweries, guide you through streets featuring murals and graffiti, and offer opportunities to try craft beers at a selected local establishment. This activity provides a chance to learn about different aspects of the area while exploring its amenities.</p>
-          <div class="card-footer">
-            <span class="price">From €72.43</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-denver-bike-brew-tour-p1127394/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver Bike & Brew Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BIKE TOURS IN DENVER</span>
+        </div>
+        <div class="tq-card-title">Denver Bike & Brew Tour</div>
+        <div class="tq-card-desc">Take part in a guided journey through Denver's notable locations and attractions on a paved path with minimal elevation changes and several stops along the way. Toward the end of the engagement, visit the RiNo District (River North). Guides highlight breweries, guide you through streets featuring murals and graffiti, and offer opportunities to try craft beers at a selected local establishment. This activity provides a chance to learn about different aspects of the area while exploring its amenities.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€72.43</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-denver-bike-brew-tour-p1127394/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rocky Mountain National Park Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rocky Mountain National Park Tour</h3>
-          <p class="venue">📍 Day trips in Denver</p>
-          <p>Engage in a tour showcasing numerous natural landmarks. Observe the Flatirons and the city of Boulder, noted for its research university and local culture. Have a lunch break with the Rocky Mountains offering a striking backdrop and potential sightings of local wildlife. Travel along Trail Ridge Road, a pathway offering abundant opportunities for observation and photography. Stop by The Stanley Hotel, a site of cultural significance as it served as inspiration for Stephen King's "The Shining." Conclude the tour with a visit to Estes Park, a place that acts as a hub for those exploring Rocky Mountain National Park and features views of Prospect Mountain.</p>
-          <div class="card-footer">
-            <span class="price">From €154.34</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rocky-mountain-national-park-tour-p1127390/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rocky Mountain National Park Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS IN DENVER</span>
+        </div>
+        <div class="tq-card-title">Rocky Mountain National Park Tour</div>
+        <div class="tq-card-desc">Engage in a tour showcasing numerous natural landmarks. Observe the Flatirons and the city of Boulder, noted for its research university and local culture. Have a lunch break with the Rocky Mountains offering a striking backdrop and potential sightings of local wildlife. Travel along Trail Ridge Road, a pathway offering abundant opportunities for observation and photography. Stop by The Stanley Hotel, a site of cultural significance as it served as inspiration for Stephen King's "The Shining." Conclude the tour with a visit to Estes Park, a place that acts as a hub for those exploring Rocky Mountain National Park and features views of Prospect Mountain.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€154.34</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rocky-mountain-national-park-tour-p1127390/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mount Blue Sky & Red Rocks Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mount Blue Sky & Red Rocks Tour</h3>
-          <p class="venue">📍 Day trips in Denver</p>
-          <p>Take a tour to remarkable destinations. Visit Red Rocks Amphitheater, a naturally formed site that has become a venue surrounded by unique geological formations. Have a picnic at Echo Lake, which is located in a nature park featuring a glacially-formed lake with available picnic facilities and views of Mount Blue Sky. Travel to the summit of Mount Blue Sky, part of the Front Range and known for sightings of local wildlife. Drive by the town of Idaho Springs, a location with historical significance due to its origins during the gold rush of the late 19th century. Learn about the milestones and surroundings of each visited place.</p>
-          <div class="card-footer">
-            <span class="price">From €154.34</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mount-blue-sky-red-rocks-tour-p1127389/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mount Blue Sky & Red Rocks Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS IN DENVER</span>
+        </div>
+        <div class="tq-card-title">Mount Blue Sky & Red Rocks Tour</div>
+        <div class="tq-card-desc">Take a tour to remarkable destinations. Visit Red Rocks Amphitheater, a naturally formed site that has become a venue surrounded by unique geological formations. Have a picnic at Echo Lake, which is located in a nature park featuring a glacially-formed lake with available picnic facilities and views of Mount Blue Sky. Travel to the summit of Mount Blue Sky, part of the Front Range and known for sightings of local wildlife. Drive by the town of Idaho Springs, a location with historical significance due to its origins during the gold rush of the late 19th century. Learn about the milestones and surroundings of each visited place.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€154.34</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mount-blue-sky-red-rocks-tour-p1127389/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pikes Peak & Garden of the Gods: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pikes Peak & Garden of the Gods: Guided Tour</h3>
-          <p class="venue">📍 Day trips in Denver</p>
-          <p>Visit Colorado to see unique and notable landmarks. Garden of the Gods, a public park in Colorado Springs, showcases distinctive rock formations like Balanced Rock and the Kissing Camels. Pikes Peak, reaching 14,115 feet in elevation, is often snow-capped and is said to have inspired the line "purple mountain majesties" in "America the Beautiful." Wildlife such as bighorn sheep, mountain lions, or snowshoe hares may be observed in its surroundings. Listen for the yellow-bellied marmot's unique call. Drive through Manitou Springs, a nearby town with its own attractions and connections to the area's history. These locations offer insight into Colorado's diverse natural and cultural landscape.</p>
-          <div class="card-footer">
-            <span class="price">From €171.58</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pikes-peak-garden-of-the-gods-guided-tour-p1127388/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pikes Peak & Garden of the Gods: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS IN DENVER</span>
+        </div>
+        <div class="tq-card-title">Pikes Peak & Garden of the Gods: Guided Tour</div>
+        <div class="tq-card-desc">Visit Colorado to see unique and notable landmarks. Garden of the Gods, a public park in Colorado Springs, showcases distinctive rock formations like Balanced Rock and the Kissing Camels. Pikes Peak, reaching 14,115 feet in elevation, is often snow-capped and is said to have inspired the line "purple mountain majesties" in "America the Beautiful." Wildlife such as bighorn sheep, mountain lions, or snowshoe hares may be observed in its surroundings. Listen for the yellow-bellied marmot's unique call. Drive through Manitou Springs, a nearby town with its own attractions and connections to the area's history. These locations offer insight into Colorado's diverse natural and cultural landscape.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€171.58</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pikes-peak-garden-of-the-gods-guided-tour-p1127388/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver: City Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Denver: City Tour</h3>
-          <p class="venue">📍 Bike Tours in Denver</p>
-          <p>Participate in a bike tour around downtown Denver, designed to showcase the rich sights of the city. The route is paved and steady, making it suitable for various skill levels. Pass by different attractions such as historic and modern buildings, sports stadiums, and public art. The tour stays on designated bike paths, including riverside trails, city lanes, and local streets through Denver's urban landscape. Expect stops at key points of interest to better appreciate the locations. It provides an effective way to observe and traverse Denver by bike, emphasizing its urban features in a structured manner.</p>
-          <div class="card-footer">
-            <span class="price">From €68.12</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-denver-city-tour-p1127232/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/584a141b79184397afcac282d407d11a.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Denver: City Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>DENVER</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BIKE TOURS IN DENVER</span>
+        </div>
+        <div class="tq-card-title">Denver: City Tour</div>
+        <div class="tq-card-desc">Participate in a bike tour around downtown Denver, designed to showcase the rich sights of the city. The route is paved and steady, making it suitable for various skill levels. Pass by different attractions such as historic and modern buildings, sports stadiums, and public art. The tour stays on designated bike paths, including riverside trails, city lanes, and local streets through Denver's urban landscape. Expect stops at key points of interest to better appreciate the locations. It provides an effective way to observe and traverse Denver by bike, emphasizing its urban features in a structured manner.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€68.12</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-denver-city-tour-p1127232/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

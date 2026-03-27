@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Orlando | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Orlando. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,250 +131,420 @@
     <p>49 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e1b7baccaba240f2983ce1ca7917873e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquatica Orlando: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aquatica Orlando: Fast Track Ticket</h3>
-          <p class="venue">📍 Aquatica Orlando</p>
-          <p>Voted the number one best outdoor water park by USA Today, you and the whole family are in for a wet and wild treat at Aquatica! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e1b7baccaba240f2983ce1ca7917873e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquatica Orlando: Fast Track Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AQUATICA ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Aquatica Orlando: Fast Track Ticket</div>
+        <div class="tq-card-desc">Voted the number one best outdoor water park by USA Today, you and the whole family are in for a wet and wild treat at Aquatica! 
 
 Explore an underwater world full of exotic fish, get your adrenaline levels rising on thrilling rides, and even find yourself surrounded by Commerson's dolphins as you speed around the park's enclosed tubes.
 
 From thrilling slides like Riptide Race (the world’s tallest dueling racer) to whimsical fun in Walkabout Waters and more, there are splashy surprises for the whole family. Aquatica’s pools and waterways are even heated to maintain the perfect temperature.
 
-Stay late for family-friendly movies on the beach! Bring a blanket or sit on one of the beach chairs and enjoy a different movie every weekend. Grab some treats from Beachside Panini Bistro and for perfect Polynesian vibes and specialty cocktails, don't miss the new Trader Turi’s Tiki Bar.</p>
-          <div class="card-footer">
-            <span class="price">From €45.61</span>
-            <span class="rating">⭐ 4.4 (221)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aquatica-orlando-seaworld-s-water-park-p1017077/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Stay late for family-friendly movies on the beach! Bring a blanket or sit on one of the beach chairs and enjoy a different movie every weekend. Grab some treats from Beachside Panini Bistro and for perfect Polynesian vibes and specialty cocktails, don't miss the new Trader Turi’s Tiki Bar.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(221)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.61</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aquatica-orlando-seaworld-s-water-park-p1017077/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a5d69ff83e24615ad1ddff05b9ffee0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld Orlando: Entry Ticket + Optional All-Day Dining Deal" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>SeaWorld Orlando: Entry Ticket + Optional All-Day Dining Deal</h3>
-          <p class="venue">📍 SeaWorld Orlando</p>
-          <p>Make the most of your time at SeaWorld Orlando by combining up-close animal interactions with thrilling rollercoasters and one-of-a-kind attractions. The unmissable MAKO is Orlando’s tallest, fastest, and longest coaster, and if you're into futurism, hit up the all-new Kraken Unleashed Virtual Reality (VR) coaster. And nobody visits SeaWorld without witnessing the power and grace of the famous orcas!</p>
-          <div class="card-footer">
-            <span class="price">From €76.03</span>
-            <span class="rating">⭐ 4.3 (191)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seaworld-orlando-entry-p975183/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a5d69ff83e24615ad1ddff05b9ffee0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld Orlando: Entry Ticket + Optional All-Day Dining Deal" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEAWORLD ORLANDO</span>
+        </div>
+        <div class="tq-card-title">SeaWorld Orlando: Entry Ticket + Optional All-Day Dining Deal</div>
+        <div class="tq-card-desc">Make the most of your time at SeaWorld Orlando by combining up-close animal interactions with thrilling rollercoasters and one-of-a-kind attractions. The unmissable MAKO is Orlando’s tallest, fastest, and longest coaster, and if you're into futurism, hit up the all-new Kraken Unleashed Virtual Reality (VR) coaster. And nobody visits SeaWorld without witnessing the power and grace of the famous orcas!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(191)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€76.03</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seaworld-orlando-entry-p975183/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2dc542271fb34144830e562f227b9d94.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="I-Ride Trolley Orlando" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>I-Ride Trolley Orlando</h3>
-          <p class="venue">📍 Orlando Bus tours</p>
-          <p>Whether you're in town for Orlando's attractions, great shopping, or a convention – there's no easier way to get around town than the i-Ride Trolley. With regular departures, and stops on International Drive (north and southbound) and Universal Boulevard, you can reach nearly every destination you want to visit.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2dc542271fb34144830e562f227b9d94.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="I-Ride Trolley Orlando" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ORLANDO BUS TOURS</span>
+        </div>
+        <div class="tq-card-title">I-Ride Trolley Orlando</div>
+        <div class="tq-card-desc">Whether you're in town for Orlando's attractions, great shopping, or a convention – there's no easier way to get around town than the i-Ride Trolley. With regular departures, and stops on International Drive (north and southbound) and Universal Boulevard, you can reach nearly every destination you want to visit.
 
-If you want to have a night on the town and don't want to worry about cab fare or finding an Uber, the i-Ride Trolley runs to 22:30. On top of attractions, it also runs to all major shopping areas in the I-Drive Resort Area, plus the Orlando Orange County Convention Center.</p>
-          <div class="card-footer">
-            <span class="price">From €6.9</span>
-            <span class="rating">⭐ 4.6 (34)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-i-ride-trolley-0rlando-p1011971/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+If you want to have a night on the town and don't want to worry about cab fare or finding an Uber, the i-Ride Trolley runs to 22:30. On top of attractions, it also runs to all major shopping areas in the I-Drive Resort Area, plus the Orlando Orange County Convention Center.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(34)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€6.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-i-ride-trolley-0rlando-p1011971/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3c8e0e964f645c8b9220386e4437140.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="WonderWorks Orlando: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>WonderWorks Orlando: Entry Ticket</h3>
-          <p class="venue">📍 WonderWorks Orlando</p>
-          <p>From 4D XD Motion Theater to Laser Tag, to a Glow-In-The-Dark Ropes Course, there's a world of wonderful weirdness to uncover at Orlando's WonderWorks! Explore six themed zones and more than 100 hands-on exhibits in a family day out that stretches the mind as well as the muscles.</p>
-          <div class="card-footer">
-            <span class="price">From €34.89</span>
-            <span class="rating">⭐ 4.4 (71)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-wonderworks-orlando-p975422/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3c8e0e964f645c8b9220386e4437140.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="WonderWorks Orlando: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WONDERWORKS ORLANDO</span>
+        </div>
+        <div class="tq-card-title">WonderWorks Orlando: Entry Ticket</div>
+        <div class="tq-card-desc">From 4D XD Motion Theater to Laser Tag, to a Glow-In-The-Dark Ropes Course, there's a world of wonderful weirdness to uncover at Orlando's WonderWorks! Explore six themed zones and more than 100 hands-on exhibits in a family day out that stretches the mind as well as the muscles.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(71)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€34.89</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-wonderworks-orlando-p975422/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3c8e0e964f645c8b9220386e4437140.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="WonderWorks Orlando: After Dark Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>WonderWorks Orlando: After Dark Entry</h3>
-          <p class="venue">📍 WonderWorks Orlando</p>
-          <p>Visit WonderWorks after dark with a nighttime entry ticket. Challenge yourself with over 100 hands-on exhibits that combine entertainment with learning.</p>
-          <div class="card-footer">
-            <span class="price">From €23.87</span>
-            <span class="rating">⭐ 3.7 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-wonderworks-orlando-after-dark-entry-p1115658/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3c8e0e964f645c8b9220386e4437140.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="WonderWorks Orlando: After Dark Entry" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WONDERWORKS ORLANDO</span>
+        </div>
+        <div class="tq-card-title">WonderWorks Orlando: After Dark Entry</div>
+        <div class="tq-card-desc">Visit WonderWorks after dark with a nighttime entry ticket. Challenge yourself with over 100 hands-on exhibits that combine entertainment with learning.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.7</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.87</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-wonderworks-orlando-after-dark-entry-p1115658/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e4c24e2b80194f59a57cea6ffa6417f8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gatorland Orlando: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Gatorland Orlando: Skip The Line Ticket</h3>
-          <p class="venue">📍 Gatorland Orlando</p>
-          <p>Looking for the ultimate alligator experience in the Sunshine State? _Snap_ up a ticket to Gatorland, and hightail it on over to Florida's incredible reptilian kingdom. Witness hundreds of guzzling gators and crafty crocs in frenzied feeding displays and nail-biting gator-safety demonstrations. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e4c24e2b80194f59a57cea6ffa6417f8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gatorland Orlando: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GATORLAND ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Gatorland Orlando: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Looking for the ultimate alligator experience in the Sunshine State? _Snap_ up a ticket to Gatorland, and hightail it on over to Florida's incredible reptilian kingdom. Witness hundreds of guzzling gators and crafty crocs in frenzied feeding displays and nail-biting gator-safety demonstrations. 
 
 Get up close and personal with the toothy monsters, watch ferocious feeding frenzies, and peer through your hands in terror at spectacular gator-safety shows. Don't try this at home! 
 
-Want to boost your experience? The Greater Gator Package includes three of the park's most popular experiences. Meet a gator in a close-up encounter, ride around on the Gatorland Express Train with your all-day pass, and enjoy feeding the gators with access to their fave tasty snack - Gator Chow.</p>
-          <div class="card-footer">
-            <span class="price">From €26.72</span>
-            <span class="rating">⭐ 4.8 (315)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-gatorland-orlando-general-admission-fast-track-p976989/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Want to boost your experience? The Greater Gator Package includes three of the park's most popular experiences. Meet a gator in a close-up encounter, ride around on the Gatorland Express Train with your all-day pass, and enjoy feeding the gators with access to their fave tasty snack - Gator Chow.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(315)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.72</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-gatorland-orlando-general-admission-fast-track-p976989/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/adeed4f4c494412f8729d44c81350908.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="WonderWorks Orlando: The Outta Control Magic Dinner Show" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>WonderWorks Orlando: The Outta Control Magic Dinner Show</h3>
-          <p class="venue">📍 WonderWorks Orlando</p>
-          <p>Tony Brent's spectacular show combines magic, impersonations, and high-energy improvisational comedy skills to entertain audiences of all ages. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/adeed4f4c494412f8729d44c81350908.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="WonderWorks Orlando: The Outta Control Magic Dinner Show" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WONDERWORKS ORLANDO</span>
+        </div>
+        <div class="tq-card-title">WonderWorks Orlando: The Outta Control Magic Dinner Show</div>
+        <div class="tq-card-desc">Tony Brent's spectacular show combines magic, impersonations, and high-energy improvisational comedy skills to entertain audiences of all ages. 
 
 Minds will be read, predictions will come true, and your personal belongings may very well vanish before miraculously reappearing soon afterwards! 
 
-Find out why this show is one of the longest-running dinner shows in Orlando, and why the magical Tony Brent is often referred to as a "cast of dozens". The dinner includes unlimited fresh, hand-tossed cheese and pepperoni pizza, salad, beer, wine, soda, and dessert.</p>
-          <div class="card-footer">
-            <span class="price">From €33.96</span>
-            <span class="rating">⭐ 4 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-wonderworks-orlando-the-outta-control-magic-dinner-show-p1016880/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Find out why this show is one of the longest-running dinner shows in Orlando, and why the magical Tony Brent is often referred to as a "cast of dozens". The dinner includes unlimited fresh, hand-tossed cheese and pepperoni pizza, salad, beer, wine, soda, and dessert.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.96</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-wonderworks-orlando-the-outta-control-magic-dinner-show-p1016880/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/56e52f66fc934b528216d045139bf274.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Crayola Experience Orlando: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Crayola Experience Orlando: Entry Ticket</h3>
-          <p class="venue">📍 Crayola Experience</p>
-          <p>Imagine a kingdom of color the size of an NFL football field. You're imagining the Crayola Experience!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/56e52f66fc934b528216d045139bf274.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Crayola Experience Orlando: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CRAYOLA EXPERIENCE</span>
+        </div>
+        <div class="tq-card-title">Crayola Experience Orlando: Entry Ticket</div>
+        <div class="tq-card-desc">Imagine a kingdom of color the size of an NFL football field. You're imagining the Crayola Experience!
 
 Discover every shade of fun in this massive Crayola complex with as many as 27 hands-on activities for you and your little artists to enjoy.
 
-Young kids can enjoy a full day of play and learn how crayons are made in a captivating show. Dream up your own crayon creations in fun workshops and watch them come to life.</p>
-          <div class="card-footer">
-            <span class="price">From €26.62</span>
-            <span class="rating">⭐ 4.5 (57)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-crayola-experience-general-admission-p978569/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Young kids can enjoy a full day of play and learn how crayons are made in a captivating show. Dream up your own crayon creations in fun workshops and watch them come to life.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(57)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.62</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-crayola-experience-general-admission-p978569/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/63844dd8dc1f4876853c4be2f76fc72b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Universal Orlando: Single Day Park-to-Park Tickets" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Universal Orlando: Single Day Park-to-Park Tickets</h3>
-          <p class="venue">📍 Universal Orlando Resort</p>
-          <p>Ready for an epic trip to Universal Orlando Resort? Depending on your ticket selection, you'll experience a fun-filled day at Universal Studios Florida and/or Universal's Islands of Adventure.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/63844dd8dc1f4876853c4be2f76fc72b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Universal Orlando: Single Day Park-to-Park Tickets" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">UNIVERSAL ORLANDO RESORT</span>
+        </div>
+        <div class="tq-card-title">Universal Orlando: Single Day Park-to-Park Tickets</div>
+        <div class="tq-card-desc">Ready for an epic trip to Universal Orlando Resort? Depending on your ticket selection, you'll experience a fun-filled day at Universal Studios Florida and/or Universal's Islands of Adventure.
 
-Explore legendary worlds and see fantastical heroes. Enter the magic of The Wizarding World of Harry Potter™ – Hogsmeade™, and come face to face with King Kong at Universal's Islands of Adventure. Meet those devilish Minions and take on Fast & Furious – Supercharged at Universal Studios Florida!</p>
-          <div class="card-footer">
-            <span class="price">From €232.18</span>
-            <span class="rating">⭐ 4.7 (61)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-universal-orlando-single-day-park-to-park-tickets-p1031969/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore legendary worlds and see fantastical heroes. Enter the magic of The Wizarding World of Harry Potter™ – Hogsmeade™, and come face to face with King Kong at Universal's Islands of Adventure. Meet those devilish Minions and take on Fast & Furious – Supercharged at Universal Studios Florida!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(61)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€232.18</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-universal-orlando-single-day-park-to-park-tickets-p1031969/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bf8905a00a1f4b48809784a906ba9191.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gatorland Orlando: The Greater Gator Package" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Gatorland Orlando: The Greater Gator Package</h3>
-          <p class="venue">📍 Gatorland Orlando</p>
-          <p>Join a wild escapade while pocketing fantastic savings with the Tiqets exclusive Greater Gator Package! Saving you a whopping 20% off, you'd better 'snap' it up fast!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bf8905a00a1f4b48809784a906ba9191.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gatorland Orlando: The Greater Gator Package" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GATORLAND ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Gatorland Orlando: The Greater Gator Package</div>
+        <div class="tq-card-desc">Join a wild escapade while pocketing fantastic savings with the Tiqets exclusive Greater Gator Package! Saving you a whopping 20% off, you'd better 'snap' it up fast!
 
-Get up close and personal with the alligators during a pulse-racing meet n' greet. Take unlimited train rides on the spine-tingling Gatorland Express, that loops around the entire park, and don't forget you can even feed these intriguing reptiles yourself with some delicious Gator Chow.</p>
-          <div class="card-footer">
-            <span class="price">From €37.07</span>
-            <span class="rating">⭐ 4.5 (23)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-gatorland-orlando-the-greater-gator-package-p1078079/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get up close and personal with the alligators during a pulse-racing meet n' greet. Take unlimited train rides on the spine-tingling Gatorland Express, that loops around the entire park, and don't forget you can even feed these intriguing reptiles yourself with some delicious Gator Chow.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(23)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€37.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-gatorland-orlando-the-greater-gator-package-p1078079/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fbf5d7456b5f4e879b1121c568ec99b8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fun Spot America Orlando: Single Day Fun Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Fun Spot America Orlando: Single Day Fun Pass</h3>
-          <p class="venue">📍 Fun Spot America Orlando</p>
-          <p>Zoom around a multi-level go-kart track, get dizzy on the white-knuckle thrill-rides, or chill out on the slower ones. Whatever your idea of fun is, you'll find it with these Fun Spot America Orlando tickets in your pocket.</p>
-          <div class="card-footer">
-            <span class="price">From €43.1</span>
-            <span class="rating">⭐ 4.5 (74)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fun-spot-america-orlando-single-day-fun-pass-p976887/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fbf5d7456b5f4e879b1121c568ec99b8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fun Spot America Orlando: Single Day Fun Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUN SPOT AMERICA ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Fun Spot America Orlando: Single Day Fun Pass</div>
+        <div class="tq-card-desc">Zoom around a multi-level go-kart track, get dizzy on the white-knuckle thrill-rides, or chill out on the slower ones. Whatever your idea of fun is, you'll find it with these Fun Spot America Orlando tickets in your pocket.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(74)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€43.10</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fun-spot-america-orlando-single-day-fun-pass-p976887/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/252389b5dcfe42abba4a155f975bc2f3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Illusions Orlando: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum of Illusions Orlando: Entry Ticket</h3>
-          <p class="venue">📍 Museum of Illusions Orlando</p>
-          <p>Sorry sports fans, this is a different kind of Orlando magic. Get your Museum of Illusions Orlando tickets and make your brain fizz like a soda can strapped to a rollercoaster!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/252389b5dcfe42abba4a155f975bc2f3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Illusions Orlando: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEUM OF ILLUSIONS ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Museum of Illusions Orlando: Entry Ticket</div>
+        <div class="tq-card-desc">Sorry sports fans, this is a different kind of Orlando magic. Get your Museum of Illusions Orlando tickets and make your brain fizz like a soda can strapped to a rollercoaster!
 
-Right on International Drive, the Museum of Illusions Orlando is home to more than 50 exhibits of mind-bending optical, photographic, and interactive illusions. Challenge your perceptions with a cerebral saunter that includes the vast Infinity Room, the topsy-turvy Reverse Room, and an Ames Room which will cut you down to size – literally!</p>
-          <div class="card-footer">
-            <span class="price">From €24.78</span>
-            <span class="rating">⭐ 4.7 (59)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-illusions-orlando-p1010709/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Right on International Drive, the Museum of Illusions Orlando is home to more than 50 exhibits of mind-bending optical, photographic, and interactive illusions. Challenge your perceptions with a cerebral saunter that includes the vast Infinity Room, the topsy-turvy Reverse Room, and an Ames Room which will cut you down to size – literally!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(59)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€24.78</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-illusions-orlando-p1010709/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b5f277f3d8cf40d1a7b03472bea0344f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld Orlando: Multi-Park Pass + Free All-Day Dining" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>SeaWorld Orlando: Multi-Park Pass + Free All-Day Dining</h3>
-          <p class="venue">📍 SeaWorld Orlando</p>
-          <p>Serious about theme parks? Then this SeaWorld Multi-Park Pass is the pass for you! You'll get access to some of the biggest and best theme parks in the world, while saving a ton on entry to Busch Gardens Tampa Bay, Aquatica Orlando, SeaWorld Orlando, and Adventure Island Tampa.</p>
-          <div class="card-footer">
-            <span class="price">From €122.09</span>
-            <span class="rating">⭐ 4.4 (50)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seaworld-orlando-multi-park-pass-free-all-day-dining-p975245/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b5f277f3d8cf40d1a7b03472bea0344f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld Orlando: Multi-Park Pass + Free All-Day Dining" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEAWORLD ORLANDO</span>
+        </div>
+        <div class="tq-card-title">SeaWorld Orlando: Multi-Park Pass + Free All-Day Dining</div>
+        <div class="tq-card-desc">Serious about theme parks? Then this SeaWorld Multi-Park Pass is the pass for you! You'll get access to some of the biggest and best theme parks in the world, while saving a ton on entry to Busch Gardens Tampa Bay, Aquatica Orlando, SeaWorld Orlando, and Adventure Island Tampa.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(50)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€122.09</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seaworld-orlando-multi-park-pass-free-all-day-dining-p975245/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3186c8b77efd4acd80b1ced6d9b41229.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Andretti Indoor Karting and Games" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Andretti Indoor Karting and Games</h3>
-          <p class="venue">📍 Andretti Indoor Karting & Games</p>
-          <p>Unleash your inner speed demon with the latest advances in electric go-karting at Orlando's Andretti Indoor Karting. It's a full-blown adrenaline rush with instant acceleration, and the chance to hit pedal to the metal around hairpin turns!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3186c8b77efd4acd80b1ced6d9b41229.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Andretti Indoor Karting and Games" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ANDRETTI INDOOR KARTING & GAMES</span>
+        </div>
+        <div class="tq-card-title">Andretti Indoor Karting and Games</div>
+        <div class="tq-card-desc">Unleash your inner speed demon with the latest advances in electric go-karting at Orlando's Andretti Indoor Karting. It's a full-blown adrenaline rush with instant acceleration, and the chance to hit pedal to the metal around hairpin turns!
 
-The climate-controlled tracks mean you'll never lose your cool, while top-of-the-line electric karts keep you 100% safe the whole time.</p>
-          <div class="card-footer">
-            <span class="price">From €27.51</span>
-            <span class="rating">⭐ 4.4 (62)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-andretti-indoor-karting-p977488/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The climate-controlled tracks mean you'll never lose your cool, while top-of-the-line electric karts keep you 100% safe the whole time.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(62)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.51</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-andretti-indoor-karting-p977488/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a04aa15f85604864afac225e045f000e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gatorland Orlando: Screamin' Gator Zip Line" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Gatorland Orlando: Screamin' Gator Zip Line</h3>
-          <p class="venue">📍 Gatorland Orlando</p>
-          <p>Channel your inner action hero and strap in for the ride of your life! This thrilling zip line circuit flies you high over Gatorland's snappy inhabitants. See Cuban and Nile crocodiles, then zoom over the Alligator Breeding Marsh, filled with 130 giant alligators looking up at you hungrily.</p>
-          <div class="card-footer">
-            <span class="price">From €56.04</span>
-            <span class="rating">⭐ 4.5 (13)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-gatorland-orlando-screamin-gator-zip-line-p977046/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a04aa15f85604864afac225e045f000e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gatorland Orlando: Screamin' Gator Zip Line" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GATORLAND ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Gatorland Orlando: Screamin' Gator Zip Line</div>
+        <div class="tq-card-desc">Channel your inner action hero and strap in for the ride of your life! This thrilling zip line circuit flies you high over Gatorland's snappy inhabitants. See Cuban and Nile crocodiles, then zoom over the Alligator Breeding Marsh, filled with 130 giant alligators looking up at you hungrily.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(13)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€56.04</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-gatorland-orlando-screamin-gator-zip-line-p977046/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d18e0039d3b54a94ab5f0f691d9745e0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando: Titanic, The Artifact Exhibition" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Orlando: Titanic, The Artifact Exhibition</h3>
-          <p class="venue">📍 Titanic: The Artifact Exhibition Orlando</p>
-          <p>*Titanic: The Artifact Exhibition* takes you through the Titanic's historic journey, from its maiden voyage to its tragic end. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d18e0039d3b54a94ab5f0f691d9745e0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando: Titanic, The Artifact Exhibition" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TITANIC: THE ARTIFACT EXHIBITION ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Orlando: Titanic, The Artifact Exhibition</div>
+        <div class="tq-card-desc">*Titanic: The Artifact Exhibition* takes you through the Titanic's historic journey, from its maiden voyage to its tragic end. 
 
 Each guest receives a replica boarding pass, allowing you to imagine yourself as a passenger on that voyage.
 
@@ -283,75 +552,119 @@ Discover over 300 artifacts from the Titanic, offering a glimpse into its past a
 
 Wander through the galleries showcasing the ship's opulent features, like the Grand Staircase and the First Class Parlor Suite.
 
-Head to the Promenade Deck to feel the Atlantic breeze and even touch a real iceberg. Don't miss the chance to see the "Little Big Piece," a massive fragment of the ship's hull, weighing 3 tons and one of the largest ever retrieved.</p>
-          <div class="card-footer">
-            <span class="price">From €31.22</span>
-            <span class="rating">⭐ 3.9 (13)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-orlando-titanic-the-artifact-exhibition-p1089673/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Head to the Promenade Deck to feel the Atlantic breeze and even touch a real iceberg. Don't miss the chance to see the "Little Big Piece," a massive fragment of the ship's hull, weighing 3 tons and one of the largest ever retrieved.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(13)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€31.22</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-orlando-titanic-the-artifact-exhibition-p1089673/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b1b42b8403e4f169a167ccdb221fcf2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Discovery Cove: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Discovery Cove: Entry Ticket</h3>
-          <p class="venue">📍 Discovery Cove</p>
-          <p>Orlando's Discovery Cove® is an all-inclusive day of relaxation that invites you to enjoy endless snacks and drinks, along with Florida's incredibly diverse nature.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1b1b42b8403e4f169a167ccdb221fcf2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Discovery Cove: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DISCOVERY COVE</span>
+        </div>
+        <div class="tq-card-title">Discovery Cove: Entry Ticket</div>
+        <div class="tq-card-desc">Orlando's Discovery Cove® is an all-inclusive day of relaxation that invites you to enjoy endless snacks and drinks, along with Florida's incredibly diverse nature.
 
 Guests can have a one-of-a-kind opportunity to swim with dolphins, snorkel among thousands of tropical fish, hand-feed hundreds of exotic birds, and encounter playful otters. 
 
 Relax and explore rocky lagoons surrounded by lush landscaping, colorful reefs, winding rivers and white, sandy beaches. There's freshly prepared meals, plus endless snacks and beverages (including beer and wine for guests 21 and older). 
 
-You'll also have the chance to experience the most exciting animal encounters the world has to offer in a breathtaking atmosphere. Relaxation comes naturally whether riding the soothing currents along Wind-Away River, enjoying the melodies of Discovery Cove's colorfully feathered friends in the Explorer's Aviary, or simply soaking up the sun on the white sandy beaches.</p>
-          <div class="card-footer">
-            <span class="price">From €207.13</span>
-            <span class="rating">⭐ 4.5 (17)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-discovery-cove-p1024903/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll also have the chance to experience the most exciting animal encounters the world has to offer in a breathtaking atmosphere. Relaxation comes naturally whether riding the soothing currents along Wind-Away River, enjoying the melodies of Discovery Cove's colorfully feathered friends in the Explorer's Aviary, or simply soaking up the sun on the white sandy beaches.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(17)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€207.13</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-discovery-cove-p1024903/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/85400afdfbb649e181196eb8bf8f01f6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Believe It or Not! Orlando: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ripley's Believe It or Not! Orlando: Entry Ticket</h3>
-          <p class="venue">📍 Ripley's Believe It or Not! Orlando</p>
-          <p>Step into Ripley's Believe It or Not! Orlando to explore 16 galleries filled with mind-bending exhibits and interactive experiences, covering art, science, and nature.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/85400afdfbb649e181196eb8bf8f01f6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Believe It or Not! Orlando: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RIPLEY'S BELIEVE IT OR NOT! ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Ripley's Believe It or Not! Orlando: Entry Ticket</div>
+        <div class="tq-card-desc">Step into Ripley's Believe It or Not! Orlando to explore 16 galleries filled with mind-bending exhibits and interactive experiences, covering art, science, and nature.
 
 From an ancient alligator to a shrunken head once owned by Ernest Hemingway, discover the wonderfully weird side of Florida. 
 
-Bring the whole family along for a day of quirky fun at this captivating museum!</p>
-          <div class="card-footer">
-            <span class="price">From €25.7</span>
-            <span class="rating">⭐ 3.2 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-orlando-ripley-s-believe-it-or-not-p1089907/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Bring the whole family along for a day of quirky fun at this captivating museum!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.2</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.70</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-orlando-ripley-s-believe-it-or-not-p1089907/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b069bb04f0eb42b6a7f2c001c3d16ff8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chocolate Kingdom Factory Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Chocolate Kingdom Factory Tour</h3>
-          <p class="venue">📍 Chocolate Kingdom</p>
-          <p>Willy Wonka, eat your heart out! On the Chocolate Kingdom Factory Adventure Tour, you're led on an equally interactive journey with a handsome prince and his dragon sidekick. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b069bb04f0eb42b6a7f2c001c3d16ff8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chocolate Kingdom Factory Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CHOCOLATE KINGDOM</span>
+        </div>
+        <div class="tq-card-title">Chocolate Kingdom Factory Tour</div>
+        <div class="tq-card-desc">Willy Wonka, eat your heart out! On the Chocolate Kingdom Factory Adventure Tour, you're led on an equally interactive journey with a handsome prince and his dragon sidekick. 
 
-Learn how a simple cacao bean is transformed into a creamy, dreamy chocolatey bar and visit exciting places en route. There's a Cacao Tree Greenhouse, a Chocolate Museum, a Mystical River of Chocolate (no Oompa Loompas here though), and a Micro Batch Bean-to-the-Bar Factory that still uses old-world machinery!</p>
-          <div class="card-footer">
-            <span class="price">From €19.08</span>
-            <span class="rating">⭐ 4.7 (29)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-chocolate-kingdom-factory-tour-p979525/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn how a simple cacao bean is transformed into a creamy, dreamy chocolatey bar and visit exciting places en route. There's a Cacao Tree Greenhouse, a Chocolate Museum, a Mystical River of Chocolate (no Oompa Loompas here though), and a Micro Batch Bean-to-the-Bar Factory that still uses old-world machinery!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(29)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.08</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-chocolate-kingdom-factory-tour-p979525/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a3ff959495a441d6a6bd680afa5d6384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Universal Orlando Resort: 14-Day All Parks Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Universal Orlando Resort: 14-Day All Parks Ticket</h3>
-          <p class="venue">📍 Universal's Epic Universe</p>
-          <p>Visit all four parks over 14 days with the **All Parks ticket**!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a3ff959495a441d6a6bd680afa5d6384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Universal Orlando Resort: 14-Day All Parks Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">UNIVERSAL'S EPIC UNIVERSE</span>
+        </div>
+        <div class="tq-card-title">Universal Orlando Resort: 14-Day All Parks Ticket</div>
+        <div class="tq-card-desc">Visit all four parks over 14 days with the **All Parks ticket**!
 
 **Universal Epic Universe**: Explore five unique worlds offering a mix of rides and attractions
 
@@ -359,155 +672,254 @@ Learn how a simple cacao bean is transformed into a creamy, dreamy chocolatey ba
 
 **Universal Islands of Adventure**: see iconic characters and visit The Wizarding World of Harry Potter™ – Hogsmeade™. and see King Kong
 
-**Universal Volcano Bay**: enjoy a tropical-themed water park with exciting water rides, wave pools, and lazy rivers. The park's centerpiece is the Krakatau volcano, featuring various water slides.</p>
-          <div class="card-footer">
-            <span class="price">From €527.33</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-universal-orlando-resort-14-day-all-parks-ticket-p1119615/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+**Universal Volcano Bay**: enjoy a tropical-themed water park with exciting water rides, wave pools, and lazy rivers. The park's centerpiece is the Krakatau volcano, featuring various water slides.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€527.33</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-universal-orlando-resort-14-day-all-parks-ticket-p1119615/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4cdc4bc9468843ac92ac7ec87aed59f3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Universal Studios Orlando: 2-Parks 1-Day + 1-Day Universal Epic Universe Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Universal Studios Orlando: 2-Parks 1-Day + 1-Day Universal Epic Universe Ticket</h3>
-          <p class="venue">📍 Universal Orlando Resort</p>
-          <p>Visit Universal Orlando Resort for a day at Universal Studios Florida and Universal Islands of Adventure.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4cdc4bc9468843ac92ac7ec87aed59f3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Universal Studios Orlando: 2-Parks 1-Day + 1-Day Universal Epic Universe Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">UNIVERSAL ORLANDO RESORT</span>
+        </div>
+        <div class="tq-card-title">Universal Studios Orlando: 2-Parks 1-Day + 1-Day Universal Epic Universe Ticket</div>
+        <div class="tq-card-desc">Visit Universal Orlando Resort for a day at Universal Studios Florida and Universal Islands of Adventure.
 
 See legendary characters and enter **The Wizarding World of Harry Potter™ – Hogsmeade™**. Encounter **King Kong** at Universal's Islands of Adventure. Meet the **Minions** and see **Fast & Furious – Supercharged** at Universal Studios Florida.
 
-One ticket gives you 1-day access to Universal Epic Universe, including **The Wizarding World of Harry Potter™ - Ministry of Magic™**, **SUPER NINTENDO WORLD™**, **How to Train Your Dragon – Isle of Berk**, **Dark Universe**, and **Celestial Park**.</p>
-          <div class="card-footer">
-            <span class="price">From €385.95</span>
-            <span class="rating">⭐ 3.2 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-universal-studios-orlando-2-park-1-day-park-to-park-1-day-universal-epic-universe-ticket-p1116150/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+One ticket gives you 1-day access to Universal Epic Universe, including **The Wizarding World of Harry Potter™ - Ministry of Magic™**, **SUPER NINTENDO WORLD™**, **How to Train Your Dragon – Isle of Berk**, **Dark Universe**, and **Celestial Park**.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.2</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€385.95</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-universal-studios-orlando-2-park-1-day-park-to-park-1-day-universal-epic-universe-ticket-p1116150/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d18e0039d3b54a94ab5f0f691d9745e0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando Explorer Pass: 2 - 5 Attractions including SEA LIFE Aquarium" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Orlando Explorer Pass: 2 - 5 Attractions including SEA LIFE Aquarium</h3>
-          <p class="venue">📍 Orlando City Cards</p>
-          <p>Visit Madame Tussauds, Gatorland, the SEA LIFE Orlando Aquarium and more! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d18e0039d3b54a94ab5f0f691d9745e0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando Explorer Pass: 2 - 5 Attractions including SEA LIFE Aquarium" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ORLANDO CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Orlando Explorer Pass: 2 - 5 Attractions including SEA LIFE Aquarium</div>
+        <div class="tq-card-desc">Visit Madame Tussauds, Gatorland, the SEA LIFE Orlando Aquarium and more! 
 
 Take advantage of simple, contactless entry with the Go City Orlando: Explorer Pass and head straight into some of the city’s top attractions. All you have to do is scan your phone or printed ticket and you’re in! Save up to 50%* on gate prices on a pass valid for 30 days after activation.
 
 Looking for something non-Disney to do in Orlando? Your pass gives you access to 3, 4 or 5 attractions of your choice - and stays valid for 30 days! Enjoy Congo River Adventure Golf, Titanic: The Artifact Exhibition, and plenty more! 
 
-*Savings based on sample intineraries on Go City website</p>
-          <div class="card-footer">
-            <span class="price">From €55.18</span>
-            <span class="rating">⭐ 4.9 (12)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-orlando-explorer-pass-p975485/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+*Savings based on sample intineraries on Go City website</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(12)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.18</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-orlando-explorer-pass-p975485/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6440a031605e466e822a4ae3b73b227b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando Magic NBA Game" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Orlando Magic NBA Game</h3>
-          <p class="venue">📍 Kia Center</p>
-          <p>Strap on your hightops and headband and get ready for some sizzling hot NBA action! Watch (and cheer) as the Orlando Magic take on a rival. There will be dribbling, fouls, steals, rebounds, dunking and other basketball-centric activity. And you'll be in the stands, cheering your lungs out as these human giants drive lanes and sink buckets.</p>
-          <div class="card-footer">
-            <span class="price">From €21.56</span>
-            <span class="rating">⭐ 5 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-orlando-magic-nba-game-p975454/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6440a031605e466e822a4ae3b73b227b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando Magic NBA Game" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KIA CENTER</span>
+        </div>
+        <div class="tq-card-title">Orlando Magic NBA Game</div>
+        <div class="tq-card-desc">Strap on your hightops and headband and get ready for some sizzling hot NBA action! Watch (and cheer) as the Orlando Magic take on a rival. There will be dribbling, fouls, steals, rebounds, dunking and other basketball-centric activity. And you'll be in the stands, cheering your lungs out as these human giants drive lanes and sink buckets.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.56</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-orlando-magic-nba-game-p975454/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b0174920f3bf488499b45975eab389f3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mucky Duck Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mucky Duck Experience</h3>
-          <p class="venue">📍 Orlando Motorized Adventures</p>
-          <p>You won't know what this tour will throw at you until you're plowing through the wet and wild, swampy Florida outback! But that's only half the fun! Climb aboard your "Mucky Duck", an 8-wheeled amphibious vehicle, and enjoy the ride of your life.</p>
-          <div class="card-footer">
-            <span class="price">From €345.97</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mucky-duck-experience-p977240/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b0174920f3bf488499b45975eab389f3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mucky Duck Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ORLANDO MOTORIZED ADVENTURES</span>
+        </div>
+        <div class="tq-card-title">Mucky Duck Experience</div>
+        <div class="tq-card-desc">You won't know what this tour will throw at you until you're plowing through the wet and wild, swampy Florida outback! But that's only half the fun! Climb aboard your "Mucky Duck", an 8-wheeled amphibious vehicle, and enjoy the ride of your life.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€345.97</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mucky-duck-experience-p977240/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5a3de4b1b3e649809f9e12dbdb7d1813.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="ICON Park: The Orlando Eye" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>ICON Park: The Orlando Eye</h3>
-          <p class="venue">📍 The Orlando Eye</p>
-          <p>At the Orlando Eye, you’ll enjoy great views and create memories with your loved ones. This 400-foot observation wheel offers 360° views of Central Florida, including theme parks, downtown Orlando, and the Kennedy Space Center. Furthermore, you’ll ride in comfortable, air-conditioned glass capsules. In addition, stay longer to explore other attractions and dining options at ICON Park.</p>
-          <div class="card-footer">
-            <span class="price">From €26.63</span>
-            <span class="rating">⭐ 4.7 (49)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tcon-park-the-orlando-eye-p977211/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5a3de4b1b3e649809f9e12dbdb7d1813.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="ICON Park: The Orlando Eye" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">THE ORLANDO EYE</span>
+        </div>
+        <div class="tq-card-title">ICON Park: The Orlando Eye</div>
+        <div class="tq-card-desc">At the Orlando Eye, you’ll enjoy great views and create memories with your loved ones. This 400-foot observation wheel offers 360° views of Central Florida, including theme parks, downtown Orlando, and the Kennedy Space Center. Furthermore, you’ll ride in comfortable, air-conditioned glass capsules. In addition, stay longer to explore other attractions and dining options at ICON Park.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(49)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.63</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tcon-park-the-orlando-eye-p977211/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/049182eb6b084af6a142ebfcd724fea2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Sailing Tour on Lake Fairview" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Private Sailing Tour on Lake Fairview</h3>
-          <p class="venue">📍 Sailing Trips in Orlando</p>
-          <p>Take a personalized sailing outing on Lake Fairview. Learn foundational sailing techniques if preferred, or spend a day navigating the waters at a calm pace. This outing is provided by Sailing Orlando.</p>
-          <div class="card-footer">
-            <span class="price">From €8621.4</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-private-sailing-tour-on-lake-fairview-p1127838/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/049182eb6b084af6a142ebfcd724fea2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Sailing Tour on Lake Fairview" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SAILING TRIPS IN ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Private Sailing Tour on Lake Fairview</div>
+        <div class="tq-card-desc">Take a personalized sailing outing on Lake Fairview. Learn foundational sailing techniques if preferred, or spend a day navigating the waters at a calm pace. This outing is provided by Sailing Orlando.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8621.40</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-private-sailing-tour-on-lake-fairview-p1127838/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6874b2e1f624b2c848728d192f3c15e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando Auto Museum at Dezerland Action Park" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Orlando Auto Museum at Dezerland Action Park</h3>
-          <p class="venue">📍 Dezerland Park Orlando</p>
-          <p>Florida’s largest indoor attraction offers over 800,000 sq. feet of thrills and fun for the whole family! That's almost 15 full-size football fields!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6874b2e1f624b2c848728d192f3c15e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando Auto Museum at Dezerland Action Park" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DEZERLAND PARK ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Orlando Auto Museum at Dezerland Action Park</div>
+        <div class="tq-card-desc">Florida’s largest indoor attraction offers over 800,000 sq. feet of thrills and fun for the whole family! That's almost 15 full-size football fields!
 
 There are hours of indoor entertainment to enjoy here, from Florida's longest indoor go-kart track, to boutique bowling, bumper cars, a huge trampoline zone and over 300 arcade games from classic pinball to modern gaming consoles.
 
 At the Orlando Auto Museum, you can see the world's longest car, that's also in the Guinness World Records! At over 100-feet long it features a helicopter pad, jacuzzi, putting green, and room for 75 people inside! 
 
-You'll be wowed by cars from all over the world and even cars from movies, like Thunderbirds and Batman! Bikers won't want to miss the Harleys and Vespas, too.</p>
-          <div class="card-footer">
-            <span class="price">From €25.82</span>
-            <span class="rating">⭐ 3.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-orlando-auto-museum-at-dezerland-action-park-p1051758/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll be wowed by cars from all over the world and even cars from movies, like Thunderbirds and Batman! Bikers won't want to miss the Harleys and Vespas, too.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.82</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-orlando-auto-museum-at-dezerland-action-park-p1051758/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0b719d9a0c7d400eab714d706460cc22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando: Speakeasy Murder Mystery Dinner Show" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Orlando: Speakeasy Murder Mystery Dinner Show</h3>
-          <p class="venue">📍 Orlando Theater</p>
-          <p>Engage in a themed dinner event that takes you to the prohibition era of the 1920s.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0b719d9a0c7d400eab714d706460cc22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando: Speakeasy Murder Mystery Dinner Show" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ORLANDO THEATER</span>
+        </div>
+        <div class="tq-card-title">Orlando: Speakeasy Murder Mystery Dinner Show</div>
+        <div class="tq-card-desc">Engage in a themed dinner event that takes you to the prohibition era of the 1920s.
 
 Interact amid the setting of a period-specific nightclub while enjoying live performances and participating, if desired, in unraveling a mystery.
 
 During the experience, enjoy a three-course meal served directly to your table while observing characters who engage with the audience, revealing hints and developments to a twisting narrative.
 
-Your decisions influence how the story progresses, enhancing the unpredictability and excitement of the evening.</p>
-          <div class="card-footer">
-            <span class="price">From €80.18</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-orlando-speakeasy-murder-mystery-dinner-show-p1129182/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your decisions influence how the story progresses, enhancing the unpredictability and excitement of the evening.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€80.18</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-orlando-speakeasy-murder-mystery-dinner-show-p1129182/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/089ce275d9e24a53814738dda3a3eb45.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld Orlando: Howl-O-Scream" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>SeaWorld Orlando: Howl-O-Scream</h3>
-          <p class="venue">📍 SeaWorld Orlando</p>
-          <p>Face your fears when Howl-O-Scream reawakens this fall at SeaWorld Orlando. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/089ce275d9e24a53814738dda3a3eb45.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld Orlando: Howl-O-Scream" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEAWORLD ORLANDO</span>
+        </div>
+        <div class="tq-card-title">SeaWorld Orlando: Howl-O-Scream</div>
+        <div class="tq-card-desc">Face your fears when Howl-O-Scream reawakens this fall at SeaWorld Orlando. 
 
 After a successful _inaugural fear_, Howl-O-Scream Orlando will once again arrive to transform the peaceful SeaWorld park you once knew into something sinister. When night falls and a carnival of horrifying creatures surrounds you, just try to put on a happy face.
 
@@ -515,35 +927,57 @@ Evade angry haunts as they rampage through scare zones. Seek shelter indoors, on
 
 Above all, try to resist the eyes of evil that threaten to follow you everywhere. Face your fears during SeaWorld Orlando's Howl-O-Scream this fall.
 
-Valid for entrance starting at 7 pm.</p>
-          <div class="card-footer">
-            <span class="price">From €58.51</span>
-            <span class="rating">⭐ 4.8 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seaworld-orlando-howl-o-scream-p1035135/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Valid for entrance starting at 7 pm.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€58.51</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seaworld-orlando-howl-o-scream-p1035135/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/049182eb6b084af6a142ebfcd724fea2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando Art Park Walk" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Orlando Art Park Walk</h3>
-          <p class="venue">📍 Walking Tours in Orlando</p>
-          <p>Take part in a guided walking tour focused on the art scene of Central Florida in the Loch Haven Cultural Park area. Visit three important stops. Explore the Mennello Museum of American Art to learn about American art history, featuring a collection ranging from classical works to modern pieces, along with a Sculpture Garden. Go behind the scenes at the Orlando Family Stage to observe the aspects of live performances and learn about the artists. Complete the tour with the Orlando Museum of Art, which holds both contemporary exhibitions and classic art, showing diverse creativity from all over the world. Engage with the narratives these venues present.</p>
-          <div class="card-footer">
-            <span class="price">From €51.73</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-orlando-art-park-walk-p1127698/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/049182eb6b084af6a142ebfcd724fea2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando Art Park Walk" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WALKING TOURS IN ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Orlando Art Park Walk</div>
+        <div class="tq-card-desc">Take part in a guided walking tour focused on the art scene of Central Florida in the Loch Haven Cultural Park area. Visit three important stops. Explore the Mennello Museum of American Art to learn about American art history, featuring a collection ranging from classical works to modern pieces, along with a Sculpture Garden. Go behind the scenes at the Orlando Family Stage to observe the aspects of live performances and learn about the artists. Complete the tour with the Orlando Museum of Art, which holds both contemporary exhibitions and classic art, showing diverse creativity from all over the world. Engage with the narratives these venues present.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.73</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-orlando-art-park-walk-p1127698/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/089ce275d9e24a53814738dda3a3eb45.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld Orlando: Florida Multi-Park Pass (US & CAN Only)" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>SeaWorld Orlando: Florida Multi-Park Pass (US & CAN Only)</h3>
-          <p class="venue">📍 SeaWorld Orlando</p>
-          <p>Get a SeaWorld multi-park pass for entry to multiple top theme parks at a discount. Access Busch Gardens Tampa Bay, Aquatica Orlando, SeaWorld Orlando, and Adventure Island Tampa.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/089ce275d9e24a53814738dda3a3eb45.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld Orlando: Florida Multi-Park Pass (US & CAN Only)" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEAWORLD ORLANDO</span>
+        </div>
+        <div class="tq-card-title">SeaWorld Orlando: Florida Multi-Park Pass (US & CAN Only)</div>
+        <div class="tq-card-desc">Get a SeaWorld multi-park pass for entry to multiple top theme parks at a discount. Access Busch Gardens Tampa Bay, Aquatica Orlando, SeaWorld Orlando, and Adventure Island Tampa.
 
 Busch Gardens Tampa Bay
 =
@@ -559,167 +993,277 @@ Visit for a giant wave pool, numerous slides, and activities for children.
 
 SeaWorld Orlando
 =
-Meet ocean creatures up close!</p>
-          <div class="card-footer">
-            <span class="price">From €138.09</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seaworld-orlando-florida-multi-park-pass-p1127554/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Meet ocean creatures up close!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€138.09</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seaworld-orlando-florida-multi-park-pass-p1127554/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/089ce275d9e24a53814738dda3a3eb45.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld Orlando & Aquatica: Entry Ticket (US & CAN Only)" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>SeaWorld Orlando & Aquatica: Entry Ticket (US & CAN Only)</h3>
-          <p class="venue">📍 SeaWorld Orlando</p>
-          <p>Visit SeaWorld Orlando's 200-acre park for various aquatic activities. In the 'Sea of Shallows' exhibit, see sea turtles, stingrays, and dolphins from the waters off Key West. Observe the orcas in the 'Sea of Power' area. Discover more aquatic life, including penguins in the 'Sea of Ice.'
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/089ce275d9e24a53814738dda3a3eb45.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld Orlando & Aquatica: Entry Ticket (US & CAN Only)" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEAWORLD ORLANDO</span>
+        </div>
+        <div class="tq-card-title">SeaWorld Orlando & Aquatica: Entry Ticket (US & CAN Only)</div>
+        <div class="tq-card-desc">Visit SeaWorld Orlando's 200-acre park for various aquatic activities. In the 'Sea of Shallows' exhibit, see sea turtles, stingrays, and dolphins from the waters off Key West. Observe the orcas in the 'Sea of Power' area. Discover more aquatic life, including penguins in the 'Sea of Ice.'
 
-Aquatica, named the best outdoor water park by *USA Today*, offers fun water attractions for the whole family. View various fish and enjoy rides that take you through enclosed tubes, where you might spot dolphins.</p>
-          <div class="card-footer">
-            <span class="price">From €161.74</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-orlando-seaworld-aquatica-ticket-p1127443/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Aquatica, named the best outdoor water park by *USA Today*, offers fun water attractions for the whole family. View various fish and enjoy rides that take you through enclosed tubes, where you might spot dolphins.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€161.74</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-orlando-seaworld-aquatica-ticket-p1127443/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/06b45062099141a597805a43de93653f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="ATV Single Driver Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>ATV Single Driver Experience</h3>
-          <p class="venue">📍 Orlando Motorized Adventures</p>
-          <p>Ahhh! The serene and peaceful nature of Florida – the birds are chirping, wind rustles gently in the reeds, and... mud flies in every direction as you blaze a trail in a roaring, high-powered all-terrain vehicle! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/06b45062099141a597805a43de93653f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="ATV Single Driver Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ORLANDO MOTORIZED ADVENTURES</span>
+        </div>
+        <div class="tq-card-title">ATV Single Driver Experience</div>
+        <div class="tq-card-desc">Ahhh! The serene and peaceful nature of Florida – the birds are chirping, wind rustles gently in the reeds, and... mud flies in every direction as you blaze a trail in a roaring, high-powered all-terrain vehicle! 
 
-Grab a ticket for this guided ATV tour and freewheel across 230 acres of glorious dirt tracks and rugged woodland trails. Tear around corners, skid through streams at face-melting speeds, and carve up the countryside at full throttle!</p>
-          <div class="card-footer">
-            <span class="price">From €106.1</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-atv-single-driver-experience-p978271/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Grab a ticket for this guided ATV tour and freewheel across 230 acres of glorious dirt tracks and rugged woodland trails. Tear around corners, skid through streams at face-melting speeds, and carve up the countryside at full throttle!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€106.10</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-atv-single-driver-experience-p978271/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6874b2e1f624b2c848728d192f3c15e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dezerland Park Orlando: Toxic Blast Access" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Dezerland Park Orlando: Toxic Blast Access</h3>
-          <p class="venue">📍 Dezerland Park Orlando</p>
-          <p>Visit Toxic Blast and enter the black light warzone arena, accommodating up to 24 participants. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6874b2e1f624b2c848728d192f3c15e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dezerland Park Orlando: Toxic Blast Access" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DEZERLAND PARK ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Dezerland Park Orlando: Toxic Blast Access</div>
+        <div class="tq-card-desc">Visit Toxic Blast and enter the black light warzone arena, accommodating up to 24 participants. 
 
-Use the provided headgear and gel blasters for a unique battle experience. This activity is well-suited for both friends and family, offering consistent action.</p>
-          <div class="card-footer">
-            <span class="price">From €17.24</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-dezerland-park-orlando-toxic-blast-access-p1114977/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Use the provided headgear and gel blasters for a unique battle experience. This activity is well-suited for both friends and family, offering consistent action.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.24</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-dezerland-park-orlando-toxic-blast-access-p1114977/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6874b2e1f624b2c848728d192f3c15e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dezerland Park Orlando: Brass Axe Access" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Dezerland Park Orlando: Brass Axe Access</h3>
-          <p class="venue">📍 Dezerland Park Orlando</p>
-          <p>Visit the Brass Axe at Dezerland Park Orlando for an axe-throwing experience with digital dartboards.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6874b2e1f624b2c848728d192f3c15e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dezerland Park Orlando: Brass Axe Access" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DEZERLAND PARK ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Dezerland Park Orlando: Brass Axe Access</div>
+        <div class="tq-card-desc">Visit the Brass Axe at Dezerland Park Orlando for an axe-throwing experience with digital dartboards.
 
-Whether you're new to it or have tried it before, it's a fun way to test your aim. It's also a good choice for a night out or a group event.</p>
-          <div class="card-footer">
-            <span class="price">From €15.48</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-dezerland-park-orlando-brass-axe-access-p1114976/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Whether you're new to it or have tried it before, it's a fun way to test your aim. It's also a good choice for a night out or a group event.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.48</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-dezerland-park-orlando-brass-axe-access-p1114976/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6874b2e1f624b2c848728d192f3c15e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dezerland Park Orlando: Pinball Palace Access" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Dezerland Park Orlando: Pinball Palace Access</h3>
-          <p class="venue">📍 Dezerland Park Orlando</p>
-          <p>Play at the Pinball Palace, home to hundreds of games. Choose from modern consoles like PS4, PS5, Xbox, and Nintendo, or opt for retro titles. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6874b2e1f624b2c848728d192f3c15e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dezerland Park Orlando: Pinball Palace Access" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DEZERLAND PARK ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Dezerland Park Orlando: Pinball Palace Access</div>
+        <div class="tq-card-desc">Play at the Pinball Palace, home to hundreds of games. Choose from modern consoles like PS4, PS5, Xbox, and Nintendo, or opt for retro titles. 
 
-Try over 91 pinball machines from different eras, perfect for all ages.</p>
-          <div class="card-footer">
-            <span class="price">From €11.64</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-dezerland-park-orlando-pinball-palace-access-p1114975/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Try over 91 pinball machines from different eras, perfect for all ages.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€11.64</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-dezerland-park-orlando-pinball-palace-access-p1114975/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2dc542271fb34144830e562f227b9d94.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kennedy Space Center: Small Group Guided Tour from Orlando + Breakfast" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Kennedy Space Center: Small Group Guided Tour from Orlando + Breakfast</h3>
-          <p class="venue">📍 Day Trips from Orlando</p>
-          <p>Visit the Kennedy Space Center for an insightful look into the science and history of the space program. Touch a piece of moon rock and ride the shuttle launch experience. Take photos at the vehicle assembly building and explore other exhibits.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2dc542271fb34144830e562f227b9d94.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kennedy Space Center: Small Group Guided Tour from Orlando + Breakfast" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Kennedy Space Center: Small Group Guided Tour from Orlando + Breakfast</div>
+        <div class="tq-card-desc">Visit the Kennedy Space Center for an insightful look into the science and history of the space program. Touch a piece of moon rock and ride the shuttle launch experience. Take photos at the vehicle assembly building and explore other exhibits.
 
-Benefit from tour guide services on a small group vehicle departing from various Orlando hotels. Enjoy a special guided bus tour at the complex, called KSC Explore. Maximize your visit to Kennedy Space Center with these activities and guided experiences.</p>
-          <div class="card-footer">
-            <span class="price">From €206.07</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kennedy-space-center-small-group-guided-tour-from-orlando-breakfast-p1114341/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Benefit from tour guide services on a small group vehicle departing from various Orlando hotels. Enjoy a special guided bus tour at the complex, called KSC Explore. Maximize your visit to Kennedy Space Center with these activities and guided experiences.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€206.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kennedy-space-center-small-group-guided-tour-from-orlando-breakfast-p1114341/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/85400afdfbb649e181196eb8bf8f01f6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Daytona Beach: Day Trip from Orlando + Speedway Track Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Daytona Beach: Day Trip from Orlando + Speedway Track Tour</h3>
-          <p class="venue">📍 Daytona Beach Day Trips from Orlando</p>
-          <p>Begin with convenient hotel pickup from Orlando. Explore Daytona International Speedway and Daytona Beach with a guided tour. A knowledgeable guide shares interesting details during the trip.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/85400afdfbb649e181196eb8bf8f01f6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Daytona Beach: Day Trip from Orlando + Speedway Track Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAYTONA BEACH DAY TRIPS FROM ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Daytona Beach: Day Trip from Orlando + Speedway Track Tour</div>
+        <div class="tq-card-desc">Begin with convenient hotel pickup from Orlando. Explore Daytona International Speedway and Daytona Beach with a guided tour. A knowledgeable guide shares interesting details during the trip.
 
 At the Speedway, take a guided tram tour around the famous track known for NASCAR races. Head next to Daytona Beach for ocean views. Visit the Hard Rock Beach Resort and enjoy food and beverages from the restaurant (not included in your ticket).
 
-Spend the afternoon at the beach, visit the promenade, or wade into the Atlantic Ocean at this well-known resort area.</p>
-          <div class="card-footer">
-            <span class="price">From €128.47</span>
-            <span class="rating">⭐ 3.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-daytona-beach-day-trip-from-orlando-speedway-track-tour-p1114204/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Spend the afternoon at the beach, visit the promenade, or wade into the Atlantic Ocean at this well-known resort area.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€128.47</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-daytona-beach-day-trip-from-orlando-speedway-track-tour-p1114204/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2dc542271fb34144830e562f227b9d94.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando: Guided City Tour + Boat Cruise + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Orlando: Guided City Tour + Boat Cruise + Roundtrip Transfer</h3>
-          <p class="venue">📍 Orlando City Tours</p>
-          <p>Join a day tour of Orlando’s unique neighborhoods. Start in Winter Park with a narrated boat cruise to see city homes and the local college from the water. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2dc542271fb34144830e562f227b9d94.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando: Guided City Tour + Boat Cruise + Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ORLANDO CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Orlando: Guided City Tour + Boat Cruise + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Join a day tour of Orlando’s unique neighborhoods. Start in Winter Park with a narrated boat cruise to see city homes and the local college from the water. 
 
-Visit Downtown Orlando to see Lake Eola and its famous swans. The tour vehicle will travel through various areas, with a guide providing detailed information. In the afternoon, stop at Disney Springs for free time to shop, eat, and look around.</p>
-          <div class="card-footer">
-            <span class="price">From €93.98</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-orlando-guided-city-tour-boat-cruise-roundtrip-transfer-p1114203/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit Downtown Orlando to see Lake Eola and its famous swans. The tour vehicle will travel through various areas, with a guide providing detailed information. In the afternoon, stop at Disney Springs for free time to shop, eat, and look around.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€93.98</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-orlando-guided-city-tour-boat-cruise-roundtrip-transfer-p1114203/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2dc542271fb34144830e562f227b9d94.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Homosassa State Park: Day Trip from Orlando + Swim with Manatees" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Homosassa State Park: Day Trip from Orlando + Swim with Manatees</h3>
-          <p class="venue">📍 Day Trips from Orlando</p>
-          <p>Start your day by swimming and snorkeling with manatees at Crystal River. Visit Homosassa State Park to see rescued Florida wildlife. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2dc542271fb34144830e562f227b9d94.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Homosassa State Park: Day Trip from Orlando + Swim with Manatees" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Homosassa State Park: Day Trip from Orlando + Swim with Manatees</div>
+        <div class="tq-card-desc">Start your day by swimming and snorkeling with manatees at Crystal River. Visit Homosassa State Park to see rescued Florida wildlife. 
 
-Have lunch surrounded by nature and take an airboat ride to see the best of nature in one day.</p>
-          <div class="card-footer">
-            <span class="price">From €171.58</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-homosassa-state-park-day-trip-from-orlando-swim-with-manatees-p1114202/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Have lunch surrounded by nature and take an airboat ride to see the best of nature in one day.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€171.58</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-homosassa-state-park-day-trip-from-orlando-swim-with-manatees-p1114202/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/089ce275d9e24a53814738dda3a3eb45.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld Orlando: Howl-O-Scream (US & CA Only)" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>SeaWorld Orlando: Howl-O-Scream (US & CA Only)</h3>
-          <p class="venue">📍 SeaWorld Orlando</p>
-          <p>Face your fears when Howl-O-Scream reawakens this fall at SeaWorld Orlando. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/089ce275d9e24a53814738dda3a3eb45.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SeaWorld Orlando: Howl-O-Scream (US & CA Only)" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEAWORLD ORLANDO</span>
+        </div>
+        <div class="tq-card-title">SeaWorld Orlando: Howl-O-Scream (US & CA Only)</div>
+        <div class="tq-card-desc">Face your fears when Howl-O-Scream reawakens this fall at SeaWorld Orlando. 
 
 After a successful _inaugural fear_, Howl-O-Scream Orlando will once again arrive to transform the peaceful SeaWorld park you once knew into something sinister. When night falls and a carnival of horrifying creatures surrounds you, just try to put on a happy face.
 
@@ -727,162 +1271,256 @@ Evade angry haunts as they rampage through scare zones. Seek shelter indoors, on
 
 Above all, try to resist the eyes of evil that threaten to follow you everywhere. Face your fears during SeaWorld Orlando's Howl-O-Scream this fall.
 
-Valid for entrance starting at 7 pm.</p>
-          <div class="card-footer">
-            <span class="price">From €50.56</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-seaworld-orlando-howl-o-scream-us-ca-p1121562/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Valid for entrance starting at 7 pm.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.56</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-seaworld-orlando-howl-o-scream-us-ca-p1121562/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0b719d9a0c7d400eab714d706460cc22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando: Pirates Dinner Adventure Theater" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Orlando: Pirates Dinner Adventure Theater</h3>
-          <p class="venue">📍 Orlando Theater</p>
-          <p>See the Pirates Dinner Adventure show in Orlando for action, humor, and excitement.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0b719d9a0c7d400eab714d706460cc22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orlando: Pirates Dinner Adventure Theater" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ORLANDO THEATER</span>
+        </div>
+        <div class="tq-card-title">Orlando: Pirates Dinner Adventure Theater</div>
+        <div class="tq-card-desc">See the Pirates Dinner Adventure show in Orlando for action, humor, and excitement.
 
 As the lights dim, a full-sized pirate ship comes alive. Pirates swing from ropes, clash swords, and perform acrobatics. You will feel part of the action. 
 
 Cheer for your favorite hero and laugh with the crew as the story unfolds. Special effects and non-stop action create a unique theatrical experience.
 
-Enjoy a meal fit for a pirate king while watching the show. It’s a combination of dinner and entertainment.</p>
-          <div class="card-footer">
-            <span class="price">From €57.73</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-orlando-pirates-dinner-adventure-theater-p1119475/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a meal fit for a pirate king while watching the show. It’s a combination of dinner and entertainment.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€57.73</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-orlando-pirates-dinner-adventure-theater-p1119475/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/85400afdfbb649e181196eb8bf8f01f6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Daytona Beach: Day Trip from Orlando" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Daytona Beach: Day Trip from Orlando</h3>
-          <p class="venue">📍 Daytona Beach Day Trips from Orlando</p>
-          <p>Start with a hassle-free hotel pickup, ensuring a stress-free beginning to your day at the "World's Most Famous Beach." 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/85400afdfbb649e181196eb8bf8f01f6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Daytona Beach: Day Trip from Orlando" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAYTONA BEACH DAY TRIPS FROM ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Daytona Beach: Day Trip from Orlando</div>
+        <div class="tq-card-desc">Start with a hassle-free hotel pickup, ensuring a stress-free beginning to your day at the "World's Most Famous Beach." 
 
-Take a stroll along the iconic Daytona Beach Boardwalk and Pier, try local cuisine at waterfront restaurants, shop for souvenirs, or simply take in the ocean breeze and lively atmosphere.</p>
-          <div class="card-footer">
-            <span class="price">From €102.6</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-daytona-beach-day-trip-from-orlando-p1095226/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take a stroll along the iconic Daytona Beach Boardwalk and Pier, try local cuisine at waterfront restaurants, shop for souvenirs, or simply take in the ocean breeze and lively atmosphere.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€102.60</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-daytona-beach-day-trip-from-orlando-p1095226/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3c8e0e964f645c8b9220386e4437140.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gatorland Orlando: Croc Rock Climbing Adventure and Park Admission" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Gatorland Orlando: Croc Rock Climbing Adventure and Park Admission</h3>
-          <p class="venue">📍 Gatorland Orlando</p>
-          <p>Step right into the heart of Florida and scale the unique, 32-foot Croc Rock climbing wall at Gatorland Orlando! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3c8e0e964f645c8b9220386e4437140.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gatorland Orlando: Croc Rock Climbing Adventure and Park Admission" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GATORLAND ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Gatorland Orlando: Croc Rock Climbing Adventure and Park Admission</div>
+        <div class="tq-card-desc">Step right into the heart of Florida and scale the unique, 32-foot Croc Rock climbing wall at Gatorland Orlando! 
 
 This isn't your average climbing activity - artists have expertly replicated local sandstone to create a stunningly realistic rock face, complete with natural hand holds. 
 
 After conquering the Croc Rock, get your heart pounding on a 150-foot swinging cable bridge. The grand finale? A 350-foot zipline ride that's sure to leave everyone breathless.
 
-This dynamic and interactive adventure, a brainchild of Gatorland's President and CEO, Mark McHugh, is a unique blend of thrill and challenge. It offers a three-in-one adrenaline rush that you won't find anywhere else in Florida!</p>
-          <div class="card-footer">
-            <span class="price">From €37.07</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-gatorland-orlando-croc-rock-adventure-p1070299/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This dynamic and interactive adventure, a brainchild of Gatorland's President and CEO, Mark McHugh, is a unique blend of thrill and challenge. It offers a three-in-one adrenaline rush that you won't find anywhere else in Florida!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€37.07</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-gatorland-orlando-croc-rock-adventure-p1070299/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d1fe70ed855c4ef08f9d6cdc63b1f3b3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hard Rock Cafe Orlando Dining Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hard Rock Cafe Orlando Dining Experience</h3>
-          <p class="venue">📍 Hard Rock Cafe Orlando</p>
-          <p>Have the burger of your dreams and taste classic American cuisine with Hard Rock Cafe Orlando’s mouth-watering menu.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d1fe70ed855c4ef08f9d6cdc63b1f3b3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hard Rock Cafe Orlando Dining Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HARD ROCK CAFE ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Hard Rock Cafe Orlando Dining Experience</div>
+        <div class="tq-card-desc">Have the burger of your dreams and taste classic American cuisine with Hard Rock Cafe Orlando’s mouth-watering menu.
 
 With Colosseum-like pillars, the multi-level dining area can transform into a concert venue for up to 3,000 people.
 
-Once your hunger and thirst are satisfied, peruse the extensive collection of music memorabilia from the most incredible music legends of all time, or shop for Hard Rock Cafe merchandise at the Rock Shop.</p>
-          <div class="card-footer">
-            <span class="price">From €31.95</span>
-            <span class="rating">⭐ 3.2 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hard-rock-cafe-orlando-dining-experience-p1054859/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Once your hunger and thirst are satisfied, peruse the extensive collection of music memorabilia from the most incredible music legends of all time, or shop for Hard Rock Cafe merchandise at the Rock Shop.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.2</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€31.95</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hard-rock-cafe-orlando-dining-experience-p1054859/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2dd52bc365a6485aa4c062758a66ebbc.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="iFLY Orlando" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>iFLY Orlando</h3>
-          <p class="venue">📍 Orlando Indoor Skydiving</p>
-          <p>There’s no other feeling in the world quite like indoor skydiving! iFLY’s state-of-the-art wind tunnels are designed to provide a safe - and thrilling - flight experience for everyone. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2dd52bc365a6485aa4c062758a66ebbc.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="iFLY Orlando" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ORLANDO INDOOR SKYDIVING</span>
+        </div>
+        <div class="tq-card-title">iFLY Orlando</div>
+        <div class="tq-card-desc">There’s no other feeling in the world quite like indoor skydiving! iFLY’s state-of-the-art wind tunnels are designed to provide a safe - and thrilling - flight experience for everyone. 
 
 Make memories that will last a lifetime, and leave with a unique story to tell - there aren't many people other than superheroes who can say they've flown without an airplane!
 
-Flyers ages 3 to 103 can indoor skydive. From beginners to seasoned pros, people of all shapes, sizes, and abilities can take flight. You don’t need to be an athlete or in perfect shape — iFLY's world-class instructors are experts at making flying fun for everyone.</p>
-          <div class="card-footer">
-            <span class="price">From €90.91</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ifly-orlando-p1036271/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Flyers ages 3 to 103 can indoor skydive. From beginners to seasoned pros, people of all shapes, sizes, and abilities can take flight. You don’t need to be an athlete or in perfect shape — iFLY's world-class instructors are experts at making flying fun for everyone.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€90.91</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ifly-orlando-p1036271/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/089bbc79ebfa44369a626d0c3eb18e58.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Day Tour from Orlando with Boat Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>St. Augustine Day Tour from Orlando with Boat Cruise</h3>
-          <p class="venue">📍 St. Augustine Day Trips from Orlando</p>
-          <p>Get to know America's oldest city a little better with tickets for a guided tour of beautiful St. Augustine, with an included boat cruise. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/089bbc79ebfa44369a626d0c3eb18e58.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Augustine Day Tour from Orlando with Boat Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ST. AUGUSTINE DAY TRIPS FROM ORLANDO</span>
+        </div>
+        <div class="tq-card-title">St. Augustine Day Tour from Orlando with Boat Cruise</div>
+        <div class="tq-card-desc">Get to know America's oldest city a little better with tickets for a guided tour of beautiful St. Augustine, with an included boat cruise. 
 
 Stroll St. Augustine's delightful historic district, complete with cobblestone streets, quaint cafes, and cozy boutiques. Your guide will point out historic landmarks along the way –  Bridge of Lions, Castillo de San Marcos, and Our Lady of La Leche.
 
-Then, make your way to the marina for a boat tour around St. Augustine. Soak in the signature Florida sunshine as your captain narrates the sights and sounds of the city. Don't forget to scan the surface for friendly dolphins as they guide the ship around the tropical waters.</p>
-          <div class="card-footer">
-            <span class="price">From €111.23</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-guided-tour-boat-cruise-p1035182/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Then, make your way to the marina for a boat tour around St. Augustine. Soak in the signature Florida sunshine as your captain narrates the sights and sounds of the city. Don't forget to scan the surface for friendly dolphins as they guide the ship around the tropical waters.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€111.23</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-st-augustine-guided-tour-boat-cruise-p1035182/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3e2283807802454ca1e82ba0ec2c0cdc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gatorland Orlando: Gator Night Shine" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Gatorland Orlando: Gator Night Shine</h3>
-          <p class="venue">📍 Gatorland Orlando</p>
-          <p>You'd better be snappy with these Gatorland Flashlight Tour at Night tickets! There's a surprisingly large number of people willing - and excited - to arm themselves with nothing but a flashlight and head into Gatorland’s Alligator Breeding Marsh. (Gulp).
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3e2283807802454ca1e82ba0ec2c0cdc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gatorland Orlando: Gator Night Shine" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GATORLAND ORLANDO</span>
+        </div>
+        <div class="tq-card-title">Gatorland Orlando: Gator Night Shine</div>
+        <div class="tq-card-desc">You'd better be snappy with these Gatorland Flashlight Tour at Night tickets! There's a surprisingly large number of people willing - and excited - to arm themselves with nothing but a flashlight and head into Gatorland’s Alligator Breeding Marsh. (Gulp).
 
 Make your way along the winding wooden walkways as the sounds of the night come alive, all around you. The splashing of water nearby will signal that you're not alone. In fact, just point your flashlight at the noise, and see hundreds of glowing red eyes getting closer. Yes, this is the *real* Florida! 
 
-A fun and educational tour for kids of all ages, Gatorland’s Gator Night Shine Tour is one swamp stompin’ adventure you don’t want to miss!</p>
-          <div class="card-footer">
-            <span class="price">From €19.82</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-gatorland-flashlight-tour-at-night-p1028433/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+A fun and educational tour for kids of all ages, Gatorland’s Gator Night Shine Tour is one swamp stompin’ adventure you don’t want to miss!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.82</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-gatorland-flashlight-tour-at-night-p1028433/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d1fe70ed855c4ef08f9d6cdc63b1f3b3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Go City Orlando: All Inclusive Pass with 30+ Attractions including LEGOLAND®" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Go City Orlando: All Inclusive Pass with 30+ Attractions including LEGOLAND®</h3>
-          <p class="venue">📍 Orlando City Cards</p>
-          <p>Why pay more on family attractions in Orlando? The Go City Orlando all-Inclusive Pass saves you far more compared to regular ticket prices at the gate! Discover over 30 top Orlando attractions across your choice of 2, 3, or 5 days. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d1fe70ed855c4ef08f9d6cdc63b1f3b3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Go City Orlando: All Inclusive Pass with 30+ Attractions including LEGOLAND®" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ORLANDO</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ORLANDO CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Go City Orlando: All Inclusive Pass with 30+ Attractions including LEGOLAND®</div>
+        <div class="tq-card-desc">Why pay more on family attractions in Orlando? The Go City Orlando all-Inclusive Pass saves you far more compared to regular ticket prices at the gate! Discover over 30 top Orlando attractions across your choice of 2, 3, or 5 days. 
 
 Feel like a real-life astronaut at Kennedy Space Center visitor complex, build it like you mean it at LEGOLAND® Florida, rub shoulders with the celebrities at Madame Tussauds Orlando, take a spin at The Wheel at ICON Park, and so much more! 
 
 With the Go City Orlando: All-Inclusive Pass, the more you see, the more you save.
 
-*Savings based on sample itineraries on the Go City website</p>
-          <div class="card-footer">
-            <span class="price">From €206.07</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/go-city-orlando-all-inclusive-pass-p1017869/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+*Savings based on sample itineraries on the Go City website</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€206.07</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/go-city-orlando-all-inclusive-pass-p1017869/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

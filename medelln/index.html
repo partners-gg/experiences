@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Medellín | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Medellín. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,12 +131,17 @@
     <p>7 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/567379f392bf43a7bd28583261bcc851.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Parque de la Conservación Medellín: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Parque de la Conservación Medellín: Skip The Line Ticket</h3>
-          <p class="venue">📍 Parque de la Conservación Medellín</p>
-          <p>Fast-track your way to furry-town and hang with the animals at Parque de la Conservación. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/567379f392bf43a7bd28583261bcc851.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Parque de la Conservación Medellín: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MEDELLÍN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PARQUE DE LA CONSERVACIÓN MEDELLÍN</span>
+        </div>
+        <div class="tq-card-title">Parque de la Conservación Medellín: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Fast-track your way to furry-town and hang with the animals at Parque de la Conservación. 
 
 From butterflies to snakes and spider monkeys, it's an educational day out which also contributes to the conservation of biodiversity in South America.
 
@@ -47,114 +151,186 @@ Jaguars, pumas, flamingos, birds, zebras, hippos, monkeys, anacondas, ostriches,
 
 See big cats whose roars can be heard from miles away, reptiles that change colors to go unnoticed, rodents that reach the size of a domestic pig, vultures with more than 3 m of coverage between their wings, and monkeys as small as your hand!
 
-Learn about their fascinating lives, and hear why these species are in the park. Find out what you can do to take care of biodiversity and become an ally of conservation.</p>
-          <div class="card-footer">
-            <span class="price">From €9.06</span>
-            <span class="rating">⭐ 4.8 (597)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-parque-de-la-conservacion-medellin-skip-the-line-p1010280/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about their fascinating lives, and hear why these species are in the park. Find out what you can do to take care of biodiversity and become an ally of conservation.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(597)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€9.06</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-parque-de-la-conservacion-medellin-skip-the-line-p1010280/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/567379f392bf43a7bd28583261bcc851.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aeroparque Juan Pablo II: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aeroparque Juan Pablo II: Fast Track Ticket</h3>
-          <p class="venue">📍 Aeroparque Juan Pablo II</p>
-          <p>Get your Aeroparque Juan Pablo II tickets and make a splash in Medellin!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/567379f392bf43a7bd28583261bcc851.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aeroparque Juan Pablo II: Fast Track Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MEDELLÍN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AEROPARQUE JUAN PABLO II</span>
+        </div>
+        <div class="tq-card-title">Aeroparque Juan Pablo II: Fast Track Ticket</div>
+        <div class="tq-card-desc">Get your Aeroparque Juan Pablo II tickets and make a splash in Medellin!
 
 Take the whole family for some watery fun in the sun, where the kids will love the huge wave pool – the waves reach almost three meters high! There's another pool with slides, a semi-Olympic pool for the serious swimmers, a didactic pool, a children's pool, and a circular pool. If you just want to relax in the sun, head to the spacious green area and chill. 
 
-There's also a multi-purpose track suitable for walking, jogging, skating, and cycling.</p>
-          <div class="card-footer">
-            <span class="price">From €4.55</span>
-            <span class="rating">⭐ 4 (127)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-john-paul-ii-airport-p1021272/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There's also a multi-purpose track suitable for walking, jogging, skating, and cycling.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(127)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€4.55</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-john-paul-ii-airport-p1021272/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/567379f392bf43a7bd28583261bcc851.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Parque Norte Medellín: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Parque Norte Medellín: Fast Track Ticket</h3>
-          <p class="venue">📍 Parque Norte Medellín</p>
-          <p>The fun doesn't stop at Parque Norte Medellín. Attractions, rides, and beautiful views beneath the surrounding mountains of the Aburrá Valley. The park even features Latin America's largest urban lake, so make sure to hop on the Eagle to get the best view of it! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/567379f392bf43a7bd28583261bcc851.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Parque Norte Medellín: Fast Track Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MEDELLÍN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PARQUE NORTE MEDELLÍN</span>
+        </div>
+        <div class="tq-card-title">Parque Norte Medellín: Fast Track Ticket</div>
+        <div class="tq-card-desc">The fun doesn't stop at Parque Norte Medellín. Attractions, rides, and beautiful views beneath the surrounding mountains of the Aburrá Valley. The park even features Latin America's largest urban lake, so make sure to hop on the Eagle to get the best view of it! 
 
 A wrist band for Parque Norte Medellín is a ticket to an adrenaline-fuelled day. There's four unique zones to explore, including one that's tailor-made for younger kids. 
 
 If you're looking for action, then choose the Extreme Passport and take on rides like Kamikaze, Maui, and Journey to the Center of the Earth.
 
-Planning on a family visit? Then try out the Fusion Passport, younger kids will be able to enjoy gentler rides that will leave them giddy.</p>
-          <div class="card-footer">
-            <span class="price">From €7.43</span>
-            <span class="rating">⭐ 4.3 (106)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-parque-norte-medellin-p1021269/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Planning on a family visit? Then try out the Fusion Passport, younger kids will be able to enjoy gentler rides that will leave them giddy.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(106)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€7.43</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-parque-norte-medellin-p1021269/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/567379f392bf43a7bd28583261bcc851.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Medellín Museum of Modern Art (MAMM): Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Medellín Museum of Modern Art (MAMM): Fast Track Ticket</h3>
-          <p class="venue">📍 Medellín Museum of Modern Art</p>
-          <p>Housed inside an impressively abstract building in El Poblado, the Medellín Museum of Modern Art is home to an important collection of art by Colombians and Antioquians, whose work represents the cultural, social, and political themes in Colombia's recent past.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/567379f392bf43a7bd28583261bcc851.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Medellín Museum of Modern Art (MAMM): Fast Track Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MEDELLÍN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MEDELLÍN MUSEUM OF MODERN ART</span>
+        </div>
+        <div class="tq-card-title">Medellín Museum of Modern Art (MAMM): Fast Track Ticket</div>
+        <div class="tq-card-desc">Housed inside an impressively abstract building in El Poblado, the Medellín Museum of Modern Art is home to an important collection of art by Colombians and Antioquians, whose work represents the cultural, social, and political themes in Colombia's recent past.
 
-Inside you'll see work by the best-known Colombian artists, like the politically charged paintings of Débora Arango. You can create your own soundscapes inside the sound experimentation laboratory, and the museum also boasts a cool and quiet atmosphere, welcoming visitors to its many terraces and outdoor spaces.</p>
-          <div class="card-footer">
-            <span class="price">From €3.83</span>
-            <span class="rating">⭐ 3.9 (17)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-entrance-ticket-to-the-museum-p1015562/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Inside you'll see work by the best-known Colombian artists, like the politically charged paintings of Débora Arango. You can create your own soundscapes inside the sound experimentation laboratory, and the museum also boasts a cool and quiet atmosphere, welcoming visitors to its many terraces and outdoor spaces.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(17)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€3.83</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-entrance-ticket-to-the-museum-p1015562/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6367602ad67147abb1e4ef84da9c932a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Medellín City Card: Family Fun" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Medellín City Card: Family Fun</h3>
-          <p class="venue">📍 Medellín City Cards</p>
-          <p>Get the most out of your family holiday with a Medellín City Card: Family Fun, specifically designed to entertain children of all ages.</p>
-          <div class="card-footer">
-            <span class="price">From €19.21</span>
-            <span class="rating">⭐ 3.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/medellin-city-card-family-fun-p1022654/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6367602ad67147abb1e4ef84da9c932a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Medellín City Card: Family Fun" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MEDELLÍN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MEDELLÍN CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Medellín City Card: Family Fun</div>
+        <div class="tq-card-desc">Get the most out of your family holiday with a Medellín City Card: Family Fun, specifically designed to entertain children of all ages.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.21</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/medellin-city-card-family-fun-p1022654/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2b1b0f66d58249eb8bce5bed4893a60c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Parque Arví Tour: Hiking Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Parque Arví Tour: Hiking Guided Tour</h3>
-          <p class="venue">📍 Parque Arví</p>
-          <p>Parque Arví is an oasis in the hills, a lush escape from the busy streets of central Medellín 30 km to the south-west. Dedicated to public use and ecotourism, this beloved and protected space highlights Colombia's environmental, cultural, and archaeological wealth.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2b1b0f66d58249eb8bce5bed4893a60c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Parque Arví Tour: Hiking Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MEDELLÍN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PARQUE ARVÍ</span>
+        </div>
+        <div class="tq-card-title">Parque Arví Tour: Hiking Guided Tour</div>
+        <div class="tq-card-desc">Parque Arví is an oasis in the hills, a lush escape from the busy streets of central Medellín 30 km to the south-west. Dedicated to public use and ecotourism, this beloved and protected space highlights Colombia's environmental, cultural, and archaeological wealth.
 
-Sounds good, right? On this Parque Arví tour you can explore the sprawling park on foot, with an English and Spanish-speaking guide leading the way. Learn about rare wildflowers, an abundance of native fauna, and pre-Hispanic history, as you explore one of Colombia's richest outdoor spaces.</p>
-          <div class="card-footer">
-            <span class="price">From €6.97</span>
-            <span class="rating">⭐ 4.4 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/parque-arvi-tour-p1010281/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Sounds good, right? On this Parque Arví tour you can explore the sprawling park on foot, with an English and Spanish-speaking guide leading the way. Learn about rare wildflowers, an abundance of native fauna, and pre-Hispanic history, as you explore one of Colombia's richest outdoor spaces.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€6.97</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/parque-arvi-tour-p1010281/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/03baad95f56148e283e136244ef03642.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Medellin: Guided Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Medellin: Guided Food Tour</h3>
-          <p class="venue">📍 Medellín City Tours</p>
-          <p>Prepare for a guided food tour through Medellín to explore local spots and taste traditional flavors. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/03baad95f56148e283e136244ef03642.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Medellin: Guided Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>MEDELLÍN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MEDELLÍN CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Medellin: Guided Food Tour</div>
+        <div class="tq-card-desc">Prepare for a guided food tour through Medellín to explore local spots and taste traditional flavors. 
 
-Follow a local guide who will show you hidden places and share insights into the city’s food history and culture. Learn how culinary traditions reflect daily life in Medellín.</p>
-          <div class="card-footer">
-            <span class="price">From €63</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-medellin-guided-food-tour-p1102518/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Follow a local guide who will show you hidden places and share insights into the city’s food history and culture. Learn how culinary traditions reflect daily life in Medellín.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€63.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-medellin-guided-food-tour-p1102518/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

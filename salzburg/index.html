@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Salzburg | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Salzburg. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,307 +131,503 @@
     <p>18 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d9517f8d370b4da0b6627a09e597cbe9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg Card" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Salzburg Card</h3>
-          <p class="venue">📍 Salzburg City Cards</p>
-          <p>Planning your sightseeing in Salzburg? Grab a Salzburg Card for 24, 48 or 72 hours and get into all your attractions and museums, no problems. Free public transport is also included.</p>
-          <div class="card-footer">
-            <span class="price">From €38</span>
-            <span class="rating">⭐ 4.2 (1062)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-card-p976437/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d9517f8d370b4da0b6627a09e597cbe9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg Card" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SALZBURG CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Salzburg Card</div>
+        <div class="tq-card-desc">Planning your sightseeing in Salzburg? Grab a Salzburg Card for 24, 48 or 72 hours and get into all your attractions and museums, no problems. Free public transport is also included.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(1,062)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-card-p976437/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/857729bb0ead4792b0abba74af4e1108.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: Mozart Classical Concert at Mirabell Palace" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Salzburg: Mozart Classical Concert at Mirabell Palace</h3>
-          <p class="venue">📍 Salzburg Concerts</p>
-          <p>Enjoy the most important works of Mozart, his contemporaries, and other composers in the very place where the young Mozart once performed on stage.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/857729bb0ead4792b0abba74af4e1108.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: Mozart Classical Concert at Mirabell Palace" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SALZBURG CONCERTS</span>
+        </div>
+        <div class="tq-card-title">Salzburg: Mozart Classical Concert at Mirabell Palace</div>
+        <div class="tq-card-desc">Enjoy the most important works of Mozart, his contemporaries, and other composers in the very place where the young Mozart once performed on stage.
 
-The Salzburg Palace Concerts are one of the world's biggest and most famous chamber music series, and make for a truly enchanting experience.</p>
-          <div class="card-footer">
-            <span class="price">From €42</span>
-            <span class="rating">⭐ 4.7 (133)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-mozart-classical-concert-at-mirabell-palace-p1035173/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Salzburg Palace Concerts are one of the world's biggest and most famous chamber music series, and make for a truly enchanting experience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(133)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-mozart-classical-concert-at-mirabell-palace-p1035173/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/857729bb0ead4792b0abba74af4e1108.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: Mozart Dinner Concert" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Salzburg: Mozart Dinner Concert</h3>
-          <p class="venue">📍 Salzburg Concerts</p>
-          <p>Delight in an evening full of enchanting music, luxurious decor, and indulgent dishes in a special concert series honoring Austria's greatest composer.  
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/857729bb0ead4792b0abba74af4e1108.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: Mozart Dinner Concert" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SALZBURG CONCERTS</span>
+        </div>
+        <div class="tq-card-title">Salzburg: Mozart Dinner Concert</div>
+        <div class="tq-card-desc">Delight in an evening full of enchanting music, luxurious decor, and indulgent dishes in a special concert series honoring Austria's greatest composer.  
 
 Savor the music of Mozart with an instrumental ensemble and two opera singers donning authentic Baroque-era costumes. You'll be serenaded with Mozart's most famous arias and duets, including _The Magic Flute_, _Don Giovanni_, and _Figaro_. 
 
-During intermission, enjoy a delicious dinner inspired by historical recipes of Mozart's time as you bask in the candle-lit ambiance of Baroque Hall St. Peter's Stiftskulinarium, central Europe’s oldest restaurant.</p>
-          <div class="card-footer">
-            <span class="price">From €85</span>
-            <span class="rating">⭐ 4.9 (27)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-mozart-dinner-concert-p1035285/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+During intermission, enjoy a delicious dinner inspired by historical recipes of Mozart's time as you bask in the candle-lit ambiance of Baroque Hall St. Peter's Stiftskulinarium, central Europe’s oldest restaurant.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(27)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€85.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-mozart-dinner-concert-p1035285/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9fcefc2e86fb467794921706d03ba340.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="DomQuartier Salzburg: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>DomQuartier Salzburg: Entry Ticket</h3>
-          <p class="venue">📍 DomQuartier Salzburg</p>
-          <p>Take an Austrian adventure tour through the magnificent Baroque power center of the former prince-archbishops. Discover the cultural highlight in the heart of Salzburg with these tickets to the DomQuartier, and find out how, over 400 years ago, the Salzburg aristocracy transformed the town into an Italian-style Baroque treasure. It's a masterpiece of urban design to this day!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9fcefc2e86fb467794921706d03ba340.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="DomQuartier Salzburg: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DOMQUARTIER SALZBURG</span>
+        </div>
+        <div class="tq-card-title">DomQuartier Salzburg: Entry Ticket</div>
+        <div class="tq-card-desc">Take an Austrian adventure tour through the magnificent Baroque power center of the former prince-archbishops. Discover the cultural highlight in the heart of Salzburg with these tickets to the DomQuartier, and find out how, over 400 years ago, the Salzburg aristocracy transformed the town into an Italian-style Baroque treasure. It's a masterpiece of urban design to this day!
 
-Explore the State Rooms, the Residence Gallery, the Cathedral Museum, and St. Peter's Museum. Other highlights include magnificent views of Salzburg's old town from the cathedral arch terrace and of Salzburg Cathedral from the organ loft.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐ 4.7 (25)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-domquartier-salzburg-p1019552/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore the State Rooms, the Residence Gallery, the Cathedral Museum, and St. Peter's Museum. Other highlights include magnificent views of Salzburg's old town from the cathedral arch terrace and of Salzburg Cathedral from the organ loft.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(25)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-domquartier-salzburg-p1019552/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7ffd9fc746c04dfdb662c4db3d71045e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Berchtesgaden Salt Mine: Entrance & Roundtrip from Salzburg" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Berchtesgaden Salt Mine: Entrance & Roundtrip from Salzburg</h3>
-          <p class="venue">📍 Salt Mines Day Trips from Salzburg</p>
-          <p>Enjoy the mesmerizing scenery around Salzburg with a roundtrip bus tour from Salzburg to Obersalzberg, and a tour of the Berchtesgaden Salt Mine. Drink in the jaw-dropping mountainous countryside and learn about the region's dark hidden history. Then plumb the depths of Berchtesgaden for a subterranean tour with more than a pinch of salt.</p>
-          <div class="card-footer">
-            <span class="price">From €108</span>
-            <span class="rating">⭐ 4.7 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-berchtesgaden-salt-mine-entrance-roundtrip-from-salzburg-p976259/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7ffd9fc746c04dfdb662c4db3d71045e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Berchtesgaden Salt Mine: Entrance & Roundtrip from Salzburg" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SALT MINES DAY TRIPS FROM SALZBURG</span>
+        </div>
+        <div class="tq-card-title">Berchtesgaden Salt Mine: Entrance & Roundtrip from Salzburg</div>
+        <div class="tq-card-desc">Enjoy the mesmerizing scenery around Salzburg with a roundtrip bus tour from Salzburg to Obersalzberg, and a tour of the Berchtesgaden Salt Mine. Drink in the jaw-dropping mountainous countryside and learn about the region's dark hidden history. Then plumb the depths of Berchtesgaden for a subterranean tour with more than a pinch of salt.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€108.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-berchtesgaden-salt-mine-entrance-roundtrip-from-salzburg-p976259/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a3ff959495a441d6a6bd680afa5d6384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hallstatt: Day Tour from Salzburg" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hallstatt: Day Tour from Salzburg</h3>
-          <p class="venue">📍 Day Trips from Salzburg</p>
-          <p>Join a guided tour to Hallstatt from Salzburg. With history dating back to the Neolithic Age, Hallstatt offers plenty to see and do.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a3ff959495a441d6a6bd680afa5d6384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hallstatt: Day Tour from Salzburg" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SALZBURG</span>
+        </div>
+        <div class="tq-card-title">Hallstatt: Day Tour from Salzburg</div>
+        <div class="tq-card-desc">Join a guided tour to Hallstatt from Salzburg. With history dating back to the Neolithic Age, Hallstatt offers plenty to see and do.
 
 Situated between Lake Hallstatt and the Dachstein mountains, this UNESCO World Heritage village offers unique sights. Walk through the old town, visit the Bone House, or see ancient items at the Hallstatt World Heritage Museum.
 
-Take a lakeside path, watch local waterfalls, or ride the funicular to the Skywalk viewing platform 360 meters above the village.</p>
-          <div class="card-footer">
-            <span class="price">From €70</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hallstatt-day-tour-from-salzburg-p1119799/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take a lakeside path, watch local waterfalls, or ride the funicular to the Skywalk viewing platform 360 meters above the village.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€70.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hallstatt-day-tour-from-salzburg-p1119799/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2bdc00270a5a42df92e74e64770cbe5e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hitler's Eagle's Nest: Entrance & Roundtrip from Salzburg" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hitler's Eagle's Nest: Entrance & Roundtrip from Salzburg</h3>
-          <p class="venue">📍 Day Trips from Salzburg</p>
-          <p>The winding Alpine roads of Obersalzberg are paved with a dark history. Looking down over all the beautiful mountains, rugged valleys, and lush rolling pasture sits the Eagle's Nest - Hitler's mountain retreat where the evils of the Third's Reich were planned in secret. Take a roundtrip bus tour from Salzburg, and discover this corner of history hidden in the Bavarian wilderness.</p>
-          <div class="card-footer">
-            <span class="price">From €90</span>
-            <span class="rating">⭐ 4.4 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hitler-s-eagle-s-nest-entrance-roundtrip-from-salzburg-p976252/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2bdc00270a5a42df92e74e64770cbe5e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hitler's Eagle's Nest: Entrance & Roundtrip from Salzburg" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SALZBURG</span>
+        </div>
+        <div class="tq-card-title">Hitler's Eagle's Nest: Entrance & Roundtrip from Salzburg</div>
+        <div class="tq-card-desc">The winding Alpine roads of Obersalzberg are paved with a dark history. Looking down over all the beautiful mountains, rugged valleys, and lush rolling pasture sits the Eagle's Nest - Hitler's mountain retreat where the evils of the Third's Reich were planned in secret. Take a roundtrip bus tour from Salzburg, and discover this corner of history hidden in the Bavarian wilderness.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€90.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hitler-s-eagle-s-nest-entrance-roundtrip-from-salzburg-p976252/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/af9c317e40a14bbb8745dc104cec87c5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: Original Sound of Music Tour + Edelweiss Cooking Class" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Salzburg: Original Sound of Music Tour + Edelweiss Cooking Class</h3>
-          <p class="venue">📍 Salzburg Food & Drinks</p>
-          <p>Spend a day in Salzburg filled with music and history. In the morning, join the Original Sound of Music Tour® to follow the story of the Trapp family through the city's baroque architecture and the Lake District.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/af9c317e40a14bbb8745dc104cec87c5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: Original Sound of Music Tour + Edelweiss Cooking Class" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SALZBURG FOOD & DRINKS</span>
+        </div>
+        <div class="tq-card-title">Salzburg: Original Sound of Music Tour + Edelweiss Cooking Class</div>
+        <div class="tq-card-desc">Spend a day in Salzburg filled with music and history. In the morning, join the Original Sound of Music Tour® to follow the story of the Trapp family through the city's baroque architecture and the Lake District.
 
 Visit film locations like Nonnberg Abbey, Hellbrunn’s Gazebo, Leopoldskron Palace, and Mondsee’s wedding church. Sing along to famous songs from the movie.
 
-In the afternoon, take part in the Edelweiss Cooking Class. Learn to make Austrian apple strudel and Salzburger Nockerl or Vanillekipferl Christmas cookies in winter. Before baking, have a warm goulash soup. Vegetarian and vegan options are available.</p>
-          <div class="card-footer">
-            <span class="price">From €120</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-original-sound-of-music-tour-edelweiss-cooking-class-p1119288/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In the afternoon, take part in the Edelweiss Cooking Class. Learn to make Austrian apple strudel and Salzburger Nockerl or Vanillekipferl Christmas cookies in winter. Before baking, have a warm goulash soup. Vegetarian and vegan options are available.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€120.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-original-sound-of-music-tour-edelweiss-cooking-class-p1119288/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Salzburg: Private Guided Tour + Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Salzburg: Private Guided Tour + Transfer</h3>
-          <p class="venue">📍 Salzburg City Tours</p>
-          <p>Travel in a private limo or luxury van with a local driver/guide. See the historic sites in Salzburg, a city listed as a UNESCO World Heritage Site.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SALZBURG CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Salzburg: Private Guided Tour + Transfer</div>
+        <div class="tq-card-desc">Travel in a private limo or luxury van with a local driver/guide. See the historic sites in Salzburg, a city listed as a UNESCO World Heritage Site.
 
 Learn about its tradition, history, and culture. Discover architectural works created by renowned architects and artists over centuries.
 
-Visit monuments that reflect the power of the Prince Archbishops, who ruled this independent principality. Make photo stops to capture the important landmarks.</p>
-          <div class="card-footer">
-            <span class="price">From €212.5</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-private-guided-tour-transfer-p1119237/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit monuments that reflect the power of the Prince Archbishops, who ruled this independent principality. Make photo stops to capture the important landmarks.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€212.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-private-guided-tour-transfer-p1119237/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a3ff959495a441d6a6bd680afa5d6384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: Original Sound of Music Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Salzburg: Original Sound of Music Tour</h3>
-          <p class="venue">📍 Day Trips from Salzburg</p>
-          <p>See the key sights of Salzburg. Visit the landscapes where the opening scene from *The Sound of Music* was filmed. Go on a guided tour of famous filming locations in and around Salzburg.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a3ff959495a441d6a6bd680afa5d6384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: Original Sound of Music Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SALZBURG</span>
+        </div>
+        <div class="tq-card-title">Salzburg: Original Sound of Music Tour</div>
+        <div class="tq-card-desc">See the key sights of Salzburg. Visit the landscapes where the opening scene from *The Sound of Music* was filmed. Go on a guided tour of famous filming locations in and around Salzburg.
 
-Listen to the original *Sound of Music* soundtrack during the tour and sing along to hits like "My Favorite Things," "Do-Re-Mi," and "Edelweiss." Hear facts about the movie, filming locations, and the Trapp family from a knowledgeable guide.</p>
-          <div class="card-footer">
-            <span class="price">From €60</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-original-sound-of-music-tour-p1119085/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Listen to the original *Sound of Music* soundtrack during the tour and sing along to hits like "My Favorite Things," "Do-Re-Mi," and "Edelweiss." Hear facts about the movie, filming locations, and the Trapp family from a knowledgeable guide.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-original-sound-of-music-tour-p1119085/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a3ff959495a441d6a6bd680afa5d6384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: Original Sound of Music Tour + Lunch or Dinner" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Salzburg: Original Sound of Music Tour + Lunch or Dinner</h3>
-          <p class="venue">📍 Day Trips from Salzburg</p>
-          <p>Join the Original Sound of Music Tour® and enjoy a 3-course Sound of Music menu.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a3ff959495a441d6a6bd680afa5d6384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: Original Sound of Music Tour + Lunch or Dinner" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SALZBURG</span>
+        </div>
+        <div class="tq-card-title">Salzburg: Original Sound of Music Tour + Lunch or Dinner</div>
+        <div class="tq-card-desc">Join the Original Sound of Music Tour® and enjoy a 3-course Sound of Music menu.
 
 Tour Salzburg and the nearby landscapes featured in *The Sound of Music*. Follow the locations and learn about the Trapp family and the film with a live guide. See the exact spots where the movie was filmed and understand more about its creation.
 
-Complete the tour with a special 3-course Sound of Music meal at the Restaurant Herzl. The tour includes both city and countryside sights, letting you walk the paths of the movie's main character, Maria von Trapp. The guide provides all the essential details about the film settings and the real-life Trapp family.</p>
-          <div class="card-footer">
-            <span class="price">From €95</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-original-sound-of-music-tour-lunch-or-dinner-p1119084/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Complete the tour with a special 3-course Sound of Music meal at the Restaurant Herzl. The tour includes both city and countryside sights, letting you walk the paths of the movie's main character, Maria von Trapp. The guide provides all the essential details about the film settings and the real-life Trapp family.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€95.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-original-sound-of-music-tour-lunch-or-dinner-p1119084/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a3ff959495a441d6a6bd680afa5d6384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bavarian Mountains: Guided Tour from Salzburg" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bavarian Mountains: Guided Tour from Salzburg</h3>
-          <p class="venue">📍 Day Trips from Salzburg</p>
-          <p>Travel through Berchtesgadener Land in the Bavarian Alps. Start from Salzburg and follow the Salzach River into Germany, passing through the historic Obersalzberg area.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a3ff959495a441d6a6bd680afa5d6384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bavarian Mountains: Guided Tour from Salzburg" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SALZBURG</span>
+        </div>
+        <div class="tq-card-title">Bavarian Mountains: Guided Tour from Salzburg</div>
+        <div class="tq-card-desc">Travel through Berchtesgadener Land in the Bavarian Alps. Start from Salzburg and follow the Salzach River into Germany, passing through the historic Obersalzberg area.
 
 Visit Königssee (King’s Lake), surrounded by steep alpine peaks like Watzmann. Enjoy walks along the lake, check out the lakeside village, and see the scenic views.
 
-On the way back, stop in the town of Berchtesgaden. This area, once a retreat for nobility, now offers history, alpine culture, and natural beauty within Berchtesgaden National Park.</p>
-          <div class="card-footer">
-            <span class="price">From €60</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bavarian-mountains-guided-tour-from-salzburg-p1118968/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+On the way back, stop in the town of Berchtesgaden. This area, once a retreat for nobility, now offers history, alpine culture, and natural beauty within Berchtesgaden National Park.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bavarian-mountains-guided-tour-from-salzburg-p1118968/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a3ff959495a441d6a6bd680afa5d6384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: Guided Salt Mine Visit + Original Sound of Music Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Salzburg: Guided Salt Mine Visit + Original Sound of Music Tour</h3>
-          <p class="venue">📍 Day Trips from Salzburg</p>
-          <p>Visit the Bavarian Alps and Salzburg in one day. Start with a drive to the 500-year-old Salt Mine Berchtesgaden. Wear miners’ gear, ride a train into the mountain, and see the underground Mirror Lake and Salt Cathedral. Then spend some free time in the town of Berchtesgaden.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a3ff959495a441d6a6bd680afa5d6384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: Guided Salt Mine Visit + Original Sound of Music Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SALZBURG</span>
+        </div>
+        <div class="tq-card-title">Salzburg: Guided Salt Mine Visit + Original Sound of Music Tour</div>
+        <div class="tq-card-desc">Visit the Bavarian Alps and Salzburg in one day. Start with a drive to the 500-year-old Salt Mine Berchtesgaden. Wear miners’ gear, ride a train into the mountain, and see the underground Mirror Lake and Salt Cathedral. Then spend some free time in the town of Berchtesgaden.
 
-In the afternoon, take the Original Sound of Music Tour®. See filming locations like Mirabell Gardens, Leopoldskron Palace, Nonnberg Abbey, Hellbrunn Palace, and the church in Mondsee. Follow the path of the von Trapp family and learn about the making of the film.</p>
-          <div class="card-footer">
-            <span class="price">From €120</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-guided-salt-mine-visit-original-sound-of-music-tour-p1118956/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In the afternoon, take the Original Sound of Music Tour®. See filming locations like Mirabell Gardens, Leopoldskron Palace, Nonnberg Abbey, Hellbrunn Palace, and the church in Mondsee. Follow the path of the von Trapp family and learn about the making of the film.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€120.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-guided-salt-mine-visit-original-sound-of-music-tour-p1118956/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/df01bca8a9d14e1483f4e1ee96cf610e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg Salt Mine: Guided Tour + Transport from Salzburg" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Salzburg Salt Mine: Guided Tour + Transport from Salzburg</h3>
-          <p class="venue">📍 Day Trips from Salzburg</p>
-          <p>Discover Salzburg’s Salt Mines, a journey deep into the Austrian Alps. Begin by meeting at Mirabellplatz 2 in Salzburg's city center for a shuttle to the Hallein salt mines. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/df01bca8a9d14e1483f4e1ee96cf610e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg Salt Mine: Guided Tour + Transport from Salzburg" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SALZBURG</span>
+        </div>
+        <div class="tq-card-title">Salzburg Salt Mine: Guided Tour + Transport from Salzburg</div>
+        <div class="tq-card-desc">Discover Salzburg’s Salt Mines, a journey deep into the Austrian Alps. Begin by meeting at Mirabellplatz 2 in Salzburg's city center for a shuttle to the Hallein salt mines. 
 
 Your guide will lead you through ancient tunnels, where you'll ride the original mine train and slide down wooden miners’ slides. Cross an underground salt lake on a raft and see a branch covered with salt crystals.
 
 Learn about salt’s rich history as the "white gold" that shaped civilizations. Around 250 million years ago, a vast salt lake in the region left behind deposits that tectonic forces still push into the Alps today. Learn about the Celts’ early salt mining and how Salzburg’s Prince-Archbishops used salt wealth to fund grand architecture.
 
-Dress warmly for the cool mine; a white miner’s suit will be provided. After the tour, visit the Salzwelten shop for salt-themed souvenirs.</p>
-          <div class="card-footer">
-            <span class="price">From €69</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-white-gold-adventure-salt-mines-package-p1112184/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Dress warmly for the cool mine; a white miner’s suit will be provided. After the tour, visit the Salzwelten shop for salt-themed souvenirs.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€69.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-white-gold-adventure-salt-mines-package-p1112184/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9fcefc2e86fb467794921706d03ba340.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: Old Town, Mozart & Mirabell Gardens Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Salzburg: Old Town, Mozart & Mirabell Gardens Walking Tour</h3>
-          <p class="venue">📍 Salzburg City Tours</p>
-          <p>Curious why Salzburg is known as the City of Music? Find out on a group walking tour of the Old Town with a local guide. You'll visit the city's key monuments, churches, and historical sites, all while listening to commentary in your chosen language. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9fcefc2e86fb467794921706d03ba340.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: Old Town, Mozart & Mirabell Gardens Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SALZBURG CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Salzburg: Old Town, Mozart & Mirabell Gardens Walking Tour</div>
+        <div class="tq-card-desc">Curious why Salzburg is known as the City of Music? Find out on a group walking tour of the Old Town with a local guide. You'll visit the city's key monuments, churches, and historical sites, all while listening to commentary in your chosen language. 
 
 This 2-hour tour kicks off at Mirabell Gardens, near the grand Mirabell Palace. A guide will lead a group of up to 25 people through these beautiful gardens, highlighting film locations from _The Sound of Music_ – perfect for music fans!
 
-The tour moves on to the historic Old Town, offering great views of the Salzach River. You'll also stop at Mozart’s former home and birthplace.</p>
-          <div class="card-footer">
-            <span class="price">From €39</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-old-town-walking-tour-mozart-mirabell-gardens-p1098210/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The tour moves on to the historic Old Town, offering great views of the Salzach River. You'll also stop at Mozart’s former home and birthplace.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-old-town-walking-tour-mozart-mirabell-gardens-p1098210/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a3ff959495a441d6a6bd680afa5d6384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: City and Countryside Mountain Bike Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Salzburg: City and Countryside Mountain Bike Tour</h3>
-          <p class="venue">📍 Day Trips from Salzburg</p>
-          <p>Prepare for a pulse-racing, wheel-spinning escapade through the landscapes of Salzburg.This thrilling expedition begins in the city's bustling center, where grand fortresses, the charming Mozart residence, and the elegant Mirabell Palace beckon for exploration.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a3ff959495a441d6a6bd680afa5d6384.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg: City and Countryside Mountain Bike Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SALZBURG</span>
+        </div>
+        <div class="tq-card-title">Salzburg: City and Countryside Mountain Bike Tour</div>
+        <div class="tq-card-desc">Prepare for a pulse-racing, wheel-spinning escapade through the landscapes of Salzburg.This thrilling expedition begins in the city's bustling center, where grand fortresses, the charming Mozart residence, and the elegant Mirabell Palace beckon for exploration.
 
 The tour effortlessly shifts from the city's hustle and bustle to the awe-inspiring allure of the countryside. Those with an adventurous streak can seize the golden opportunity to upgrade their mountain biking skills with a personalized technical training session.
 
-Pedal through the mountains and lush fields and cap your tour with a well-deserved beer!</p>
-          <div class="card-footer">
-            <span class="price">From €99</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-city-and-countryside-mountain-bike-tour-p1091291/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Pedal through the mountains and lush fields and cap your tour with a well-deserved beer!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€99.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-salzburg-city-and-countryside-mountain-bike-tour-p1091291/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4867a472950440949dc0b691ba5c4d59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg City Quest" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Salzburg City Quest</h3>
-          <p class="venue">📍 Salzburg City Tours</p>
-          <p>All you need for your Salzburg escape is a smartphone full of juice and a decent 4G connection. Oh, and some teammates! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4867a472950440949dc0b691ba5c4d59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg City Quest" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SALZBURG CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Salzburg City Quest</div>
+        <div class="tq-card-desc">All you need for your Salzburg escape is a smartphone full of juice and a decent 4G connection. Oh, and some teammates! 
 
-This city quest combines riddles and travel to show you some of Salzburg's finest offerings. Solve the clues as they appear and uncover the city's top treasures and hidden gems. Stop where you like, line your eyeballs with landmarks, and tell everyone you skipped the boring usual tour and chose your own adventure instead!</p>
-          <div class="card-footer">
-            <span class="price">From €29</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-just-escape-your-city-salzburg-p1010334/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This city quest combines riddles and travel to show you some of Salzburg's finest offerings. Solve the clues as they appear and uncover the city's top treasures and hidden gems. Stop where you like, line your eyeballs with landmarks, and tell everyone you skipped the boring usual tour and chose your own adventure instead!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-just-escape-your-city-salzburg-p1010334/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4867a472950440949dc0b691ba5c4d59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg City Quest" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Salzburg City Quest</h3>
-          <p class="venue">📍 Salzburg City Tours</p>
-          <p>All you need for your Salzburg escape is a smartphone full of juice and a decent 4G connection. Oh, and some teammates! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4867a472950440949dc0b691ba5c4d59.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Salzburg City Quest" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SALZBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SALZBURG CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Salzburg City Quest</div>
+        <div class="tq-card-desc">All you need for your Salzburg escape is a smartphone full of juice and a decent 4G connection. Oh, and some teammates! 
 
-This city quest combines riddles and travel to show you some of Salzburg's finest offerings. Solve the clues as they appear and uncover the city's top treasures and hidden gems. Stop where you like, line your eyeballs with landmarks, and tell everyone you skipped the boring usual tour and chose your own adventure instead!</p>
-          <div class="card-footer">
-            <span class="price">From €29</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-just-escape-your-city-salzburg-p1010334/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This city quest combines riddles and travel to show you some of Salzburg's finest offerings. Solve the clues as they appear and uncover the city's top treasures and hidden gems. Stop where you like, line your eyeballs with landmarks, and tell everyone you skipped the boring usual tour and chose your own adventure instead!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-just-escape-your-city-salzburg-p1010334/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Sintra | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Sintra. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,158 +131,262 @@
     <p>21 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0727fdc177a24260a448b667c7ca990d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Palace of Pena & Park: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>National Palace of Pena & Park: Entry Ticket</h3>
-          <p class="venue">📍 National Palace of Pena & Park</p>
-          <p>Visit the National Palace of Pena and walk through its colorful, grand halls. See the intricate details of the Romanticist architecture. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0727fdc177a24260a448b667c7ca990d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Palace of Pena & Park: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NATIONAL PALACE OF PENA & PARK</span>
+        </div>
+        <div class="tq-card-title">National Palace of Pena & Park: Entry Ticket</div>
+        <div class="tq-card-desc">Visit the National Palace of Pena and walk through its colorful, grand halls. See the intricate details of the Romanticist architecture. 
 
-Roam the expansive park with its lush gardens and winding paths. Capture views of the surrounding landscape from various lookout points.</p>
-          <div class="card-footer">
-            <span class="price">From €20</span>
-            <span class="rating">⭐ 4.1 (7278)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-national-palace-of-pena-park-entry-ticket-p1120392/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Roam the expansive park with its lush gardens and winding paths. Capture views of the surrounding landscape from various lookout points.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(7,278)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-national-palace-of-pena-park-entry-ticket-p1120392/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/438f2faf6076427fab7dd23cc03563cd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pena Park in Sintra: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pena Park in Sintra: Entry Ticket</h3>
-          <p class="venue">📍 National Palace of Pena & Park</p>
-          <p>The highest mountain peaks, eye-boggling views, a labyrinth of shady trees and romantic paths await in the beautiful Parque da Pena. This fantasy forest was designed by King Fernand II in an effort to impress his guests. Come see if it makes an impression on _you_.</p>
-          <div class="card-footer">
-            <span class="price">From €10</span>
-            <span class="rating">⭐ 4.2 (1495)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pena-park-in-sintra-p976409/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/438f2faf6076427fab7dd23cc03563cd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pena Park in Sintra: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NATIONAL PALACE OF PENA & PARK</span>
+        </div>
+        <div class="tq-card-title">Pena Park in Sintra: Entry Ticket</div>
+        <div class="tq-card-desc">The highest mountain peaks, eye-boggling views, a labyrinth of shady trees and romantic paths await in the beautiful Parque da Pena. This fantasy forest was designed by King Fernand II in an effort to impress his guests. Come see if it makes an impression on _you_.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(1,495)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€10.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pena-park-in-sintra-p976409/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0727fdc177a24260a448b667c7ca990d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Quinta da Regaleira: Entry Ticket + Digital Audio Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Quinta da Regaleira: Entry Ticket + Digital Audio Guide</h3>
-          <p class="venue">📍 Quinta da Regaleira</p>
-          <p>Visit this UNESCO World Heritage Site at your own pace. Receive your ticket via email, download the audio tour on your phone, and explore the Quinta da Regaleira. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0727fdc177a24260a448b667c7ca990d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Quinta da Regaleira: Entry Ticket + Digital Audio Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">QUINTA DA REGALEIRA</span>
+        </div>
+        <div class="tq-card-title">Quinta da Regaleira: Entry Ticket + Digital Audio Guide</div>
+        <div class="tq-card-desc">Visit this UNESCO World Heritage Site at your own pace. Receive your ticket via email, download the audio tour on your phone, and explore the Quinta da Regaleira. 
 
 Listen to the audio as you walk through the aquarium, the Fountain of Abundance, and the greenhouse, and see the castle's features. The audio tour is based on thorough research and original narratives, making your visit informative. 
 
-Learn about the site's history and hear lesser-known stories about the 16th-century estate.</p>
-          <div class="card-footer">
-            <span class="price">From €28</span>
-            <span class="rating">⭐ 3.8 (505)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-quinta-da-regaleira-entry-digital-audio-guide-p1106027/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about the site's history and hear lesser-known stories about the 16th-century estate.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(505)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€28.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-quinta-da-regaleira-entry-digital-audio-guide-p1106027/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e8649b8982049199d1811a387be612e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Castelo dos Mouros Sintra: Entry Ticket + Optional Audio Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Castelo dos Mouros Sintra: Entry Ticket + Optional Audio Guide</h3>
-          <p class="venue">📍 Castelo dos Mouros Sintra</p>
-          <p>Looking for the best views of Sintra? You'll get them up at this 10th-century Moorish monument. Walk the beautiful pathways, see ancient artifacts from the Bronze Age, Iron Age, and Neolithic period. All the while you'll learn about the castle's history and see Sintra, the Palace of Pena, and the hills beyond from a whole new perspective.</p>
-          <div class="card-footer">
-            <span class="price">From €13.2</span>
-            <span class="rating">⭐ 4.5 (1356)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-castle-of-the-moors-p975020/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0e8649b8982049199d1811a387be612e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Castelo dos Mouros Sintra: Entry Ticket + Optional Audio Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CASTELO DOS MOUROS SINTRA</span>
+        </div>
+        <div class="tq-card-title">Castelo dos Mouros Sintra: Entry Ticket + Optional Audio Guide</div>
+        <div class="tq-card-desc">Looking for the best views of Sintra? You'll get them up at this 10th-century Moorish monument. Walk the beautiful pathways, see ancient artifacts from the Bronze Age, Iron Age, and Neolithic period. All the while you'll learn about the castle's history and see Sintra, the Palace of Pena, and the hills beyond from a whole new perspective.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(1,356)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.20</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-castle-of-the-moors-p975020/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a614caddc848419f9a0d452f3da9ab37.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Monserrate Palace: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Monserrate Palace: Entry Ticket</h3>
-          <p class="venue">📍 Monserrate Palace</p>
-          <p>You can't visit Lisbon without a trip to stunning Sintra. Skip the line to Monserrate Palace and explore what was once a 16th-century chapel and a private house. See the amazing decorations, walk the gardens of this unique UNESCO World Heritage site, and see special plant species from all over the world!</p>
-          <div class="card-footer">
-            <span class="price">From €12</span>
-            <span class="rating">⭐ 4.7 (590)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-monserrate-palace-skip-the-line-p975028/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a614caddc848419f9a0d452f3da9ab37.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Monserrate Palace: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONSERRATE PALACE</span>
+        </div>
+        <div class="tq-card-title">Monserrate Palace: Entry Ticket</div>
+        <div class="tq-card-desc">You can't visit Lisbon without a trip to stunning Sintra. Skip the line to Monserrate Palace and explore what was once a 16th-century chapel and a private house. See the amazing decorations, walk the gardens of this unique UNESCO World Heritage site, and see special plant species from all over the world!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(590)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-monserrate-palace-skip-the-line-p975028/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/840f081ee34d40028e7fb9c7141ea3f3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra: Audio Guide App" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sintra: Audio Guide App</h3>
-          <p class="venue">📍 Sintra Self-Guided Tours</p>
-          <p>If you don't want to deal with meeting points and tour guides, you can experience the magic of Sintra another way. This Sintra audio guide will be your companion as you discover Portugal's fairy-tale town! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/840f081ee34d40028e7fb9c7141ea3f3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra: Audio Guide App" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SINTRA SELF-GUIDED TOURS</span>
+        </div>
+        <div class="tq-card-title">Sintra: Audio Guide App</div>
+        <div class="tq-card-desc">If you don't want to deal with meeting points and tour guides, you can experience the magic of Sintra another way. This Sintra audio guide will be your companion as you discover Portugal's fairy-tale town! 
 
-With a handy digital map you can follow mapped routes around Sintra or explore as you please. Every location (there are over 15 points of interest!) has up to two minutes of audio commentary, including the remarkable Pena Palace and Park.</p>
-          <div class="card-footer">
-            <span class="price">From €5.5</span>
-            <span class="rating">⭐ 2.5 (226)</span>
-            <a href="https://www.tiqets.com/en/checkout/tour-of-sintra-audio-guide-app-p1014443/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With a handy digital map you can follow mapped routes around Sintra or explore as you please. Every location (there are over 15 points of interest!) has up to two minutes of audio commentary, including the remarkable Pena Palace and Park.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2.5</strong>
+            <span class="tq-reviews">(226)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€5.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tour-of-sintra-audio-guide-app-p1014443/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1129e84bc6c64ea1982e3775d5fa94ba.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Palace of Sintra: Entrance Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>National Palace of Sintra: Entrance Ticket</h3>
-          <p class="venue">📍 National Palace of Sintra</p>
-          <p>The National Palace of Sintra in the heart of the old town has been a UNESCO World Heritage site since 1995. Walk the stomping ground of the Portuguese monarchs and see how they lived in the middle ages. Visit the Coats of Arms room and see the most important collection of Mudéjar Azulejos (colored glazed tiles) in the world!</p>
-          <div class="card-footer">
-            <span class="price">From €13</span>
-            <span class="rating">⭐ 4.4 (601)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-national-palace-of-sintra-p975024/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1129e84bc6c64ea1982e3775d5fa94ba.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Palace of Sintra: Entrance Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NATIONAL PALACE OF SINTRA</span>
+        </div>
+        <div class="tq-card-title">National Palace of Sintra: Entrance Ticket</div>
+        <div class="tq-card-desc">The National Palace of Sintra in the heart of the old town has been a UNESCO World Heritage site since 1995. Walk the stomping ground of the Portuguese monarchs and see how they lived in the middle ages. Visit the Coats of Arms room and see the most important collection of Mudéjar Azulejos (colored glazed tiles) in the world!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(601)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-national-palace-of-sintra-p975024/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/17baf87d19fc41278d3dee95f4e82296.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra: Hop-on Hop-off Bus to Castles & Palaces" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sintra: Hop-on Hop-off Bus to Castles & Palaces</h3>
-          <p class="venue">📍 Sintra Guided Tours</p>
-          <p>Travel around Sintra easily with public transport and explore major attractions like Palácio da Pena, Castelo dos Mouros, and Quinta da Regaleira.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/17baf87d19fc41278d3dee95f4e82296.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra: Hop-on Hop-off Bus to Castles & Palaces" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SINTRA GUIDED TOURS</span>
+        </div>
+        <div class="tq-card-title">Sintra: Hop-on Hop-off Bus to Castles & Palaces</div>
+        <div class="tq-card-desc">Travel around Sintra easily with public transport and explore major attractions like Palácio da Pena, Castelo dos Mouros, and Quinta da Regaleira.
 
 Use this 24-hour ticket to hop-on and hop-off bus lines 434 and 435 as needed to explore the village and its famous sights.
 
 The route 434 connects Sintra Station with the Moorish Castle and Pena Palace. On the way, it also stops at São Pedro de Sintra and Sintra Vila. This circular route lets visitors see the main highlights in one trip.
 
-Whereas. Route 435 connects Sintra Station with Quinta da Regaleira, Seteais Palace, Monserrate Palace, Colares, and Montes Santos. It also passes through São Pedro de Sintra and Sintra Vila.</p>
-          <div class="card-footer">
-            <span class="price">From €10.96</span>
-            <span class="rating">⭐ 3 (70)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sintra-hop-on-hop-off-bus-to-castles-palaces-p1101663/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Whereas. Route 435 connects Sintra Station with Quinta da Regaleira, Seteais Palace, Monserrate Palace, Colares, and Montes Santos. It also passes through São Pedro de Sintra and Sintra Vila.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(70)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€10.96</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sintra-hop-on-hop-off-bus-to-castles-palaces-p1101663/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0727fdc177a24260a448b667c7ca990d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pena Palace + Quinta da Regaleira" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pena Palace + Quinta da Regaleira</h3>
-          <p class="venue">📍 National Palace of Pena & Park</p>
-          <p>Learn about Sintra’s history and architecture with tickets to two incredible spots: 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0727fdc177a24260a448b667c7ca990d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pena Palace + Quinta da Regaleira" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NATIONAL PALACE OF PENA & PARK</span>
+        </div>
+        <div class="tq-card-title">Pena Palace + Quinta da Regaleira</div>
+        <div class="tq-card-desc">Learn about Sintra’s history and architecture with tickets to two incredible spots: 
 
 **National Palace of Pena & Park: Entry Ticket**
 Once a monastery, this hilltop palace was turned into a royal retreat by King Ferdinand II. Check out its distinctive architecture and wander the gardens filled with unusual plants and hidden corners.
 
 **Quinta da Regaleira: Entry Ticket + Digital Audio Guide**
-Explore this historic estate, a UNESCO World Heritage site, at your own pace with an audio guide. Visit highlights like the aquarium, Fountain of Abundance, and the greenhouse, and learn about the fascinating past of this unique property.</p>
-          <div class="card-footer">
-            <span class="price">From €47.5</span>
-            <span class="rating">⭐ 3.8 (50)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sintra-pena-palace-quinta-da-regaleira-p1119969/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore this historic estate, a UNESCO World Heritage site, at your own pace with an audio guide. Visit highlights like the aquarium, Fountain of Abundance, and the greenhouse, and learn about the fascinating past of this unique property.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(50)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€47.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sintra-pena-palace-quinta-da-regaleira-p1119969/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/748d227a2a704788b40982f49dfb7ae5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Biester Palace and Park" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Biester Palace and Park</h3>
-          <p class="venue">📍 Biester Palace</p>
-          <p>The Biester Palace was built by Portuguese architect José Luís Monteiro in the last decades of the 19th century, bringing together great historical and artistic influences.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/748d227a2a704788b40982f49dfb7ae5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Biester Palace and Park" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BIESTER PALACE</span>
+        </div>
+        <div class="tq-card-title">Biester Palace and Park</div>
+        <div class="tq-card-desc">The Biester Palace was built by Portuguese architect José Luís Monteiro in the last decades of the 19th century, bringing together great historical and artistic influences.
 
 It fits perfectly into the romantic world of Sintra in which it is located, and at the same time stands out for its great modernity for the time in which it was built. Its most striking features include paintings by Luigi Manini, carving work by Leandro de Souza Braga, and stuccoes by Domingos Meira.
 
@@ -191,71 +394,115 @@ Rooms such as the Living Room, Master Bedroom, and many more contain unique deta
 
 The Park, besides the countless rare species and unique charm, has attractions such as the Pena Cave, the Picnic Park, and the unique Bordallo Pinheiro Walk. 
 
-Don't miss this opportunity to relive the 19th century in an emerging and captivating visit!</p>
-          <div class="card-footer">
-            <span class="price">From €16</span>
-            <span class="rating">⭐ 4.8 (101)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tickets-to-biester-palace-and-park-p1049838/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Don't miss this opportunity to relive the 19th century in an emerging and captivating visit!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(101)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€16.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tickets-to-biester-palace-and-park-p1049838/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0727fdc177a24260a448b667c7ca990d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra, Pena Palace, Cabo da Roca, Cascais & Estoril: Day Trip from Lisbon" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sintra, Pena Palace, Cabo da Roca, Cascais & Estoril: Day Trip from Lisbon</h3>
-          <p class="venue">📍 National Palace of Pena & Park</p>
-          <p>Visit Pena Palace, a colorful and ornate castle perched high in Sintra. Walk through its gardens filled with diverse plants. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0727fdc177a24260a448b667c7ca990d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra, Pena Palace, Cabo da Roca, Cascais & Estoril: Day Trip from Lisbon" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NATIONAL PALACE OF PENA & PARK</span>
+        </div>
+        <div class="tq-card-title">Sintra, Pena Palace, Cabo da Roca, Cascais & Estoril: Day Trip from Lisbon</div>
+        <div class="tq-card-desc">Visit Pena Palace, a colorful and ornate castle perched high in Sintra. Walk through its gardens filled with diverse plants. 
 
-Check out the views from Cabo da Roca, the westernmost point of mainland Europe. Explore the coastal towns of Cascais and Estoril, where you can see beautiful beaches and lively promenades.</p>
-          <div class="card-footer">
-            <span class="price">From €87</span>
-            <span class="rating">⭐ 4.4 (84)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sintra-pena-palace-cabo-da-roca-cascais-estoril-day-trip-from-lisbon-p1111520/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Check out the views from Cabo da Roca, the westernmost point of mainland Europe. Explore the coastal towns of Cascais and Estoril, where you can see beautiful beaches and lively promenades.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(84)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€87.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sintra-pena-palace-cabo-da-roca-cascais-estoril-day-trip-from-lisbon-p1111520/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0727fdc177a24260a448b667c7ca990d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Palace of Pena & Park: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>National Palace of Pena & Park: Guided Tour</h3>
-          <p class="venue">📍 National Palace of Pena & Park</p>
-          <p>Visit the National Palace of Pena and see its colorful towers and intricate architecture. Walk through the grand halls filled with historical artifacts and elegant furnishings. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0727fdc177a24260a448b667c7ca990d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Palace of Pena & Park: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NATIONAL PALACE OF PENA & PARK</span>
+        </div>
+        <div class="tq-card-title">National Palace of Pena & Park: Guided Tour</div>
+        <div class="tq-card-desc">Visit the National Palace of Pena and see its colorful towers and intricate architecture. Walk through the grand halls filled with historical artifacts and elegant furnishings. 
 
-Wander the expansive Pena Park, full of winding paths and lush gardens. Look out from various viewpoints for extensive views of the surrounding landscape.</p>
-          <div class="card-footer">
-            <span class="price">From €41</span>
-            <span class="rating">⭐ 3.4 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-national-palace-of-pena-pena-park-entry-ticket-guided-tour-p1111448/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Wander the expansive Pena Park, full of winding paths and lush gardens. Look out from various viewpoints for extensive views of the surrounding landscape.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.4</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€41.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-national-palace-of-pena-pena-park-entry-ticket-guided-tour-p1111448/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0727fdc177a24260a448b667c7ca990d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Quinta da Regaleira: Skip The Line Ticket + Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Quinta da Regaleira: Skip The Line Ticket + Guided Tour</h3>
-          <p class="venue">📍 Quinta da Regaleira</p>
-          <p>Meet your friendly local guide outside Quinta da Regaleira and get ready for a cultural deep-dive into one of Sintra's iconic palaces. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0727fdc177a24260a448b667c7ca990d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Quinta da Regaleira: Skip The Line Ticket + Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">QUINTA DA REGALEIRA</span>
+        </div>
+        <div class="tq-card-title">Quinta da Regaleira: Skip The Line Ticket + Guided Tour</div>
+        <div class="tq-card-desc">Meet your friendly local guide outside Quinta da Regaleira and get ready for a cultural deep-dive into one of Sintra's iconic palaces. 
 
 Your guide will first get you immersed with a brief introduction about Sintra's history, legends, and curiosities. From tales of the Templars to Freemason secrets to the international poets who were inspired by this fairy-tale location. Then, it's time to skip the line and step inside the palace and explore the impressive Quinta da Regaleira. 
 
-Wander its lush gardens, lakes, grottoes, and enigmatic constructions, including the world-famous Initiation Well. You will uncover the mysteries of each place and leave enriched with amazing facts and memories.</p>
-          <div class="card-footer">
-            <span class="price">From €70</span>
-            <span class="rating">⭐ 4.4 (449)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-quinta-da-regaleira-guided-tour-p1026172/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Wander its lush gardens, lakes, grottoes, and enigmatic constructions, including the world-famous Initiation Well. You will uncover the mysteries of each place and leave enriched with amazing facts and memories.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(449)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€70.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-quinta-da-regaleira-guided-tour-p1026172/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/17baf87d19fc41278d3dee95f4e82296.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra Bundle + Hop-on Hop-off Bus" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sintra Bundle + Hop-on Hop-off Bus</h3>
-          <p class="venue">📍 Sintra Guided Tours</p>
-          <p>Experience the beauty of Sintra with this package with entry to the National Palace of Pena and the Castle of the Moors. Enjoy easy travel with a hop-on hop-off bus tour and explore the town with an audio guide app.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/17baf87d19fc41278d3dee95f4e82296.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra Bundle + Hop-on Hop-off Bus" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SINTRA GUIDED TOURS</span>
+        </div>
+        <div class="tq-card-title">Sintra Bundle + Hop-on Hop-off Bus</div>
+        <div class="tq-card-desc">Experience the beauty of Sintra with this package with entry to the National Palace of Pena and the Castle of the Moors. Enjoy easy travel with a hop-on hop-off bus tour and explore the town with an audio guide app.
 
 **National Palace of Pena and Park: Entry Ticket**
 
@@ -271,134 +518,217 @@ Navigate Sintra’s attractions like Palácio da Pena, Castelo dos Mouros, and Q
 
 **Sintra: Audio Guide App**
 
-Discover 15 highlights of Sintra at your own pace. The smartphone audio guide offers up to two minutes of commentary at each location.</p>
-          <div class="card-footer">
-            <span class="price">From €43</span>
-            <span class="rating">⭐ 2.8 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sintra-bundle-hop-on-hop-off-bus-p1103193/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover 15 highlights of Sintra at your own pace. The smartphone audio guide offers up to two minutes of commentary at each location.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2.8</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€43.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sintra-bundle-hop-on-hop-off-bus-p1103193/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0727fdc177a24260a448b667c7ca990d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra, Pena Palace, Belém & Lisbon: Small-Group Day Trip" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sintra, Pena Palace, Belém & Lisbon: Small-Group Day Trip</h3>
-          <p class="venue">📍 National Palace of Pena & Park</p>
-          <p>Take a shared tour to visit Lisbon, Belém, and Sintra. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0727fdc177a24260a448b667c7ca990d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra, Pena Palace, Belém & Lisbon: Small-Group Day Trip" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NATIONAL PALACE OF PENA & PARK</span>
+        </div>
+        <div class="tq-card-title">Sintra, Pena Palace, Belém & Lisbon: Small-Group Day Trip</div>
+        <div class="tq-card-desc">Take a shared tour to visit Lisbon, Belém, and Sintra. 
 
 Start the day with a visit to Pena Palace in Sintra. Enjoy a guided tour of the historical palace, followed by free time to explore the town. 
 
 In the afternoon, return to Lisbon for a tour of Belém, where you can see Jerónimos Monastery and try the famous Pastéis de Belém. 
 
-Finish the day with a walk through Lisbon's city center to see popular landmarks.</p>
-          <div class="card-footer">
-            <span class="price">From €69</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pena-palace-belem-lisbon-small-group-guided-tour-p1101146/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finish the day with a walk through Lisbon's city center to see popular landmarks.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€69.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pena-palace-belem-lisbon-small-group-guided-tour-p1101146/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6cfb646ff2514e58a88076d387714cef.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra Myths and Legends: Skip The Line" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sintra Myths and Legends: Skip The Line</h3>
-          <p class="venue">📍 Sintra Myths and Legends Interactive Centre</p>
-          <p>Mysticism, secrets and romantic tales await on a multimedia voyage at the Sintra Myths and Legends Interactive Centre. This contemporary storytelling experience will open your eyes to the unique history of Sintra, just a short train ride from Lisbon.</p>
-          <div class="card-footer">
-            <span class="price">From €4</span>
-            <span class="rating">⭐ 3.9 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sintra-myths-and-legends-skip-the-line-p976239/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6cfb646ff2514e58a88076d387714cef.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra Myths and Legends: Skip The Line" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SINTRA MYTHS AND LEGENDS INTERACTIVE CENTRE</span>
+        </div>
+        <div class="tq-card-title">Sintra Myths and Legends: Skip The Line</div>
+        <div class="tq-card-desc">Mysticism, secrets and romantic tales await on a multimedia voyage at the Sintra Myths and Legends Interactive Centre. This contemporary storytelling experience will open your eyes to the unique history of Sintra, just a short train ride from Lisbon.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€4.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sintra-myths-and-legends-skip-the-line-p976239/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/09e1907534dd414d9b0e0ac600973906.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Palace of Sintra: Skip The Line Ticket & Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>National Palace of Sintra: Skip The Line Ticket & Guided Tour</h3>
-          <p class="venue">📍 National Palace of Sintra</p>
-          <p>The National Palace of Sintra, in the old town, has been a UNESCO World Heritage site since 1995. One the guided tour walk where Portuguese monarchs once did and learn about how they lived in the Middle Ages. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/09e1907534dd414d9b0e0ac600973906.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="National Palace of Sintra: Skip The Line Ticket & Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">NATIONAL PALACE OF SINTRA</span>
+        </div>
+        <div class="tq-card-title">National Palace of Sintra: Skip The Line Ticket & Guided Tour</div>
+        <div class="tq-card-desc">The National Palace of Sintra, in the old town, has been a UNESCO World Heritage site since 1995. One the guided tour walk where Portuguese monarchs once did and learn about how they lived in the Middle Ages. 
 
 Visit the Coats of Arms room and view the largest collection of Mudéjar Azulejos (colored glazed tiles) in the world. Check out the impressive architecture and the 33-meter-high chimneys, built in the 14th century to keep the kitchens smoke-free. 
 
-As a bonus, Sintra is usually cooler than Lisbon, so it's a nice escape from the heat!</p>
-          <div class="card-footer">
-            <span class="price">From €18</span>
-            <span class="rating">⭐ 4 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-national-palace-of-sintra-skip-the-line-guided-tour-p1096919/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As a bonus, Sintra is usually cooler than Lisbon, so it's a nice escape from the heat!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-national-palace-of-sintra-skip-the-line-guided-tour-p1096919/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/17baf87d19fc41278d3dee95f4e82296.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra & Quinta da Regaleira: Entry Ticket + Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sintra & Quinta da Regaleira: Entry Ticket + Guided Tour</h3>
-          <p class="venue">📍 Sintra Guided Tours</p>
-          <p>Experience the charming town of Sintra, Portugal. Known for its summer houses, chalets, villas, palaces, and castles, this town offers plenty to explore.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/17baf87d19fc41278d3dee95f4e82296.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra & Quinta da Regaleira: Entry Ticket + Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SINTRA GUIDED TOURS</span>
+        </div>
+        <div class="tq-card-title">Sintra & Quinta da Regaleira: Entry Ticket + Guided Tour</div>
+        <div class="tq-card-desc">Experience the charming town of Sintra, Portugal. Known for its summer houses, chalets, villas, palaces, and castles, this town offers plenty to explore.
 
-Visit Quinta da Regaleira. This park features plants from around the world and impressive architecture. Walk through the gardens and see the famous Initiatic Well.</p>
-          <div class="card-footer">
-            <span class="price">From €70</span>
-            <span class="rating">⭐ 3.8 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sintra-quinta-da-regaleira-entry-guided-tour-p1101361/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit Quinta da Regaleira. This park features plants from around the world and impressive architecture. Walk through the gardens and see the famous Initiatic Well.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€70.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sintra-quinta-da-regaleira-entry-guided-tour-p1101361/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a614caddc848419f9a0d452f3da9ab37.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Monserrate Palace: Skip The Line Ticket + Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Monserrate Palace: Skip The Line Ticket + Guided Tour</h3>
-          <p class="venue">📍 Monserrate Palace</p>
-          <p>See Monserrate Palace with hassle-free entrance. As you explore, listen to your guide as they share stories about the palace's history. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a614caddc848419f9a0d452f3da9ab37.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Monserrate Palace: Skip The Line Ticket + Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MONSERRATE PALACE</span>
+        </div>
+        <div class="tq-card-title">Monserrate Palace: Skip The Line Ticket + Guided Tour</div>
+        <div class="tq-card-desc">See Monserrate Palace with hassle-free entrance. As you explore, listen to your guide as they share stories about the palace's history. 
 
 The palace first served as a chapel in the 16th century before becoming a private residence. 
 
-Walk past detailed decorations inspired by Gothic and Indian architecture and a garden that is a UNESCO World Heritage site, which includes fountains, springs, grottoes, and a lake!</p>
-          <div class="card-footer">
-            <span class="price">From €17</span>
-            <span class="rating">⭐ 4.3 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-monserrate-palace-skip-the-line-and-guided-tour-p1099715/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Walk past detailed decorations inspired by Gothic and Indian architecture and a garden that is a UNESCO World Heritage site, which includes fountains, springs, grottoes, and a lake!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-monserrate-palace-skip-the-line-and-guided-tour-p1099715/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e8649b8982049199d1811a387be612e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Castle of the Moors: Skip The Line Ticket and Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Castle of the Moors: Skip The Line Ticket and Guided Tour</h3>
-          <p class="venue">📍 Castelo dos Mouros Sintra</p>
-          <p>Want great views of Sintra? Visit the 10th-century Moorish castle. You'll get the best sights in town.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0e8649b8982049199d1811a387be612e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Castle of the Moors: Skip The Line Ticket and Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CASTELO DOS MOUROS SINTRA</span>
+        </div>
+        <div class="tq-card-title">Castle of the Moors: Skip The Line Ticket and Guided Tour</div>
+        <div class="tq-card-desc">Want great views of Sintra? Visit the 10th-century Moorish castle. You'll get the best sights in town.
 
 Skip the line and walk along scenic pathways. See artifacts from the Bronze Age, Iron Age, and Neolithic periods. Learn about the castle's history and enjoy views of the Sintra landscape. Spot the Pena Palace and the hills in the distance.
 
-The Castle of the Moors sits high in the Sintra Hills. It’s a key piece of Moorish history in the Iberian Peninsula. Take a guided tour to learn more about its past.</p>
-          <div class="card-footer">
-            <span class="price">From €17</span>
-            <span class="rating">⭐ 2.8 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-castle-of-the-moors-skip-the-line-and-guided-tour-p1096623/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Castle of the Moors sits high in the Sintra Hills. It’s a key piece of Moorish history in the Iberian Peninsula. Take a guided tour to learn more about its past.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2.8</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-castle-of-the-moors-skip-the-line-and-guided-tour-p1096623/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1282a00dbb74bdb8bfe8c354f97cf50.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra: Guided Tuk-Tuk Tours" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sintra: Guided Tuk-Tuk Tours</h3>
-          <p class="venue">📍 Sintra Tuk-tuk Tours</p>
-          <p>Welcome to the official tuk-tuk tours, a different and personal way to see Sintra. Choose from a **1-hour express tour** featuring famous landmarks and local stories, a **2-hour tour** covering well-known sites and unique neighborhoods, or a **4-hour tour** that visits palaces, forest trails, lakes, and includes a tasting of rare Ramisco wine at a local winery. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f1282a00dbb74bdb8bfe8c354f97cf50.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sintra: Guided Tuk-Tuk Tours" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SINTRA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SINTRA TUK-TUK TOURS</span>
+        </div>
+        <div class="tq-card-title">Sintra: Guided Tuk-Tuk Tours</div>
+        <div class="tq-card-desc">Welcome to the official tuk-tuk tours, a different and personal way to see Sintra. Choose from a **1-hour express tour** featuring famous landmarks and local stories, a **2-hour tour** covering well-known sites and unique neighborhoods, or a **4-hour tour** that visits palaces, forest trails, lakes, and includes a tasting of rare Ramisco wine at a local winery. 
 
-The **full-day tour** lets you set the pace as you visit palaces, coastal cliffs, forests, and lesser-known spots with the help of a private guide. Every tour is private, led by knowledgeable locals using comfortable tuk-tuks that easily move through Sintra’s narrow streets.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-private-tuk-tuk-tours-in-sintra-p1075780/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The **full-day tour** lets you set the pace as you visit palaces, coastal cliffs, forests, and lesser-known spots with the help of a private guide. Every tour is private, led by knowledgeable locals using comfortable tuk-tuks that easily move through Sintra’s narrow streets.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-private-tuk-tuk-tours-in-sintra-p1075780/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

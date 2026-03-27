@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Gatlinburg | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Gatlinburg. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,64 +131,102 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c13b2c922a3d4c92bcd279a1e2335e7e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Anakeesta: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Anakeesta: Entry Ticket</h3>
-          <p class="venue">📍 Anakeesta</p>
-          <p>Visit Anakeesta, a mountaintop adventure park above downtown Gatlinburg. Take a Chondola ride from downtown to Anakeesta Mountain. Enjoy treetop activities, a botanical garden, shopping, and dining with views of the national park.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c13b2c922a3d4c92bcd279a1e2335e7e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Anakeesta: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GATLINBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ANAKEESTA</span>
+        </div>
+        <div class="tq-card-title">Anakeesta: Entry Ticket</div>
+        <div class="tq-card-desc">Visit Anakeesta, a mountaintop adventure park above downtown Gatlinburg. Take a Chondola ride from downtown to Anakeesta Mountain. Enjoy treetop activities, a botanical garden, shopping, and dining with views of the national park.
 
-Walk the Treetop Skywalk with hanging bridges 880 feet above the forest floor. Climb the AnaVista Tower for views of downtown. For more adventure, try the Dueling Zipline tour and Rail Runner mountain coaster for an extra cost. Kids can play in netted areas like the treehouse-themed TreeVenture Challenge course.</p>
-          <div class="card-footer">
-            <span class="price">From €31.99</span>
-            <span class="rating">⭐ 4.1 (69)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-anakeesta-adventure-park-entry-ticket-p1117945/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Walk the Treetop Skywalk with hanging bridges 880 feet above the forest floor. Climb the AnaVista Tower for views of downtown. For more adventure, try the Dueling Zipline tour and Rail Runner mountain coaster for an extra cost. Kids can play in netted areas like the treehouse-themed TreeVenture Challenge course.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(69)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€31.99</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-anakeesta-adventure-park-entry-ticket-p1117945/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e8f4fa562252456c8811f6e354eb3a85.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gatlinburg SkyPark: Skip the Line Entry + Chairlift Ride" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Gatlinburg SkyPark: Skip the Line Entry + Chairlift Ride</h3>
-          <p class="venue">📍 Gatlinburg SkyPark</p>
-          <p>Start your visit to SkyPark with a ride on the SkyLift - this yellow Chairlift will take you up to Crockett Summit. Then, cross SkyBridge, the longest pedestrian cable bridge in North America, for incredible views.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e8f4fa562252456c8811f6e354eb3a85.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gatlinburg SkyPark: Skip the Line Entry + Chairlift Ride" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GATLINBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GATLINBURG SKYPARK</span>
+        </div>
+        <div class="tq-card-title">Gatlinburg SkyPark: Skip the Line Entry + Chairlift Ride</div>
+        <div class="tq-card-desc">Start your visit to SkyPark with a ride on the SkyLift - this yellow Chairlift will take you up to Crockett Summit. Then, cross SkyBridge, the longest pedestrian cable bridge in North America, for incredible views.
 
 After your walk across the bridge, take in the sights of Great Smoky Mountains National Park from Clayton’s Landing, and grab a smash burger at Smoky Mountain Smash if you’re hungry.
 
-Explore the new 1.5-mile trail system, including the SkyTrail, which leads to the Tulip Tower. SkyPark also offers plenty of other activities for families to enjoy together.</p>
-          <div class="card-footer">
-            <span class="price">From €38.49</span>
-            <span class="rating">⭐ 4.6 (73)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-gatlinburg-skypark-skip-the-line-entry-chairlift-ride-p1118616/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore the new 1.5-mile trail system, including the SkyTrail, which leads to the Tulip Tower. SkyPark also offers plenty of other activities for families to enjoy together.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(73)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.49</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-gatlinburg-skypark-skip-the-line-entry-chairlift-ride-p1118616/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e9bb63f01cbf4b1fbc7e567d4312566b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Aquarium of the Smokies: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ripley's Aquarium of the Smokies: Entry Ticket</h3>
-          <p class="venue">📍 Ripley's Aquarium of the Smokies</p>
-          <p>Discover the wonders of Ripley’s Aquarium of the Smokies in Gatlinburg, Tennessee, where you can explore the underwater world and interact with marine life like rays and sea turtles. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e9bb63f01cbf4b1fbc7e567d4312566b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Aquarium of the Smokies: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GATLINBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RIPLEY'S AQUARIUM OF THE SMOKIES</span>
+        </div>
+        <div class="tq-card-title">Ripley's Aquarium of the Smokies: Entry Ticket</div>
+        <div class="tq-card-desc">Discover the wonders of Ripley’s Aquarium of the Smokies in Gatlinburg, Tennessee, where you can explore the underwater world and interact with marine life like rays and sea turtles. 
 
 Get up close to a variety of sea creatures, including sharks, jellies, and eels, while knowledgeable staff offer hands-on experiences and behind-the-scenes encounters. 
 
-With thousands of marine creatures from over 350 species, this aquarium is a must-visit destination in Gatlinburg.</p>
-          <div class="card-footer">
-            <span class="price">From €38.53</span>
-            <span class="rating">⭐ 4.6 (64)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ripley-s-aquarium-of-the-smokies-p1089950/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With thousands of marine creatures from over 350 species, this aquarium is a must-visit destination in Gatlinburg.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(64)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.53</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ripley-s-aquarium-of-the-smokies-p1089950/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/78228f47db424080ab9070431bb54791.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Aquarium Gatlinburg + 2 or 3 Attractions" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ripley's Aquarium Gatlinburg + 2 or 3 Attractions</h3>
-          <p class="venue">📍 Ripley's Aquarium of the Smokies</p>
-          <p>Visit Ripley's Aquarium of the Smokies, an amazing underwater world full of ocean wonders, and choose two or three extra attractions to make the most of your visit.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/78228f47db424080ab9070431bb54791.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Aquarium Gatlinburg + 2 or 3 Attractions" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GATLINBURG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RIPLEY'S AQUARIUM OF THE SMOKIES</span>
+        </div>
+        <div class="tq-card-title">Ripley's Aquarium Gatlinburg + 2 or 3 Attractions</div>
+        <div class="tq-card-desc">Visit Ripley's Aquarium of the Smokies, an amazing underwater world full of ocean wonders, and choose two or three extra attractions to make the most of your visit.
 
 Explore the aquarium and discover a fascinating variety of sea creatures, from the impressive Shark Lagoon and the playful Penguin Playhouse to the friendly creatures at Ray Bay.
 
@@ -97,14 +234,20 @@ Venture into the strange and extraordinary world of Ripley's Believe It or Not! 
 
 Experience Ripley’s 5D Moving Theater, where you'll be fully immersed in the action with 3D effects, surround sound, and a motion simulator that puts you right in the middle of the excitement.
 
-I you're feeling brave, take on Ripley’s Haunted Adventure for a chilling experience filled with surprises around every corner.</p>
-          <div class="card-footer">
-            <span class="price">From €57.8</span>
-            <span class="rating">⭐ 4.5 (25)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ripley-s-aquarium-and-attractions-p1089948/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+I you're feeling brave, take on Ripley’s Haunted Adventure for a chilling experience filled with surprises around every corner.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(25)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€57.80</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ripley-s-aquarium-and-attractions-p1089948/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

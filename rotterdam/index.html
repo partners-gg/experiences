@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Rotterdam | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Rotterdam. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,232 +131,380 @@
     <p>31 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a711c9bd6790477faa69d72dc87f2344.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam Harbor Cruise - Spido" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rotterdam Harbor Cruise - Spido</h3>
-          <p class="venue">📍 Rotterdam Cruises</p>
-          <p>Find out what goes on in a busy modern port on this 75-minute educational tour of Rotterdam's harbor. Cruise the busy waterways around Europe's biggest port, and see some of Holland’s historical highlights along the way - as well as the SS Rotterdam, the famous 1950s ship-turned-hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €18.75</span>
-            <span class="rating">⭐ 4.4 (1642)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-harbor-cruise-spido-p974628/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a711c9bd6790477faa69d72dc87f2344.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam Harbor Cruise - Spido" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROTTERDAM CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rotterdam Harbor Cruise - Spido</div>
+        <div class="tq-card-desc">Find out what goes on in a busy modern port on this 75-minute educational tour of Rotterdam's harbor. Cruise the busy waterways around Europe's biggest port, and see some of Holland’s historical highlights along the way - as well as the SS Rotterdam, the famous 1950s ship-turned-hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(1,642)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.75</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-harbor-cruise-spido-p974628/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9b645e2c382244d7b4266c11a3a963d0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pancake Boat Rotterdam" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pancake Boat Rotterdam</h3>
-          <p class="venue">📍 Pannenkoekenboot Rotterdam</p>
-          <p>Been craving pancakes? How about being on a boat and seeing Rotterdam? Well, we've got just the thing for you. Hop aboard the Rotterdam Pancake Boat and enjoy a 75-minute cruise that's fully equipped with an unlimited pancake buffet.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9b645e2c382244d7b4266c11a3a963d0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pancake Boat Rotterdam" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PANNENKOEKENBOOT ROTTERDAM</span>
+        </div>
+        <div class="tq-card-title">Pancake Boat Rotterdam</div>
+        <div class="tq-card-desc">Been craving pancakes? How about being on a boat and seeing Rotterdam? Well, we've got just the thing for you. Hop aboard the Rotterdam Pancake Boat and enjoy a 75-minute cruise that's fully equipped with an unlimited pancake buffet.
 
-While you pour syrup on your golden-brown treats, skyscrapers that tower over the river will fill your window. Don't forget to admire the view between bites!</p>
-          <div class="card-footer">
-            <span class="price">From €27.5</span>
-            <span class="rating">⭐ 4.4 (445)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pancake-boat-rotterdam-p991571/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+While you pour syrup on your golden-brown treats, skyscrapers that tower over the river will fill your window. Don't forget to admire the view between bites!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(445)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pancake-boat-rotterdam-p991571/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9b645e2c382244d7b4266c11a3a963d0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Remastered in Rotterdam: An Audiovisual Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Remastered in Rotterdam: An Audiovisual Experience</h3>
-          <p class="venue">📍 Remastered</p>
-          <p>Experience the masters of Dutch art like you never have before. Famous works of art have been brought to life using 60 state-of-the-art projectors, 50 loudspeakers, 15 km of cables, 20,000-pixel resolution, and Europe’s largest indoor LED screen.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9b645e2c382244d7b4266c11a3a963d0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Remastered in Rotterdam: An Audiovisual Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">REMASTERED</span>
+        </div>
+        <div class="tq-card-title">Remastered in Rotterdam: An Audiovisual Experience</div>
+        <div class="tq-card-desc">Experience the masters of Dutch art like you never have before. Famous works of art have been brought to life using 60 state-of-the-art projectors, 50 loudspeakers, 15 km of cables, 20,000-pixel resolution, and Europe’s largest indoor LED screen.
 
 You’ll be able to experience Hieronymus Bosch’s _The Garden of Earthly Delights_, Van Gogh’s colorful scenes, and Mondrian’s _Victory Boogie Woogie_ in immersive new ways that will give you a new appreciation for their talent. 
 
 There are six rooms spread across 1,500 square meters, and there’s also the chance to create your own 3D digital art, which you can then scan and project onto the largest indoor screen in Europe.
 
-Get ready to walk through a pixel waterfall, sail through clouds, and swim with schools of digital fish!</p>
-          <div class="card-footer">
-            <span class="price">From €20.76</span>
-            <span class="rating">⭐ 4.4 (639)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-remastered-rotterdam-audiovisual-experience-p1018036/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get ready to walk through a pixel waterfall, sail through clouds, and swim with schools of digital fish!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(639)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.76</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-remastered-rotterdam-audiovisual-experience-p1018036/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/14dcedf35b7849a0b8454b815a07a1b8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Splashtour Rotterdam" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Splashtour Rotterdam</h3>
-          <p class="venue">📍 Rotterdam City Tours</p>
-          <p>Plunging headlong into a river is something most bus drivers try to avoid. Not on the Splashtour Rotterdam! This is no ordinary bus, though – after a relaxing spin around the city, you'll arrive at the water's edge. And that's when the real fun begins!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/14dcedf35b7849a0b8454b815a07a1b8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Splashtour Rotterdam" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROTTERDAM CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Splashtour Rotterdam</div>
+        <div class="tq-card-desc">Plunging headlong into a river is something most bus drivers try to avoid. Not on the Splashtour Rotterdam! This is no ordinary bus, though – after a relaxing spin around the city, you'll arrive at the water's edge. And that's when the real fun begins!
 
-Instantly transforming into an amphibious watercraft, the Splashtour Rotterdam bus leaves many uninitiated bystanders scratching their heads, as it dunks straight into the water and drives away. All aboard!</p>
-          <div class="card-footer">
-            <span class="price">From €29.5</span>
-            <span class="rating">⭐ 4.5 (514)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-splashtour-rotterdam-p991537/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Instantly transforming into an amphibious watercraft, the Splashtour Rotterdam bus leaves many uninitiated bystanders scratching their heads, as it dunks straight into the water and drives away. All aboard!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(514)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-splashtour-rotterdam-p991537/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a4fd23b65ab41bab0604c276fbc3e8d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blijdorp Rotterdam Zoo: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blijdorp Rotterdam Zoo: Skip The Line Ticket</h3>
-          <p class="venue">📍 Blijdorp Rotterdam Zoo</p>
-          <p>One of Europe's most beautiful zoos, Diergaarde Blijdorp Rotterdam Zoo is a naturalistic oasis where you can see creatures from around the world. Red pandas, tigers, elephants, sea lions, silverback gorillas, and more call this place home. This conservation-minded zoo will have you feeling like you've undertaken an expedition – and you won't even need to leave Rotterdam!</p>
-          <div class="card-footer">
-            <span class="price">From €27.5</span>
-            <span class="rating">⭐ 4.7 (1682)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-zoo-diergaarde-blijdorp-skip-the-line-p974699/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a4fd23b65ab41bab0604c276fbc3e8d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blijdorp Rotterdam Zoo: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BLIJDORP ROTTERDAM ZOO</span>
+        </div>
+        <div class="tq-card-title">Blijdorp Rotterdam Zoo: Skip The Line Ticket</div>
+        <div class="tq-card-desc">One of Europe's most beautiful zoos, Diergaarde Blijdorp Rotterdam Zoo is a naturalistic oasis where you can see creatures from around the world. Red pandas, tigers, elephants, sea lions, silverback gorillas, and more call this place home. This conservation-minded zoo will have you feeling like you've undertaken an expedition – and you won't even need to leave Rotterdam!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(1,682)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-zoo-diergaarde-blijdorp-skip-the-line-p974699/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/95eb2369a5514cb28a08711138a24cf3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam & Kinderdijk: WaterShuttle Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rotterdam & Kinderdijk: WaterShuttle Ticket</h3>
-          <p class="venue">📍 Rotterdam Cruises</p>
-          <p>Hop on the WaterShuttle to visit destinations like Rotterdam and the UNESCO World Heritage Site of Kinderdijk.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/95eb2369a5514cb28a08711138a24cf3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam & Kinderdijk: WaterShuttle Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROTTERDAM CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rotterdam & Kinderdijk: WaterShuttle Ticket</div>
+        <div class="tq-card-desc">Hop on the WaterShuttle to visit destinations like Rotterdam and the UNESCO World Heritage Site of Kinderdijk.
 
-Traveling by WaterShuttle is easy and quick. You can sit inside or on the open-air deck, enjoying views of Rotterdam’s skyline. At Kinderdijk, see the iconic windmills and learn about Dutch history.</p>
-          <div class="card-footer">
-            <span class="price">From €19.5</span>
-            <span class="rating">⭐ 4.6 (36)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-kinderdijk-watershuttle-p1095808/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Traveling by WaterShuttle is easy and quick. You can sit inside or on the open-air deck, enjoying views of Rotterdam’s skyline. At Kinderdijk, see the iconic windmills and learn about Dutch history.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(36)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-kinderdijk-watershuttle-p1095808/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/fb852f6792744a8d91cf554f92ebfd44.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="REMASTERED + Pancake Boat Rotterdam" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>REMASTERED + Pancake Boat Rotterdam</h3>
-          <p class="venue">📍 Remastered</p>
-          <p>Expect a unique journey with REMASTERED in Rotterdam. This audiovisual experience lets you see Dutch art like never before. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/fb852f6792744a8d91cf554f92ebfd44.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="REMASTERED + Pancake Boat Rotterdam" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">REMASTERED</span>
+        </div>
+        <div class="tq-card-title">REMASTERED + Pancake Boat Rotterdam</div>
+        <div class="tq-card-desc">Expect a unique journey with REMASTERED in Rotterdam. This audiovisual experience lets you see Dutch art like never before. 
 
 Take part in a high-tech experience of Dutch art masterpieces, with projectors, loudspeakers, and Europe's largest indoor LED screen. 
 
 The six rooms span 1,500 square meters and let you create your own 3D digital art. 
 
-Then, enjoy the Pancake Boat Rotterdam. Satisfy your pancake cravings while viewing the Rotterdam skyline on a 75-minute cruise, featuring an unlimited pancake buffet and views of the city's skyscrapers along the river.</p>
-          <div class="card-footer">
-            <span class="price">From €41.5</span>
-            <span class="rating">⭐ 4.3 (33)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-remastered-and-pancake-boat-rotterdam-p1099909/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Then, enjoy the Pancake Boat Rotterdam. Satisfy your pancake cravings while viewing the Rotterdam skyline on a 75-minute cruise, featuring an unlimited pancake buffet and views of the city's skyscrapers along the river.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(33)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€41.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-remastered-and-pancake-boat-rotterdam-p1099909/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/86f8c97e18e94bf0a1e18030ef4b57c2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Spido + REMASTERED" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Spido + REMASTERED</h3>
-          <p class="venue">📍 Remastered</p>
-          <p>Combine the "REMASTERED in Rotterdam: An Audiovisual Experience" and "Rotterdam Harbor Cruise - Spido" for an epic adventure in Rotterdam. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/86f8c97e18e94bf0a1e18030ef4b57c2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Spido + REMASTERED" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">REMASTERED</span>
+        </div>
+        <div class="tq-card-title">Spido + REMASTERED</div>
+        <div class="tq-card-desc">Combine the "REMASTERED in Rotterdam: An Audiovisual Experience" and "Rotterdam Harbor Cruise - Spido" for an epic adventure in Rotterdam. 
 
-Witness famous works of art come alive through cutting-edge technology. Then, board a cruise for a 75-minute tour of Europe's largest port.</p>
-          <div class="card-footer">
-            <span class="price">From €39.25</span>
-            <span class="rating">⭐ 4.2 (46)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-spido-remastered-p1099360/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Witness famous works of art come alive through cutting-edge technology. Then, board a cruise for a 75-minute tour of Europe's largest port.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(46)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.25</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-spido-remastered-p1099360/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bbe180a9a3ea449eae85179ced4f611a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="World Museum Rotterdam: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>World Museum Rotterdam: Entry Ticket</h3>
-          <p class="venue">📍 World Museum Rotterdam</p>
-          <p>The World Museum in Rotterdam houses over 83,000 objects, collected since the 19th century, reflecting the city's cultural diversity. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bbe180a9a3ea449eae85179ced4f611a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="World Museum Rotterdam: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WORLD MUSEUM ROTTERDAM</span>
+        </div>
+        <div class="tq-card-title">World Museum Rotterdam: Entry Ticket</div>
+        <div class="tq-card-desc">The World Museum in Rotterdam houses over 83,000 objects, collected since the 19th century, reflecting the city's cultural diversity. 
 
 Each item tells a human story, touching on universal themes like celebration, grief, spirituality, affection, and conflict, emphasizing our shared humanity.
 
 Committed to reflecting Rotterdam's multicultural character, the museum offers contemporary programs, uniting global citizens. 
 
-Since 2023, it has joined forces with other museums under the National Museum of World Cultures, enhancing its mission to promote global understanding.</p>
-          <div class="card-footer">
-            <span class="price">From €10.4</span>
-            <span class="rating">⭐ 4.3 (46)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-world-museum-rotterdam-p1025255/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Since 2023, it has joined forces with other museums under the National Museum of World Cultures, enhancing its mission to promote global understanding.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(46)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€10.40</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-world-museum-rotterdam-p1025255/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a4fd23b65ab41bab0604c276fbc3e8d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: Harbour Cruise with Live Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rotterdam: Harbour Cruise with Live Guide</h3>
-          <p class="venue">📍 Rotterdam Cruises</p>
-          <p>Interested in the major seaports of Rotterdam? Then this special Port Tour is a must-do! Step aboard for a 1.15-hour cruise where a live guide will tell you all the ins and outs about the container ships, the transhipment ports, the history and the present. The cruise starts in the Parkhaven under the Euromast. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a4fd23b65ab41bab0604c276fbc3e8d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: Harbour Cruise with Live Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROTTERDAM CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rotterdam: Harbour Cruise with Live Guide</div>
+        <div class="tq-card-desc">Interested in the major seaports of Rotterdam? Then this special Port Tour is a must-do! Step aboard for a 1.15-hour cruise where a live guide will tell you all the ins and outs about the container ships, the transhipment ports, the history and the present. The cruise starts in the Parkhaven under the Euromast. 
 
-Pass the Sint Jobshaven, the Waalhaven, the Rotterdamsche Droogdok Maatschappij including the Submarine Wharf, the Maashaven with the famous cruise ship S.S. Rotterdam, the Rijnhaven with Hotel New York where the Holland America Line used to be housed and a short walk along the skyline. This cruise is a must-see during your stay in Rotterdam!</p>
-          <div class="card-footer">
-            <span class="price">From €17.5</span>
-            <span class="rating">⭐ 4.2 (110)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-port-tour-of-rotterdam-p1068221/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Pass the Sint Jobshaven, the Waalhaven, the Rotterdamsche Droogdok Maatschappij including the Submarine Wharf, the Maashaven with the famous cruise ship S.S. Rotterdam, the Rijnhaven with Hotel New York where the Holland America Line used to be housed and a short walk along the skyline. This cruise is a must-see during your stay in Rotterdam!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(110)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-port-tour-of-rotterdam-p1068221/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bbe180a9a3ea449eae85179ced4f611a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: 1-Day RET Public Transport Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rotterdam: 1-Day RET Public Transport Ticket</h3>
-          <p class="venue">📍 Public Transport Rotterdam</p>
-          <p>Get your ticket, and get going: Rotterdam is waiting for you!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bbe180a9a3ea449eae85179ced4f611a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: 1-Day RET Public Transport Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PUBLIC TRANSPORT ROTTERDAM</span>
+        </div>
+        <div class="tq-card-title">Rotterdam: 1-Day RET Public Transport Ticket</div>
+        <div class="tq-card-desc">Get your ticket, and get going: Rotterdam is waiting for you!
 
 Hop on and off at your leisure in Rotterdam with a one-day unlimited travel card. This card works on all metro, trams, and buses run by RET except for the Night Bus.
 
-Your one-day ticket starts working the moment you first use it and it keeps going till 4:00 AM the next morning. It's a good way to see the city and get from place to place.</p>
-          <div class="card-footer">
-            <span class="price">From €13</span>
-            <span class="rating">⭐ 4.2 (44)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-1-day-ret-public-transport-ticket-p1094691/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your one-day ticket starts working the moment you first use it and it keeps going till 4:00 AM the next morning. It's a good way to see the city and get from place to place.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(44)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-1-day-ret-public-transport-ticket-p1094691/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4630af97130a4555aebae22d99d6bcd7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Euromast: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Euromast: Skip The Line Ticket</h3>
-          <p class="venue">📍 Euromast</p>
-          <p>Glide to the top of this monumental tower and enjoy panoramic views of the Netherland's most metropolitan city. With floor-to-ceiling glass walls, the giant viewing deck is the perfect spot to take in the Rotterdam skyline, and the luxury restaurant mean you can dine among the clouds. Time to get high!</p>
-          <div class="card-footer">
-            <span class="price">From €13</span>
-            <span class="rating">⭐ 4.4 (531)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-euromast-p975031/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4630af97130a4555aebae22d99d6bcd7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Euromast: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EUROMAST</span>
+        </div>
+        <div class="tq-card-title">Euromast: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Glide to the top of this monumental tower and enjoy panoramic views of the Netherland's most metropolitan city. With floor-to-ceiling glass walls, the giant viewing deck is the perfect spot to take in the Rotterdam skyline, and the luxury restaurant mean you can dine among the clouds. Time to get high!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(531)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-euromast-p975031/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/14dcedf35b7849a0b8454b815a07a1b8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: Boat Tour + Pizzas" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rotterdam: Boat Tour + Pizzas</h3>
-          <p class="venue">📍 Rotterdam Cruises</p>
-          <p>Join a two-hour boat journey showcasing the city's skyline and bustling harbor. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/14dcedf35b7849a0b8454b815a07a1b8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: Boat Tour + Pizzas" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROTTERDAM CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rotterdam: Boat Tour + Pizzas</div>
+        <div class="tq-card-desc">Join a two-hour boat journey showcasing the city's skyline and bustling harbor. 
 
 Begin with a selection of appetizers, followed by a variety of freshly oven-baked pizzas. 
 
 Complement these dishes with beverages such as Aperol Spritz or limoncello (at your own expense). 
 
-Indulge in a sweet dessert to round off the meal. Traditional Italian music will play in the background to set the ambiance.</p>
-          <div class="card-footer">
-            <span class="price">From €39.5</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-boat-tour-pizzas-appetizers-dessert-p1128179/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Indulge in a sweet dessert to round off the meal. Traditional Italian music will play in the background to set the ambiance.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-boat-tour-pizzas-appetizers-dessert-p1128179/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/262e7b1b78a74931b986ba3852e1d1d0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Euromast + Remastered" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Euromast + Remastered</h3>
-          <p class="venue">📍 Euromast</p>
-          <p>Discover Rotterdam from new heights with an entry ticket to the Euromast, offering panoramic views from 112 meters and a unique dining experience. Get into the world of Dutch art with "Remastered in Rotterdam," an immersive audiovisual experience featuring masterpieces by Bosch, Van Gogh, and Mondrian, brought to life with cutting-edge technology. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/262e7b1b78a74931b986ba3852e1d1d0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Euromast + Remastered" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EUROMAST</span>
+        </div>
+        <div class="tq-card-title">Euromast + Remastered</div>
+        <div class="tq-card-desc">Discover Rotterdam from new heights with an entry ticket to the Euromast, offering panoramic views from 112 meters and a unique dining experience. Get into the world of Dutch art with "Remastered in Rotterdam," an immersive audiovisual experience featuring masterpieces by Bosch, Van Gogh, and Mondrian, brought to life with cutting-edge technology. 
 
 **Euromast: Entry Ticket**  
 Visit the Euromast in Rotterdam and enjoy views of the city from its 112-meter-tall viewing deck.
@@ -265,314 +512,507 @@ Visit the Euromast in Rotterdam and enjoy views of the city from its 112-meter-t
 **Remastered in Rotterdam: An Audiovisual Experience**  
 Immerse yourself in Dutch art with high-resolution projections, interactive digital art, and Europe’s largest indoor LED screen in Rotterdam.
 
-To make the package even more thrilling, add on the experience of **Euroscoop** where you can step onto the glass floor 185 meters above the ground and watch as it becomes crystal clear beneath your feet.</p>
-          <div class="card-footer">
-            <span class="price">From €30.5</span>
-            <span class="rating">⭐ 3.9 (19)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-supplier-package-euromast-remastered-p1114306/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+To make the package even more thrilling, add on the experience of **Euroscoop** where you can step onto the glass floor 185 meters above the ground and watch as it becomes crystal clear beneath your feet.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(19)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-supplier-package-euromast-remastered-p1114306/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/262e7b1b78a74931b986ba3852e1d1d0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Feyenoord Stadium: Guided Tour + Feyenoord Museum Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Feyenoord Stadium: Guided Tour + Feyenoord Museum Entry</h3>
-          <p class="venue">📍 Feyenoord Stadium</p>
-          <p>Take a 90-minute tour through De Kuip. Walk through the player tunnels, see the field, and visit the dressing rooms. Finish by sitting in the stands!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/262e7b1b78a74931b986ba3852e1d1d0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Feyenoord Stadium: Guided Tour + Feyenoord Museum Entry" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FEYENOORD STADIUM</span>
+        </div>
+        <div class="tq-card-title">Feyenoord Stadium: Guided Tour + Feyenoord Museum Entry</div>
+        <div class="tq-card-desc">Take a 90-minute tour through De Kuip. Walk through the player tunnels, see the field, and visit the dressing rooms. Finish by sitting in the stands!
 
-Your guide will share interesting stories about Feyenoord and De Kuip over the years.</p>
-          <div class="card-footer">
-            <span class="price">From €19</span>
-            <span class="rating">⭐ 4.7 (24)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-stadium-tour-feyenoord-museum-entry-p1097809/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your guide will share interesting stories about Feyenoord and De Kuip over the years.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(24)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-stadium-tour-feyenoord-museum-entry-p1097809/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1e920e3cbce45989e82ca7c60d14b77.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Maritime Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Maritime Museum: Entry Ticket</h3>
-          <p class="venue">📍 Maritime Museum</p>
-          <p>In a country that's technically underwater, navigating the sea is a pretty big deal. Rotterdam's Maritime Museum brings the port city's seafaring past, present, and future to life. As well as engaging hands-on exhibitions, the museum features an open-air museumharbour, where you can see some of history's greatest ships, then climb aboard for yourself!</p>
-          <div class="card-footer">
-            <span class="price">From €19</span>
-            <span class="rating">⭐ 3.8 (31)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-maritime-museum-rotterdam-p975159/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f1e920e3cbce45989e82ca7c60d14b77.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Maritime Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARITIME MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Maritime Museum: Entry Ticket</div>
+        <div class="tq-card-desc">In a country that's technically underwater, navigating the sea is a pretty big deal. Rotterdam's Maritime Museum brings the port city's seafaring past, present, and future to life. As well as engaging hands-on exhibitions, the museum features an open-air museumharbour, where you can see some of history's greatest ships, then climb aboard for yourself!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(31)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-maritime-museum-rotterdam-p975159/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/458440d812914ea181c53478a8fd1673.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam Welcome Card" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rotterdam Welcome Card</h3>
-          <p class="venue">📍 Rotterdam City Cards</p>
-          <p>The **Rotterdam Welcome Card** is the official city card for visitors to Rotterdam! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/458440d812914ea181c53478a8fd1673.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam Welcome Card" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROTTERDAM CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Rotterdam Welcome Card</div>
+        <div class="tq-card-desc">The **Rotterdam Welcome Card** is the official city card for visitors to Rotterdam! 
 
 Get remarkable offers for top attractions, art and culture, and food and drinks. On top of great discounts, you can also get **unlimited travel by public transport from the RET for 1, 2, or 3 days.** 
 
-This affordable and inspiring card allows you to discover the city in the most authentic way. Participating partners are spread throughout the city, so you can get the whole story that represents Rotterdam's diverse and distinct character.</p>
-          <div class="card-footer">
-            <span class="price">From €15.5</span>
-            <span class="rating">⭐ 4.5 (63)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-welcome-card-p974698/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This affordable and inspiring card allows you to discover the city in the most authentic way. Participating partners are spread throughout the city, so you can get the whole story that represents Rotterdam's diverse and distinct character.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(63)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-welcome-card-p974698/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bbe180a9a3ea449eae85179ced4f611a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: Train Transfer to/from Delft" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rotterdam: Train Transfer to/from Delft</h3>
-          <p class="venue">📍 Public Transport Rotterdam</p>
-          <p>Take the NS train from Rotterdam to Delft, forgoing expensive cabs and buses. If you need a round trip, buy a return ticket to save money and time.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bbe180a9a3ea449eae85179ced4f611a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: Train Transfer to/from Delft" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PUBLIC TRANSPORT ROTTERDAM</span>
+        </div>
+        <div class="tq-card-title">Rotterdam: Train Transfer to/from Delft</div>
+        <div class="tq-card-desc">Take the NS train from Rotterdam to Delft, forgoing expensive cabs and buses. If you need a round trip, buy a return ticket to save money and time.
 
 Enjoy the modern train, with free onboard WiFi and toilets, and get to your stop on schedule. The train is accessible for wheelchairs and bicycles. 
 
-The NS train is the fastest way to travel between Rotterdam Central and Delft Central, with the trip taking only 13 minutes and trains run frequently all day.</p>
-          <div class="card-footer">
-            <span class="price">From €3.9</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-convenient-train-transfer-from-to-delft-p1097057/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The NS train is the fastest way to travel between Rotterdam Central and Delft Central, with the trip taking only 13 minutes and trains run frequently all day.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€3.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-convenient-train-transfer-from-to-delft-p1097057/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b55745de22e34d60b938c8e3dc5d4638.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: Bike Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rotterdam: Bike Tour</h3>
-          <p class="venue">📍 Rotterdam Bike Tours</p>
-          <p>Step right into Rotterdam with the city's friendly and enthusiastic tour guides. They'll ease you into the charming rhythm of the city at a laid-back pace. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b55745de22e34d60b938c8e3dc5d4638.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: Bike Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROTTERDAM BIKE TOURS</span>
+        </div>
+        <div class="tq-card-title">Rotterdam: Bike Tour</div>
+        <div class="tq-card-desc">Step right into Rotterdam with the city's friendly and enthusiastic tour guides. They'll ease you into the charming rhythm of the city at a laid-back pace. 
 
 On this tour, you can expect to see the city's highlights, including the awe-inspiring Central Station, the Depot, and the Cube Houses. 
 
-Discover lesser-known hotspots and the charming Old Harbour, before heading to the iconic Kop van Zuid.</p>
-          <div class="card-footer">
-            <span class="price">From €32.5</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-bike-tour-p1083440/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover lesser-known hotspots and the charming Old Harbour, before heading to the iconic Kop van Zuid.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€32.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-bike-tour-p1083440/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/262e7b1b78a74931b986ba3852e1d1d0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: Boat Cruise + Snacks & Cocktails" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rotterdam: Boat Cruise + Snacks & Cocktails</h3>
-          <p class="venue">📍 Rotterdam Cruises</p>
-          <p>Join a boat cruise along the city’s skyline and enjoy a relaxing evening on the water. Sip two cocktails and sample a selection of light bites paired with your drinks.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/262e7b1b78a74931b986ba3852e1d1d0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: Boat Cruise + Snacks & Cocktails" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROTTERDAM CRUISES</span>
+        </div>
+        <div class="tq-card-title">Rotterdam: Boat Cruise + Snacks & Cocktails</div>
+        <div class="tq-card-desc">Join a boat cruise along the city’s skyline and enjoy a relaxing evening on the water. Sip two cocktails and sample a selection of light bites paired with your drinks.
 
-As you sail, music sets a relaxed atmosphere while you see notable landmarks along the river.</p>
-          <div class="card-footer">
-            <span class="price">From €39.5</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-boat-cruise-snacks-cocktails-p1129369/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As you sail, music sets a relaxed atmosphere while you see notable landmarks along the river.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-boat-cruise-snacks-cocktails-p1129369/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8718911f1cf04125a0270d11273ea751.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lasergame Rotterdam" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lasergame Rotterdam</h3>
-          <p class="venue">📍 Lasergame Rotterdam</p>
-          <p>Whether it's a birthday party, a work outing, or a blast from the past with some friends – Lasergame Rotterdam has the goods for a fun-filled day. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8718911f1cf04125a0270d11273ea751.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lasergame Rotterdam" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LASERGAME ROTTERDAM</span>
+        </div>
+        <div class="tq-card-title">Lasergame Rotterdam</div>
+        <div class="tq-card-desc">Whether it's a birthday party, a work outing, or a blast from the past with some friends – Lasergame Rotterdam has the goods for a fun-filled day. 
 
 Fitted with a futuristic vest that will take the hit from lasers, and a blaster to take down enemies, you'll find out which team is best! 
 
-Head into the darkness and figure out your strategy before a laser hits you through the fog. The rules are simple: highest score wins!</p>
-          <div class="card-footer">
-            <span class="price">From €12</span>
-            <span class="rating">⭐ 4.6 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lasergame-rotterdam-p1004308/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Head into the darkness and figure out your strategy before a laser hits you through the fog. The rules are simple: highest score wins!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lasergame-rotterdam-p1004308/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9a2e90d66d8b4dbaa4d57ce53a8bec80.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Spido + Feyenoord" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Spido + Feyenoord</h3>
-          <p class="venue">📍 Rotterdam Cruises</p>
-          <p>Get a combination of excitement and education with this package. Start with a tour of Feyenoord Stadium, exploring player tunnels, dressing rooms, and the pitch itself, all while learning about the team's history. Follow this with a harbor cruise, seeing all the activity of Europe’s largest port, alongside architectural landmarks and historical sites. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9a2e90d66d8b4dbaa4d57ce53a8bec80.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Spido + Feyenoord" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROTTERDAM CRUISES</span>
+        </div>
+        <div class="tq-card-title">Spido + Feyenoord</div>
+        <div class="tq-card-desc">Get a combination of excitement and education with this package. Start with a tour of Feyenoord Stadium, exploring player tunnels, dressing rooms, and the pitch itself, all while learning about the team's history. Follow this with a harbor cruise, seeing all the activity of Europe’s largest port, alongside architectural landmarks and historical sites. 
 
 **Feyenoord Stadium: Guided Tour + Feyenoord Museum Entry** 
 Tour De Kuip for 90 minutes, view player tunnels, dressing rooms, and take a seat in the stands while learning about the history of Feyenoord.
 
 **Rotterdam Harbor Cruise - Spido**
-Join a 75-minute boat trip through Europe's largest port, observing active docks and notable sights, including historic maritime landmarks and the SS Rotterdam.</p>
-          <div class="card-footer">
-            <span class="price">From €33</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-spido-feyenoord-p1124549/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Join a 75-minute boat trip through Europe's largest port, observing active docks and notable sights, including historic maritime landmarks and the SS Rotterdam.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-spido-feyenoord-p1124549/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/14dcedf35b7849a0b8454b815a07a1b8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: Self-Guided History & Highlights Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rotterdam: Self-Guided History & Highlights Walking Tour</h3>
-          <p class="venue">📍 Rotterdam City Tours</p>
-          <p>Explore Rotterdam with a self-guided WhatsApp tour. See landmarks like Laurenskerk, Cube Houses, and Markthal at your own pace.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/14dcedf35b7849a0b8454b815a07a1b8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: Self-Guided History & Highlights Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROTTERDAM CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Rotterdam: Self-Guided History & Highlights Walking Tour</div>
+        <div class="tq-card-desc">Explore Rotterdam with a self-guided WhatsApp tour. See landmarks like Laurenskerk, Cube Houses, and Markthal at your own pace.
 
 Follow a historical route through the city and learn about the history of popular attractions.
 
-Start and stop the tour as you wish, avoiding crowds and discovering useful tips along the way.</p>
-          <div class="card-footer">
-            <span class="price">From €14.95</span>
-            <span class="rating">⭐ 2 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-self-guided-history-highlights-walking-tour-p1101224/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Start and stop the tour as you wish, avoiding crowds and discovering useful tips along the way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.95</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-self-guided-history-highlights-walking-tour-p1101224/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bbe180a9a3ea449eae85179ced4f611a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: Train Transfer to/from Leiden" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rotterdam: Train Transfer to/from Leiden</h3>
-          <p class="venue">📍 Public Transport Rotterdam</p>
-          <p>Hop on the NS trains from Rotterdam to Leiden for a smooth ride, saying goodbye to pricey taxis and transfers. If Leiden is a quick stop, grab a round-trip ticket to save time and money.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bbe180a9a3ea449eae85179ced4f611a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rotterdam: Train Transfer to/from Leiden" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PUBLIC TRANSPORT ROTTERDAM</span>
+        </div>
+        <div class="tq-card-title">Rotterdam: Train Transfer to/from Leiden</div>
+        <div class="tq-card-desc">Hop on the NS trains from Rotterdam to Leiden for a smooth ride, saying goodbye to pricey taxis and transfers. If Leiden is a quick stop, grab a round-trip ticket to save time and money.
 
 Relax in comfy seats on a modern train with free WiFi available. The train is also wheelchair and bike-friendly, with onboard facilities.
 
-The NS train is the fastest way from Rotterdam to Leiden. Running frequently, you'll reach your destination in just 33 minutes.</p>
-          <div class="card-footer">
-            <span class="price">From €8.7</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-train-transfer-to-from-leiden-p1094690/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The NS train is the fastest way from Rotterdam to Leiden. Running frequently, you'll reach your destination in just 33 minutes.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8.70</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rotterdam-train-transfer-to-from-leiden-p1094690/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bbe180a9a3ea449eae85179ced4f611a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Airport Transfer (Schiphol To/From Rotterdam)" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Private Airport Transfer (Schiphol To/From Rotterdam)</h3>
-          <p class="venue">📍 Airport Transfers Rotterdam</p>
-          <p>Make sure your trip to Amsterdam Airport Schiphol (AMS) is hassle-free with this convenient private transfer between Amsterdam Airport Schiphol (AMS) and your accommodation in the city! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bbe180a9a3ea449eae85179ced4f611a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Airport Transfer (Schiphol To/From Rotterdam)" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AIRPORT TRANSFERS ROTTERDAM</span>
+        </div>
+        <div class="tq-card-title">Private Airport Transfer (Schiphol To/From Rotterdam)</div>
+        <div class="tq-card-desc">Make sure your trip to Amsterdam Airport Schiphol (AMS) is hassle-free with this convenient private transfer between Amsterdam Airport Schiphol (AMS) and your accommodation in the city! 
 
 Or, switch it around and opt for a private transfer between your accommodation in Rotterdam and Amsterdam Airport Schiphol (AMS).
 
-You can complete your travel plans by selecting the transfer you want, based on vehicle type and price, and enjoy peace of mind from the first to  the last mile of your journey.</p>
-          <div class="card-footer">
-            <span class="price">From €140</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-private-airport-transfer-schiphol-to-from-rotterdam-p1062319/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You can complete your travel plans by selecting the transfer you want, based on vehicle type and price, and enjoy peace of mind from the first to  the last mile of your journey.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€140.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-private-airport-transfer-schiphol-to-from-rotterdam-p1062319/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1733209243254a00b73e11ec18e48341.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mariniersmuseum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mariniersmuseum: Entry Ticket</h3>
-          <p class="venue">📍 Mariniersmuseum</p>
-          <p>Learn more about the Dutch Marine Corps on a visit to the Mariniersmuseum in Rotterdam. This immersive museum lets you discover the high-octane life of marine soldiers, with interactive installations and large-scale exhibitions that simulate real conflict and rescue missions, and even lets you take aim at a virtual pirate ship with a mounted machine gun!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1733209243254a00b73e11ec18e48341.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mariniersmuseum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARINIERSMUSEUM</span>
+        </div>
+        <div class="tq-card-title">Mariniersmuseum: Entry Ticket</div>
+        <div class="tq-card-desc">Learn more about the Dutch Marine Corps on a visit to the Mariniersmuseum in Rotterdam. This immersive museum lets you discover the high-octane life of marine soldiers, with interactive installations and large-scale exhibitions that simulate real conflict and rescue missions, and even lets you take aim at a virtual pirate ship with a mounted machine gun!
 
-See real marine equipment, uniforms and vehicles, help strategize the best plan of attack for various conflict zones, browse fascinating exhibitions on what it means to be a hero, discover the connection between Rotterdam and the marine corps, and hear accounts of missions from real Dutch marines.</p>
-          <div class="card-footer">
-            <span class="price">From €14</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mariniersmuseum-p1012424/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See real marine equipment, uniforms and vehicles, help strategize the best plan of attack for various conflict zones, browse fascinating exhibitions on what it means to be a hero, discover the connection between Rotterdam and the marine corps, and hear accounts of missions from real Dutch marines.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mariniersmuseum-p1012424/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd0db5dbcafb409ea1a8d9d74f23b2de.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mini-Golf Parkhaven" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mini-Golf Parkhaven</h3>
-          <p class="venue">📍 Rotterdam Mini-Golf</p>
-          <p>What's better than a good old game of golf? That's easy - *mini* golf! Just download your ticket on your smartphone and get ready for family fun.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cd0db5dbcafb409ea1a8d9d74f23b2de.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mini-Golf Parkhaven" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROTTERDAM MINI-GOLF</span>
+        </div>
+        <div class="tq-card-title">Mini-Golf Parkhaven</div>
+        <div class="tq-card-desc">What's better than a good old game of golf? That's easy - *mini* golf! Just download your ticket on your smartphone and get ready for family fun.
 
 This mini-golf adventure on an 18-hole course is bang in the heart of Rotterdam, next to the Park and just a few minutes away on foot from the Euromast.
 
 You'll work your way through lots of awesome obstacles, from windmills to bridges, and anyone from 4 years old can play.
 
-Pro-tip: it's also a popular place for lunch!</p>
-          <div class="card-footer">
-            <span class="price">From €8.5</span>
-            <span class="rating">⭐ 4.1 (15)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-midget-golfbaan-parkhaven-p1002756/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Pro-tip: it's also a popular place for lunch!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(15)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-midget-golfbaan-parkhaven-p1002756/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a711c9bd6790477faa69d72dc87f2344.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Rotterdam Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>The Rotterdam Pass</h3>
-          <p class="venue">📍 Rotterdam City Cards</p>
-          <p>Visit Rotterdam with a package that gives you a **75-minute harbor cruise** through Europe’s largest port. See busy docks and historical spots while learning about the harbor’s operation. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a711c9bd6790477faa69d72dc87f2344.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Rotterdam Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROTTERDAM CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">The Rotterdam Pass</div>
+        <div class="tq-card-desc">Visit Rotterdam with a package that gives you a **75-minute harbor cruise** through Europe’s largest port. See busy docks and historical spots while learning about the harbor’s operation. 
 
 Spend time at **Blijdorp Rotterdam Zoo**, where you walk through areas designed for animals like polar bears and giraffes, with a portion of your ticket going to conservation work. 
 
-You also get entry to **Remastered in Rotterdam**, where you'll learn about Dutch art via a cutting-edge multimedia presentation featuring famous works and interactive art exhibitions.</p>
-          <div class="card-footer">
-            <span class="price">From €63.5</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/the-rotterdam-pass-p1072891/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You also get entry to **Remastered in Rotterdam**, where you'll learn about Dutch art via a cutting-edge multimedia presentation featuring famous works and interactive art exhibitions.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€63.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/the-rotterdam-pass-p1072891/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1733209243254a00b73e11ec18e48341.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mariniersmuseum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mariniersmuseum: Entry Ticket</h3>
-          <p class="venue">📍 Mariniersmuseum</p>
-          <p>Learn more about the Dutch Marine Corps on a visit to the Mariniersmuseum in Rotterdam. This immersive museum lets you discover the high-octane life of marine soldiers, with interactive installations and large-scale exhibitions that simulate real conflict and rescue missions, and even lets you take aim at a virtual pirate ship with a mounted machine gun!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1733209243254a00b73e11ec18e48341.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mariniersmuseum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MARINIERSMUSEUM</span>
+        </div>
+        <div class="tq-card-title">Mariniersmuseum: Entry Ticket</div>
+        <div class="tq-card-desc">Learn more about the Dutch Marine Corps on a visit to the Mariniersmuseum in Rotterdam. This immersive museum lets you discover the high-octane life of marine soldiers, with interactive installations and large-scale exhibitions that simulate real conflict and rescue missions, and even lets you take aim at a virtual pirate ship with a mounted machine gun!
 
-See real marine equipment, uniforms and vehicles, help strategize the best plan of attack for various conflict zones, browse fascinating exhibitions on what it means to be a hero, discover the connection between Rotterdam and the marine corps, and hear accounts of missions from real Dutch marines.</p>
-          <div class="card-footer">
-            <span class="price">From €14</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mariniersmuseum-p1012424/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See real marine equipment, uniforms and vehicles, help strategize the best plan of attack for various conflict zones, browse fascinating exhibitions on what it means to be a hero, discover the connection between Rotterdam and the marine corps, and hear accounts of missions from real Dutch marines.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mariniersmuseum-p1012424/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd0db5dbcafb409ea1a8d9d74f23b2de.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mini-Golf Parkhaven" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mini-Golf Parkhaven</h3>
-          <p class="venue">📍 Rotterdam Mini-Golf</p>
-          <p>What's better than a good old game of golf? That's easy - *mini* golf! Just download your ticket on your smartphone and get ready for family fun.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cd0db5dbcafb409ea1a8d9d74f23b2de.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mini-Golf Parkhaven" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROTTERDAM MINI-GOLF</span>
+        </div>
+        <div class="tq-card-title">Mini-Golf Parkhaven</div>
+        <div class="tq-card-desc">What's better than a good old game of golf? That's easy - *mini* golf! Just download your ticket on your smartphone and get ready for family fun.
 
 This mini-golf adventure on an 18-hole course is bang in the heart of Rotterdam, next to the Park and just a few minutes away on foot from the Euromast.
 
 You'll work your way through lots of awesome obstacles, from windmills to bridges, and anyone from 4 years old can play.
 
-Pro-tip: it's also a popular place for lunch!</p>
-          <div class="card-footer">
-            <span class="price">From €8.5</span>
-            <span class="rating">⭐ 4.1 (15)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-midget-golfbaan-parkhaven-p1002756/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Pro-tip: it's also a popular place for lunch!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(15)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-midget-golfbaan-parkhaven-p1002756/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a711c9bd6790477faa69d72dc87f2344.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Rotterdam Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>The Rotterdam Pass</h3>
-          <p class="venue">📍 Rotterdam City Cards</p>
-          <p>Visit Rotterdam with a package that gives you a **75-minute harbor cruise** through Europe’s largest port. See busy docks and historical spots while learning about the harbor’s operation. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a711c9bd6790477faa69d72dc87f2344.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Rotterdam Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ROTTERDAM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROTTERDAM CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">The Rotterdam Pass</div>
+        <div class="tq-card-desc">Visit Rotterdam with a package that gives you a **75-minute harbor cruise** through Europe’s largest port. See busy docks and historical spots while learning about the harbor’s operation. 
 
 Spend time at **Blijdorp Rotterdam Zoo**, where you walk through areas designed for animals like polar bears and giraffes, with a portion of your ticket going to conservation work. 
 
-You also get entry to **Remastered in Rotterdam**, where you'll learn about Dutch art via a cutting-edge multimedia presentation featuring famous works and interactive art exhibitions.</p>
-          <div class="card-footer">
-            <span class="price">From €63.5</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/the-rotterdam-pass-p1072891/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You also get entry to **Remastered in Rotterdam**, where you'll learn about Dutch art via a cutting-edge multimedia presentation featuring famous works and interactive art exhibitions.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€63.50</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/the-rotterdam-pass-p1072891/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

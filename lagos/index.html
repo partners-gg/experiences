@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Lagos | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Lagos. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,141 +131,229 @@
     <p>8 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/064ab1611d0848fcaca9bcdad7bb3ca8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lagos Zoo: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lagos Zoo: Entry Ticket</h3>
-          <p class="venue">📍 Lagos Zoo</p>
-          <p>The Lagos Zoo started with a passion for animals, and in the last 20 years it has grown to a haven of conservation. There are 48 enclosures to find throughout your visit, covering everything from warm-blooded to cold, and from sky to sea. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/064ab1611d0848fcaca9bcdad7bb3ca8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lagos Zoo: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAGOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAGOS ZOO</span>
+        </div>
+        <div class="tq-card-title">Lagos Zoo: Entry Ticket</div>
+        <div class="tq-card-desc">The Lagos Zoo started with a passion for animals, and in the last 20 years it has grown to a haven of conservation. There are 48 enclosures to find throughout your visit, covering everything from warm-blooded to cold, and from sky to sea. 
 
-If you're an animal lover, there's enough to keep you fascinated for the whole day, from chimpan-A to chimpan-Z. You can even bring lunch and a swimming suit along – the zoo has its own picnic area and swimming pool.</p>
-          <div class="card-footer">
-            <span class="price">From €17</span>
-            <span class="rating">⭐ 4.5 (992)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lagos-zoo-p1004540/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+If you're an animal lover, there's enough to keep you fascinated for the whole day, from chimpan-A to chimpan-Z. You can even bring lunch and a swimming suit along – the zoo has its own picnic area and swimming pool.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(992)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lagos-zoo-p1004540/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ponta da Piedade Caves: 75-min Cruise Tour from Lagos" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ponta da Piedade Caves: 75-min Cruise Tour from Lagos</h3>
-          <p class="venue">📍 Lagos Day Cruises</p>
-          <p>If you're looking for a little adventure in Lagos, this Ponta da Piedade tour through the famous caves is for you! The caves are some of the most popular and unmissable attractions on the Algarve coast, and no visit is complete without jumping on a boat and experiencing their magical beauty for yourself. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ponta da Piedade Caves: 75-min Cruise Tour from Lagos" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAGOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAGOS DAY CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ponta da Piedade Caves: 75-min Cruise Tour from Lagos</div>
+        <div class="tq-card-desc">If you're looking for a little adventure in Lagos, this Ponta da Piedade tour through the famous caves is for you! The caves are some of the most popular and unmissable attractions on the Algarve coast, and no visit is complete without jumping on a boat and experiencing their magical beauty for yourself. 
 
 As you sail around Ponta da Piedade, you'll see a wide variety of caves and rock formations that resemble familiar figures such as the Titanic, the Elephant, the Cathedral and more. What will *you* see in the caves?
 
-The tour departs from Marina de Lagos, where you'll be met by a certified local guide who can't wait to share the secrets, culture and history of this wonderful coast!</p>
-          <div class="card-footer">
-            <span class="price">From €22.5</span>
-            <span class="rating">⭐ 4.8 (33)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ponta-da-piedade-caves-cruise-from-lagos-p1063220/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The tour departs from Marina de Lagos, where you'll be met by a certified local guide who can't wait to share the secrets, culture and history of this wonderful coast!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(33)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ponta-da-piedade-caves-cruise-from-lagos-p1063220/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lagos: Ponta da Piedade Guided Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Lagos: Ponta da Piedade Guided Boat Tour</h3>
-          <p class="venue">📍 Lagos Day Cruises</p>
-          <p>Take a boat tour to the beautiful Ponta da Piedade in Lagos. Enjoy a comfortable boat tour, perfect for nature lovers looking to see the Algarve's hidden caves and amazing beaches. Witness the natural beauty and spot various species of wild and marine life.</p>
-          <div class="card-footer">
-            <span class="price">From €22.5</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lagos-ponta-da-piedade-guided-boat-tour-p1100996/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Lagos: Ponta da Piedade Guided Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAGOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAGOS DAY CRUISES</span>
+        </div>
+        <div class="tq-card-title">Lagos: Ponta da Piedade Guided Boat Tour</div>
+        <div class="tq-card-desc">Take a boat tour to the beautiful Ponta da Piedade in Lagos. Enjoy a comfortable boat tour, perfect for nature lovers looking to see the Algarve's hidden caves and amazing beaches. Witness the natural beauty and spot various species of wild and marine life.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lagos-ponta-da-piedade-guided-boat-tour-p1100996/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/72ee585f596a475b96503b6ccc9261c5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Algarve: Guided Dolphin Watching Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Algarve: Guided Dolphin Watching Tour</h3>
-          <p class="venue">📍 Lagos Sailing</p>
-          <p>Join a guided dolphin-watching tour in Algarve. Enjoy an exciting boat ride and spot species of dolphins and other marine life. Witness dolphins as they play and swim in their natural habitat.</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐ 3 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-algarve-guided-dolphin-watching-tour-p1100991/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/72ee585f596a475b96503b6ccc9261c5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Algarve: Guided Dolphin Watching Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAGOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAGOS SAILING</span>
+        </div>
+        <div class="tq-card-title">Algarve: Guided Dolphin Watching Tour</div>
+        <div class="tq-card-desc">Join a guided dolphin-watching tour in Algarve. Enjoy an exciting boat ride and spot species of dolphins and other marine life. Witness dolphins as they play and swim in their natural habitat.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-algarve-guided-dolphin-watching-tour-p1100991/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/72ee585f596a475b96503b6ccc9261c5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ponta da Piedade and Lagos Coast: 2-Hour Private Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ponta da Piedade and Lagos Coast: 2-Hour Private Boat Tour</h3>
-          <p class="venue">📍 Lagos Sailing</p>
-          <p>Join a private tour with an experienced skipper to explore the best spots along the Lagos Coast. The boat is perfectly sized to navigate Ponta da Piedade's hidden coves, offering an exclusive adventure. Learn about local history and interesting trivia as you go.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/72ee585f596a475b96503b6ccc9261c5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ponta da Piedade and Lagos Coast: 2-Hour Private Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAGOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAGOS SAILING</span>
+        </div>
+        <div class="tq-card-title">Ponta da Piedade and Lagos Coast: 2-Hour Private Boat Tour</div>
+        <div class="tq-card-desc">Join a private tour with an experienced skipper to explore the best spots along the Lagos Coast. The boat is perfectly sized to navigate Ponta da Piedade's hidden coves, offering an exclusive adventure. Learn about local history and interesting trivia as you go.
 
-Enjoy swimming in the ocean and relaxing near the golden cliffs for a peaceful holiday experience. The boat has a ladder for easy water access and an onboard toilet for convenience. Sail along scenic locales like Ponta da Piedade, making this trip a visual delight.</p>
-          <div class="card-footer">
-            <span class="price">From €300</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ponta-da-piedade-and-lagos-coast-2-hour-private-boat-tour-p1099611/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy swimming in the ocean and relaxing near the golden cliffs for a peaceful holiday experience. The boat has a ladder for easy water access and an onboard toilet for convenience. Sail along scenic locales like Ponta da Piedade, making this trip a visual delight.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€300.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ponta-da-piedade-and-lagos-coast-2-hour-private-boat-tour-p1099611/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Catamaran Tour with Lunch from Lagos" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Catamaran Tour with Lunch from Lagos</h3>
-          <p class="venue">📍 Lagos Day Cruises</p>
-          <p>Relax on board this premium cruise tour in Ponta da Piedade, Lagos, and see why this part of Portugal is perfect for an exciting experience like no other!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Catamaran Tour with Lunch from Lagos" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAGOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAGOS DAY CRUISES</span>
+        </div>
+        <div class="tq-card-title">Catamaran Tour with Lunch from Lagos</div>
+        <div class="tq-card-desc">Relax on board this premium cruise tour in Ponta da Piedade, Lagos, and see why this part of Portugal is perfect for an exciting experience like no other!
 
 This luxurious catamaran will take you on a 4-hour tour of the stunning rock formations and coastline, with plenty of opportunities for refreshing dips in the cool blue sea. Trust your knowledgeable local crew to give you all the tips on things to do in the area, as well as interesting cultural and historical facts as you go. 
 
 You can also tantalize your taste buds with a delicious traditional roast chicken lunch, with drinks included. 
 
-To ensure superior service and plenty of room to sun yourself on deck, the tour is limited to a maximum of 18 people.</p>
-          <div class="card-footer">
-            <span class="price">From €60</span>
-            <span class="rating">⭐ 4.8 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blue-cruise-catamaran-cruise-with-lunch-included-p1063219/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+To ensure superior service and plenty of room to sun yourself on deck, the tour is limited to a maximum of 18 people.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blue-cruise-catamaran-cruise-with-lunch-included-p1063219/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ponta da Piedade Caves: 2.5-Hr Costal Cruise Tour from Lagos" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ponta da Piedade Caves: 2.5-Hr Costal Cruise Tour from Lagos</h3>
-          <p class="venue">📍 Lagos Day Cruises</p>
-          <p>Enjoy this two-hour experience along the coast of Lagos and rock formations of Ponta da Piedade.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/dbc27fce9beb4263939a4e6dfa3e456a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ponta da Piedade Caves: 2.5-Hr Costal Cruise Tour from Lagos" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAGOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAGOS DAY CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ponta da Piedade Caves: 2.5-Hr Costal Cruise Tour from Lagos</div>
+        <div class="tq-card-desc">Enjoy this two-hour experience along the coast of Lagos and rock formations of Ponta da Piedade.
 
 Take a close look at the famous secluded beaches of Lagos such as Praia D. Ana and Praia do Camilo. On this superior comfort boat ride (with cushioned seats and back support) you’ll have the chance to take a swim in a sheltered bay. 
 
 Certified local skippers will reveal all the unique historical and natural secrets and facts of this wonderful coast.
 
-Enjoy this relaxed tour, ideal for family and friends!</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-lagos-coastal-cruise-p1061880/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy this relaxed tour, ideal for family and friends!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-lagos-coastal-cruise-p1061880/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/064ab1611d0848fcaca9bcdad7bb3ca8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ponta da Piedade Caves: Kayak Tour from Lagos" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ponta da Piedade Caves: Kayak Tour from Lagos</h3>
-          <p class="venue">📍 Lagos Day Cruises</p>
-          <p>Prepare to be awed by the breathtaking natural beauty of Ponta da Piedade on the Algarve Coast! The adventure begins at the Marina de Lagos, where you'll board a state-of-the-art catamaran that will ferry you to the starting point of this kayaking excursion.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/064ab1611d0848fcaca9bcdad7bb3ca8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ponta da Piedade Caves: Kayak Tour from Lagos" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LAGOS</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LAGOS DAY CRUISES</span>
+        </div>
+        <div class="tq-card-title">Ponta da Piedade Caves: Kayak Tour from Lagos</div>
+        <div class="tq-card-desc">Prepare to be awed by the breathtaking natural beauty of Ponta da Piedade on the Algarve Coast! The adventure begins at the Marina de Lagos, where you'll board a state-of-the-art catamaran that will ferry you to the starting point of this kayaking excursion.
 
 Before setting out, an experienced and certified guide will provide you with all the tips and techniques you need to safely navigate the kayaks. Once you're ready, you'll take a comfortable seat in your kayak and easily slide into the water from a ramp on the catamaran.
 
-Paddle through the intricate network of caves, grottos, and rock formations. Enjoy the sights, sounds, and sensations of the seawater and natural elements that make this coast so special.</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐ 4.8 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ponta-da-piedade-caves-kayak-tour-from-lagos-p1061878/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Paddle through the intricate network of caves, grottos, and rock formations. Enjoy the sights, sounds, and sensations of the seawater and natural elements that make this coast so special.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ponta-da-piedade-caves-kayak-tour-from-lagos-p1061878/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

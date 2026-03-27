@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Nerja | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Nerja. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,79 +131,123 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4c3309d770d74bd7b3a70ccfc85f8abb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Caves of Nerja: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Caves of Nerja: Entry Ticket</h3>
-          <p class="venue">📍 Caves of Nerja</p>
-          <p>Wonder awaits inside the Cave of Nerja! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4c3309d770d74bd7b3a70ccfc85f8abb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Caves of Nerja: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>NERJA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAVES OF NERJA</span>
+        </div>
+        <div class="tq-card-title">Caves of Nerja: Entry Ticket</div>
+        <div class="tq-card-desc">Wonder awaits inside the Cave of Nerja! 
 
 Your ticket to the Cave of Nerja will give you access to an audio guided tour through the different areas of the cave that highlight its incredible stalagmites and stalactites. On top of that, you'll also get to enjoy a visit the Museum of Nerja to dig deeper into the caves' story.  
 
 As you explore Nerja Cave, you'll be wandering through a natural laboratory where archaeological, geological and biological research has been carried out since the cave was rediscovered in 1959.
 
-Keep your eyes peeled, inside the limestone caves you'll come across the longest and largest stalactite in the world! It is located in the Hall of Cataclysm and measures a staggering 33 metres long.</p>
-          <div class="card-footer">
-            <span class="price">From €15.5</span>
-            <span class="rating">⭐ 4.7 (814)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-nerja-cave-p1026163/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Keep your eyes peeled, inside the limestone caves you'll come across the longest and largest stalactite in the world! It is located in the Hall of Cataclysm and measures a staggering 33 metres long.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(814)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-nerja-cave-p1026163/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70dbb64c02844840afc13470887a68f4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Nerja & Frigiliana: Guided Tour from Granada" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Nerja & Frigiliana: Guided Tour from Granada</h3>
-          <p class="venue">📍 Caves of Nerja</p>
-          <p>Experience the wonders of the Malaga region with a knowledgeable guide! Your first stop is the postcard-worthy Andalusian town of Frigiliana, boasting cobblestone streets and awe-inspiring panoramic vistas. Wander the labyrinthine alleys, and hear tales of the region's captivating history and rich cultural heritage. Then, explore the town at your own pace, before continuing onward to Nerja.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/70dbb64c02844840afc13470887a68f4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Nerja & Frigiliana: Guided Tour from Granada" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>NERJA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAVES OF NERJA</span>
+        </div>
+        <div class="tq-card-title">Nerja & Frigiliana: Guided Tour from Granada</div>
+        <div class="tq-card-desc">Experience the wonders of the Malaga region with a knowledgeable guide! Your first stop is the postcard-worthy Andalusian town of Frigiliana, boasting cobblestone streets and awe-inspiring panoramic vistas. Wander the labyrinthine alleys, and hear tales of the region's captivating history and rich cultural heritage. Then, explore the town at your own pace, before continuing onward to Nerja.
 
 Once in Nerja, you'll have ample free time to explore this coastal haven and its magnificent surroundings. Sunbathe on pristine beaches, peruse local markets brimming with vibrant wares, tuck into a traditional meal at a charming Andalusian eatery, or simply meander. 
 
-Finally, journey deep into the mesmerizing subterranean world of the Nerja Caves, guided by an enlightening audio tour. Marvel at the incredible formations of stalactites and stalagmites that have gracefully evolved over thousands of years, creating a breathtaking spectacle unlike any other.</p>
-          <div class="card-footer">
-            <span class="price">From €135</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-nerja-frigiliana-guided-tour-from-granada-p984710/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finally, journey deep into the mesmerizing subterranean world of the Nerja Caves, guided by an enlightening audio tour. Marvel at the incredible formations of stalactites and stalagmites that have gracefully evolved over thousands of years, creating a breathtaking spectacle unlike any other.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€135.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-nerja-frigiliana-guided-tour-from-granada-p984710/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4c3309d770d74bd7b3a70ccfc85f8abb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tropical Coast & Nerja Cave: Day Trip from Granada + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tropical Coast & Nerja Cave: Day Trip from Granada + Lunch</h3>
-          <p class="venue">📍 Caves of Nerja</p>
-          <p>Bask in the golden rays on pristine beaches, explore mysterious caves, and stroll through emblematic coastal towns.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4c3309d770d74bd7b3a70ccfc85f8abb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tropical Coast & Nerja Cave: Day Trip from Granada + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>NERJA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAVES OF NERJA</span>
+        </div>
+        <div class="tq-card-title">Tropical Coast & Nerja Cave: Day Trip from Granada + Lunch</div>
+        <div class="tq-card-desc">Bask in the golden rays on pristine beaches, explore mysterious caves, and stroll through emblematic coastal towns.
 
 The exploration starts at Almuñécar, an ancient town founded by the Phoenicians a thousand years before Christ. Here, the Majuelo Park invites for a leisurely promenade, while the Castle of San Miguel, perched high above the city, offers sensational views of the tropical city of Granada.
 
-Next, the lovable town of Nerja awaits. Lunchtime promises a feast of local delicacies before heading to the famed Nerja Caves. These archaeological sites, part of Spain's historic heritage, will leave you breathless as you wander among a spectacular array of stalactites and stalagmites, creating a wonder of natural beauty.</p>
-          <div class="card-footer">
-            <span class="price">From €118.9</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tropical-coast-nerja-caves-day-trip-from-granada-lunch-p1086768/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, the lovable town of Nerja awaits. Lunchtime promises a feast of local delicacies before heading to the famed Nerja Caves. These archaeological sites, part of Spain's historic heritage, will leave you breathless as you wander among a spectacular array of stalactites and stalagmites, creating a wonder of natural beauty.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€118.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tropical-coast-nerja-caves-day-trip-from-granada-lunch-p1086768/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a6eb16867ced4356b33c75d76eb3927c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Nerja Cave: Night Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Nerja Cave: Night Tour</h3>
-          <p class="venue">📍 Caves of Nerja</p>
-          <p>The guide for this nighttime adventure in Nerja Cave will be Miguel Joven, the Spanish actor best known for his role as Tito in the Spanish television series *Verano Azul.* Meet him in person and travel with him on a special journey of discovery through Nerja Cave at night - a unique experience that will excite every one of your senses!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a6eb16867ced4356b33c75d76eb3927c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Nerja Cave: Night Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>NERJA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAVES OF NERJA</span>
+        </div>
+        <div class="tq-card-title">Nerja Cave: Night Tour</div>
+        <div class="tq-card-desc">The guide for this nighttime adventure in Nerja Cave will be Miguel Joven, the Spanish actor best known for his role as Tito in the Spanish television series *Verano Azul.* Meet him in person and travel with him on a special journey of discovery through Nerja Cave at night - a unique experience that will excite every one of your senses!
 
 Your ticket to the Cave of Nerja gives you access to a natural laboratory where archaeological, geological and biological research has been carried out since the cave was rediscovered in 1959.
 
-Keep your eyes peeled. Inside the limestone caves you'll come across the longest and largest stalactite in the world! It's located in the Hall of Cataclysm and measures a staggering 33 meters long.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 4.8 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-nerja-cave-night-tour-p1028946/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Keep your eyes peeled. Inside the limestone caves you'll come across the longest and largest stalactite in the world! It's located in the Hall of Cataclysm and measures a staggering 33 meters long.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-nerja-cave-night-tour-p1028946/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

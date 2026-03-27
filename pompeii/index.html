@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Pompeii | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Pompeii. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,278 +131,448 @@
     <p>31 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd9de1063bd54f8086d1ab33d19a63b4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Reserved Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii: Reserved Entry</h3>
-          <p class="venue">📍 Pompeii</p>
-          <p>Enter Pompeii and walk through the ancient streets of this historic city. Look at the preserved ruins of houses, temples, and public baths. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cd9de1063bd54f8086d1ab33d19a63b4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Reserved Entry" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII</span>
+        </div>
+        <div class="tq-card-title">Pompeii: Reserved Entry</div>
+        <div class="tq-card-desc">Enter Pompeii and walk through the ancient streets of this historic city. Look at the preserved ruins of houses, temples, and public baths. 
 
-Notice the detailed frescoes and mosaics that give a glimpse into Roman life. Explore the amphitheater, where you can imagine the events that once took place.</p>
-          <div class="card-footer">
-            <span class="price">From €27.5</span>
-            <span class="rating">⭐ 3.5 (408)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-reserved-entrance-p1111409/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Notice the detailed frescoes and mosaics that give a glimpse into Roman life. Explore the amphitheater, where you can imagine the events that once took place.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.5</strong>
+            <span class="tq-reviews">(408)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-reserved-entrance-p1111409/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/04c6570ab99444efae7f03f89529cdee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Day Trip From Naples" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii: Day Trip From Naples</h3>
-          <p class="venue">📍 Pompeii</p>
-          <p>Join a professional, licensed guide for a tour of Pompeii, the ancient Roman city destroyed by Mount Vesuvius in 79 AD. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/04c6570ab99444efae7f03f89529cdee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Day Trip From Naples" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII</span>
+        </div>
+        <div class="tq-card-title">Pompeii: Day Trip From Naples</div>
+        <div class="tq-card-desc">Join a professional, licensed guide for a tour of Pompeii, the ancient Roman city destroyed by Mount Vesuvius in 79 AD. 
 
 Your expert guide will lead you along the original streets that once formed the core of daily life for the city’s residents. 
 
 As you walk through these historic pathways, you gain insights into Roman customs, traditions, and daily routines that shaped this once-bustling city. 
 
-The tour gives you a comprehensive understanding of Pompeii’s culture and the events leading up to the city’s abrupt end.</p>
-          <div class="card-footer">
-            <span class="price">From €64.9</span>
-            <span class="rating">⭐ 4.6 (339)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-day-trip-from-naples-p1109513/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The tour gives you a comprehensive understanding of Pompeii’s culture and the events leading up to the city’s abrupt end.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(339)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-day-trip-from-naples-p1109513/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii, Amalfi Coast & Sorrento: Day Trip from Rome" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii, Amalfi Coast & Sorrento: Day Trip from Rome</h3>
-          <p class="venue">📍 Pompeii Day Trips from Rome</p>
-          <p>Go on a tour from Rome to Pompeii, Sorrento, and the Amalfi Coast for an enjoyable adventure. Travel comfortably in a coach with an expert guide sharing intriguing stories about the ruins of Pompeii, and all entrance fees are taken care of.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii, Amalfi Coast & Sorrento: Day Trip from Rome" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII DAY TRIPS FROM ROME</span>
+        </div>
+        <div class="tq-card-title">Pompeii, Amalfi Coast & Sorrento: Day Trip from Rome</div>
+        <div class="tq-card-desc">Go on a tour from Rome to Pompeii, Sorrento, and the Amalfi Coast for an enjoyable adventure. Travel comfortably in a coach with an expert guide sharing intriguing stories about the ruins of Pompeii, and all entrance fees are taken care of.
 
-After a morning exploring history, enjoy a leisurely lunch before heading to the scenic Amalfi Coast. Take a moment to appreciate the beautiful views. Later, feel the coastal magic of Sorrento, stroll through its interesting streets, and partake in a Limoncello tasting at a local distillery.</p>
-          <div class="card-footer">
-            <span class="price">From €74</span>
-            <span class="rating">⭐ 4.3 (36)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-amalfi-coast-sorrento-day-trip-from-rome-p1089294/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After a morning exploring history, enjoy a leisurely lunch before heading to the scenic Amalfi Coast. Take a moment to appreciate the beautiful views. Later, feel the coastal magic of Sorrento, stroll through its interesting streets, and partake in a Limoncello tasting at a local distillery.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(36)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€74.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-amalfi-coast-sorrento-day-trip-from-rome-p1089294/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd9de1063bd54f8086d1ab33d19a63b4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Herculaneum: Fast Track Ticket + Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii & Herculaneum: Fast Track Ticket + Guided Tour</h3>
-          <p class="venue">📍 Pompeii</p>
-          <p>The Colosseum is nearing the end of construction, the Roman Empire is experiencing a period of unrivaled peace, and frontiers continue to grow. Then, disaster stikes. The eruption of Vesuvius in 79 CE has left a perfect time capsule of the era. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cd9de1063bd54f8086d1ab33d19a63b4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Herculaneum: Fast Track Ticket + Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII</span>
+        </div>
+        <div class="tq-card-title">Pompeii & Herculaneum: Fast Track Ticket + Guided Tour</div>
+        <div class="tq-card-desc">The Colosseum is nearing the end of construction, the Roman Empire is experiencing a period of unrivaled peace, and frontiers continue to grow. Then, disaster stikes. The eruption of Vesuvius in 79 CE has left a perfect time capsule of the era. 
 
-Discover valuable insights into the life of Roman citizens, and explore the towns of Pompeii and Herculaneum as they were nearly two millennia ago. Roam the ruins with an archaeologist as your guide and see history like you never have before.</p>
-          <div class="card-footer">
-            <span class="price">From €99.75</span>
-            <span class="rating">⭐ 4.8 (119)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-herculaneum-fast-track-ticket-guided-tour-p1123132/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover valuable insights into the life of Roman citizens, and explore the towns of Pompeii and Herculaneum as they were nearly two millennia ago. Roam the ruins with an archaeologist as your guide and see history like you never have before.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(119)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€99.75</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-herculaneum-fast-track-ticket-guided-tour-p1123132/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd9de1063bd54f8086d1ab33d19a63b4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Mount Vesuvius: Tours From Pompeii" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii & Mount Vesuvius: Tours From Pompeii</h3>
-          <p class="venue">📍 Pompeii</p>
-          <p>Prepare for a tour that covers a visit to the famous volcano Mount Vesuvius and the archaeological site of Pompeii. This tour includes roundtrip transfers to Vesuvius and entrance tickets to both the National Park and the Archaeological Park of Pompeii. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cd9de1063bd54f8086d1ab33d19a63b4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Mount Vesuvius: Tours From Pompeii" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII</span>
+        </div>
+        <div class="tq-card-title">Pompeii & Mount Vesuvius: Tours From Pompeii</div>
+        <div class="tq-card-desc">Prepare for a tour that covers a visit to the famous volcano Mount Vesuvius and the archaeological site of Pompeii. This tour includes roundtrip transfers to Vesuvius and entrance tickets to both the National Park and the Archaeological Park of Pompeii. 
 
-Explore these sites with a local licensed English-speaking guide.</p>
-          <div class="card-footer">
-            <span class="price">From €86</span>
-            <span class="rating">⭐ 3.9 (57)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-mount-vesuvius-day-trip-from-pompeii-p1122846/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore these sites with a local licensed English-speaking guide.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(57)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€86.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-mount-vesuvius-day-trip-from-pompeii-p1122846/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd9de1063bd54f8086d1ab33d19a63b4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Vesuvius: Entry Ticket + Roundtrip from Pompei" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Vesuvius: Entry Ticket + Roundtrip from Pompei</h3>
-          <p class="venue">📍 Vesuvius Day Trips from Pompei</p>
-          <p>Enjoy the sunshine of Naples as the sky comes alive with vibrant colors, creating a magical atmosphere. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cd9de1063bd54f8086d1ab33d19a63b4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Vesuvius: Entry Ticket + Roundtrip from Pompei" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">VESUVIUS DAY TRIPS FROM POMPEI</span>
+        </div>
+        <div class="tq-card-title">Vesuvius: Entry Ticket + Roundtrip from Pompei</div>
+        <div class="tq-card-desc">Enjoy the sunshine of Naples as the sky comes alive with vibrant colors, creating a magical atmosphere. 
 
 Travel comfortably to the heart of Vesuvius National Park with an included shared transfer, covered by the ticket price. 
 
-No need to worry about additional fees; the entrance to the volcano is already taken care of.</p>
-          <div class="card-footer">
-            <span class="price">From €39</span>
-            <span class="rating">⭐ 3.2 (12)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sunset-entry-ticket-at-vesuvius-transfer-from-pompei-p1088872/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+No need to worry about additional fees; the entrance to the volcano is already taken care of.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.2</strong>
+            <span class="tq-reviews">(12)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sunset-entry-ticket-at-vesuvius-transfer-from-pompei-p1088872/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Skip The Line Ticket + Guided Tour with an Archaeologist" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii: Skip The Line Ticket + Guided Tour with an Archaeologist</h3>
-          <p class="venue">📍 Pompeii</p>
-          <p>With this skip-the-line entry tour, you'll get a guided entry around the ruins of houses, fountains, statues and frescoes.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Skip The Line Ticket + Guided Tour with an Archaeologist" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII</span>
+        </div>
+        <div class="tq-card-title">Pompeii: Skip The Line Ticket + Guided Tour with an Archaeologist</div>
+        <div class="tq-card-desc">With this skip-the-line entry tour, you'll get a guided entry around the ruins of houses, fountains, statues and frescoes.
 
 When Vesuvius erupted two thousand years ago, it blasted out the equivalent of 100,000 times the thermal energy released by the Hiroshima-Nagasaki nuclear bombings. Poor Pompeii never stood a chance, but now, on this tour, you can reconstruct its history... at least in your own head.
 
-Pompeii is truly one of the wonders of antiquity, frozen in time for thousands of years. Discover this unique UNESCO World Heritage Site with your guide, ask any questions you like, and walk in the footsteps of Italy's ancient people.</p>
-          <div class="card-footer">
-            <span class="price">From €57</span>
-            <span class="rating">⭐ 4.6 (441)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-skip-the-line-guided-tour-with-an-archaeologist-p1053270/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Pompeii is truly one of the wonders of antiquity, frozen in time for thousands of years. Discover this unique UNESCO World Heritage Site with your guide, ask any questions you like, and walk in the footsteps of Italy's ancient people.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(441)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€57.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-skip-the-line-guided-tour-with-an-archaeologist-p1053270/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii, Amalfi Coast & Positano: Day Trip from Rome" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii, Amalfi Coast & Positano: Day Trip from Rome</h3>
-          <p class="venue">📍 Pompeii Day Trips from Rome</p>
-          <p>Here's an effortless way to visit three UNESCO World Heritage sites in one day! Get ready to uncover the secrets of Pompeii, bask in the beauty of the Amalfi Coast, and fall under the spell of Positano's enchanting allure.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii, Amalfi Coast & Positano: Day Trip from Rome" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII DAY TRIPS FROM ROME</span>
+        </div>
+        <div class="tq-card-title">Pompeii, Amalfi Coast & Positano: Day Trip from Rome</div>
+        <div class="tq-card-desc">Here's an effortless way to visit three UNESCO World Heritage sites in one day! Get ready to uncover the secrets of Pompeii, bask in the beauty of the Amalfi Coast, and fall under the spell of Positano's enchanting allure.
 
 Settle into a comfortable, air-conditioned minibus, where your experienced tour guide will accompany you to Pompeii. Your exclusive, skip-the-line tickets grant you immediate access to the archaeological site. Immerse yourself in the ancient Roman world as your guide unveils intriguing insights and stories that bring the ruins to life.
 
 Next up, it's time for the breathtaking Amalfi Coast. Feast your eyes on its dramatic cliffs, azure waters, and cascading pastel-hued villages, and stop in picturesque Positano, where you'll have free time to explore its narrow streets, vibrant shops, and maybe indulge in a glass of refreshing limoncello, all while soaking in the Mediterranean charm
 
-What a day out from Rome!</p>
-          <div class="card-footer">
-            <span class="price">From €94</span>
-            <span class="rating">⭐ 4.7 (48)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-amalfi-coast-positano-day-trip-from-rome-p1113992/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+What a day out from Rome!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(48)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€94.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-amalfi-coast-positano-day-trip-from-rome-p1113992/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Skip The Line Ticket + Roundtrip from Rome" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii: Skip The Line Ticket + Roundtrip from Rome</h3>
-          <p class="venue">📍 Pompeii Day Trips from Rome</p>
-          <p>Visit Pompeii from Rome and see the preserved ruins of an ancient city buried by a volcanic eruption. Walk through streets, houses, and public buildings that illustrate daily life in Roman times. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Skip The Line Ticket + Roundtrip from Rome" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII DAY TRIPS FROM ROME</span>
+        </div>
+        <div class="tq-card-title">Pompeii: Skip The Line Ticket + Roundtrip from Rome</div>
+        <div class="tq-card-desc">Visit Pompeii from Rome and see the preserved ruins of an ancient city buried by a volcanic eruption. Walk through streets, houses, and public buildings that illustrate daily life in Roman times. 
 
-See well-preserved frescoes and intricate mosaics that adorn various structures. Learn about the tragic history of the eruption and its impact on the inhabitants.</p>
-          <div class="card-footer">
-            <span class="price">From €82.55</span>
-            <span class="rating">⭐ 4.6 (94)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-skip-the-line-ticket-roundtrip-from-rome-p1114191/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See well-preserved frescoes and intricate mosaics that adorn various structures. Learn about the tragic history of the eruption and its impact on the inhabitants.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(94)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€82.55</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-skip-the-line-ticket-roundtrip-from-rome-p1114191/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Naples: Day Trip from Rome" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii & Naples: Day Trip from Rome</h3>
-          <p class="venue">📍 Pompeii Day Trips from Rome</p>
-          <p>Set off for a day trip from Rome to Pompeii and Naples, escaping the city hustle for a memorable adventure.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Naples: Day Trip from Rome" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII DAY TRIPS FROM ROME</span>
+        </div>
+        <div class="tq-card-title">Pompeii & Naples: Day Trip from Rome</div>
+        <div class="tq-card-desc">Set off for a day trip from Rome to Pompeii and Naples, escaping the city hustle for a memorable adventure.
 
 Explore the UNESCO World Heritage Site of Pompeii, uncovering ancient wonders. Stroll along its historic streets, where the echoes of a bygone era whisper tales of districts, villages, domus, temples, and intriguing artifacts revealed by ongoing archeological excavations. Opt for an audio guide to go deeper into its secrets.
 
-Continue the trip to Naples, where you can feel the city's unique traditions and relaxed atmosphere. Enjoy beautiful views of the gulf, stroll through lively alleys, and take advantage of an exclusive discount for city sightseeing hop-on hop-off to explore Naples at your own pace.</p>
-          <div class="card-footer">
-            <span class="price">From €95</span>
-            <span class="rating">⭐ 4.1 (35)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-and-naples-day-trip-from-rome-p1091703/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Continue the trip to Naples, where you can feel the city's unique traditions and relaxed atmosphere. Enjoy beautiful views of the gulf, stroll through lively alleys, and take advantage of an exclusive discount for city sightseeing hop-on hop-off to explore Naples at your own pace.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(35)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€95.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-and-naples-day-trip-from-rome-p1091703/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c6dc1f32f1c440289639285dd0e93131.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Mount Vesuvius: Day Trip from Rome + Optional Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii & Mount Vesuvius: Day Trip from Rome + Optional Lunch</h3>
-          <p class="venue">📍 Pompeii Day Trips from Rome</p>
-          <p>See Pompeii and learn about ancient life on an easy day trip from Rome. You’ll travel by bus along the Highway of the Sun.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c6dc1f32f1c440289639285dd0e93131.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Mount Vesuvius: Day Trip from Rome + Optional Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII DAY TRIPS FROM ROME</span>
+        </div>
+        <div class="tq-card-title">Pompeii & Mount Vesuvius: Day Trip from Rome + Optional Lunch</div>
+        <div class="tq-card-desc">See Pompeii and learn about ancient life on an easy day trip from Rome. You’ll travel by bus along the Highway of the Sun.
 
 An English-speaking tour leader will be with you throughout the day and will handle the lines and tickets. Once inside, you’ll meet an archaeologist who will guide you through Pompeii’s preserved streets, homes, baths, food stores, and outdoor theaters.
 
 You can add an optional lunch at a local restaurant with views of the Bay of Naples and Capri. If selected, the meal includes pizza, an appetizer, and dessert.
 
-After Pompeii, the coach continues up Mt. Vesuvius. You can choose a short walk to the crater or join a geologist for a more moderate hike and a closer look at the area’s geology.</p>
-          <div class="card-footer">
-            <span class="price">From €154</span>
-            <span class="rating">⭐ 4.6 (93)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-vesuvius-day-trip-from-rome-optional-lunch-p977420/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After Pompeii, the coach continues up Mt. Vesuvius. You can choose a short walk to the crater or join a geologist for a more moderate hike and a closer look at the area’s geology.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(93)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€154.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-vesuvius-day-trip-from-rome-optional-lunch-p977420/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd9de1063bd54f8086d1ab33d19a63b4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="MAP – Magic Ancient Pompeii: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>MAP – Magic Ancient Pompeii: Entry Ticket</h3>
-          <p class="venue">📍 MAP – Magic Ancient Pompeii</p>
-          <p>It's hard to imagine life before or during the fire-and-brimstone carnage of Pompeii's eruption in 79 AD. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cd9de1063bd54f8086d1ab33d19a63b4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="MAP – Magic Ancient Pompeii: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MAP – MAGIC ANCIENT POMPEII</span>
+        </div>
+        <div class="tq-card-title">MAP – Magic Ancient Pompeii: Entry Ticket</div>
+        <div class="tq-card-desc">It's hard to imagine life before or during the fire-and-brimstone carnage of Pompeii's eruption in 79 AD. 
 
 Luckily, MAP – Magic Ancient Pompeii houses the perfect reconstruction of a part of ancient Pompeii. You will be the protagonists of daily life there, and relive the splendor of its houses and its most important buildings in 3D, before the fury of the volcano erases the magnificence of one of the richest and most vital cities in the Roman Empire.
 
-Stroll the streets, stop in at a Roman banquet, spy on the debauchery of the Lupanar, and more in this unique experience.</p>
-          <div class="card-footer">
-            <span class="price">From €9.5</span>
-            <span class="rating">⭐ 4.2 (40)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-map-magic-ancient-pompeii-p1017742/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Stroll the streets, stop in at a Roman banquet, spy on the debauchery of the Lupanar, and more in this unique experience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(40)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€9.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-map-magic-ancient-pompeii-p1017742/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd9de1063bd54f8086d1ab33d19a63b4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Entry Ticket + 3D Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii: Entry Ticket + 3D Tour</h3>
-          <p class="venue">📍 Pompeii</p>
-          <p>Experience the wonders of Pompeii like never before with this innovative and immersive augmented-reality tour! Don a pair of cutting-edge AR glasses and transport yourself to a different time, when the ancient city of Pompeii was alive and thriving!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cd9de1063bd54f8086d1ab33d19a63b4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Entry Ticket + 3D Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII</span>
+        </div>
+        <div class="tq-card-title">Pompeii: Entry Ticket + 3D Tour</div>
+        <div class="tq-card-desc">Experience the wonders of Pompeii like never before with this innovative and immersive augmented-reality tour! Don a pair of cutting-edge AR glasses and transport yourself to a different time, when the ancient city of Pompeii was alive and thriving!
 
 Your tour assistant iwill guide you through the itinerary and show you how to use the AR glasses, which have been specially designed by a team of archaeologists and experts to showcase Pompeii's pre-eruption glory.
 
 Watch in amazement as your AR glasses bring holograms to life, overlaying the existing ruins and revealing the most significant temples, houses, squares, theaters, and buildings in their former glory before the eruption of 79 A.D.
 
-This unique experience lets you step back in time and truly appreciate the scale and grandeur of Pompeii before its tragic downfall.</p>
-          <div class="card-footer">
-            <span class="price">From €52</span>
-            <span class="rating">⭐ 4.5 (58)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-entry-3-d-tour-p1061745/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This unique experience lets you step back in time and truly appreciate the scale and grandeur of Pompeii before its tragic downfall.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(58)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€52.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-entry-3-d-tour-p1061745/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/07a2b08909cc4e37836c832f0b487f45.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Transportation Only: Roundtrip by Shuttle Bus from Naples to Pompeii" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Transportation Only: Roundtrip by Shuttle Bus from Naples to Pompeii</h3>
-          <p class="venue">📍 Transfers to Pompeii</p>
-          <p>Ever wondered how much damage a volcano can do? Board an air-conditioned bus from Naples to Pompeii and get fiery facts about the world's most famous eruption. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/07a2b08909cc4e37836c832f0b487f45.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Transportation Only: Roundtrip by Shuttle Bus from Naples to Pompeii" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TRANSFERS TO POMPEII</span>
+        </div>
+        <div class="tq-card-title">Transportation Only: Roundtrip by Shuttle Bus from Naples to Pompeii</div>
+        <div class="tq-card-desc">Ever wondered how much damage a volcano can do? Board an air-conditioned bus from Naples to Pompeii and get fiery facts about the world's most famous eruption. 
 
-The bus runs three times a day in summer and twice a day in winter, making access easy all year round. Get fact-packed running commentary on the history and mysteries of the ancient city of Pompeii, which was covered in ash by the mighty Vesuvius in 79 AD. It's sightseeing made easy, but it's no less spellbinding.</p>
-          <div class="card-footer">
-            <span class="price">From €20</span>
-            <span class="rating">⭐ 4.6 (35)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-shuttle-bus-naples-pompeii-p981375/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The bus runs three times a day in summer and twice a day in winter, making access easy all year round. Get fact-packed running commentary on the history and mysteries of the ancient city of Pompeii, which was covered in ash by the mighty Vesuvius in 79 AD. It's sightseeing made easy, but it's no less spellbinding.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(35)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-shuttle-bus-naples-pompeii-p981375/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/07a2b08909cc4e37836c832f0b487f45.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Naples: Train Transfer From/To Pompeii and Porta Nolana" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Naples: Train Transfer From/To Pompeii and Porta Nolana</h3>
-          <p class="venue">📍 Transfers to Pompeii</p>
-          <p>The sleek, modern train departs from Naples Porta Nolana Station, whisking passengers off to Pompei Scavi Villa Dei Misteri Station.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/07a2b08909cc4e37836c832f0b487f45.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Naples: Train Transfer From/To Pompeii and Porta Nolana" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TRANSFERS TO POMPEII</span>
+        </div>
+        <div class="tq-card-title">Naples: Train Transfer From/To Pompeii and Porta Nolana</div>
+        <div class="tq-card-desc">The sleek, modern train departs from Naples Porta Nolana Station, whisking passengers off to Pompei Scavi Villa Dei Misteri Station.
 
 On this journey, the only task is to sit back, relax, and take in the breathtaking views of Naples. No deciphering of complicated routes, no jostling for space on crowded buses. 
 
-The train takes punctuality seriously. Its spot-on timekeeping ensures that passengers get to their destination right on schedule, making the most of every moment in the city.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐ 2.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-naples-porta-nolana-train-transfer-from-to-pompeii-p1084654/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The train takes punctuality seriously. Its spot-on timekeeping ensures that passengers get to their destination right on schedule, making the most of every moment in the city.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-naples-porta-nolana-train-transfer-from-to-pompeii-p1084654/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cd9de1063bd54f8086d1ab33d19a63b4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Sorrento: Guided Day Tour from Naples + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii & Sorrento: Guided Day Tour from Naples + Lunch</h3>
-          <p class="venue">📍 Pompeii</p>
-          <p>Travel to Pompeii to explore notable sites with a professional guide.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cd9de1063bd54f8086d1ab33d19a63b4.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Sorrento: Guided Day Tour from Naples + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII</span>
+        </div>
+        <div class="tq-card-title">Pompeii & Sorrento: Guided Day Tour from Naples + Lunch</div>
+        <div class="tq-card-desc">Travel to Pompeii to explore notable sites with a professional guide.
 
 On a two-hour walking tour, your guide will show you the Forum, Thermal Baths, Lupanare, Greek Theatre, and the plaster casts of Pompeii's people. 
 
@@ -313,57 +582,90 @@ See the small beaches of Vico Equense and Seiano and the Mediterranean vegetatio
 
 Stop at the viewpoint in Meta di Sorrento to see the bay overlooking the sea. In Sorrento, spend about an hour visiting the town. 
 
-Use the provided audio guide to learn about key spots as you walk through narrow streets with stores and workshops, leading to the scenic Villa Comunale.</p>
-          <div class="card-footer">
-            <span class="price">From €85</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-sorrento-guided-day-tour-from-naples-lunch-p1124656/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Use the provided audio guide to learn about key spots as you walk through narrow streets with stores and workshops, leading to the scenic Villa Comunale.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€85.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-sorrento-guided-day-tour-from-naples-lunch-p1124656/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Herculaneum: Day Trip from Rome" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii & Herculaneum: Day Trip from Rome</h3>
-          <p class="venue">📍 Pompeii Day Trips from Rome</p>
-          <p>Step back into ancient Rome with this day trip, offering a break from the contemporary buzz of the city. Explore the historical wonders of Pompeii and Herculaneum, starting with a comfortable train ride from Rome to Naples and a chauffeured drive to the renowned ruins.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Herculaneum: Day Trip from Rome" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII DAY TRIPS FROM ROME</span>
+        </div>
+        <div class="tq-card-title">Pompeii & Herculaneum: Day Trip from Rome</div>
+        <div class="tq-card-desc">Step back into ancient Rome with this day trip, offering a break from the contemporary buzz of the city. Explore the historical wonders of Pompeii and Herculaneum, starting with a comfortable train ride from Rome to Naples and a chauffeured drive to the renowned ruins.
 
 Witness the archaeological treasures of Pompeii and the remarkably well-preserved Herculaneum city with insightful commentary from an experienced archaeologist.
 
-The skip-the-line access gives history enthusiasts a chance to explore these sites without the usual crowds. The day wraps up with a return to Rome, leaving you with the excitement of having walked through the corridors of history.</p>
-          <div class="card-footer">
-            <span class="price">From €205</span>
-            <span class="rating">⭐ 4.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-herculaneum-guided-day-trip-from-rome-p1089260/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The skip-the-line access gives history enthusiasts a chance to explore these sites without the usual crowds. The day wraps up with a return to Rome, leaving you with the excitement of having walked through the corridors of history.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€205.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-herculaneum-guided-day-trip-from-rome-p1089260/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e89ed1ff5d44c23bd19132d94c0a5ec.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Vesuvius & Herculanuem: Skip The Line Ticket + Roundtrip From Pompeii" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Vesuvius & Herculanuem: Skip The Line Ticket + Roundtrip From Pompeii</h3>
-          <p class="venue">📍 Vesuvius Day Trips from Pompei</p>
-          <p>Discover the ancient city of Ercolano and the awe-inspiring Mount Vesuvius - all in one action-packed day!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4e89ed1ff5d44c23bd19132d94c0a5ec.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Vesuvius & Herculanuem: Skip The Line Ticket + Roundtrip From Pompeii" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">VESUVIUS DAY TRIPS FROM POMPEI</span>
+        </div>
+        <div class="tq-card-title">Vesuvius & Herculanuem: Skip The Line Ticket + Roundtrip From Pompeii</div>
+        <div class="tq-card-desc">Discover the ancient city of Ercolano and the awe-inspiring Mount Vesuvius - all in one action-packed day!
 
 This comprehensive tour whisks you away on a thrilling journey through history, art, and archaeology, all set against the backdrop of breathtaking landscapes. Lounge in comfort as you're conveniently transported to Vesuvius for a small hike, and witness the city of Herculaneum, one of the most well-preserved ancient cities in the world.
 
-Your ticket includes a roundtrip from Pompeii to Vesuvius and Herculaneum. You'll get a skip-the-line ticket for Vesuvius, a skip-the-line ticket for Herculaneum and free time at Vesuvius and Herculaneum.</p>
-          <div class="card-footer">
-            <span class="price">From €84</span>
-            <span class="rating">⭐ 4.2 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-vesuvius-and-herculaneum-tour-p1080100/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your ticket includes a roundtrip from Pompeii to Vesuvius and Herculaneum. You'll get a skip-the-line ticket for Vesuvius, a skip-the-line ticket for Herculaneum and free time at Vesuvius and Herculaneum.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€84.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-vesuvius-and-herculaneum-tour-p1080100/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Day Trip from Rome + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii: Day Trip from Rome + Lunch</h3>
-          <p class="venue">📍 Pompeii Day Trips from Rome</p>
-          <p>Get swept off your feet and transported back in time with this exhilarating guided tour of the legendary Pompeii. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Day Trip from Rome + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII DAY TRIPS FROM ROME</span>
+        </div>
+        <div class="tq-card-title">Pompeii: Day Trip from Rome + Lunch</div>
+        <div class="tq-card-desc">Get swept off your feet and transported back in time with this exhilarating guided tour of the legendary Pompeii. 
 
 Starting at the crack of dawn at the Castro Pretorio metro stop, a luxurious, air-conditioned minibus navigated by seasoned drivers will be waiting to take you on an adventure.
 
@@ -371,145 +673,233 @@ By 11:00 a.m., you'll be standing amidst the ruins of Pompeii, with an expert gu
 
 Take a two-hour tour, uncovering fascinating spots like the buzzing Forum, the luxurious Thermal Baths, the scandalous Lupanare, the majestic Greek theatre, and the haunting plaster casts of Pompeii's inhabitants tragically frozen in time by volcanic ash in 79 A.D.
 
-Post-adventure, indulge in a bit of retail therapy before savoring a delectable pizza and a refreshing drink before your trip home from the starting point.</p>
-          <div class="card-footer">
-            <span class="price">From €137.14</span>
-            <span class="rating">⭐ 3.9 (14)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-day-trip-from-rome-lunch-p1077046/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Post-adventure, indulge in a bit of retail therapy before savoring a delectable pizza and a refreshing drink before your trip home from the starting point.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(14)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€137.14</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-day-trip-from-rome-lunch-p1077046/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Mount Vesuvius: Full-Day Tour from Rome + Roundtrip Train" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii & Mount Vesuvius: Full-Day Tour from Rome + Roundtrip Train</h3>
-          <p class="venue">📍 Pompeii Day Trips from Rome</p>
-          <p>Take a high-speed train from Rome to two historic destinations in ancient Campania. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Mount Vesuvius: Full-Day Tour from Rome + Roundtrip Train" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII DAY TRIPS FROM ROME</span>
+        </div>
+        <div class="tq-card-title">Pompeii & Mount Vesuvius: Full-Day Tour from Rome + Roundtrip Train</div>
+        <div class="tq-card-desc">Take a high-speed train from Rome to two historic destinations in ancient Campania. 
 
 Ascend Mount Vesuvius and hike to the crater’s edge for views over the Bay of Naples.
 
 After visiting Mount Vesuvius, travel to Pompeii with time for a quick lunch break (at your own expense).
 
-Visit Pompeii on a guided group tour led by an archaeologist and see its preserved frescoes, theaters, and temples.</p>
-          <div class="card-footer">
-            <span class="price">From €195</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-mount-vesuvius-full-day-tour-from-rome-roundtrip-train-p1127480/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit Pompeii on a guided group tour led by an archaeologist and see its preserved frescoes, theaters, and temples.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€195.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-mount-vesuvius-full-day-tour-from-rome-roundtrip-train-p1127480/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Half-Day Guided Tour from Rome + Roundtrip Train" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii: Half-Day Guided Tour from Rome + Roundtrip Train</h3>
-          <p class="venue">📍 Pompeii Day Trips from Rome</p>
-          <p>Take a high-speed train from Rome to Naples. Meet your driver at the station and travel comfortably to the archaeological site.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Half-Day Guided Tour from Rome + Roundtrip Train" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII DAY TRIPS FROM ROME</span>
+        </div>
+        <div class="tq-card-title">Pompeii: Half-Day Guided Tour from Rome + Roundtrip Train</div>
+        <div class="tq-card-desc">Take a high-speed train from Rome to Naples. Meet your driver at the station and travel comfortably to the archaeological site.
 
 Explore the historical ruins of Pompeii on a guided tour led by an archaeologist. 
 
-After the tour, meet your driver for the transfer to Naples, then board your train back to Rome.</p>
-          <div class="card-footer">
-            <span class="price">From €155</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-half-day-guided-tour-from-rome-roundtrip-train-p1126653/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After the tour, meet your driver for the transfer to Naples, then board your train back to Rome.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€155.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-half-day-guided-tour-from-rome-roundtrip-train-p1126653/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Sorrento: Small Group Day Trip from Rome" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii & Sorrento: Small Group Day Trip from Rome</h3>
-          <p class="venue">📍 Pompeii Day Trips from Rome</p>
-          <p>Take a trip to Pompeii with a certified archaeologist, enjoy a full Italian lunch in Sorrento, and travel from Rome in comfort. This 12-hour small-group trip is fully organized.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Sorrento: Small Group Day Trip from Rome" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII DAY TRIPS FROM ROME</span>
+        </div>
+        <div class="tq-card-title">Pompeii & Sorrento: Small Group Day Trip from Rome</div>
+        <div class="tq-card-desc">Take a trip to Pompeii with a certified archaeologist, enjoy a full Italian lunch in Sorrento, and travel from Rome in comfort. This 12-hour small-group trip is fully organized.
 
 Start your day with a minivan ride and a traditional Italian breakfast of coffee and pastries in Pompeii. Walk through ancient villas, bathhouses, taverns, the Roman Forum, and see the plaster casts of Pompeii’s final moments with your guide.
 
-Head to Sorrento along the coastline, where cliffs meet the sea. Have an authentic Italian lunch overlooking the water.</p>
-          <div class="card-footer">
-            <span class="price">From €199</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-sorrento-small-group-day-trip-from-rome-p1123462/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Head to Sorrento along the coastline, where cliffs meet the sea. Have an authentic Italian lunch overlooking the water.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€199.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-sorrento-small-group-day-trip-from-rome-p1123462/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii, Amalfi Coast & Positano: Guided Day Tour from Rome" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii, Amalfi Coast & Positano: Guided Day Tour from Rome</h3>
-          <p class="venue">📍 Pompeii Day Trips from Rome</p>
-          <p>Leave Rome and visit the historic city of Pompeii. Ride comfortably to see the ancient ruins, including the Forum, baths, temples, homes, and bakeries, all preserved from Mount Vesuvius's eruption in 79 AD.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii, Amalfi Coast & Positano: Guided Day Tour from Rome" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII DAY TRIPS FROM ROME</span>
+        </div>
+        <div class="tq-card-title">Pompeii, Amalfi Coast & Positano: Guided Day Tour from Rome</div>
+        <div class="tq-card-desc">Leave Rome and visit the historic city of Pompeii. Ride comfortably to see the ancient ruins, including the Forum, baths, temples, homes, and bakeries, all preserved from Mount Vesuvius's eruption in 79 AD.
 
 After Pompeii, drive along the Amalfi Coast. Look at the cliffs, turquoise waters, and colorful villages while learning about the region's culture and history from a guide.
 
 Arrive at the village of Positano, known for cliffside homes and narrow streets. Spend time walking around, having lunch (not included in this ticket) by the sea, dipping your feet in the Mediterranean, or browsing local shops.
 
-Return to Rome in the evening after a day filled with sights of southern Italy.</p>
-          <div class="card-footer">
-            <span class="price">From €149</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-amalfi-coast-positano-guided-day-tour-from-rome-p1119336/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Return to Rome in the evening after a day filled with sights of southern Italy.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€149.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-amalfi-coast-positano-guided-day-tour-from-rome-p1119336/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e89ed1ff5d44c23bd19132d94c0a5ec.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii: Guided Tour</h3>
-          <p class="venue">📍 Pompeii</p>
-          <p>Walk through the ruins of Pompeii, where you can see well-preserved buildings and ancient artifacts. Observe the amphitheater, where events took place, and explore the remnants of homes that give insight into daily life. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4e89ed1ff5d44c23bd19132d94c0a5ec.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII</span>
+        </div>
+        <div class="tq-card-title">Pompeii: Guided Tour</div>
+        <div class="tq-card-desc">Walk through the ruins of Pompeii, where you can see well-preserved buildings and ancient artifacts. Observe the amphitheater, where events took place, and explore the remnants of homes that give insight into daily life. 
 
-Visit the Forum, a central area for public life, and the Temple of Apollo, an important religious site. Learn about the tragic event that led to the city's preservation.</p>
-          <div class="card-footer">
-            <span class="price">From €48</span>
-            <span class="rating">⭐ 4.6 (3275)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-guided-tours-p1111481/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit the Forum, a central area for public life, and the Temple of Apollo, an important religious site. Learn about the tragic event that led to the city's preservation.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(3,275)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€48.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-guided-tours-p1111481/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Day Trip from Rome + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii: Day Trip from Rome + Lunch</h3>
-          <p class="venue">📍 Pompeii Day Trips from Rome</p>
-          <p>Take a guided tour of Pompeii through the Roman countryside of the "Castelli Romani." Pass through the Vesuvius valley, including Ercolano, Torre del Greco, and Torre Annunziata, before reaching Pompeii. Meet your local guide for an archaeological tour of Pompeii. Learn about the city's tragic history from an expert perspective. Have lunch in Pompeii. On your return to Rome, visit a coral and cameo factory to see and purchase items made using ancient methods.</p>
-          <div class="card-footer">
-            <span class="price">From €140</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-guided-day-trip-from-rome-lunch-p1105712/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Day Trip from Rome + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII DAY TRIPS FROM ROME</span>
+        </div>
+        <div class="tq-card-title">Pompeii: Day Trip from Rome + Lunch</div>
+        <div class="tq-card-desc">Take a guided tour of Pompeii through the Roman countryside of the "Castelli Romani." Pass through the Vesuvius valley, including Ercolano, Torre del Greco, and Torre Annunziata, before reaching Pompeii. Meet your local guide for an archaeological tour of Pompeii. Learn about the city's tragic history from an expert perspective. Have lunch in Pompeii. On your return to Rome, visit a coral and cameo factory to see and purchase items made using ancient methods.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€140.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-guided-day-trip-from-rome-lunch-p1105712/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompei: Dining Experience at a Local’s Home" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompei: Dining Experience at a Local’s Home</h3>
-          <p class="venue">📍 Dining Experience Pompeii</p>
-          <p>Discover Italy's culture through its food, hosted by experienced Italian home cooks.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompei: Dining Experience at a Local’s Home" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DINING EXPERIENCE POMPEII</span>
+        </div>
+        <div class="tq-card-title">Pompei: Dining Experience at a Local’s Home</div>
+        <div class="tq-card-desc">Discover Italy's culture through its food, hosted by experienced Italian home cooks.
 
 Enjoy a private dining experience with an Italian family, featuring a 4-course meal. Start with an appetizer, followed by traditional pasta, a main course, and finish with dessert. Drinks, including water, local wines, and Italian coffee, are included.
 
-Watch as your hosts prepare authentic Italian recipes passed down through generations. Witness warm Italian hospitality, connect with locals, and leave with great memories, new friends, and a deeper understanding of Italian cuisine.</p>
-          <div class="card-footer">
-            <span class="price">From €85</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompei-dining-experience-at-a-locals-home-p1092477/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Watch as your hosts prepare authentic Italian recipes passed down through generations. Witness warm Italian hospitality, connect with locals, and leave with great memories, new friends, and a deeper understanding of Italian cuisine.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€85.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompei-dining-experience-at-a-locals-home-p1092477/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/802c9d1cdbfc4d22a7478d487ff3db42.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Mount Vesuvius: Day Trip from Rome" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii & Mount Vesuvius: Day Trip from Rome</h3>
-          <p class="venue">📍 Pompeii Day Trips from Rome</p>
-          <p>Set off on an unforgettable adventure from Rome to Mount Vesuvius and Pompeii. Join a full-day guided exploration of these iconic sites. Travel down the "Autostrada del Sole" through the scenic Roman countryside, passing the lush greenery of the "Castelli Romani."
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/802c9d1cdbfc4d22a7478d487ff3db42.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Mount Vesuvius: Day Trip from Rome" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII DAY TRIPS FROM ROME</span>
+        </div>
+        <div class="tq-card-title">Pompeii & Mount Vesuvius: Day Trip from Rome</div>
+        <div class="tq-card-desc">Set off on an unforgettable adventure from Rome to Mount Vesuvius and Pompeii. Join a full-day guided exploration of these iconic sites. Travel down the "Autostrada del Sole" through the scenic Roman countryside, passing the lush greenery of the "Castelli Romani."
 
 Enjoy the view from the open bus as it reaches the top of Mount Vesuvius, offering a clear sight of the Gulf below.
 
@@ -517,84 +907,134 @@ Follow a knowledgeable guide on a hike through the Vesuvius park, taking in the 
 
 After your hike, feast on a delicious pizza, decadent dessert, and refreshing soft drink at a Pompeii restaurant.
 
-In the afternoon, a local expert will lead a tour of the Pompeii excavations, discovering the city's tragic story from an archaeological perspective.</p>
-          <div class="card-footer">
-            <span class="price">From €159</span>
-            <span class="rating">⭐ 3.8 (12)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-and-mount-vesuvius-day-trip-from-rome-p1091359/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In the afternoon, a local expert will lead a tour of the Pompeii excavations, discovering the city's tragic story from an archaeological perspective.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(12)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€159.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-and-mount-vesuvius-day-trip-from-rome-p1091359/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sorrento: Train Transfer from/to Pompeii" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sorrento: Train Transfer from/to Pompeii</h3>
-          <p class="venue">📍 Day Trips from Pompeii</p>
-          <p>Say goodbye to the hustle of public transport and find your way to the Sorrento train station or the Pompei Scavi Villa Dei Misteri train station for seamless travel to either destination. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c7d276bda07f4e4488529bb04487bbab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sorrento: Train Transfer from/to Pompeii" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM POMPEII</span>
+        </div>
+        <div class="tq-card-title">Sorrento: Train Transfer from/to Pompeii</div>
+        <div class="tq-card-desc">Say goodbye to the hustle of public transport and find your way to the Sorrento train station or the Pompei Scavi Villa Dei Misteri train station for seamless travel to either destination. 
 
-Never fear tardiness, the train's stellar punctuality ensures you'll always be right on time. With its reliable service, the train promises you won't lose a single valuable minute in the city.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sorrento-train-transfer-from-to-pompeii-p1084576/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Never fear tardiness, the train's stellar punctuality ensures you'll always be right on time. With its reliable service, the train promises you won't lose a single valuable minute in the city.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sorrento-train-transfer-from-to-pompeii-p1084576/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/07a2b08909cc4e37836c832f0b487f45.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Train Transfer from/to Herculaneum" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii: Train Transfer from/to Herculaneum</h3>
-          <p class="venue">📍 Transfers to Pompeii</p>
-          <p>Say goodbye to the hassle of public transport and journey to Herculaneum to/from Pompeii in comfort.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/07a2b08909cc4e37836c832f0b487f45.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii: Train Transfer from/to Herculaneum" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TRANSFERS TO POMPEII</span>
+        </div>
+        <div class="tq-card-title">Pompeii: Train Transfer from/to Herculaneum</div>
+        <div class="tq-card-desc">Say goodbye to the hassle of public transport and journey to Herculaneum to/from Pompeii in comfort.
 
-Known for its reliable service, this Campania Express train ride ensures prompt arrivals to your selected destination.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-train-transfer-from-to-herculaneum-p1084575/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Known for its reliable service, this Campania Express train ride ensures prompt arrivals to your selected destination.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-train-transfer-from-to-herculaneum-p1084575/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4e89ed1ff5d44c23bd19132d94c0a5ec.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii, Herculanuem & Vesuvius: Skip The Line Tickets + Roundtrip From Pompeii" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii, Herculanuem & Vesuvius: Skip The Line Tickets + Roundtrip From Pompeii</h3>
-          <p class="venue">📍 Vesuvius Day Trips from Pompei</p>
-          <p>Embark on a captivating journey back in time and experience the infamous Vesuvius eruption of 79 AD in all its historic glory. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4e89ed1ff5d44c23bd19132d94c0a5ec.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii, Herculanuem & Vesuvius: Skip The Line Tickets + Roundtrip From Pompeii" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">VESUVIUS DAY TRIPS FROM POMPEI</span>
+        </div>
+        <div class="tq-card-title">Pompeii, Herculanuem & Vesuvius: Skip The Line Tickets + Roundtrip From Pompeii</div>
+        <div class="tq-card-desc">Embark on a captivating journey back in time and experience the infamous Vesuvius eruption of 79 AD in all its historic glory. 
 
 Spend an exhilarating day exploring two renowned archaeological sites - Pompeii and Herculaneum - and marvel at the mighty volcano that brought about their untimely demise during the Roman era. Despite the destruction, the volcano remarkably preserved their distinctive features, stunning frescoes, and grand architecture. 
 
-This adventure is designed for those who seek to immerse themselves in these precious UNESCO World Heritage Sites at their own pace, without the hassle of long waiting lines or stress. Join the adventure and indulge in the awe-inspiring beauty of the past, brought to life by the intriguing tales of Vesuvius.</p>
-          <div class="card-footer">
-            <span class="price">From €125</span>
-            <span class="rating">⭐ 4 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-full-day-tour-pompeii-ercolano-vesuvius-three-wonders-in-one-day-p1077313/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This adventure is designed for those who seek to immerse themselves in these precious UNESCO World Heritage Sites at their own pace, without the hassle of long waiting lines or stress. Join the adventure and indulge in the awe-inspiring beauty of the past, brought to life by the intriguing tales of Vesuvius.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€125.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-full-day-tour-pompeii-ercolano-vesuvius-three-wonders-in-one-day-p1077313/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Positano: Small-Group Day Trip from Rome + Limoncello Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pompeii & Positano: Small-Group Day Trip from Rome + Limoncello Tasting</h3>
-          <p class="venue">📍 Pompeii Day Trips from Rome</p>
-          <p>Get ready to be spellbound by the wonders of Pompeii, the legendary archaeological site that perished in 79AD thanks to one very active volcano!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pompeii & Positano: Small-Group Day Trip from Rome + Limoncello Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>POMPEII</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">POMPEII DAY TRIPS FROM ROME</span>
+        </div>
+        <div class="tq-card-title">Pompeii & Positano: Small-Group Day Trip from Rome + Limoncello Tasting</div>
+        <div class="tq-card-desc">Get ready to be spellbound by the wonders of Pompeii, the legendary archaeological site that perished in 79AD thanks to one very active volcano!
 
 In the comfort of a private, air-conditioned minivan, limited to just eight individuals, you'll be accompanied by an English-speaking driver who will share fascinating insights along the way. With exclusive skip-the-line access, you'll also bypass the queues and dive straight into the captivating world of Pompeii. 
 
 Led by an expert guide, you'll wander through this open-air museum, discovering the remarkably preserved ruins of ancient shops, homes, brothels, artwork, graffiti, and an array of captivating artifacts that provide a vivid glimpse into the daily life of ancient Rome.
 
-You’ll also visit the stunning coastal village of Positano, with its iconic colorful houses and breathtaking views over the Amalfi Coast. Step into a real Limoncello shop, and taste some for yourself!</p>
-          <div class="card-footer">
-            <span class="price">From €279</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-positano-day-trip-from-rome-with-limoncello-tasting-p1064952/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You’ll also visit the stunning coastal village of Positano, with its iconic colorful houses and breathtaking views over the Amalfi Coast. Step into a real Limoncello shop, and taste some for yourself!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€279.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pompeii-positano-day-trip-from-rome-with-limoncello-tasting-p1064952/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

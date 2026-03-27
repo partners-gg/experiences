@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Genoa | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Genoa. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,396 +131,649 @@
     <p>23 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e8d2467e8a284031ad2c6629f5ad911b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquarium of Genoa: Reserved Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aquarium of Genoa: Reserved Entry</h3>
-          <p class="venue">📍 Aquarium of Genoa</p>
-          <p>If you like the thought of watching sharks in action, but prefer to stay dry with all your limbs intact, head to the Aquarium of Genoa. Sharks, dolphins, penguins and more reside in Europe's largest aquarium, where 70 rooms house 12,000 animals and sea creatures. Built inside an old ship in the harbor, the entire thing is a visual spectacular!</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐ 4.5 (7010)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aquarium-of-genoa-reserved-entry-p974627/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e8d2467e8a284031ad2c6629f5ad911b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquarium of Genoa: Reserved Entry" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AQUARIUM OF GENOA</span>
+        </div>
+        <div class="tq-card-title">Aquarium of Genoa: Reserved Entry</div>
+        <div class="tq-card-desc">If you like the thought of watching sharks in action, but prefer to stay dry with all your limbs intact, head to the Aquarium of Genoa. Sharks, dolphins, penguins and more reside in Europe's largest aquarium, where 70 rooms house 12,000 animals and sea creatures. Built inside an old ship in the harbor, the entire thing is a visual spectacular!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(7,010)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aquarium-of-genoa-reserved-entry-p974627/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e1f7bc35c1194c3fafa7da3ccd09d0f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquarium of Genoa: Entry Ticket + Food Experience" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aquarium of Genoa: Entry Ticket + Food Experience</h3>
-          <p class="venue">📍 Aquarium of Genoa</p>
-          <p>Visit the Aquarium of Genoa to see a wide variety of aquatic species from around the globe. Walk through large exhibits that showcase marine environments and their inhabitants. Observe feeding sessions where you can learn about different species and their behaviors. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e1f7bc35c1194c3fafa7da3ccd09d0f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquarium of Genoa: Entry Ticket + Food Experience" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AQUARIUM OF GENOA</span>
+        </div>
+        <div class="tq-card-title">Aquarium of Genoa: Entry Ticket + Food Experience</div>
+        <div class="tq-card-desc">Visit the Aquarium of Genoa to see a wide variety of aquatic species from around the globe. Walk through large exhibits that showcase marine environments and their inhabitants. Observe feeding sessions where you can learn about different species and their behaviors. 
 
-After you've seen fish and sea creatures, get ready for a taste of Genoan street food. Located under the arches of Sottoripa near the Aquarium, a historic fry shop delivers delicious fried seafood and local Ligurian dishes.</p>
-          <div class="card-footer">
-            <span class="price">From €31</span>
-            <span class="rating">⭐ 4.4 (831)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-genoa-aquarium-entry-ticket-food-experience-p1111248/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After you've seen fish and sea creatures, get ready for a taste of Genoan street food. Located under the arches of Sottoripa near the Aquarium, a historic fry shop delivers delicious fried seafood and local Ligurian dishes.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(831)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€31.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-genoa-aquarium-entry-ticket-food-experience-p1111248/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6bef31b716ed4e8aad5a8c133cc3ecac.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquarium of Genoa & Galata Sea Museum: Entry Ticket + Submarine Visit" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aquarium of Genoa & Galata Sea Museum: Entry Ticket + Submarine Visit</h3>
-          <p class="venue">📍 Aquarium of Genoa</p>
-          <p>Skip the lines at two of Genoa's biggest and best attractions. Join the dolphins, sharks, penguins and 12,000 other oceanic creatures in the 3,000-m2 Aquarium of Genoa. Then take a seafaring trip back in time to the days of Christopher Columbus; even visit his galley ship at the Galata Sea Museum!</p>
-          <div class="card-footer">
-            <span class="price">From €41.5</span>
-            <span class="rating">⭐ 4.4 (874)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aquarium-of-genoa-galata-sea-museum-p974637/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6bef31b716ed4e8aad5a8c133cc3ecac.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquarium of Genoa & Galata Sea Museum: Entry Ticket + Submarine Visit" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AQUARIUM OF GENOA</span>
+        </div>
+        <div class="tq-card-title">Aquarium of Genoa & Galata Sea Museum: Entry Ticket + Submarine Visit</div>
+        <div class="tq-card-desc">Skip the lines at two of Genoa's biggest and best attractions. Join the dolphins, sharks, penguins and 12,000 other oceanic creatures in the 3,000-m2 Aquarium of Genoa. Then take a seafaring trip back in time to the days of Christopher Columbus; even visit his galley ship at the Galata Sea Museum!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(874)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€41.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aquarium-of-genoa-galata-sea-museum-p974637/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e1f7bc35c1194c3fafa7da3ccd09d0f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The City of Children and Youth - Experience Museum" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>The City of Children and Youth - Experience Museum</h3>
-          <p class="venue">📍 The City of Children and Youth</p>
-          <p>The Five Senses exhibition at La Città dei Bambini e dei Ragazzi in Genoa explores the human senses! Think of them as a tool to transmit knowledge and have fun, in a place that guides children and young people on a real journey to discover themselves and the world through direct experiences! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e1f7bc35c1194c3fafa7da3ccd09d0f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The City of Children and Youth - Experience Museum" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">THE CITY OF CHILDREN AND YOUTH</span>
+        </div>
+        <div class="tq-card-title">The City of Children and Youth - Experience Museum</div>
+        <div class="tq-card-desc">The Five Senses exhibition at La Città dei Bambini e dei Ragazzi in Genoa explores the human senses! Think of them as a tool to transmit knowledge and have fun, in a place that guides children and young people on a real journey to discover themselves and the world through direct experiences! 
 
-From taste to touch, to smell and beyond, explore a technological, colorful, contemporary environment that immerses you in the unbelievable around every corner thanks to multimedia exhibits and more. Look out for workshops, too.</p>
-          <div class="card-footer">
-            <span class="price">From €12</span>
-            <span class="rating">⭐ 4.1 (309)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-city-of-children-and-youth-experience-museum-p1046917/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+From taste to touch, to smell and beyond, explore a technological, colorful, contemporary environment that immerses you in the unbelievable around every corner thanks to multimedia exhibits and more. Look out for workshops, too.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(309)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-city-of-children-and-youth-experience-museum-p1046917/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/80b4e59fe8bd45c896264e990c10949f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Biosphere: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Biosphere: Fast Track Ticket</h3>
-          <p class="venue">📍 Biosphere</p>
-          <p>Sure, it _looks_ like half a giant clear golf ball sitting on Genoa's Old Port, but this amazing 'Glass Bubble' has over 150 different species of tropical plants, trees, and flowers packed inside! _La Biosfera_ is bursting with tropical beauty, just behind the Genoa Aquarium!</p>
-          <div class="card-footer">
-            <span class="price">From €6</span>
-            <span class="rating">⭐ 4 (251)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-biosphere-p974642/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/80b4e59fe8bd45c896264e990c10949f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Biosphere: Fast Track Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BIOSPHERE</span>
+        </div>
+        <div class="tq-card-title">Biosphere: Fast Track Ticket</div>
+        <div class="tq-card-desc">Sure, it _looks_ like half a giant clear golf ball sitting on Genoa's Old Port, but this amazing 'Glass Bubble' has over 150 different species of tropical plants, trees, and flowers packed inside! _La Biosfera_ is bursting with tropical beauty, just behind the Genoa Aquarium!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(251)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€6.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-biosphere-p974642/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e8d2467e8a284031ad2c6629f5ad911b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquarium of Genoa & The City of Children and Youth: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aquarium of Genoa & The City of Children and Youth: Entry Ticket</h3>
-          <p class="venue">📍 Aquarium of Genoa</p>
-          <p>Enjoy two of Genoa's top attractions with this combined entry ticket for the Aquarium of Genoa and the City of Children and Youth. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e8d2467e8a284031ad2c6629f5ad911b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquarium of Genoa & The City of Children and Youth: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AQUARIUM OF GENOA</span>
+        </div>
+        <div class="tq-card-title">Aquarium of Genoa & The City of Children and Youth: Entry Ticket</div>
+        <div class="tq-card-desc">Enjoy two of Genoa's top attractions with this combined entry ticket for the Aquarium of Genoa and the City of Children and Youth. 
 
 The whole family will have a splash-tastic time in Italy's largest aquarium. Visit two renovated areas in the Aquarium of Genoa dedicated to the conservation and recovery of rescue animals entrusted to the aquarium, and make friends with ocean dwellers from little fish to sharks.
 
 At the City of Children and Youth, explore a play area with over 3,000 square meters devoted to children's activities. 
 
-Enjoy a colorful environment with five rooms dedicated to the five senses of sight, sound, smell, taste, and touch. Spend time in spaces dedicated to interactive experiences with no set route. Move from room to room as you please and challenge your senses!</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐ 4.3 (203)</span>
-            <a href="https://www.tiqets.com/en/checkout/combined-ticket-aquarium-genoa-city-of-children-youth-p1049123/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a colorful environment with five rooms dedicated to the five senses of sight, sound, smell, taste, and touch. Spend time in spaces dedicated to interactive experiences with no set route. Move from room to room as you please and challenge your senses!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(203)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/combined-ticket-aquarium-genoa-city-of-children-youth-p1049123/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5eb8c85407ab44158f17f6993d4ab598.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bigo Panoramic Lift: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bigo Panoramic Lift: Fast Track Ticket</h3>
-          <p class="venue">📍 Bigo Panoramic Lift</p>
-          <p>It's up, up, and away to the skies of Genoa with this thrilling 360° experience. Welcome to The Bigo, a panoramic lift at the Aquarium of Genoa that offers an extra special bird's-eye view of one of Europe's richest and most vibrant historical centers!</p>
-          <div class="card-footer">
-            <span class="price">From €6</span>
-            <span class="rating">⭐ 3.9 (127)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bigo-panoramic-lift-p974684/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5eb8c85407ab44158f17f6993d4ab598.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bigo Panoramic Lift: Fast Track Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BIGO PANORAMIC LIFT</span>
+        </div>
+        <div class="tq-card-title">Bigo Panoramic Lift: Fast Track Ticket</div>
+        <div class="tq-card-desc">It's up, up, and away to the skies of Genoa with this thrilling 360° experience. Welcome to The Bigo, a panoramic lift at the Aquarium of Genoa that offers an extra special bird's-eye view of one of Europe's richest and most vibrant historical centers!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(127)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€6.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bigo-panoramic-lift-p974684/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b136b458100a4e3fb94b55325ffccb3d.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="City Sightseeing Genoa: Hop-on Hop-off Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>City Sightseeing Genoa: Hop-on Hop-off Bus Tour</h3>
-          <p class="venue">📍 Genoa Hop-on Hop-off Tours</p>
-          <p>Italy's famous port city is overflowing with things to see and do, from the Piazza Caricamento to the historic harbor district. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b136b458100a4e3fb94b55325ffccb3d.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="City Sightseeing Genoa: Hop-on Hop-off Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GENOA HOP-ON HOP-OFF TOURS</span>
+        </div>
+        <div class="tq-card-title">City Sightseeing Genoa: Hop-on Hop-off Bus Tour</div>
+        <div class="tq-card-desc">Italy's famous port city is overflowing with things to see and do, from the Piazza Caricamento to the historic harbor district. 
 
-Take the hassle out of your sightseeing with this 24h/48h pass, giving you unlimited access to a fleet of luxury buses ready to carry you between the most unmissable hotspots in town.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 4 (147)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-genoa-p975110/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take the hassle out of your sightseeing with this 24h/48h pass, giving you unlimited access to a fleet of luxury buses ready to carry you between the most unmissable hotspots in town.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(147)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-genoa-p975110/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e8d2467e8a284031ad2c6629f5ad911b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquarium of Genoa: Fast Track Ticket + Impossible Museum" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aquarium of Genoa: Fast Track Ticket + Impossible Museum</h3>
-          <p class="venue">📍 Aquarium of Genoa</p>
-          <p>The Museum of Illusions is getting a new name. It is now called the Museum of the Impossible and introduces new features like 3D interactive art and Selfie & Dreams, offering a full 360° experience.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e8d2467e8a284031ad2c6629f5ad911b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquarium of Genoa: Fast Track Ticket + Impossible Museum" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AQUARIUM OF GENOA</span>
+        </div>
+        <div class="tq-card-title">Aquarium of Genoa: Fast Track Ticket + Impossible Museum</div>
+        <div class="tq-card-desc">The Museum of Illusions is getting a new name. It is now called the Museum of the Impossible and introduces new features like 3D interactive art and Selfie & Dreams, offering a full 360° experience.
 
 The space includes over 60 installations designed to surprise and entertain. You can take unique photos and selfies that play with perception and challenge what feels real.
 
 When you're done exploring the Impossible Museum, head over to the Acquario di Genova for an immersive and engaging experience like no other. With innovative sets, cutting-edge digital installations, and a completely revamped light and sound design, you'll feel like you're right in the heart of the action.
 
-You'll get to interact with the expert staff who care for the animals and learn all about them!</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 4.3 (54)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aquarium-of-genoa-fast-track-impossible-museum-p1066430/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll get to interact with the expert staff who care for the animals and learn all about them!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(54)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aquarium-of-genoa-fast-track-impossible-museum-p1066430/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6bef31b716ed4e8aad5a8c133cc3ecac.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Galata Maritime Museum: Fast Track Ticket + Nazario Sauro Submarine" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Galata Maritime Museum: Fast Track Ticket + Nazario Sauro Submarine</h3>
-          <p class="venue">📍 Galata Maritime Museum</p>
-          <p>Visit the Galata Maritime Museum and the Nazario Sauro Submarine in Genoa. See the museum's maritime culture collection and learn about the living conditions of sailors aboard a real submarine.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6bef31b716ed4e8aad5a8c133cc3ecac.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Galata Maritime Museum: Fast Track Ticket + Nazario Sauro Submarine" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GALATA MARITIME MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Galata Maritime Museum: Fast Track Ticket + Nazario Sauro Submarine</div>
+        <div class="tq-card-desc">Visit the Galata Maritime Museum and the Nazario Sauro Submarine in Genoa. See the museum's maritime culture collection and learn about the living conditions of sailors aboard a real submarine.
 
-See the collection of marine paintings from the 1800s to the 1900s. Enjoy a 360° view of the historic center and port from the Mirador terrace.</p>
-          <div class="card-footer">
-            <span class="price">From €19</span>
-            <span class="rating">⭐ 4.5 (325)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-galata-maritime-museum-fast-track-nazario-sauro-submarine-p1118230/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See the collection of marine paintings from the 1800s to the 1900s. Enjoy a 360° view of the historic center and port from the Mirador terrace.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(325)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-galata-maritime-museum-fast-track-nazario-sauro-submarine-p1118230/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e8d2467e8a284031ad2c6629f5ad911b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genoa Port Tour by Boat" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Genoa Port Tour by Boat</h3>
-          <p class="venue">📍 Genoa Boat Tours</p>
-          <p>Hop on this Genoa Port tour and navigate the ever-quiet waters of Genoa's three port basins of Porto Vecchio, Avamporto and Porto Nuovo by boat. You will be given all the information about the many activities taking place on the docks, in Italian, English and German.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e8d2467e8a284031ad2c6629f5ad911b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genoa Port Tour by Boat" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GENOA BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Genoa Port Tour by Boat</div>
+        <div class="tq-card-desc">Hop on this Genoa Port tour and navigate the ever-quiet waters of Genoa's three port basins of Porto Vecchio, Avamporto and Porto Nuovo by boat. You will be given all the information about the many activities taking place on the docks, in Italian, English and German.
 
 A Genoa port tour by boat is an essential experience in this iconic seaside city. As you sail along the coast, you can take in the breathtaking views of the Genoa skyline. See the majestic Cathedral of San Lorenzo, the bustling Piazza de Ferrari, and the iconic Lanterna di Genova. 
 
-Witness the many boats, ships, and ferries coming and going in Genoa's bustling harbor, and observe the old city walls and the historic Castello d’Albertis, not to mention the stunning views of the surrounding hills, mountains, and the sparkling Mediterranean Sea.</p>
-          <div class="card-footer">
-            <span class="price">From €10</span>
-            <span class="rating">⭐ 4 (46)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-genoa-boat-tour-p1049693/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Witness the many boats, ships, and ferries coming and going in Genoa's bustling harbor, and observe the old city walls and the historic Castello d’Albertis, not to mention the stunning views of the surrounding hills, mountains, and the sparkling Mediterranean Sea.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(46)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€10.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-genoa-boat-tour-p1049693/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/559b88bef72b485f95f14a88cfb13547.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquarium of Genoa & Whale Watching Cruise" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aquarium of Genoa & Whale Watching Cruise</h3>
-          <p class="venue">📍 Aquarium of Genoa</p>
-          <p>The Aquarium of Genoa is one of the biggest in Europe and has a wide range of aquatic animals ready to delight visitors. Designed by a award-winning Renzo Piano, it features dolphins, sharks, penguins, manatees, seals, and fish.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/559b88bef72b485f95f14a88cfb13547.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aquarium of Genoa & Whale Watching Cruise" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AQUARIUM OF GENOA</span>
+        </div>
+        <div class="tq-card-title">Aquarium of Genoa & Whale Watching Cruise</div>
+        <div class="tq-card-desc">The Aquarium of Genoa is one of the biggest in Europe and has a wide range of aquatic animals ready to delight visitors. Designed by a award-winning Renzo Piano, it features dolphins, sharks, penguins, manatees, seals, and fish.
 
-There's one animal too big to fit in an aquarium – and you're going to do your best to spot them on your whale watching cruise! Visit the heart of the Cetacean Sanctuary, where you can observe these beautiful creatures in their natural habitat.</p>
-          <div class="card-footer">
-            <span class="price">From €72</span>
-            <span class="rating">⭐ 4.5 (33)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aquarium-of-genoa-whale-watching-cruise-p978665/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There's one animal too big to fit in an aquarium – and you're going to do your best to spot them on your whale watching cruise! Visit the heart of the Cetacean Sanctuary, where you can observe these beautiful creatures in their natural habitat.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(33)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€72.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aquarium-of-genoa-whale-watching-cruise-p978665/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e8d2467e8a284031ad2c6629f5ad911b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Porto Antico Genova: Impossible Museum Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Porto Antico Genova: Impossible Museum Entry</h3>
-          <p class="venue">📍 Genoa Porto Antico</p>
-          <p>The Museum of Illusions is getting a new name. Starting April 10, 2025, it is called the Museum of the Impossible and will introduce new features like 3D interactive art and Selfie & Dreams, offering a full 360° experience.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e8d2467e8a284031ad2c6629f5ad911b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Porto Antico Genova: Impossible Museum Entry" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GENOA PORTO ANTICO</span>
+        </div>
+        <div class="tq-card-title">Porto Antico Genova: Impossible Museum Entry</div>
+        <div class="tq-card-desc">The Museum of Illusions is getting a new name. Starting April 10, 2025, it is called the Museum of the Impossible and will introduce new features like 3D interactive art and Selfie & Dreams, offering a full 360° experience.
 
-The space includes over 60 installations designed to surprise and entertain. You can take unique photos and selfies that play with perception and challenge what feels real.</p>
-          <div class="card-footer">
-            <span class="price">From €16</span>
-            <span class="rating">⭐ 4.4 (87)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-porto-antico-genova-impossible-museum-entry-p1065559/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The space includes over 60 installations designed to surprise and entertain. You can take unique photos and selfies that play with perception and challenge what feels real.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(87)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€16.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-porto-antico-genova-impossible-museum-entry-p1065559/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e8d2467e8a284031ad2c6629f5ad911b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sea Pass: Aquarium of Genoa & Galata Museum Entry Ticket + Harbor Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sea Pass: Aquarium of Genoa & Galata Museum Entry Ticket + Harbor Boat Tour</h3>
-          <p class="venue">📍 Galata Maritime Museum</p>
-          <p>Genoa's history is deeply connected to the sea. With the Genoa Sea Pass, you'll find out first hand, with access to an boat-load of awesome attractions.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e8d2467e8a284031ad2c6629f5ad911b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sea Pass: Aquarium of Genoa & Galata Museum Entry Ticket + Harbor Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GALATA MARITIME MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Sea Pass: Aquarium of Genoa & Galata Museum Entry Ticket + Harbor Boat Tour</div>
+        <div class="tq-card-desc">Genoa's history is deeply connected to the sea. With the Genoa Sea Pass, you'll find out first hand, with access to an boat-load of awesome attractions.
 
 The Genoa Sea Pass includes entry to Genoa Aquarium, Galata Museo Del Mare, and the Nazario Sauro submarine.
 
 The pass also includes a Genoa Harbor Tour by boat, departing from the dock of the Aquarium of Genoa. This tour gives you an all-new perspective of the enchanting panorama of one of Europe's largest ports. 
 
-Don't miss out; book your Genoa Sea Pass now.</p>
-          <div class="card-footer">
-            <span class="price">From €51</span>
-            <span class="rating">⭐ 4.6 (47)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sea-pass-p1047626/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Don't miss out; book your Genoa Sea Pass now.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(47)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€51.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sea-pass-p1047626/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2447c9380c8f4d5aa2456aa49268eaf3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="FantaCinema: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>FantaCinema: Entry Ticket</h3>
-          <p class="venue">📍 FantaCinema</p>
-          <p>FantaCinema allows movie buffs and casual film fans alike to trace the journey of one of the world's favourite genres. Everything from Dracula to Marvel is covered on this deep-dive into the world of fantasy cinema! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2447c9380c8f4d5aa2456aa49268eaf3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="FantaCinema: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FANTACINEMA</span>
+        </div>
+        <div class="tq-card-title">FantaCinema: Entry Ticket</div>
+        <div class="tq-card-desc">FantaCinema allows movie buffs and casual film fans alike to trace the journey of one of the world's favourite genres. Everything from Dracula to Marvel is covered on this deep-dive into the world of fantasy cinema! 
 
-The tour includes a historical section that explores early cinema, cameras, projection and more. Plus, get Instagram-worthy photos with some of your favourite characters in life-size, from movies like Lord of the Rings, Hellboy, Pirates of the Caribbean and more. There are authentic props and costumes from hit movies, and so much more.</p>
-          <div class="card-footer">
-            <span class="price">From €6</span>
-            <span class="rating">⭐ 4.3 (12)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fantacinema-p1020050/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The tour includes a historical section that explores early cinema, cameras, projection and more. Plus, get Instagram-worthy photos with some of your favourite characters in life-size, from movies like Lord of the Rings, Hellboy, Pirates of the Caribbean and more. There are authentic props and costumes from hit movies, and so much more.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(12)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€6.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fantacinema-p1020050/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d6e99926819a4af2b6f441e3a6b6fef7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genoa City Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Genoa City Pass</h3>
-          <p class="venue">📍 Genoa City Cards</p>
-          <p>The Genova City Pass is Genoa's official tourist pass that accompanies you as you discover the historic Ligurian city.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d6e99926819a4af2b6f441e3a6b6fef7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genoa City Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GENOA CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Genoa City Pass</div>
+        <div class="tq-card-desc">The Genova City Pass is Genoa's official tourist pass that accompanies you as you discover the historic Ligurian city.
 
 The pass includes access to public transport in Genoa (bus, metro, elevators, and funicular system) and free entry to the main museum and cultural attractions in the city.
 
 All you have to do is pick up your Genova City Pass at the Tourist Information and Reception Office on Via Garibaldi 12r, show your pass (digital or paper) at one of the attractions, and enter!
 
-Make your visit to Genoa a breeze!</p>
-          <div class="card-footer">
-            <span class="price">From €23.6</span>
-            <span class="rating">⭐ 2.9 (14)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-genoa-city-pass-p1043662/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Make your visit to Genoa a breeze!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2.9</strong>
+            <span class="tq-reviews">(14)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.60</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-genoa-city-pass-p1043662/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/80b4e59fe8bd45c896264e990c10949f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genoa Family Pass" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Genoa Family Pass</h3>
-          <p class="venue">📍 Genoa City Cards</p>
-          <p>Visit the world's largest aquarium with 12,000 creatures in 70 unique environments, dine at the Tender Cafè with a stunning terrace view, and step inside the Glass Bubble designed by Renzo Piano, which features over 150 plants. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/80b4e59fe8bd45c896264e990c10949f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genoa Family Pass" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GENOA CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Genoa Family Pass</div>
+        <div class="tq-card-desc">Visit the world's largest aquarium with 12,000 creatures in 70 unique environments, dine at the Tender Cafè with a stunning terrace view, and step inside the Glass Bubble designed by Renzo Piano, which features over 150 plants. 
 
 You can explore the city at your own pace with the Hop-on-hop-off bus, take in panoramic views and download the Sightseeing Experience app. For the little ones, the captivating Five Senses exhibition at La Città dei Bambini e dei Ragazzi awaits. Don't miss the Splash exhibit designed for kids aged two to four.  
 
-The Genoa Family Pass is your gateway to unforgettable moments of fun, learning, and wonder for the whole family!</p>
-          <div class="card-footer">
-            <span class="price">From €63.5</span>
-            <span class="rating">⭐ 4.6 (18)</span>
-            <a href="https://www.tiqets.com/en/checkout/family-genoa-pass-p1071278/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Genoa Family Pass is your gateway to unforgettable moments of fun, learning, and wonder for the whole family!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(18)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€63.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/family-genoa-pass-p1071278/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/811a5f4b408a4c0f95896825b3a64c22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genoa: Old Town Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Genoa: Old Town Guided Walking Tour</h3>
-          <p class="venue">📍 Genoa City Tours</p>
-          <p>Join this guided walking tour, which begins on Strada Nuova (Via Garibaldi), a UNESCO World Heritage Site, and takes you through Europe’s largest medieval historic centre.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/811a5f4b408a4c0f95896825b3a64c22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genoa: Old Town Guided Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GENOA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Genoa: Old Town Guided Walking Tour</div>
+        <div class="tq-card-desc">Join this guided walking tour, which begins on Strada Nuova (Via Garibaldi), a UNESCO World Heritage Site, and takes you through Europe’s largest medieval historic centre.
 
 The ticket includes entry to the Strada Nuova Museums, which display artworks by Italian and international artists from the 15th to the 19th centuries, with a strong focus on the Genoese and Flemish schools. 
 
 You’ll also visit the Sant’Agostino Museum, which houses important works from medieval Genoa inside its cloister and Gothic church.
 
-As you walk through the city, you’ll learn about Genoa’s history as a maritime republic and see key landmarks, including the Palazzi dei Rolli on Via Garibaldi, the Cathedral of San Lorenzo, Palazzo Ducale, and the Teatro Carlo Felice.</p>
-          <div class="card-footer">
-            <span class="price">From €16.24</span>
-            <span class="rating">⭐ 3 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-genoa-old-town-guided-walking-tour-p974608/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As you walk through the city, you’ll learn about Genoa’s history as a maritime republic and see key landmarks, including the Palazzi dei Rolli on Via Garibaldi, the Cathedral of San Lorenzo, Palazzo Ducale, and the Teatro Carlo Felice.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€16.24</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-genoa-old-town-guided-walking-tour-p974608/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f1e1a6680a394fbc8ceb42907d85d339.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rolli Palaces: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rolli Palaces: Guided Tour</h3>
-          <p class="venue">📍 Rolli Palaces</p>
-          <p>Take a tour with a professional guide through Genoa's rich history at this grandiose UNESCO World Heritage Site. The Rolli Palaces were once the residences of visiting VIPs, built by the aristocrats of Genoa in the 16th and 17th centuries. See incredible art, sculptures, frescoes, entrance halls, and more!</p>
-          <div class="card-footer">
-            <span class="price">From €16.24</span>
-            <span class="rating">⭐ 4.6 (20)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rolli-palaces-guided-walking-tour-p974606/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f1e1a6680a394fbc8ceb42907d85d339.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rolli Palaces: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROLLI PALACES</span>
+        </div>
+        <div class="tq-card-title">Rolli Palaces: Guided Tour</div>
+        <div class="tq-card-desc">Take a tour with a professional guide through Genoa's rich history at this grandiose UNESCO World Heritage Site. The Rolli Palaces were once the residences of visiting VIPs, built by the aristocrats of Genoa in the 16th and 17th centuries. See incredible art, sculptures, frescoes, entrance halls, and more!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(20)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€16.24</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rolli-palaces-guided-walking-tour-p974606/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Portofino: Bus Tour from Genoa" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Portofino: Bus Tour from Genoa</h3>
-          <p class="venue">📍 Portofino Day Trips from Genoa</p>
-          <p>Join a day trip from Genoa to Portofino, with stops along the beautiful Ligurian coast.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23648952627642dfac94a1707ed2c19d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Portofino: Bus Tour from Genoa" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PORTOFINO DAY TRIPS FROM GENOA</span>
+        </div>
+        <div class="tq-card-title">Portofino: Bus Tour from Genoa</div>
+        <div class="tq-card-desc">Join a day trip from Genoa to Portofino, with stops along the beautiful Ligurian coast.
 
 You’ll start your journey in Genoa on a comfortable open-top bus. Along the way, you’ll pass towns like Camogli, Santa Margherita Ligure, and Rapallo. A guide will be on board, sharing interesting facts about the region and its culture in English.
 
 Once you reach Portofino, you'll have time to walk around, visit local shops and cafes, or take a short hike to Castle Brown for a view of the area.
 
-After your visit to Portofino, the tour returns to Genoa. You’ll also receive access to the City Sightseeing Genova hop-on hop-off bus service for the rest of the day, so you can continue exploring the city at your own pace.</p>
-          <div class="card-footer">
-            <span class="price">From €65</span>
-            <span class="rating">⭐ 4.2 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-portofino-bus-tour-from-genoa-p1066815/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After your visit to Portofino, the tour returns to Genoa. You’ll also receive access to the City Sightseeing Genova hop-on hop-off bus service for the rest of the day, so you can continue exploring the city at your own pace.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€65.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-portofino-bus-tour-from-genoa-p1066815/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/286b2a54cd00432787e38e77632acdd7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genoa: Cooking Class and Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Genoa: Cooking Class and Tasting</h3>
-          <p class="venue">📍 Genova Food Tours</p>
-          <p>Roll up your sleeves and dive into the world of Ligurian and Genovese cuisine with this traditional cooking class in Genoa, hosted by a local professional who will guide you through the experience. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/286b2a54cd00432787e38e77632acdd7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genoa: Cooking Class and Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GENOVA FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Genoa: Cooking Class and Tasting</div>
+        <div class="tq-card-desc">Roll up your sleeves and dive into the world of Ligurian and Genovese cuisine with this traditional cooking class in Genoa, hosted by a local professional who will guide you through the experience. 
 
-There, the kitchen turns into a playground, and the cooking class becomes a gateway to explore four traditional recipes. Once the masterpieces are ready, you gather around the table to relish the fruits of your labor.</p>
-          <div class="card-footer">
-            <span class="price">From €95</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-genoa-cooking-class-pesto-focaccia-pasta-making-class-with-tastings-p1081942/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There, the kitchen turns into a playground, and the cooking class becomes a gateway to explore four traditional recipes. Once the masterpieces are ready, you gather around the table to relish the fruits of your labor.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€95.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-genoa-cooking-class-pesto-focaccia-pasta-making-class-with-tastings-p1081942/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/286b2a54cd00432787e38e77632acdd7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genoa: Gourmet Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Genoa: Gourmet Food Tour</h3>
-          <p class="venue">📍 Genova Food Tours</p>
-          <p>Join your friendly guide at the iconic Neptune Galleon for a delightful stroll through the cozy cobblestone streets of Genoa. This epicurean escapade leads you to a mix of historic hideaways, modern cafes, and hip restaurants, offering a chance to savor the true culinary delights of the city. As you nibble, you'll soak up the authentic Genoese lifestyle, rub elbows with the locals, and learn fascinating tales about the city's rich history and food culture.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/286b2a54cd00432787e38e77632acdd7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genoa: Gourmet Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GENOVA FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Genoa: Gourmet Food Tour</div>
+        <div class="tq-card-desc">Join your friendly guide at the iconic Neptune Galleon for a delightful stroll through the cozy cobblestone streets of Genoa. This epicurean escapade leads you to a mix of historic hideaways, modern cafes, and hip restaurants, offering a chance to savor the true culinary delights of the city. As you nibble, you'll soak up the authentic Genoese lifestyle, rub elbows with the locals, and learn fascinating tales about the city's rich history and food culture.
 
 Here's a sneak peek of the possible tastings:
 * Start the day Genoese-style with a piece of focaccia dipped into a warm cappuccino. Discover an unexpected harmony of sweet and salty that will leave your taste buds dancing!
 * Next, indulge in a focaccia filled with creamy Stracchino cheese, a recipe that's as thin as it is delicious
-* Dig into a plate of pasta dressed in pesto, created from a traditional recipe featuring fresh local basil and crunchy pine nuts</p>
-          <div class="card-footer">
-            <span class="price">From €95</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-genoa-gourmet-food-tour-p1081670/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+* Dig into a plate of pasta dressed in pesto, created from a traditional recipe featuring fresh local basil and crunchy pine nuts</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€95.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-genoa-gourmet-food-tour-p1081670/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/286b2a54cd00432787e38e77632acdd7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genoa: Traditional Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Genoa: Traditional Food Tour</h3>
-          <p class="venue">📍 Genova Food Tours</p>
-          <p>The Genoa Food Tour, is a culinary adventure through the city's downtown area with a local foodie. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/286b2a54cd00432787e38e77632acdd7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genoa: Traditional Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>GENOA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GENOVA FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Genoa: Traditional Food Tour</div>
+        <div class="tq-card-desc">The Genoa Food Tour, is a culinary adventure through the city's downtown area with a local foodie. 
 
 You'll visit typical Genovese restaurants and taste some of the best traditional dishes, while surrounding yourself in a genuine and unique environment. It's the most memorable way of tasting the city’s traditional specialties. 
 
-Your guide will recommend the the best dishes to introduce you to the region's culinary traditions, so you can walk away with an authentic experience of what the city loves to eat.</p>
-          <div class="card-footer">
-            <span class="price">From €81</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-genoa-food-tour-p1049488/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your guide will recommend the the best dishes to introduce you to the region's culinary traditions, so you can walk away with an authentic experience of what the city loves to eat.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€81.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-genoa-food-tour-p1049488/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

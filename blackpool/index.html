@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Blackpool | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Blackpool. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,88 +131,143 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ec59eefe05ee4e3dbc0b9469a01274f9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sandcastle Waterpark: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sandcastle Waterpark: Entry Ticket</h3>
-          <p class="venue">📍 Sandcastle Waterpark</p>
-          <p>Visit the UK's largest indoor water park at Blackpool’s South Promenade. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ec59eefe05ee4e3dbc0b9469a01274f9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Sandcastle Waterpark: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BLACKPOOL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SANDCASTLE WATERPARK</span>
+        </div>
+        <div class="tq-card-title">Sandcastle Waterpark: Entry Ticket</div>
+        <div class="tq-card-desc">Visit the UK's largest indoor water park at Blackpool’s South Promenade. 
 
-This park includes waterslides, family attractions, and areas designed for children, all maintained in a comfortable indoor tropical climate.</p>
-          <div class="card-footer">
-            <span class="price">From €26.45</span>
-            <span class="rating">⭐ 3 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blackpool-sandcastle-waterpark-p1126337/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This park includes waterslides, family attractions, and areas designed for children, all maintained in a comfortable indoor tropical climate.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.45</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blackpool-sandcastle-waterpark-p1126337/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1224f088a12343b4899b1c8ffe8ca267.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SEA LIFE Blackpool: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>SEA LIFE Blackpool: Entry Ticket</h3>
-          <p class="venue">📍 SEA LIFE Blackpool</p>
-          <p>Learn about native creatures on the shorelines of the North West, find out what happens in turtle rehab, and see how you can help with conservation - all at SEA LIFE Blackpool. A top family attraction that's all the fun of the sea, minus the getting wet bit!</p>
-          <div class="card-footer">
-            <span class="price">From €19.02</span>
-            <span class="rating">⭐ 4.1 (62)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sea-life-blackpool-p976609/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1224f088a12343b4899b1c8ffe8ca267.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SEA LIFE Blackpool: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BLACKPOOL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SEA LIFE BLACKPOOL</span>
+        </div>
+        <div class="tq-card-title">SEA LIFE Blackpool: Entry Ticket</div>
+        <div class="tq-card-desc">Learn about native creatures on the shorelines of the North West, find out what happens in turtle rehab, and see how you can help with conservation - all at SEA LIFE Blackpool. A top family attraction that's all the fun of the sea, minus the getting wet bit!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(62)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.02</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sea-life-blackpool-p976609/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ec59eefe05ee4e3dbc0b9469a01274f9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Gruffalo & Friends Clubhouse: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>The Gruffalo & Friends Clubhouse: Entry Ticket</h3>
-          <p class="venue">📍 The Gruffalo & Friends Clubhouse</p>
-          <p>Adapted from some of the UK’s most loved children’s stories by Julia Donaldson and Axel Scheffler, your little adventure-seekers will come face to face with beloved characters from The Gruffalo, Zog, The Snail and the Whale, Room on the Broom and more!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ec59eefe05ee4e3dbc0b9469a01274f9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Gruffalo & Friends Clubhouse: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BLACKPOOL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">THE GRUFFALO & FRIENDS CLUBHOUSE</span>
+        </div>
+        <div class="tq-card-title">The Gruffalo & Friends Clubhouse: Entry Ticket</div>
+        <div class="tq-card-desc">Adapted from some of the UK’s most loved children’s stories by Julia Donaldson and Axel Scheffler, your little adventure-seekers will come face to face with beloved characters from The Gruffalo, Zog, The Snail and the Whale, Room on the Broom and more!
 
 Meet the Gruffalo and Mouse as you clamber, crawl and slide your way through the multiple depths of the deep dark wood. Enrol into Dragon School with Zog and take on some of Madam Dragon’s challenges in the medieval, soft-padded maze.
 
 Dive straight in to join Snail and Whale in the ocean-themed ball-pool and enjoy a truly unique day and night experience. Those looking for a quieter and more relaxing time can step inside the Gruffalo Child’s night-time, sensory playroom. 
 
 Our littlest friends can enjoy a squashy, story-led experience with imaginative exploration, in the magical, Room on the Broom soft-play zone.
-With 6 captivating and immersive zones, this 2-hour play experience is enjoyable for all children under 10 years old.</p>
-          <div class="card-footer">
-            <span class="price">From €6.34</span>
-            <span class="rating">⭐ 4.7 (30)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-gruffalo-friends-clubhouse-p1066596/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With 6 captivating and immersive zones, this 2-hour play experience is enjoyable for all children under 10 years old.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(30)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€6.34</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-gruffalo-friends-clubhouse-p1066596/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a2a432081704590ba49c57b5d38a81a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blackpool Tower Eye" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blackpool Tower Eye</h3>
-          <p class="venue">📍 The Blackpool Tower</p>
-          <p>If you've walked along the beach and bought the famous local candy, travel to the top of the iconic Blackpool Tower and see the sea like the seagulls see it! This is your ticket to spectacular views from the tallest observation deck in northwest England.</p>
-          <div class="card-footer">
-            <span class="price">From €15.01</span>
-            <span class="rating">⭐ 4.4 (55)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blackpool-tower-eye-p977040/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a2a432081704590ba49c57b5d38a81a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blackpool Tower Eye" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BLACKPOOL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">THE BLACKPOOL TOWER</span>
+        </div>
+        <div class="tq-card-title">Blackpool Tower Eye</div>
+        <div class="tq-card-desc">If you've walked along the beach and bought the famous local candy, travel to the top of the iconic Blackpool Tower and see the sea like the seagulls see it! This is your ticket to spectacular views from the tallest observation deck in northwest England.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(55)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.01</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blackpool-tower-eye-p977040/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a2a432081704590ba49c57b5d38a81a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blackpool Tower Ballroom: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Blackpool Tower Ballroom: Entry Ticket</h3>
-          <p class="venue">📍 Blackpool Tower Ballroom</p>
-          <p>Dating back to 1894, The Blackpool Tower Ballroom is famous for its unique sprung dance floor and spectacular architecture. It's a *must-visit* destination for dance fans from across the globe. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a2a432081704590ba49c57b5d38a81a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Blackpool Tower Ballroom: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BLACKPOOL</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BLACKPOOL TOWER BALLROOM</span>
+        </div>
+        <div class="tq-card-title">Blackpool Tower Ballroom: Entry Ticket</div>
+        <div class="tq-card-desc">Dating back to 1894, The Blackpool Tower Ballroom is famous for its unique sprung dance floor and spectacular architecture. It's a *must-visit* destination for dance fans from across the globe. 
 
 Mid-way through every Strictly Come Dancing season, the BBC team pack up their sequins and head up north to this very place for a very special episode!
 
-Dance the day away to the sounds of the famous Wurlitzer organ, watch from the sidelines, or observe the floor in action from up on the balconies. The Blackpool Tower Ballroom is an experience to impress even those with two left feet!</p>
-          <div class="card-footer">
-            <span class="price">From €9.24</span>
-            <span class="rating">⭐ 4.7 (84)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-blackpool-ballroom-tickets-p1025064/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Dance the day away to the sounds of the famous Wurlitzer organ, watch from the sidelines, or observe the floor in action from up on the balconies. The Blackpool Tower Ballroom is an experience to impress even those with two left feet!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(84)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€9.24</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-blackpool-ballroom-tickets-p1025064/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

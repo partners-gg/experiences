@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Benidorm | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Benidorm. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,42 +131,69 @@
     <p>6 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2dd029d332d742ec8af3cec434a2abbe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Terra Natura Benidorm: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Terra Natura Benidorm: Entry Ticket</h3>
-          <p class="venue">📍 Terra Natura Benidorm</p>
-          <p>Benidorm has a wild side at Terra Natura. With an amazing variety of wildlife from all corners of the world, housed in spacious enclosures where the barriers are almost invisible, that safari feeling is just a ticket away!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2dd029d332d742ec8af3cec434a2abbe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Terra Natura Benidorm: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BENIDORM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TERRA NATURA BENIDORM</span>
+        </div>
+        <div class="tq-card-title">Terra Natura Benidorm: Entry Ticket</div>
+        <div class="tq-card-desc">Benidorm has a wild side at Terra Natura. With an amazing variety of wildlife from all corners of the world, housed in spacious enclosures where the barriers are almost invisible, that safari feeling is just a ticket away!
 
-Get up close to snakes, jaguars, tigers, flamingos, toucans, and everything in between, it's the perfect place for a break from the beach.</p>
-          <div class="card-footer">
-            <span class="price">From €33</span>
-            <span class="rating">⭐ 4.4 (550)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-terra-natura-benidorm-p983023/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get up close to snakes, jaguars, tigers, flamingos, toucans, and everything in between, it's the perfect place for a break from the beach.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(550)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-terra-natura-benidorm-p983023/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/23f008aec3bb4f0da66867a4ec9d7067.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aqualandia Benidorm: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aqualandia Benidorm: Skip The Line Ticket</h3>
-          <p class="venue">📍 Aqualandia Benidorm</p>
-          <p>Aqualandia is a waterpark for all ages, which may be why it's so popular. At this awesome aquatic attraction, you can climb to the top of a mountain waterslide before speeding down in no time. What you do from there is up to you.</p>
-          <div class="card-footer">
-            <span class="price">From €37</span>
-            <span class="rating">⭐ 4.3 (2378)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aqualandia-benidorm-skip-the-line-p975572/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/23f008aec3bb4f0da66867a4ec9d7067.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aqualandia Benidorm: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BENIDORM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AQUALANDIA BENIDORM</span>
+        </div>
+        <div class="tq-card-title">Aqualandia Benidorm: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Aqualandia is a waterpark for all ages, which may be why it's so popular. At this awesome aquatic attraction, you can climb to the top of a mountain waterslide before speeding down in no time. What you do from there is up to you.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(2,378)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€37.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aqualandia-benidorm-skip-the-line-p975572/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/62e517ff4c3446b3b1e17add0e7797ab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Terra Mítica: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Terra Mítica: Entry Ticket</h3>
-          <p class="venue">📍 Terra Mítica</p>
-          <p>Prepare for an adventure in this myth-inspired theme park. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/62e517ff4c3446b3b1e17add0e7797ab.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Terra Mítica: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BENIDORM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TERRA MÍTICA</span>
+        </div>
+        <div class="tq-card-title">Terra Mítica: Entry Ticket</div>
+        <div class="tq-card-desc">Prepare for an adventure in this myth-inspired theme park. 
 
 This ticket gets you everything from the adrenaline-pumping rollercoasters to the water-based attractions at Terra Mítica – or _Land of Myths_ – which has been inspired by the legends of the Mediterranean. There are kid-friendly versions of the hair-raising rides for budding adventurers, too.
 
@@ -75,41 +201,63 @@ Take a ride on the Rapids of Argos, or go for a spin on the Mithos merry-go-roun
 
 You'll also be able to cool off in the pools – 1,700 square meters of pools to be precise. Water-based rides, jacuzzis, and relaxing outdoor spas for the whole family. 
 
-Plus, don't miss the incredible line-up of shows and performances. You'll get lost in myths and legends through shows.</p>
-          <div class="card-footer">
-            <span class="price">From €30</span>
-            <span class="rating">⭐ 4.5 (479)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-terra-mitica-entry-p1015099/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Plus, don't miss the incredible line-up of shows and performances. You'll get lost in myths and legends through shows.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(479)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-terra-mitica-entry-p1015099/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cbaf62d4c413448ebea3594507781769.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mundomar Benidorm: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mundomar Benidorm: Skip The Line Ticket</h3>
-          <p class="venue">📍 Mundomar Benidorm</p>
-          <p>Mundomar, Spanish for 'world of the sea', hosts various species of bird, reptile, and mammal that live in or around water.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cbaf62d4c413448ebea3594507781769.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mundomar Benidorm: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BENIDORM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUNDOMAR BENIDORM</span>
+        </div>
+        <div class="tq-card-title">Mundomar Benidorm: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Mundomar, Spanish for 'world of the sea', hosts various species of bird, reptile, and mammal that live in or around water.
 
 The habitats are beautifully landscaped into the hill overlooking Benidorm and the Costa Blanca. It's a great place to learn about different animals and how they live.
 
 Watch shows featuring dolphins, sea lions, and birds. You'll see how they interact with their trainers and learn about the importance of caring for animals.
 
-Walk along the paths, see a variety of species, and enjoy a day that's fun for all ages.</p>
-          <div class="card-footer">
-            <span class="price">From €19.2</span>
-            <span class="rating">⭐ 4.6 (615)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mundomar-benidorm-skip-the-line-p975584/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Walk along the paths, see a variety of species, and enjoy a day that's fun for all ages.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(615)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.20</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mundomar-benidorm-skip-the-line-p975584/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cbaf62d4c413448ebea3594507781769.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aqualandia & Mundomar" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Aqualandia & Mundomar</h3>
-          <p class="venue">📍 Mundomar Benidorm</p>
-          <p>Get ready for the ultimate adventure and save time and money with a park pass to two of the most thrilling destinations in Benidorm!  
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cbaf62d4c413448ebea3594507781769.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aqualandia & Mundomar" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BENIDORM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUNDOMAR BENIDORM</span>
+        </div>
+        <div class="tq-card-title">Aqualandia & Mundomar</div>
+        <div class="tq-card-desc">Get ready for the ultimate adventure and save time and money with a park pass to two of the most thrilling destinations in Benidorm!  
 
 With this ticket you can access **Aqualandia** and **Mundomar** on the same day, or on different days, depending on the option you choose. You decide! 
 
@@ -117,32 +265,49 @@ With this ticket you can access **Aqualandia** and **Mundomar** on the same day,
 
 At **Mundomar**, get up close and personal with 80 species of water-loving birds, reptiles, and mammals - from penguins to giant tortoises to spider monkeys. But the true stars of the show are the incredible sea lions and dolphins!
 
-Don't miss out on the adventure of a lifetime for the whole family with this two-park pass!</p>
-          <div class="card-footer">
-            <span class="price">From €41</span>
-            <span class="rating">⭐ 4.3 (150)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-aqualandia-mundomar-combined-ticket-p1062284/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Don't miss out on the adventure of a lifetime for the whole family with this two-park pass!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(150)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€41.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-aqualandia-mundomar-combined-ticket-p1062284/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/93e81803ca25403da02143854cb6c4b1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Terra Natura & Aqua Natura Benidorm: Combi Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Terra Natura & Aqua Natura Benidorm: Combi Entry Ticket</h3>
-          <p class="venue">📍 Terra Natura Benidorm</p>
-          <p>This combo ticket gives you entry to both Terra Natura and Aqua Natura Benidorm! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/93e81803ca25403da02143854cb6c4b1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Terra Natura & Aqua Natura Benidorm: Combi Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BENIDORM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TERRA NATURA BENIDORM</span>
+        </div>
+        <div class="tq-card-title">Terra Natura & Aqua Natura Benidorm: Combi Entry Ticket</div>
+        <div class="tq-card-desc">This combo ticket gives you entry to both Terra Natura and Aqua Natura Benidorm! 
 
 In Terra Natura Benidorm, more than 1,500 animals of 200 different species await you in their natural habitat: elephants, lions, tigers, rhinos, primates, reptiles, exotic birds, large herbivores, and even farm animals. Each animal has had its natural environment recreated in detail along with the architecture and atmosphere found in the most picturesque places in America, Asia and Europe.
 
-In Aqua Natura Benidorm, more than 1,000 metres of dizzying attractions, children's areas, and themed pools await you! On top of that there's sea lion demonstrations, the _Mermaid School_, and restaurants to stop in at for lunch. There's fun for the whole family inside this top water park in Benidorm.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 4.5 (145)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-terra-natura-aqua-natura-benidorm-p1026872/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In Aqua Natura Benidorm, more than 1,000 metres of dizzying attractions, children's areas, and themed pools await you! On top of that there's sea lion demonstrations, the _Mermaid School_, and restaurants to stop in at for lunch. There's fun for the whole family inside this top water park in Benidorm.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(145)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-terra-natura-aqua-natura-benidorm-p1026872/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

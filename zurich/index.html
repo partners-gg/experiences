@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Zurich | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Zurich. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,32 +131,48 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ba17ba04f7b1409d8e9489eb07df3162.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="FIFA Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>FIFA Museum: Entry Ticket</h3>
-          <p class="venue">📍 FIFA Museum</p>
-          <p>Football. Fútbol. Fußball. Voetbal. Calcio. Jalkopallo. Kora. Soccer. The names vary, but the game’s the same. And it’s played in every village and city in every country on every continent. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ba17ba04f7b1409d8e9489eb07df3162.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="FIFA Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ZURICH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FIFA MUSEUM</span>
+        </div>
+        <div class="tq-card-title">FIFA Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Football. Fútbol. Fußball. Voetbal. Calcio. Jalkopallo. Kora. Soccer. The names vary, but the game’s the same. And it’s played in every village and city in every country on every continent. 
 
 Step into the world of football at the FIFA Museum, with a multitude of attractions, audiovisual experiences, and thought-provoking exhibitions designed to show the impact football has on society.
 
 Explore three huge floors of footy fun sponsored by FIFA and see how football makes an impact on societies around the world.
 
-Discover the rich heritage of football with an audio guide for your smartphone, which will take you through each section of the FIFA Museum. Listen to stories and anecdotes in multiple languages as you journey through each exhibit.</p>
-          <div class="card-footer">
-            <span class="price">From €27.3</span>
-            <span class="rating">⭐ 4.6 (126)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fifa-museum-p1031392/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover the rich heritage of football with an audio guide for your smartphone, which will take you through each section of the FIFA Museum. Listen to stories and anecdotes in multiple languages as you journey through each exhibit.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(126)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.30</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fifa-museum-p1031392/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ea75e327839b4c77af4dc9020e696118.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grindelwald, Interlaken & Lauterbrunnen: Day Trip + Transport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Grindelwald, Interlaken & Lauterbrunnen: Day Trip + Transport</h3>
-          <p class="venue">📍 Grindelwald & Interlaken Day Trips from Zurich</p>
-          <p>Start your coach journey through the countryside and travel over the Brünig Pass to Interlaken, located in the Jungfrau region. \
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ea75e327839b4c77af4dc9020e696118.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Grindelwald, Interlaken & Lauterbrunnen: Day Trip + Transport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ZURICH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GRINDELWALD & INTERLAKEN DAY TRIPS FROM ZURICH</span>
+        </div>
+        <div class="tq-card-title">Grindelwald, Interlaken & Lauterbrunnen: Day Trip + Transport</div>
+        <div class="tq-card-desc">Start your coach journey through the countryside and travel over the Brünig Pass to Interlaken, located in the Jungfrau region. \
 
 After a short stop in Interlaken for orientation, continue to Grindelwald, a mountain village known for outdoor activities. You'll have about 3.5 hours of free time in Grindelwald to explore or try optional activities.
 
@@ -65,64 +180,103 @@ Walk through the village to various lookout points with views of the Eiger, Mön
 
 There’s also a mountain restaurant where you can have a meal or a snack. If you prefer, hike to Lake Bachalpsee (6 km round trip, about 1.5–2 hours with a moderate incline) or take a shorter walk to the First View platform.
 
-Other options include visiting Glacier Canyon, which has rock formations shaped by glacial water, or taking a cable car to Mount Pfingstegg, which also has walking paths and activities.</p>
-          <div class="card-footer">
-            <span class="price">From €117.95</span>
-            <span class="rating">⭐ 4.1 (17)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-grindelwald-and-interlaken-day-trip-transport-p1029875/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Other options include visiting Glacier Canyon, which has rock formations shaped by glacial water, or taking a cable car to Mount Pfingstegg, which also has walking paths and activities.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(17)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€117.95</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-grindelwald-and-interlaken-day-trip-transport-p1029875/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c7d92e35e5ef40e08c144a7d86a302d9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ferry Ride on Lake Zurich & Cable Car to Felsenegg Viewpoint" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ferry Ride on Lake Zurich & Cable Car to Felsenegg Viewpoint</h3>
-          <p class="venue">📍 Felsenegg</p>
-          <p>Tour Zurich's main attractions on an air-conditioned coach and soak up the very best sights in the city. You'll pass by the opera house, the national museum, and the famed financial district. Enjoy photo stops at Lake Zurich, the Old Town, and some of Zurich's most beautiful churches, including St. Peter, which boasts Europe's largest clock face.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c7d92e35e5ef40e08c144a7d86a302d9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ferry Ride on Lake Zurich & Cable Car to Felsenegg Viewpoint" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ZURICH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FELSENEGG</span>
+        </div>
+        <div class="tq-card-title">Ferry Ride on Lake Zurich & Cable Car to Felsenegg Viewpoint</div>
+        <div class="tq-card-desc">Tour Zurich's main attractions on an air-conditioned coach and soak up the very best sights in the city. You'll pass by the opera house, the national museum, and the famed financial district. Enjoy photo stops at Lake Zurich, the Old Town, and some of Zurich's most beautiful churches, including St. Peter, which boasts Europe's largest clock face.
 
-After you’ve seen the city, it’s time to cross Lake Zurich and enjoy a cable car ride to the Felsenegg viewpoint.</p>
-          <div class="card-footer">
-            <span class="price">From €69.9</span>
-            <span class="rating">⭐ 3.8 (12)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ferry-ride-on-lake-zurich-cable-car-to-felsenegg-viewpoint-p988334/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After you’ve seen the city, it’s time to cross Lake Zurich and enjoy a cable car ride to the Felsenegg viewpoint.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(12)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€69.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ferry-ride-on-lake-zurich-cable-car-to-felsenegg-viewpoint-p988334/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/afb1ae9679524cfe8f3ed8939853c011.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhine Falls & Stein am Rhein: Transport from Zurich" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Rhine Falls & Stein am Rhein: Transport from Zurich</h3>
-          <p class="venue">📍 Rhine Falls from Zurich</p>
-          <p>From the chic streets of Zurich to fairy-tale villages, breathtaking valleys, goliath waterfalls, and medieval castles – discover the beauty of Northern Switzerland, with a windswept adventure to Rhine Falls and Stein am Rhein.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/afb1ae9679524cfe8f3ed8939853c011.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Rhine Falls & Stein am Rhein: Transport from Zurich" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ZURICH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RHINE FALLS FROM ZURICH</span>
+        </div>
+        <div class="tq-card-title">Rhine Falls & Stein am Rhein: Transport from Zurich</div>
+        <div class="tq-card-desc">From the chic streets of Zurich to fairy-tale villages, breathtaking valleys, goliath waterfalls, and medieval castles – discover the beauty of Northern Switzerland, with a windswept adventure to Rhine Falls and Stein am Rhein.
 
-Learn about the local history from a guide as you go, and see Europe's largest waterfall crashing down in all its glory. Explore ancient castles, panoramic trails, charming mountain towns and more, before being chauffeured back to Zurich for a deserved night's sleep!</p>
-          <div class="card-footer">
-            <span class="price">From €87.37</span>
-            <span class="rating">⭐ 4.7 (11)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-rhine-falls-stein-am-rhein-transport-from-zurich-p989027/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about the local history from a guide as you go, and see Europe's largest waterfall crashing down in all its glory. Explore ancient castles, panoramic trails, charming mountain towns and more, before being chauffeured back to Zurich for a deserved night's sleep!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(11)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€87.37</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-rhine-falls-stein-am-rhein-transport-from-zurich-p989027/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ba17ba04f7b1409d8e9489eb07df3162.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Zurich: Guided Old Town Walking Tour + Lake Cruise + Optional FIFA Museum Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Zurich: Guided Old Town Walking Tour + Lake Cruise + Optional FIFA Museum Entry</h3>
-          <p class="venue">📍 Zurich Cruises</p>
-          <p>This two-part tour showcases the city of Zurich as well as its namesake lake. You'll walk through Zurich, sightsee from aboard a comfortable coach, and take a one-hour cruise on Lake Zurich's crystal-clear waters.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ba17ba04f7b1409d8e9489eb07df3162.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Zurich: Guided Old Town Walking Tour + Lake Cruise + Optional FIFA Museum Entry" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ZURICH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ZURICH CRUISES</span>
+        </div>
+        <div class="tq-card-title">Zurich: Guided Old Town Walking Tour + Lake Cruise + Optional FIFA Museum Entry</div>
+        <div class="tq-card-desc">This two-part tour showcases the city of Zurich as well as its namesake lake. You'll walk through Zurich, sightsee from aboard a comfortable coach, and take a one-hour cruise on Lake Zurich's crystal-clear waters.
 
 After boarding a comfortable, climate-controlled coach set out past the castle-like Swiss National Museum, the luxurious shopping avenue Bahnhofstrasse, and Zurich's renowned financial district. 
 
-Enjoy a magnificent view of crystal-clear Lake Zurich during a photo stop at Enge harbour. Continue along the lake, passing the grand Opera House and the university quarter and the University of Zurich. Tour the districts with stately mansions from glorious times past.</p>
-          <div class="card-footer">
-            <span class="price">From €48.06</span>
-            <span class="rating">⭐ 3.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-zurich-guided-old-town-walking-tour-lake-cruise-optional-fifa-museum-entry-p1029261/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a magnificent view of crystal-clear Lake Zurich during a photo stop at Enge harbour. Continue along the lake, passing the grand Opera House and the university quarter and the University of Zurich. Tour the districts with stately mansions from glorious times past.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€48.06</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-zurich-guided-old-town-walking-tour-lake-cruise-optional-fifa-museum-entry-p1029261/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

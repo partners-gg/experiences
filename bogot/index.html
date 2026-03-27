@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Bogotá | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Bogotá. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,147 +131,235 @@
     <p>8 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/17ddeb4496564f86ad595ff94e160735.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Monserrate: Funicular or Cable Car Roundtrip" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Monserrate: Funicular or Cable Car Roundtrip</h3>
-          <p class="venue">📍 Teleférico de Monserrate</p>
-          <p>A site of pilgrimage for centuries, the steep incline and 1.5-mile hike to the mountaintop church-sanctuary offers up incredible views over Bogotá. But, you don't have to be religious – or a hiker – to make the most of this Monserrate ticket.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/17ddeb4496564f86ad595ff94e160735.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Monserrate: Funicular or Cable Car Roundtrip" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BOGOTÁ</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TELEFÉRICO DE MONSERRATE</span>
+        </div>
+        <div class="tq-card-title">Monserrate: Funicular or Cable Car Roundtrip</div>
+        <div class="tq-card-desc">A site of pilgrimage for centuries, the steep incline and 1.5-mile hike to the mountaintop church-sanctuary offers up incredible views over Bogotá. But, you don't have to be religious – or a hiker – to make the most of this Monserrate ticket.
 
-Take the Monserrate funicular to the top to experience an unusual train ride, or race to the top inside a cable car. Make sure to visit the monastery and see El Señor Caído (The Fallen Lord) or to try and catch the sunset from the mountaintop.</p>
-          <div class="card-footer">
-            <span class="price">From €4.88</span>
-            <span class="rating">⭐ 4.3 (9258)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-teleferico-de-monserrate-p1003913/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Take the Monserrate funicular to the top to experience an unusual train ride, or race to the top inside a cable car. Make sure to visit the monastery and see El Señor Caído (The Fallen Lord) or to try and catch the sunset from the mountaintop.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(9,258)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€4.88</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-teleferico-de-monserrate-p1003913/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Monserrate Bogotá: Guided Tour + Cable Car Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Monserrate Bogotá: Guided Tour + Cable Car Ticket</h3>
-          <p class="venue">📍 Bogota City Tours</p>
-          <p>Walk the Stations of the Cross Path (Via Crucis) and learn about local plants and animals. Toss a coin into the wishing well, a tradition with local significance.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Monserrate Bogotá: Guided Tour + Cable Car Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BOGOTÁ</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BOGOTA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Monserrate Bogotá: Guided Tour + Cable Car Ticket</div>
+        <div class="tq-card-desc">Walk the Stations of the Cross Path (Via Crucis) and learn about local plants and animals. Toss a coin into the wishing well, a tradition with local significance.
 
 Stop at the viewpoint for city photos and learn about superstitions and lesser-known facts about the hill.
 
 Visit the Basilica of the Fallen Lord of Monserrate and explore its role in Colombian Catholicism.
 
-Enjoy a cable car ride to the Monserrate mountain while enjoying the amazing views.</p>
-          <div class="card-footer">
-            <span class="price">From €18.58</span>
-            <span class="rating">⭐ 4.1 (13)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-monserrate-bogota-guided-tour-cable-car-p1101882/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a cable car ride to the Monserrate mountain while enjoying the amazing views.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(13)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.58</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-monserrate-bogota-guided-tour-cable-car-p1101882/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/03baad95f56148e283e136244ef03642.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bogotá: One-Way Transfer To/From Bogotá Airport and City Center" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bogotá: One-Way Transfer To/From Bogotá Airport and City Center</h3>
-          <p class="venue">📍 Bogotá Airport Transfers</p>
-          <p>Book dependable Bogotá Airport transfers for your arrival or departure. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/03baad95f56148e283e136244ef03642.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bogotá: One-Way Transfer To/From Bogotá Airport and City Center" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BOGOTÁ</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BOGOTÁ AIRPORT TRANSFERS</span>
+        </div>
+        <div class="tq-card-title">Bogotá: One-Way Transfer To/From Bogotá Airport and City Center</div>
+        <div class="tq-card-desc">Book dependable Bogotá Airport transfers for your arrival or departure. 
 
 Travel safely between El Dorado International Airport and your accommodation with professional drivers, ensuring a smooth trip. 
 
-Relax and enjoy stress-free transfers, making your Bogotá experience effortless from start to finish. Whether you're beginning your trip or heading home, reliable transportation ensures a seamless journey.</p>
-          <div class="card-footer">
-            <span class="price">From €20.9</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bogota-one-way-transfer-to-from-bogota-airport-and-city-center-p1103055/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Relax and enjoy stress-free transfers, making your Bogotá experience effortless from start to finish. Whether you're beginning your trip or heading home, reliable transportation ensures a seamless journey.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bogota-one-way-transfer-to-from-bogota-airport-and-city-center-p1103055/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bogotá: Guided Bike Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bogotá: Guided Bike Tour</h3>
-          <p class="venue">📍 Bogota City Tours</p>
-          <p>Begin your Bogotá bike tour at Chorro de Quevedo Square and explore the lesser-known areas of the city. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bogotá: Guided Bike Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BOGOTÁ</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BOGOTA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Bogotá: Guided Bike Tour</div>
+        <div class="tq-card-desc">Begin your Bogotá bike tour at Chorro de Quevedo Square and explore the lesser-known areas of the city. 
 
 Ride through main streets and bike lanes from La Candelaria to Teusaquillo, stopping at Independence Park, Parkway Boulevard, and Bolívar Square to see how the center connects to other districts. 
 
 Cover more areas in less time with this three-and-a-half-hour tour that provides a clear view of Bogotá’s vibrant downtown and surrounding areas. 
 
-Recognized as a top cycling city in South America, Bogotá’s layout is perfect for exploring by bike.</p>
-          <div class="card-footer">
-            <span class="price">From €13</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bogota-guided-bike-tour-p1102725/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Recognized as a top cycling city in South America, Bogotá’s layout is perfect for exploring by bike.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bogota-guided-bike-tour-p1102725/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="La Candelaria Bogotá: Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>La Candelaria Bogotá: Guided Walking Tour</h3>
-          <p class="venue">📍 Bogota City Tours</p>
-          <p>Join a shared walking tour in La Candelaria and Bogotá's downtown. Start at El Chorro de Quevedo Square with a local guide and a group of travelers. Walk along the main streets to see the mix of history and youthful energy.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="La Candelaria Bogotá: Guided Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BOGOTÁ</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BOGOTA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">La Candelaria Bogotá: Guided Walking Tour</div>
+        <div class="tq-card-desc">Join a shared walking tour in La Candelaria and Bogotá's downtown. Start at El Chorro de Quevedo Square with a local guide and a group of travelers. Walk along the main streets to see the mix of history and youthful energy.
 
-Visit Bolivar Square and the Carrera Séptima to learn about Colombian history. Then, taste coffee and fruits at traditional local spots. Step through the main sites to gain useful insights into the city, making your Bogotá visit more informative.</p>
-          <div class="card-footer">
-            <span class="price">From €13</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-la-candelaria-bogota-guided-walking-tour-p1102721/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit Bolivar Square and the Carrera Séptima to learn about Colombian history. Then, taste coffee and fruits at traditional local spots. Step through the main sites to gain useful insights into the city, making your Bogotá visit more informative.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-la-candelaria-bogota-guided-walking-tour-p1102721/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="La Candelaria Bogotá: Guided Graffiti Tour + Drinks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>La Candelaria Bogotá: Guided Graffiti Tour + Drinks</h3>
-          <p class="venue">📍 Bogota City Tours</p>
-          <p>Join the Graffiti Tour and see how street art brings the city to life. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="La Candelaria Bogotá: Guided Graffiti Tour + Drinks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BOGOTÁ</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BOGOTA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">La Candelaria Bogotá: Guided Graffiti Tour + Drinks</div>
+        <div class="tq-card-desc">Join the Graffiti Tour and see how street art brings the city to life. 
 
 Walk through La Candelaria to view the best murals and learn how local culture shapes these works. 
 
 Discover how perceptions of graffiti have shifted from vandalism to valued art as you explore Bogotá’s vibrant street art scene.
 
-No prior graffiti knowledge is needed as this tour provides an introduction to local art and is a great way to start exploring this creative world.</p>
-          <div class="card-footer">
-            <span class="price">From €13</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-la-candelaria-bogota-guided-graffiti-tour-drinks-p1102720/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+No prior graffiti knowledge is needed as this tour provides an introduction to local art and is a great way to start exploring this creative world.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€13.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-la-candelaria-bogota-guided-graffiti-tour-drinks-p1102720/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Guatavita: Guided Day Tour from Bogotá in Spanish" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Guatavita: Guided Day Tour from Bogotá in Spanish</h3>
-          <p class="venue">📍 Bogota City Tours</p>
-          <p>Visit Laguna de Guatavita (Guatavita Lagoon) in the town of Sesquilé, once home to the Chibcha people. It was here that the famous Muisca ceremony of El Dorado occurred. Learn about the history of this ceremony and how it shaped the country's past.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Guatavita: Guided Day Tour from Bogotá in Spanish" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BOGOTÁ</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BOGOTA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Guatavita: Guided Day Tour from Bogotá in Spanish</div>
+        <div class="tq-card-desc">Visit Laguna de Guatavita (Guatavita Lagoon) in the town of Sesquilé, once home to the Chibcha people. It was here that the famous Muisca ceremony of El Dorado occurred. Learn about the history of this ceremony and how it shaped the country's past.
 
 After your visit to the lagoon, take time to explore the town, including its Plaza de Toros (bullring). You'll see famous sites and hear the story of how the original town was submerged by the Tominé Reservoir.
 
-Visit La Casa Loca, a unique upside-down house perfect for fun photos. Finally, try a regional dish at a well-known restaurant in the area.</p>
-          <div class="card-footer">
-            <span class="price">From €180</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-guatavita-guided-day-tour-from-bogota-in-spanish-p1095359/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit La Casa Loca, a unique upside-down house perfect for fun photos. Finally, try a regional dish at a well-known restaurant in the area.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€180.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-guatavita-guided-day-tour-from-bogota-in-spanish-p1095359/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bogotá: Barrio La Candelaria, Monserrate, Museo del Oro & Museo Botero Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bogotá: Barrio La Candelaria, Monserrate, Museo del Oro & Museo Botero Tour</h3>
-          <p class="venue">📍 Bogota City Tours</p>
-          <p>Get ready to embark on a captivating journey through Bogotá, exploring the heart of its historic district, "La Candelaria". Discover the stories hidden within its iconic landmarks and be awed by the treasures in the Gold Museum and the Botero Museum. Then, ascend to Monserrate, one of the city's famed peaks, standing tall at 3,125 meters. Here, a monastery presents awe-inspiring views of the sprawling city below. The adventure concludes with a refreshing drink at Casa de la Trocha, a place steeped in history and the legacy of peace process. With this experience, you'll gain a deeper understanding of Bogotá's culture, history, and the unique characteristics of its inhabitants. It's more than just a tour, it's an unforgettable journey into the heart of Bogotá. Book now, and let the magic of Bogotá enchant you!</p>
-          <div class="card-footer">
-            <span class="price">From €150</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tour-bogota-la-candelaria-district-monserrate-gold-museum-and-botero-museum-p1095321/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bogotá: Barrio La Candelaria, Monserrate, Museo del Oro & Museo Botero Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BOGOTÁ</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BOGOTA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Bogotá: Barrio La Candelaria, Monserrate, Museo del Oro & Museo Botero Tour</div>
+        <div class="tq-card-desc">Get ready to embark on a captivating journey through Bogotá, exploring the heart of its historic district, "La Candelaria". Discover the stories hidden within its iconic landmarks and be awed by the treasures in the Gold Museum and the Botero Museum. Then, ascend to Monserrate, one of the city's famed peaks, standing tall at 3,125 meters. Here, a monastery presents awe-inspiring views of the sprawling city below. The adventure concludes with a refreshing drink at Casa de la Trocha, a place steeped in history and the legacy of peace process. With this experience, you'll gain a deeper understanding of Bogotá's culture, history, and the unique characteristics of its inhabitants. It's more than just a tour, it's an unforgettable journey into the heart of Bogotá. Book now, and let the magic of Bogotá enchant you!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€150.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tour-bogota-la-candelaria-district-monserrate-gold-museum-and-botero-museum-p1095321/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

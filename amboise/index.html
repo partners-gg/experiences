@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Amboise | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Amboise. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,133 +131,210 @@
     <p>7 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/682702d8b98a4c96bd14ef049971775e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château d'Amboise: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Château d'Amboise: Skip The Line Ticket</h3>
-          <p class="venue">📍 Château d'Amboise</p>
-          <p>During the Renaissance, the Palace of Kings showcased pomp, beauty, creativity, and excess. When the kings of France built superb palaces inspired by the Italian Renaissance, their architects crafted architectural gems. Discover Amboise, the favorite castle of King Francis I.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/682702d8b98a4c96bd14ef049971775e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château d'Amboise: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>AMBOISE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CHÂTEAU D'AMBOISE</span>
+        </div>
+        <div class="tq-card-title">Château d'Amboise: Skip The Line Ticket</div>
+        <div class="tq-card-desc">During the Renaissance, the Palace of Kings showcased pomp, beauty, creativity, and excess. When the kings of France built superb palaces inspired by the Italian Renaissance, their architects crafted architectural gems. Discover Amboise, the favorite castle of King Francis I.
 
 The Saint Hubert Chapel, after nearly three years of extensive restoration, reopened in June 2024. A jewel of Renaissance architecture, it houses the tomb of Leonardo da Vinci. The restoration is fascinating, with the restored dazzling whiteness of the stones and the roof's gilding illuminating the spire once more. In this setting, the tomb becomes an essential stop at the Royal Château of Amboise.
 
-Nestled between the sky and the Loire, the terraces of the Château Royal d'Amboise offer one of the most beautiful panoramas in the Loire Valley, with views of landscapes listed as a UNESCO World Heritage Site.</p>
-          <div class="card-footer">
-            <span class="price">From €17.3</span>
-            <span class="rating">⭐ 4.7 (1627)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-royal-d-amboise-skip-the-line-p977796/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Nestled between the sky and the Loire, the terraces of the Château Royal d'Amboise offer one of the most beautiful panoramas in the Loire Valley, with views of landscapes listed as a UNESCO World Heritage Site.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(1,627)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.30</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-chateau-royal-d-amboise-skip-the-line-p977796/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/75ec83d2e8c74e18870663d0fe68d1cc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château du Clos Lucé: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Château du Clos Lucé: Skip The Line Ticket</h3>
-          <p class="venue">📍 Château du Clos Lucé</p>
-          <p>Welcome to the ultimate celebrity crib. This beautiful château in France's Loire Valley was the final home of Leonardo da Vinci, and as you might expect, the Florentine master left his mark on the place.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/75ec83d2e8c74e18870663d0fe68d1cc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château du Clos Lucé: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>AMBOISE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CHÂTEAU DU CLOS LUCÉ</span>
+        </div>
+        <div class="tq-card-title">Château du Clos Lucé: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Welcome to the ultimate celebrity crib. This beautiful château in France's Loire Valley was the final home of Leonardo da Vinci, and as you might expect, the Florentine master left his mark on the place.
 
 Da Vinci arrived here in 1516, with a painting called the Mona Lisa under his arm – the rest is history. Make your way inside with this skip-the-line ticket, and explore the former home of the great Renaissance man.
 
-Leonardo made quite the name for himself with King Francis I, and after being given the title of the king’s premier painter, engineer, and architect, he was gifted Clos Lucé. It was here that he spent the final years of his life, and it is here that now presents a series of galleries devoted to his work.</p>
-          <div class="card-footer">
-            <span class="price">From €20</span>
-            <span class="rating">⭐ 4.6 (1854)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-du-clos-luce-skip-the-line-p977983/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Leonardo made quite the name for himself with King Francis I, and after being given the title of the king’s premier painter, engineer, and architect, he was gifted Clos Lucé. It was here that he spent the final years of his life, and it is here that now presents a series of galleries devoted to his work.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(1,854)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-chateau-du-clos-luce-skip-the-line-p977983/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/682702d8b98a4c96bd14ef049971775e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château Royal d'Amboise + Château du Clos Lucé" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Château Royal d'Amboise + Château du Clos Lucé</h3>
-          <p class="venue">📍 Château d'Amboise</p>
-          <p>Immerse yourself in the grandeur of Renaissance France with this exclusive package offering Skip the Line Tickets to both Château d'Amboise and Château du Clos Lucé. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/682702d8b98a4c96bd14ef049971775e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château Royal d'Amboise + Château du Clos Lucé" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>AMBOISE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CHÂTEAU D'AMBOISE</span>
+        </div>
+        <div class="tq-card-title">Château Royal d'Amboise + Château du Clos Lucé</div>
+        <div class="tq-card-desc">Immerse yourself in the grandeur of Renaissance France with this exclusive package offering Skip the Line Tickets to both Château d'Amboise and Château du Clos Lucé. 
 
 Delve into the rich history of **Château d'Amboise**, a royal residence dating back to the 9th century, and wander through **Château du Clos Lucé**, the final home of the legendary Leonardo da Vinci, to explore his artistic process and the breadth of his genius. 
 
-Don't miss the chance to experience the unique blend of art, history, and architecture these iconic chateaux offer.</p>
-          <div class="card-footer">
-            <span class="price">From €36.18</span>
-            <span class="rating">⭐ 4.7 (391)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-royal-d-amboise-and-chateau-du-clos-luce-p1090259/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Don't miss the chance to experience the unique blend of art, history, and architecture these iconic chateaux offer.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(391)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€36.18</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-chateau-royal-d-amboise-and-chateau-du-clos-luce-p1090259/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce2225f3a1b04ae792608ec2b8d5cd51.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château d’Amboise + Château du Clos Lucé + Château de Chenonceau" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Château d’Amboise + Château du Clos Lucé + Château de Chenonceau</h3>
-          <p class="venue">📍 Château d'Amboise</p>
-          <p>Get to know France's history through its impressive châteaus!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ce2225f3a1b04ae792608ec2b8d5cd51.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château d’Amboise + Château du Clos Lucé + Château de Chenonceau" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>AMBOISE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CHÂTEAU D'AMBOISE</span>
+        </div>
+        <div class="tq-card-title">Château d’Amboise + Château du Clos Lucé + Château de Chenonceau</div>
+        <div class="tq-card-desc">Get to know France's history through its impressive châteaus!
 
 Enjoy skip-the-line access to the royal **Château d'Amboise**, explore the fascinating world of the inimitable Leonardo da Vinci at **Château du Clos Lucé**, and admire the enchanting beauty of **Château de Chenonceau**, built and preserved by a series of influential women over centuries. 
 
-This package offers a unique glimpse into a remarkable era of history and art, so don't miss out on the splendor of the Loire Valley's most iconic châteaus today!</p>
-          <div class="card-footer">
-            <span class="price">From €54.61</span>
-            <span class="rating">⭐ 4.7 (174)</span>
-            <a href="https://www.tiqets.com/en/checkout/chateau-d-amboise-and-chateau-du-clos-luce-and-chateau-de-chenonceau-p1090261/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This package offers a unique glimpse into a remarkable era of history and art, so don't miss out on the splendor of the Loire Valley's most iconic châteaus today!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(174)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€54.61</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/chateau-d-amboise-and-chateau-du-clos-luce-and-chateau-de-chenonceau-p1090261/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c11b0b60e22441a68bbe0601652508c1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château Gaillard: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Château Gaillard: Skip The Line Ticket</h3>
-          <p class="venue">📍 Château Gaillard</p>
-          <p>Live in the lap of luxury as three French kings once did with tickets to visit their royal residence at Château Gaillard Amboise.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c11b0b60e22441a68bbe0601652508c1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château Gaillard: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>AMBOISE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CHÂTEAU GAILLARD</span>
+        </div>
+        <div class="tq-card-title">Château Gaillard: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Live in the lap of luxury as three French kings once did with tickets to visit their royal residence at Château Gaillard Amboise.
 
 Discover a living castle that belonged to Charles VIII, Louis XII, and François I, finally restored to its former glory by its owner (and current inhabitant).
 
 You'll find an abundance of unique artifacts scattered throughout the chateau – a bust of Archimboldo by Christian Dior, polychrome marble marquetry in semi-precious stones from the Palazzo Pitti, unique stained glass windows, the unicorn of Queen Anne of Brittany, and a cabinet of curiosities.
 
-Nestled at the foot of a hillside, the valley is the perfect place for orange trees to flourish. Planted by Renaissance monk Dom Pacello de Mercoliano, the orange groves at Château Gaillard Amboise were one of the first in France, and can be yours to visit with tickets to Château Gaillard Amboise.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐ 4.6 (25)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-gaillard-amboise-skip-the-line-p1036729/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Nestled at the foot of a hillside, the valley is the perfect place for orange trees to flourish. Planted by Renaissance monk Dom Pacello de Mercoliano, the orange groves at Château Gaillard Amboise were one of the first in France, and can be yours to visit with tickets to Château Gaillard Amboise.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(25)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-chateau-gaillard-amboise-skip-the-line-p1036729/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7011fa963e3849288e6daedc55c655d7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Loire Valley: Vouvray Vineyards Guided Visit from Tours + Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Loire Valley: Vouvray Vineyards Guided Visit from Tours + Tasting</h3>
-          <p class="venue">📍 Loire Valley Wine Tasting</p>
-          <p>Join a half-day trip from Tours to the Vouvray wine region, known for its Chenin Blanc. Visit two wineries and see the vineyards. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7011fa963e3849288e6daedc55c655d7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Loire Valley: Vouvray Vineyards Guided Visit from Tours + Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>AMBOISE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LOIRE VALLEY WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Loire Valley: Vouvray Vineyards Guided Visit from Tours + Tasting</div>
+        <div class="tq-card-desc">Join a half-day trip from Tours to the Vouvray wine region, known for its Chenin Blanc. Visit two wineries and see the vineyards. 
 
-Learn about the winemaking process and taste different Vouvray wines, including dry whites and sparkling styles. Led by a local guide, meet winemakers and understand the unique Loire Valley terroir.</p>
-          <div class="card-footer">
-            <span class="price">From €90</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-loire-valley-vouvray-vineyard-guided-visit-from-tours-tasting-p1119123/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about the winemaking process and taste different Vouvray wines, including dry whites and sparkling styles. Led by a local guide, meet winemakers and understand the unique Loire Valley terroir.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€90.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-loire-valley-vouvray-vineyard-guided-visit-from-tours-tasting-p1119123/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7011fa963e3849288e6daedc55c655d7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château de Chenonceau & Chambord: Guided Tour from Amboise + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Château de Chenonceau & Chambord: Guided Tour from Amboise + Lunch</h3>
-          <p class="venue">📍 Loire Valley Day Trips from Amboise</p>
-          <p>Arrive at the Château de Chenonceau, a castle built on a bridge across the Cher River. Walk through gardens named after Catherine de Médicis and Diane de Poitiers, who once lived there. See the architecture and rooms with antiques and fresh flowers.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/7011fa963e3849288e6daedc55c655d7.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château de Chenonceau & Chambord: Guided Tour from Amboise + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>AMBOISE</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">LOIRE VALLEY DAY TRIPS FROM AMBOISE</span>
+        </div>
+        <div class="tq-card-title">Château de Chenonceau & Chambord: Guided Tour from Amboise + Lunch</div>
+        <div class="tq-card-desc">Arrive at the Château de Chenonceau, a castle built on a bridge across the Cher River. Walk through gardens named after Catherine de Médicis and Diane de Poitiers, who once lived there. See the architecture and rooms with antiques and fresh flowers.
 
 Have lunch at a unique location hosted by a resident French Countess. 
 
 Next, go to Chambord. See notable works of art and architecture as the guide shows key rooms and points out interesting details.
 
-View Château de Chambord, then return to Amboise.</p>
-          <div class="card-footer">
-            <span class="price">From €239</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-de-chenonceau-chambord-guided-tour-from-amboise-lunch-p1113396/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+View Château de Chambord, then return to Amboise.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€239.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-chateau-de-chenonceau-chambord-guided-tour-from-amboise-lunch-p1113396/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

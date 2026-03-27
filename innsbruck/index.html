@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Innsbruck | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Innsbruck. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,168 +131,272 @@
     <p>11 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/37e2a50f0d4344b9940e4391e73dba70.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Swarovski Crystal Worlds: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Swarovski Crystal Worlds: Entry Ticket</h3>
-          <p class="venue">📍 Swarovski Crystal Worlds</p>
-          <p>Swarovski Kristallwelten is located in Wattens, about 20 km from Innsbruck. The venue features the Chambers of Wonder, where artists and designers present crystal-inspired installations.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/37e2a50f0d4344b9940e4391e73dba70.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Swarovski Crystal Worlds: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>INNSBRUCK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SWAROVSKI CRYSTAL WORLDS</span>
+        </div>
+        <div class="tq-card-title">Swarovski Crystal Worlds: Entry Ticket</div>
+        <div class="tq-card-desc">Swarovski Kristallwelten is located in Wattens, about 20 km from Innsbruck. The venue features the Chambers of Wonder, where artists and designers present crystal-inspired installations.
 
 Throughout the year, special seasonal events take place, including a Winter Wonderland during the Christmas season, Easter Magic in spring, and circus performances in summer.
 
 One of the themed spaces, *The Art of Performance*, displays original costumes and stage pieces inspired by Hollywood productions.
 
-Visitors can also explore the Giant’s Park, which combines art installations with outdoor spaces.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 4.5 (218)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-swarovski-crystal-worlds-p984774/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visitors can also explore the Giant’s Park, which combines art installations with outdoor spaces.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(218)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-swarovski-crystal-worlds-p984774/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/37e2a50f0d4344b9940e4391e73dba70.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Alpenzoo + Hungerburgbahn" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Alpenzoo + Hungerburgbahn</h3>
-          <p class="venue">📍 Alpenzoo Innsbruck</p>
-          <p>Innsbruck's Alpenzoo is Europe's highest zoo, at 750m above ground level, and its function as a themed zoo is unique in the world. The zoo covers a total of 4 hectares and houses approximately 2,000 alpine animals from around 150 species in natural enclosures, terrariums and aquariums.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/37e2a50f0d4344b9940e4391e73dba70.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Alpenzoo + Hungerburgbahn" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>INNSBRUCK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ALPENZOO INNSBRUCK</span>
+        </div>
+        <div class="tq-card-title">Alpenzoo + Hungerburgbahn</div>
+        <div class="tq-card-desc">Innsbruck's Alpenzoo is Europe's highest zoo, at 750m above ground level, and its function as a themed zoo is unique in the world. The zoo covers a total of 4 hectares and houses approximately 2,000 alpine animals from around 150 species in natural enclosures, terrariums and aquariums.
 
-This ticket to the Alpenzoo includes transport; you can comfortably reach the zoo from the city center with the scenic Hungerburgbahn. In just a few minutes, you can get from the Congress station to the Alpenzoo station – from there the zoo is only a few meters away. Please note that dogs are not allowed in the zoo!</p>
-          <div class="card-footer">
-            <span class="price">From €23</span>
-            <span class="rating">⭐ 4.5 (129)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-combined-ticket-alpenzoo-p1012393/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This ticket to the Alpenzoo includes transport; you can comfortably reach the zoo from the city center with the scenic Hungerburgbahn. In just a few minutes, you can get from the Congress station to the Alpenzoo station – from there the zoo is only a few meters away. Please note that dogs are not allowed in the zoo!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(129)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-combined-ticket-alpenzoo-p1012393/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5683d640608142c694ac42a2d1e5ed35.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ambras Castle: Skip The Line" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ambras Castle: Skip The Line</h3>
-          <p class="venue">📍 Schloss Ambras</p>
-          <p>Want to know what royal hygiene was like in the 16th century? Skip the line and find out at Ambras Castle, which offers the chance to see the only preserved bathing facility left from that era! See several amazing art collections, the intricately decorated Spanish Hall, and step back to Innsbruck's imperial past.</p>
-          <div class="card-footer">
-            <span class="price">From €14</span>
-            <span class="rating">⭐ 4.7 (51)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ambras-castle-skip-the-line-p975213/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5683d640608142c694ac42a2d1e5ed35.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ambras Castle: Skip The Line" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>INNSBRUCK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SCHLOSS AMBRAS</span>
+        </div>
+        <div class="tq-card-title">Ambras Castle: Skip The Line</div>
+        <div class="tq-card-desc">Want to know what royal hygiene was like in the 16th century? Skip the line and find out at Ambras Castle, which offers the chance to see the only preserved bathing facility left from that era! See several amazing art collections, the intricately decorated Spanish Hall, and step back to Innsbruck's imperial past.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(51)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ambras-castle-skip-the-line-p975213/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c24e73478c7e47da9182139de7960291.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Roundtrip Cable Car: Top of Innsbruck" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Roundtrip Cable Car: Top of Innsbruck</h3>
-          <p class="venue">📍 Innsbrucker Nordkettenbahnen - Nordkette</p>
-          <p>The 2300-meter-high Hafelekar is now easier to reach than ever before, thanks to unique and impressive cable car connection. In only a few minutes, you'll be able to admire beautiful mountain views as you ascend your way up to the top.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c24e73478c7e47da9182139de7960291.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Roundtrip Cable Car: Top of Innsbruck" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>INNSBRUCK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">INNSBRUCKER NORDKETTENBAHNEN - NORDKETTE</span>
+        </div>
+        <div class="tq-card-title">Roundtrip Cable Car: Top of Innsbruck</div>
+        <div class="tq-card-desc">The 2300-meter-high Hafelekar is now easier to reach than ever before, thanks to unique and impressive cable car connection. In only a few minutes, you'll be able to admire beautiful mountain views as you ascend your way up to the top.
 
 Keep an eye out for the local wildlife – usually too shy to say hello – and admire the spectacular Karwendel Mountains, Austria's largest nature park as you climb up into the skies.
 
-Your journey departs from Congress station, and will only take a few minutes to bring you to the Top of Innsbruck in a safe and scenic cable car.</p>
-          <div class="card-footer">
-            <span class="price">From €56</span>
-            <span class="rating">⭐ 4.6 (58)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-top-of-innsbruck-p1012391/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your journey departs from Congress station, and will only take a few minutes to bring you to the Top of Innsbruck in a safe and scenic cable car.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(58)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€56.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-top-of-innsbruck-p1012391/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c24e73478c7e47da9182139de7960291.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Top of Innsbruck PLUS" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Top of Innsbruck PLUS</h3>
-          <p class="venue">📍 Innsbrucker Nordkettenbahnen - Nordkette</p>
-          <p>The Top of Innsbruck PLUS ticket gives you entry to Europe's highest zoo, the Alpenzoo, as well as a ride on the Innsbruck Nordkettenbahnen to take you to the top of Innsbruck in just 20 minutes. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c24e73478c7e47da9182139de7960291.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Top of Innsbruck PLUS" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>INNSBRUCK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">INNSBRUCKER NORDKETTENBAHNEN - NORDKETTE</span>
+        </div>
+        <div class="tq-card-title">Top of Innsbruck PLUS</div>
+        <div class="tq-card-desc">The Top of Innsbruck PLUS ticket gives you entry to Europe's highest zoo, the Alpenzoo, as well as a ride on the Innsbruck Nordkettenbahnen to take you to the top of Innsbruck in just 20 minutes. 
 
 As you ride up the mountain to the top of the 2,300 m high Hafelekarspitze, you can enjoy unbeatable panoramas and there’s even the chance you might spot some wild animals.
 
-The Top of Innsbruck PLUS ticket is the choice for anyone who wants to immerse themselves in the Nordkette!</p>
-          <div class="card-footer">
-            <span class="price">From €61</span>
-            <span class="rating">⭐ 4.9 (27)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-top-of-innsbruck-plus-p1031730/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Top of Innsbruck PLUS ticket is the choice for anyone who wants to immerse themselves in the Nordkette!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(27)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€61.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-top-of-innsbruck-plus-p1031730/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e45b7ce8c5684b92bfcc95b46b786145.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Swarovski Crystal Worlds + Transfer from Innsbruck" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Swarovski Crystal Worlds + Transfer from Innsbruck</h3>
-          <p class="venue">📍 Swarovski Crystal Worlds</p>
-          <p>Enter the sparkling world of Swarovski, and see the magical park they’ve created to celebrate more than 100 years in the jewelry business. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e45b7ce8c5684b92bfcc95b46b786145.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Swarovski Crystal Worlds + Transfer from Innsbruck" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>INNSBRUCK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SWAROVSKI CRYSTAL WORLDS</span>
+        </div>
+        <div class="tq-card-title">Swarovski Crystal Worlds + Transfer from Innsbruck</div>
+        <div class="tq-card-desc">Enter the sparkling world of Swarovski, and see the magical park they’ve created to celebrate more than 100 years in the jewelry business. 
 
-Designed by Austrian artist André Heller, the park showcases the incredible talent of Swarovski's crystal makers through the work of global artists who have created attractions for the park.</p>
-          <div class="card-footer">
-            <span class="price">From €38</span>
-            <span class="rating">⭐ 4.5 (26)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-swarovski-crystal-worlds-transfer-from-innsbruck-p984905/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Designed by Austrian artist André Heller, the park showcases the incredible talent of Swarovski's crystal makers through the work of global artists who have created attractions for the park.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(26)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-swarovski-crystal-worlds-transfer-from-innsbruck-p984905/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/37e2a50f0d4344b9940e4391e73dba70.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Roundtrip Funicular Ride: Innsbruck to Hungerburgbahn" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Roundtrip Funicular Ride: Innsbruck to Hungerburgbahn</h3>
-          <p class="venue">📍 Innsbrucker Nordkettenbahnen - Nordkette</p>
-          <p>The stations of the Hungerburgbahn, designed by architectural superstar Zaha Hadid, are now characteristic of Innsbruck's cityscape and represent the most modern architecture found in the Alpine region.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/37e2a50f0d4344b9940e4391e73dba70.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Roundtrip Funicular Ride: Innsbruck to Hungerburgbahn" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>INNSBRUCK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">INNSBRUCKER NORDKETTENBAHNEN - NORDKETTE</span>
+        </div>
+        <div class="tq-card-title">Roundtrip Funicular Ride: Innsbruck to Hungerburgbahn</div>
+        <div class="tq-card-desc">The stations of the Hungerburgbahn, designed by architectural superstar Zaha Hadid, are now characteristic of Innsbruck's cityscape and represent the most modern architecture found in the Alpine region.
 
 Based on alpine glaciers and their bluish ice formations, the four Hungerburgbahn stations are some of the most unique in the world. Only eight minutes out from the city center, you'll be enjoying wonderful views over Innsbruck.
 
-The cable car museum in the station building of the Seegrubenbahn takes you into the history of the Nordkettenbahnen, while the Theresienkirche station is only a few steps away from the viewing platform.</p>
-          <div class="card-footer">
-            <span class="price">From €14.6</span>
-            <span class="rating">⭐ 4.6 (19)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-innsbruck-hungerburg-roundtrip-p1012392/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The cable car museum in the station building of the Seegrubenbahn takes you into the history of the Nordkettenbahnen, while the Theresienkirche station is only a few steps away from the viewing platform.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(19)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.60</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-innsbruck-hungerburg-roundtrip-p1012392/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f86191a3a30c4fb292ed598aa7e2b630.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tyrolean Evening Show + Optional Dinner" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tyrolean Evening Show + Optional Dinner</h3>
-          <p class="venue">📍 Tyrolean Evening Show in the Alpensaal</p>
-          <p>Prepare for a merry evening of Austrian music, dancing, yodeling, and... shoe slapping? The Gundolf family have been wowing crowds with traditional Tyrolean folk performances for over 50 years, so they know a thing or two about lederhosen-clad showmanship. So sit back, sip a complimentary drink, and enjoy a riotous night of knees-up fun in Innsbruck.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f86191a3a30c4fb292ed598aa7e2b630.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tyrolean Evening Show + Optional Dinner" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>INNSBRUCK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TYROLEAN EVENING SHOW IN THE ALPENSAAL</span>
+        </div>
+        <div class="tq-card-title">Tyrolean Evening Show + Optional Dinner</div>
+        <div class="tq-card-desc">Prepare for a merry evening of Austrian music, dancing, yodeling, and... shoe slapping? The Gundolf family have been wowing crowds with traditional Tyrolean folk performances for over 50 years, so they know a thing or two about lederhosen-clad showmanship. So sit back, sip a complimentary drink, and enjoy a riotous night of knees-up fun in Innsbruck.
 
-Feeling peckish? You can also choose to enjoy a mouthwatering three-course meal to your ticket.</p>
-          <div class="card-footer">
-            <span class="price">From €39</span>
-            <span class="rating">⭐ 4.9 (36)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tyrolean-evening-show-p975420/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Feeling peckish? You can also choose to enjoy a mouthwatering three-course meal to your ticket.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(36)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tyrolean-evening-show-p975420/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f86191a3a30c4fb292ed598aa7e2b630.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Swarovski Crystal Worlds Store Innsbruck: Guided Tour + Drink" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Swarovski Crystal Worlds Store Innsbruck: Guided Tour + Drink</h3>
-          <p class="venue">📍 Swarovski Crystal Worlds</p>
-          <p>Visit the Swarovski Crystal Worlds Store in Innsbruck, located near the Golden Roof in the city's historic Old Town.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f86191a3a30c4fb292ed598aa7e2b630.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Swarovski Crystal Worlds Store Innsbruck: Guided Tour + Drink" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>INNSBRUCK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SWAROVSKI CRYSTAL WORLDS</span>
+        </div>
+        <div class="tq-card-title">Swarovski Crystal Worlds Store Innsbruck: Guided Tour + Drink</div>
+        <div class="tq-card-desc">Visit the Swarovski Crystal Worlds Store in Innsbruck, located near the Golden Roof in the city's historic Old Town.
 
 A Swarovski Crystal expert will guide you through a 30-minute tour, showcasing various crystal installations that highlight Swarovski's craftsmanship. See the Timeless Wall, where key pieces and stories illustrate the brand’s history.
 
 Go to the first floor via the crystal staircase and see the Cascade Chandelier, featured in the movie Ocean’s 13. After the tour, enjoy a drink in the bar area.
 
-Before leaving, walk through the full collection, including jewelry, accessories, SWAROVSKI OPTIK products, and unique art pieces. Take home a special crystal keepsake from your visit.</p>
-          <div class="card-footer">
-            <span class="price">From €12</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-swarovski-crystal-worlds-store-innsbruck-guided-tour-drink-p1119978/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Before leaving, walk through the full collection, including jewelry, accessories, SWAROVSKI OPTIK products, and unique art pieces. Take home a special crystal keepsake from your visit.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-swarovski-crystal-worlds-store-innsbruck-guided-tour-drink-p1119978/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70b5bf599853451b844c74af404cd43f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Best of Innsbruck" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Best of Innsbruck</h3>
-          <p class="venue">📍 Innsbrucker Nordkettenbahnen - Nordkette</p>
-          <p>Check out the Best of Innsbruck Package for an awesome mix of fun and culture. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/70b5bf599853451b844c74af404cd43f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Best of Innsbruck" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>INNSBRUCK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">INNSBRUCKER NORDKETTENBAHNEN - NORDKETTE</span>
+        </div>
+        <div class="tq-card-title">Best of Innsbruck</div>
+        <div class="tq-card-desc">Check out the Best of Innsbruck Package for an awesome mix of fun and culture. 
 
 Whether you love nature, art, or getting to know new cultures, Innsbruck has something special for you. Get ready for an exciting journey through the Austrian Alps.
 
@@ -207,21 +410,32 @@ Enjoy a night of Austrian music, dance, and yodeling by the Gundolf family, expe
 
 **Alpenzoo + Hungerburgbahn**
 
-Visit Alpenzoo in Innsbruck, Europe's highest zoo, home to about 2,000 alpine animals. The visit includes a scenic ride on the Hungerburgbahn from the city to the zoo.</p>
-          <div class="card-footer">
-            <span class="price">From €77.5</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-best-of-innsbruck-package-p1091348/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit Alpenzoo in Innsbruck, Europe's highest zoo, home to about 2,000 alpine animals. The visit includes a scenic ride on the Hungerburgbahn from the city to the zoo.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€77.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-best-of-innsbruck-package-p1091348/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70b5bf599853451b844c74af404cd43f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Best of Innsbruck" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Best of Innsbruck</h3>
-          <p class="venue">📍 Innsbrucker Nordkettenbahnen - Nordkette</p>
-          <p>Check out the Best of Innsbruck Package for an awesome mix of fun and culture. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/70b5bf599853451b844c74af404cd43f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Best of Innsbruck" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>INNSBRUCK</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">INNSBRUCKER NORDKETTENBAHNEN - NORDKETTE</span>
+        </div>
+        <div class="tq-card-title">Best of Innsbruck</div>
+        <div class="tq-card-desc">Check out the Best of Innsbruck Package for an awesome mix of fun and culture. 
 
 Whether you love nature, art, or getting to know new cultures, Innsbruck has something special for you. Get ready for an exciting journey through the Austrian Alps.
 
@@ -235,14 +449,20 @@ Enjoy a night of Austrian music, dance, and yodeling by the Gundolf family, expe
 
 **Alpenzoo + Hungerburgbahn**
 
-Visit Alpenzoo in Innsbruck, Europe's highest zoo, home to about 2,000 alpine animals. The visit includes a scenic ride on the Hungerburgbahn from the city to the zoo.</p>
-          <div class="card-footer">
-            <span class="price">From €77.5</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-best-of-innsbruck-package-p1091348/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit Alpenzoo in Innsbruck, Europe's highest zoo, home to about 2,000 alpine animals. The visit includes a scenic ride on the Hungerburgbahn from the city to the zoo.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€77.50</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-best-of-innsbruck-package-p1091348/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

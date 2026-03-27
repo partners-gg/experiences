@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Branson | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Branson. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,12 +131,17 @@
     <p>11 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8dd729181e844c45a5793845c6046d8e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Titanic Museum Attraction Branson: Entry Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Titanic Museum Attraction Branson: Entry Ticket + Audio Guide</h3>
-          <p class="venue">📍 Titanic Museum Attraction Branson</p>
-          <p>Learn about the Titanic’s story through a self-guided visit to the Titanic Museum Attraction. The museum holds over 400 real artifacts, valued at more than four million dollars.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8dd729181e844c45a5793845c6046d8e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Titanic Museum Attraction Branson: Entry Ticket + Audio Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRANSON</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TITANIC MUSEUM ATTRACTION BRANSON</span>
+        </div>
+        <div class="tq-card-title">Titanic Museum Attraction Branson: Entry Ticket + Audio Guide</div>
+        <div class="tq-card-desc">Learn about the Titanic’s story through a self-guided visit to the Titanic Museum Attraction. The museum holds over 400 real artifacts, valued at more than four million dollars.
 
 When you arrive, a staff member in costume will give you a boarding pass with the name of an actual Titanic passenger. As you walk through the museum, you’ll explore galleries that share stories of the 2,208 passengers and crew.
 
@@ -45,192 +149,308 @@ You can touch an iceberg, feel 28-degree water, sit in a life-size lifeboat, see
 
 You can also try steering on the Captain’s Bridge and view highlights from co-founder John Joslyn’s Titanic dive in the Discovery Gallery.
 
-The museum also features a full-scale replica of the ship’s Grand Staircase, built using the original blueprints.</p>
-          <div class="card-footer">
-            <span class="price">From €39.08</span>
-            <span class="rating">⭐ 4.7 (165)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-titanic-museum-attraction-branson-p1002394/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The museum also features a full-scale replica of the ship’s Grand Staircase, built using the original blueprints.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(165)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.08</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-titanic-museum-attraction-branson-p1002394/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8dd729181e844c45a5793845c6046d8e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="WonderWorks Branson: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>WonderWorks Branson: Entry Ticket</h3>
-          <p class="venue">📍 WonderWorks Branson</p>
-          <p>Branson Missouri just got even more exciting with the opening of the wacky, weird and wonderful "edu-tainment" venue, WonderWorks! Your WonderWorks Branson tickets get you into a world of adventure full of interactive fun for the whole family. There's never been a better combo of education and entertainment - think over 100 hands-on exhibits to challenge your brain and spark your imagination. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8dd729181e844c45a5793845c6046d8e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="WonderWorks Branson: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRANSON</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WONDERWORKS BRANSON</span>
+        </div>
+        <div class="tq-card-title">WonderWorks Branson: Entry Ticket</div>
+        <div class="tq-card-desc">Branson Missouri just got even more exciting with the opening of the wacky, weird and wonderful "edu-tainment" venue, WonderWorks! Your WonderWorks Branson tickets get you into a world of adventure full of interactive fun for the whole family. There's never been a better combo of education and entertainment - think over 100 hands-on exhibits to challenge your brain and spark your imagination. 
 
 How does it feel to get to zero gravity? What is the state of matter? Can you really get your kicks on route 66? There's fun with physics, serious space exploration, a perspective-shifting art gallery and even an extreme weather and natural disaster zone! 
 
-You have to see it to believe it, but first you have to master having the ceiling under your feet!</p>
-          <div class="card-footer">
-            <span class="price">From €32.24</span>
-            <span class="rating">⭐ 4.1 (18)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-wonderworks-branson-p1026468/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You have to see it to believe it, but first you have to master having the ceiling under your feet!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(18)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€32.24</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-wonderworks-branson-p1026468/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/acd0ee08769f438a87270267ff448efa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Branson: Ripley's Believe It or Not!" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Branson: Ripley's Believe It or Not!</h3>
-          <p class="venue">📍 Ripley's Believe It or Not! Branson</p>
-          <p>Welcome to Ripley's Believe It or Not! to dive into a world of wonder with over 500 exhibits and artifacts.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/acd0ee08769f438a87270267ff448efa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Branson: Ripley's Believe It or Not!" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRANSON</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RIPLEY'S BELIEVE IT OR NOT! BRANSON</span>
+        </div>
+        <div class="tq-card-title">Branson: Ripley's Believe It or Not!</div>
+        <div class="tq-card-desc">Welcome to Ripley's Believe It or Not! to dive into a world of wonder with over 500 exhibits and artifacts.
 
 Explore eight themed galleries filled with fascinating artifacts, interactive games, and incredible stories. From stunning art to bizarre animal oddities, there's something for everyone to enjoy.
 
 Get up close to a real shrunken head, meet extraordinary individuals, and marvel at unbelievable animal anomalies.
 
-Experience the unbelievable at Ripley's Believe It or Not! Let your imagination run wild as reality surpasses fiction right before your eyes.</p>
-          <div class="card-footer">
-            <span class="price">From €23.44</span>
-            <span class="rating">⭐ 3.8 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ripley-s-believe-it-or-not-branson-p1089946/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Experience the unbelievable at Ripley's Believe It or Not! Let your imagination run wild as reality surpasses fiction right before your eyes.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.44</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ripley-s-believe-it-or-not-branson-p1089946/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/acd0ee08769f438a87270267ff448efa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Celebrity Car Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Celebrity Car Museum: Entry Ticket</h3>
-          <p class="venue">📍 Celebrity Car Museum</p>
-          <p>Explore the Celebrity Car Museum, home to over a hundred iconic vehicles from movies and TV shows. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/acd0ee08769f438a87270267ff448efa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Celebrity Car Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRANSON</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CELEBRITY CAR MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Celebrity Car Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Explore the Celebrity Car Museum, home to over a hundred iconic vehicles from movies and TV shows. 
 
 Dive into Hollywood history with costumes, props, and autographs from famous stars. It's a must-visit for fans of entertainment and car enthusiasts alike. 
 
-Capture your own star-studded memories with a mini photoshoot using your camera for just $10 per person/car or $20 for the Batmobile (at your own expense)</p>
-          <div class="card-footer">
-            <span class="price">From €21.51</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-celebrity-car-museum-entry-ticket-p1097798/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Capture your own star-studded memories with a mini photoshoot using your camera for just $10 per person/car or $20 for the Batmobile (at your own expense)</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.51</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-celebrity-car-museum-entry-ticket-p1097798/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/acd0ee08769f438a87270267ff448efa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Super Fun Zone: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ripley's Super Fun Zone: Entry Ticket</h3>
-          <p class="venue">📍 Ripley's Super Fun Zone</p>
-          <p>Welcome to Ripley’s Super Fun Park – the ultimate destination for families, friends, and anyone seeking a good time! Enjoy unlimited gameplay all day long with an array of thrilling activities.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/acd0ee08769f438a87270267ff448efa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ripley's Super Fun Zone: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRANSON</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RIPLEY'S SUPER FUN ZONE</span>
+        </div>
+        <div class="tq-card-title">Ripley's Super Fun Zone: Entry Ticket</div>
+        <div class="tq-card-desc">Welcome to Ripley’s Super Fun Park – the ultimate destination for families, friends, and anyone seeking a good time! Enjoy unlimited gameplay all day long with an array of thrilling activities.
 
 Challenge your friends to a game of laser tag in a futuristic arena for an epic showdown. Navigate through an interactive outdoor maze, filled with surprises around every corner.
 
-Test your reflexes in Ripley’s Smash Dash and see if you can beat the clock in this fast-paced game. Then, take on Ripley’s Laserace, where you'll dodge laser beams at lightning speed.</p>
-          <div class="card-footer">
-            <span class="price">From €23.45</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-branson-ripley-s-super-fun-park-p1089720/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Test your reflexes in Ripley’s Smash Dash and see if you can beat the clock in this fast-paced game. Then, take on Ripley’s Laserace, where you'll dodge laser beams at lightning speed.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.45</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-branson-ripley-s-super-fun-park-p1089720/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/acd0ee08769f438a87270267ff448efa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dublin's Irish Tenors & the Celtic Ladies Featuring Irish Dance Stars" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Dublin's Irish Tenors & the Celtic Ladies Featuring Irish Dance Stars</h3>
-          <p class="venue">📍 King's Castle Theatre</p>
-          <p>Dublin's Irish Tenors and the Celtic Ladies are storming the stage with a fusion of song and dance. For this special production, they've partnered with Irish dance stars from the hit production _Spirit of the Dance_.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/acd0ee08769f438a87270267ff448efa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dublin's Irish Tenors & the Celtic Ladies Featuring Irish Dance Stars" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRANSON</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KING'S CASTLE THEATRE</span>
+        </div>
+        <div class="tq-card-title">Dublin's Irish Tenors & the Celtic Ladies Featuring Irish Dance Stars</div>
+        <div class="tq-card-desc">Dublin's Irish Tenors and the Celtic Ladies are storming the stage with a fusion of song and dance. For this special production, they've partnered with Irish dance stars from the hit production _Spirit of the Dance_.
 
-Get ready to go on a musical journey across genres, from opera and jazz, to pop and swing. You'll also hear Irish classics like Oh Danny Boy, Whiskey in the Jar, Finnegans Wake, Tell Me Ma, and plenty of other hits.</p>
-          <div class="card-footer">
-            <span class="price">From €38.8</span>
-            <span class="rating">⭐ 3.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-dublins-irish-tenors-the-celtic-ladies-featuring-irish-dance-stars-p1030154/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get ready to go on a musical journey across genres, from opera and jazz, to pop and swing. You'll also hear Irish classics like Oh Danny Boy, Whiskey in the Jar, Finnegans Wake, Tell Me Ma, and plenty of other hits.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.80</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-dublins-irish-tenors-the-celtic-ladies-featuring-irish-dance-stars-p1030154/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/acd0ee08769f438a87270267ff448efa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dancing Queen... The Ultimate '70s Show" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Dancing Queen... The Ultimate '70s Show</h3>
-          <p class="venue">📍 King's Castle Theatre</p>
-          <p>Dig out your bell bottoms and put on your dancing shoes, because Dancing Queen has returned from Las Vegas to the King's Castle Theatre! This show-stopping, psychedelic kaleidoscope of colour will have everyone dancing and singing in the aisles. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/acd0ee08769f438a87270267ff448efa.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dancing Queen... The Ultimate '70s Show" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRANSON</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KING'S CASTLE THEATRE</span>
+        </div>
+        <div class="tq-card-title">Dancing Queen... The Ultimate '70s Show</div>
+        <div class="tq-card-desc">Dig out your bell bottoms and put on your dancing shoes, because Dancing Queen has returned from Las Vegas to the King's Castle Theatre! This show-stopping, psychedelic kaleidoscope of colour will have everyone dancing and singing in the aisles. 
 
 Celebrating the classic disco and Motown hits from the 70s, this high-octane musical extravaganza features electric performances from incredible singers and dancers. 
 
-Get ready to get your groove on at the biggest 70s party ever!</p>
-          <div class="card-footer">
-            <span class="price">From €38.8</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-dancing-queen-the-ultimate-70s-show-p1029792/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get ready to get your groove on at the biggest 70s party ever!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.80</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-dancing-queen-the-ultimate-70s-show-p1029792/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/184b69feeb14451d9eda579b9f965df8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Anthems of Rock" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Anthems of Rock</h3>
-          <p class="venue">📍 King's Castle Theatre</p>
-          <p>Branson... Are you ready to rock?
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/184b69feeb14451d9eda579b9f965df8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Anthems of Rock" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRANSON</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KING'S CASTLE THEATRE</span>
+        </div>
+        <div class="tq-card-title">Anthems of Rock</div>
+        <div class="tq-card-desc">Branson... Are you ready to rock?
 
 The Kings Castle Theatre, Branson is delighted to announce the biggest Rock party in Branson is back!
 
-A spectacular show bringing the greatest rock songs in history to the stage – song after song, hit after hit – Anthems of Rock delivers an outstanding show of number one hits from the some of most famous bands of the 20th century. Expect world-class renditions of Queen, The Beatles, The Rolling Stones, Bon Jovi, Led Zeppelin, Journey, Aerosmith, and many more.</p>
-          <div class="card-footer">
-            <span class="price">From €38.8</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-anthems-of-rock-p1029451/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+A spectacular show bringing the greatest rock songs in history to the stage – song after song, hit after hit – Anthems of Rock delivers an outstanding show of number one hits from the some of most famous bands of the 20th century. Expect world-class renditions of Queen, The Beatles, The Rolling Stones, Bon Jovi, Led Zeppelin, Journey, Aerosmith, and many more.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.80</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-anthems-of-rock-p1029451/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0f3e6d9c0e9042bda0eb3183c0ff69c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Beyond The Lens! Branson: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Beyond The Lens! Branson: Entry Ticket</h3>
-          <p class="venue">📍 Beyond The Lens! Branson</p>
-          <p>Beyond The Lens! is where entertainment and technology collide! The home of Techno-Tainment™ is also home to one of Branson's newest attractions, FlyRide. This amazing sensory experience gives you the immersive feeling of flight as you soar over 22 national landmarks!  
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/0f3e6d9c0e9042bda0eb3183c0ff69c6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Beyond The Lens! Branson: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRANSON</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BEYOND THE LENS! BRANSON</span>
+        </div>
+        <div class="tq-card-title">Beyond The Lens! Branson: Entry Ticket</div>
+        <div class="tq-card-desc">Beyond The Lens! is where entertainment and technology collide! The home of Techno-Tainment™ is also home to one of Branson's newest attractions, FlyRide. This amazing sensory experience gives you the immersive feeling of flight as you soar over 22 national landmarks!  
 
 The exhibits at Beyond The Lens! will have you exploring mysteries of history and engaging in fun interactive gaming and trivia, including 2-minute escape rooms, virtual reality games, and an augmented reality scavenger hunt. Dive into the alien egg ball pit, hunt for Bigfoot, and flip and spin like never before with Flip Zone – a thrilling modern-day bumper car ride.
 
 There's also incredible photo opportunities like sitting in the Oval Office, holding your own press briefing in the White House Press Room; becoming a life-size Barbie Doll, or G.I. Joe; and taking a selfie on a $50 million stack of cash. 
 
-Come experience Techno-Tainment™ at Beyond The Lens! Branson.</p>
-          <div class="card-footer">
-            <span class="price">From €20.51</span>
-            <span class="rating">⭐ 4.4 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-beyond-the-lens-branson-p1019754/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Come experience Techno-Tainment™ at Beyond The Lens! Branson.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€20.51</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-beyond-the-lens-branson-p1019754/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e1d4ac1c9de34ea19798ef778d6ef323.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fritz's Adventure: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Fritz's Adventure: Entry Ticket</h3>
-          <p class="venue">📍 Fritz's Adventure</p>
-          <p>Fritz’s Adventure, an exciting indoor adventure park full of activities for all ages, offers families the chance to create powerful moments together. Explore a world of amazing attractions – it's one of the most fun things to do in Branson!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e1d4ac1c9de34ea19798ef778d6ef323.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fritz's Adventure: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRANSON</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FRITZ'S ADVENTURE</span>
+        </div>
+        <div class="tq-card-title">Fritz's Adventure: Entry Ticket</div>
+        <div class="tq-card-desc">Fritz’s Adventure, an exciting indoor adventure park full of activities for all ages, offers families the chance to create powerful moments together. Explore a world of amazing attractions – it's one of the most fun things to do in Branson!
 
-Check out the TreeTops course, multi-story ropes course, underground tunnels, laser room, City Wall, rappelling, giant treehouses, multi-story slides, warped walls and more!</p>
-          <div class="card-footer">
-            <span class="price">From €24.38</span>
-            <span class="rating">⭐ 4.8 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fritz-s-adventure-p1012986/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Check out the TreeTops course, multi-story ropes course, underground tunnels, laser room, City Wall, rappelling, giant treehouses, multi-story slides, warped walls and more!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€24.38</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fritz-s-adventure-p1012986/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e1d4ac1c9de34ea19798ef778d6ef323.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fritz's Adventure: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Fritz's Adventure: Entry Ticket</h3>
-          <p class="venue">📍 Fritz's Adventure</p>
-          <p>Fritz’s Adventure, an exciting indoor adventure park full of activities for all ages, offers families the chance to create powerful moments together. Explore a world of amazing attractions – it's one of the most fun things to do in Branson!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e1d4ac1c9de34ea19798ef778d6ef323.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fritz's Adventure: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRANSON</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FRITZ'S ADVENTURE</span>
+        </div>
+        <div class="tq-card-title">Fritz's Adventure: Entry Ticket</div>
+        <div class="tq-card-desc">Fritz’s Adventure, an exciting indoor adventure park full of activities for all ages, offers families the chance to create powerful moments together. Explore a world of amazing attractions – it's one of the most fun things to do in Branson!
 
-Check out the TreeTops course, multi-story ropes course, underground tunnels, laser room, City Wall, rappelling, giant treehouses, multi-story slides, warped walls and more!</p>
-          <div class="card-footer">
-            <span class="price">From €24.38</span>
-            <span class="rating">⭐ 4.8 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fritz-s-adventure-p1012986/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Check out the TreeTops course, multi-story ropes course, underground tunnels, laser room, City Wall, rappelling, giant treehouses, multi-story slides, warped walls and more!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€24.38</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fritz-s-adventure-p1012986/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

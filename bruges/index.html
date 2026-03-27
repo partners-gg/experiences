@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Bruges | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Bruges. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,102 +131,173 @@
     <p>21 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/00e38614be2247bcbf2e588779149b8a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Musea Brugge Card" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Musea Brugge Card</h3>
-          <p class="venue">📍 Bruges City Cards</p>
-          <p>Discover Bruges with this 72-hour card! Access the city's top 11 museums and monuments, including the Belfort, Stadhuis, O.L.V.-kerk Museum, Groeningemuseum, Brugse Vrije, and Sint-Janshuis Molen. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/00e38614be2247bcbf2e588779149b8a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Musea Brugge Card" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BRUGES CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Musea Brugge Card</div>
+        <div class="tq-card-desc">Discover Bruges with this 72-hour card! Access the city's top 11 museums and monuments, including the Belfort, Stadhuis, O.L.V.-kerk Museum, Groeningemuseum, Brugse Vrije, and Sint-Janshuis Molen. 
 
-Explore the history of O.L.V. ter Potterie and the Volkskundemuseum. Visit diverse collections across the city, from Flemish primitives to contemporary art, classic fine art to archaeological finds, and traditional furniture to folklore.</p>
-          <div class="card-footer">
-            <span class="price">From €33</span>
-            <span class="rating">⭐ 4.4 (117)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bruges-museum-card-p1088873/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore the history of O.L.V. ter Potterie and the Volkskundemuseum. Visit diverse collections across the city, from Flemish primitives to contemporary art, classic fine art to archaeological finds, and traditional furniture to folklore.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(117)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bruges-museum-card-p1088873/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4b658f5923844e988c83451a47b53f28.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Choco-Story Bruges: Entry Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Choco-Story Bruges: Entry Ticket + Audio Guide</h3>
-          <p class="venue">📍 Choco-Story Bruges</p>
-          <p>Just wait till you get inside Choco-Story Bruges, chocolate lovers! This 'museum' is a tasty diversion from the well-traveled Bruges tourist trail, set to teach you all about cocoa and chocolate. Learn recipes, get your cocoa-powered history straight and meet the experts making Belgian chocolate.</p>
-          <div class="card-footer">
-            <span class="price">From €16</span>
-            <span class="rating">⭐ 4.2 (300)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-choco-story-bruges-p975587/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4b658f5923844e988c83451a47b53f28.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Choco-Story Bruges: Entry Ticket + Audio Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CHOCO-STORY BRUGES</span>
+        </div>
+        <div class="tq-card-title">Choco-Story Bruges: Entry Ticket + Audio Guide</div>
+        <div class="tq-card-desc">Just wait till you get inside Choco-Story Bruges, chocolate lovers! This 'museum' is a tasty diversion from the well-traveled Bruges tourist trail, set to teach you all about cocoa and chocolate. Learn recipes, get your cocoa-powered history straight and meet the experts making Belgian chocolate.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(300)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€16.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-choco-story-bruges-p975587/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1135752062a44428a67f4821154b1cb8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fries Museum Bruges" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Fries Museum Bruges</h3>
-          <p class="venue">📍 Frietmuseum Brugge</p>
-          <p>Big French fry fan? Who isn't? Enter a world of crispy golden goodness and find out why Belgium is famous for its frites at the Friet Museum in Bruges! You can order some lip-smacking fried potatoes and sauces, explore the history of the humble potato and fill yourself with frite-facts!</p>
-          <div class="card-footer">
-            <span class="price">From €12</span>
-            <span class="rating">⭐ 4.2 (129)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fries-museum-bruges-p976324/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1135752062a44428a67f4821154b1cb8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fries Museum Bruges" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FRIETMUSEUM BRUGGE</span>
+        </div>
+        <div class="tq-card-title">Fries Museum Bruges</div>
+        <div class="tq-card-desc">Big French fry fan? Who isn't? Enter a world of crispy golden goodness and find out why Belgium is famous for its frites at the Friet Museum in Bruges! You can order some lip-smacking fried potatoes and sauces, explore the history of the humble potato and fill yourself with frite-facts!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(129)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fries-museum-bruges-p976324/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c4ee8b9a1a164d22ac0b39a90e4322ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges Beer Museum + Beer Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bruges Beer Museum + Beer Tasting</h3>
-          <p class="venue">📍 Bruges Beer Museum</p>
-          <p>Interactivity, innovative technologies and, of course, beer, make the Bruges Beer Museum way more than a museum. Take a self-guided tour and learn about the ingredients that go into beer, play a fun quiz and taste some beer in the bar at the end!</p>
-          <div class="card-footer">
-            <span class="price">From €14</span>
-            <span class="rating">⭐ 4.6 (219)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bruges-beer-museum-beer-tasting-p975780/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c4ee8b9a1a164d22ac0b39a90e4322ae.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges Beer Museum + Beer Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BRUGES BEER MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Bruges Beer Museum + Beer Tasting</div>
+        <div class="tq-card-desc">Interactivity, innovative technologies and, of course, beer, make the Bruges Beer Museum way more than a museum. Take a self-guided tour and learn about the ingredients that go into beer, play a fun quiz and taste some beer in the bar at the end!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(219)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bruges-beer-museum-beer-tasting-p975780/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="City Tour Bruges" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>City Tour Bruges</h3>
-          <p class="venue">📍 Bruges City Tours</p>
-          <p>Arriving in a city you've never been to before can be daunting. You might know there are sights to see, but have no idea how to get there! This tour of Bruges is the perfect solution. In less than an hour, you'll have gone through the cobbled streets and seen the best Bruges has to offer.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="City Tour Bruges" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BRUGES CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">City Tour Bruges</div>
+        <div class="tq-card-desc">Arriving in a city you've never been to before can be daunting. You might know there are sights to see, but have no idea how to get there! This tour of Bruges is the perfect solution. In less than an hour, you'll have gone through the cobbled streets and seen the best Bruges has to offer.
 
-An informative audio guide will fill you in on the details of what you see, and teach you a little about the city's rich history. Once you've finished, you'll know all the hotspots you want to see more of.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 4.6 (122)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-city-tour-bruges-p985001/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+An informative audio guide will fill you in on the details of what you see, and teach you a little about the city's rich history. Once you've finished, you'll know all the hotspots you want to see more of.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(122)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-city-tour-bruges-p985001/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6a09c8490c1747abadeea6215622eb3d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Historium Brugge: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Historium Brugge: Entry Ticket</h3>
-          <p class="venue">📍 Historium Brugge</p>
-          <p>There's a lot of history to discover in Bruges, from its incredible architecture to its storied merchants. At the themed rooms in the Historium, you can step into the past. It's an immersive experience that allows you to see medieval Bruges while standing in in-depth sets.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6a09c8490c1747abadeea6215622eb3d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Historium Brugge: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HISTORIUM BRUGGE</span>
+        </div>
+        <div class="tq-card-title">Historium Brugge: Entry Ticket</div>
+        <div class="tq-card-desc">There's a lot of history to discover in Bruges, from its incredible architecture to its storied merchants. At the themed rooms in the Historium, you can step into the past. It's an immersive experience that allows you to see medieval Bruges while standing in in-depth sets.
 
-Wander through bathhouses and back alleys as they would have been 500 years ago. Video displays will bring forgotten places of the past to life, and the VR option will let you explore the area as if you were there!</p>
-          <div class="card-footer">
-            <span class="price">From €21</span>
-            <span class="rating">⭐ 4.5 (128)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-historium-brugge-p984936/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Wander through bathhouses and back alleys as they would have been 500 years ago. Video displays will bring forgotten places of the past to life, and the VR option will let you explore the area as if you were there!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(128)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€21.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-historium-brugge-p984936/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2c47a882f13445e89fe05ab8fe4ead92.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum Sint-Janshospitaal + Pharmacy: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Museum Sint-Janshospitaal + Pharmacy: Entry Ticket</h3>
-          <p class="venue">📍 Museum Sint-Janshospitaal</p>
-          <p>Get ready to see the enchanting Museum St John’s Hospital (Museum Sint-Janshospitaal). 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2c47a882f13445e89fe05ab8fe4ead92.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum Sint-Janshospitaal + Pharmacy: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEUM SINT-JANSHOSPITAAL</span>
+        </div>
+        <div class="tq-card-title">Museum Sint-Janshospitaal + Pharmacy: Entry Ticket</div>
+        <div class="tq-card-desc">Get ready to see the enchanting Museum St John’s Hospital (Museum Sint-Janshospitaal). 
 
 St. John's Hospital has a long history of providing hospitality and care, dating back to the 12th century. 
 
@@ -137,260 +307,420 @@ Explore the works of Hans Memling, a renowned Flemish artist, displayed in the m
 
 Additionally, don't miss the authentic 17th-century pharmacy and herb garden, providing a glimpse into the history of sister apothecaries.
 
-Immerse yourself in the stories of the past, appreciate the artwork, and let the quiet echoes of history be your guide.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐ 4.2 (16)</span>
-            <a href="https://www.tiqets.com/en/checkout/saint-johns-hospital-museum-pharmacy-entry-ticket-p1089173/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Immerse yourself in the stories of the past, appreciate the artwork, and let the quiet echoes of history be your guide.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(16)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/saint-johns-hospital-museum-pharmacy-entry-ticket-p1089173/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5a40247da95f4e058d3876831e1dc1a0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="O.L.V-kerk Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>O.L.V-kerk Museum: Entry Ticket</h3>
-          <p class="venue">📍 O.L.V-kerk Museum</p>
-          <p>The Onze-Lieve-Vrouwekerk Museum is a treasure trove of religious art pieces, including Michelangelo's *Madonna and Child*, the only Michelangelo sculpture outside of Italy. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5a40247da95f4e058d3876831e1dc1a0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="O.L.V-kerk Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">O.L.V-KERK MUSEUM</span>
+        </div>
+        <div class="tq-card-title">O.L.V-kerk Museum: Entry Ticket</div>
+        <div class="tq-card-desc">The Onze-Lieve-Vrouwekerk Museum is a treasure trove of religious art pieces, including Michelangelo's *Madonna and Child*, the only Michelangelo sculpture outside of Italy. 
 
-There's more to explore, like the regal tombs of Charles the Bold and Mary of Burgundy, in a beautiful Gothic setting.</p>
-          <div class="card-footer">
-            <span class="price">From €8</span>
-            <span class="rating">⭐ 4.7 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-onze-lieve-vrouwekerk-museum-entry-p1088947/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There's more to explore, like the regal tombs of Charles the Bold and Mary of Burgundy, in a beautiful Gothic setting.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-onze-lieve-vrouwekerk-museum-entry-p1088947/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d1ad4b08756f456aa7483f36a5d99c41.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges City Hall" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bruges City Hall</h3>
-          <p class="venue">📍 Bruges City Hall</p>
-          <p>Travel back 600 years to medieval Bruges with a visit to the City Hall. Built in 1376, it's one of the oldest in the Netherlands and carries significant historical weight. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d1ad4b08756f456aa7483f36a5d99c41.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges City Hall" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BRUGES CITY HALL</span>
+        </div>
+        <div class="tq-card-title">Bruges City Hall</div>
+        <div class="tq-card-desc">Travel back 600 years to medieval Bruges with a visit to the City Hall. Built in 1376, it's one of the oldest in the Netherlands and carries significant historical weight. 
 
 The grand façade, influential in shaping the designs of city halls in Brussels, Ghent, Leuven, and Oudenaarde, defines Bruges' Gothic civic architecture.
 
 Explore the Gothic Hall on the first floor, adorned with captivating murals from the early 20th century that vividly depict Bruges' rich history. 
 
-Your ticket also provides access to the Brugse Vrije, an independent administrative, financial, and judicial part of the County of Flanders since the early 12th century.</p>
-          <div class="card-footer">
-            <span class="price">From €8</span>
-            <span class="rating">⭐ 3.6 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bruges-city-hall-p1088869/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your ticket also provides access to the Brugse Vrije, an independent administrative, financial, and judicial part of the County of Flanders since the early 12th century.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.6</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bruges-city-hall-p1088869/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/380d8b12f14d4087a2dac4d2623e0a87.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gruuthusemuseum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Gruuthusemuseum: Entry Ticket</h3>
-          <p class="venue">📍 Gruuthusemuseum</p>
-          <p>Step into the Gruuthusemuseum, where history comes alive. Discover wall tapestries, stained glass windows, and wooden sculptures that add a rustic charm to the space. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/380d8b12f14d4087a2dac4d2623e0a87.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gruuthusemuseum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GRUUTHUSEMUSEUM</span>
+        </div>
+        <div class="tq-card-title">Gruuthusemuseum: Entry Ticket</div>
+        <div class="tq-card-desc">Step into the Gruuthusemuseum, where history comes alive. Discover wall tapestries, stained glass windows, and wooden sculptures that add a rustic charm to the space. 
 
-Explore historic lacework, Burgundian manuscripts, and Chinese porcelain – all masterpieces in their own right.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐ 4.7 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-gruuthusemuseum-p1088870/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Explore historic lacework, Burgundian manuscripts, and Chinese porcelain – all masterpieces in their own right.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-gruuthusemuseum-p1088870/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a3cdbfd59cf949479420ce08d333e916.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Brewery Bourgogne Des Flandres: Entry Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Brewery Bourgogne Des Flandres: Entry Ticket + Audio Guide</h3>
-          <p class="venue">📍 Brewery Bourgogne Des Flandres</p>
-          <p>Over centuries, Belgians have refined their brewing process to create some of the finest ales the world knows. Brewery Bourgogne des Flandres is now back in Bruges' city center and you can see how the beer masters make it all happen. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a3cdbfd59cf949479420ce08d333e916.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Brewery Bourgogne Des Flandres: Entry Ticket + Audio Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BREWERY BOURGOGNE DES FLANDRES</span>
+        </div>
+        <div class="tq-card-title">Brewery Bourgogne Des Flandres: Entry Ticket + Audio Guide</div>
+        <div class="tq-card-desc">Over centuries, Belgians have refined their brewing process to create some of the finest ales the world knows. Brewery Bourgogne des Flandres is now back in Bruges' city center and you can see how the beer masters make it all happen. 
 
-This brewery tour takes the lid off the fermentation process – not literally – and gives you a glimpse of how this Flemish favorite is made. Meet the brewers, learn the processes, then relax canal-side with a glass of red-brown magic in your hand.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐ 4.5 (21)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-brewery-bourgogne-des-flandres-p984968/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This brewery tour takes the lid off the fermentation process – not literally – and gives you a glimpse of how this Flemish favorite is made. Meet the brewers, learn the processes, then relax canal-side with a glass of red-brown magic in your hand.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(21)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-brewery-bourgogne-des-flandres-p984968/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2c47a882f13445e89fe05ab8fe4ead92.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Volkskundemuseum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Volkskundemuseum: Entry Ticket</h3>
-          <p class="venue">📍 Volkskundemuseum</p>
-          <p>Step back into the 19th and early 20th centuries as you explore an old-school classroom, apothecary, tailor's workshop, sweet maker's shop, or a quaint grocer's store, all in restored 17th-century cottages. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2c47a882f13445e89fe05ab8fe4ead92.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Volkskundemuseum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">VOLKSKUNDEMUSEUM</span>
+        </div>
+        <div class="tq-card-title">Volkskundemuseum: Entry Ticket</div>
+        <div class="tq-card-desc">Step back into the 19th and early 20th centuries as you explore an old-school classroom, apothecary, tailor's workshop, sweet maker's shop, or a quaint grocer's store, all in restored 17th-century cottages. 
 
 Discover rare treasures like tobacco products, childhood games, and cookie and chocolate molds, great for a few hours of fun and exploration with the little ones. 
 
-The museum's upper floor currently features the interactive expo *Children of the Past, Seniors of the Present,* offering a glimpse into the 1930s, 40s, and 50s childhood.</p>
-          <div class="card-footer">
-            <span class="price">From €8</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-folklore-museum-p1089259/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The museum's upper floor currently features the interactive expo *Children of the Past, Seniors of the Present,* offering a glimpse into the 1930s, 40s, and 50s childhood.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-folklore-museum-p1089259/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: Walking Tour with AI Guide on Your Mobile" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bruges: Walking Tour with AI Guide on Your Mobile</h3>
-          <p class="venue">📍 Bruges City Tours</p>
-          <p>Use an AI guide to see Bruges on your own.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: Walking Tour with AI Guide on Your Mobile" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BRUGES CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Bruges: Walking Tour with AI Guide on Your Mobile</div>
+        <div class="tq-card-desc">Use an AI guide to see Bruges on your own.
 
 Explore Bruges with an AI-guided chatbot on WhatsApp using your mobile. No app downloads, audio guides or human guides are needed. Walk through highlights like the Market Square, the Belfry tower, and the canals. Find hidden spots in this historic city.
 
 This walking tour helps you learn more about Bruges beyond the usual tourist spots. Ask questions about history, architecture, or anything else. Make the most of your walk and see all that Bruges offers.
 
-Start your self-guided tour and see the city from a local's perspective.</p>
-          <div class="card-footer">
-            <span class="price">From €14.95</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bruges-walking-tour-with-ai-guide-on-your-mobile-p1107569/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Start your self-guided tour and see the city from a local's perspective.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.95</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bruges-walking-tour-with-ai-guide-on-your-mobile-p1107569/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: Guided Beer Tasting Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bruges: Guided Beer Tasting Tour</h3>
-          <p class="venue">📍 Bruges City Tours</p>
-          <p>Explore Bruges with a beer tour that takes you to hidden spots known only to locals. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: Guided Beer Tasting Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BRUGES CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Bruges: Guided Beer Tasting Tour</div>
+        <div class="tq-card-desc">Explore Bruges with a beer tour that takes you to hidden spots known only to locals. 
 
 Enjoy local beers paired with delicious foods, and see the city's historic streets. 
 
-Visit a bar with a wide selection of Belgian beers and the Beer Wall, showcasing hundreds of varieties. End the tour with a taste of a local craft beer exclusive to Bruges.</p>
-          <div class="card-footer">
-            <span class="price">From €55</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bruges-guided-beer-tasting-tour-p1094882/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit a bar with a wide selection of Belgian beers and the Beer Wall, showcasing hundreds of varieties. End the tour with a taste of a local craft beer exclusive to Bruges.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bruges-guided-beer-tasting-tour-p1094882/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: Audio Guide App by TouringBee" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bruges: Audio Guide App by TouringBee</h3>
-          <p class="venue">📍 Bruges City Tours</p>
-          <p>Explore the beautiful Bruges at your pace with the TouringBee app. The tour starts near the train station and concludes at the lively Market Square. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: Audio Guide App by TouringBee" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BRUGES CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Bruges: Audio Guide App by TouringBee</div>
+        <div class="tq-card-desc">Explore the beautiful Bruges at your pace with the TouringBee app. The tour starts near the train station and concludes at the lively Market Square. 
 
 Know about the city's top attractions from the app, including St. Salvator Cathedral, Beguinage Ten Wijngaarde, Burg Square, The Belfort, and Scenic streets and quays. 
 
 Enjoy a clear and interesting narrative about Bruges' history, local cuisine, and cozy cafés with 21 stops. 
 
-Tour around the city to your liking. Pause the guide for a coffee break, shop for souvenirs, or wander down a side street. Skip any stop or replay stories as often as you'd like.</p>
-          <div class="card-footer">
-            <span class="price">From €7</span>
-            <span class="rating">⭐ 5 (5)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bruges-city-tour-with-audio-guide-app-by-touringbee-p1093298/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Tour around the city to your liking. Pause the guide for a coffee break, shop for souvenirs, or wander down a side street. Skip any stop or replay stories as often as you'd like.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(5)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€7.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bruges-city-tour-with-audio-guide-app-by-touringbee-p1093298/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: A QuizQuest Trivia Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bruges: A QuizQuest Trivia Tour</h3>
-          <p class="venue">📍 Bruges City Tours</p>
-          <p>Join QuizQuest, an interactive walking tour of Bruges led by a guide who doubles as a quizmaster. Answer questions and complete tasks about Bruges' history while exploring the city's heart.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: A QuizQuest Trivia Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BRUGES CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Bruges: A QuizQuest Trivia Tour</div>
+        <div class="tq-card-desc">Join QuizQuest, an interactive walking tour of Bruges led by a guide who doubles as a quizmaster. Answer questions and complete tasks about Bruges' history while exploring the city's heart.
 
-Compete with your team for sweet treats and a special prize while learning fascinating facts about Bruges' notable attractions and historical tidbits. It's a fun way to spend time with friends, family, or colleagues, blending competition and culture.</p>
-          <div class="card-footer">
-            <span class="price">From €165</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bruges-a-quizquest-trivia-tour-p1093295/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Compete with your team for sweet treats and a special prize while learning fascinating facts about Bruges' notable attractions and historical tidbits. It's a fun way to spend time with friends, family, or colleagues, blending competition and culture.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€165.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bruges-a-quizquest-trivia-tour-p1093295/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: Private Evening Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bruges: Private Evening Tour</h3>
-          <p class="venue">📍 Bruges City Tours</p>
-          <p>Join a twilight stroll through Bruges with a friendly private guide. Explore the city's hidden corners and uncover its rich history, myths, and legends.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: Private Evening Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BRUGES CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Bruges: Private Evening Tour</div>
+        <div class="tq-card-desc">Join a twilight stroll through Bruges with a friendly private guide. Explore the city's hidden corners and uncover its rich history, myths, and legends.
 
-Discover lesser-known spots and hidden gems that add to Bruges' beauty. End your journey at the lively Bauhaus bar for a refreshing beer.</p>
-          <div class="card-footer">
-            <span class="price">From €175</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bruges-private-evening-tour-p1093293/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover lesser-known spots and hidden gems that add to Bruges' beauty. End your journey at the lively Bauhaus bar for a refreshing beer.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€175.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bruges-private-evening-tour-p1093293/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: Private Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bruges: Private Guided Tour</h3>
-          <p class="venue">📍 Bruges City Tours</p>
-          <p>Explore historic Bruges with a knowledgeable local guide leading the way. This private tour covers the city's medieval highlights, sharing intriguing tales and practical tips for modern-day visitors.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: Private Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BRUGES CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Bruges: Private Guided Tour</div>
+        <div class="tq-card-desc">Explore historic Bruges with a knowledgeable local guide leading the way. This private tour covers the city's medieval highlights, sharing intriguing tales and practical tips for modern-day visitors.
 
 Discover the essence of Bruges through a mix of history, anecdotes, and hidden treasures. It's an engaging experience aimed at making your visit authentic and memorable.
 
-Highlights of the tour include the lively Grote Markt, the iconic Belfry & Cloth Hall, the regal Gruuthuse Palace, the ancient St. John's Hospital, and the serene Beguinage. You'll also visit the Minnewater, Walplein, Stoofstraat, Onze-Lieve-Vrouwekerk, St. Bonifaciusbrug, Dijver, Rozenhoedkaai, Vismarkt, Burg, and many other fascinating spots along the way.</p>
-          <div class="card-footer">
-            <span class="price">From €165</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bruges-private-guided-tour-p1093183/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Highlights of the tour include the lively Grote Markt, the iconic Belfry & Cloth Hall, the regal Gruuthuse Palace, the ancient St. John's Hospital, and the serene Beguinage. You'll also visit the Minnewater, Walplein, Stoofstraat, Onze-Lieve-Vrouwekerk, St. Bonifaciusbrug, Dijver, Rozenhoedkaai, Vismarkt, Burg, and many other fascinating spots along the way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€165.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bruges-private-guided-tour-p1093183/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: Storytelling Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bruges: Storytelling Walking Tour</h3>
-          <p class="venue">📍 Bruges City Tours</p>
-          <p>Join a unique evening walking tour of Bruges, which is led by a storyteller to explore the city's hidden tales and legends, offering a different experience from daytime tours.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/51684893537b4cd7a0ca11214f4aabfe.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: Storytelling Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BRUGES CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Bruges: Storytelling Walking Tour</div>
+        <div class="tq-card-desc">Join a unique evening walking tour of Bruges, which is led by a storyteller to explore the city's hidden tales and legends, offering a different experience from daytime tours.
 
 Learn about Bruges' lesser-known but equally beautiful places and discover the city's hidden gems and secret corners. 
 
-Enjoy listening to the guide's storytelling, which can make your experience more engaging.</p>
-          <div class="card-footer">
-            <span class="price">From €29</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bruges-storytelling-walking-tour-p1093091/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy listening to the guide's storytelling, which can make your experience more engaging.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bruges-storytelling-walking-tour-p1093091/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e0e89204b2624a39969fb5739206ac3d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: History, Chocolate, and Beer Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bruges: History, Chocolate, and Beer Tour</h3>
-          <p class="venue">📍 Bruges City Tours</p>
-          <p>Explore Bruges and its rich history with this comprehensive walking tour. Start at the iconic Grote Markt, where a knowledgeable guide shares the city's medieval stories.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e0e89204b2624a39969fb5739206ac3d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bruges: History, Chocolate, and Beer Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BRUGES CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Bruges: History, Chocolate, and Beer Tour</div>
+        <div class="tq-card-desc">Explore Bruges and its rich history with this comprehensive walking tour. Start at the iconic Grote Markt, where a knowledgeable guide shares the city's medieval stories.
 
 Next, visit a renowned chocolatier to learn about Belgian chocolate traditions and enjoy a delicious praline tasting.
 
-Continue through the medieval center, filled with picturesque charm and timeless architecture. Finish at Bourgogne de Flandres, Bruges' romantic brewery, for a tour and a refreshing pint of beer.</p>
-          <div class="card-footer">
-            <span class="price">From €49</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bruges-history-chocolate-and-beer-tour-p1090961/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Continue through the medieval center, filled with picturesque charm and timeless architecture. Finish at Bourgogne de Flandres, Bruges' romantic brewery, for a tour and a refreshing pint of beer.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€49.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bruges-history-chocolate-and-beer-tour-p1090961/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6a09c8490c1747abadeea6215622eb3d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Musea Sculpta: Entry Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Musea Sculpta: Entry Ticket + Audio Guide</h3>
-          <p class="venue">📍 Musea Sculpta</p>
-          <p>Discover a unique perspective on the symbolism behind the works of the renowned Flemish Primitives. The creative efforts of 40 international artists breathe new life into these world-renowned artworks.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6a09c8490c1747abadeea6215622eb3d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Musea Sculpta: Entry Ticket + Audio Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BRUGES</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEA SCULPTA</span>
+        </div>
+        <div class="tq-card-title">Musea Sculpta: Entry Ticket + Audio Guide</div>
+        <div class="tq-card-desc">Discover a unique perspective on the symbolism behind the works of the renowned Flemish Primitives. The creative efforts of 40 international artists breathe new life into these world-renowned artworks.
 
-Learn about the fascinating connection between the Flemish Primitives and the magical city of Bruges. Within the historic townhouse "De Pelikaan," an intriguing sculpture gallery invites exploration. It's a visit to uncover the secrets of this unique city through the eyes of its esteemed artists.</p>
-          <div class="card-footer">
-            <span class="price">From €10</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-musea-sculpta-entry-audio-guide-p1090264/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about the fascinating connection between the Flemish Primitives and the magical city of Bruges. Within the historic townhouse "De Pelikaan," an intriguing sculpture gallery invites exploration. It's a visit to uncover the secrets of this unique city through the eyes of its esteemed artists.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€10.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-musea-sculpta-entry-audio-guide-p1090264/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

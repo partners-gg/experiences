@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Palma de Mallorca | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Palma de Mallorca. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,336 +131,550 @@
     <p>49 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c9b62a8db32b4beea29903361f614495.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca Cathedral" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca Cathedral</h3>
-          <p class="venue">📍 Palma Cathedral</p>
-          <p>Skip the lines to Mallorca Cathedral and explore this epic statement, a jewel of Gothic architecture overlooking the sea. This magnificent 14th-century sandstone monument is the pride of Palma and a work of art in itself.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c9b62a8db32b4beea29903361f614495.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca Cathedral" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALMA CATHEDRAL</span>
+        </div>
+        <div class="tq-card-title">Mallorca Cathedral</div>
+        <div class="tq-card-desc">Skip the lines to Mallorca Cathedral and explore this epic statement, a jewel of Gothic architecture overlooking the sea. This magnificent 14th-century sandstone monument is the pride of Palma and a work of art in itself.
 
 Explore the three naves, and step into the final resting place of kings Jaime II and Jaime III. Gaze up at imposing columns and snap a selfie next to sculptures by Guillermo Sagrera.
 
-There are 20th-century renovations by Gaudí to be seen here, too!</p>
-          <div class="card-footer">
-            <span class="price">From €11</span>
-            <span class="rating">⭐ 4.6 (3591)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palma-cathedral-skip-the-line-p998531/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There are 20th-century renovations by Gaudí to be seen here, too!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(3,591)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€11.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palma-cathedral-skip-the-line-p998531/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c9b62a8db32b4beea29903361f614495.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma Aquarium: Skip The Line Ticket + Optional 3D Cinema Aquadome" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma Aquarium: Skip The Line Ticket + Optional 3D Cinema Aquadome</h3>
-          <p class="venue">📍 Palma Aquarium</p>
-          <p>Dive into the world of oceanic life at the Palma Aquarium, where hundreds of species of sea creatures are making a splash in Majorca. Get up close to Europe's largest living coral collection, and see sharks in Europe's deepest shark tank. An aquatic adventure for kids and adults alike!</p>
-          <div class="card-footer">
-            <span class="price">From €30.5</span>
-            <span class="rating">⭐ 4.4 (1164)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palma-aquarium-skip-the-line-optional-3D-cinema-aquadome-p977088/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c9b62a8db32b4beea29903361f614495.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma Aquarium: Skip The Line Ticket + Optional 3D Cinema Aquadome" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALMA AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Palma Aquarium: Skip The Line Ticket + Optional 3D Cinema Aquadome</div>
+        <div class="tq-card-desc">Dive into the world of oceanic life at the Palma Aquarium, where hundreds of species of sea creatures are making a splash in Majorca. Get up close to Europe's largest living coral collection, and see sharks in Europe's deepest shark tank. An aquatic adventure for kids and adults alike!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(1,164)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€30.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palma-aquarium-skip-the-line-optional-3D-cinema-aquadome-p977088/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/62656c4ee3b34b9faf7e33b9e0bc5199.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fundació Miró Mallorca: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Fundació Miró Mallorca: Entry Ticket</h3>
-          <p class="venue">📍 Fundació Miró Mallorca</p>
-          <p>Across four unique spaces, enjoy the process of Joan Miró's artistic endeavors during his time in Mallorca. Step inside Sert Studio and the preserved rural house, Son Boter – creative spaces where time has stood still – plus, see the fluid blending of art and architecture at the Moneo Building.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/62656c4ee3b34b9faf7e33b9e0bc5199.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fundació Miró Mallorca: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUNDACIÓ MIRÓ MALLORCA</span>
+        </div>
+        <div class="tq-card-title">Fundació Miró Mallorca: Entry Ticket</div>
+        <div class="tq-card-desc">Across four unique spaces, enjoy the process of Joan Miró's artistic endeavors during his time in Mallorca. Step inside Sert Studio and the preserved rural house, Son Boter – creative spaces where time has stood still – plus, see the fluid blending of art and architecture at the Moneo Building.
 
-Besides Miró's paintings, which often go against conventional techniques; visitors can also enjoy his large-scale sculptures and the warm Mediterranean climate in the surrounding gardens.</p>
-          <div class="card-footer">
-            <span class="price">From €10</span>
-            <span class="rating">⭐ 4.5 (1165)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-miro-mallorca-foundation-p1002327/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Besides Miró's paintings, which often go against conventional techniques; visitors can also enjoy his large-scale sculptures and the warm Mediterranean climate in the surrounding gardens.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(1,165)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€10.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-miro-mallorca-foundation-p1002327/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/bbaebd0742aa43f0b2fe6f77a8717442.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tirolinas Go Mallorca: Adventure Park" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tirolinas Go Mallorca: Adventure Park</h3>
-          <p class="venue">📍 Tirolinas Go Mallorca Forestal Park</p>
-          <p>Release your full monkey self on the zipline course in Tirolinas Go Mallorca: Adventure Park. This forest of family-friendly fun offers a different adventure from tree to tree, with courses to suit all ages and all levels – no experience required to bring out your inner Tarzan here! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/bbaebd0742aa43f0b2fe6f77a8717442.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tirolinas Go Mallorca: Adventure Park" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TIROLINAS GO MALLORCA FORESTAL PARK</span>
+        </div>
+        <div class="tq-card-title">Tirolinas Go Mallorca: Adventure Park</div>
+        <div class="tq-card-desc">Release your full monkey self on the zipline course in Tirolinas Go Mallorca: Adventure Park. This forest of family-friendly fun offers a different adventure from tree to tree, with courses to suit all ages and all levels – no experience required to bring out your inner Tarzan here! 
 
-Close to Palma Beach, it's a great way to bond in the canopy, and there are 80 different activities to keep you entertained for hours.</p>
-          <div class="card-footer">
-            <span class="price">From €26</span>
-            <span class="rating">⭐ 4.2 (13)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tirolinas-go-mallorca-adventure-park-p1009653/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Close to Palma Beach, it's a great way to bond in the canopy, and there are 80 different activities to keep you entertained for hours.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(13)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tirolinas-go-mallorca-adventure-park-p1009653/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ec5bd1fba74a486dae65125a7b1b5c2d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Royal Palace of La Almudaina: Entry Ticket + Digital Royal Guide" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Royal Palace of La Almudaina: Entry Ticket + Digital Royal Guide</h3>
-          <p class="venue">📍 Royal Palace of La Almudaina</p>
-          <p>The Royal Palace of La Almudaina brings decadence from days gone by to your time in Palma de Mallorca. Dating back to the 14th century, this was where the king and queen camped out when they stayed in Mallorca, and it's packed with all the royal trimmings you'd expect, from period pieces and tapestries to grand archways and a Romanesque chapel. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ec5bd1fba74a486dae65125a7b1b5c2d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Royal Palace of La Almudaina: Entry Ticket + Digital Royal Guide" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROYAL PALACE OF LA ALMUDAINA</span>
+        </div>
+        <div class="tq-card-title">Royal Palace of La Almudaina: Entry Ticket + Digital Royal Guide</div>
+        <div class="tq-card-desc">The Royal Palace of La Almudaina brings decadence from days gone by to your time in Palma de Mallorca. Dating back to the 14th century, this was where the king and queen camped out when they stayed in Mallorca, and it's packed with all the royal trimmings you'd expect, from period pieces and tapestries to grand archways and a Romanesque chapel. 
 
-The palace's prominent position overlooking the Bay of Palma gave it huge strategic importance throughout the centuries. Now it gives photographers the best views over the Bay of Palma.</p>
-          <div class="card-footer">
-            <span class="price">From €9.5</span>
-            <span class="rating">⭐ 4.1 (104)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-royal-palace-of-la-almudaina-p1010494/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The palace's prominent position overlooking the Bay of Palma gave it huge strategic importance throughout the centuries. Now it gives photographers the best views over the Bay of Palma.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(104)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€9.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-royal-palace-of-la-almudaina-p1010494/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genova Caves: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Genova Caves: Skip The Line Ticket</h3>
-          <p class="venue">📍 Genova Caves</p>
-          <p>Speleothemas coraloide might not sound too interesting unless you've got a degree in geology... but no matter what you call it, seeing a colorful cauliflower-shaped rock deep in the belly of the earth is a unique experience.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Genova Caves: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GENOVA CAVES</span>
+        </div>
+        <div class="tq-card-title">Genova Caves: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Speleothemas coraloide might not sound too interesting unless you've got a degree in geology... but no matter what you call it, seeing a colorful cauliflower-shaped rock deep in the belly of the earth is a unique experience.
 
-The Genova Caves contain a number of subterranean galleries linked by natural corridors. During your tour you'll walk about a kilometer and descend up to 36 meters underground. You will learn how these unbelievable bodies formed and how nature produced the dazzling colors that play on them.</p>
-          <div class="card-footer">
-            <span class="price">From €12</span>
-            <span class="rating">⭐ 4.2 (72)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-genova-caves-p1008404/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Genova Caves contain a number of subterranean galleries linked by natural corridors. During your tour you'll walk about a kilometer and descend up to 36 meters underground. You will learn how these unbelievable bodies formed and how nature produced the dazzling colors that play on them.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(72)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-genova-caves-p1008404/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tablao Flamenco Alma: Show with a Drink" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tablao Flamenco Alma: Show with a Drink</h3>
-          <p class="venue">📍 Tablao Flamenco Alma</p>
-          <p>Seize the day in Palma de Mallorca by stepping into the passionate world of Flamenco! The city welcomes Spain's finest flamenco artists from the cultural hotspots of Madrid, Barcelona, and Andalucía.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tablao Flamenco Alma: Show with a Drink" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TABLAO FLAMENCO ALMA</span>
+        </div>
+        <div class="tq-card-title">Tablao Flamenco Alma: Show with a Drink</div>
+        <div class="tq-card-desc">Seize the day in Palma de Mallorca by stepping into the passionate world of Flamenco! The city welcomes Spain's finest flamenco artists from the cultural hotspots of Madrid, Barcelona, and Andalucía.
 
-This ticket is your passport to an experience that enthralls all five senses. Picture a unique setting where soulful singing, masterful guitar playing, and mesmerizing dance unite to create a pulsating sensation of rhythm and emotion. As the show starts, the audience sips on refreshing beverages, their enjoyment enhanced by the riveting performance.</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐ 4.3 (27)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tablao-flamenco-alma-show-with-a-drink-p1104073/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This ticket is your passport to an experience that enthralls all five senses. Picture a unique setting where soulful singing, masterful guitar playing, and mesmerizing dance unite to create a pulsating sensation of rhythm and emotion. As the show starts, the audience sips on refreshing beverages, their enjoyment enhanced by the riveting performance.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(27)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tablao-flamenco-alma-show-with-a-drink-p1104073/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: 4-Hr Small Group Sailing Trip + Snacks & Open Bar" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma de Mallorca: 4-Hr Small Group Sailing Trip + Snacks & Open Bar</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Embark on a spectacular voyage across Mallorca's dazzling blue waters, nestled in the breathtaking Bay of Palma. A feast of finger-licking treats awaits, accompanied by fine wines, chilled beers, and refreshing soft drinks.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: 4-Hr Small Group Sailing Trip + Snacks & Open Bar" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Palma de Mallorca: 4-Hr Small Group Sailing Trip + Snacks & Open Bar</div>
+        <div class="tq-card-desc">Embark on a spectacular voyage across Mallorca's dazzling blue waters, nestled in the breathtaking Bay of Palma. A feast of finger-licking treats awaits, accompanied by fine wines, chilled beers, and refreshing soft drinks.
 
 The adventure begins at the entrance of the marina, where a welcoming guide will escort you aboard a majestic ship. From Marina Palma, the ship sets sail on a stunning sightseeing tour along the Mallorca seafront.
 
 As the ship slices through the glittering waves, point your cameras at the awe-inspiring coastal vistas. The ship's crew will point out landmarks and answer your questions, bringing the beautiful surroundings to life. 
 
-When the heat gets too much, the ship's swimming platform offers an enticing dip into the warm Mediterranean sea. Don't forget the endless supply of wine, beer, and soft drinks and delicious nibbles.</p>
-          <div class="card-footer">
-            <span class="price">From €95</span>
-            <span class="rating">⭐ 3.9 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palma-de-mallorca-4-hr-small-group-sailing-trip-snacks-open-bar-p1075881/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+When the heat gets too much, the ship's swimming platform offers an enticing dip into the warm Mediterranean sea. Don't forget the endless supply of wine, beer, and soft drinks and delicious nibbles.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€95.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palma-de-mallorca-4-hr-small-group-sailing-trip-snacks-open-bar-p1075881/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6267227d667542aa83089bdfe507b630.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="City Sightseeing Palma de Mallorca: 24-Hour Hop-on Hop-off Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>City Sightseeing Palma de Mallorca: 24-Hour Hop-on Hop-off Bus Tour</h3>
-          <p class="venue">📍 Palma de Mallorca Hop-on Hop-off Tours</p>
-          <p>Ride the hop-on, hop-off bus in Palma with a 24-hour ticket. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6267227d667542aa83089bdfe507b630.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="City Sightseeing Palma de Mallorca: 24-Hour Hop-on Hop-off Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALMA DE MALLORCA HOP-ON HOP-OFF TOURS</span>
+        </div>
+        <div class="tq-card-title">City Sightseeing Palma de Mallorca: 24-Hour Hop-on Hop-off Bus Tour</div>
+        <div class="tq-card-desc">Ride the hop-on, hop-off bus in Palma with a 24-hour ticket. 
 
 Visit landmarks at your own pace. 
 
-Palma de Mallorca has over 300 sunny days a year, so sit on the open-top double-decker bus and stop at any of the 16 key locations on the route.</p>
-          <div class="card-footer">
-            <span class="price">From €27</span>
-            <span class="rating">⭐ 3.7 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-by-city-sightseeing-hop-on-hop-off-bus-24-hour-tour-p1120396/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Palma de Mallorca has over 300 sunny days a year, so sit on the open-top double-decker bus and stop at any of the 16 key locations on the route.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.7</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-by-city-sightseeing-hop-on-hop-off-bus-24-hour-tour-p1120396/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c57c5671fd9f4773955eccd9c720979c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Katmandu Park: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Katmandu Park: Entry Ticket</h3>
-          <p class="venue">📍 Katmandu Park</p>
-          <p>Visit Katmandu Park in Magaluf to spend a day full of adventures with your friends and family. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c57c5671fd9f4773955eccd9c720979c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Katmandu Park: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KATMANDU PARK</span>
+        </div>
+        <div class="tq-card-title">Katmandu Park: Entry Ticket</div>
+        <div class="tq-card-desc">Visit Katmandu Park in Magaluf to spend a day full of adventures with your friends and family. 
 
 Start with the upside-down house, filled with mechanical curiosities and interactive exhibits. Reach at a mirror maze, face a shark encounter, and go through a spinning tunnel.
 
 Experience a 4D adventure like the Canyon Coaster, simulating a fast canyon ride.
 
-Play mini golf in imaginative settings and let kids enjoy the underwater-themed soft play area to end the day.</p>
-          <div class="card-footer">
-            <span class="price">From €33</span>
-            <span class="rating">⭐ 3.9 (19)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-katmandu-park-entry-p1102013/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Play mini golf in imaginative settings and let kids enjoy the underwater-themed soft play area to end the day.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(19)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€33.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-katmandu-park-entry-p1102013/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c9b62a8db32b4beea29903361f614495.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Best of Palma de Mallorca Bundle" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Best of Palma de Mallorca Bundle</h3>
-          <p class="venue">📍 Palma de Mallorca City Cards</p>
-          <p>Not sure where to start during your stay in Mallorca? The Best of Palma de Mallorca Bundle has you covered. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c9b62a8db32b4beea29903361f614495.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Best of Palma de Mallorca Bundle" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALMA DE MALLORCA CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Best of Palma de Mallorca Bundle</div>
+        <div class="tq-card-desc">Not sure where to start during your stay in Mallorca? The Best of Palma de Mallorca Bundle has you covered. 
 
-Combining the highlights of Mallorca's past and present, this hand-picked combination allows you to take a closer look at the stunning architecture of **Mallorca Cathedral**, along with access to **Palma Aquarium**.</p>
-          <div class="card-footer">
-            <span class="price">From €83.5</span>
-            <span class="rating">⭐ 4.5 (43)</span>
-            <a href="https://www.tiqets.com/en/checkout/best-of-palma-de-mallorca-p1045967/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Combining the highlights of Mallorca's past and present, this hand-picked combination allows you to take a closer look at the stunning architecture of **Mallorca Cathedral**, along with access to **Palma Aquarium**.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(43)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€83.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/best-of-palma-de-mallorca-p1045967/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c9b62a8db32b4beea29903361f614495.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma Aquarium: Entrance + Diving with Sharks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma Aquarium: Entrance + Diving with Sharks</h3>
-          <p class="venue">📍 Palma Aquarium</p>
-          <p>Dive into the Big Blue, one of the deepest shark tanks in Europe. Along with a Palma Aquarium instructor, you'll dive among ten fin-tastic sharks, radical rays, and hundreds of colourful fish for up to two hours.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c9b62a8db32b4beea29903361f614495.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma Aquarium: Entrance + Diving with Sharks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALMA AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Palma Aquarium: Entrance + Diving with Sharks</div>
+        <div class="tq-card-desc">Dive into the Big Blue, one of the deepest shark tanks in Europe. Along with a Palma Aquarium instructor, you'll dive among ten fin-tastic sharks, radical rays, and hundreds of colourful fish for up to two hours.
 
 This ticket also includes access to Palma Aquarium, where you can encounter an incredible array of sea creatures, from tropical fish to majestic sharks and even playful sea turtles. Walk through a massive shark tunnel and watch the other divers as these fearsome predators swim overhead, or visit the jellyfish exhibit and be dazzled by their delicate beauty!
 
-Beyond the marine life, Palma Aquarium is also known for its stunning architecture and design. The park's modern, eco-friendly facilities are a testament to its commitment to sustainability, and it's a great place for kids to learn about the importance of conservation and protecting our oceans.</p>
-          <div class="card-footer">
-            <span class="price">From €210</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palma-aquarium-diving-with-sharks-p1064200/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Beyond the marine life, Palma Aquarium is also known for its stunning architecture and design. The park's modern, eco-friendly facilities are a testament to its commitment to sustainability, and it's a great place for kids to learn about the importance of conservation and protecting our oceans.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€210.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palma-aquarium-diving-with-sharks-p1064200/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6267227d667542aa83089bdfe507b630.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: 24 or 48-Hr Hop-on Hop-off Bus + Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca: 24 or 48-Hr Hop-on Hop-off Bus + Boat Tour</h3>
-          <p class="venue">📍 Palma de Mallorca Hop-on Hop-off Tours</p>
-          <p>Prepare for a 24 or 48-hour hop-on hop-off bus tour of Mallorca. The 24-hour option includes a hop-on hop-off bus tour, a boat trip, and entry to either Bellver Castle or Pueblo Espanyol. It also includes admission to the Museu Es Baluard and Caixaforum museums.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6267227d667542aa83089bdfe507b630.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: 24 or 48-Hr Hop-on Hop-off Bus + Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALMA DE MALLORCA HOP-ON HOP-OFF TOURS</span>
+        </div>
+        <div class="tq-card-title">Mallorca: 24 or 48-Hr Hop-on Hop-off Bus + Boat Tour</div>
+        <div class="tq-card-desc">Prepare for a 24 or 48-hour hop-on hop-off bus tour of Mallorca. The 24-hour option includes a hop-on hop-off bus tour, a boat trip, and entry to either Bellver Castle or Pueblo Espanyol. It also includes admission to the Museu Es Baluard and Caixaforum museums.
 
-The 48-hour options include a hop-on hop-off bus tour, a boat trip, and entry to the Cathedral of Mallorca (La Seu) and Bellver Castle.</p>
-          <div class="card-footer">
-            <span class="price">From €42</span>
-            <span class="rating">⭐ 4.3 (51)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-24-48-hr-hop-on-hop-off-bus-boat-tour-p976118/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The 48-hour options include a hop-on hop-off bus tour, a boat trip, and entry to the Cathedral of Mallorca (La Seu) and Bellver Castle.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(51)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-24-48-hr-hop-on-hop-off-bus-boat-tour-p976118/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Catamaran Sailing Trip + Lunch or Dinner + Drinks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca: Catamaran Sailing Trip + Lunch or Dinner + Drinks</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Set off on a sailing trip from Palma de Mallorca's port aboard the MAGIC catamaran across the Bay of Palma to Cala Vella.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Catamaran Sailing Trip + Lunch or Dinner + Drinks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Mallorca: Catamaran Sailing Trip + Lunch or Dinner + Drinks</div>
+        <div class="tq-card-desc">Set off on a sailing trip from Palma de Mallorca's port aboard the MAGIC catamaran across the Bay of Palma to Cala Vella.
 
 Stop at Cap Rocat, where you’ll have 45 minutes to swim and snorkel. Then, head to Cala Vella, a beautiful cove with turquoise waters, where you'll enjoy 1 hour and 45 minutes of leisure. 
 
-Relax on the floating mat, lounge on the bow nets, swim, or explore underwater. A meal will be served by the beach, followed by another swim before sailing back to the port of Palma.</p>
-          <div class="card-footer">
-            <span class="price">From €59</span>
-            <span class="rating">⭐ 4.2 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-catamaran-sailing-trip-lunch-or-dinner-drinks-p1104725/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Relax on the floating mat, lounge on the bow nets, swim, or explore underwater. A meal will be served by the beach, followed by another swim before sailing back to the port of Palma.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€59.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-catamaran-sailing-trip-lunch-or-dinner-drinks-p1104725/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca Son Moix Stadium: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca Son Moix Stadium: Guided Tour</h3>
-          <p class="venue">📍 Mallorca Son Moix Stadium</p>
-          <p>Tour the Mallorca Son Moix Stadium to learn about the history of RCD Mallorca. Get a guided tour of areas usually off-limits to the public. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca Son Moix Stadium: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA SON MOIX STADIUM</span>
+        </div>
+        <div class="tq-card-title">Mallorca Son Moix Stadium: Guided Tour</div>
+        <div class="tq-card-desc">Tour the Mallorca Son Moix Stadium to learn about the history of RCD Mallorca. Get a guided tour of areas usually off-limits to the public. 
 
 Explore the renovated stadium, now open to fans and football enthusiasts. Follow an expert guide who will lead you through normally restricted areas. Learn about the club's history and step onto the pitch, feeling like an RCD Mallorca player. 
 
-See the press conference room and the changing rooms, and walk through the players' tunnel.</p>
-          <div class="card-footer">
-            <span class="price">From €18</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-son-moix-stadium-guided-tour-p1103046/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See the press conference room and the changing rooms, and walk through the players' tunnel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-son-moix-stadium-guided-tour-p1103046/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca Self-Guided Tour from Palma to Sa Calobra (Sóller train, tram, & boat)" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca Self-Guided Tour from Palma to Sa Calobra (Sóller train, tram, & boat)</h3>
-          <p class="venue">📍 Tren Sóller</p>
-          <p>Trams, trains, and boats...oh my! See the best of the beautiful Spanish island of Mallorca with tickets for a self-guided tour.</p>
-          <div class="card-footer">
-            <span class="price">From €64</span>
-            <span class="rating">⭐ 4.6 (59)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-self-guided-tour-from-palma-to-sa-calobra-soller-train-tram-boat-p1037895/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca Self-Guided Tour from Palma to Sa Calobra (Sóller train, tram, & boat)" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TREN SÓLLER</span>
+        </div>
+        <div class="tq-card-title">Mallorca Self-Guided Tour from Palma to Sa Calobra (Sóller train, tram, & boat)</div>
+        <div class="tq-card-desc">Trams, trains, and boats...oh my! See the best of the beautiful Spanish island of Mallorca with tickets for a self-guided tour.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(59)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€64.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-self-guided-tour-from-palma-to-sa-calobra-soller-train-tram-boat-p1037895/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Guided Quad Bike Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca: Guided Quad Bike Tour</h3>
-          <p class="venue">📍 Mallorca (island) Outdoor Activities</p>
-          <p>Start the journey in El Arenal, meeting the guide and fellow travelers at a country inn. Ride through countryside and villages to reach Randa. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Guided Quad Bike Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA (ISLAND) OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Mallorca: Guided Quad Bike Tour</div>
+        <div class="tq-card-desc">Start the journey in El Arenal, meeting the guide and fellow travelers at a country inn. Ride through countryside and villages to reach Randa. 
 
-Drive along a road with curves to a mountain peak at 534 m. Continue through Algaida to the coast at Son Veri. See Cala beach, swim, or take photos. End the tour back at the supplier's office.</p>
-          <div class="card-footer">
-            <span class="price">From €55</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-guided-quad-bike-tour-p1120446/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Drive along a road with curves to a mountain peak at 534 m. Continue through Algaida to the coast at Son Veri. See Cala beach, swim, or take photos. End the tour back at the supplier's office.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-guided-quad-bike-tour-p1120446/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: 2-Hr Catamaran Cruise + Swimming & Snorkeling" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma de Mallorca: 2-Hr Catamaran Cruise + Swimming & Snorkeling</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Join a 2-hour voyage, exploring the bays of Santa Ponsa, Paguera, Cala Fornells, Camp de Mar, and the Malgrats Islands on a spacious catamaran with underwater viewing.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: 2-Hr Catamaran Cruise + Swimming & Snorkeling" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Palma de Mallorca: 2-Hr Catamaran Cruise + Swimming & Snorkeling</div>
+        <div class="tq-card-desc">Join a 2-hour voyage, exploring the bays of Santa Ponsa, Paguera, Cala Fornells, Camp de Mar, and the Malgrats Islands on a spacious catamaran with underwater viewing.
 
 You'll discover hidden gems like Cala Monjo, Cala Fornells, Club Náutico de Santa Ponsa, and the Monument to King Don Jaime I.
 
 The tour includes a stop for swimming and snorkeling at the Malgrats Islands, a natural reserve in Mallorca. Snorkeling gear is available with a refundable €20 deposit.
 
-Families with kids will enjoy the underwater views. Furthermore, there are two bars onboard offering drinks and snacks and restrooms for your convenience.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 3.8 (28)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bays-of-mallorca-2-hour-catamaran-cruise-p1095065/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Families with kids will enjoy the underwater views. Furthermore, there are two bars onboard offering drinks and snacks and restrooms for your convenience.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.8</strong>
+            <span class="tq-reviews">(28)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bays-of-mallorca-2-hour-catamaran-cruise-p1095065/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma Aquarium: Entry Ticket + Transfer from Calvià Area" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma Aquarium: Entry Ticket + Transfer from Calvià Area</h3>
-          <p class="venue">📍 Palma Aquarium</p>
-          <p>Experience faster entry into Palma Aquarium with these exclusive tickets and delve into an immersive marine wonderland that unveils the hidden treasures of the underwater realm, captivating both families and adults alike.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma Aquarium: Entry Ticket + Transfer from Calvià Area" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALMA AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Palma Aquarium: Entry Ticket + Transfer from Calvià Area</div>
+        <div class="tq-card-desc">Experience faster entry into Palma Aquarium with these exclusive tickets and delve into an immersive marine wonderland that unveils the hidden treasures of the underwater realm, captivating both families and adults alike.
 
 Embark on an enlightening journey spanning over 1 km, where you'll explore and learn from our team of Ocean Experts as they guide you through eight captivating thematic habitats, including the Mediterranean, Tropical, Jungle, and Medusarium.
 
-Discover the perfect blend of education and entertainment as you immerse yourself in this extraordinary marine experience at one of the most interactive and engaging aquariums. With optional activities available for a small additional fee, be prepared to witness the majesty of our oceans unfold within the expansive 24,000 m2 facility.</p>
-          <div class="card-footer">
-            <span class="price">From €32.5</span>
-            <span class="rating">⭐ 4.8 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-entrance-palma-aquarium-transport-calvia-area-p1068300/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover the perfect blend of education and entertainment as you immerse yourself in this extraordinary marine experience at one of the most interactive and engaging aquariums. With optional activities available for a small additional fee, be prepared to witness the majesty of our oceans unfold within the expansive 24,000 m2 facility.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€32.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-entrance-palma-aquarium-transport-calvia-area-p1068300/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Dolphin Watching Glass-Bottom Boat Tour from Paguera" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca: Dolphin Watching Glass-Bottom Boat Tour from Paguera</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Join an early morning cruise along the coast of Mallorca on a glass-bottom boat.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Dolphin Watching Glass-Bottom Boat Tour from Paguera" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Mallorca: Dolphin Watching Glass-Bottom Boat Tour from Paguera</div>
+        <div class="tq-card-desc">Join an early morning cruise along the coast of Mallorca on a glass-bottom boat.
 
 Watch the coastline as you travel and look out for dolphins swimming near the boat. 
 
@@ -369,77 +682,121 @@ The crew knows the area well and will do their best to find them, but sightings 
 
 This tour includes a stop in one of the nearby bays where you can swim and snorkel with the provided gear. 
 
-There is also a bar onboard where you can buy drinks and snacks.</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐ 4.2 (19)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-dolphin-watching-glass-bottom-boat-tour-from-paguera-p1066851/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+There is also a bar onboard where you can buy drinks and snacks.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(19)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-dolphin-watching-glass-bottom-boat-tour-from-paguera-p1066851/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Dolphin Watching Cruise from Paguera" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca: Dolphin Watching Cruise from Paguera</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Delve into the ocean world with a unique experience at sea, aboard a catamaran with underwater vision.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Dolphin Watching Cruise from Paguera" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Mallorca: Dolphin Watching Cruise from Paguera</div>
+        <div class="tq-card-desc">Delve into the ocean world with a unique experience at sea, aboard a catamaran with underwater vision.
 
 On this dolphin-watching cruise, you can observe some of the world's smartest and most inspiring marine animals in their natural habitat. 
 
 Sail along the southwest coast of Mallorca, slowly entering the high seas to scout these agile cetaceans through underwater portholes.
 
-What's more, you'll have an opportunity to don a snorkel and get in the water yourself!</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 4.2 (23)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-dolphin-watching-cruise-from-paguera-p1014536/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+What's more, you'll have an opportunity to don a snorkel and get in the water yourself!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.2</strong>
+            <span class="tq-reviews">(23)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-dolphin-watching-cruise-from-paguera-p1014536/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tablao Flamenco Alma: Flamenco Show + Dinner" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Tablao Flamenco Alma: Flamenco Show + Dinner</h3>
-          <p class="venue">📍 Tablao Flamenco Alma</p>
-          <p>Attend a flamenco show at an authentic tablao in Palma. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tablao Flamenco Alma: Flamenco Show + Dinner" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TABLAO FLAMENCO ALMA</span>
+        </div>
+        <div class="tq-card-title">Tablao Flamenco Alma: Flamenco Show + Dinner</div>
+        <div class="tq-card-desc">Attend a flamenco show at an authentic tablao in Palma. 
 
 This venue hosts some of Spain's most talented flamenco artists from cultural hubs like Madrid, Barcelona, and Andalusia.
 
 Get access to a show featuring singing, guitar playing, and dancing that define flamenco. 
 
-Sip a drink and enjoy dinner while you watch the show.</p>
-          <div class="card-footer">
-            <span class="price">From €70</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-tablao-flamenco-alma-show-dinner-p1127477/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Sip a drink and enjoy dinner while you watch the show.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€70.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-tablao-flamenco-alma-show-dinner-p1127477/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: Buggy Tour + Optional Swim Stop" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma de Mallorca: Buggy Tour + Optional Swim Stop</h3>
-          <p class="venue">📍 Mallorca (island) Outdoor Activities</p>
-          <p>On the 1-hour buggy tour, drive through the rural areas of Llucmajor and S’Aranjassa. Ride along quiet backroads and see the coastal views of Playa de Palma. The route includes a brief stop to change drivers and take photos.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: Buggy Tour + Optional Swim Stop" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA (ISLAND) OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Palma de Mallorca: Buggy Tour + Optional Swim Stop</div>
+        <div class="tq-card-desc">On the 1-hour buggy tour, drive through the rural areas of Llucmajor and S’Aranjassa. Ride along quiet backroads and see the coastal views of Playa de Palma. The route includes a brief stop to change drivers and take photos.
 
-On the 2-hour tour, drive for one hour to a cove in Bella Vista. Stop for 30 minutes to swim and enjoy the sun. Then, return to the meeting point along the coastline.</p>
-          <div class="card-footer">
-            <span class="price">From €70</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palma-de-mallorca-buggy-tour-optional-swim-stop-p1120102/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+On the 2-hour tour, drive for one hour to a cove in Bella Vista. Stop for 30 minutes to swim and enjoy the sun. Then, return to the meeting point along the coastline.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€70.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palma-de-mallorca-buggy-tour-optional-swim-stop-p1120102/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Guided Quad Bike Tour + Snorkeling + Cliff Jumping" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca: Guided Quad Bike Tour + Snorkeling + Cliff Jumping</h3>
-          <p class="venue">📍 Mallorca (island) Outdoor Activities</p>
-          <p>Join a quad bike tour around Mallorca, driving through Arenal, S’Arranjassa, Llucmayor, Algaida, Randa, and Son Veri.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Guided Quad Bike Tour + Snorkeling + Cliff Jumping" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA (ISLAND) OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Mallorca: Guided Quad Bike Tour + Snorkeling + Cliff Jumping</div>
+        <div class="tq-card-desc">Join a quad bike tour around Mallorca, driving through Arenal, S’Arranjassa, Llucmayor, Algaida, Randa, and Son Veri.
 
 Begin in Arenal with a quad-riding safety lesson, then hit the road on a Kymco 300cc quad.
 
@@ -447,425 +804,678 @@ Drive to S’Arranjassa and continue to Llucmayor, passing fields, forests, and 
 
 In summer, stop for cliff jumping and snorkeling in a secluded bay. Jump from cliffs about 8 m high, snorkel with fish, and swim in clear water using provided equipment.
 
-In other seasons, continue on land for more photo opportunities.</p>
-          <div class="card-footer">
-            <span class="price">From €95</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-guided-quad-bike-tour-snorkeling-cliff-jumping-p1119668/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In other seasons, continue on land for more photo opportunities.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€95.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-guided-quad-bike-tour-snorkeling-cliff-jumping-p1119668/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: Boat Tour by City Sightseeing" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma de Mallorca: Boat Tour by City Sightseeing</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Sail through the port and the Bay of Palma. With over 300 sunny days each year, it's an ideal way to view the city. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: Boat Tour by City Sightseeing" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Palma de Mallorca: Boat Tour by City Sightseeing</div>
+        <div class="tq-card-desc">Sail through the port and the Bay of Palma. With over 300 sunny days each year, it's an ideal way to view the city. 
 
 The port features commercial cargo activity, international cruises, traditional fishing fleets, and recreational sailing.
 
 On this 50-minute cruise, see some of Palma’s well-known landmarks from a unique angle. 
 
-Get full views from the top deck and take in the entire scene without missing anything.</p>
-          <div class="card-footer">
-            <span class="price">From €19</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palma-de-mallorca-boat-tour-p1120402/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get full views from the top deck and take in the entire scene without missing anything.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palma-de-mallorca-boat-tour-p1120402/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma: Helicopter Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma: Helicopter Tour</h3>
-          <p class="venue">📍 Mallorca Helicopter Flights</p>
-          <p>Take a 10-minute helicopter tour of Palma de Mallorca. See the city from above and spot its notable landmarks.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma: Helicopter Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA HELICOPTER FLIGHTS</span>
+        </div>
+        <div class="tq-card-title">Palma: Helicopter Tour</div>
+        <div class="tq-card-desc">Take a 10-minute helicopter tour of Palma de Mallorca. See the city from above and spot its notable landmarks.
 
-Fly over Palma de Mallorca Cathedral, Castell de Bellver, the football stadium, the Coliseo Balear, and the Puerto de Palma de Mallorca.</p>
-          <div class="card-footer">
-            <span class="price">From €125</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palma-helicopter-tour-p1119334/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Fly over Palma de Mallorca Cathedral, Castell de Bellver, the football stadium, the Coliseo Balear, and the Puerto de Palma de Mallorca.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€125.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palma-helicopter-tour-p1119334/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Winery & Olive Mill Guided Tour + Tastings + Roundtrip Transfer" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca: Winery & Olive Mill Guided Tour + Tastings + Roundtrip Transfer</h3>
-          <p class="venue">📍 Mallorca (Island) Day Trips</p>
-          <p>Leave the coast and visit Mallorca’s central region. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Winery & Olive Mill Guided Tour + Tastings + Roundtrip Transfer" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA (ISLAND) DAY TRIPS</span>
+        </div>
+        <div class="tq-card-title">Mallorca: Winery & Olive Mill Guided Tour + Tastings + Roundtrip Transfer</div>
+        <div class="tq-card-desc">Leave the coast and visit Mallorca’s central region. 
 
 From the hotel, drive past villages and fields bordered by dry-stone walls to an olive oil estate with vast olive groves. Take a guided tour to learn about growing, harvesting, and pressing olives. Taste three local oils with expert guidance.
 
 Next, visit a family winery. A sommelier will show you the wine cellar with steel tanks and oak barrels. Learn about Mallorca’s native grapes and winemaking process.
 
-End the day with a tasting of Mallorcan wines paired with local tapas.</p>
-          <div class="card-footer">
-            <span class="price">From €169</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-winery-olive-mill-guided-tour-tastings-roundtrip-transfer-p1118156/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End the day with a tasting of Mallorcan wines paired with local tapas.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€169.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-winery-olive-mill-guided-tour-tastings-roundtrip-transfer-p1118156/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Guided Winery Tour + Transfer + Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca: Guided Winery Tour + Transfer + Wine Tasting</h3>
-          <p class="venue">📍 Mallorca (Island) Day Trips</p>
-          <p>Visit three different wineries in Mallorca’s wine regions on a day trip. An expert sommelier will guide you, sharing stories about the wines, the people, and the land.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Guided Winery Tour + Transfer + Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA (ISLAND) DAY TRIPS</span>
+        </div>
+        <div class="tq-card-title">Mallorca: Guided Winery Tour + Transfer + Wine Tasting</div>
+        <div class="tq-card-desc">Visit three different wineries in Mallorca’s wine regions on a day trip. An expert sommelier will guide you, sharing stories about the wines, the people, and the land.
 
 One winery is modern, another uses traditional methods. Learn how different soils, climates, and native grape varieties shape each wine’s character. Walk through cellars and taste selected wines that represent the island.
 
-With each glass, gain insights into winemaking while enjoying the warm atmosphere of Mallorcan hospitality.</p>
-          <div class="card-footer">
-            <span class="price">From €169</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-guided-winery-tour-transfer-wine-tasting-p1118154/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With each glass, gain insights into winemaking while enjoying the warm atmosphere of Mallorcan hospitality.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€169.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-guided-winery-tour-transfer-wine-tasting-p1118154/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Orange Valley & Valldemossa Guided Tour + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca: Orange Valley & Valldemossa Guided Tour + Transfers</h3>
-          <p class="venue">📍 Mallorca (Island) Day Trips</p>
-          <p>See Mallorca's famous sights and visit a historic mansion to view a mix of Moorish designs and architecture. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: Orange Valley & Valldemossa Guided Tour + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA (ISLAND) DAY TRIPS</span>
+        </div>
+        <div class="tq-card-title">Mallorca: Orange Valley & Valldemossa Guided Tour + Transfers</div>
+        <div class="tq-card-desc">See Mallorca's famous sights and visit a historic mansion to view a mix of Moorish designs and architecture. 
 
 Go through the Sóller Tunnel to reach the Orange Valley, where an organic finca offers fresh orange juice from over 40 types of trees. Try local food like Pa amb Oli with Mallorcan wines.
 
 Cross the Sierra de Tramuntana, a UNESCO World Heritage Site, and view the rugged west coast. Drive through the village of Deia to Valldemossa. 
 
-Walk through the mountain village, visit the monastery or Chopin Sand museums, or relax in the village atmosphere.</p>
-          <div class="card-footer">
-            <span class="price">From €149</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-orange-valley-valldemossa-guided-tour-transfers-p1117580/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Walk through the mountain village, visit the monastery or Chopin Sand museums, or relax in the village atmosphere.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€149.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-orange-valley-valldemossa-guided-tour-transfers-p1117580/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/62656c4ee3b34b9faf7e33b9e0bc5199.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fundació Miró Mallorca: Friends of Miró" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Fundació Miró Mallorca: Friends of Miró</h3>
-          <p class="venue">📍 Fundació Miró Mallorca</p>
-          <p>**Become a friend** of the Foundation Miró Mallorca and get unlimited access to all the exhibitions. Receive two entrance tickets for friends or family each year and enjoy preferential communication about the Foundation's openings and events. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/62656c4ee3b34b9faf7e33b9e0bc5199.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fundació Miró Mallorca: Friends of Miró" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FUNDACIÓ MIRÓ MALLORCA</span>
+        </div>
+        <div class="tq-card-title">Fundació Miró Mallorca: Friends of Miró</div>
+        <div class="tq-card-desc">**Become a friend** of the Foundation Miró Mallorca and get unlimited access to all the exhibitions. Receive two entrance tickets for friends or family each year and enjoy preferential communication about the Foundation's openings and events. 
 
-Access exclusive visits led by curators and artists, and enjoy a 5% discount on store items (except graphic works).</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐ 4.5 (10)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-fundacio-miro-mallorca-miros-friends-subscription-p1110208/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Access exclusive visits led by curators and artists, and enjoy a 5% discount on store items (except graphic works).</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(10)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-fundacio-miro-mallorca-miros-friends-subscription-p1110208/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Es Trenc & Es Cargol: Sailing Trip + Lunch or Dinner" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Es Trenc & Es Cargol: Sailing Trip + Lunch or Dinner</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Depart from the historic pier of Es Coto in Colonia de Sant Jordi. Sail to the beach of Es Trenc, stopping in its turquoise waters for a swim. Continue along the southeast coast of Majorca, reaching Cap Salines, and stop at the beach of Es Cargol.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Es Trenc & Es Cargol: Sailing Trip + Lunch or Dinner" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Es Trenc & Es Cargol: Sailing Trip + Lunch or Dinner</div>
+        <div class="tq-card-desc">Depart from the historic pier of Es Coto in Colonia de Sant Jordi. Sail to the beach of Es Trenc, stopping in its turquoise waters for a swim. Continue along the southeast coast of Majorca, reaching Cap Salines, and stop at the beach of Es Cargol.
 
 At Es Cargol, a barbecue will be served onboard while you swim and relax. The catamaran then returns silently over the water to the starting point.
 
-See the coastline and enjoy a barbeque on board.</p>
-          <div class="card-footer">
-            <span class="price">From €59</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-es-trenc-es-cargol-sailing-trip-lunch-or-dinner-p1104983/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+See the coastline and enjoy a barbeque on board.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€59.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-es-trenc-es-cargol-sailing-trip-lunch-or-dinner-p1104983/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dragonera Island: Boat Trip from Santa Ponsa" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Dragonera Island: Boat Trip from Santa Ponsa</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Visit Dragonera Island, an uninhabited spot ideal for nature and hiking lovers.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dragonera Island: Boat Trip from Santa Ponsa" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Dragonera Island: Boat Trip from Santa Ponsa</div>
+        <div class="tq-card-desc">Visit Dragonera Island, an uninhabited spot ideal for nature and hiking lovers.
 
 Explore the Natural Park, which includes Es Pantaleu, Sa Mitjana, and Sa Dragonera. Discover diverse marine plant life and spot rabbits, bats, scorpions, and endemic lizards on land.
 
 Learn about the island's history at the museum and see the ruins, native plants, and animals.
 
-Travel along the southwest coast, passing Cala Fornells, Camp de Mar, Cala Llamp, Puerto de Andratx, and San Telmo before reaching Dragonera. Spend one hour exploring the island.</p>
-          <div class="card-footer">
-            <span class="price">From €35</span>
-            <span class="rating">⭐ 4 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-dragonera-island-boat-trip-santa-ponsa-p1100065/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Travel along the southwest coast, passing Cala Fornells, Camp de Mar, Cala Llamp, Puerto de Andratx, and San Telmo before reaching Dragonera. Spend one hour exploring the island.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€35.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-dragonera-island-boat-trip-santa-ponsa-p1100065/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca Son Moix Stadium: RCD Mallorca Football Match" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca Son Moix Stadium: RCD Mallorca Football Match</h3>
-          <p class="venue">📍 Mallorca Son Moix Stadium</p>
-          <p>Step into the exciting world of La Liga at Mallorca Son Moix Stadium in Palma!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca Son Moix Stadium: RCD Mallorca Football Match" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA SON MOIX STADIUM</span>
+        </div>
+        <div class="tq-card-title">Mallorca Son Moix Stadium: RCD Mallorca Football Match</div>
+        <div class="tq-card-desc">Step into the exciting world of La Liga at Mallorca Son Moix Stadium in Palma!
 
 Why watch on a screen when you can see the excitement in person? Feel the energy of the crowd as fans cheer for their team. Watch an RCD Mallorca match, learn about the club's history, and experience the local culture.
 
-Whether you're a football fan or looking for a fun experience, RCD Mallorca match tickets offer the perfect mix of sport and culture.</p>
-          <div class="card-footer">
-            <span class="price">From €69.42</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-son-moix-stadium-rcd-mallorca-football-match-p1098686/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Whether you're a football fan or looking for a fun experience, RCD Mallorca match tickets offer the perfect mix of sport and culture.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€69.42</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-son-moix-stadium-rcd-mallorca-football-match-p1098686/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma Aquarium: Admission Ticket + Transfer from East Zone" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma Aquarium: Admission Ticket + Transfer from East Zone</h3>
-          <p class="venue">📍 Palma Aquarium</p>
-          <p>Dive into the underwater world at the Palma Aquarium with fast-track tickets. Experience the wonders of the deep, perfect for families with kids or adults seeking adventure. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma Aquarium: Admission Ticket + Transfer from East Zone" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALMA AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Palma Aquarium: Admission Ticket + Transfer from East Zone</div>
+        <div class="tq-card-desc">Dive into the underwater world at the Palma Aquarium with fast-track tickets. Experience the wonders of the deep, perfect for families with kids or adults seeking adventure. 
 
 You can explore over a kilometer, discovering marine life across eight habitats, including the Mediterranean, Tropics, Jungle, and Jellyfish Tank. The Palma Aquarium is one of Europe's most interactive aquariums, offering optional activities for a small fee. 
 
-Tour the 24,000-square-meter space, home to over 8,000 specimens of 700 species from around the globe. Learning has never been this fun!</p>
-          <div class="card-footer">
-            <span class="price">From €45.5</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palma-aquarium-admission-transfer-from-east-zone-p1097295/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Tour the 24,000-square-meter space, home to over 8,000 specimens of 700 species from around the globe. Learning has never been this fun!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palma-aquarium-admission-transfer-from-east-zone-p1097295/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: 4-Hr Private Sailing Tour + Snacks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma de Mallorca: 4-Hr Private Sailing Tour + Snacks</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Prepare for a sailing adventure with a skippered sailing excursions. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: 4-Hr Private Sailing Tour + Snacks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Palma de Mallorca: 4-Hr Private Sailing Tour + Snacks</div>
+        <div class="tq-card-desc">Prepare for a sailing adventure with a skippered sailing excursions. 
 
 Choose between a half-day (4-hour) trip or a romantic 2-hour sunset cruise in Gambitero, a 12.5-meter sailboat that comfortably accommodates 11 passengers plus the skipper, or the Servus, an 11-meter sailboat perfect for 7 passengers plus the skipper.
 
 Plan a larger event with a fleet that can accommodate up to 18 people. 
 
-Upgrade your adventure with a delicious Paella and unlimited tapas and drinks.</p>
-          <div class="card-footer">
-            <span class="price">From €950</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palma-de-mallorca-4-hr-private-sailing-tour-snacks-p1093269/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Upgrade your adventure with a delicious Paella and unlimited tapas and drinks.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€950.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palma-de-mallorca-4-hr-private-sailing-tour-snacks-p1093269/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: 4-Hour Luxury Catamaran Tour with Tapas & Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma de Mallorca: 4-Hour Luxury Catamaran Tour with Tapas & Lunch</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>The adventure begins at the La Lonja Marina Charter, where the crew awaits you onboard to take you to the Balearic Islands.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: 4-Hour Luxury Catamaran Tour with Tapas & Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Palma de Mallorca: 4-Hour Luxury Catamaran Tour with Tapas & Lunch</div>
+        <div class="tq-card-desc">The adventure begins at the La Lonja Marina Charter, where the crew awaits you onboard to take you to the Balearic Islands.
 
 Dive into the waters of the Mediterranean, snorkel among marine life, or simply relax on a paddleboard under the sun.
 
-Enjoy a welcome drink, taste some tapas, and keep yourself refreshed with ice-cold beverages and summer cocktails.</p>
-          <div class="card-footer">
-            <span class="price">From €99</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palma-de-mallorca-4-hour-luxury-catamaran-tour-with-tapas-lunch-p1091981/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy a welcome drink, taste some tapas, and keep yourself refreshed with ice-cold beverages and summer cocktails.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€99.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palma-de-mallorca-4-hour-luxury-catamaran-tour-with-tapas-lunch-p1091981/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: 30-Minute Helicopter Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca: 30-Minute Helicopter Tour</h3>
-          <p class="venue">📍 Mallorca Helicopter Flights</p>
-          <p>Soar above the splendid Calas and beaches of Mallorca. The island's beauty is more than meets the eye and this tour offers a chance to truly soak it in. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2aac22ef0c574393b74a53405a767a22.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: 30-Minute Helicopter Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA HELICOPTER FLIGHTS</span>
+        </div>
+        <div class="tq-card-title">Mallorca: 30-Minute Helicopter Tour</div>
+        <div class="tq-card-desc">Soar above the splendid Calas and beaches of Mallorca. The island's beauty is more than meets the eye and this tour offers a chance to truly soak it in. 
 
-Marvel at the crystal-clear blue water and the protected mountain ranges, all while experiencing the exhilarating thrill of flight.</p>
-          <div class="card-footer">
-            <span class="price">From €575</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-30-minute-helicopter-tour-p1087156/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Marvel at the crystal-clear blue water and the protected mountain ranges, all while experiencing the exhilarating thrill of flight.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€575.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-30-minute-helicopter-tour-p1087156/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: 3-Hr Dolphin Watching Boat Excursion + Swim & Snorkelling" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma de Mallorca: 3-Hr Dolphin Watching Boat Excursion + Swim & Snorkelling</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Board this exciting boat tour along the southwestern coast of Palma de Mallorca Bay.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: 3-Hr Dolphin Watching Boat Excursion + Swim & Snorkelling" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Palma de Mallorca: 3-Hr Dolphin Watching Boat Excursion + Swim & Snorkelling</div>
+        <div class="tq-card-desc">Board this exciting boat tour along the southwestern coast of Palma de Mallorca Bay.
 
 Drop anchor in a nearby bay of crystal-clear waters, the perfect place for a refreshing swim. 
 
 Snorkeling masks are included, so feel free to plunge beneath the surface and discover the underwater world and its other fishy inhabitants. 
 
-The boat features an onboard bar where you can buy snacks and drinks.</p>
-          <div class="card-footer">
-            <span class="price">From €55</span>
-            <span class="rating">⭐ 4.8 (8)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palma-dolphin-watching-boat-excursion-p1071583/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The boat features an onboard bar where you can buy snacks and drinks.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(8)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€55.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palma-dolphin-watching-boat-excursion-p1071583/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: 4-Hr Snorkel & Music Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma de Mallorca: 4-Hr Snorkel & Music Boat Tour</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Embark on a magical boat tour along the southern coast of Mallorca, basking in the sun for a glorious four-hour adventure. Immerse yourself in the panoramic views and the melody of a live guitar serenade, making every moment a soothing retreat. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: 4-Hr Snorkel & Music Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Palma de Mallorca: 4-Hr Snorkel & Music Boat Tour</div>
+        <div class="tq-card-desc">Embark on a magical boat tour along the southern coast of Mallorca, basking in the sun for a glorious four-hour adventure. Immerse yourself in the panoramic views and the melody of a live guitar serenade, making every moment a soothing retreat. 
 
 The journey includes two stops at the most pristine, crystal-clear waters, perfect for a refreshing swim. Take the plunge from any height of the boat, experiencing the unmatched beauty of the Mediterranean up close. 
 
-The ship provides a delightful medley of sun-kissed and shaded areas, accompanied by a cozy sofa zone. Amidst this enchanting voyage, recharge with a buffet feast, featuring an array of Mediterranean delights. So, why wait? Book this ticket and let the southern coast of Mallorca cast its spell on you!</p>
-          <div class="card-footer">
-            <span class="price">From €49.9</span>
-            <span class="rating">⭐ 4 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-snorkel-music-tour-p1071044/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The ship provides a delightful medley of sun-kissed and shaded areas, accompanied by a cozy sofa zone. Amidst this enchanting voyage, recharge with a buffet feast, featuring an array of Mediterranean delights. So, why wait? Book this ticket and let the southern coast of Mallorca cast its spell on you!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€49.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-snorkel-music-tour-p1071044/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma Aquarium: Entry Ticket + Transfer from North" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma Aquarium: Entry Ticket + Transfer from North</h3>
-          <p class="venue">📍 Palma Aquarium</p>
-          <p>Step into a world beneath the waves at Palma Aquarium with these fast-track tickets and dive into an immersive journey through the mysteries of the deep. From families with kids to adventure-seeking adults, everyone is set to get their feet wet in this aquatic wonderland. Over one kilometer of exploration awaits, where you'll dive into the lives of marine creatures in eight unique habitats - from the Mediterranean and the Tropics to the Jungle and the Jellyfish tank. Learning has never been this fun! 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma Aquarium: Entry Ticket + Transfer from North" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALMA AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Palma Aquarium: Entry Ticket + Transfer from North</div>
+        <div class="tq-card-desc">Step into a world beneath the waves at Palma Aquarium with these fast-track tickets and dive into an immersive journey through the mysteries of the deep. From families with kids to adventure-seeking adults, everyone is set to get their feet wet in this aquatic wonderland. Over one kilometer of exploration awaits, where you'll dive into the lives of marine creatures in eight unique habitats - from the Mediterranean and the Tropics to the Jungle and the Jellyfish tank. Learning has never been this fun! 
 
-Regarded as one of Europe's most interactive aquariums packed with optional activities (available at a small additional cost), Palma Aquarium promises an extraordinary marine adventure. Roam around the 24,000 square meters facility, which is home to over 8,000 specimens from 700 species of fauna and flora from all around the globe. So why wait? Come marvel at the beauty of our oceans. Reserve your tickets today!</p>
-          <div class="card-footer">
-            <span class="price">From €45.5</span>
-            <span class="rating">⭐ 3.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palma-aquarium-entry-transfer-from-north-p1071043/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Regarded as one of Europe's most interactive aquariums packed with optional activities (available at a small additional cost), Palma Aquarium promises an extraordinary marine adventure. Roam around the 24,000 square meters facility, which is home to over 8,000 specimens from 700 species of fauna and flora from all around the globe. So why wait? Come marvel at the beauty of our oceans. Reserve your tickets today!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palma-aquarium-entry-transfer-from-north-p1071043/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma Aquarium: Entry Ticket + Transfer from Cala Ratjada Area" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma Aquarium: Entry Ticket + Transfer from Cala Ratjada Area</h3>
-          <p class="venue">📍 Palma Aquarium</p>
-          <p>Step right up and secure your fast-track tickets to Palma Aquarium, a genuine marine park that unveils the hidden treasures of the underwater world. Perfect for families with children and adults alike, this immersive journey covers over a kilometre of aquatic exploration. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma Aquarium: Entry Ticket + Transfer from Cala Ratjada Area" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALMA AQUARIUM</span>
+        </div>
+        <div class="tq-card-title">Palma Aquarium: Entry Ticket + Transfer from Cala Ratjada Area</div>
+        <div class="tq-card-desc">Step right up and secure your fast-track tickets to Palma Aquarium, a genuine marine park that unveils the hidden treasures of the underwater world. Perfect for families with children and adults alike, this immersive journey covers over a kilometre of aquatic exploration. 
 
 Delve into the lives of fascinating creatures with the help of Ocean Experts as they guide you through eight mesmerizing thematic habitats. From the cool Mediterranean to the vibrant Tropical, the lush Jungle, and the ethereal Jellyfish domain, it's an unforgettable voyage of learning and fun! 
 
 Palma Aquarium isn't just another fish tank - it's one of the most interactive, action-packed underwater experiences out there. For a small additional fee, you can plunge into a sea of optional activities that make the adventure even more extraordinary. 
 
-Spread across a sprawling 24,000 square-meter facility, the aquarium is home to more than 8,000 specimens from 700 species of fauna and flora from around the globe.</p>
-          <div class="card-footer">
-            <span class="price">From €45.5</span>
-            <span class="rating">⭐ 3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palma-aquarium-entry-transfer-from-cala-ratjada-area-p1070130/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Spread across a sprawling 24,000 square-meter facility, the aquarium is home to more than 8,000 specimens from 700 species of fauna and flora from around the globe.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palma-aquarium-entry-transfer-from-cala-ratjada-area-p1070130/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: 3-Hr Sunset + Music Boat Trip" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palma de Mallorca: 3-Hr Sunset + Music Boat Trip</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Add some sparkle to your Mallorca vacay and set sail on a sunset boat journey through the stunning Bay of Palma. This is a breezy 3-hour adventure, except on Saturdays, when it's a 2.5-hour escapade. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palma de Mallorca: 3-Hr Sunset + Music Boat Trip" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Palma de Mallorca: 3-Hr Sunset + Music Boat Trip</div>
+        <div class="tq-card-desc">Add some sparkle to your Mallorca vacay and set sail on a sunset boat journey through the stunning Bay of Palma. This is a breezy 3-hour adventure, except on Saturdays, when it's a 2.5-hour escapade. 
 
 Onboard, a live DJ will set the mood by spinning the latest tunes, and there's also a mouthwatering pizza and a drink of your choice to enjoy. 
 
 The *Chill Sunset* experience takes place on Wednesdays, Fridays, Saturdays, and Sundays, with an elegant dress code to match the sophisticated ambiance. Alternatively, the *Swim Sunset* sails on Mondays, Tuesdays, and Thursdays, with a casual dress code to keep things relaxed and easygoing.
 
-Don't miss the chance for some fun and frolics on the beautiful waters of the Bay of Palma.</p>
-          <div class="card-footer">
-            <span class="price">From €49.9</span>
-            <span class="rating">⭐ 3.7 (14)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sunset-music-boat-trip-p1068296/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Don't miss the chance for some fun and frolics on the beautiful waters of the Bay of Palma.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.7</strong>
+            <span class="tq-reviews">(14)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€49.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sunset-music-boat-trip-p1068296/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Santa Ponsa: Boat Excursion around Dragon Island + Swimming" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Santa Ponsa: Boat Excursion around Dragon Island + Swimming</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Step aboard a luxurious, modern boat and set sail on an unforgettable journey around the enchanting islets of Pantaleu, Mitjana, and Dragonera Island. Immerse yourself in a world of breathtaking beauty and exhilarating sights.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Santa Ponsa: Boat Excursion around Dragon Island + Swimming" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Santa Ponsa: Boat Excursion around Dragon Island + Swimming</div>
+        <div class="tq-card-desc">Step aboard a luxurious, modern boat and set sail on an unforgettable journey around the enchanting islets of Pantaleu, Mitjana, and Dragonera Island. Immerse yourself in a world of breathtaking beauty and exhilarating sights.
 
 Prepare to be awe-struck as you navigate towering cliffs that plunge into crystal-clear waters. Discover hidden gems nestled in idyllic bays, where tranquility and serenity reign supreme. Take in the panoramic views of San Telmo, a picturesque coastal fishing village that will steal your heart.
 
 Feast your eyes upon the majestic northern coast of the Sierra de Tramuntana, a UNESCO World Heritage Site. Marvel at its rugged splendor, a testament to nature's artistry and untamed grandeur.
 
-The adventure doesn't stop there. After anchoring in a secluded cove, you'll be invited to plunge into the refreshing embrace of the crystal-clear waters. Dive in and indulge in a revitalizing swim, an absolute must in Mallorca!</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-boat-excursion-to-dragon-island-from-santa-ponsa-swimming-p1065767/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The adventure doesn't stop there. After anchoring in a secluded cove, you'll be invited to plunge into the refreshing embrace of the crystal-clear waters. Dive in and indulge in a revitalizing swim, an absolute must in Mallorca!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-boat-excursion-to-dragon-island-from-santa-ponsa-swimming-p1065767/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Santa Ponsa: Caves, Cliffs & Coves Boat Trip + Snorkelling" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Santa Ponsa: Caves, Cliffs & Coves Boat Trip + Snorkelling</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Treat your eyes to some of the most magical views in Mallorca on this 3-hour excursion, starting from Santa Ponsa. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Santa Ponsa: Caves, Cliffs & Coves Boat Trip + Snorkelling" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Santa Ponsa: Caves, Cliffs & Coves Boat Trip + Snorkelling</div>
+        <div class="tq-card-desc">Treat your eyes to some of the most magical views in Mallorca on this 3-hour excursion, starting from Santa Ponsa. 
 
 This trip takes you to the beautiful southwest coast of Mallorca. You'll see select coves and untouched beaches in a protected natural setting. It's a special place as it's the largest area on the coast without any buildings.
 
-During the crossing, you'll set eyes on a proper paradise! Some of the caves and coves you'll see are so beautiful you'll have to see them to believe them. If you feel like a dip, there will be two stops for swimming in crystal clear waters, with white sandy bottoms just perfect for snorkeling.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 4.3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-caves-cliffs-and-coves-boat-excursion-p1064302/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+During the crossing, you'll set eyes on a proper paradise! Some of the caves and coves you'll see are so beautiful you'll have to see them to believe them. If you feel like a dip, there will be two stops for swimming in crystal clear waters, with white sandy bottoms just perfect for snorkeling.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-caves-cliffs-and-coves-boat-excursion-p1064302/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca Catamaran Cruise with Lunch/Dinner + Snorkeling" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca Catamaran Cruise with Lunch/Dinner + Snorkeling</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Magical Mallorca will be sparkling just for you on this scenic catamaran tour from Alcudia. Join your sea-faring captain and cruise the coastline on a day at sea with breathtaking views from the moment you set sail. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca Catamaran Cruise with Lunch/Dinner + Snorkeling" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Mallorca Catamaran Cruise with Lunch/Dinner + Snorkeling</div>
+        <div class="tq-card-desc">Magical Mallorca will be sparkling just for you on this scenic catamaran tour from Alcudia. Join your sea-faring captain and cruise the coastline on a day at sea with breathtaking views from the moment you set sail. 
 
 This five-hour catamaran tour will take you around some of the most beautiful coastline spots in Mallorca, including Alcanada Lighthouse, Cap de Menorca, Es Coll Baix beach and Pollensa Bay. See sweeping beaches, craggy rocks, circling birds and more.
 
-At Cala en Gossalba, the catamaran will drop anchor, giving you time to swim, snorkel, use the kayaks or stand-up paddleboards, or simply relax. Lunch/dinner will be served on-board, surrounded by turquoise sea, Mediterranean cliffs, and nature.</p>
-          <div class="card-footer">
-            <span class="price">From €68</span>
-            <span class="rating">⭐ 3.7 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-catamaran-cruise-with-lunch-dinner-snorkeling-p1015856/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+At Cala en Gossalba, the catamaran will drop anchor, giving you time to swim, snorkel, use the kayaks or stand-up paddleboards, or simply relax. Lunch/dinner will be served on-board, surrounded by turquoise sea, Mediterranean cliffs, and nature.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.7</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€68.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-catamaran-cruise-with-lunch-dinner-snorkeling-p1015856/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: 3-Hour Sunrise At Sea & Dolphin Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca: 3-Hour Sunrise At Sea & Dolphin Tour</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Discover the maritime skyline of Mallorca at sunrise and spot wild dolphins on a relaxing catamaran boat tour around the blue Mediterranean. Setting out from the port of Alcudia, you'll see the first rays of sunshine lighting up the morning scenery as you admire the unique play of the rising sun on the sea. From there, you'll be skippered across the waves to an area dolphins are known to inhabit. You won't forget the breathtaking moment that these majestic marine mammals first approach you.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca: 3-Hour Sunrise At Sea & Dolphin Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Mallorca: 3-Hour Sunrise At Sea & Dolphin Tour</div>
+        <div class="tq-card-desc">Discover the maritime skyline of Mallorca at sunrise and spot wild dolphins on a relaxing catamaran boat tour around the blue Mediterranean. Setting out from the port of Alcudia, you'll see the first rays of sunshine lighting up the morning scenery as you admire the unique play of the rising sun on the sea. From there, you'll be skippered across the waves to an area dolphins are known to inhabit. You won't forget the breathtaking moment that these majestic marine mammals first approach you.
 
-Simply sit back and relax during the tour while you enjoy a small breakfast onboard the boat, and let nature take care of the rest!</p>
-          <div class="card-footer">
-            <span class="price">From €58</span>
-            <span class="rating">⭐ 3.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-2-hour-sunrise-at-sea-dolphin-tour-p1015707/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Simply sit back and relax during the tour while you enjoy a small breakfast onboard the boat, and let nature take care of the rest!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€58.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-2-hour-sunrise-at-sea-dolphin-tour-p1015707/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca Island Tour: Bus, Train, Tram and Boat" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Mallorca Island Tour: Bus, Train, Tram and Boat</h3>
-          <p class="venue">📍 Tren Sóller</p>
-          <p>Discover the Northwest Coast of Mallorca, its mountains, cliffs, and other coastal treasures on this panoramic Mallorca Island Tour: Bus, Train, Tram and Boat. Your guides will combine bus, train, tram and boat transportation to bring you the best of the island, both on land and at sea. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/d878f31cb8b74867bed36384827d5772.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mallorca Island Tour: Bus, Train, Tram and Boat" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TREN SÓLLER</span>
+        </div>
+        <div class="tq-card-title">Mallorca Island Tour: Bus, Train, Tram and Boat</div>
+        <div class="tq-card-desc">Discover the Northwest Coast of Mallorca, its mountains, cliffs, and other coastal treasures on this panoramic Mallorca Island Tour: Bus, Train, Tram and Boat. Your guides will combine bus, train, tram and boat transportation to bring you the best of the island, both on land and at sea. 
 
 Head to Palma and ride the scenic train to Sóller, where the vintage train – created in 1912 with the railway line – will rattle you through the Valley of Sóller in a wooden wagon.
 
@@ -873,50 +1483,78 @@ See olive groves and orange trees, pass the natural barriers of the Alfábia Mou
 
 Depending on the schedule, you'll have free time for lunch in Sóller or La Calobra, where a local tram will bring you to the picturesque coastal village of Port de Sóller for more sightseeing. 
 
-You'll fall in love with Mallorca on this magical day out!</p>
-          <div class="card-footer">
-            <span class="price">From €117</span>
-            <span class="rating">⭐ 4.5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-island-tour-bus-train-tram-and-boat-p1015007/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You'll fall in love with Mallorca on this magical day out!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€117.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-mallorca-island-tour-bus-train-tram-and-boat-p1015007/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Port d'Andratx: Catamaran Cruise from Mallorca" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Port d'Andratx: Catamaran Cruise from Mallorca</h3>
-          <p class="venue">📍 Mallorca Boat Trips</p>
-          <p>Sail out to Port d'Andratx, known as one of the most exclusive ports in Mallorca aboard an exclusive catamaran.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3cf202a72e7046438e687f589eced294.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Port d'Andratx: Catamaran Cruise from Mallorca" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MALLORCA BOAT TRIPS</span>
+        </div>
+        <div class="tq-card-title">Port d'Andratx: Catamaran Cruise from Mallorca</div>
+        <div class="tq-card-desc">Sail out to Port d'Andratx, known as one of the most exclusive ports in Mallorca aboard an exclusive catamaran.
 
 You'll anchor in a beautiful bay where you can refresh yourself with a swim in crystal clear waters. Then contemplate the seabed from an underwater viewing gallery.
 
 Discover the beauty of Mallorca's southwest coast and Port d'Andratx. 
 
-Enjoy two swimming stops, one on the way to the Port of Andratx and one on the return journey.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 3.3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-port-dandratx-catamaran-cruise-from-mallorca-p1014507/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy two swimming stops, one on the way to the Port of Andratx and one on the return journey.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-port-dandratx-catamaran-cruise-from-mallorca-p1014507/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hammam Al Ándalus Palma with Exclusive Massage" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Hammam Al Ándalus Palma with Exclusive Massage</h3>
-          <p class="venue">📍 Hammam Al Ándalus Arab Baths Palma</p>
-          <p>Hammam Al Ándalus Palma offers a unique health and relaxation experience in the heart of the city. Snap out of your daily routine (or upgrade your holiday in Palma) by getting a professional massage and spending up to 75 minutes soaking in the rejuvenating water, and re-connect with yourself.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/57e551b7fc954928a135cd6494e91bd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hammam Al Ándalus Palma with Exclusive Massage" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PALMA DE MALLORCA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HAMMAM AL ÁNDALUS ARAB BATHS PALMA</span>
+        </div>
+        <div class="tq-card-title">Hammam Al Ándalus Palma with Exclusive Massage</div>
+        <div class="tq-card-desc">Hammam Al Ándalus Palma offers a unique health and relaxation experience in the heart of the city. Snap out of your daily routine (or upgrade your holiday in Palma) by getting a professional massage and spending up to 75 minutes soaking in the rejuvenating water, and re-connect with yourself.
 
-Enjoy captivating aromas, relaxing music, atmospheric lighting, and a water-based experience that will transport you to a completely tranquil state of mind.</p>
-          <div class="card-footer">
-            <span class="price">From €68</span>
-            <span class="rating">⭐ 4.3 (11)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-hammam-al-andalus-palma-with-massage-p1014372/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Enjoy captivating aromas, relaxing music, atmospheric lighting, and a water-based experience that will transport you to a completely tranquil state of mind.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(11)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€68.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-hammam-al-andalus-palma-with-massage-p1014372/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

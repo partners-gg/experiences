@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Siena | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Siena. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,552 +131,904 @@
     <p>32 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c608012a010245478b7e10a3865b9967.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena Cathedral Complex (Opa Si Pass)" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siena Cathedral Complex (Opa Si Pass)</h3>
-          <p class="venue">📍 Cathedral of Siena Complex</p>
-          <p>Explore faith through culture and art in the magnificent complex of the Cathedral of Siena. With a pass you can choose what you'd like to see most, from the crypt to the Opera Museum.</p>
-          <div class="card-footer">
-            <span class="price">From €19.5</span>
-            <span class="rating">⭐ 4.5 (730)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siena-pass-p974667/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c608012a010245478b7e10a3865b9967.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena Cathedral Complex (Opa Si Pass)" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CATHEDRAL OF SIENA COMPLEX</span>
+        </div>
+        <div class="tq-card-title">Siena Cathedral Complex (Opa Si Pass)</div>
+        <div class="tq-card-desc">Explore faith through culture and art in the magnificent complex of the Cathedral of Siena. With a pass you can choose what you'd like to see most, from the crypt to the Opera Museum.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(730)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siena-pass-p974667/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8a74cdc2da1b4bfaa48f16d4ff4c7c8e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena Cathedral & Piccolomini Library: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siena Cathedral & Piccolomini Library: Entry Ticket</h3>
-          <p class="venue">📍 Cathedral of Siena Complex</p>
-          <p>Enter one of Italy's most important Roman-Gothic style buildings - the magical Cathedral of Siena - and marvel at the frescoes by Donatello, Michelangelo, and Pinturicchio. See the Piccolomini Library and don't forget to check out the floor. It's made of 56 panels of inlaid marble mosaics and is one sight you won't forget.</p>
-          <div class="card-footer">
-            <span class="price">From €11.5</span>
-            <span class="rating">⭐ 4.5 (962)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cathedral-of-siena-skip-the-line-p974664/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8a74cdc2da1b4bfaa48f16d4ff4c7c8e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena Cathedral & Piccolomini Library: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CATHEDRAL OF SIENA COMPLEX</span>
+        </div>
+        <div class="tq-card-title">Siena Cathedral & Piccolomini Library: Entry Ticket</div>
+        <div class="tq-card-desc">Enter one of Italy's most important Roman-Gothic style buildings - the magical Cathedral of Siena - and marvel at the frescoes by Donatello, Michelangelo, and Pinturicchio. See the Piccolomini Library and don't forget to check out the floor. It's made of 56 panels of inlaid marble mosaics and is one sight you won't forget.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(962)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€11.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cathedral-of-siena-skip-the-line-p974664/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f483d8f88b8348aa8ee7811638dba919.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palazzo Pubblico: Civic Museum Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palazzo Pubblico: Civic Museum Entry Ticket</h3>
-          <p class="venue">📍 Pubblico Palace</p>
-          <p>Visit the Civic Museum of the Palazzo Pubblico in Siena, home to over 100 years of history. See richly frescoed halls and prestigious collections that span Sienese history and art from the early 14th century to today.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f483d8f88b8348aa8ee7811638dba919.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palazzo Pubblico: Civic Museum Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PUBBLICO PALACE</span>
+        </div>
+        <div class="tq-card-title">Palazzo Pubblico: Civic Museum Entry Ticket</div>
+        <div class="tq-card-desc">Visit the Civic Museum of the Palazzo Pubblico in Siena, home to over 100 years of history. See richly frescoed halls and prestigious collections that span Sienese history and art from the early 14th century to today.
 
-Located in Siena’s Town Hall in Piazza del Campo, the museum features masterpieces by Ambrogio Lorenzetti, such as the Allegory of Good and Bad Government. View works by Simone Martini and other renowned artists of the Sienese School. This visit provides insight into the civic pride, religious devotion, and artistic culture that defined Siena’s golden age.</p>
-          <div class="card-footer">
-            <span class="price">From €14</span>
-            <span class="rating">⭐ 4.4 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siena-civic-museum-at-palazzo-pubblico-p1117055/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Located in Siena’s Town Hall in Piazza del Campo, the museum features masterpieces by Ambrogio Lorenzetti, such as the Allegory of Good and Bad Government. View works by Simone Martini and other renowned artists of the Sienese School. This visit provides insight into the civic pride, religious devotion, and artistic culture that defined Siena’s golden age.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siena-civic-museum-at-palazzo-pubblico-p1117055/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5117dd2cc1e5429fa5a1374ba1681766.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Civic Museum of Siena & Santa Maria Della Scala" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Civic Museum of Siena & Santa Maria Della Scala</h3>
-          <p class="venue">📍 Santa Maria della Scala</p>
-          <p>Visit two key cultural sites in Siena using one ticket. Start at the **Civic Museum in the Palazzo Pubblico** on Piazza del Campo. View halls with frescoes and works by artists like Lorenzetti and Martini. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/5117dd2cc1e5429fa5a1374ba1681766.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Civic Museum of Siena & Santa Maria Della Scala" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SANTA MARIA DELLA SCALA</span>
+        </div>
+        <div class="tq-card-title">Civic Museum of Siena & Santa Maria Della Scala</div>
+        <div class="tq-card-desc">Visit two key cultural sites in Siena using one ticket. Start at the **Civic Museum in the Palazzo Pubblico** on Piazza del Campo. View halls with frescoes and works by artists like Lorenzetti and Martini. 
 
-Next, head to **Santa Maria della Scala**. This historic hospital complex now serves as a museum. Walk through displays of art, archaeology, and exhibits.</p>
-          <div class="card-footer">
-            <span class="price">From €18</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siena-civic-museums-santa-maria-della-scala-p1119127/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, head to **Santa Maria della Scala**. This historic hospital complex now serves as a museum. Walk through displays of art, archaeology, and exhibits.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siena-civic-museums-santa-maria-della-scala-p1119127/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c608012a010245478b7e10a3865b9967.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena Cathedral & Palazzo delle Papesse: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siena Cathedral & Palazzo delle Papesse: Entry Ticket</h3>
-          <p class="venue">📍 Cathedral of Siena Complex</p>
-          <p>Get tickets to Siena Cathedral (Duomo di Siena), which includes entry to the Piccolomini Library and the nearby Palazzo delle Papesse. On select dates, the cathedral’s inlaid marble floor – usually kept covered – is opened to visitors, showing biblical and symbolic scenes.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c608012a010245478b7e10a3865b9967.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena Cathedral & Palazzo delle Papesse: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CATHEDRAL OF SIENA COMPLEX</span>
+        </div>
+        <div class="tq-card-title">Siena Cathedral & Palazzo delle Papesse: Entry Ticket</div>
+        <div class="tq-card-desc">Get tickets to Siena Cathedral (Duomo di Siena), which includes entry to the Piccolomini Library and the nearby Palazzo delle Papesse. On select dates, the cathedral’s inlaid marble floor – usually kept covered – is opened to visitors, showing biblical and symbolic scenes.
 
-In the Piccolomini Library, see frescoes painted by Pinturicchio, telling the story of Enea Silvio Piccolomini (later Pope Pius II). You can also view illuminated choir books and a Roman statue of the Three Graces. At Palazzo delle Papesse, see the Renaissance building linked to the Piccolomini family.</p>
-          <div class="card-footer">
-            <span class="price">From €16</span>
-            <span class="rating">⭐ 4.3 (11)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siena-cathedral-palazzo-delle-papesse-entry-ticket-p1112401/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In the Piccolomini Library, see frescoes painted by Pinturicchio, telling the story of Enea Silvio Piccolomini (later Pope Pius II). You can also view illuminated choir books and a Roman statue of the Three Graces. At Palazzo delle Papesse, see the Renaissance building linked to the Piccolomini family.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(11)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€16.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siena-cathedral-palazzo-delle-papesse-entry-ticket-p1112401/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6a791336f0624795ae8ee27a793e9370.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palazzo delle Papesse (Palazzo Caterina Piccolomini): Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palazzo delle Papesse (Palazzo Caterina Piccolomini): Entry Ticket</h3>
-          <p class="venue">📍 Palazzo delle Papesse (Palazzo Caterina Piccolomini)</p>
-          <p>Visit the Palazzo delle Papesse, formerly known as Palazzo Caterina Piccolomini, a historic building that now showcases contemporary art pieces. Explore its rooms to see various art exhibitions set up for visitors. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6a791336f0624795ae8ee27a793e9370.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palazzo delle Papesse (Palazzo Caterina Piccolomini): Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALAZZO DELLE PAPESSE (PALAZZO CATERINA PICCOLOMINI)</span>
+        </div>
+        <div class="tq-card-title">Palazzo delle Papesse (Palazzo Caterina Piccolomini): Entry Ticket</div>
+        <div class="tq-card-desc">Visit the Palazzo delle Papesse, formerly known as Palazzo Caterina Piccolomini, a historic building that now showcases contemporary art pieces. Explore its rooms to see various art exhibitions set up for visitors. 
 
 The Renaissance Palace offers a panoramic view, and it is the only venue open even in bad weather in Siena. While the exhibition is temporary, the palace with its halls, panorama, basement, and permanent cafeteria welcomes you. 
 
-The palace also includes a bookshop and a convenient cafeteria for breakfasts, light lunches, and aperitifs.</p>
-          <div class="card-footer">
-            <span class="price">From €18.5</span>
-            <span class="rating">⭐ 4.7 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palazzo-delle-papesse-caterina-piccolomini-palace-p1102722/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The palace also includes a bookshop and a convenient cafeteria for breakfasts, light lunches, and aperitifs.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palazzo-delle-papesse-caterina-piccolomini-palace-p1102722/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c608012a010245478b7e10a3865b9967.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena Cathedral: Early Access + Tour with Key Keeper" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siena Cathedral: Early Access + Tour with Key Keeper</h3>
-          <p class="venue">📍 Cathedral of Siena Complex</p>
-          <p>Tour the Siena Cathedral in a unique way before the city wakes up. Join the claviger (key keeper) for a special opening. Watch the opening procedures, light activation, and visitor preparation.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c608012a010245478b7e10a3865b9967.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena Cathedral: Early Access + Tour with Key Keeper" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CATHEDRAL OF SIENA COMPLEX</span>
+        </div>
+        <div class="tq-card-title">Siena Cathedral: Early Access + Tour with Key Keeper</div>
+        <div class="tq-card-desc">Tour the Siena Cathedral in a unique way before the city wakes up. Join the claviger (key keeper) for a special opening. Watch the opening procedures, light activation, and visitor preparation.
 
-Reach the higher levels of the cathedral at the Porta del Cielo (Gate of Heaven). View the famous cathedral floor from above. Finish with breakfast at the Battistero Bistrot.</p>
-          <div class="card-footer">
-            <span class="price">From €42</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siena-cathedral-early-access-tour-with-key-keeper-p1117863/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Reach the higher levels of the cathedral at the Porta del Cielo (Gate of Heaven). View the famous cathedral floor from above. Finish with breakfast at the Battistero Bistrot.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€42.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siena-cathedral-early-access-tour-with-key-keeper-p1117863/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6a791336f0624795ae8ee27a793e9370.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palazzo delle Papesse: Armando Testa Exhibition Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palazzo delle Papesse: Armando Testa Exhibition Guided Tour</h3>
-          <p class="venue">📍 Palazzo delle Papesse (Palazzo Caterina Piccolomini)</p>
-          <p>Discover the creative works of Armando Testa at the Palazzo delle Papesse. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6a791336f0624795ae8ee27a793e9370.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palazzo delle Papesse: Armando Testa Exhibition Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALAZZO DELLE PAPESSE (PALAZZO CATERINA PICCOLOMINI)</span>
+        </div>
+        <div class="tq-card-title">Palazzo delle Papesse: Armando Testa Exhibition Guided Tour</div>
+        <div class="tq-card-desc">Discover the creative works of Armando Testa at the Palazzo delle Papesse. 
 
 During the visit, explore his distinctive artwork, including images and ideas that transformed advertising and contemporary art. 
 
-This display includes an engaging activity for children. They can use the kids' kit available onsite to color subjects from the exhibited pieces.</p>
-          <div class="card-footer">
-            <span class="price">From €27</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palazzo-delle-papesse-armando-testa-exhibition-guided-tour-p1128177/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This display includes an engaging activity for children. They can use the kids' kit available onsite to color subjects from the exhibited pieces.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palazzo-delle-papesse-armando-testa-exhibition-guided-tour-p1128177/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c608012a010245478b7e10a3865b9967.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena Cathedral Guided Visit and City Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siena Cathedral Guided Visit and City Walking Tour</h3>
-          <p class="venue">📍 Cathedral of Siena Complex</p>
-          <p>Known for its signature red hue, **Siena** has a whole lot more in store for guests on this **guided tour** of the city, including a tour of the **Siena Cathedral.** 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c608012a010245478b7e10a3865b9967.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena Cathedral Guided Visit and City Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CATHEDRAL OF SIENA COMPLEX</span>
+        </div>
+        <div class="tq-card-title">Siena Cathedral Guided Visit and City Walking Tour</div>
+        <div class="tq-card-desc">Known for its signature red hue, **Siena** has a whole lot more in store for guests on this **guided tour** of the city, including a tour of the **Siena Cathedral.** 
 
 Siena is a treasure trove of historical, artistic, religious and cultural riches to be discovered. The best way to do it is on foot, admiring the transformations of the city over the centuries. Enjoy spectacular Tuscan landscapes and learn curious details from your guide as you tour the city. 
 
 See **Piazza del Campo**, the true heart of the city, the **Palazzo Comunale**, and the majestic **Basilica of San Domenico**. Gain insight into the great noble families and their palaces, the great tradition of the **Palio of Siena**, and the stories of religious traditions that distinguish the city. 
 
-Conclude your Siennese tour with a visit to the **Duomo di Siena**, where treastures from **Nicola Pisano, Duccio di Buoninsegna and Donatello** reside.</p>
-          <div class="card-footer">
-            <span class="price">From €40</span>
-            <span class="rating">⭐ 4.5 (13)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-guided-tour-of-siena-with-cathedral-p1044174/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Conclude your Siennese tour with a visit to the **Duomo di Siena**, where treastures from **Nicola Pisano, Duccio di Buoninsegna and Donatello** reside.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(13)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-guided-tour-of-siena-with-cathedral-p1044174/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chianti: Vintage Fiat 500 Private Tour + Transfers + Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Chianti: Vintage Fiat 500 Private Tour + Transfers + Wine Tasting</h3>
-          <p class="venue">📍 Day Trips from Siena</p>
-          <p>Drive through the Tuscan countryside in a vintage Fiat 500. Along the route, there will be stops for photos and short breaks to enjoy the views.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chianti: Vintage Fiat 500 Private Tour + Transfers + Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SIENA</span>
+        </div>
+        <div class="tq-card-title">Chianti: Vintage Fiat 500 Private Tour + Transfers + Wine Tasting</div>
+        <div class="tq-card-desc">Drive through the Tuscan countryside in a vintage Fiat 500. Along the route, there will be stops for photos and short breaks to enjoy the views.
 
 Visit a local vineyard in a Chianti Classico production area. Here, you will enjoy an aperitivo with a bottle of Chianti wine and a selection of regional products.
 
-After the tasting, return to the starting point with a relaxed drive through the countryside.</p>
-          <div class="card-footer">
-            <span class="price">From €180</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-chianti-vintage-fiat-500-private-tour-transfers-wine-tasting-p1126109/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After the tasting, return to the starting point with a relaxed drive through the countryside.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€180.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-chianti-vintage-fiat-500-private-tour-transfers-wine-tasting-p1126109/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c608012a010245478b7e10a3865b9967.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena Cathedral: Skip The Line Ticket + Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siena Cathedral: Skip The Line Ticket + Guided Tour</h3>
-          <p class="venue">📍 Cathedral of Siena Complex</p>
-          <p>See one of Italy’s most unique treasures with a tour of the Siena Cathedral. Enjoy skip-the-line entry and a guided tour of the marble floor.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/c608012a010245478b7e10a3865b9967.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena Cathedral: Skip The Line Ticket + Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CATHEDRAL OF SIENA COMPLEX</span>
+        </div>
+        <div class="tq-card-title">Siena Cathedral: Skip The Line Ticket + Guided Tour</div>
+        <div class="tq-card-desc">See one of Italy’s most unique treasures with a tour of the Siena Cathedral. Enjoy skip-the-line entry and a guided tour of the marble floor.
 
-Join a local expert to learn about the famous marble inlay floor. Spend 75 minutes touring the cathedral and its floor. After the guided tour, stay inside the cathedral to continue exploring on your own if you wish.</p>
-          <div class="card-footer">
-            <span class="price">From €27</span>
-            <span class="rating">⭐ 4 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siena-cathedral-skip-the-line-guided-tour-p1119132/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Join a local expert to learn about the famous marble inlay floor. Spend 75 minutes touring the cathedral and its floor. After the guided tour, stay inside the cathedral to continue exploring on your own if you wish.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siena-cathedral-skip-the-line-guided-tour-p1119132/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6da059609e62477d8f2158a24cec3546.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena: Riddle Hunt Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siena: Riddle Hunt Guided Walking Tour</h3>
-          <p class="venue">📍 Siena Outdoor Activities</p>
-          <p>Take a walking riddle hunt through Siena’s historic center. Follow clues and solve puzzles to find hidden corners. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6da059609e62477d8f2158a24cec3546.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena: Riddle Hunt Guided Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIENA OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Siena: Riddle Hunt Guided Walking Tour</div>
+        <div class="tq-card-desc">Take a walking riddle hunt through Siena’s historic center. Follow clues and solve puzzles to find hidden corners. 
 
-Walk through Siena's landmarks, from Piazza del Campo to hidden alleyways with local legends. Professional guides can give hints along the way without breaking your stride.</p>
-          <div class="card-footer">
-            <span class="price">From €60</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siena-riddle-hunt-guided-walking-tour-p1117861/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Walk through Siena's landmarks, from Piazza del Campo to hidden alleyways with local legends. Professional guides can give hints along the way without breaking your stride.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siena-riddle-hunt-guided-walking-tour-p1117861/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6da059609e62477d8f2158a24cec3546.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena: Guided Walking Tour + Contrada Museum Entry" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siena: Guided Walking Tour + Contrada Museum Entry</h3>
-          <p class="venue">📍 Siena Outdoor Activities</p>
-          <p>Walk through Siena's historic districts, known as contrade, each with its unique traditions.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/6da059609e62477d8f2158a24cec3546.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena: Guided Walking Tour + Contrada Museum Entry" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIENA OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Siena: Guided Walking Tour + Contrada Museum Entry</div>
+        <div class="tq-card-desc">Walk through Siena's historic districts, known as contrade, each with its unique traditions.
 
 A local guide leads you through medieval streets and explains the stories and rivalries of the Palio di Siena, a famous horse race. 
 
-Get special access to a Contrada Museum to see original Palio banners, traditional costumes, and sacred artifacts. Understand Siena's cultural fabric shaped by centuries.</p>
-          <div class="card-footer">
-            <span class="price">From €60</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siena-guided-walking-tour-contrada-museum-entry-p1117842/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get special access to a Contrada Museum to see original Palio banners, traditional costumes, and sacred artifacts. Understand Siena's cultural fabric shaped by centuries.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€60.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siena-guided-walking-tour-contrada-museum-entry-p1117842/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f483d8f88b8348aa8ee7811638dba919.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chianti: Guided Cooking Class & Wine Tasting in a Farm" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Chianti: Guided Cooking Class & Wine Tasting in a Farm</h3>
-          <p class="venue">📍 Siena Cooking Classes</p>
-          <p>Join a cooking class and wine tasting at a Chianti farm in Tuscany. Learn to prepare traditional Italian dishes and taste Chianti Classic wines.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f483d8f88b8348aa8ee7811638dba919.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chianti: Guided Cooking Class & Wine Tasting in a Farm" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIENA COOKING CLASSES</span>
+        </div>
+        <div class="tq-card-title">Chianti: Guided Cooking Class & Wine Tasting in a Farm</div>
+        <div class="tq-card-desc">Join a cooking class and wine tasting at a Chianti farm in Tuscany. Learn to prepare traditional Italian dishes and taste Chianti Classic wines.
 
-This activity is suitable for food enthusiasts, families, and groups. Hands-on cooking sessions highlight local cuisine and culture in a scenic setting.</p>
-          <div class="card-footer">
-            <span class="price">From €139</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-chianti-guided-cooking-class-wine-tasting-in-a-farm-p1115960/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This activity is suitable for food enthusiasts, families, and groups. Hands-on cooking sessions highlight local cuisine and culture in a scenic setting.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€139.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-chianti-guided-cooking-class-wine-tasting-in-a-farm-p1115960/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f483d8f88b8348aa8ee7811638dba919.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena: Pizza & Gelato Cooking Class + Dinner + Drinks" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siena: Pizza & Gelato Cooking Class + Dinner + Drinks</h3>
-          <p class="venue">📍 Siena Cooking Classes</p>
-          <p>Join a 4-hour cooking class at a Chianti farm. Follow a professional chef to make authentic pizza from scratch and craft gelato.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f483d8f88b8348aa8ee7811638dba919.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena: Pizza & Gelato Cooking Class + Dinner + Drinks" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIENA COOKING CLASSES</span>
+        </div>
+        <div class="tq-card-title">Siena: Pizza & Gelato Cooking Class + Dinner + Drinks</div>
+        <div class="tq-card-desc">Join a 4-hour cooking class at a Chianti farm. Follow a professional chef to make authentic pizza from scratch and craft gelato.
 
-After cooking, eat your creations with local Chianti wines and other drinks. The Tuscan countryside will be the backdrop as you dine. This hands-on class connects you with Tuscany’s culinary heritage.</p>
-          <div class="card-footer">
-            <span class="price">From €115</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siena-pizza-gelato-cooking-class-dinner-drinks-p1115957/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After cooking, eat your creations with local Chianti wines and other drinks. The Tuscan countryside will be the backdrop as you dine. This hands-on class connects you with Tuscany’s culinary heritage.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€115.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siena-pizza-gelato-cooking-class-dinner-drinks-p1115957/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chianti: Guided Tour from Siena + Wine & Olive Oil Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Chianti: Guided Tour from Siena + Wine & Olive Oil Tasting</h3>
-          <p class="venue">📍 Day Trips from Siena</p>
-          <p>Take a half-day trip from Siena through the Chianti region. You'll pass vineyards, hills, and medieval villages. Visit historic churches and castles, then stop at a winery in the Chianti Classico area.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chianti: Guided Tour from Siena + Wine & Olive Oil Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SIENA</span>
+        </div>
+        <div class="tq-card-title">Chianti: Guided Tour from Siena + Wine & Olive Oil Tasting</div>
+        <div class="tq-card-desc">Take a half-day trip from Siena through the Chianti region. You'll pass vineyards, hills, and medieval villages. Visit historic churches and castles, then stop at a winery in the Chianti Classico area.
 
-Taste local wine and extra virgin olive oil, and take photos along the way, especially of the cypress-lined roads. Enjoy the views of the Tuscan countryside.</p>
-          <div class="card-footer">
-            <span class="price">From €85</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-chianti-guided-tour-from-siena-wine-olive-oil-tasting-p1115956/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Taste local wine and extra virgin olive oil, and take photos along the way, especially of the cypress-lined roads. Enjoy the views of the Tuscan countryside.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€85.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-chianti-guided-tour-from-siena-wine-olive-oil-tasting-p1115956/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/af16bf1affdb45d4b10f6db7d7690b10.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palazzo Chigi Zondadari: Entry + Guided Tour + Opera Concert" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palazzo Chigi Zondadari: Entry + Guided Tour + Opera Concert</h3>
-          <p class="venue">📍 Siena Opera</p>
-          <p>Join a guided tour and concert at Palazzo Chigi Zondadari in Siena. You will explore 17th-century banquets, Baroque music, and art. Expert guides will show you the palace's rooms. Hear music by composers like Monteverdi and Frescobaldi, performed by a talented soprano with a Baroque guitar and theorbo. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/af16bf1affdb45d4b10f6db7d7690b10.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palazzo Chigi Zondadari: Entry + Guided Tour + Opera Concert" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIENA OPERA</span>
+        </div>
+        <div class="tq-card-title">Palazzo Chigi Zondadari: Entry + Guided Tour + Opera Concert</div>
+        <div class="tq-card-desc">Join a guided tour and concert at Palazzo Chigi Zondadari in Siena. You will explore 17th-century banquets, Baroque music, and art. Expert guides will show you the palace's rooms. Hear music by composers like Monteverdi and Frescobaldi, performed by a talented soprano with a Baroque guitar and theorbo. 
 
-Finish the evening with a concert in the grand ballroom. Raise a toast with the artists and enjoy a glass of wine from the Chigi Zondadari family's cellars.</p>
-          <div class="card-footer">
-            <span class="price">From €88</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palazzo-chigi-zondadari-entry-with-guided-tour-and-opera-concert-p1103929/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finish the evening with a concert in the grand ballroom. Raise a toast with the artists and enjoy a glass of wine from the Chigi Zondadari family's cellars.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€88.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palazzo-chigi-zondadari-entry-with-guided-tour-and-opera-concert-p1103929/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Gimignano: Vineyard Guided Tour + Wine Tasting + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>San Gimignano: Vineyard Guided Tour + Wine Tasting + Lunch</h3>
-          <p class="venue">📍 Siena Wine Tasting</p>
-          <p>Visit a family-run winery located near San Gimignano, which invites you to taste authentic Tuscan fare. Enjoy wine tastings and local delicacies, including pasta, traditional Cantucci cookies, Vinsanto dessert wine, and grappa.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Gimignano: Vineyard Guided Tour + Wine Tasting + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIENA WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">San Gimignano: Vineyard Guided Tour + Wine Tasting + Lunch</div>
+        <div class="tq-card-desc">Visit a family-run winery located near San Gimignano, which invites you to taste authentic Tuscan fare. Enjoy wine tastings and local delicacies, including pasta, traditional Cantucci cookies, Vinsanto dessert wine, and grappa.
 
 Tour the vineyard and winery, learning about the wine-making process and the vinification methods unique to Tuscany and Chianti.
 
-Taste varieties of wines while having a delicious lunch, paired with cured meats, cheeses, pasta, and more.</p>
-          <div class="card-footer">
-            <span class="price">From €69.9</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-gimignano-vineyard-guided-tour-wine-tasting-lunch-p1093825/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Taste varieties of wines while having a delicious lunch, paired with cured meats, cheeses, pasta, and more.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€69.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-san-gimignano-vineyard-guided-tour-wine-tasting-lunch-p1093825/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Gimignano: Wine Tasting Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>San Gimignano: Wine Tasting Tour</h3>
-          <p class="venue">📍 Siena Wine Tasting</p>
-          <p>Visit a family-run vineyard located near San Gimignano, which invites you to taste the authentic flavors of Tuscany, including fine wines and regional crostini.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="San Gimignano: Wine Tasting Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIENA WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">San Gimignano: Wine Tasting Tour</div>
+        <div class="tq-card-desc">Visit a family-run vineyard located near San Gimignano, which invites you to taste the authentic flavors of Tuscany, including fine wines and regional crostini.
 
 Begin your visit with a tour of the vineyard, exploring the cellars and learning about the winemaking process. Hear stories and trivia about the vinification methods that define the Tuscany and Chianti regions.
 
-Learn how to pair Tuscan wine with local food and discover the secrets of wine and grapes in a real winery.</p>
-          <div class="card-footer">
-            <span class="price">From €29.9</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-san-gimignano-wine-tasting-tour-p1093488/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn how to pair Tuscan wine with local food and discover the secrets of wine and grapes in a real winery.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-san-gimignano-wine-tasting-tour-p1093488/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f483d8f88b8348aa8ee7811638dba919.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena: Market Tour and Cooking Class at a Local's Home" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siena: Market Tour and Cooking Class at a Local's Home</h3>
-          <p class="venue">📍 Siena Cooking Classes</p>
-          <p>Join a fun culinary adventure in Siena! Visit local markets and traditional food shops with an expert home cook. Then, take an exclusive cooking class at a local's home and learn how to make Siena's famous dishes.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f483d8f88b8348aa8ee7811638dba919.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena: Market Tour and Cooking Class at a Local's Home" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIENA COOKING CLASSES</span>
+        </div>
+        <div class="tq-card-title">Siena: Market Tour and Cooking Class at a Local's Home</div>
+        <div class="tq-card-desc">Join a fun culinary adventure in Siena! Visit local markets and traditional food shops with an expert home cook. Then, take an exclusive cooking class at a local's home and learn how to make Siena's famous dishes.
 
 In the class, your host will teach you three authentic recipes. You'll have a fully equipped workstation with all the utensils and ingredients you need. After cooking, enjoy the meal you prepared. Furthermore, you'll also get to try some carefully selected local wines.
 
-Your host will share family recipes and stories about their regional cuisine. A typical menu includes a seasonal starter, fresh regional pasta, and a delicious dessert.</p>
-          <div class="card-footer">
-            <span class="price">From €215</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siena-market-tour-and-cooking-class-at-a-locals-home-p1092482/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your host will share family recipes and stories about their regional cuisine. A typical menu includes a seasonal starter, fresh regional pasta, and a delicious dessert.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€215.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siena-market-tour-and-cooking-class-at-a-locals-home-p1092482/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montelpulciano Vineyard: Wine Tasting + Picnic" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montelpulciano Vineyard: Wine Tasting + Picnic</h3>
-          <p class="venue">📍 Siena Wine Tasting</p>
-          <p>Join an authentic adventure through the vineyards of Montepulciano in the heart of Tuscany with a picnic in the vineyard. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montelpulciano Vineyard: Wine Tasting + Picnic" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIENA WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Montelpulciano Vineyard: Wine Tasting + Picnic</div>
+        <div class="tq-card-desc">Join an authentic adventure through the vineyards of Montepulciano in the heart of Tuscany with a picnic in the vineyard. 
 
 Start your tour at a lovely winery, where welcoming staff will walk you through ancient cellars, sharing the vineyard's story and the craft behind Vino Nobile di Montepulciano DOCG and Rosso di Montepulciano DOC.
 
-Next, stroll through lush vineyards to find a delicious Tuscan picnic spread awaiting you. Enjoy local delights paired perfectly with a bottle of Rosso di Montepulciano.</p>
-          <div class="card-footer">
-            <span class="price">From €79</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montepulciano-vineyard-wine-tasting-picnic-p1087366/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, stroll through lush vineyards to find a delicious Tuscan picnic spread awaiting you. Enjoy local delights paired perfectly with a bottle of Rosso di Montepulciano.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€79.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montepulciano-vineyard-wine-tasting-picnic-p1087366/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montepulciano: Wine Tasting Tour at Two Wineries" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montepulciano: Wine Tasting Tour at Two Wineries</h3>
-          <p class="venue">📍 Siena Wine Tasting</p>
-          <p>Set off on an irresistible wine tour of the renowned Nobile di Montepulciano wine - a world-class treasure hailing from the vineyards of Mons Politianus, famous since the High Middle Ages for its superb wine quality.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montepulciano: Wine Tasting Tour at Two Wineries" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIENA WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Montepulciano: Wine Tasting Tour at Two Wineries</div>
+        <div class="tq-card-desc">Set off on an irresistible wine tour of the renowned Nobile di Montepulciano wine - a world-class treasure hailing from the vineyards of Mons Politianus, famous since the High Middle Ages for its superb wine quality.
 
 The adventure takes you to two distinct Nobile wine production houses in the rolling hills. Here, passionate producers eagerly share their tales, production methods, and the philosophies hidden within each bottle.
 
-Get up close and personal with the Prugnolo Gentile vineyards and taste the exquisite Rosso di Montepulciano DOC and Nobile di Montepulciano DOCG, learning to distinguish their unique traits.</p>
-          <div class="card-footer">
-            <span class="price">From €175</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montepulciano-wine-tasting-tour-p1087148/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Get up close and personal with the Prugnolo Gentile vineyards and taste the exquisite Rosso di Montepulciano DOC and Nobile di Montepulciano DOCG, learning to distinguish their unique traits.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€175.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montepulciano-wine-tasting-tour-p1087148/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chianti, Montalcino & San Gimignano: Wine Tasting + Day Trip from Siena" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Chianti, Montalcino & San Gimignano: Wine Tasting + Day Trip from Siena</h3>
-          <p class="venue">📍 Day Trips from Siena</p>
-          <p>Step into Tuscany and learn about San Gimignano's Vernaccia. This white wine, known for its superior quality, proudly holds the title of Italy's first DOCG wine. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chianti, Montalcino & San Gimignano: Wine Tasting + Day Trip from Siena" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SIENA</span>
+        </div>
+        <div class="tq-card-title">Chianti, Montalcino & San Gimignano: Wine Tasting + Day Trip from Siena</div>
+        <div class="tq-card-desc">Step into Tuscany and learn about San Gimignano's Vernaccia. This white wine, known for its superior quality, proudly holds the title of Italy's first DOCG wine. 
 
 The adventure begins with a brief exploration of this charming town and a tour of a Chianti cellar, all paired with an exquisite Chianti wine tasting.
 
 The journey continues through the landscapes of the Val d'Orcia, a Tuscan gem and a UNESCO World Heritage site since 2004 towards Montalcino, a town perched atop a hill, overlooking 1500 hectares of the world-renowned Brunello vineyards.
 
-The grand finale of the day is a visit to a local cellar for a taste of the esteemed Brunello di Montalcino, another shining star in the firmament of Italian DOCG wines.</p>
-          <div class="card-footer">
-            <span class="price">From €140</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-chianti-montalcino-san-gimignano-wine-tasting-day-trip-from-siena-p1086414/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The grand finale of the day is a visit to a local cellar for a taste of the esteemed Brunello di Montalcino, another shining star in the firmament of Italian DOCG wines.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€140.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-chianti-montalcino-san-gimignano-wine-tasting-day-trip-from-siena-p1086414/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chianti & Castles: Day Trip from San Gimignano + Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Chianti & Castles: Day Trip from San Gimignano + Wine Tasting</h3>
-          <p class="venue">📍 Day Trips from Siena</p>
-          <p>Admire the beauty of the Italian countryside with this memorable tour. Stroll through ancient churches, medieval castles, and towns where life's rhythm remains untouched by time.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chianti & Castles: Day Trip from San Gimignano + Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SIENA</span>
+        </div>
+        <div class="tq-card-title">Chianti & Castles: Day Trip from San Gimignano + Wine Tasting</div>
+        <div class="tq-card-desc">Admire the beauty of the Italian countryside with this memorable tour. Stroll through ancient churches, medieval castles, and towns where life's rhythm remains untouched by time.
 
 Venture into the renowned Chianti Classico region to a tucked-away winery. There, participate in a tasting of fine wines complemented by a sampling of extra virgin olive oil, each drop a testament to the rich Italian terroir.
 
 Envision the iconic cypress-lined avenues depicted on countless postcards. You'll have the chance to meander down one such avenue, capturing keepsake photos of the scenic Tuscan landscape.
 
-Relish the exquisite wines presented by a distinguished winery, recognized by connoisseurs for its quality. All this, set against a backdrop of magnificent scenery, enveloped in a magical and pleasant atmosphere.</p>
-          <div class="card-footer">
-            <span class="price">From €85</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-chianti-and-castles-day-trip-from-san-gimignano-wine-tasting-p1086409/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Relish the exquisite wines presented by a distinguished winery, recognized by connoisseurs for its quality. All this, set against a backdrop of magnificent scenery, enveloped in a magical and pleasant atmosphere.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€85.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-chianti-and-castles-day-trip-from-san-gimignano-wine-tasting-p1086409/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Val D'Orcia: Wine Tasting Tour + Roundtrip from Siena" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Val D'Orcia: Wine Tasting Tour + Roundtrip from Siena</h3>
-          <p class="venue">📍 Siena Wine Tasting</p>
-          <p>Set off on a tour that starts in Val d'Orcia's iconic wine cellar. Here's a chance to relish the exquisite palette of wines crafted from the local vineyards. The expedition then sweeps you off to Montepulciano, where the grandeur of Renaissance palaces and the elegant beauty of its churches harmoniously blend with the ancient tradition of its Nobile di Montepulciano wine. This wine promises to be a sheer delight for your taste buds.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Val D'Orcia: Wine Tasting Tour + Roundtrip from Siena" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIENA WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Val D'Orcia: Wine Tasting Tour + Roundtrip from Siena</div>
+        <div class="tq-card-desc">Set off on a tour that starts in Val d'Orcia's iconic wine cellar. Here's a chance to relish the exquisite palette of wines crafted from the local vineyards. The expedition then sweeps you off to Montepulciano, where the grandeur of Renaissance palaces and the elegant beauty of its churches harmoniously blend with the ancient tradition of its Nobile di Montepulciano wine. This wine promises to be a sheer delight for your taste buds.
 
 Next, the tour takes you to Pienza and Montepulciano, two artistic gems offering sights of the Val d'Orcia landscape. Pienza, a perfect fusion of architectural harmony and beauty, is a sight to behold. The alluring landscape of Val d'Orcia peeks through most of its alleyways, offering scenic views.
 
-Appreciate unique flavors and scents that underline this natural and artistic heritage. Pienza's most famous tradition, the pecorino, is a must-try. The adventure concludes with a return to Siena.</p>
-          <div class="card-footer">
-            <span class="price">From €129</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-val-dorcia-wine-tasting-tour-roundtrip-from-siena-p1086406/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Appreciate unique flavors and scents that underline this natural and artistic heritage. Pienza's most famous tradition, the pecorino, is a must-try. The adventure concludes with a return to Siena.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€129.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-val-dorcia-wine-tasting-tour-roundtrip-from-siena-p1086406/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montalcino: Wine Tasting Tour from San Gimignano" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montalcino: Wine Tasting Tour from San Gimignano</h3>
-          <p class="venue">📍 Day Trips from Siena</p>
-          <p>Taste the masterful craftsmanship hidden within each bottle of Brunello, the world's most adored wine, and the esteemed "Italian ambassador" in the realm of winemaking. This exquisite beverage owes its reputation to extended maturation in luxurious wooden casks.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montalcino: Wine Tasting Tour from San Gimignano" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SIENA</span>
+        </div>
+        <div class="tq-card-title">Montalcino: Wine Tasting Tour from San Gimignano</div>
+        <div class="tq-card-desc">Taste the masterful craftsmanship hidden within each bottle of Brunello, the world's most adored wine, and the esteemed "Italian ambassador" in the realm of winemaking. This exquisite beverage owes its reputation to extended maturation in luxurious wooden casks.
 
-The expedition invites you to an irresistible taste tour through the most prestigious wineries of the region, located amidst the beauty of Montalcino and its astonishing surroundings. Don't miss out on this golden opportunity to sample some of the world's finest wines while in Italy.</p>
-          <div class="card-footer">
-            <span class="price">From €119</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-montalcino-wine-tasting-tour-from-san-gimignano-p1086263/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The expedition invites you to an irresistible taste tour through the most prestigious wineries of the region, located amidst the beauty of Montalcino and its astonishing surroundings. Don't miss out on this golden opportunity to sample some of the world's finest wines while in Italy.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€119.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-montalcino-wine-tasting-tour-from-san-gimignano-p1086263/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena: Food and Wine Tasting Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siena: Food and Wine Tasting Tour</h3>
-          <p class="venue">📍 Siena Wine Tasting</p>
-          <p>Step right into the heart of Siena and embark on a delightful food tour that will tantalize your taste buds. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena: Food and Wine Tasting Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIENA WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Siena: Food and Wine Tasting Tour</div>
+        <div class="tq-card-desc">Step right into the heart of Siena and embark on a delightful food tour that will tantalize your taste buds. 
 
 This guided culinary journey invites you to savor the city's local flavors in a myriad of charming eateries, cozy cafes, and historic restaurants. Relish the best of Siena’s cuisine and discover the fascinating cultural stories that each dish has to tell.
 
 Here's a sneak peek into the delectable delights waiting to be discovered:
 * Charcuterie and cheese board – Indulge in the finest local meats and cheeses, perfectly paired with a glass of the region's finest wine
 * Pici cacio e pepe or wine sauce- Savor *pici senesi*, a traditional pasta, prepared following ancient methods and served with *cacio e pepe* or a sumptuous wine sauce
-* Pappa Senese - Taste history with this peasant-origin dish, passed down through generations, with a unique twist that sets it apart from the traditional Tuscan *pappa al pomodoro*</p>
-          <div class="card-footer">
-            <span class="price">From €85</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-siena-food-and-wine-tour-p1081703/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+* Pappa Senese - Taste history with this peasant-origin dish, passed down through generations, with a unique twist that sets it apart from the traditional Tuscan *pappa al pomodoro*</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€85.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-siena-food-and-wine-tour-p1081703/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chianti: Scenic Vespa Tour + Wine Tasting Tickets" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Chianti: Scenic Vespa Tour + Wine Tasting Tickets</h3>
-          <p class="venue">📍 Day Trips from Siena</p>
-          <p>Fulfill your Hollywood fantasies in Italy with tickets for a scenic Vespa tour in the Tuscan hills of Chianti.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chianti: Scenic Vespa Tour + Wine Tasting Tickets" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SIENA</span>
+        </div>
+        <div class="tq-card-title">Chianti: Scenic Vespa Tour + Wine Tasting Tickets</div>
+        <div class="tq-card-desc">Fulfill your Hollywood fantasies in Italy with tickets for a scenic Vespa tour in the Tuscan hills of Chianti.
 
 Leave your worries to the wind as you cruise through the winding paths of the Tuscan countryside. You'll pass by working farms, fragrant sunflower fields, and romantic vineyards along the way. 
 
-Stop for a bite to eat at an authentic dining location and enjoy a carefully-curated wine tasting featuring the fruits of the region.</p>
-          <div class="card-footer">
-            <span class="price">From €179</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-chianti-vespa-scenic-tour-wine-tasting-tickets-p1064166/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Stop for a bite to eat at an authentic dining location and enjoy a carefully-curated wine tasting featuring the fruits of the region.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€179.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-chianti-vespa-scenic-tour-wine-tasting-tickets-p1064166/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena to Montalcino: Brunello Wine Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Siena to Montalcino: Brunello Wine Tour</h3>
-          <p class="venue">📍 Day Trips from Siena</p>
-          <p>Brunello, currently considered the best wine in the world, has its ancestral roots in the passion of the inhabitants of Montalcino. Its ancient winemaking tradition has been handed down from generation to generation. The town of Montalcino, the sanctuary of this wine produced from Sangiovese grapes, stands on an enchanting hill that will make you savor its natural authenticity. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Siena to Montalcino: Brunello Wine Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SIENA</span>
+        </div>
+        <div class="tq-card-title">Siena to Montalcino: Brunello Wine Tour</div>
+        <div class="tq-card-desc">Brunello, currently considered the best wine in the world, has its ancestral roots in the passion of the inhabitants of Montalcino. Its ancient winemaking tradition has been handed down from generation to generation. The town of Montalcino, the sanctuary of this wine produced from Sangiovese grapes, stands on an enchanting hill that will make you savor its natural authenticity. 
 
-The town, its centuries-old fortress and award-winning wineries are the main destination of this trip. You will have the opportunity to taste prestigious wines from the best wineries of the area, and discover Montalcino and the wonderful surrounding area. Don't miss the opportunity to taste some of the best wines in the world while you are in Italy.</p>
-          <div class="card-footer">
-            <span class="price">From €119</span>
-            <span class="rating">⭐ 4.5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-Siena-to-Montalcino-Brunello-Wine-Tour-p1026544/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The town, its centuries-old fortress and award-winning wineries are the main destination of this trip. You will have the opportunity to taste prestigious wines from the best wineries of the area, and discover Montalcino and the wonderful surrounding area. Don't miss the opportunity to taste some of the best wines in the world while you are in Italy.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€119.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-Siena-to-Montalcino-Brunello-Wine-Tour-p1026544/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chianti Vineyard and Castle Tour with Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Chianti Vineyard and Castle Tour with Wine Tasting</h3>
-          <p class="venue">📍 Day Trips from Siena</p>
-          <p>Visit the region of Chianti and immerse yourself in the picturesque Tuscan scenery you have always imagined. This tour will lead you to the discovery of landscapes that have been cradling the Chianti vineyards for centuries. The sounds, scents and flavors of this land will capture your senses. You will live a unique experience, visiting churches, medieval castles and small villages where the rhythm of life remains unchanged over time. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b98b074b89d24e249602a186e2ec5094.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Chianti Vineyard and Castle Tour with Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM SIENA</span>
+        </div>
+        <div class="tq-card-title">Chianti Vineyard and Castle Tour with Wine Tasting</div>
+        <div class="tq-card-desc">Visit the region of Chianti and immerse yourself in the picturesque Tuscan scenery you have always imagined. This tour will lead you to the discovery of landscapes that have been cradling the Chianti vineyards for centuries. The sounds, scents and flavors of this land will capture your senses. You will live a unique experience, visiting churches, medieval castles and small villages where the rhythm of life remains unchanged over time. 
 
-The tour continues with a visit to one of the most fascinating estates in the area. You will have the opportunity to visit the area around the Castle of Brolio. Once the tour of the gardens is concluded, you will move to the winery for the first tasting of wines and typical Tuscan products. At the end of this tasting, you will continue to the second stop of the tour, where you will have another wine tasting and visit a historical cellar. Once the tasting is over, you will be delivered back home.</p>
-          <div class="card-footer">
-            <span class="price">From €49</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-Chianti-Vineyard-and-Castle-Tour-with-Wine-Tastings-p1026543/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The tour continues with a visit to one of the most fascinating estates in the area. You will have the opportunity to visit the area around the Castle of Brolio. Once the tour of the gardens is concluded, you will move to the winery for the first tasting of wines and typical Tuscan products. At the end of this tasting, you will continue to the second stop of the tour, where you will have another wine tasting and visit a historical cellar. Once the tasting is over, you will be delivered back home.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€49.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-Chianti-Vineyard-and-Castle-Tour-with-Wine-Tastings-p1026543/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montepulciano: Wine Tasting Tour in two historical cellars" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montepulciano: Wine Tasting Tour in two historical cellars</h3>
-          <p class="venue">📍 Siena Wine Tasting</p>
-          <p>Enjoy a truly Italian experience in this quintessential Tuscan town. Resting atop a hillside blanketed in green, limestone ridges peaking through, and Renaissance-era buildings overlooking the horizon, there are two incredible wines waiting for you – Rosso di Montepulciano DOC and Vino Nobile di Montepulciano DOCG.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montepulciano: Wine Tasting Tour in two historical cellars" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIENA WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Montepulciano: Wine Tasting Tour in two historical cellars</div>
+        <div class="tq-card-desc">Enjoy a truly Italian experience in this quintessential Tuscan town. Resting atop a hillside blanketed in green, limestone ridges peaking through, and Renaissance-era buildings overlooking the horizon, there are two incredible wines waiting for you – Rosso di Montepulciano DOC and Vino Nobile di Montepulciano DOCG.
 
-Learn a little about Montepulciano's history during the tour, and finish each visit with a glass of red. You'll even get some expert tips to decipher the wine's flavors!</p>
-          <div class="card-footer">
-            <span class="price">From €59</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-vino-nobile-di-montepulciano-wine-tour-p1004801/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn a little about Montepulciano's history during the tour, and finish each visit with a glass of red. You'll even get some expert tips to decipher the wine's flavors!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€59.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-vino-nobile-di-montepulciano-wine-tour-p1004801/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montepulciano: Wine Tasting Tour in two historical cellars" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Montepulciano: Wine Tasting Tour in two historical cellars</h3>
-          <p class="venue">📍 Siena Wine Tasting</p>
-          <p>Enjoy a truly Italian experience in this quintessential Tuscan town. Resting atop a hillside blanketed in green, limestone ridges peaking through, and Renaissance-era buildings overlooking the horizon, there are two incredible wines waiting for you – Rosso di Montepulciano DOC and Vino Nobile di Montepulciano DOCG.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ef155f2053924d6cb3c56fef065aa818.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Montepulciano: Wine Tasting Tour in two historical cellars" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>SIENA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SIENA WINE TASTING</span>
+        </div>
+        <div class="tq-card-title">Montepulciano: Wine Tasting Tour in two historical cellars</div>
+        <div class="tq-card-desc">Enjoy a truly Italian experience in this quintessential Tuscan town. Resting atop a hillside blanketed in green, limestone ridges peaking through, and Renaissance-era buildings overlooking the horizon, there are two incredible wines waiting for you – Rosso di Montepulciano DOC and Vino Nobile di Montepulciano DOCG.
 
-Learn a little about Montepulciano's history during the tour, and finish each visit with a glass of red. You'll even get some expert tips to decipher the wine's flavors!</p>
-          <div class="card-footer">
-            <span class="price">From €59</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-vino-nobile-di-montepulciano-wine-tour-p1004801/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn a little about Montepulciano's history during the tour, and finish each visit with a glass of red. You'll even get some expert tips to decipher the wine's flavors!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€59.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-vino-nobile-di-montepulciano-wine-tour-p1004801/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Turin | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Turin. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,108 +131,179 @@
     <p>30 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3c1e39cf2828401fb910cff610dbafbd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Torino + Piemonte Card" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Torino + Piemonte Card</h3>
-          <p class="venue">📍 Turin City Cards</p>
-          <p>Choose a 24, 48, 72, or 120-hour Torino and Piemonte City Card and see the best the two locations have to offer. From ancient abbeys to Romanesque complexes and the world's biggest weaponry collection, there's enough to keep you transfixed for days.</p>
-          <div class="card-footer">
-            <span class="price">From €29.9</span>
-            <span class="rating">⭐ 4.6 (2816)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-city-card-p974736/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3c1e39cf2828401fb910cff610dbafbd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Torino + Piemonte Card" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TURIN CITY CARDS</span>
+        </div>
+        <div class="tq-card-title">Torino + Piemonte Card</div>
+        <div class="tq-card-desc">Choose a 24, 48, 72, or 120-hour Torino and Piemonte City Card and see the best the two locations have to offer. From ancient abbeys to Romanesque complexes and the world's biggest weaponry collection, there's enough to keep you transfixed for days.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(2,816)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€29.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-city-card-p974736/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Choco-Story Tour + Audio Guide + Chocolate Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin: Choco-Story Tour + Audio Guide + Chocolate Tasting</h3>
-          <p class="venue">📍 Choco-Story Torino</p>
-          <p>Learn about the manufacturing processes through engaging animations for all ages. Taste different chocolates during the visit. View a collection of over 700 items that trace the history of cocoa from the Maya civilization to the 1900s.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Choco-Story Tour + Audio Guide + Chocolate Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CHOCO-STORY TORINO</span>
+        </div>
+        <div class="tq-card-title">Turin: Choco-Story Tour + Audio Guide + Chocolate Tasting</div>
+        <div class="tq-card-desc">Learn about the manufacturing processes through engaging animations for all ages. Taste different chocolates during the visit. View a collection of over 700 items that trace the history of cocoa from the Maya civilization to the 1900s.
 
-Discover the origins of gianduia through interactive experiences and games. Follow the path to understand all aspects of chocolate production. Find out more about chocolate in this informative journey.</p>
-          <div class="card-footer">
-            <span class="price">From €12</span>
-            <span class="rating">⭐ 4.6 (78)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-choco-story-tour-audio-guide-chocolate-tasting-p1100165/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover the origins of gianduia through interactive experiences and games. Follow the path to understand all aspects of chocolate production. Find out more about chocolate in this informative journey.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(78)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€12.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-choco-story-tour-audio-guide-chocolate-tasting-p1100165/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Egyptian Museum: Skip The Line Ticket + Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Egyptian Museum: Skip The Line Ticket + Guided Tour</h3>
-          <p class="venue">📍 Egyptian Museum</p>
-          <p>Explore the treasures of the ancient world on a guided tour with skip-the-line entry to the world-famous Egyptian Museum of Turin. Why is there an Egyptian Museum in Turin? Your guide will tell you this and more fascinating stories about the oldest Egyptian museum in the world, and the second-most important one after the Grand Egyptian Museum at the Giza Plateau in Egypt.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Egyptian Museum: Skip The Line Ticket + Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EGYPTIAN MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Egyptian Museum: Skip The Line Ticket + Guided Tour</div>
+        <div class="tq-card-desc">Explore the treasures of the ancient world on a guided tour with skip-the-line entry to the world-famous Egyptian Museum of Turin. Why is there an Egyptian Museum in Turin? Your guide will tell you this and more fascinating stories about the oldest Egyptian museum in the world, and the second-most important one after the Grand Egyptian Museum at the Giza Plateau in Egypt.
 
-Visiting this magnificent museum is a once-in-a-lifetime experience, and you'll discover the highlights and hidden gems of this ancient treasure trove during a 2-hour guided tour. Meet your local guide and delve into the wonders and myths of Egyptian culture, admiring real mummies, sarcophagi and an array of incredible artifacts numbering in the thousands. Enter the spectacular gallery of Ramses II that's been set up in the museum exactly like it was found in Egypt by archeologists, and feel like a real explorer!</p>
-          <div class="card-footer">
-            <span class="price">From €49</span>
-            <span class="rating">⭐ 4.8 (183)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-egyptian-museum-skip-the-line-guided-tour-p1020186/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visiting this magnificent museum is a once-in-a-lifetime experience, and you'll discover the highlights and hidden gems of this ancient treasure trove during a 2-hour guided tour. Meet your local guide and delve into the wonders and myths of Egyptian culture, admiring real mummies, sarcophagi and an array of incredible artifacts numbering in the thousands. Enter the spectacular gallery of Ramses II that's been set up in the museum exactly like it was found in Egypt by archeologists, and feel like a real explorer!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(183)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€49.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-egyptian-museum-skip-the-line-guided-tour-p1020186/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Egyptian Museum: Skip The Line Ticket + Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Egyptian Museum: Skip The Line Ticket + Guided Tour</h3>
-          <p class="venue">📍 Egyptian Museum</p>
-          <p>Join a guided tour of the Egyptian Museum of Turin. Explore the pivotal moments of history, uncover hidden secrets, and listen to intriguing tales of an ancient civilization. Witness the fusion of history and culture firsthand in this renowned museum.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Egyptian Museum: Skip The Line Ticket + Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EGYPTIAN MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Egyptian Museum: Skip The Line Ticket + Guided Tour</div>
+        <div class="tq-card-desc">Join a guided tour of the Egyptian Museum of Turin. Explore the pivotal moments of history, uncover hidden secrets, and listen to intriguing tales of an ancient civilization. Witness the fusion of history and culture firsthand in this renowned museum.
 
-The Egyptian Museum of Turin is the world's oldest museum dedicated solely to Egyptian civilization. Furthermore, it earned a prestigious reputation as the second most significant of its kind after Cairo's. The museum offers an extraordinary tour through time, filled with mystery and intrigue.</p>
-          <div class="card-footer">
-            <span class="price">From €59</span>
-            <span class="rating">⭐ 4.6 (113)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-egyptian-museum-skip-the-line-guided-tour-p1090896/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Egyptian Museum of Turin is the world's oldest museum dedicated solely to Egyptian civilization. Furthermore, it earned a prestigious reputation as the second most significant of its kind after Cairo's. The museum offers an extraordinary tour through time, filled with mystery and intrigue.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.6</strong>
+            <span class="tq-reviews">(113)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€59.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-egyptian-museum-skip-the-line-guided-tour-p1090896/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f364ce42d93d449fa493f124ad02070b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palazzo Madama: Skip The Line Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Palazzo Madama: Skip The Line Ticket</h3>
-          <p class="venue">📍 Palazzo Madama</p>
-          <p>Across four floors of the Madama Palace, you'll take a journey through history. From ancient Rome, through the Middle Ages, the Renaissance, and up to the Baroque.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f364ce42d93d449fa493f124ad02070b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Palazzo Madama: Skip The Line Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">PALAZZO MADAMA</span>
+        </div>
+        <div class="tq-card-title">Palazzo Madama: Skip The Line Ticket</div>
+        <div class="tq-card-desc">Across four floors of the Madama Palace, you'll take a journey through history. From ancient Rome, through the Middle Ages, the Renaissance, and up to the Baroque.
 
 Things start in the basement with the Roman foundations and medieval stonework, including sculptures and jewellery. You can also reach the medieval garden from here, a haven of peace in the heart of Turin.
 
 On the ground floor you'll find exhibits dedicated to the 15th-century castle and the art of the Middle Ages and the Renaissance. Make sure to keep your eyes out for _Portrait of a Man_ by Antonello da Messina
 
-The Baroque rooms, on the first floor, house art from the 17th and 18th centuries, with paintings and furniture by Piffetti and Prinotto in lavishly decorated settings. On the second floor, you will be able to see the decorative arts of all ages: ceramics, ivories, jewellery, fabrics, glasswork, and much more.</p>
-          <div class="card-footer">
-            <span class="price">From €14.5</span>
-            <span class="rating">⭐ 4.9 (27)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-palazzo-madama-skip-the-line-p1026666/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The Baroque rooms, on the first floor, house art from the 17th and 18th centuries, with paintings and furniture by Piffetti and Prinotto in lavishly decorated settings. On the second floor, you will be able to see the decorative arts of all ages: ceramics, ivories, jewellery, fabrics, glasswork, and much more.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(27)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€14.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-palazzo-madama-skip-the-line-p1026666/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Hop-on Hop-off Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin: Hop-on Hop-off Bus Tour</h3>
-          <p class="venue">📍 Hop-on Hop-off Tours Turin</p>
-          <p>Turin is so stuffed with galleries, museums, palaces, and landmarks that getting around town is probably the last thing on your mind. Why not streamline your visit with this handy Hop-on Hop-off pass, which whisks you between sight after unmissable sight? Choose between a 24-hour jaunt or a 48-hour extravaganza!</p>
-          <div class="card-footer">
-            <span class="price">From €19</span>
-            <span class="rating">⭐ 4.4 (44)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-hop-on-hop-off-bus-tour-p975108/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Hop-on Hop-off Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">HOP-ON HOP-OFF TOURS TURIN</span>
+        </div>
+        <div class="tq-card-title">Turin: Hop-on Hop-off Bus Tour</div>
+        <div class="tq-card-desc">Turin is so stuffed with galleries, museums, palaces, and landmarks that getting around town is probably the last thing on your mind. Why not streamline your visit with this handy Hop-on Hop-off pass, which whisks you between sight after unmissable sight? Choose between a 24-hour jaunt or a 48-hour extravaganza!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.4</strong>
+            <span class="tq-reviews">(44)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-hop-on-hop-off-bus-tour-p975108/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Juventus Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Juventus Museum: Entry Ticket</h3>
-          <p class="venue">📍 Juventus Museum</p>
-          <p>Visit the Juventus Museum in Turin and learn about the history of Juventus.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Juventus Museum: Entry Ticket" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">JUVENTUS MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Juventus Museum: Entry Ticket</div>
+        <div class="tq-card-desc">Visit the Juventus Museum in Turin and learn about the history of Juventus.
 
 The Juventus Museum, established in 2012, showcases the team's history and victories. You'll find displays of trophies and memorabilia in a space enhanced by multimedia elements. 
 
@@ -143,39 +313,61 @@ Explore exhibits featuring Juventus' achievements and key moments. Interactive d
 
 Understand the legacy and milestones of Juventus in a setting where technology helps bring the past to life. 
 
-The museum offers a comprehensive look at the team's journey and accomplishments through engaging displays and multimedia setups.</p>
-          <div class="card-footer">
-            <span class="price">From €15</span>
-            <span class="rating">⭐ 4.7 (17)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-juventus-museum-entry-p1110019/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The museum offers a comprehensive look at the team's journey and accomplishments through engaging displays and multimedia setups.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(17)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€15.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-juventus-museum-entry-p1110019/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Egyptian Museum: Skip The Line Ticket with Guided Visit + City Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Egyptian Museum: Skip The Line Ticket with Guided Visit + City Walking Tour</h3>
-          <p class="venue">📍 Egyptian Museum</p>
-          <p>Go on a 3-hour guided tour of the Egyptian Museum and Turin city. History and culture intertwine seamlessly in the Egyptian Museum of Turin. It stands proud as the oldest museum worldwide, dedicated exclusively to Egyptian civilization, and hailed as the second most important globally, after Cairo's.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Egyptian Museum: Skip The Line Ticket with Guided Visit + City Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">EGYPTIAN MUSEUM</span>
+        </div>
+        <div class="tq-card-title">Egyptian Museum: Skip The Line Ticket with Guided Visit + City Walking Tour</div>
+        <div class="tq-card-desc">Go on a 3-hour guided tour of the Egyptian Museum and Turin city. History and culture intertwine seamlessly in the Egyptian Museum of Turin. It stands proud as the oldest museum worldwide, dedicated exclusively to Egyptian civilization, and hailed as the second most important globally, after Cairo's.
 
 Uncover the secrets of the Pharaohs and look at collections, papyrus scrolls, mummies, and ancient artifacts alongside an expert guide.
 
-Next, explore Turin's city center for an hour, visiting iconic sights like the Subalpina Gallery, San Lorenzo Square, and San Carlo Square.</p>
-          <div class="card-footer">
-            <span class="price">From €79.9</span>
-            <span class="rating">⭐ 4.8 (9)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-egyptian-museum-skip-the-line-with-guided-visit-city-walking-tour-p1091294/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, explore Turin's city center for an hour, visiting iconic sights like the Subalpina Gallery, San Lorenzo Square, and San Carlo Square.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(9)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€79.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-egyptian-museum-skip-the-line-with-guided-visit-city-walking-tour-p1091294/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin Royal Palace Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin Royal Palace Guided Tour</h3>
-          <p class="venue">📍 Royal Palace of Turin</p>
-          <p>Live like royalty for a day with tickets for a guided tour of Turin Royal Palace. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin Royal Palace Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROYAL PALACE OF TURIN</span>
+        </div>
+        <div class="tq-card-title">Turin Royal Palace Guided Tour</div>
+        <div class="tq-card-desc">Live like royalty for a day with tickets for a guided tour of Turin Royal Palace. 
 
 Meet your guide at the entrance of the palace and start exploring the halls and rooms where the Savoia, the Italian royal family, used to live. 
 
@@ -183,229 +375,372 @@ Learn about the secrets and the legends around the royals and discover their gol
 
 Enter the royal office where the king signed his coronation documents, included with these Turin Royal Palace tickets. 
 
-Finally, end your guided visit with the baroque Chapel of the Holy Shroud, which was built specifically to preserve the Holy Shroud (although the shroud itself is now located elsewhere).</p>
-          <div class="card-footer">
-            <span class="price">From €49</span>
-            <span class="rating">⭐ 4.9 (55)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-royal-palace-guided-tour-p1039131/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finally, end your guided visit with the baroque Chapel of the Holy Shroud, which was built specifically to preserve the Holy Shroud (although the shroud itself is now located elsewhere).</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.9</strong>
+            <span class="tq-reviews">(55)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€49.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-royal-palace-guided-tour-p1039131/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Royal Palace of Turin: Skip The Line Ticket + Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Royal Palace of Turin: Skip The Line Ticket + Guided Tour</h3>
-          <p class="venue">📍 Royal Palace of Turin</p>
-          <p>Seize your chance to explore the Royal Palace of Turin with a 2-hour guided tour, a UNESCO World Heritage Site.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Royal Palace of Turin: Skip The Line Ticket + Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROYAL PALACE OF TURIN</span>
+        </div>
+        <div class="tq-card-title">Royal Palace of Turin: Skip The Line Ticket + Guided Tour</div>
+        <div class="tq-card-desc">Seize your chance to explore the Royal Palace of Turin with a 2-hour guided tour, a UNESCO World Heritage Site.
 
 Accompanied by a licensed guide, learn about the history of the Savoy royal family as you visit the mirror hall, ballroom, and other regal chambers.
 
 Stroll through the palace's lavish corridors and royal apartments, where every corner radiates elegance and luxury. Then, visit the Royal Armory, home to one of the world's largest collections of weaponry.
 
-End your tour at the Royal Library, where you can see Leonardo da Vinci's famous self-portrait.</p>
-          <div class="card-footer">
-            <span class="price">From €59</span>
-            <span class="rating">⭐ 4.8 (37)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-royal-palace-of-turin-skip-the-line-guided-tour-p1091530/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+End your tour at the Royal Library, where you can see Leonardo da Vinci's famous self-portrait.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(37)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€59.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-royal-palace-of-turin-skip-the-line-guided-tour-p1091530/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin Self-Guided Audio Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin Self-Guided Audio Tour</h3>
-          <p class="venue">📍 Turin City Tours</p>
-          <p>Discover the rich history and culture of Turin as you navigate through the city using an interactive digital map. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin Self-Guided Audio Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TURIN CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Turin Self-Guided Audio Tour</div>
+        <div class="tq-card-desc">Discover the rich history and culture of Turin as you navigate through the city using an interactive digital map. 
 
-With multiple points of interest to choose from, you can customize your tour to suit your interests. From world-renowned landmarks to hidden gems, this self-guided audio tour app offers a unique and immersive way to experience Turin.</p>
-          <div class="card-footer">
-            <span class="price">From €6.5</span>
-            <span class="rating">⭐ 3.9 (14)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-self-guided-audio-tour-p1053491/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With multiple points of interest to choose from, you can customize your tour to suit your interests. From world-renowned landmarks to hidden gems, this self-guided audio tour app offers a unique and immersive way to experience Turin.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.9</strong>
+            <span class="tq-reviews">(14)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€6.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-self-guided-audio-tour-p1053491/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Choco-Story Torino: Entry Ticket + Chocolate Workshop" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Choco-Story Torino: Entry Ticket + Chocolate Workshop</h3>
-          <p class="venue">📍 Choco-Story Torino</p>
-          <p>Join a workshop where you will learn how to work with chocolate using molds and decorations.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Choco-Story Torino: Entry Ticket + Chocolate Workshop" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CHOCO-STORY TORINO</span>
+        </div>
+        <div class="tq-card-title">Choco-Story Torino: Entry Ticket + Chocolate Workshop</div>
+        <div class="tq-card-desc">Join a workshop where you will learn how to work with chocolate using molds and decorations.
 
 Create your own personalized chocolate bars and other treats to eat or take home.
 
-The workshop lasts 45 minutes and provides professional materials. After the workshop, visit a museum.</p>
-          <div class="card-footer">
-            <span class="price">From €39</span>
-            <span class="rating">⭐ 5 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-choco-story-torino-entry-chocolate-workshop-p1123858/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The workshop lasts 45 minutes and provides professional materials. After the workshop, visit a museum.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-choco-story-torino-entry-chocolate-workshop-p1123858/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Bus Transfer To/From Airport" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin: Bus Transfer To/From Airport</h3>
-          <p class="venue">📍 Turin Airport Transfer</p>
-          <p>Hop on the reliable Flibco shuttle for a smooth ride from Turin Airport straight into the city center at Corso Vittorio Emanuele II. the hassles of public transport and enjoy a relaxed journey with great views of Turin.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Bus Transfer To/From Airport" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TURIN AIRPORT TRANSFER</span>
+        </div>
+        <div class="tq-card-title">Turin: Bus Transfer To/From Airport</div>
+        <div class="tq-card-desc">Hop on the reliable Flibco shuttle for a smooth ride from Turin Airport straight into the city center at Corso Vittorio Emanuele II. the hassles of public transport and enjoy a relaxed journey with great views of Turin.
 
-Stay connected with complimentary WiFi and power outlets at every seat. Flibco also welcomes four-legged friends as long as they're safely in carriers.</p>
-          <div class="card-footer">
-            <span class="price">From €5.99</span>
-            <span class="rating">⭐ 3.5 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-airport-bus-transfer-to-from-turin-p1088532/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Stay connected with complimentary WiFi and power outlets at every seat. Flibco also welcomes four-legged friends as long as they're safely in carriers.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3.5</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€5.99</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-airport-bus-transfer-to-from-turin-p1088532/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/77b139ea6d4c43c3ad5ef176bbe1d8f3.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Voucher for QC TermeTorino Spa" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Voucher for QC TermeTorino Spa</h3>
-          <p class="venue">📍 QC Termetorino</p>
-          <p>Life in ancient Rome wasn't always peachy, but they did get one thing right: the bathhouses! Celebrate this ancient tradition with a ticket to Turin's luxurious QC health spa, and unwind in the blissful thermal baths. Paddle around in the sunshine, surrounded by opulent architecture and leafy nature. A fluffy robe and slippers will be waiting for you. Let the me-time commence!</p>
-          <div class="card-footer">
-            <span class="price">From €70</span>
-            <span class="rating">⭐ 4.3 (34)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-qc-termetorino-p978273/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/77b139ea6d4c43c3ad5ef176bbe1d8f3.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Voucher for QC TermeTorino Spa" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">QC TERMETORINO</span>
+        </div>
+        <div class="tq-card-title">Voucher for QC TermeTorino Spa</div>
+        <div class="tq-card-desc">Life in ancient Rome wasn't always peachy, but they did get one thing right: the bathhouses! Celebrate this ancient tradition with a ticket to Turin's luxurious QC health spa, and unwind in the blissful thermal baths. Paddle around in the sunshine, surrounded by opulent architecture and leafy nature. A fluffy robe and slippers will be waiting for you. Let the me-time commence!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(34)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€70.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-qc-termetorino-p978273/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Highlights and Hidden Gems of Turin Bike Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Highlights and Hidden Gems of Turin Bike Tour</h3>
-          <p class="venue">📍 Royal Palace of Turin</p>
-          <p>Gain a multifaceted, authentic, and vivid idea of Turin's unique personality and heritage on this Hidden Gems of Turin Bike Tour.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Highlights and Hidden Gems of Turin Bike Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROYAL PALACE OF TURIN</span>
+        </div>
+        <div class="tq-card-title">Highlights and Hidden Gems of Turin Bike Tour</div>
+        <div class="tq-card-desc">Gain a multifaceted, authentic, and vivid idea of Turin's unique personality and heritage on this Hidden Gems of Turin Bike Tour.
 
 Starting in the ancient "Contrada Dei Guardinfanti", discover and witness the grandeur of Turin, Italy’s regal city, as you pedal out on two wheels and discover its hidden gems.  
 
 Enjoy Piazza San Carlo with its traditional and historical cafés, the Castle of the Savoy Royal family, and the oldest part of the city with its Roman ruins. Stop at the Mole Antonelliana, the tallest museum in the world and the real landmark of the city. Then pedal along the spacious riverfront of the Po and into Valentino park. 
 
-On the way back along the river, meet the impressive Gran Madre di Dio, Palazzo Carignano, as well as many hidden corners and charming squares and alleys.</p>
-          <div class="card-footer">
-            <span class="price">From €39</span>
-            <span class="rating">⭐ 5 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-highlights-and-hidden-gems-of-turin-bike-tour-p1047627/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+On the way back along the river, meet the impressive Gran Madre di Dio, Palazzo Carignano, as well as many hidden corners and charming squares and alleys.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-highlights-and-hidden-gems-of-turin-bike-tour-p1047627/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1ba33948cf8842a1a3491d9a6ca2e82a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The National Museum of Cinema - Mole Antonelliana: Entry Ticket + Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>The National Museum of Cinema - Mole Antonelliana: Entry Ticket + Guided Tour</h3>
-          <p class="venue">📍 The National Museum of Cinema - Mole Antonelliana</p>
-          <p>Explore Turin, where history and culture come to life in vibrant everyday scenes. The city is filled with significant sites that speak to its rich heritage.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/1ba33948cf8842a1a3491d9a6ca2e82a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The National Museum of Cinema - Mole Antonelliana: Entry Ticket + Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">THE NATIONAL MUSEUM OF CINEMA - MOLE ANTONELLIANA</span>
+        </div>
+        <div class="tq-card-title">The National Museum of Cinema - Mole Antonelliana: Entry Ticket + Guided Tour</div>
+        <div class="tq-card-desc">Explore Turin, where history and culture come to life in vibrant everyday scenes. The city is filled with significant sites that speak to its rich heritage.
 
 At Turin lies the Mole Antonelliana, home to the National Museum of Cinema and a true symbol of the city. Join a guided tour led by an experienced guide who will take you through the museum's halls, where cinema history comes alive.
 
-Witness collections and artifacts spanning the entire history of film, from its beginnings to the present day. This interactive tour will absorb you in sets, props, and cinematic treasures. Take an elevator ride to the Mole Antonelliana's scenic terrace for beautiful views of Turin.</p>
-          <div class="card-footer">
-            <span class="price">From €95</span>
-            <span class="rating">⭐ 4.7 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-national-museum-of-cinema-mole-antonelliana-entry-guided-tour-p1090899/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Witness collections and artifacts spanning the entire history of film, from its beginnings to the present day. This interactive tour will absorb you in sets, props, and cinematic treasures. Take an elevator ride to the Mole Antonelliana's scenic terrace for beautiful views of Turin.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.7</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€95.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-the-national-museum-of-cinema-mole-antonelliana-entry-guided-tour-p1090899/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Torino Magica®: Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Torino Magica®: Guided Walking Tour</h3>
-          <p class="venue">📍 Turin City Tours</p>
-          <p>Dragons, witches, and other-worldly symbolism take center stage on this magical **guided walking tour of Turin.**
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Torino Magica®: Guided Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TURIN CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Torino Magica®: Guided Walking Tour</div>
+        <div class="tq-card-desc">Dragons, witches, and other-worldly symbolism take center stage on this magical **guided walking tour of Turin.**
 
 With your **expert wizard guide**, you'll traverse the streets of Turin, seeking out the darker side of the city. Look for Masonic enigmas carved in stone, or satanic symbols around every turn. 
 
-Inspect the legendary **Devil's Door** for clues of its origin, admire the mysterious **Angelica's Fountain**, and the explore the cursed **Piazza Statuto** – Turin's "heart of darkness".</p>
-          <div class="card-footer">
-            <span class="price">From €35</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-magic-turin-guided-walking-tour-p1053236/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Inspect the legendary **Devil's Door** for clues of its origin, admire the mysterious **Angelica's Fountain**, and the explore the cursed **Piazza Statuto** – Turin's "heart of darkness".</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€35.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-magic-turin-guided-walking-tour-p1053236/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cb23b3b3c9934a27a537a3b20e52ac66.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: National Automobile Museum + Hop-on Hop-off Bus Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin: National Automobile Museum + Hop-on Hop-off Bus Tour</h3>
-          <p class="venue">📍 Museo Nazionale dell'Automobile</p>
-          <p>This is our top time-saving ticket to the best of Turin! Get free entrance to a world of almost 200 different cars at the National Automobile Museum (MAUTO) and let the big red double-decker Hop-on Hop-off Bus take you round the rest of Turin in comfort over 24 or 48 hours.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 4.1 (12)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-national-automobile-museum-hop-on-hop-off-bus-tour-p975876/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/cb23b3b3c9934a27a537a3b20e52ac66.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: National Automobile Museum + Hop-on Hop-off Bus Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">MUSEO NAZIONALE DELL'AUTOMOBILE</span>
+        </div>
+        <div class="tq-card-title">Turin: National Automobile Museum + Hop-on Hop-off Bus Tour</div>
+        <div class="tq-card-desc">This is our top time-saving ticket to the best of Turin! Get free entrance to a world of almost 200 different cars at the National Automobile Museum (MAUTO) and let the big red double-decker Hop-on Hop-off Bus take you round the rest of Turin in comfort over 24 or 48 hours.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.1</strong>
+            <span class="tq-reviews">(12)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-national-automobile-museum-hop-on-hop-off-bus-tour-p975876/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="GROW UP - Alpaca del Monviso - Alpaca Farm: Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>GROW UP - Alpaca del Monviso - Alpaca Farm: Guided Walking Tour</h3>
-          <p class="venue">📍 GROW UP - Alpaca del Monviso - Alpaca Farm</p>
-          <p>Take a peaceful walk with alpacas at the educational farm, Cascina Cassotti Balbo, just minutes from Downtown Turin. This experience is part of the Alpaca del Monviso project.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="GROW UP - Alpaca del Monviso - Alpaca Farm: Guided Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GROW UP - ALPACA DEL MONVISO - ALPACA FARM</span>
+        </div>
+        <div class="tq-card-title">GROW UP - Alpaca del Monviso - Alpaca Farm: Guided Walking Tour</div>
+        <div class="tq-card-desc">Take a peaceful walk with alpacas at the educational farm, Cascina Cassotti Balbo, just minutes from Downtown Turin. This experience is part of the Alpaca del Monviso project.
 
 Lead an alpaca along a 2 km path that features both countryside and city views. An expert guide will share information about the origins and habits of these Andean animals. All alpacas are well-trained and accustomed to human interaction, ensuring a relaxing and educational experience for visitors of all ages.
 
-This outdoor activity includes time for photos and interaction. See Turin’s green areas while spending time with these gentle creatures. The location is easily accessible by public transport and offers a safe, family-friendly environment surrounded by nature.</p>
-          <div class="card-footer">
-            <span class="price">From €36</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-grow-up-alpaca-del-monviso-alpaca-farm-guided-walking-tour-p1123662/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+This outdoor activity includes time for photos and interaction. See Turin’s green areas while spending time with these gentle creatures. The location is easily accessible by public transport and offers a safe, family-friendly environment surrounded by nature.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€36.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-grow-up-alpaca-del-monviso-alpaca-farm-guided-walking-tour-p1123662/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="GROW UP - Alpaca del Monviso - Alpaca Farm: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>GROW UP - Alpaca del Monviso - Alpaca Farm: Guided Tour</h3>
-          <p class="venue">📍 GROW UP - Alpaca del Monviso - Alpaca Farm</p>
-          <p>Visit an educational farm, Cascina Cassotti Balbo, in Turin and meet alpacas. Discover this countryside spot in Turin and spend time with these animals from the Andes.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="GROW UP - Alpaca del Monviso - Alpaca Farm: Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GROW UP - ALPACA DEL MONVISO - ALPACA FARM</span>
+        </div>
+        <div class="tq-card-title">GROW UP - Alpaca del Monviso - Alpaca Farm: Guided Tour</div>
+        <div class="tq-card-desc">Visit an educational farm, Cascina Cassotti Balbo, in Turin and meet alpacas. Discover this countryside spot in Turin and spend time with these animals from the Andes.
 
 During this guided tour, learn about their Andean origins, gentle nature, and fiber. Get to know their habits and daily life.
 
-An expert guide will take you inside their enclosure, where you can observe, feed, and pet the alpacas.</p>
-          <div class="card-footer">
-            <span class="price">From €18</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-grow-up-alpaca-del-monviso-alpaca-farm-guided-tour-p1123123/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+An expert guide will take you inside their enclosure, where you can observe, feed, and pet the alpacas.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€18.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-grow-up-alpaca-del-monviso-alpaca-farm-guided-tour-p1123123/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Guided Italian Pub Crawl" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin: Guided Italian Pub Crawl</h3>
-          <p class="venue">📍 Turin Nightlife Activities</p>
-          <p>Join a pub crawl in San Salvario, Turin's lively district. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Guided Italian Pub Crawl" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TURIN NIGHTLIFE ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Turin: Guided Italian Pub Crawl</div>
+        <div class="tq-card-desc">Join a pub crawl in San Salvario, Turin's lively district. 
 
 Walk through piazzas and streets, visit hidden bars where locals and students gather, and have drinks and games in Italian style.
 
-Visit 3 bars and finish at a spot where the night continues with new friends from around the world.</p>
-          <div class="card-footer">
-            <span class="price">From €19.99</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-guided-italian-pub-crawl-p1122582/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit 3 bars and finish at a spot where the night continues with new friends from around the world.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€19.99</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-guided-italian-pub-crawl-p1122582/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Guided Chocolate Factory Tour + Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin: Guided Chocolate Factory Tour + Tasting</h3>
-          <p class="venue">📍 Choco-Story Torino</p>
-          <p>Tour a 1915 chocolate factory in Turin and discover how Peyrano chocolates are made. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Guided Chocolate Factory Tour + Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CHOCO-STORY TORINO</span>
+        </div>
+        <div class="tq-card-title">Turin: Guided Chocolate Factory Tour + Tasting</div>
+        <div class="tq-card-desc">Tour a 1915 chocolate factory in Turin and discover how Peyrano chocolates are made. 
 
 With over a century of experience, Peyrano has been creating high-quality artisanal chocolates. This 60-minute factory tour shows the detailed process behind the creation of their famous chocolate.
 
@@ -413,156 +748,250 @@ Begin the tour in the salon, where you'll learn about Peyrano's rich history.
 
 Follow expert chocolatiers as they guide you through each step of turning cacao beans into final chocolates. This tour is perfect for couples, families, friends, and groups and includes tastings of fresh chocolates made that day, along with two additional samples.
 
-Taste premium ingredients and find out why Peyrano chocolates are so renowned.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-guided-chocolate-factory-tour-tasting-p1104072/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Taste premium ingredients and find out why Peyrano chocolates are so renowned.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-guided-chocolate-factory-tour-tasting-p1104072/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Small-Group City Center Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin: Small-Group City Center Walking Tour</h3>
-          <p class="venue">📍 Turin City Tours</p>
-          <p>Explore Turin's rich history and culture on a two-hour guided walking tour through its city center. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Small-Group City Center Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TURIN CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Turin: Small-Group City Center Walking Tour</div>
+        <div class="tq-card-desc">Explore Turin's rich history and culture on a two-hour guided walking tour through its city center. 
 
 Discover famous landmarks like Piazza del Castello, the Royal Palace, the Egyptian Museum, Corsi, and the famous Mole Antonelliana. 
 
-Learn about Turin's history from knowledgeable guides and visit hidden or off-beat places along the way.</p>
-          <div class="card-footer">
-            <span class="price">From €44</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-small-group-city-center-walking-tour-p1094274/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn about Turin's history from knowledgeable guides and visit hidden or off-beat places along the way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€44.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-small-group-city-center-walking-tour-p1094274/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Guided Evening Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin: Guided Evening Walking Tour</h3>
-          <p class="venue">📍 Turin City Tours</p>
-          <p>Explore Turin City on a 2-hour evening walking tour with a knowledgeable guide and hear fascinating stories about Turin's noble families and the city's ghostly legends.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Guided Evening Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TURIN CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Turin: Guided Evening Walking Tour</div>
+        <div class="tq-card-desc">Explore Turin City on a 2-hour evening walking tour with a knowledgeable guide and hear fascinating stories about Turin's noble families and the city's ghostly legends.
 
-Start at Piazza del Castello, pass by the Palazzo Reale, explore the Egyptian Museum, and reach Mole Antonelliana. Bring a camera for capturing amazing photos along the way.</p>
-          <div class="card-footer">
-            <span class="price">From €44</span>
-            <span class="rating">⭐ 1 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-guided-evening-walking-tour-p1093725/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Start at Piazza del Castello, pass by the Palazzo Reale, explore the Egyptian Museum, and reach Mole Antonelliana. Bring a camera for capturing amazing photos along the way.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>1</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€44.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-guided-evening-walking-tour-p1093725/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin Royal Palace: Guided Visit + City Walking Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin Royal Palace: Guided Visit + City Walking Tour</h3>
-          <p class="venue">📍 Royal Palace of Turin</p>
-          <p>Join a friendly guided tour to discover the beauty of Turin's Royal Palace, a UNESCO World Heritage Site, and the city itself.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin Royal Palace: Guided Visit + City Walking Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ROYAL PALACE OF TURIN</span>
+        </div>
+        <div class="tq-card-title">Turin Royal Palace: Guided Visit + City Walking Tour</div>
+        <div class="tq-card-desc">Join a friendly guided tour to discover the beauty of Turin's Royal Palace, a UNESCO World Heritage Site, and the city itself.
 
 With a certified guide, uncover the history of the Savoy royal family and their captivating stories. Explore the Mirror Hall, Ballroom, and other lavish spaces once inhabited by Italy's last royal family.
 
 Admire the royal apartments' elegant furnishings and continue your exploration to the impressive Royal Armory, boasting one of the world's largest collections of weaponry. Furthermore, get a chance to see Leonardo da Vinci's famous self-portrait at the Royal Library.
 
-Finish off your trip with a guided tour of the city center, including the Subalpina Gallery, San Lorenzo Square, and San Carlo Square.</p>
-          <div class="card-footer">
-            <span class="price">From €79.9</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-royal-palace-guided-visit-city-walking-tour-p1091299/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finish off your trip with a guided tour of the city center, including the Subalpina Gallery, San Lorenzo Square, and San Carlo Square.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€79.90</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-royal-palace-guided-visit-city-walking-tour-p1091299/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8445c58a1cec491086e07297b6fd4eb0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Guided Food Tour with Chocolate and Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin: Guided Food Tour with Chocolate and Wine Tasting</h3>
-          <p class="venue">📍 Turin Food Tours</p>
-          <p>Begin an expedition through Turin's culinary landscape with a sip of Bicerin, a traditional hot drink born in the bohemian cafes of the 19th century.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8445c58a1cec491086e07297b6fd4eb0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Guided Food Tour with Chocolate and Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TURIN FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Turin: Guided Food Tour with Chocolate and Wine Tasting</div>
+        <div class="tq-card-desc">Begin an expedition through Turin's culinary landscape with a sip of Bicerin, a traditional hot drink born in the bohemian cafes of the 19th century.
 
 Next, uncover the sugary secrets of local chocolatiers as they magically morph cocoa into joy. Sample iconic chocolates like Gianduitto, Cremino, and Cri Cri while learning about the intriguing issues and challenges of global cocoa sourcing.
 
 Witness Turin's diverse culture through its cuisine, including Focaccia Ligure from family-owned bakeries near Cinque Terre. Learn how exceptional olive oil elevates this fluffy and delicious delight.
 
-Discover Turin and Piedmont's acclaimed wines with two tastings of whites and reds, paired with a selection of ham and cheese.</p>
-          <div class="card-footer">
-            <span class="price">From €69</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-guided-food-tour-with-chocolate-and-wine-tasting-p1091170/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Discover Turin and Piedmont's acclaimed wines with two tastings of whites and reds, paired with a selection of ham and cheese.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€69.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-guided-food-tour-with-chocolate-and-wine-tasting-p1091170/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8445c58a1cec491086e07297b6fd4eb0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Wine Tasting" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin: Wine Tasting</h3>
-          <p class="venue">📍 Turin Food Tours</p>
-          <p>Join a wine-tasting tour at a music-themed wine bar in Turin City Center, close to the Egypt Museum. An English and Italian-speaking guide leads you through a selection of four local wines from Piedmont and Northern Italy.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8445c58a1cec491086e07297b6fd4eb0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin: Wine Tasting" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TURIN FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Turin: Wine Tasting</div>
+        <div class="tq-card-desc">Join a wine-tasting tour at a music-themed wine bar in Turin City Center, close to the Egypt Museum. An English and Italian-speaking guide leads you through a selection of four local wines from Piedmont and Northern Italy.
 
 Pair your wines with delicious local cheeses and hams while learning about the art of winemaking, food pairing, and secret tips for tasting like a seasoned sommelier.
 
-Perfect for a unique date night, family outing, or bonding experience with friends. Head to Enoteca Vinile, meet your guide, and start your culinary trip through Italy's vibrant wine scene.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 3 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-wine-tasting-p1091169/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Perfect for a unique date night, family outing, or bonding experience with friends. Head to Enoteca Vinile, meet your guide, and start your culinary trip through Italy's vibrant wine scene.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>3</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-wine-tasting-p1091169/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Self-Guided Audio Tour of Turin" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Self-Guided Audio Tour of Turin</h3>
-          <p class="venue">📍 Turin City Tours</p>
-          <p>Discover the rich history and culture of Turin as you navigate through the city using an interactive digital map. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2613017f59224f36ba2772e6b63b5041.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Self-Guided Audio Tour of Turin" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TURIN CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Self-Guided Audio Tour of Turin</div>
+        <div class="tq-card-desc">Discover the rich history and culture of Turin as you navigate through the city using an interactive digital map. 
 
-With multiple points of interest to choose from, you can customize your tour to suit your interests. From world-renowned landmarks to hidden gems, this self-guided audio tour app offers a unique and immersive way to experience Turin.</p>
-          <div class="card-footer">
-            <span class="price">From €5</span>
-            <span class="rating">⭐ 2.6 (7)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-self-guided-audio-tour-p1080031/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+With multiple points of interest to choose from, you can customize your tour to suit your interests. From world-renowned landmarks to hidden gems, this self-guided audio tour app offers a unique and immersive way to experience Turin.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2.6</strong>
+            <span class="tq-reviews">(7)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€5.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-self-guided-audio-tour-p1080031/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8445c58a1cec491086e07297b6fd4eb0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin Sweet and Chocolate Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin Sweet and Chocolate Tour</h3>
-          <p class="venue">📍 Turin Food Tours</p>
-          <p>Your trip to Turin just got sweeter! Join a tour of delicious proportions and try a sample of sweets on a fun walk around the city and its patisseries.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8445c58a1cec491086e07297b6fd4eb0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin Sweet and Chocolate Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TURIN FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Turin Sweet and Chocolate Tour</div>
+        <div class="tq-card-desc">Your trip to Turin just got sweeter! Join a tour of delicious proportions and try a sample of sweets on a fun walk around the city and its patisseries.
 
 You might try, for example, the *Gianduiotti*, individually wrapped in gold tinfoil and created with a unique mixture of Piedmont hazelnut, cocoa and sugar. You might also try *Bicerin*, a layered drink made of espresso, drinking chocolate, and whole milk (or heavy cream) served in a large glass.
 
 From crunchy dark chocolates to candied sugar treats, to coffee, hazelnut paste, lemon and so much more, you'll soon have a favourite treat to remember in Turin.
 
-Your tour will end with a Caffè espresso somewhere cosy, like a true Italian.</p>
-          <div class="card-footer">
-            <span class="price">From €69</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-sweet-and-chocolate-tour-p1049419/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your tour will end with a Caffè espresso somewhere cosy, like a true Italian.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€69.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-sweet-and-chocolate-tour-p1049419/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8445c58a1cec491086e07297b6fd4eb0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin Aperitivo and Street Food Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Turin Aperitivo and Street Food Tour</h3>
-          <p class="venue">📍 Turin Food Tours</p>
-          <p>The best way to explore **Turin** is through your stomach with tickets for this **culinary tour** featuring **street food and apertivos**. Learn all about the history (and food culture) of this historic Italian city with a **local foodie guide**.</p>
-          <div class="card-footer">
-            <span class="price">From €85</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-turin-aperitivo-and-street-food-tour-p1049418/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/8445c58a1cec491086e07297b6fd4eb0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Turin Aperitivo and Street Food Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TURIN</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TURIN FOOD TOURS</span>
+        </div>
+        <div class="tq-card-title">Turin Aperitivo and Street Food Tour</div>
+        <div class="tq-card-desc">The best way to explore **Turin** is through your stomach with tickets for this **culinary tour** featuring **street food and apertivos**. Learn all about the history (and food culture) of this historic Italian city with a **local foodie guide**.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€85.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-turin-aperitivo-and-street-food-tour-p1049418/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>
