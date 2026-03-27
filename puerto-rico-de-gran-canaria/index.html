@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,41 +32,39 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/9d03357fe29146498f85b543c8214e4c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Angry Birds Activity Park Gran Canaria: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Angry Birds Activity Park Gran Canaria: Entry Ticket</h3>
-        <p class="venue">📍 Angry Birds Activity Park Gran Canaria</p>
-        <p>Angry Birds activity park is what every kid dreams of when they think of a fun park! There are more than 20 attractions, and each is better than the last. From trampolines and ziplines that let you crash into your own constructions to scooter ramps and a three-meter-tall tower that'll make you wish you had wings when you jump from it! 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9d03357fe29146498f85b543c8214e4c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Angry Birds Activity Park Gran Canaria: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Angry Birds Activity Park Gran Canaria: Entry Ticket</h3>
+          <p class="venue">📍 Angry Birds Activity Park Gran Canaria</p>
+          <p>Angry Birds activity park is what every kid dreams of when they think of a fun park! There are more than 20 attractions, and each is better than the last. From trampolines and ziplines that let you crash into your own constructions to scooter ramps and a three-meter-tall tower that'll make you wish you had wings when you jump from it! 
 
 There are multipurpose sports courts, interactive sports challenges, a parkour practice area, and even F1 pedal cars. On top of all of that, there’s also free mini-golf and a splash zone.</p>
-        <div class="card-footer">
-         <span class="price">From €13</span>
-         <span class="rating">⭐ 4.4 (113)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-angry-birds-activity-park-p1012061/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €13</span>
+            <span class="rating">⭐ 4.4 (113)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-angry-birds-activity-park-p1012061/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/9d03357fe29146498f85b543c8214e4c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gran Canaria: Dolphin Watching Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Gran Canaria: Dolphin Watching Tour</h3>
-        <p class="venue">📍 Gran Canaria Water Activities</p>
-        <p>Set sail aboard the _Spirit of the Sea_ in search of whales, dolphins, and other marine wildlife off the coast of Gran Canaria. With up to 30 species of local marine mammals identified, this area claims the greatest diversity of marine mammals in Europe.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9d03357fe29146498f85b543c8214e4c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Gran Canaria: Dolphin Watching Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Gran Canaria: Dolphin Watching Tour</h3>
+          <p class="venue">📍 Gran Canaria Water Activities</p>
+          <p>Set sail aboard the _Spirit of the Sea_ in search of whales, dolphins, and other marine wildlife off the coast of Gran Canaria. With up to 30 species of local marine mammals identified, this area claims the greatest diversity of marine mammals in Europe.
 
 Head out from Puerto Rico and see what is really "under the sea" on a glass-bottom boat. Relax and roll with the waves as you sip a complimentary drink and let the professional, multilingual crew keep you informed about whale and dolphin sightings. Cool off with a dip in a sheltered cove, a feature included in the three-hour tour option.
 
 No whale or dolphin sightings? No problem. Get a free voucher for another dolphin excursion if you don't see any marine wildlife on your scheduled tour.</p>
-        <div class="card-footer">
-         <span class="price">From €42</span>
-         <span class="rating">⭐ 4.3 (15)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dolphin-watching-gran-canaria-p1029332/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €42</span>
+            <span class="rating">⭐ 4.3 (15)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dolphin-watching-gran-canaria-p1029332/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,41 +32,39 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/430ae2d269444e03a4a8d4d5dc2716bf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="MUSE - Museum of Science: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>MUSE - Museum of Science: Entry Ticket</h3>
-        <p class="venue">📍 MUSE - Museum of Science</p>
-        <p>Lose yourself in the boundless spaces of MUSE Science Museum's six floors of pure wonder, dedicated to nature, mountains, technology and sustainability. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/430ae2d269444e03a4a8d4d5dc2716bf.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="MUSE - Museum of Science: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>MUSE - Museum of Science: Entry Ticket</h3>
+          <p class="venue">📍 MUSE - Museum of Science</p>
+          <p>Lose yourself in the boundless spaces of MUSE Science Museum's six floors of pure wonder, dedicated to nature, mountains, technology and sustainability. 
 
 Explore Renzo Piano's luminous and sustainable architecture and wander around special exhibition routes, temporary exhibitions, scientific collections and didactic workshops for children, kids and families.</p>
-        <div class="card-footer">
-         <span class="price">From €12</span>
-         <span class="rating">⭐ 4.6 (165)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-muse-science-museum-p1071580/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €12</span>
+            <span class="rating">⭐ 4.6 (165)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-muse-science-museum-p1071580/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/1755862065fd431295053202d74b1fe6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aula del Simonino: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Aula del Simonino: Entry Ticket</h3>
-        <p class="venue">📍 Aula del Simonino</p>
-        <p>The Aula del Simonino, once called the Cappella del Simonino, is inside Palazzo Bortolazzi (Larcher-Fogazzaro) on Via del Simonino in Trento's historic center. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1755862065fd431295053202d74b1fe6.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Aula del Simonino: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Aula del Simonino: Entry Ticket</h3>
+          <p class="venue">📍 Aula del Simonino</p>
+          <p>The Aula del Simonino, once called the Cappella del Simonino, is inside Palazzo Bortolazzi (Larcher-Fogazzaro) on Via del Simonino in Trento's historic center. 
 
 Marina Larcher Fogazzaro donated it to FAI in 2018 for restoration and enhancement. The initial work focused on the façade, revealing 15th-century windows and restoring 18th-century painted figures and inscriptions. 
 
 The Foundation then reorganized the interior to offer a 20-minute "sound narration" about the story of young Simone from Trento. The audio is available in Italian, English, French, and German.</p>
-        <div class="card-footer">
-         <span class="price">From €5</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-aula-del-simonino-p1104020/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €5</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-aula-del-simonino-p1104020/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

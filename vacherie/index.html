@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,43 +32,41 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/20e78fd710bb4d0d818b05a77a3a8014.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Laura Plantation: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Laura Plantation: Guided Tour</h3>
-        <p class="venue">📍 Laura Plantation: Louisiana's Creole Heritage Site</p>
-        <p>The Laura Plantation is a restored historic Louisiana Creole plantation on the banks of the Mississippi River in Louisiana, with 200 years of history.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/20e78fd710bb4d0d818b05a77a3a8014.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Laura Plantation: Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Laura Plantation: Guided Tour</h3>
+          <p class="venue">📍 Laura Plantation: Louisiana's Creole Heritage Site</p>
+          <p>The Laura Plantation is a restored historic Louisiana Creole plantation on the banks of the Mississippi River in Louisiana, with 200 years of history.
 
 Join a guided tour based on Laura Locoul Gore's "Memories of the Old Plantation Home" and archival documents from the US and France. Learn about four generations of a Louisiana Creole family, both free and enslaved, as you hear their personal, intimate stories.
 
 Explore the complex and misunderstood history of the people, language, culture, and social contexts of Louisiana’s Great River Road in the tumultuous years before, during, and following the American Civil War.
 
 Step inside the austere interior of a slave cabin from the 1840s, and see the stark contrast to the parlors and rooms in the Big House. There's an eye-opening exhibition on the working conditions of the enslaved community that also lived here.</p>
-        <div class="card-footer">
-         <span class="price">From €28.07</span>
-         <span class="rating">⭐ 5 (16)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-laura-plantation-guided-tour-p1048668/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €28.07</span>
+            <span class="rating">⭐ 5 (16)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-laura-plantation-guided-tour-p1048668/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/889b730b2efd489ba677e1a29bcf1a75.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oak Alley Plantation: Tour from New Orleans" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oak Alley Plantation: Tour from New Orleans</h3>
-        <p class="venue">📍 Oak Alley Plantation</p>
-        <p>This huge former sugar plantation was built in the 18th century by enslaved men, women, and children. These days, it's designated as a National Historic Landmark, preserving its history.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/889b730b2efd489ba677e1a29bcf1a75.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oak Alley Plantation: Tour from New Orleans" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oak Alley Plantation: Tour from New Orleans</h3>
+          <p class="venue">📍 Oak Alley Plantation</p>
+          <p>This huge former sugar plantation was built in the 18th century by enslaved men, women, and children. These days, it's designated as a National Historic Landmark, preserving its history.
 
 Explore the mansion and grounds while learning the history of its former residents. Stroll through a scenic alley lined by 28 oak trees. The cypress trees which border the Mississippi River are a spectacular sight, too. And, find out which movies have been shot at 'the most photographed plantation ever'.</p>
-        <div class="card-footer">
-         <span class="price">From €76.74</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oak-alley-plantation-tour-from-new-orleans-p982328/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €76.74</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oak-alley-plantation-tour-from-new-orleans-p982328/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

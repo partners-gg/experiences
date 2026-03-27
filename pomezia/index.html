@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,53 +32,51 @@
     <p>3 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/505913ab7d544fc5ad849ffdccbeca0f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Zoomarine: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Zoomarine: Fast Track Ticket</h3>
-        <p class="venue">📍 Zoomarine</p>
-        <p>Located just outside of the Eternal City, Zoomarine Rome is a water-themed amusement park that adds a splash of aquatic adventure to your summertime holiday. Whether you take a swim, watch a dolphin show, or hop a tube ride, Zoomarine Rome delivers thrills, spills, and krills. Get wet, and have a blast at this world-class Rome aquarium!</p>
-        <div class="card-footer">
-         <span class="price">From €20</span>
-         <span class="rating">⭐ 4.5 (446)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-zoomarine-rome-skip-the-line-p980976/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/505913ab7d544fc5ad849ffdccbeca0f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Zoomarine: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Zoomarine: Fast Track Ticket</h3>
+          <p class="venue">📍 Zoomarine</p>
+          <p>Located just outside of the Eternal City, Zoomarine Rome is a water-themed amusement park that adds a splash of aquatic adventure to your summertime holiday. Whether you take a swim, watch a dolphin show, or hop a tube ride, Zoomarine Rome delivers thrills, spills, and krills. Get wet, and have a blast at this world-class Rome aquarium!</p>
+          <div class="card-footer">
+            <span class="price">From €20</span>
+            <span class="rating">⭐ 4.5 (446)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-zoomarine-rome-skip-the-line-p980976/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/505913ab7d544fc5ad849ffdccbeca0f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Zoo Marine: Discovery Zoo" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Zoo Marine: Discovery Zoo</h3>
-        <p class="venue">📍 Zoomarine</p>
-        <p>Get to know Zoo Marine's animal friends with this ticket to the Zoological Gardens. There's eight new educational sessions, demonstrations with trainers, and an exciting walk through the sounds of nature.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/505913ab7d544fc5ad849ffdccbeca0f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Zoo Marine: Discovery Zoo" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Zoo Marine: Discovery Zoo</h3>
+          <p class="venue">📍 Zoomarine</p>
+          <p>Get to know Zoo Marine's animal friends with this ticket to the Zoological Gardens. There's eight new educational sessions, demonstrations with trainers, and an exciting walk through the sounds of nature.
 
 You'll meet penguins, turtles, and even dolphins during your visit! If you like wildlife, then you don't want to miss this.</p>
-        <div class="card-footer">
-         <span class="price">From €11</span>
-         <span class="rating">⭐ 4 (6)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-zoo-marine-zoological-garden-p1024763/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €11</span>
+            <span class="rating">⭐ 4 (6)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-zoo-marine-zoological-garden-p1024763/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/505913ab7d544fc5ad849ffdccbeca0f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Zoomarine Roma: Reserved Entrance with Dolphins Experience" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Zoomarine Roma: Reserved Entrance with Dolphins Experience</h3>
-        <p class="venue">📍 Zoomarine</p>
-        <p>Get up close to penguins, seals, and plenty of fishy friends as you explore dozens of different aquatic animal exhibits at Zoo Marine.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/505913ab7d544fc5ad849ffdccbeca0f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Zoomarine Roma: Reserved Entrance with Dolphins Experience" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Zoomarine Roma: Reserved Entrance with Dolphins Experience</h3>
+          <p class="venue">📍 Zoomarine</p>
+          <p>Get up close to penguins, seals, and plenty of fishy friends as you explore dozens of different aquatic animal exhibits at Zoo Marine.
 
 Then, enjoy an exclusive opportunity to meet and pose with Zoo Marine's famous residents – dolphins! Learn all about one of the ocean's most intelligent mammals from a marine biologist as you watch them splash and play.</p>
-        <div class="card-footer">
-         <span class="price">From €26</span>
-         <span class="rating">⭐ 4.2 (69)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-zoomarine-rome-aquarium-waterpark-skip-the-line-p1047590/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €26</span>
+            <span class="rating">⭐ 4.2 (69)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-zoomarine-rome-aquarium-waterpark-skip-the-line-p1047590/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

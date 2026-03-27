@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,71 +32,69 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/8f5cf0416d694098b8a327270e4c1a2a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SEA LIFE Birmingham: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>SEA LIFE Birmingham: Entry Ticket</h3>
-        <p class="venue">📍 SEA LIFE Birmingham</p>
-        <p>Fishing for a good time in the West Midlands? Reel in a ticket for SEA LIFE Birmingham, and spend an afternoon with a _fintastic_ array of remarkable marine wildlife from the deep blue waters around the world. See graceful sharks, alien-like eels, crafty octopuses, waddly penguins, colourful clownfish, and lots more, in a fun and educational environment.</p>
-        <div class="card-footer">
-         <span class="price">From €21.94</span>
-         <span class="rating">⭐ 4.4 (109)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-sea-life-birmingham-p977174/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8f5cf0416d694098b8a327270e4c1a2a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="SEA LIFE Birmingham: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>SEA LIFE Birmingham: Entry Ticket</h3>
+          <p class="venue">📍 SEA LIFE Birmingham</p>
+          <p>Fishing for a good time in the West Midlands? Reel in a ticket for SEA LIFE Birmingham, and spend an afternoon with a _fintastic_ array of remarkable marine wildlife from the deep blue waters around the world. See graceful sharks, alien-like eels, crafty octopuses, waddly penguins, colourful clownfish, and lots more, in a fun and educational environment.</p>
+          <div class="card-footer">
+            <span class="price">From €21.94</span>
+            <span class="rating">⭐ 4.4 (109)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-sea-life-birmingham-p977174/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c65f3f3485da4e019554d20707687601.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cadbury World: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Cadbury World: Entry Ticket</h3>
-        <p class="venue">📍 Cadbury World</p>
-        <p>Delight in the world of chocolate and enjoy a fascinating, fun-packed day out at Cadbury World!  You'll learn how your favourite confectionery is made, doodle in chocolate and add your favourite treat to a delicious pot of warm melted Cadbury Dairy Milk.  
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c65f3f3485da4e019554d20707687601.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cadbury World: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Cadbury World: Entry Ticket</h3>
+          <p class="venue">📍 Cadbury World</p>
+          <p>Delight in the world of chocolate and enjoy a fascinating, fun-packed day out at Cadbury World!  You'll learn how your favourite confectionery is made, doodle in chocolate and add your favourite treat to a delicious pot of warm melted Cadbury Dairy Milk.  
 
 Discover the origins of the cocoa bean before jumping onboard the magical Cadabra ride and meeting the famous Cadbury drumming gorilla. Plus, join Freddo and a whole host of Cadbury characters as they whisk you away on an journey in the 4D Chocolate Adventure cinema experience, complete with motion seats! 
 
 Dive into a bowl of liquid Cadbury Dairy Milk, ride the Crunchie roller coaster and take to the skies in a Cadbury Creme Egg airship piloted by the Caramel Bunny.</p>
-        <div class="card-footer">
-         <span class="price">From €24.46</span>
-         <span class="rating">⭐ 4.2 (85)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-cadbury-world-p1069829/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €24.46</span>
+            <span class="rating">⭐ 4.2 (85)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-cadbury-world-p1069829/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/8b7957ef4b3448b9a3d1cda58476816e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LEGOLAND® Discovery Centre Birmingham: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>LEGOLAND® Discovery Centre Birmingham: Entry Ticket</h3>
-        <p class="venue">📍 LEGOLAND® Discovery Centre Birmingham</p>
-        <p>Capture your kid's imagination with a visit to LEGOLAND® Discovery Centre Birmingham. Scratch the surface of this creative wonderland and you'll find a mini-city made from 1.5 million bricks, an immersive 4D cinema, an enchanted castle-crashing quest, and so much more. As goofy and funny as it is stimulating and educational, LEGOLAND® Discovery Centre Birmingham is a total must for inventors and explorers of all ages.</p>
-        <div class="card-footer">
-         <span class="price">From €21.94</span>
-         <span class="rating">⭐ 4.4 (17)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-legoland-r-discovery-centre-birmingham-p976616/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8b7957ef4b3448b9a3d1cda58476816e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LEGOLAND® Discovery Centre Birmingham: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>LEGOLAND® Discovery Centre Birmingham: Entry Ticket</h3>
+          <p class="venue">📍 LEGOLAND® Discovery Centre Birmingham</p>
+          <p>Capture your kid's imagination with a visit to LEGOLAND® Discovery Centre Birmingham. Scratch the surface of this creative wonderland and you'll find a mini-city made from 1.5 million bricks, an immersive 4D cinema, an enchanted castle-crashing quest, and so much more. As goofy and funny as it is stimulating and educational, LEGOLAND® Discovery Centre Birmingham is a total must for inventors and explorers of all ages.</p>
+          <div class="card-footer">
+            <span class="price">From €21.94</span>
+            <span class="rating">⭐ 4.4 (17)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-legoland-r-discovery-centre-birmingham-p976616/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/47c76442181f44899b71c8a2e91d5fd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Birmingham City Centre Walking Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Birmingham City Centre Walking Tour</h3>
-        <p class="venue">📍 Birmingham City Tours</p>
-        <p>Get your bearings and discover Birmingham from a _Brummie’s_ point of view as you tour the city with a local, expert guide. Immerse yourself in the sights and sounds of the city as you travel back through the centuries to discover how the city exploded from a small market town, to the second largest city in the UK.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/47c76442181f44899b71c8a2e91d5fd9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Birmingham City Centre Walking Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Birmingham City Centre Walking Tour</h3>
+          <p class="venue">📍 Birmingham City Tours</p>
+          <p>Get your bearings and discover Birmingham from a _Brummie’s_ point of view as you tour the city with a local, expert guide. Immerse yourself in the sights and sounds of the city as you travel back through the centuries to discover how the city exploded from a small market town, to the second largest city in the UK.
 
 On this 90-minute tour, you'll not only see and learn about Birmingham's history, but you’ll also gain an authentic insight into modern life in the city today, as well as exploring some hidden gems along the way! 
 
 From Birmingham’s boom during the industrial revolution, to its iconic canals, and of course, the home of Cadbury chocolate! There’s something for everyone on this unique experience.</p>
-        <div class="card-footer">
-         <span class="price">From €16.17</span>
-         <span class="rating">⭐ 5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-birmingham-city-centre-walking-tour-p1026706/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €16.17</span>
+            <span class="rating">⭐ 5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-birmingham-city-centre-walking-tour-p1026706/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

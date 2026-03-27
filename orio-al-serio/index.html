@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,287 +32,285 @@
     <p>17 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b5f9b1d0223f45b2854b4dc003dc0773.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Milan: Bus Transfer From/To Bergamo Airport" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Milan: Bus Transfer From/To Bergamo Airport</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Say goodbye to the hassle of public transport! The bus transfer between Milan and Bergamo Airport ensures a comfortable and convenient journey for you.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b5f9b1d0223f45b2854b4dc003dc0773.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Milan: Bus Transfer From/To Bergamo Airport" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Milan: Bus Transfer From/To Bergamo Airport</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Say goodbye to the hassle of public transport! The bus transfer between Milan and Bergamo Airport ensures a comfortable and convenient journey for you.
 
 Hop on a modern bus equipped with free WiFi, excellent air conditioning, and plenty of legroom. The trip takes just about 55 minutes on average, swiftly transporting you away from the city or seamlessly bringing you back into its hustle and bustle. Book your spot and turn travel troubles into joyful moments.</p>
-        <div class="card-footer">
-         <span class="price">From €9</span>
-         <span class="rating">⭐ 4.6 (91)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-milan-bus-transfer-from-to-bergamo-airport-p1088241/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €9</span>
+            <span class="rating">⭐ 4.6 (91)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-milan-bus-transfer-from-to-bergamo-airport-p1088241/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b5f9b1d0223f45b2854b4dc003dc0773.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bergamo Orio al Serio Airport Shuttle from Milan City Center" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Bergamo Orio al Serio Airport Shuttle from Milan City Center</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Take advantage of this convenient bus transfer between the center of Milan and Bergamo Airport. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b5f9b1d0223f45b2854b4dc003dc0773.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bergamo Orio al Serio Airport Shuttle from Milan City Center" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Bergamo Orio al Serio Airport Shuttle from Milan City Center</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Take advantage of this convenient bus transfer between the center of Milan and Bergamo Airport. 
 
 Schedule your airport transfer on a comfortable, air-conditioned coach and arrive at the airport in less than an hour.</p>
-        <div class="card-footer">
-         <span class="price">From €10</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-bergamo-orio-al-serio-airport-shuttle-from-milan-city-center-p1126379/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €10</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-bergamo-orio-al-serio-airport-shuttle-from-milan-city-center-p1126379/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b5f9b1d0223f45b2854b4dc003dc0773.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bergamo Orio al Serio Airport Shuttle to Milan City Center" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Bergamo Orio al Serio Airport Shuttle to Milan City Center</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Take advantage of this convenient bus transfer between Bergamo Orio al SerioAirport and the city of Milan.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b5f9b1d0223f45b2854b4dc003dc0773.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bergamo Orio al Serio Airport Shuttle to Milan City Center" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Bergamo Orio al Serio Airport Shuttle to Milan City Center</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Take advantage of this convenient bus transfer between Bergamo Orio al SerioAirport and the city of Milan.
 
 Schedule your airport transfer on a comfortable, air-conditioned coach and find yourself in Milan in less than an hour.
 
 Bring your bags (free of charge) and you are off to explore the fashion capital of the world in no time.</p>
-        <div class="card-footer">
-         <span class="price">From €10</span>
-         <span class="rating">⭐ 4.3 (23)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-bergamo-orio-al-serio-airport-shuttle-to-milan-city-center-p1042793/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €10</span>
+            <span class="rating">⭐ 4.3 (23)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-bergamo-orio-al-serio-airport-shuttle-to-milan-city-center-p1042793/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/a9980df97b354cd5a31d665f07df9e65.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orio al Serio Airport Shuttle Bus to/from Milan" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Orio al Serio Airport Shuttle Bus to/from Milan</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Heading to the fashion capital of the world? The Orio al Serio Airport shuttle bus will take you between Orio al Serio Airport and your Milan hotel in total comfort, in under an hour.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a9980df97b354cd5a31d665f07df9e65.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Orio al Serio Airport Shuttle Bus to/from Milan" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Orio al Serio Airport Shuttle Bus to/from Milan</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Heading to the fashion capital of the world? The Orio al Serio Airport shuttle bus will take you between Orio al Serio Airport and your Milan hotel in total comfort, in under an hour.
 
 The Orio shuttle is cheaper than a taxi or a rental car, and infinitely simpler than public transport. This ticket can save you time and money. Book it and validate your smartphone ticket with staff waiting outside of the bus. 
 
 Reserve your spot in advance and enjoy the rest of your trip with one less thing to worry about.</p>
-        <div class="card-footer">
-         <span class="price">From €10</span>
-         <span class="rating">⭐ 4.7 (93)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-orio-al-serio-airport-shuttle-bus-to-from-milan-p977185/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €10</span>
+            <span class="rating">⭐ 4.7 (93)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-orio-al-serio-airport-shuttle-bus-to-from-milan-p977185/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/78a2f8fb3aef41648c3ff1614adc12e8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bergamo Airport: One-Way Bus From Airport ( (BGY) To Milan Central" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Bergamo Airport: One-Way Bus From Airport ( (BGY) To Milan Central</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Eliminate airport transfer stress and take the Orio Shuttle from Bergamo Airport (BGY) to Milan Central at Piazza Luigi di Savoia. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/78a2f8fb3aef41648c3ff1614adc12e8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bergamo Airport: One-Way Bus From Airport ( (BGY) To Milan Central" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Bergamo Airport: One-Way Bus From Airport ( (BGY) To Milan Central</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Eliminate airport transfer stress and take the Orio Shuttle from Bergamo Airport (BGY) to Milan Central at Piazza Luigi di Savoia. 
 
 The trip lasts about 50 minutes, with air-conditioned comfort and plenty of luggage space. Arrive at Milan Central Station, a key spot for public transport.</p>
-        <div class="card-footer">
-         <span class="price">From €12</span>
-         <span class="rating">⭐ 5 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-bergamo-airport-bus-to-milan-central-p1121994/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €12</span>
+            <span class="rating">⭐ 5 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-bergamo-airport-bus-to-milan-central-p1121994/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolomites: Flyski Shuttle from Campitello di Fassa to Bergamo Airport" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Dolomites: Flyski Shuttle from Campitello di Fassa to Bergamo Airport</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Book a set from Campitello di Fassa to Bergamo with a Dolomites airport transfer. Use this direct and comfortable bus service for a smooth trip from Val di Fassa to Bergamo Airport (BGY).
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolomites: Flyski Shuttle from Campitello di Fassa to Bergamo Airport" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Dolomites: Flyski Shuttle from Campitello di Fassa to Bergamo Airport</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Book a set from Campitello di Fassa to Bergamo with a Dolomites airport transfer. Use this direct and comfortable bus service for a smooth trip from Val di Fassa to Bergamo Airport (BGY).
 
 Enjoy the Alpine views while a professional driver takes charge of the journey, ensuring safety and efficiency.</p>
-        <div class="card-footer">
-         <span class="price">From €46</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-flyski-shuttle-from-campitello-di-fassa-to-bergamo-airport-p1126387/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €46</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-flyski-shuttle-from-campitello-di-fassa-to-bergamo-airport-p1126387/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolomites: Flyski Shuttle from Passo del Tonale to Bergamo Airport" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Dolomites: Flyski Shuttle from Passo del Tonale to Bergamo Airport</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Take the bus transfer from Passo del Tonale in the Dolomites to Bergamo Airport (BGY). 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolomites: Flyski Shuttle from Passo del Tonale to Bergamo Airport" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Dolomites: Flyski Shuttle from Passo del Tonale to Bergamo Airport</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Take the bus transfer from Passo del Tonale in the Dolomites to Bergamo Airport (BGY). 
 
 Use this service for a direct route from the resort area to the airport, and choose from available pickup points in Passo del Tonale for convenience.</p>
-        <div class="card-footer">
-         <span class="price">From €46</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-flyski-shuttle-from-passo-del-tonale-to-bergamo-airport-p1126341/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €46</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-flyski-shuttle-from-passo-del-tonale-to-bergamo-airport-p1126341/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolomites: Flyski Shuttle from Vigo di Fassa to Bergamo Airport" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Dolomites: Flyski Shuttle from Vigo di Fassa to Bergamo Airport</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Take the Flyski shuttle from Vigo di Fassa to Bergamo for a direct route to the departure city. Select from several pick-up points in the Val di Fassa area for convenience. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolomites: Flyski Shuttle from Vigo di Fassa to Bergamo Airport" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Dolomites: Flyski Shuttle from Vigo di Fassa to Bergamo Airport</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Take the Flyski shuttle from Vigo di Fassa to Bergamo for a direct route to the departure city. Select from several pick-up points in the Val di Fassa area for convenience. 
 
 During the journey, passengers can observe the scenery of the surrounding mountains. The bus provides a direct and efficient service, ensuring an arrival at the airport in time for the flight.</p>
-        <div class="card-footer">
-         <span class="price">From €46</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-transfer-flyski-shuttle-from-vigo-di-fassa-to-bergamo-airport-p1124917/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €46</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-transfer-flyski-shuttle-from-vigo-di-fassa-to-bergamo-airport-p1124917/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolomites: Flyski Shuttle from Bergamo Airport to Passo del Tonale" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Dolomites: Flyski Shuttle from Bergamo Airport to Passo del Tonale</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Begin the trip from Bergamo Airport (BGY) to the slopes of Passo del Tonale with the Flyski shuttle bus. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolomites: Flyski Shuttle from Bergamo Airport to Passo del Tonale" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Dolomites: Flyski Shuttle from Bergamo Airport to Passo del Tonale</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Begin the trip from Bergamo Airport (BGY) to the slopes of Passo del Tonale with the Flyski shuttle bus. 
 
 Board a modern coach designed for winter travel just after your flight. Enjoy clear Alpine views while experienced professionals handle the driving. Your quick, safe arrival is ensured so you can start skiing soon.</p>
-        <div class="card-footer">
-         <span class="price">From €46</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-flyski-shuttle-transfer-from-bergamo-airport-to-passo-del-tonale-p1124353/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €46</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-flyski-shuttle-transfer-from-bergamo-airport-to-passo-del-tonale-p1124353/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolomites: Flyski Shuttle from Bergamo Airport to Pozza di Fassa" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Dolomites: Flyski Shuttle from Bergamo Airport to Pozza di Fassa</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Start your Dolomites ski holiday with a simple, affordable transfer. The Flyski shuttle offers a direct bus transfer from Bergamo to Pozza di Fassa.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolomites: Flyski Shuttle from Bergamo Airport to Pozza di Fassa" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Dolomites: Flyski Shuttle from Bergamo Airport to Pozza di Fassa</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Start your Dolomites ski holiday with a simple, affordable transfer. The Flyski shuttle offers a direct bus transfer from Bergamo to Pozza di Fassa.
 
 This bus service provides a comfortable connection from Bergamo Airport (BGY) to the Catinaccio-Rosengarten area. When booking, select from various drop-off points in Pozza di Fassa. This helps you get as close as possible to your hotel or chalet.</p>
-        <div class="card-footer">
-         <span class="price">From €46</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-flyski-shuttle-transfer-from-bergamo-airport-to-pozza-di-fassa-p1124352/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €46</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-flyski-shuttle-transfer-from-bergamo-airport-to-pozza-di-fassa-p1124352/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolomites: Flyski Shuttle from Bergamo Airport to Madonna di Campiglio" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Dolomites: Flyski Shuttle from Bergamo Airport to Madonna di Campiglio</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Take the bus from Bergamo to Madonna di Campiglio with the Dolomites Airport Transfer.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolomites: Flyski Shuttle from Bergamo Airport to Madonna di Campiglio" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Dolomites: Flyski Shuttle from Bergamo Airport to Madonna di Campiglio</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Take the bus from Bergamo to Madonna di Campiglio with the Dolomites Airport Transfer.
 
 Upon arrival at Bergamo Airport (BGY), get on a modern, comfortable coach for a direct journey to the Brenta Dolomites. The coach has multiple drop-off points in the Madonna di Campiglio area. Choose the one closest to your hotel, chalet, or apartment.
 
 This transfer provides a convenient and cost-effective way to reach your destination without hassle. Start your trip smoothly and plan easily with this direct service.</p>
-        <div class="card-footer">
-         <span class="price">From €46</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-flyski-shuttle-transfer-from-bergamo-airport-to-madonna-di-campiglio-p1124351/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €46</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-flyski-shuttle-transfer-from-bergamo-airport-to-madonna-di-campiglio-p1124351/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolomites: Flyski Shuttle from Vigo di Fassa to Verona Airport" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Dolomites: Flyski Shuttle from Vigo di Fassa to Verona Airport</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Wrap up your trip in Val di Fassa with the Flyski Shuttle from Vigo di Fassa to Verona Airport (VRN). 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dolomites: Flyski Shuttle from Vigo di Fassa to Verona Airport" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Dolomites: Flyski Shuttle from Vigo di Fassa to Verona Airport</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Wrap up your trip in Val di Fassa with the Flyski Shuttle from Vigo di Fassa to Verona Airport (VRN). 
 
 After completing the Sella Ronda and seeing the Dolomites, use this direct and comfortable shuttle for your return trip. 
 
 Select from various designated pick-up points in the Vigo di Fassa area, ensuring a short walk from your lodging to the shuttle.</p>
-        <div class="card-footer">
-         <span class="price">From €46</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-flyski-shuttle-transfer-from-vigo-di-fassa-to-verona-airport-p1123242/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €46</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-flyski-shuttle-transfer-from-vigo-di-fassa-to-verona-airport-p1123242/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bergamo Airport: One-Way Flyski Shuttle from Airport to Vigo di Fassa" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Bergamo Airport: One-Way Flyski Shuttle from Airport to Vigo di Fassa</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Begin your Val di Fassa trip with a one-way airport transfer from Milan (Bergamo Airport) to Vigo di Fassa. This bus service takes you directly into the Dolomites.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bergamo Airport: One-Way Flyski Shuttle from Airport to Vigo di Fassa" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Bergamo Airport: One-Way Flyski Shuttle from Airport to Vigo di Fassa</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Begin your Val di Fassa trip with a one-way airport transfer from Milan (Bergamo Airport) to Vigo di Fassa. This bus service takes you directly into the Dolomites.
 
 Travel on a modern, spacious coach with room for luggage and ski gear. Choose from several drop-off points in the Vigo di Fassa area, including locations near hotels and transport hubs in Val di Fassa.</p>
-        <div class="card-footer">
-         <span class="price">From €46</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-flyski-shuttle-transfer-from-bergamo-airport-to-vigo-di-fassa-p1123126/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €46</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-dolomites-flyski-shuttle-transfer-from-bergamo-airport-to-vigo-di-fassa-p1123126/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Monza: One-Way Bus Transfer from Milan Bergamo Airport to Monza" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Monza: One-Way Bus Transfer from Milan Bergamo Airport to Monza</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Use the Orio Shuttle bus to get from Bergamo Airport (BGY) to Monza easily and affordably.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Monza: One-Way Bus Transfer from Milan Bergamo Airport to Monza" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Monza: One-Way Bus Transfer from Milan Bergamo Airport to Monza</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Use the Orio Shuttle bus to get from Bergamo Airport (BGY) to Monza easily and affordably.
 
 Board the air-conditioned shuttle outside the arrivals terminal at BGY. The bus provides a direct trip with luggage storage, taking you to the Monza Via Borsellino and Falcone bus stop. This central location is a great starting point for seeing the city.</p>
-        <div class="card-footer">
-         <span class="price">From €12</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-milan-bergamo-airport-bus-transfer-to-monza-p1122349/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €12</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-milan-bergamo-airport-bus-transfer-to-monza-p1122349/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bergamo: One-Way Bus Transfer from Milan Bergamo Airport to Bergamo" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Bergamo: One-Way Bus Transfer from Milan Bergamo Airport to Bergamo</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Use the Orio Shuttle bus to travel easily from Bergamo Airport (BGY) to the city center. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bergamo: One-Way Bus Transfer from Milan Bergamo Airport to Bergamo" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Bergamo: One-Way Bus Transfer from Milan Bergamo Airport to Bergamo</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Use the Orio Shuttle bus to travel easily from Bergamo Airport (BGY) to the city center. 
 
 Take the air-conditioned bus waiting outside the arrivals terminal. Store your luggage and reach Bergamo Via Furietti quickly.</p>
-        <div class="card-footer">
-         <span class="price">From €6</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-milan-bergamo-airport-bus-to-bergamo-city-p1122151/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €6</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-milan-bergamo-airport-bus-to-bergamo-city-p1122151/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Milan Bergamo Airport: One-Way Shuttle Transfer from City Center to Airport" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Milan Bergamo Airport: One-Way Shuttle Transfer from City Center to Airport</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Bid farewell to Bergamo with ease and comfort! The Orio shuttle bus is the smartest and most affordable way to travel from the city center directly to Bergamo Orio al Serio Airport (BGY).
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Milan Bergamo Airport: One-Way Shuttle Transfer from City Center to Airport" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Milan Bergamo Airport: One-Way Shuttle Transfer from City Center to Airport</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Bid farewell to Bergamo with ease and comfort! The Orio shuttle bus is the smartest and most affordable way to travel from the city center directly to Bergamo Orio al Serio Airport (BGY).
 
 Your journey begins at the convenient pick-up point on Bergamo Via Furietti. From there, you'll enjoy a swift, relaxing ride in a comfortable, air-conditioned bus, complete with dedicated luggage storage. Avoid the stress and high costs of a taxi and arrive at the airport with plenty of time to spare for your flight.</p>
-        <div class="card-footer">
-         <span class="price">From €6</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-milan-bergamo-airport-one-way-shuttle-transfer-from-city-center-to-airport-p1121995/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €6</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-milan-bergamo-airport-one-way-shuttle-transfer-from-city-center-to-airport-p1121995/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bergamo Airport: Orio Shuttle From Monza To Bergamo Airport (BGY)" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Bergamo Airport: Orio Shuttle From Monza To Bergamo Airport (BGY)</h3>
-        <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
-        <p>Take the Orio shuttle bus from Monza to Bergamo Orio al Serio Airport (BGY). 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4dd7f189be7f4a1b85e0b8f947398670.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bergamo Airport: Orio Shuttle From Monza To Bergamo Airport (BGY)" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Bergamo Airport: Orio Shuttle From Monza To Bergamo Airport (BGY)</h3>
+          <p class="venue">📍 Airport Transfer Milan (Bergamo)</p>
+          <p>Take the Orio shuttle bus from Monza to Bergamo Orio al Serio Airport (BGY). 
 
 Travel in comfort with air conditioning and professional drivers. Dedicated luggage storage ensures a tidy ride.</p>
-        <div class="card-footer">
-         <span class="price">From €12</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-bergamo-orio-al-serio-airport-bgy-bus-from-monza-by-orio-shuttle-p1121954/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €12</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-bergamo-orio-al-serio-airport-bgy-bus-from-monza-by-orio-shuttle-p1121954/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

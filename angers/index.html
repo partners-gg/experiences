@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,39 +32,37 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/96df5d13214343b396e5f619328ca8c3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château d'Angers: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Château d'Angers: Entry Ticket</h3>
-        <p class="venue">📍 Château d'Angers</p>
-        <p>Visit this medieval castle and see the world's biggest and oldest collection of medieval tapestries. The 14th-century 'Apocalypse Tapestry', a woven illustration of 14th-century life in France, is one of the world's best. Get amazing city views from over the castle walls, too!</p>
-        <div class="card-footer">
-         <span class="price">From €11</span>
-         <span class="rating">⭐ 4.7 (348)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-d-angers-entry-p974694/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/96df5d13214343b396e5f619328ca8c3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Château d'Angers: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Château d'Angers: Entry Ticket</h3>
+          <p class="venue">📍 Château d'Angers</p>
+          <p>Visit this medieval castle and see the world's biggest and oldest collection of medieval tapestries. The 14th-century 'Apocalypse Tapestry', a woven illustration of 14th-century life in France, is one of the world's best. Get amazing city views from over the castle walls, too!</p>
+          <div class="card-footer">
+            <span class="price">From €11</span>
+            <span class="rating">⭐ 4.7 (348)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-chateau-d-angers-entry-p974694/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/21f405451b444c198fca430fb7bb290b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Terra Botanica: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Terra Botanica: Entry Ticket</h3>
-        <p class="venue">📍 Terra Botanica</p>
-        <p>Butterflies, hot air balloons, gentle boat rides in a stream, and thousands of colorful exotic flowers. If that sounds like a perfect afternoon, grab a ticket for Terra Botanica Park and discover a lush botanical playground where nature and fun blossom in perfect harmony. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/21f405451b444c198fca430fb7bb290b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Terra Botanica: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Terra Botanica: Entry Ticket</h3>
+          <p class="venue">📍 Terra Botanica</p>
+          <p>Butterflies, hot air balloons, gentle boat rides in a stream, and thousands of colorful exotic flowers. If that sounds like a perfect afternoon, grab a ticket for Terra Botanica Park and discover a lush botanical playground where nature and fun blossom in perfect harmony. 
 
 Explore imaginatively themed areas and activities, from prehistoric jungles to Asian gardens, Mediterranean terraces, treetop walkways, tethered hot air balloon rides, boating, butterfly greenhouses, and more. 
 
 Make sure to enjoy views of the lower valleys of Anjou at the latest area, The Mysteries of the Forest, where you can explore charming walkways and treehouses in the magical ambiance of an enchanted forest that spans 1.5 km². Enjoy a Zen atmosphere and observe fauna and flora, or have an acrobatic experience in a sea of nets between the trees.</p>
-        <div class="card-footer">
-         <span class="price">From €14</span>
-         <span class="rating">⭐ 4.5 (416)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-terra-botanica-park-p984974/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €14</span>
+            <span class="rating">⭐ 4.5 (416)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-terra-botanica-park-p984974/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

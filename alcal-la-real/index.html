@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,43 +32,41 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fortress of La Mota: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Fortress of La Mota: Fast Track Ticket</h3>
-        <p class="venue">📍 Fortress of La Mota</p>
-        <p>La Fortaleza' often attracts and surprises travelers with its imposing silhouette, history and heritage. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fortress of La Mota: Fast Track Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Fortress of La Mota: Fast Track Ticket</h3>
+          <p class="venue">📍 Fortress of La Mota</p>
+          <p>La Fortaleza' often attracts and surprises travelers with its imposing silhouette, history and heritage. 
 
 Discover one of Andalusia's most emblematic monuments, and learn about the history of this fortified city which played an important role over the centuries. Contemporary with other iconic sites like the Alhambra and the Mosque of Córdoba, a visit here will provide you with an insightful glimpse into medieval life on the border. 
 
 Explore medieval houses, streets, buildings and defensive systems, and transport yourself back into history!</p>
-        <div class="card-footer">
-         <span class="price">From €8</span>
-         <span class="rating">⭐ 4.8 (61)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-entrance-to-the-fortress-of-la-mota-de-alcala-la-real-jaen-p1012822/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €8</span>
+            <span class="rating">⭐ 4.8 (61)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-entrance-to-the-fortress-of-la-mota-de-alcala-la-real-jaen-p1012822/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fortaleza de La Mota: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Fortaleza de La Mota: Guided Tour</h3>
-        <p class="venue">📍 Fortress of La Mota</p>
-        <p>During this 90-minute tour of Fortaleza de La Mota you'll join a live guide and walk through the monument, learning more about its secrets along the way. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1b6c731a897d462b8fb123c8b6df1dd3.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Fortaleza de La Mota: Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Fortaleza de La Mota: Guided Tour</h3>
+          <p class="venue">📍 Fortress of La Mota</p>
+          <p>During this 90-minute tour of Fortaleza de La Mota you'll join a live guide and walk through the monument, learning more about its secrets along the way. 
 
 You'll get a feel for how people lived in the Middle Ages as you go through the medieval city and see areas including the alcazaba and its parade ground, the Mayor Abbey Church, and the Torre de la Cárcel.
 
 This Fortaleza de La Mota ticket also gives you access to an audiovisual show inside the abbey church that recreates the history of the monument.</p>
-        <div class="card-footer">
-         <span class="price">From €12</span>
-         <span class="rating">⭐ 4.9 (32)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-fortaleza-de-la-mota-p1029415/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €12</span>
+            <span class="rating">⭐ 4.9 (32)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-fortaleza-de-la-mota-p1029415/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

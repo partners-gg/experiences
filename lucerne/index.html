@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,91 +32,89 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/70cecae269d74d4d886e4939518cb725.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Swiss Museum of Transport: Museum & Media World Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Swiss Museum of Transport: Museum & Media World Entry Ticket</h3>
-        <p class="venue">📍 Swiss Museum of Transport</p>
-        <p>Ever wondered what it's like in the cockpit of a fighter jet? Or how it feels to ride the wind in a wingsuit? The Verkehrshaus lets you experience both, and that's only a fraction of what you can do inside.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70cecae269d74d4d886e4939518cb725.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Swiss Museum of Transport: Museum & Media World Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Swiss Museum of Transport: Museum & Media World Entry Ticket</h3>
+          <p class="venue">📍 Swiss Museum of Transport</p>
+          <p>Ever wondered what it's like in the cockpit of a fighter jet? Or how it feels to ride the wind in a wingsuit? The Verkehrshaus lets you experience both, and that's only a fraction of what you can do inside.
 
 Get ready to learn everything there is about transport, from the early days of navigation right through to space exploration. As our feats of engineering get even more impressive, so do our ways of recording them – learn more about how media engages us at the museum's media world.</p>
-        <div class="card-footer">
-         <span class="price">From €40.41</span>
-         <span class="rating">⭐ 4.5 (106)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-swiss-museum-of-transport-museum-media-world-entry-p989885/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €40.41</span>
+            <span class="rating">⭐ 4.5 (106)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-swiss-museum-of-transport-museum-media-world-entry-p989885/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c73fc03c83d0418abdc5b0db6b46c80d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="1-Hour Catamaran Cruise on Lake Lucerne" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>1-Hour Catamaran Cruise on Lake Lucerne</h3>
-        <p class="venue">📍 Lucerne Cruises</p>
-        <p>Board a beautiful, modern catamaran for a a roundtrip cruise on Lake Lucerne, and enjoy an hour full of amazing Alpine scenery, straight out of a Romantic-era painting!
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c73fc03c83d0418abdc5b0db6b46c80d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="1-Hour Catamaran Cruise on Lake Lucerne" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>1-Hour Catamaran Cruise on Lake Lucerne</h3>
+          <p class="venue">📍 Lucerne Cruises</p>
+          <p>Board a beautiful, modern catamaran for a a roundtrip cruise on Lake Lucerne, and enjoy an hour full of amazing Alpine scenery, straight out of a Romantic-era painting!
  
 From the boat, you will see the Bay of Lucerne with all the landmarks of the city, and, of course, the majestic glacial grandeur of Mount Pilatus, Mount Rigi, and Mount Bürgenstock.
 
 Enjoy the tranquility of the water and the majesty of the mountains all in one sweeping Alpine panorama.</p>
-        <div class="card-footer">
-         <span class="price">From €30.14</span>
-         <span class="rating">⭐ 4.2 (35)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-1-Hour-Catamaran-Cruise-on-Lake-Lucerne-p1044007/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €30.14</span>
+            <span class="rating">⭐ 4.2 (35)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-1-Hour-Catamaran-Cruise-on-Lake-Lucerne-p1044007/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/70cecae269d74d4d886e4939518cb725.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Swiss Museum of Transport: All Day Pass" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Swiss Museum of Transport: All Day Pass</h3>
-        <p class="venue">📍 Swiss Museum of Transport</p>
-        <p>With a single ticket, you gain access to the museum, the movie theater, the planetarium, and the Swiss Chocolate Adventure at the Swiss Museum of Transport.</p>
-        <div class="card-footer">
-         <span class="price">From €67.71</span>
-         <span class="rating">⭐ 4.2 (45)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-day-pass-p1032324/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/70cecae269d74d4d886e4939518cb725.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Swiss Museum of Transport: All Day Pass" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Swiss Museum of Transport: All Day Pass</h3>
+          <p class="venue">📍 Swiss Museum of Transport</p>
+          <p>With a single ticket, you gain access to the museum, the movie theater, the planetarium, and the Swiss Chocolate Adventure at the Swiss Museum of Transport.</p>
+          <div class="card-footer">
+            <span class="price">From €67.71</span>
+            <span class="rating">⭐ 4.2 (45)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-day-pass-p1032324/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/3019c26c7f9b47d5b18ffedeb9a3aa94.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Swiss Chocolate Adventure at the Swiss Museum of Transport" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Swiss Chocolate Adventure at the Swiss Museum of Transport</h3>
-        <p class="venue">📍 Swiss Museum of Transport</p>
-        <p>Ever wanted to knock back a shot of pure chocolate? Now's your chance! If you're a chocoholic, the Swiss Chocolate Adventure is a dream come true – it's the closest you're going to get to finding a golden ticket. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3019c26c7f9b47d5b18ffedeb9a3aa94.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Swiss Chocolate Adventure at the Swiss Museum of Transport" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Swiss Chocolate Adventure at the Swiss Museum of Transport</h3>
+          <p class="venue">📍 Swiss Museum of Transport</p>
+          <p>Ever wanted to knock back a shot of pure chocolate? Now's your chance! If you're a chocoholic, the Swiss Chocolate Adventure is a dream come true – it's the closest you're going to get to finding a golden ticket. 
 
 Your sweet escape begins with an informative, fun-filled ride into the history of chocolate, from its discovery and manufacture to how the delicious commodity is transported around the world.</p>
-        <div class="card-footer">
-         <span class="price">From €19.66</span>
-         <span class="rating">⭐ 4.4 (12)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-swiss-chocolate-adventure-at-the-swiss-museum-of-transport-p989918/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €19.66</span>
+            <span class="rating">⭐ 4.4 (12)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-swiss-chocolate-adventure-at-the-swiss-museum-of-transport-p989918/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c73fc03c83d0418abdc5b0db6b46c80d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mount Titlis: Snow Experience with Transport from Lucerne" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Mount Titlis: Snow Experience with Transport from Lucerne</h3>
-        <p class="venue">📍 Day Trips from Lucerne</p>
-        <p>Take a coach from Lucerne to Engelberg and board the **Titlis Xpress** to reach Trübsee. Start your snow activities here with a one-hour ski session on a beginner slope. Staff members supervise, but there is no formal ski instruction. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c73fc03c83d0418abdc5b0db6b46c80d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Mount Titlis: Snow Experience with Transport from Lucerne" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Mount Titlis: Snow Experience with Transport from Lucerne</h3>
+          <p class="venue">📍 Day Trips from Lucerne</p>
+          <p>Take a coach from Lucerne to Engelberg and board the **Titlis Xpress** to reach Trübsee. Start your snow activities here with a one-hour ski session on a beginner slope. Staff members supervise, but there is no formal ski instruction. 
 
 After skiing, switch to snow tubing and glide down the hill. A conveyor belt will bring you back to the top, and tubing is free.
 
 In the afternoon, you can choose to stay at Trübsee for lunch in one of the local restaurants and spend more time in the snow park. 
 
 Alternatively, take the rotating Rotair cable car to the 3,028-m summit of Mt Titlis (if option selected). Later, descend by cable car and return by coach to Lucerne.</p>
-        <div class="card-footer">
-         <span class="price">From €191.13</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-mount-titlis-snow-experience-with-transport-from-lucerne-p1124299/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €191.13</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-mount-titlis-snow-experience-with-transport-from-lucerne-p1124299/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

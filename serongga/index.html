@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,57 +32,55 @@
     <p>3 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/24e9f3a4912343dda901f1c583e080e1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Safari: Day Pass" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Bali Safari: Day Pass</h3>
-        <p class="venue">📍 Bali Safari & Marine Park</p>
-        <p>A jungle safari would usually be enough for one ticket, but with the Bali Safari, you get so much more! Alongside seeing species like orangutans and Komodo dragons, you can also see marine life in the aquarium and make a splash of your own in the on-site water park.</p>
-        <div class="card-footer">
-         <span class="price">From €37.47</span>
-         <span class="rating">⭐ 3.5 (6)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-bali-safari-day-pass-p1001732/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/24e9f3a4912343dda901f1c583e080e1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Safari: Day Pass" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Bali Safari: Day Pass</h3>
+          <p class="venue">📍 Bali Safari & Marine Park</p>
+          <p>A jungle safari would usually be enough for one ticket, but with the Bali Safari, you get so much more! Alongside seeing species like orangutans and Komodo dragons, you can also see marine life in the aquarium and make a splash of your own in the on-site water park.</p>
+          <div class="card-footer">
+            <span class="price">From €37.47</span>
+            <span class="rating">⭐ 3.5 (6)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-bali-safari-day-pass-p1001732/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/aec7f92c128a49a29779f5790c3abf89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Safari & Marine Park: Night Safari" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Bali Safari & Marine Park: Night Safari</h3>
-        <p class="venue">📍 Bali Safari & Marine Park</p>
-        <p>Ever wanted to see a big cat stalking through the jungle? On the Night Safari, you'll be able to see that and more.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/aec7f92c128a49a29779f5790c3abf89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Safari & Marine Park: Night Safari" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Bali Safari & Marine Park: Night Safari</h3>
+          <p class="venue">📍 Bali Safari & Marine Park</p>
+          <p>Ever wanted to see a big cat stalking through the jungle? On the Night Safari, you'll be able to see that and more.
 
 Join animals in a custom-made environment as you journey through a nature-filled route. Inquisitive tigers have been known to approach the tram and even climb on top of it!
 
 Your safari ticket also comes with dinner, a drink, and live entertainment. After being dazzled by nature, enjoy a fiery performance from local entertainers.</p>
-        <div class="card-footer">
-         <span class="price">From €67.29</span>
-         <span class="rating">⭐ 4.5 (4)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-bali-safari-marine-park-night-safari-p1001600/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €67.29</span>
+            <span class="rating">⭐ 4.5 (4)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-bali-safari-marine-park-night-safari-p1001600/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/aec7f92c128a49a29779f5790c3abf89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Safari & Marine Park: Night Safari" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Bali Safari & Marine Park: Night Safari</h3>
-        <p class="venue">📍 Bali Safari & Marine Park</p>
-        <p>Ever wanted to see a big cat stalking through the jungle? On the Night Safari, you'll be able to see that and more.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/aec7f92c128a49a29779f5790c3abf89.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bali Safari & Marine Park: Night Safari" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Bali Safari & Marine Park: Night Safari</h3>
+          <p class="venue">📍 Bali Safari & Marine Park</p>
+          <p>Ever wanted to see a big cat stalking through the jungle? On the Night Safari, you'll be able to see that and more.
 
 Join animals in a custom-made environment as you journey through a nature-filled route. Inquisitive tigers have been known to approach the tram and even climb on top of it!
 
 Your safari ticket also comes with dinner, a drink, and live entertainment. After being dazzled by nature, enjoy a fiery performance from local entertainers.</p>
-        <div class="card-footer">
-         <span class="price">From €67.29</span>
-         <span class="rating">⭐ 4.5 (4)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-bali-safari-marine-park-night-safari-p1001600/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €67.29</span>
+            <span class="rating">⭐ 4.5 (4)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-bali-safari-marine-park-night-safari-p1001600/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

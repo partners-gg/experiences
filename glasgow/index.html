@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,13 +32,12 @@
     <p>8 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/0196a7d895194f86a2e8117605b5a3fa.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Clydeside Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Clydeside Tour</h3>
-        <p class="venue">📍 The Clydeside Distillery</p>
-        <p>Learn about the whisky industry and Glasgow’s history at Clydeside Distillery, featuring live footage and animation bringing the story to life.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0196a7d895194f86a2e8117605b5a3fa.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Clydeside Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Clydeside Tour</h3>
+          <p class="venue">📍 The Clydeside Distillery</p>
+          <p>Learn about the whisky industry and Glasgow’s history at Clydeside Distillery, featuring live footage and animation bringing the story to life.
 
 Your guide will discuss the production process at the distillery, including malting, mashing, fermentation, and distillation. See the copper wash and spirit still and admire the view down the River Clyde.
 
@@ -47,136 +46,135 @@ Head into the tasting room where you'll experience the development of the Clydes
 The distillery's silent season will take place from Friday, 19th September to Monday, 6th October 2025. During this period, production will be paused; however, tours will continue as normal with full access to the distillery. 
 
 Guests may stop by the onsite whisky bar before or after the tour to enjoy a cocktail, beer, tea, or coffee along with some light bites.</p>
-        <div class="card-footer">
-         <span class="price">From €22.52</span>
-         <span class="rating">⭐ 4.5 (19)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-clydeside-tour-p1026092/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €22.52</span>
+            <span class="rating">⭐ 4.5 (19)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-clydeside-tour-p1026092/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b7d03f12dedf4ec6a61fbc534cc367ce.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Glasgow" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Hop-on Hop-off Bus Glasgow</h3>
-        <p class="venue">📍 Glasgow Bus Tours</p>
-        <p>See the best of Scotland's biggest city, from museums to beautiful squares, and stop off anywhere that takes your fancy. The route is carefully planned to pass by 21 of the city's top locations, so you won't miss a thing.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b7d03f12dedf4ec6a61fbc534cc367ce.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Hop-on Hop-off Bus Glasgow" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Hop-on Hop-off Bus Glasgow</h3>
+          <p class="venue">📍 Glasgow Bus Tours</p>
+          <p>See the best of Scotland's biggest city, from museums to beautiful squares, and stop off anywhere that takes your fancy. The route is carefully planned to pass by 21 of the city's top locations, so you won't miss a thing.
 
 See stunning architecture at George Square and Glasgow Cathedral, and get cultured at the Kelvingrove Art Gallery and Museum, or at the University of Glasgow. You can also treat yourself to a traditional afternoon tea in The Willow Tea Rooms, or just relax on Glasgow Green!</p>
-        <div class="card-footer">
-         <span class="price">From €23.09</span>
-         <span class="rating">⭐ 4.6 (87)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-glasgow-p980612/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €23.09</span>
+            <span class="rating">⭐ 4.6 (87)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-hop-on-hop-off-bus-glasgow-p980612/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2fb8b83f785445559f02ad92c1a1c33d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Glasgow Airport Express" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Glasgow Airport Express</h3>
-        <p class="venue">📍 Glasgow Airport Transfers</p>
-        <p>Hop on the Glasgow Airport Express for a quick 15-minute ride from the airport to the city center. Ensure a smooth journey by grabbing your ticket online – the fastest and easiest way to transfer from Glasgow Airport.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2fb8b83f785445559f02ad92c1a1c33d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Glasgow Airport Express" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Glasgow Airport Express</h3>
+          <p class="venue">📍 Glasgow Airport Transfers</p>
+          <p>Hop on the Glasgow Airport Express for a quick 15-minute ride from the airport to the city center. Ensure a smooth journey by grabbing your ticket online – the fastest and easiest way to transfer from Glasgow Airport.
 
 The Glasgow Airport Express runs with precision, offering 24/7 service and frequent departures. On weekdays, buses depart every 12 minutes, and in the evenings, you can catch one every 15 minutes. 
 
 Starting from the Royal Stance 1 at Glasgow Airport, the bus makes stops at St Vincent Street near Central Station, George Square near Queen Street Station, and Buchanan Bus Station.</p>
-        <div class="card-footer">
-         <span class="price">From €12.95</span>
-         <span class="rating">⭐ 5 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-glasgow-airport-express-p1087638/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €12.95</span>
+            <span class="rating">⭐ 5 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-glasgow-airport-express-p1087638/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="" alt="Glasgow Afternoon Tea or Gin Afternoon Tea Experience" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Glasgow Afternoon Tea or Gin Afternoon Tea Experience</h3>
-        <p class="venue">📍 Glasgow Food & Drink Tours</p>
-        <p>With fine china and a glass of bubbles on the table, you'll drive by George Square and all of Glasgow's top sights. While the city's got plenty of Victorian architecture to admire, your focus may end up on the Victoria sponge you'll be eating instead. 
+      <div class="card">
+        <img src="" alt="Glasgow Afternoon Tea or Gin Afternoon Tea Experience" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Glasgow Afternoon Tea or Gin Afternoon Tea Experience</h3>
+          <p class="venue">📍 Glasgow Food & Drink Tours</p>
+          <p>With fine china and a glass of bubbles on the table, you'll drive by George Square and all of Glasgow's top sights. While the city's got plenty of Victorian architecture to admire, your focus may end up on the Victoria sponge you'll be eating instead. 
 
 This jaunt around Glasgow comes with delicacies to delight, a fittingly fancy way to tour the town, and plenty of caffeine or a tipple to perk you up if the sun's not out that day.</p>
-        <div class="card-footer">
-         <span class="price">From €51.38</span>
-         <span class="rating">⭐ 4.2 (4)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-glasgow-afternoon-tea-or-gin-afternoon-tea-experience-p993185/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €51.38</span>
+            <span class="rating">⭐ 4.2 (4)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-glasgow-afternoon-tea-or-gin-afternoon-tea-experience-p993185/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/970c677f83344161b447fc1ef99a39e1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Romantic Glasgow City Exploration Game" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Romantic Glasgow City Exploration Game</h3>
-        <p class="venue">📍 Glasgow City Tours</p>
-        <p>Embark on a quest where you will discover Glasgow's connection to romance. Solve clues and unlock stories on your phone, as you discover the River Clyde, Wincher’s Stance, and lesser-known places.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/970c677f83344161b447fc1ef99a39e1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Romantic Glasgow City Exploration Game" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Romantic Glasgow City Exploration Game</h3>
+          <p class="venue">📍 Glasgow City Tours</p>
+          <p>Embark on a quest where you will discover Glasgow's connection to romance. Solve clues and unlock stories on your phone, as you discover the River Clyde, Wincher’s Stance, and lesser-known places.
 
 The story unfolds after solving each challenge and exact directions on your phone will guide you to the next location. Ready for an adventure?
 
 Here's a sneak peek to the storyline: “You’re Graham, and today marks your fifteenth first date… this month. You’ve got a problem with dates; they feel forced, unnatural. It’s not that you’re too shy to speak to women – most of your friends are women. But if it’s a woman you fancy, your hands shake, your throat dries up, and the words come out in awkward bursts”.
 
 The city game starts at Southern Necropolis. It will take you around one hour to complete and you can also explore at your own pace: pause the game and resume anytime from the location where you paused it. You will finish at Winchers' Stance.</p>
-        <div class="card-footer">
-         <span class="price">From €7.98</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-romantic-glasgow-city-exploration-game-p1033557/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €7.98</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-romantic-glasgow-city-exploration-game-p1033557/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/970c677f83344161b447fc1ef99a39e1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oban Town Walking Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oban Town Walking Tour</h3>
-        <p class="venue">📍 Glasgow City Tours</p>
-        <p>On this one-hour tour, immerse yourself in the sights and sounds of the town as you travel back through the centuries to discover the history and culture of Oban. Your local, expert guide will bring the gateway to the Isles to life through tales, traditions and stories.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/970c677f83344161b447fc1ef99a39e1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oban Town Walking Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oban Town Walking Tour</h3>
+          <p class="venue">📍 Glasgow City Tours</p>
+          <p>On this one-hour tour, immerse yourself in the sights and sounds of the town as you travel back through the centuries to discover the history and culture of Oban. Your local, expert guide will bring the gateway to the Isles to life through tales, traditions and stories.
 
 Once hailed by Queen Victoria as 'one of the finest spots she has ever seen', you'll soon see why. From world famous firework fiascos to distilleries and the iconic McCaigs Tower, the history of Oban is just waiting to be discovered!
 
 Stops along your tour include Oban distillery, the SS Breda Shipwreck, the War and Peace Museum, McCaigs Tower, and more hidden gems!</p>
-        <div class="card-footer">
-         <span class="price">From €16.17</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oban-town-walking-tour-p1027412/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €16.17</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oban-town-walking-tour-p1027412/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/970c677f83344161b447fc1ef99a39e1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Glasgow Street Art Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Glasgow Street Art Tour</h3>
-        <p class="venue">📍 Glasgow City Tours</p>
-        <p>This unique street art and modern culture tour bypasses all the usual cathedrals, grand buildings and monuments, and immerses you in the *real* Glasgow. You’ll meander down alleys and under bridges to uncover some of the city’s most beautiful pieces of art that are taking over the walls by storm. All with a local, expert guide. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/970c677f83344161b447fc1ef99a39e1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Glasgow Street Art Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Glasgow Street Art Tour</h3>
+          <p class="venue">📍 Glasgow City Tours</p>
+          <p>This unique street art and modern culture tour bypasses all the usual cathedrals, grand buildings and monuments, and immerses you in the *real* Glasgow. You’ll meander down alleys and under bridges to uncover some of the city’s most beautiful pieces of art that are taking over the walls by storm. All with a local, expert guide. 
 
 From world-renowned heroes to local artists, hear the stories and inspiration behind each piece. Discover how the art scene in Glasgow has developed dramatically over the last decade and beyond, and get the inside scoop on modern life in Glasgow today.</p>
-        <div class="card-footer">
-         <span class="price">From €16.17</span>
-         <span class="rating">⭐ 4.9 (7)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-glasgow-street-art-tour-p1026549/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €16.17</span>
+            <span class="rating">⭐ 4.9 (7)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-glasgow-street-art-tour-p1026549/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/970c677f83344161b447fc1ef99a39e1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Glasgow: Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Glasgow: Guided Walking Tour</h3>
-        <p class="venue">📍 Glasgow City Tours</p>
-        <p>Join a guided tour to learn Glasgow’s history and how the city was shaped.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/970c677f83344161b447fc1ef99a39e1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Glasgow: Guided Walking Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Glasgow: Guided Walking Tour</h3>
+          <p class="venue">📍 Glasgow City Tours</p>
+          <p>Join a guided tour to learn Glasgow’s history and how the city was shaped.
 
 This 1.5-hour walking tour covers the main sites in the city centre along with some hidden spots. 
 
 You’ll see places like cathedrals, street art, universities, and historic sites while also getting a look at daily life in Glasgow.</p>
-        <div class="card-footer">
-         <span class="price">From €16.17</span>
-         <span class="rating">⭐ 4 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-glasgow-walking-tour-p1015465/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €16.17</span>
+            <span class="rating">⭐ 4 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-glasgow-walking-tour-p1015465/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,83 +32,81 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/8a9aac6ea91640f1aee4886818660a83.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Stax Museum of American Soul Music: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Stax Museum of American Soul Music: Entry Ticket</h3>
-        <p class="venue">📍 Stax Museum of American Soul Music</p>
-        <p>Stax helped names like Otis Redding and Booker T. & the M.G.'s rise to prominence. Although the studio's time was short-lived, it had a big influence on Southern soul. At the museum, see memorabilia like Isaac Hayes' custom Cadillac Eldorado, and the original studio where songs like _Try a Little Tenderness_ were recorded. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/8a9aac6ea91640f1aee4886818660a83.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Stax Museum of American Soul Music: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Stax Museum of American Soul Music: Entry Ticket</h3>
+          <p class="venue">📍 Stax Museum of American Soul Music</p>
+          <p>Stax helped names like Otis Redding and Booker T. & the M.G.'s rise to prominence. Although the studio's time was short-lived, it had a big influence on Southern soul. At the museum, see memorabilia like Isaac Hayes' custom Cadillac Eldorado, and the original studio where songs like _Try a Little Tenderness_ were recorded. 
 
 Listen to hits at the listening station and admire a wall of records, before you head over to the Soul Train dance floor and get down like the funk is within you.</p>
-        <div class="card-footer">
-         <span class="price">From €17.24</span>
-         <span class="rating">⭐ 4.9 (57)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-stax-museum-of-american-soul-music-p991536/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €17.24</span>
+            <span class="rating">⭐ 4.9 (57)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-stax-museum-of-american-soul-music-p991536/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/dc7065f4369043d3bc4ab15c973c695c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Memphis Rock 'n' Soul Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Memphis Rock 'n' Soul Museum: Entry Ticket</h3>
-        <p class="venue">📍 Memphis Rock 'n' Soul Museum</p>
-        <p>The home of blues, soul, and rock 'n' roll, you can't go walking in Memphis without digging  Bluff City's musical heritage. A brainchild of the Smithsonian Institute, the Memphis Rock 'n' Soul Museum pays tribute to Tennesee's early pioneers of blues, rock, and soul, whose love of music overcame racial and socio-economic barriers to create new sounds the world had never dreamed of before.</p>
-        <div class="card-footer">
-         <span class="price">From €12.07</span>
-         <span class="rating">⭐ 4.6 (17)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-memphis-rock-n-soul-museum-p980843/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dc7065f4369043d3bc4ab15c973c695c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Memphis Rock 'n' Soul Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Memphis Rock 'n' Soul Museum: Entry Ticket</h3>
+          <p class="venue">📍 Memphis Rock 'n' Soul Museum</p>
+          <p>The home of blues, soul, and rock 'n' roll, you can't go walking in Memphis without digging  Bluff City's musical heritage. A brainchild of the Smithsonian Institute, the Memphis Rock 'n' Soul Museum pays tribute to Tennesee's early pioneers of blues, rock, and soul, whose love of music overcame racial and socio-economic barriers to create new sounds the world had never dreamed of before.</p>
+          <div class="card-footer">
+            <span class="price">From €12.07</span>
+            <span class="rating">⭐ 4.6 (17)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-memphis-rock-n-soul-museum-p980843/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/6716516b89f14a729fef94484931b48e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Memphis Brooks Museum of Art: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Memphis Brooks Museum of Art: Entry Ticket</h3>
-        <p class="venue">📍 Memphis Brooks Museum of Art</p>
-        <p>Visit the Memphis Brooks Museum of Art in Overton Park, Memphis, Tennessee. The museum offers a growing collection, changing exhibitions, and engaging programs. Learn about visual arts through diverse traveling and in-house exhibitions.</p>
-        <div class="card-footer">
-         <span class="price">From €15.52</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-memphis-brooks-museum-of-art-p1114833/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6716516b89f14a729fef94484931b48e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Memphis Brooks Museum of Art: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Memphis Brooks Museum of Art: Entry Ticket</h3>
+          <p class="venue">📍 Memphis Brooks Museum of Art</p>
+          <p>Visit the Memphis Brooks Museum of Art in Overton Park, Memphis, Tennessee. The museum offers a growing collection, changing exhibitions, and engaging programs. Learn about visual arts through diverse traveling and in-house exhibitions.</p>
+          <div class="card-footer">
+            <span class="price">From €15.52</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-memphis-brooks-museum-of-art-p1114833/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/0082e3bed06d4d5a93a408174736ef17.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Memphis Music Hall of Fame: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Memphis Music Hall of Fame: Entry Ticket</h3>
-        <p class="venue">📍 Memphis Music Hall of Fame</p>
-        <p>From B.B. King and Roy Orbison, to ZZ Top and Otis Redding, Memphis has sculpted America's musical landscape like no other city has – and that's before we even mention The King.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0082e3bed06d4d5a93a408174736ef17.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Memphis Music Hall of Fame: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Memphis Music Hall of Fame: Entry Ticket</h3>
+          <p class="venue">📍 Memphis Music Hall of Fame</p>
+          <p>From B.B. King and Roy Orbison, to ZZ Top and Otis Redding, Memphis has sculpted America's musical landscape like no other city has – and that's before we even mention The King.
 
 Memphis' Music Hall of Fame has gathered the greats in one place to help you dive into the blues. Get a feel for Americana and see Jerry Lee Lewis' Cadillac (expect a plot twist about its color), Isaac Hayes' organ, and many trinkets that have passed through the hands of some of music's most influential names.</p>
-        <div class="card-footer">
-         <span class="price">From €6.9</span>
-         <span class="rating">⭐ 4.6 (5)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-memphis-music-hall-of-fame-p981275/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €6.9</span>
+            <span class="rating">⭐ 4.6 (5)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-memphis-music-hall-of-fame-p981275/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/e68107d825b945f0a48c4916393925da.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Memphis Brooks Museum of Art: Entry + Thursday Night Music + 1 Drink" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Memphis Brooks Museum of Art: Entry + Thursday Night Music + 1 Drink</h3>
-        <p class="venue">📍 Memphis Brooks Museum of Art</p>
-        <p>Visit the Memphis Brooks Museum of Art for a night of music and art. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e68107d825b945f0a48c4916393925da.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Memphis Brooks Museum of Art: Entry + Thursday Night Music + 1 Drink" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Memphis Brooks Museum of Art: Entry + Thursday Night Music + 1 Drink</h3>
+          <p class="venue">📍 Memphis Brooks Museum of Art</p>
+          <p>Visit the Memphis Brooks Museum of Art for a night of music and art. 
 
 Enjoy performances by local, national, and international musicians. Have a drink while listening to music and viewing art in the galleries.</p>
-        <div class="card-footer">
-         <span class="price">From €21.56</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-memphis-brooks-museum-of-art-thursday-night-music-drink-p1120820/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €21.56</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-memphis-brooks-museum-of-art-thursday-night-music-drink-p1120820/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

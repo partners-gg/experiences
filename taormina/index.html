@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,173 +32,171 @@
     <p>10 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e7c6af919a649ecaad1f644ca420184.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ancient Theater of Taormina: Entry Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Ancient Theater of Taormina: Entry Ticket + Audio Guide</h3>
-        <p class="venue">📍 Ancient Theater of Taormina</p>
-        <p>Tourists flock to the Ancient Theater of Taormina year after year. Once you see it, you'll know exactly why. Carved into the rock of the Sicilian hills, this relic of Ancient Greece and Rome is wonderfully well preserved.</p>
-        <div class="card-footer">
-         <span class="price">From €25</span>
-         <span class="rating">⭐ 4.4 (442)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-ancient-theatre-of-taormina-p999917/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0e7c6af919a649ecaad1f644ca420184.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ancient Theater of Taormina: Entry Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Ancient Theater of Taormina: Entry Ticket + Audio Guide</h3>
+          <p class="venue">📍 Ancient Theater of Taormina</p>
+          <p>Tourists flock to the Ancient Theater of Taormina year after year. Once you see it, you'll know exactly why. Carved into the rock of the Sicilian hills, this relic of Ancient Greece and Rome is wonderfully well preserved.</p>
+          <div class="card-footer">
+            <span class="price">From €25</span>
+            <span class="rating">⭐ 4.4 (442)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-ancient-theatre-of-taormina-p999917/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/9fd3d656044547d291d9c8a07bacf1d9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tindari Archaeological Area & Antique Theater" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Tindari Archaeological Area & Antique Theater</h3>
-        <p class="venue">📍 Tindari Archaeological Area</p>
-        <p>With its dramatic location high above the sea on a rock-face, Tyndaris was an almost impenetrable fortress in its day, and the panoramic views today are breathtaking.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9fd3d656044547d291d9c8a07bacf1d9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Tindari Archaeological Area & Antique Theater" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Tindari Archaeological Area & Antique Theater</h3>
+          <p class="venue">📍 Tindari Archaeological Area</p>
+          <p>With its dramatic location high above the sea on a rock-face, Tyndaris was an almost impenetrable fortress in its day, and the panoramic views today are breathtaking.
 
 Step into ancient Sicily with a visit to the Tindari archaeological area, the Roman thermal baths, and the well-preserved theater, built in the 4th century BC. 
 
 Don't forget to explore the archaeological museum connected to the excavations for ancient pottery, bronze items, sculptures, scriptures and more.</p>
-        <div class="card-footer">
-         <span class="price">From €11</span>
-         <span class="rating">⭐ 3.7 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-tindari-archaeological-area-and-antique-theater-p1006848/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €11</span>
+            <span class="rating">⭐ 3.7 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-tindari-archaeological-area-and-antique-theater-p1006848/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/cb8ed263a1994d8a93e428808f5ba045.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ancient Theater of Taormina: Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Ancient Theater of Taormina: Guided Tour</h3>
-        <p class="venue">📍 Ancient Theater of Taormina</p>
-        <p>Featuring a professional tour guide, this unique experience will let you discover the history of the Ancient Theater of Taormina. Learn all about this magnificent historic site and see highlights like the Orchestra, the Versure, and the Summa Cavea. You'll also be able to admire the city's ancient artifacts in the Antiquarium, before you conclude your visit on the splendid terrace of the Belvedere.</p>
-        <div class="card-footer">
-         <span class="price">From €35</span>
-         <span class="rating">⭐ 4.4 (49)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-guided-tour-ancient-theatre-of-taormina-p1025517/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/cb8ed263a1994d8a93e428808f5ba045.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ancient Theater of Taormina: Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Ancient Theater of Taormina: Guided Tour</h3>
+          <p class="venue">📍 Ancient Theater of Taormina</p>
+          <p>Featuring a professional tour guide, this unique experience will let you discover the history of the Ancient Theater of Taormina. Learn all about this magnificent historic site and see highlights like the Orchestra, the Versure, and the Summa Cavea. You'll also be able to admire the city's ancient artifacts in the Antiquarium, before you conclude your visit on the splendid terrace of the Belvedere.</p>
+          <div class="card-footer">
+            <span class="price">From €35</span>
+            <span class="rating">⭐ 4.4 (49)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-guided-tour-ancient-theatre-of-taormina-p1025517/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7f18b02061d94dcd8828b70b01620559.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Italian Opera Taormina: Entry Ticket + Snacks & Drink" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Italian Opera Taormina: Entry Ticket + Snacks & Drink</h3>
-        <p class="venue">📍 Italian Opera Taormina</p>
-        <p>Enjoy an evening listening to opera with secure seating and a glass of Prosecco on the terrace of the Nazarena theater, located in Taormina. Choose the performance that best fits your schedule, as shows are held several evenings per week depending on the time of year. Performances usually start after dinner.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7f18b02061d94dcd8828b70b01620559.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Italian Opera Taormina: Entry Ticket + Snacks & Drink" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Italian Opera Taormina: Entry Ticket + Snacks & Drink</h3>
+          <p class="venue">📍 Italian Opera Taormina</p>
+          <p>Enjoy an evening listening to opera with secure seating and a glass of Prosecco on the terrace of the Nazarena theater, located in Taormina. Choose the performance that best fits your schedule, as shows are held several evenings per week depending on the time of year. Performances usually start after dinner.
 
 See famous arias and duets from popular Italian operas. Listen to music from operas like Le Nozze di Figaro by W.A. Mozart, La Traviata by G. Verdi, Madame Butterfly, Tosca, and La Bohème by G. Puccini, and Elisir d’Amore by G. Donizetti. These pieces are interpreted by professional singers with piano accompaniment.</p>
-        <div class="card-footer">
-         <span class="price">From €30</span>
-         <span class="rating">⭐ 4.9 (14)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-italian-opera-taormina-entry-ticket-snacks-drink-p1117654/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €30</span>
+            <span class="rating">⭐ 4.9 (14)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-italian-opera-taormina-entry-ticket-snacks-drink-p1117654/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/9d555ae5b2274385b9cfba0bd504de42.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cruise Giardini Naxos Taormina, Isola Bella" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Cruise Giardini Naxos Taormina, Isola Bella</h3>
-        <p class="venue">📍 Taormina Cruises</p>
-        <p>Join us for a seaside tour along the coast of Taormina, so you can see everything from another perspective and visit places that cannot be reached from the mainland. We will admire the beautiful bays (Naxos Bay, Mazzarò Bay, Mermaid Bay) and caves (Cave of Love, Blue Cave), we will see the rock of the prickly pear and the rock of the elephant, accompanied by the explanations of our captain. We will stop for a dip in the crystal clear waters of the Isola Bella and for a refreshing aperitif with prosecco and typical Sicilian almond pastas. The tour will be fun and accessible for all participants of any age.</p>
-        <div class="card-footer">
-         <span class="price">From €40</span>
-         <span class="rating">⭐ 4.8 (20)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-cruise-giardini-naxos-taormina-isola-bella-p1058903/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9d555ae5b2274385b9cfba0bd504de42.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cruise Giardini Naxos Taormina, Isola Bella" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Cruise Giardini Naxos Taormina, Isola Bella</h3>
+          <p class="venue">📍 Taormina Cruises</p>
+          <p>Join us for a seaside tour along the coast of Taormina, so you can see everything from another perspective and visit places that cannot be reached from the mainland. We will admire the beautiful bays (Naxos Bay, Mazzarò Bay, Mermaid Bay) and caves (Cave of Love, Blue Cave), we will see the rock of the prickly pear and the rock of the elephant, accompanied by the explanations of our captain. We will stop for a dip in the crystal clear waters of the Isola Bella and for a refreshing aperitif with prosecco and typical Sicilian almond pastas. The tour will be fun and accessible for all participants of any age.</p>
+          <div class="card-footer">
+            <span class="price">From €40</span>
+            <span class="rating">⭐ 4.8 (20)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-cruise-giardini-naxos-taormina-isola-bella-p1058903/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/87a1d8f6bb9947b58c2303fcf00267b9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Regional Naturalistic Museum of Isolabella: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Regional Naturalistic Museum of Isolabella: Entry Ticket</h3>
-        <p class="venue">📍 Regional Naturalistic Museum of Isolabella</p>
-        <p>You don't get a nickname like "the Pearl of the Ionian Sea" without being a pretty special place. But Sicily's beautiful Isola Bella deserves its moniker.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/87a1d8f6bb9947b58c2303fcf00267b9.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Regional Naturalistic Museum of Isolabella: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Regional Naturalistic Museum of Isolabella: Entry Ticket</h3>
+          <p class="venue">📍 Regional Naturalistic Museum of Isolabella</p>
+          <p>You don't get a nickname like "the Pearl of the Ionian Sea" without being a pretty special place. But Sicily's beautiful Isola Bella deserves its moniker.
 
 This unique biosphere is home to seabirds, rare lizards, and rugged limestone features carved by centuries of turquoise waves – it makes for some spectacular photos!
 
 Get tickets for the Regional Naturalistic Museum of Isolabella, and discover the island's rich natural and cultural history and awesome architecture.</p>
-        <div class="card-footer">
-         <span class="price">From €9</span>
-         <span class="rating">⭐ 4.7 (7)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-regional-naturalistic-museum-of-isolabella-p1006786/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €9</span>
+            <span class="rating">⭐ 4.7 (7)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-regional-naturalistic-museum-of-isolabella-p1006786/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7f18b02061d94dcd8828b70b01620559.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Italian Opera Taormina: Show Selection + Snacks & Drink" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Italian Opera Taormina: Show Selection + Snacks & Drink</h3>
-        <p class="venue">📍 Italian Opera Taormina</p>
-        <p>Book tickets to an operatic event at the Nazarena Garden Theater in Taormina city center.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7f18b02061d94dcd8828b70b01620559.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Italian Opera Taormina: Show Selection + Snacks & Drink" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Italian Opera Taormina: Show Selection + Snacks & Drink</h3>
+          <p class="venue">📍 Italian Opera Taormina</p>
+          <p>Book tickets to an operatic event at the Nazarena Garden Theater in Taormina city center.
 
 Enjoy a glass of Prosecco in the garden. See a live performance featuring top national and international voices, accompanied by skilled pianists.
 
 The opera performance lasts an hour and a half and includes well-known opera pieces.</p>
-        <div class="card-footer">
-         <span class="price">From €50</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-italian-opera-taormina-show-selection-snacks-drink-p1118730/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €50</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-italian-opera-taormina-show-selection-snacks-drink-p1118730/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/9d555ae5b2274385b9cfba0bd504de42.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Isola Bella: Guided Boat Tour + Pastries & Drinks" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Isola Bella: Guided Boat Tour + Pastries & Drinks</h3>
-        <p class="venue">📍 Taormina Cruises</p>
-        <p>Visit one of Sicily's key spots. See Monte Tauro and the towns of Taormina and Castelmola from the sea. These places still attract artists, poets, and travelers.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9d555ae5b2274385b9cfba0bd504de42.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Isola Bella: Guided Boat Tour + Pastries & Drinks" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Isola Bella: Guided Boat Tour + Pastries & Drinks</h3>
+          <p class="venue">📍 Taormina Cruises</p>
+          <p>Visit one of Sicily's key spots. See Monte Tauro and the towns of Taormina and Castelmola from the sea. These places still attract artists, poets, and travelers.
 
 View Isola Bella, known for its unique flora and fauna. This natural site was commissioned by an English aristocrat exiled to Sicily by Queen Victoria I.
 
 Board a safety-equipped boat and listen to the captain shares stories of myths and legends. Enjoy a refreshing aperitif and taste Sicilian almond pastries.</p>
-        <div class="card-footer">
-         <span class="price">From €35</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-isola-bella-guided-boat-tour-pastries-drinks-p1123859/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €35</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-isola-bella-guided-boat-tour-pastries-drinks-p1123859/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/4bac41a2161f4e4ebc6d9bfc7dd712d2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Castello di Taormina: Skip The Line Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Castello di Taormina: Skip The Line Ticket + Audio Guide</h3>
-        <p class="venue">📍 Castello di Taormina</p>
-        <p>Visit Castello di Taormina, an Arab-Norman fortress from the 11th century, located on the rock of Monte at 397 meters high. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4bac41a2161f4e4ebc6d9bfc7dd712d2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Castello di Taormina: Skip The Line Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Castello di Taormina: Skip The Line Ticket + Audio Guide</h3>
+          <p class="venue">📍 Castello di Taormina</p>
+          <p>Visit Castello di Taormina, an Arab-Norman fortress from the 11th century, located on the rock of Monte at 397 meters high. 
 
 Listen to the multilingual audio guide that covers 21 historical points within the castle. You will also get a bilingual 3D map indicating all points of interest. 
 
 Observe a wide variety of landscapes from the tower, ranging from the Ionian side to the Strait of Messina, including the towns of Taormina and Castelmola and the volcano Etna down to its foothills and the long coast with its villages.
 
 Reach the Taormina Castle via a staircase carved into the rock. Receive a personalized parchment at the end of the visit.</p>
-        <div class="card-footer">
-         <span class="price">From €10</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-castello-di-taormina-skip-the-line-ticket-audio-guide-p1106352/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €10</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-castello-di-taormina-skip-the-line-ticket-audio-guide-p1106352/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/9d555ae5b2274385b9cfba0bd504de42.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Taormina: Sunset Dolphin Tour + Aperitif" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Taormina: Sunset Dolphin Tour + Aperitif</h3>
-        <p class="venue">📍 Taormina Cruises</p>
-        <p>Set sail along the beautiful Taormina coast starting from the harbor of Giardini Naxos, Sicily's oldest Greek colony, and enjoy scenic views. Uncover the secrets of the Love Cave and Blue Cave, and explore the UNESCO World Heritage Site Isola Bella with its rich history.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9d555ae5b2274385b9cfba0bd504de42.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Taormina: Sunset Dolphin Tour + Aperitif" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Taormina: Sunset Dolphin Tour + Aperitif</h3>
+          <p class="venue">📍 Taormina Cruises</p>
+          <p>Set sail along the beautiful Taormina coast starting from the harbor of Giardini Naxos, Sicily's oldest Greek colony, and enjoy scenic views. Uncover the secrets of the Love Cave and Blue Cave, and explore the UNESCO World Heritage Site Isola Bella with its rich history.
 
 Take a dip in the clear Ionian Sea before indulging in Sicilian arancini and Prosecco onboard. If weather permits, spot dolphins in their natural habitat as you cruise. End the day admiring the beautiful sunset and Mount Etna's silhouette for an incredible experience.</p>
-        <div class="card-footer">
-         <span class="price">From €50</span>
-         <span class="rating">⭐ 4.4 (9)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-taormina-sunset-dolphin-tour-aperitif-p1094585/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €50</span>
+            <span class="rating">⭐ 4.4 (9)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-taormina-sunset-dolphin-tour-aperitif-p1094585/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,53 +32,51 @@
     <p>3 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/875e0342be224e5d9f479df15da5f7df.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Out of Africa Wildlife Park: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Out of Africa Wildlife Park: Entry Ticket</h3>
-        <p class="venue">📍 Out of Africa Wildlife Park</p>
-        <p>Nestled in the Mingus Mountains, Out of Africa Wildlife Park is your Stateside Serengeti, a 103-acre reserve that's home to some of the world's most wondrous animal life.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/875e0342be224e5d9f479df15da5f7df.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Out of Africa Wildlife Park: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Out of Africa Wildlife Park: Entry Ticket</h3>
+          <p class="venue">📍 Out of Africa Wildlife Park</p>
+          <p>Nestled in the Mingus Mountains, Out of Africa Wildlife Park is your Stateside Serengeti, a 103-acre reserve that's home to some of the world's most wondrous animal life.
 
 The park strives to both educate and entertain. As well as marveling at the residents – giraffes, rhinos, black bears, leopards, caimans, zebras, and the like – you can catch expertly led displays and feeds to get a real understanding of the animals' nature.
 
 With a mixture of vehicular and on-foot experiences, you'll really feel like you're on safari!</p>
-        <div class="card-footer">
-         <span class="price">From €40.74</span>
-         <span class="rating">⭐ 4.8 (30)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-out-of-africa-wildlife-park-p1015395/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €40.74</span>
+            <span class="rating">⭐ 4.8 (30)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-out-of-africa-wildlife-park-p1015395/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2bf095ab4d26434d953d160a73d47d1f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Verde Valley & Montezuma's Castle: Day Tour from Phoenix" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Verde Valley & Montezuma's Castle: Day Tour from Phoenix</h3>
-        <p class="venue">📍 Montezuma's Castle</p>
-        <p>Montezuma Castle National Monument and Tuzigoot National Monument both feature ancient homes and treasures from the Native American Sinagua people, who lived in Arizona centuries before Christopher Columbus showed up. Learn about their remarkably advanced culture as you're led around these historic sites by a Native American guide.</p>
-        <div class="card-footer">
-         <span class="price">From €194</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-verde-valley-montezuma-s-castle-day-tour-from-phoenix-p977256/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2bf095ab4d26434d953d160a73d47d1f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Verde Valley & Montezuma's Castle: Day Tour from Phoenix" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Verde Valley & Montezuma's Castle: Day Tour from Phoenix</h3>
+          <p class="venue">📍 Montezuma's Castle</p>
+          <p>Montezuma Castle National Monument and Tuzigoot National Monument both feature ancient homes and treasures from the Native American Sinagua people, who lived in Arizona centuries before Christopher Columbus showed up. Learn about their remarkably advanced culture as you're led around these historic sites by a Native American guide.</p>
+          <div class="card-footer">
+            <span class="price">From €194</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-verde-valley-montezuma-s-castle-day-tour-from-phoenix-p977256/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/d4c51e0b94234b62b1055e8275e094fc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Camp Verde: The Predator Zipline Experience" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Camp Verde: The Predator Zipline Experience</h3>
-        <p class="venue">📍 Outdoor Activities in Phoenix</p>
-        <p>Try a two to three-hour eco zip line tour with five lines and a suspension bridge. Glide through the air and see wildlife from above at the Out of Africa Wildlife Park. Spot lions, cougars, tigers, and take in the red rock views. Guides will share tips and point out animals below. This course is great for beginners and experienced zip liners alike. Ask guides for details about the animals you see.</p>
-        <div class="card-footer">
-         <span class="price">From €103.42</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-camp-verde-the-predator-zipline-experience-p1105362/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d4c51e0b94234b62b1055e8275e094fc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Camp Verde: The Predator Zipline Experience" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Camp Verde: The Predator Zipline Experience</h3>
+          <p class="venue">📍 Outdoor Activities in Phoenix</p>
+          <p>Try a two to three-hour eco zip line tour with five lines and a suspension bridge. Glide through the air and see wildlife from above at the Out of Africa Wildlife Park. Spot lions, cougars, tigers, and take in the red rock views. Guides will share tips and point out animals below. This course is great for beginners and experienced zip liners alike. Ask guides for details about the animals you see.</p>
+          <div class="card-footer">
+            <span class="price">From €103.42</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-camp-verde-the-predator-zipline-experience-p1105362/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

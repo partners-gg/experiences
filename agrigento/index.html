@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,75 +32,73 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/be8b523f36b54f409d0902dd3e3c456e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Valley of the Temples: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Valley of the Temples: Entry Ticket</h3>
-        <p class="venue">📍 Valley of the Temples</p>
-        <p>The Valley of the Temples in Agrigento is the largest archaeological site in the world. This Sicilian plateau spans 1,300 hectares of sun-drenched history, where some of the most remarkable ruins of Ancient Greek and Byzantine empires are still standing tall.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/be8b523f36b54f409d0902dd3e3c456e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Valley of the Temples: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Valley of the Temples: Entry Ticket</h3>
+          <p class="venue">📍 Valley of the Temples</p>
+          <p>The Valley of the Temples in Agrigento is the largest archaeological site in the world. This Sicilian plateau spans 1,300 hectares of sun-drenched history, where some of the most remarkable ruins of Ancient Greek and Byzantine empires are still standing tall.
 
 Peel back the centuries and discover these wonders of antiquity overlooking the glistening Mediterranean.</p>
-        <div class="card-footer">
-         <span class="price">From €18</span>
-         <span class="rating">⭐ 4 (407)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-valley-of-the-temples-in-agrigento-p975786/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €18</span>
+            <span class="rating">⭐ 4 (407)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-valley-of-the-temples-in-agrigento-p975786/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/c4bc771815a743dfb2e1e9c2b001809c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Valley of the Temples & Kolymbethra Garden: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Valley of the Temples & Kolymbethra Garden: Entry Ticket</h3>
-        <p class="venue">📍 Valley of the Temples</p>
-        <p>Step into a UNESCO World Heritage site, and the largest archaeological site in the world. The sun-drenched ruins in the ancient Valley of the Temples will revive the lost imagery of long-collapsed Greek and Byzantine Empires. This combo ticket also lets you wander the neighbouring, ancient Kolymbethra Garden.</p>
-        <div class="card-footer">
-         <span class="price">From €24</span>
-         <span class="rating">⭐ 4.2 (58)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-valley-of-the-temples-kolymbethra-garden-p979003/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/c4bc771815a743dfb2e1e9c2b001809c.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Valley of the Temples & Kolymbethra Garden: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Valley of the Temples & Kolymbethra Garden: Entry Ticket</h3>
+          <p class="venue">📍 Valley of the Temples</p>
+          <p>Step into a UNESCO World Heritage site, and the largest archaeological site in the world. The sun-drenched ruins in the ancient Valley of the Temples will revive the lost imagery of long-collapsed Greek and Byzantine Empires. This combo ticket also lets you wander the neighbouring, ancient Kolymbethra Garden.</p>
+          <div class="card-footer">
+            <span class="price">From €24</span>
+            <span class="rating">⭐ 4.2 (58)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-valley-of-the-temples-kolymbethra-garden-p979003/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/668fdc2642264bb2b44648dd2c40b951.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Regional Archaeological Museum Pietro Griffo: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Regional Archaeological Museum Pietro Griffo: Entry Ticket</h3>
-        <p class="venue">📍 Museo Archeologico Regionale Pietro Griffo</p>
-        <p>You can explore a vast array of ancient artifacts at the Archaeological Museum Pietro Griffo. You'll see artifacts from Greek, Roman, and Byzantine periods, including ancient sculptures, detailed mosaics, and pottery. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/668fdc2642264bb2b44648dd2c40b951.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Regional Archaeological Museum Pietro Griffo: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Regional Archaeological Museum Pietro Griffo: Entry Ticket</h3>
+          <p class="venue">📍 Museo Archeologico Regionale Pietro Griffo</p>
+          <p>You can explore a vast array of ancient artifacts at the Archaeological Museum Pietro Griffo. You'll see artifacts from Greek, Roman, and Byzantine periods, including ancient sculptures, detailed mosaics, and pottery. 
 
 Exhibits showcase the grandeur of the nearby Valley of the Temples, with clear explanations to help you understand each piece's significance. Don't miss the coin collection that offers a glimpse into the economic life of ancient times. Beyond just viewing relics, you'll experience the rich history that shaped this region and leave with a deeper appreciation for the ancient world.
 
 Use this ticket to enter the Regional Archaeological Museum Pietro Griffo, and see ancient statues of the gods, and famous mythical heroes, as well as everyday items like coins, vases, masks, pottery, and more.</p>
-        <div class="card-footer">
-         <span class="price">From €13</span>
-         <span class="rating">⭐ 3.5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-regional-archaeological-museum-pietro-griffo-p977519/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €13</span>
+            <span class="rating">⭐ 3.5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-regional-archaeological-museum-pietro-griffo-p977519/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/be8b523f36b54f409d0902dd3e3c456e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agrigento Valley of the Temples: Sunset Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Agrigento Valley of the Temples: Sunset Guided Tour</h3>
-        <p class="venue">📍 Valley of the Temples</p>
-        <p>Begin your adventure at the Juno Temple's grand entrance, accompanied by a knowledgeable historian and art enthusiast. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/be8b523f36b54f409d0902dd3e3c456e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Agrigento Valley of the Temples: Sunset Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Agrigento Valley of the Temples: Sunset Guided Tour</h3>
+          <p class="venue">📍 Valley of the Temples</p>
+          <p>Begin your adventure at the Juno Temple's grand entrance, accompanied by a knowledgeable historian and art enthusiast. 
 
 Enjoy a two-hour exploration, uncovering the secrets of Sicily's remarkable archaeological marvel.
 
 Next, stroll toward the Temple of Heracles, and delve deeper into the valley to discover the imposing Temple of Concordia, a testament to the ingenuity of Doric architecture.
 
 Continue to the Temple of Olympian Zeus and its monumental columns and ruins. The grand finale awaits at Porta V.</p>
-        <div class="card-footer">
-         <span class="price">From €45.12</span>
-         <span class="rating">⭐ 3.8 (8)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-sunset-guided-tour-of-the-agrigento-valley-of-the-temples-p1088986/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €45.12</span>
+            <span class="rating">⭐ 3.8 (8)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-sunset-guided-tour-of-the-agrigento-valley-of-the-temples-p1088986/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

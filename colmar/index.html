@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,71 +32,69 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/5d77017ba10d4497970c3d0c5aa21f76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Unterlinden Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Unterlinden Museum: Entry Ticket</h3>
-        <p class="venue">📍 Unterlinden Museum</p>
-        <p>Once a convent for Dominican sisters, the Musée Unterlinden is now home to even more holy relics. Alongside the famous Isenheim Altarpiece are a number of other altars from the Middle Ages – including the largest collection of paintings by Martin Schongauer. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/5d77017ba10d4497970c3d0c5aa21f76.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Unterlinden Museum: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Unterlinden Museum: Entry Ticket</h3>
+          <p class="venue">📍 Unterlinden Museum</p>
+          <p>Once a convent for Dominican sisters, the Musée Unterlinden is now home to even more holy relics. Alongside the famous Isenheim Altarpiece are a number of other altars from the Middle Ages – including the largest collection of paintings by Martin Schongauer. 
 
 Art isn't all there is. The museum's collection of archaeological finds spans around 7,000 years, including Greco-Roman mosaics, a 17th-century harpsichord, and modern marvels such as Jean Dubuffet's Don Coucoubazar.</p>
-        <div class="card-footer">
-         <span class="price">From €14</span>
-         <span class="rating">⭐ 4.7 (223)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-unterlinden-museum-p1006222/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €14</span>
+            <span class="rating">⭐ 4.7 (223)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-unterlinden-museum-p1006222/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/435b1f76479e4a5bb722a179d3edf2af.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Toy Museum of Colmar: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Toy Museum of Colmar: Entry Ticket</h3>
-        <p class="venue">📍 The Toy Museum of Colmar</p>
-        <p>Take your imagination for a stroll down memory lane with a visit to the charming Toy Museum of Colmar. Discover hundreds of toys and games from the 19th century all the way to the present day, and see how play has evolved over the years – and what it can teach us about ourselves.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/435b1f76479e4a5bb722a179d3edf2af.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Toy Museum of Colmar: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Toy Museum of Colmar: Entry Ticket</h3>
+          <p class="venue">📍 The Toy Museum of Colmar</p>
+          <p>Take your imagination for a stroll down memory lane with a visit to the charming Toy Museum of Colmar. Discover hundreds of toys and games from the 19th century all the way to the present day, and see how play has evolved over the years – and what it can teach us about ourselves.
 
 From vintage rocking horses to venerable toy soldiers and elegant porcelain dolls to iconic games and today's popular toys, it's a unique and fun slice of culture that'll rekindle the magic of childhood.</p>
-        <div class="card-footer">
-         <span class="price">From €6.5</span>
-         <span class="rating">⭐ 4.4 (280)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-toy-museum-of-colmar-p1004217/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €6.5</span>
+            <span class="rating">⭐ 4.4 (280)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-toy-museum-of-colmar-p1004217/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/0b3e9092ffc4409ca61b26a5a2063f4f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Choco Story Colmar: Entry Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Choco Story Colmar: Entry Ticket + Audio Guide</h3>
-        <p class="venue">📍 Choco Story Colmar</p>
-        <p>Make like a marshmallow and get dunked into a world of chocolatey goodness, with a ticket to Choco Story Colmar. This cocoa-riffic attraction will satisfy your sweet tooth _and_ your thirst for knowledge. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/0b3e9092ffc4409ca61b26a5a2063f4f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Choco Story Colmar: Entry Ticket + Audio Guide" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Choco Story Colmar: Entry Ticket + Audio Guide</h3>
+          <p class="venue">📍 Choco Story Colmar</p>
+          <p>Make like a marshmallow and get dunked into a world of chocolatey goodness, with a ticket to Choco Story Colmar. This cocoa-riffic attraction will satisfy your sweet tooth _and_ your thirst for knowledge. 
 
 Discover the history of cocoa and ogle delicious-looking eye-candy – like a Statue of Liberty made from tempered chocolate. Watch expert chocolate-making demonstrations from wizard-like chocolatiers, craft your own, and chomp your way through as much choc as your body can handle.</p>
-        <div class="card-footer">
-         <span class="price">From €15</span>
-         <span class="rating">⭐ 4.5 (40)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-choco-story-colmar-p999587/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €15</span>
+            <span class="rating">⭐ 4.5 (40)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-choco-story-colmar-p999587/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/94f69bfa4a554e97bb485cde38cb017a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Alsatian Wines: Audio Guide Tour + Tasting" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Museum of Alsatian Wines: Audio Guide Tour + Tasting</h3>
-        <p class="venue">📍 Museum of Alsatian Wines</p>
-        <p>This journey to the Musée des Vins d'Alsace at the Alsatian vineyard will have you exploring the vine work, harvest, and cellar, as well as meeting the winemaker, getting acquainted with the wine professions, and traveling the wine route. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/94f69bfa4a554e97bb485cde38cb017a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Museum of Alsatian Wines: Audio Guide Tour + Tasting" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Museum of Alsatian Wines: Audio Guide Tour + Tasting</h3>
+          <p class="venue">📍 Museum of Alsatian Wines</p>
+          <p>This journey to the Musée des Vins d'Alsace at the Alsatian vineyard will have you exploring the vine work, harvest, and cellar, as well as meeting the winemaker, getting acquainted with the wine professions, and traveling the wine route. 
 
 Next, you will enjoy the taste and smell of delicious wine and food pairings through a tasting. You'll also meet the bright minds shaping the future of Alsatian wine.</p>
-        <div class="card-footer">
-         <span class="price">From €15</span>
-         <span class="rating">⭐ 4.5 (4)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-alsatian-wines-audio-guide-tour-tasting-p1083034/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €15</span>
+            <span class="rating">⭐ 4.5 (4)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-museum-of-alsatian-wines-audio-guide-tour-tasting-p1083034/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,93 +32,91 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/a9d442593858409b9cc6db76550b08bb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Breakers: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Breakers: Entry Ticket</h3>
-        <p class="venue">📍 The Breakers</p>
-        <p>Explore 11 historic properties and landscapes, seven of which are National Historic Landmarks. See how America's architecture and society evolved from the Colonial era through the Gilded Age. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a9d442593858409b9cc6db76550b08bb.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Breakers: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Breakers: Entry Ticket</h3>
+          <p class="venue">📍 The Breakers</p>
+          <p>Explore 11 historic properties and landscapes, seven of which are National Historic Landmarks. See how America's architecture and society evolved from the Colonial era through the Gilded Age. 
 
 Visit The Breakers, The Elms, Marble House, Rosecliff, Chateau-sur-Mer, Kingscote, and Isaac Bell House, and walk through Green Animals Topiary Garden. Each site provides a complete view of architecture, interiors, and landscapes, along with insights into their social history.</p>
-        <div class="card-footer">
-         <span class="price">From €27.59</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-breakers-entry-ticket-p1124867/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €27.59</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-breakers-entry-ticket-p1124867/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/d03bbf69107c420f9c52de6b4bf7a680.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Carisbrooke Castle: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Carisbrooke Castle: Entry Ticket</h3>
-        <p class="venue">📍 Carisbrooke Castle</p>
-        <p>Surrounded by England's green and pleasant landscape, Carisbrooke Castle is a must-visit landmark on the Isle of Wight.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/d03bbf69107c420f9c52de6b4bf7a680.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Carisbrooke Castle: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Carisbrooke Castle: Entry Ticket</h3>
+          <p class="venue">📍 Carisbrooke Castle</p>
+          <p>Surrounded by England's green and pleasant landscape, Carisbrooke Castle is a must-visit landmark on the Isle of Wight.
 
 Perched on a steep motte at the heart of the island, the medieval castle has an eventful past. Through the centuries it's been a besieged fortress, an idyllic royal summer residence, and even a prison for the overthrown Charles I.
 
 There are stellar views to be had from the castle walls, and visitors can also meet the famous Carisbrooke donkeys. Another highlight is Charles' bowling green, where the imprisoned Stuart king would cut loose prior to his beheading in 1649.</p>
-        <div class="card-footer">
-         <span class="price">From €15.01</span>
-         <span class="rating">⭐ 4.6 (43)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-carisbrooke-castle-p1010016/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €15.01</span>
+            <span class="rating">⭐ 4.6 (43)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-carisbrooke-castle-p1010016/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/dce786af91e54b22b3400f0f0cc7b0a8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Captain's Lunch Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Captain's Lunch Cruise</h3>
-        <p class="venue">📍 BB Riverboats</p>
-        <p>Climb aboard and get ready to unwind on a lunch cruise aboard one of the magnificent BB Riverboats. This isn't your typical cruise company, and you'll soon find out why!
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dce786af91e54b22b3400f0f0cc7b0a8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Captain's Lunch Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Captain's Lunch Cruise</h3>
+          <p class="venue">📍 BB Riverboats</p>
+          <p>Climb aboard and get ready to unwind on a lunch cruise aboard one of the magnificent BB Riverboats. This isn't your typical cruise company, and you'll soon find out why!
 
 If you want to simply sit back, relax, and enjoy a delicious buffet, you can – but you can also enjoy a variety of fun games and entertainment, guaranteed to liven up your cruise.
 
 Fun fact: 1 out of every 4 steamboats that were built in the US were built in Cincinnati, making this a perfect way to get your fix of local culture and history (as well as some delicious food).</p>
-        <div class="card-footer">
-         <span class="price">From €48.81</span>
-         <span class="rating">⭐ 4.6 (17)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-captains-lunch-cruise-p1017549/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €48.81</span>
+            <span class="rating">⭐ 4.6 (17)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-captains-lunch-cruise-p1017549/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/dce786af91e54b22b3400f0f0cc7b0a8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Historic Cincinnati Sightseeing Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Historic Cincinnati Sightseeing Cruise</h3>
-        <p class="venue">📍 BB Riverboats</p>
-        <p>See Cincinnati like never before, onboard a historic BB Riverboats sightseeing cruise. Enjoy the sights and sounds of the Queen City and Northern Kentucky as you float past panoramic views that will take your breath away. This is quality time on the 10th longest river in the United States!
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dce786af91e54b22b3400f0f0cc7b0a8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Historic Cincinnati Sightseeing Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Historic Cincinnati Sightseeing Cruise</h3>
+          <p class="venue">📍 BB Riverboats</p>
+          <p>See Cincinnati like never before, onboard a historic BB Riverboats sightseeing cruise. Enjoy the sights and sounds of the Queen City and Northern Kentucky as you float past panoramic views that will take your breath away. This is quality time on the 10th longest river in the United States!
 
 Cruising along the Ohio River, the city's 19th-century architecture will unfold before your eyes. This is the only way to check out all the local landmarks from a unique - and very photogenic - vantage point.</p>
-        <div class="card-footer">
-         <span class="price">From €30.91</span>
-         <span class="rating">⭐ 4.5 (19)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-historic-cincinnati-sightseeing-cruise-p1016651/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €30.91</span>
+            <span class="rating">⭐ 4.5 (19)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-historic-cincinnati-sightseeing-cruise-p1016651/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/dce786af91e54b22b3400f0f0cc7b0a8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Captain's Dinner Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Captain's Dinner Cruise</h3>
-        <p class="venue">📍 BB Riverboats</p>
-        <p>Get ready to unwind on an evening cruise aboard one of the magnificent BB Riverboats. This isn't your typical cruise company, and you'll soon find out why!
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/dce786af91e54b22b3400f0f0cc7b0a8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Captain's Dinner Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Captain's Dinner Cruise</h3>
+          <p class="venue">📍 BB Riverboats</p>
+          <p>Get ready to unwind on an evening cruise aboard one of the magnificent BB Riverboats. This isn't your typical cruise company, and you'll soon find out why!
 
 Admire the local sights as you float past them on this relaxing and atmospheric boat ride, and enjoy one of the tastiest meals around.
 
 Fun fact: 1 out of every 4 steamboats that were built in the US were built in Cincinnati, making this a perfect way to get your fix of local culture and history (as well as some delicious food).</p>
-        <div class="card-footer">
-         <span class="price">From €63.45</span>
-         <span class="rating">⭐ 4.5 (10)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-captain-s-dinner-cruise-p1017551/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €63.45</span>
+            <span class="rating">⭐ 4.5 (10)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-captain-s-dinner-cruise-p1017551/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

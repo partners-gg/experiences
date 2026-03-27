@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,133 +32,131 @@
     <p>7 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce436f2ef59042038ce17bc2ede8cb82.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Phillip Island Nature Parks: Koala Conservation Reserve Entry" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Phillip Island Nature Parks: Koala Conservation Reserve Entry</h3>
-        <p class="venue">📍 Phillip Island Nature Parks</p>
-        <p>Visit the Koala Conservation Reserve on Phillip Island to see Australian wildlife. Walk along two boardwalks to spot koalas, wallabies, echidnas, and native birds.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce436f2ef59042038ce17bc2ede8cb82.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Phillip Island Nature Parks: Koala Conservation Reserve Entry" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Phillip Island Nature Parks: Koala Conservation Reserve Entry</h3>
+          <p class="venue">📍 Phillip Island Nature Parks</p>
+          <p>Visit the Koala Conservation Reserve on Phillip Island to see Australian wildlife. Walk along two boardwalks to spot koalas, wallabies, echidnas, and native birds.
 
 Explore interactive displays about Australia's animals at the visitor centre and let kids enjoy the nature play area. Spend the day outdoors on six hectares of trails through Australian bushland.</p>
-        <div class="card-footer">
-         <span class="price">From €10.22</span>
-         <span class="rating">⭐ 4.5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-phillip-island-nature-parks-koala-conservation-reserve-entry-p1106012/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €10.22</span>
+            <span class="rating">⭐ 4.5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-phillip-island-nature-parks-koala-conservation-reserve-entry-p1106012/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/e2e59c55810542a990884043dcd823f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Phillip Island Nature Parks: Penguin Parade Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Phillip Island Nature Parks: Penguin Parade Entry Ticket</h3>
-        <p class="venue">📍 Phillip Island Nature Parks</p>
-        <p>Watch the little penguins make their way across the beach at the Penguin Parade, surrounded by local wildlife like swamp wallabies, eastern barred bandicoots, cape barren geese, and short-tailed shearwaters. Wander the boardwalks at night to see these penguins return to their burrows along with other local animals.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e2e59c55810542a990884043dcd823f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Phillip Island Nature Parks: Penguin Parade Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Phillip Island Nature Parks: Penguin Parade Entry Ticket</h3>
+          <p class="venue">📍 Phillip Island Nature Parks</p>
+          <p>Watch the little penguins make their way across the beach at the Penguin Parade, surrounded by local wildlife like swamp wallabies, eastern barred bandicoots, cape barren geese, and short-tailed shearwaters. Wander the boardwalks at night to see these penguins return to their burrows along with other local animals.
 
 Each ticket supports the preservation of this habitat, helping Nature Parks rangers restore and protect the landscape for the penguins and other wildlife.
 
 Choose from two viewing options: the Penguins Plus for a close-up view with limited capacity by the penguin path, or the General Viewing area for a broad look at the penguins as they waddle to the colony.</p>
-        <div class="card-footer">
-         <span class="price">From €19.84</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-phillip-island-nature-parks-penguin-parade-p1105278/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €19.84</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-phillip-island-nature-parks-penguin-parade-p1105278/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/731d7cbae0f343918a337e0b3caf9d57.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Phillip Island: Churchill Island Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Phillip Island: Churchill Island Entry Ticket</h3>
-        <p class="venue">📍 Phillip Island Nature Parks</p>
-        <p>Visit Churchill Island in Victoria, a place where history and nature come together. Walk through open spaces and historic grounds with fresh air. Explore old cottages, see horse-drawn carts, and walk through maintained gardens and lawns. View the coastline overlooking Phillip Island.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/731d7cbae0f343918a337e0b3caf9d57.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Phillip Island: Churchill Island Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Phillip Island: Churchill Island Entry Ticket</h3>
+          <p class="venue">📍 Phillip Island Nature Parks</p>
+          <p>Visit Churchill Island in Victoria, a place where history and nature come together. Walk through open spaces and historic grounds with fresh air. Explore old cottages, see horse-drawn carts, and walk through maintained gardens and lawns. View the coastline overlooking Phillip Island.
 
 Learn about Australia's Indigenous and pioneering history at the first agricultural site from the 1850s. Walk around the farm, follow bay trails, and watch traditional farming activities like sheep shearing, working dogs, and cow milking, demonstrated by the island's rangers and farmhands.</p>
-        <div class="card-footer">
-         <span class="price">From €10.22</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-phillip-island-churchill-island-entry-p1101099/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €10.22</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-phillip-island-churchill-island-entry-p1101099/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/e2e59c55810542a990884043dcd823f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cape Woolamai Cruise from San Remo" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Cape Woolamai Cruise from San Remo</h3>
-        <p class="venue">📍 Phillip Island Cruises</p>
-        <p>This scenic cruise gives you a whole new perspective on the pristine beaches os Phillips Island, not to mention a superior scope on the magnificent Cape Woolamai cliffs.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e2e59c55810542a990884043dcd823f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cape Woolamai Cruise from San Remo" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Cape Woolamai Cruise from San Remo</h3>
+          <p class="venue">📍 Phillip Island Cruises</p>
+          <p>This scenic cruise gives you a whole new perspective on the pristine beaches os Phillips Island, not to mention a superior scope on the magnificent Cape Woolamai cliffs.
 
 Your guide for this one-hour cruise from San Remo will regale you with stories of these spectacular surroundings before you cruise up close to the base of the Cape Woolamai cliffs. This is a popular Phillip Island surfing spot and one of the island's most scenic treasures. 
 
 You'll get tea or coffee with cake to line your stomach, not to lure the dolphins in, but they often swim by so keep your eyes peeled!</p>
-        <div class="card-footer">
-         <span class="price">From €29.47</span>
-         <span class="rating">⭐ 4.3 (11)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-cape-woolamai-cruise-from-san-remo-p1013019/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €29.47</span>
+            <span class="rating">⭐ 4.3 (11)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-cape-woolamai-cruise-from-san-remo-p1013019/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce436f2ef59042038ce17bc2ede8cb82.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Healesville Sanctuary & Phillip Island Wildlife Park: Bus Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Healesville Sanctuary & Phillip Island Wildlife Park: Bus Tour</h3>
-        <p class="venue">📍 Phillip Island Nature Parks</p>
-        <p>Start your day by visiting Healesville Sanctuary from your Melbourne city centre accommodation in an air-conditioned vehicle. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce436f2ef59042038ce17bc2ede8cb82.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Healesville Sanctuary & Phillip Island Wildlife Park: Bus Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Healesville Sanctuary & Phillip Island Wildlife Park: Bus Tour</h3>
+          <p class="venue">📍 Phillip Island Nature Parks</p>
+          <p>Start your day by visiting Healesville Sanctuary from your Melbourne city centre accommodation in an air-conditioned vehicle. 
 
 Walk among animals like koalas and kangaroos and watch live shows. 
 
 Visit the lookout and boardwalk for ocean views and a rugged coastline. 
 
 End your day with the Penguin Parade on Phillip Island, where you can see little penguins returning to their burrows.</p>
-        <div class="card-footer">
-         <span class="price">From €106.43</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-healesville-sanctuary-phillip-island-wildlife-park-bus-tour-p1102344/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €106.43</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-healesville-sanctuary-phillip-island-wildlife-park-bus-tour-p1102344/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce436f2ef59042038ce17bc2ede8cb82.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Penguin Parade + Moonlit Sanctuary Wildlife Park: Day Trip from Melbourne" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Penguin Parade + Moonlit Sanctuary Wildlife Park: Day Trip from Melbourne</h3>
-        <p class="venue">📍 Phillip Island Nature Parks</p>
-        <p>Departing from Melbourne, this trip takes participants to the region's most cherished natural gems, including the Moonlit Sanctuary Wildlife Conservation Park, The Nobbies boardwalk, and the famed Penguin Parade. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce436f2ef59042038ce17bc2ede8cb82.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Penguin Parade + Moonlit Sanctuary Wildlife Park: Day Trip from Melbourne" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Penguin Parade + Moonlit Sanctuary Wildlife Park: Day Trip from Melbourne</h3>
+          <p class="venue">📍 Phillip Island Nature Parks</p>
+          <p>Departing from Melbourne, this trip takes participants to the region's most cherished natural gems, including the Moonlit Sanctuary Wildlife Conservation Park, The Nobbies boardwalk, and the famed Penguin Parade. 
 
 In the Moonlit Sanctuary, the Australian wilderness comes alive with kangaroos, wallabies, reptiles, Tasmanian devils, and Koalas. For a small extra charge, adventurers can get up close and personal with a Koala or wallaby!
 
 Next, The Nobbies offers breathtaking views of the Bass Strait from its boardwalks. Stroll along the clifftop paths and enjoy views of The Nobbies and Seal Rocks.
 
 Last but not least is the Penguin Parade on Phillip Island. There, spectators can marvel as adorable little penguins hustle back to their burrows from the sea.</p>
-        <div class="card-footer">
-         <span class="price">From €95.61</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-penguin-parade-moonlit-sanctuary-wildlife-park-day-trip-from-melbourne-p1085392/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €95.61</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-penguin-parade-moonlit-sanctuary-wildlife-park-day-trip-from-melbourne-p1085392/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/e2e59c55810542a990884043dcd823f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Phillip Island: Sunset Cruise" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Phillip Island: Sunset Cruise</h3>
-        <p class="venue">📍 Phillip Island Cruises</p>
-        <p>Join in on a leisurely evening cruise through the sheltered waters of Western Port Bay on a modern catamaran.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e2e59c55810542a990884043dcd823f5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Phillip Island: Sunset Cruise" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Phillip Island: Sunset Cruise</h3>
+          <p class="venue">📍 Phillip Island Cruises</p>
+          <p>Join in on a leisurely evening cruise through the sheltered waters of Western Port Bay on a modern catamaran.
 
 Enjoy a drink (available for purchase) and a grazing box from the licensed bar in a relaxed atmosphere and watch the towns light up around the bay as the sun sets, keeping a lookout for a variety of birdlife that populates the area. 
 
 Make your way around Churchill Island, Reef Island, Elizabeth Island, and the southern side of French Island as a perfect way to end your day at the beautiful Phillip Island.</p>
-        <div class="card-footer">
-         <span class="price">From €47.5</span>
-         <span class="rating">⭐ 4.5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-phillip-island-sunset-cruise-p1042794/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €47.5</span>
+            <span class="rating">⭐ 4.5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-phillip-island-sunset-cruise-p1042794/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,41 +32,39 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/970106e47be54c95b32c92c6f369ee00.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Vlissingen: Guided City Walk" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Vlissingen: Guided City Walk</h3>
-        <p class="venue">📍 Zeeland City Tours</p>
-        <p>Experience Vlissingen through the eyes of a local expert on this guided walk through the old city. See the home of Michiel de Ruyter, and learn the story behind the bullet above his front door!
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/970106e47be54c95b32c92c6f369ee00.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Vlissingen: Guided City Walk" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Vlissingen: Guided City Walk</h3>
+          <p class="venue">📍 Zeeland City Tours</p>
+          <p>Experience Vlissingen through the eyes of a local expert on this guided walk through the old city. See the home of Michiel de Ruyter, and learn the story behind the bullet above his front door!
 
 Who visited Vlissingen in 1809, and how high did the water rise during the infamous flood of February 1, 1953? All these questions and more will be answered as you listen to tales – both past and present – while enjoying the scenic streets, courtyards and squares of Vlissingen.
 
 You can also choose to combine your walk with a ride on the Zonnetrein, which will take you through another part of Vlissingen (including the Boulevard).</p>
-        <div class="card-footer">
-         <span class="price">From €10</span>
-         <span class="rating">⭐ 4.8 (265)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-city-walk-vlissingen-with-guide-p1013855/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €10</span>
+            <span class="rating">⭐ 4.8 (265)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-city-walk-vlissingen-with-guide-p1013855/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/970106e47be54c95b32c92c6f369ee00.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Solar Train Zeeland" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Solar Train Zeeland</h3>
-        <p class="venue">📍 Zeeland City Tours</p>
-        <p>Explore the charming city of Vlissingen aboard the environmentally friendly Solar Train Zeeland! Powered by electric motors which run on solar energy, this futuristic sightseeing locomotive consumes no harmful fossil fuel, emits no nasty gases, and makes hardly any noise.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/970106e47be54c95b32c92c6f369ee00.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Solar Train Zeeland" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Solar Train Zeeland</h3>
+          <p class="venue">📍 Zeeland City Tours</p>
+          <p>Explore the charming city of Vlissingen aboard the environmentally friendly Solar Train Zeeland! Powered by electric motors which run on solar energy, this futuristic sightseeing locomotive consumes no harmful fossil fuel, emits no nasty gases, and makes hardly any noise.
 
 You can choose between two options. Either enjoy a direct ride from De Punt (close to Vlissingen Station) to the city center, or sit back and relax as you take a hop-on hop-off tour of all the local sights in the afternoon. Breeze around the harbor scenery, check out the marina or the bustling beachfront promenade, and enjoy the pleasant seaside vibes with plenty of time to explore at your leisure.</p>
-        <div class="card-footer">
-         <span class="price">From €3</span>
-         <span class="rating">⭐ 4.2 (194)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-solar-train-zeeland-p1013856/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €3</span>
+            <span class="rating">⭐ 4.2 (194)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-solar-train-zeeland-p1013856/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

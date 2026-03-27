@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,41 +32,39 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/6e19d77e2cf747cbb4ba7f889e76f560.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LEGOLAND® Deutschland Resort: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>LEGOLAND® Deutschland Resort: Entry Ticket</h3>
-        <p class="venue">📍 LEGOLAND® Deutschland Resort</p>
-        <p>Slip into the roles of your favorite LEGO® heroes! Explore 68 attractions, plus thousands of models made from more than 57 million LEGO® bricks at LEGOLAND® Deutschland. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/6e19d77e2cf747cbb4ba7f889e76f560.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="LEGOLAND® Deutschland Resort: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>LEGOLAND® Deutschland Resort: Entry Ticket</h3>
+          <p class="venue">📍 LEGOLAND® Deutschland Resort</p>
+          <p>Slip into the roles of your favorite LEGO® heroes! Explore 68 attractions, plus thousands of models made from more than 57 million LEGO® bricks at LEGOLAND® Deutschland. 
 
 With rollercoasters, water rides, fun workshops and more, this is a brilliant day out for the kids (and the kid inside)!</p>
-        <div class="card-footer">
-         <span class="price">From €44</span>
-         <span class="rating">⭐ 4.5 (472)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-legoland-r-deutschland-resort-skip-the-line-p974948/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €44</span>
+            <span class="rating">⭐ 4.5 (472)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-legoland-r-deutschland-resort-skip-the-line-p974948/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/edc4ce521f8244408873edf8f611ac42.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="PEPPA PIG Park Günzburg: Admission Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>PEPPA PIG Park Günzburg: Admission Ticket</h3>
-        <p class="venue">📍 PEPPA PIG Park Günzburg</p>
-        <p>Enter the new PEPPA PIG Park Günzburg through a nearly 10-metre tall rainbow arch. Inside, find a world designed for pre-school children and their families. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/edc4ce521f8244408873edf8f611ac42.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="PEPPA PIG Park Günzburg: Admission Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>PEPPA PIG Park Günzburg: Admission Ticket</h3>
+          <p class="venue">📍 PEPPA PIG Park Günzburg</p>
+          <p>Enter the new PEPPA PIG Park Günzburg through a nearly 10-metre tall rainbow arch. Inside, find a world designed for pre-school children and their families. 
 
 Enjoy rides, playgrounds, and shows featuring Peppa Pig and her friends. Ride in Papa Pig's red car, visit the yellow house on the green hill, or take a trip on Grandpa Pig's pirate ship ride. 
 
 The park also has Peppa's muddy puddles water playground and more. Everything familiar from the TV series is here in Günzburg, Bavaria, near LEGOLAND® Deutschland. Spend a day with Peppa, her family, and friends at Germany's first PEPPA PIG Park.</p>
-        <div class="card-footer">
-         <span class="price">From €19</span>
-         <span class="rating">⭐ 4.2 (34)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-peppa-pig-park-gunzburg-admission-ticket-p1112932/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €19</span>
+            <span class="rating">⭐ 4.2 (34)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-peppa-pig-park-gunzburg-admission-ticket-p1112932/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

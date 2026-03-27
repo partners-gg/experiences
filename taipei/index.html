@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,161 +32,159 @@
     <p>9 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/f586547543e24532a2322d061a5606ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Taipei 101 Observatory" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Taipei 101 Observatory</h3>
-        <p class="venue">📍 Taipei 101</p>
-        <p>Despite having its 'world's tallest building' crown stolen by Dubai's Burj Khalifa and subsequently falling down the rankings, Taipei 101 is still one of the main players in the sport of very tall things.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f586547543e24532a2322d061a5606ee.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Taipei 101 Observatory" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Taipei 101 Observatory</h3>
+          <p class="venue">📍 Taipei 101</p>
+          <p>Despite having its 'world's tallest building' crown stolen by Dubai's Burj Khalifa and subsequently falling down the rankings, Taipei 101 is still one of the main players in the sport of very tall things.
 
 With unobscured, panoramic views of Taiwan's capital, accessed by one of the fastest elevators in the world, there's no better way to view _The City of Azaleas_ than from its 89th floor Observatory.</p>
-        <div class="card-footer">
-         <span class="price">From €16.69</span>
-         <span class="rating">⭐ 4.7 (22)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-taipei-101-observatory-p977510/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €16.69</span>
+            <span class="rating">⭐ 4.7 (22)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-taipei-101-observatory-p977510/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/835846a8732f4cd5a808944a12ea079d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Thousand Island Lake & Pinglin Tea Plantation: Afternoon Tour from Taipei" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Thousand Island Lake & Pinglin Tea Plantation: Afternoon Tour from Taipei</h3>
-        <p class="venue">📍 Pinglin Tea Museum</p>
-        <p>This tour will take you through some of Taiwan's most spectacular scenery, teach you all about the local tea culture, and show you how some of the region's most famous tea varieties are grown. Perfect for tea fiends and nature lovers alike. Even better: return transport from downtown Taipei is included in your ticket.</p>
-        <div class="card-footer">
-         <span class="price">From €44.84</span>
-         <span class="rating">⭐ 4.7 (3)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-thousand-island-lake-pinglin-tea-plantation-afternoon-tour-from-taipei-p979727/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/835846a8732f4cd5a808944a12ea079d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Thousand Island Lake & Pinglin Tea Plantation: Afternoon Tour from Taipei" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Thousand Island Lake & Pinglin Tea Plantation: Afternoon Tour from Taipei</h3>
+          <p class="venue">📍 Pinglin Tea Museum</p>
+          <p>This tour will take you through some of Taiwan's most spectacular scenery, teach you all about the local tea culture, and show you how some of the region's most famous tea varieties are grown. Perfect for tea fiends and nature lovers alike. Even better: return transport from downtown Taipei is included in your ticket.</p>
+          <div class="card-footer">
+            <span class="price">From €44.84</span>
+            <span class="rating">⭐ 4.7 (3)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-thousand-island-lake-pinglin-tea-plantation-afternoon-tour-from-taipei-p979727/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/94987a7cce0d42018cd28b5a47b7349e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Yehliu, Jiufen & Pingxi: Day Tour From Taipei" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Yehliu, Jiufen & Pingxi: Day Tour From Taipei</h3>
-        <p class="venue">📍 Day Trips from Taipei</p>
-        <p>Explore Taiwan's north and northeast coast on a guided day tour from Taipei. Begin at Jiufen, once a thriving mining village, now a charming spot with winding alleys. Visit Yehliu Geopark to marvel at its stunning coastal erosion features.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/94987a7cce0d42018cd28b5a47b7349e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Yehliu, Jiufen & Pingxi: Day Tour From Taipei" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Yehliu, Jiufen & Pingxi: Day Tour From Taipei</h3>
+          <p class="venue">📍 Day Trips from Taipei</p>
+          <p>Explore Taiwan's north and northeast coast on a guided day tour from Taipei. Begin at Jiufen, once a thriving mining village, now a charming spot with winding alleys. Visit Yehliu Geopark to marvel at its stunning coastal erosion features.
 
 Continue to Pingxi District, known for the famous "Pingxi Sky Lantern Festival." Take part in releasing sky lanterns and witness the beauty of Shifen Waterfall, often called Taiwan's "Little Niagara Falls."</p>
-        <div class="card-footer">
-         <span class="price">From €73.29</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-yehliu-jiufen-pingxi-day-tour-from-taipei-p1087705/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €73.29</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-yehliu-jiufen-pingxi-day-tour-from-taipei-p1087705/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/b7576aeeaf0d47909ec3920b0cbd2404.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Taiwan High Speed Rail: 3-Day Unlimited Pass" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Taiwan High Speed Rail: 3-Day Unlimited Pass</h3>
-        <p class="venue">📍 Taiwan City Cards</p>
-        <p>The last thing you want to worry about when exploring Taiwan is travel costs and logistics. With a three-day pass on Taiwan's high-speed rail network, you can get around _Ilha Formosa_ with minimum fuss.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b7576aeeaf0d47909ec3920b0cbd2404.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Taiwan High Speed Rail: 3-Day Unlimited Pass" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Taiwan High Speed Rail: 3-Day Unlimited Pass</h3>
+          <p class="venue">📍 Taiwan City Cards</p>
+          <p>The last thing you want to worry about when exploring Taiwan is travel costs and logistics. With a three-day pass on Taiwan's high-speed rail network, you can get around _Ilha Formosa_ with minimum fuss.
 
 Zoom from Taipei to Taichung, Taoyuan, Tainan, and an abundance of other cities that don't begin with the letter 'T'. Use your pass as much as you like over three consecutive days – perfect for a whistle-stop tour. Just exchange your ticket at selected THSR stations, and off you go!</p>
-        <div class="card-footer">
-         <span class="price">From €59.39</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-taiwan-high-speed-rail-3-day-unlimited-pass-p990019/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €59.39</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-taiwan-high-speed-rail-3-day-unlimited-pass-p990019/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/72a2ba1ad6bb431c83e7a2e446dba8d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Taipei: Morning City Tour + National Palace Museum Entry" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Taipei: Morning City Tour + National Palace Museum Entry</h3>
-        <p class="venue">📍 National Palace Museum</p>
-        <p>As well as boasting the world's highest Starbucks and the world's fastest elevator, Taipei is a city bursting at the seams with ancient Chinese culture and traditions. Join forces with a guide and a group for a four-hour in-depth exploration of this bustling metropolitan.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/72a2ba1ad6bb431c83e7a2e446dba8d5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Taipei: Morning City Tour + National Palace Museum Entry" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Taipei: Morning City Tour + National Palace Museum Entry</h3>
+          <p class="venue">📍 National Palace Museum</p>
+          <p>As well as boasting the world's highest Starbucks and the world's fastest elevator, Taipei is a city bursting at the seams with ancient Chinese culture and traditions. Join forces with a guide and a group for a four-hour in-depth exploration of this bustling metropolitan.
 
 You'll see monuments, landscaped gardens, imperial art, and more Instagram-worthy locations than you can shake a selfie-stick at.</p>
-        <div class="card-footer">
-         <span class="price">From €44.84</span>
-         <span class="rating">⭐ 4.5 (2)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-taipei-half-day-city-tour-p979493/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €44.84</span>
+            <span class="rating">⭐ 4.5 (2)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-taipei-half-day-city-tour-p979493/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/94987a7cce0d42018cd28b5a47b7349e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Yehliu, Jiufen & Shifen: Guided Day Tour from Taipei" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Yehliu, Jiufen & Shifen: Guided Day Tour from Taipei</h3>
-        <p class="venue">📍 Day Trips from Taipei</p>
-        <p>Take a full-day tour from Taipei through northern Taiwan. Visit Yehliu Geopark, Jiufen Old Street, and Shifen Waterfall without worrying about transportation or maps. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/94987a7cce0d42018cd28b5a47b7349e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Yehliu, Jiufen & Shifen: Guided Day Tour from Taipei" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Yehliu, Jiufen & Shifen: Guided Day Tour from Taipei</h3>
+          <p class="venue">📍 Day Trips from Taipei</p>
+          <p>Take a full-day tour from Taipei through northern Taiwan. Visit Yehliu Geopark, Jiufen Old Street, and Shifen Waterfall without worrying about transportation or maps. 
 
 See unique rock shapes like the “Queen’s Head” at Yehliu Geopark. Walk through the alleys of Jiufen and try local snacks in the old gold mining town. 
 
 See Shifen Waterfall, often compared to Niagara Falls. 
 
 Participate in the sky lantern tradition on Shifen Old Street (lantern is optional).</p>
-        <div class="card-footer">
-         <span class="price">From €27</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-yehliu-jiufen-shifen-guided-day-tour-from-taipei-p1122933/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €27</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-yehliu-jiufen-shifen-guided-day-tour-from-taipei-p1122933/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/94987a7cce0d42018cd28b5a47b7349e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pinglin Tea Culture & Maokong: Guided Day Tour from Taipei + Gondola Ride" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Pinglin Tea Culture & Maokong: Guided Day Tour from Taipei + Gondola Ride</h3>
-        <p class="venue">📍 Day Trips from Taipei</p>
-        <p>The exotic allure of Taiwan's renowned teas, like Tieguanyin, Wenshan Baozhong, and Oriental Beauty, calls tea lovers worldwide to go on an aromatic adventure. This guided tour to Maokong and Pinglin is the ideal escapade for both seasoned tea connoisseurs and fervent tea enthusiasts.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/94987a7cce0d42018cd28b5a47b7349e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pinglin Tea Culture & Maokong: Guided Day Tour from Taipei + Gondola Ride" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Pinglin Tea Culture & Maokong: Guided Day Tour from Taipei + Gondola Ride</h3>
+          <p class="venue">📍 Day Trips from Taipei</p>
+          <p>The exotic allure of Taiwan's renowned teas, like Tieguanyin, Wenshan Baozhong, and Oriental Beauty, calls tea lovers worldwide to go on an aromatic adventure. This guided tour to Maokong and Pinglin is the ideal escapade for both seasoned tea connoisseurs and fervent tea enthusiasts.
 
 The trip presents a unique opportunity to engage in the intriguing Taiwanese tea culture, tracing its cycle from seed to cup. The tour starts with a fascinating Maokong Gondola ride, offering beautiful views of Southern Taipei from a high perspective.
 
 Upon landing, a leisurely stroll awaits along either the Maokong Tea Fragrance Loop Trail or the Maokong Zhangshu Trail. Each path unfolds scenic landscapes, begging to be explored. The expedition continues at the Taipei Tea Promotion Center for Tieguanyin and Baozhong, where the displays reveal the magical world of Taiwanese tea.</p>
-        <div class="card-footer">
-         <span class="price">From €73.29</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-pinglin-tea-culture-maokong-guided-day-tour-from-taipei-gondola-ride-p1087778/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €73.29</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-pinglin-tea-culture-maokong-guided-day-tour-from-taipei-gondola-ride-p1087778/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/2dc7d1de90a546b6902b26108ca8341a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Taipei: Classic Landmarks Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Taipei: Classic Landmarks Guided Tour</h3>
-        <p class="venue">📍 Taipei City Tours</p>
-        <p>Secure a spot on this exciting Taipei day tour and let the city's legendary landmarks and contemporary attractions fascinate you. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2dc7d1de90a546b6902b26108ca8341a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Taipei: Classic Landmarks Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Taipei: Classic Landmarks Guided Tour</h3>
+          <p class="venue">📍 Taipei City Tours</p>
+          <p>Secure a spot on this exciting Taipei day tour and let the city's legendary landmarks and contemporary attractions fascinate you. 
 
 The trip sweeps you off to the globally acclaimed National Palace Museum, home to the world's most extensive collection of ancient Chinese artifacts. Here, the incredible works of art are sure to impress you.
 
 The excursion then leads you to the renowned Chiang Kai-shek Memorial Hall, a monumental symbol of Taiwan's rich historical culture. Feel local spirituality at the Lungshan Temple and admire the towering Taipei 101, an architectural testament to the city's technological advancement and global integration.
 
 In addition, other hidden gems await your discovery on this expedition. This all-encompassing tour offers a riveting exploration of Taipei City's past, present, and future.</p>
-        <div class="card-footer">
-         <span class="price">From €73.29</span>
-         <span class="rating">⭐ 5 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-taipei-classic-landmarks-day-tour-p1087775/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €73.29</span>
+            <span class="rating">⭐ 5 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-taipei-classic-landmarks-day-tour-p1087775/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/94987a7cce0d42018cd28b5a47b7349e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Beitou & Yangmingshan National Park: Guided Day Tour from Taipei" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Beitou & Yangmingshan National Park: Guided Day Tour from Taipei</h3>
-        <p class="venue">📍 Day Trips from Taipei</p>
-        <p>Discover the volcanic beauty of Taiwan with a guided hot spring tour to Beitou and Yangmingshan. Meet your tour guide and driver in the morning and set off on an unforgettable day-long adventure. On the way to Yangmingshan National Park, you'll also stop by the incredible architecture of Taipei Public Library Beitou Branch. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/94987a7cce0d42018cd28b5a47b7349e.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Beitou & Yangmingshan National Park: Guided Day Tour from Taipei" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Beitou & Yangmingshan National Park: Guided Day Tour from Taipei</h3>
+          <p class="venue">📍 Day Trips from Taipei</p>
+          <p>Discover the volcanic beauty of Taiwan with a guided hot spring tour to Beitou and Yangmingshan. Meet your tour guide and driver in the morning and set off on an unforgettable day-long adventure. On the way to Yangmingshan National Park, you'll also stop by the incredible architecture of Taipei Public Library Beitou Branch. 
 
 First, visit Beitou Hot Spring Museum and Geothermal Valley to learn about the hot spring culture history of Beitou. Then you will visit the centerpiece of the park – Yangmingshan Flower Clock, and Yangming Shu-Wu Mansion, the summer residence of the late president Chiang Kai-shek. 
 
 After that, the tour continues to the igneous landscape of Xiaoyoukeng, and the lava terrace of Qingtiangang. The last stop is Lengshuikeng, a barrier lake formed by volcanic lava flowing down from the mountain where you can enjoy a hot spring foot bath!</p>
-        <div class="card-footer">
-         <span class="price">From €73.29</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-beitou-yangmingshan-national-park-guided-day-tour-from-taipei-p1015233/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €73.29</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-beitou-yangmingshan-national-park-guided-day-tour-from-taipei-p1015233/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

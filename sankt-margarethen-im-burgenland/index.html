@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,39 +32,37 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/7300f6c4378a4c1988884d54ca155213.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Familypark: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Familypark: Entry Ticket</h3>
-        <p class="venue">📍 Familypark</p>
-        <p>Enjoy an exciting day full of fun and action across four different theme worlds – the Experience Castle, the Fairy Tale Forest, the Farm, and Adventure Island. Go wild on the many rides, water games and experience zones, or relax in the idyllic park landscapes featuring flower beds, tiny creeks, and fantastically-shaped trees. And it's all just a a few miles away from Lake Neusiedl!
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/7300f6c4378a4c1988884d54ca155213.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Familypark: Entry Ticket" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Familypark: Entry Ticket</h3>
+          <p class="venue">📍 Familypark</p>
+          <p>Enjoy an exciting day full of fun and action across four different theme worlds – the Experience Castle, the Fairy Tale Forest, the Farm, and Adventure Island. Go wild on the many rides, water games and experience zones, or relax in the idyllic park landscapes featuring flower beds, tiny creeks, and fantastically-shaped trees. And it's all just a a few miles away from Lake Neusiedl!
 
 On an area of ​​14 hectares, with more than 30 rides, playgrounds and climbing facilities, Familypark provide entertainment and create lasting memories, even at company events. 
 
 A special highlight is the "Biberburg" wild water course. Here, you can enjoy a rapid ride in a tree trunk, past funny beaver scenes, before an open lift takes you up to a height of 17 meters. From there, you'll whiz down at 60 km/h into a giant splash!</p>
-        <div class="card-footer">
-         <span class="price">From €36.9</span>
-         <span class="rating">⭐ 4.8 (1915)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-familypark-entry-p977711/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €36.9</span>
+            <span class="rating">⭐ 4.8 (1915)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-familypark-entry-p977711/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce09b17d56734b9e9b1951fbf0d9ee4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Margarethen Quarry: Admission + Guided Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>St. Margarethen Quarry: Admission + Guided Tour</h3>
-        <p class="venue">📍 St. Margarethen Quarry</p>
-        <p>Whether or not you ever raved in a quarry, here’s one you’ll be raving about. Vienna’s St. Margarethen Quarry is a UNESCO World Heritage site and one of the oldest and most impressive in Europe. On this guided tour through its sandy limestone history you'll hear what ancient fossils have been discovered, how the stone helped to build and restore Vienna, and why the huge outdoor concert hall is one of the best venues in the world to experience opera.</p>
-        <div class="card-footer">
-         <span class="price">From €12</span>
-         <span class="rating">⭐ 4 (1)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-st-margarethen-quarry-guided-tour-p974463/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ce09b17d56734b9e9b1951fbf0d9ee4a.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="St. Margarethen Quarry: Admission + Guided Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>St. Margarethen Quarry: Admission + Guided Tour</h3>
+          <p class="venue">📍 St. Margarethen Quarry</p>
+          <p>Whether or not you ever raved in a quarry, here’s one you’ll be raving about. Vienna’s St. Margarethen Quarry is a UNESCO World Heritage site and one of the oldest and most impressive in Europe. On this guided tour through its sandy limestone history you'll hear what ancient fossils have been discovered, how the stone helped to build and restore Vienna, and why the huge outdoor concert hall is one of the best venues in the world to experience opera.</p>
+          <div class="card-footer">
+            <span class="price">From €12</span>
+            <span class="rating">⭐ 4 (1)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-st-margarethen-quarry-guided-tour-p974463/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>
