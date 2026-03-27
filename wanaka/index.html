@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Wanaka | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Wanaka. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,12 +131,15 @@
     <p>3 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="" alt="Skydive Wanaka: Up to 9,000ft Tandem Jump" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Skydive Wanaka: Up to 9,000ft Tandem Jump</h3>
-          <p class="venue">📍 Wanaka Skydive</p>
-          <p>Are you ready to cross that daring adventure off the bucket list? Skydiving in the breathtaking landscapes of Wanaka, New Zealand, is a heart-stopping experience you'll never forget. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>WANAKA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WANAKA SKYDIVE</span>
+        </div>
+        <div class="tq-card-title">Skydive Wanaka: Up to 9,000ft Tandem Jump</div>
+        <div class="tq-card-desc">Are you ready to cross that daring adventure off the bucket list? Skydiving in the breathtaking landscapes of Wanaka, New Zealand, is a heart-stopping experience you'll never forget. 
 
 Your adventure kicks off the moment you step through the door and into the welcoming arms of the amazing frontline crew. They'll gear you up and brief you on everything you need to know. In a blink, you'll be introduced to your skilled tandem instructor and hopping into the plane for an awe-inspiring scenic flight.
 
@@ -45,41 +147,59 @@ As you soar over the Southern Alps for 20 delightful minutes, your instructor wi
 
 Then, the moment of truth arrives. You're at your chosen altitude and it's time to take the plunge. Feel your heart race as you freefall at a blistering 200kph over the stunning Central Otago landscape. After an exhilarating 25 to 60-second freefall, catch your breath, then glide smoothly under the canopy, back to the drop zone.
 
-Now, it's more than just a story - it's your thrilling adventure. Book your ticket now and make it a reality!</p>
-          <div class="card-footer">
-            <span class="price">From €180.04</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-skydive-wanaka-up-to-9000ft-p1097791/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Now, it's more than just a story - it's your thrilling adventure. Book your ticket now and make it a reality!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€180.04</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-skydive-wanaka-up-to-9000ft-p1097791/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Skydive Wanaka: Up to 12,000ft" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Skydive Wanaka: Up to 12,000ft</h3>
-          <p class="venue">📍 Wanaka Skydive</p>
-          <p>Ever thought about skydiving? Well, Wanaka in New Zealand offers the most picturesque spot to take the leap and scratch it off your bucket list. Imagine hurtling down from the heavens at 200kph, drinking in the breathtaking vistas of New Zealand's most beautiful landscapes.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>WANAKA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WANAKA SKYDIVE</span>
+        </div>
+        <div class="tq-card-title">Skydive Wanaka: Up to 12,000ft</div>
+        <div class="tq-card-desc">Ever thought about skydiving? Well, Wanaka in New Zealand offers the most picturesque spot to take the leap and scratch it off your bucket list. Imagine hurtling down from the heavens at 200kph, drinking in the breathtaking vistas of New Zealand's most beautiful landscapes.
 
 As soon as the door swings open and the frontline crew welcomes you with their infectious enthusiasm, the adventure begins. Expect a thorough briefing and top-notch gear, all geared towards ensuring your safety and enjoyment. Before long, you'll be shaking hands with your tandem instructor and hopping onto the plane for an awe-inspiring flight to your jump point.
 
 Your 20-minute journey over the Southern Alps is nothing short of spectacular. As you ascend, your instructor will point out landmarks like the majestic Mt. Cook, the stunning Mt. Aspiring, the glistening Southern Alps, an array of mirror-like lakes, and the snaking Clutha River.
 
-When you reach your chosen altitude, it's time to take the plunge. Feel your heart pound in your chest as you experience the sheer thrill of freefalling at a whopping 200kph above Central Otago's breath-taking landscape. And after a heart-stopping 25 to 60-seconds of freefall, you'll glide smoothly under your canopy, savoring the serene flight back down to the drop zone.</p>
-          <div class="card-footer">
-            <span class="price">From €225.17</span>
-            <span class="rating">⭐ 5 (2)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-skydive-wanaka-up-to-12000ft-p1097788/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+When you reach your chosen altitude, it's time to take the plunge. Feel your heart pound in your chest as you experience the sheer thrill of freefalling at a whopping 200kph above Central Otago's breath-taking landscape. And after a heart-stopping 25 to 60-seconds of freefall, you'll glide smoothly under your canopy, savoring the serene flight back down to the drop zone.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(2)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€225.17</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-skydive-wanaka-up-to-12000ft-p1097788/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Skydive Wanaka: Up to 15,000ft" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Skydive Wanaka: Up to 15,000ft</h3>
-          <p class="venue">📍 Wanaka Skydive</p>
-          <p>Get ready to tick off a bucket-list experience in the most breathtaking setting possible! Welcome to Wanaka, New Zealand's skydiving paradise. This is where awe-inspiring scenery meets pure adrenaline, and the result is an unforgettable experience.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>WANAKA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">WANAKA SKYDIVE</span>
+        </div>
+        <div class="tq-card-title">Skydive Wanaka: Up to 15,000ft</div>
+        <div class="tq-card-desc">Get ready to tick off a bucket-list experience in the most breathtaking setting possible! Welcome to Wanaka, New Zealand's skydiving paradise. This is where awe-inspiring scenery meets pure adrenaline, and the result is an unforgettable experience.
 
 The adventure begins the moment one steps through the door, where the upbeat frontline crew awaits with a warm welcome. After a comprehensive briefing and getting suited up in top-notch gear, it's time to meet the tandem instructor. This expert guide leads the journey into the plane and up into the vibrant blue sky for a truly mesmerizing scenic flight.
 
@@ -87,14 +207,20 @@ For a thrilling 20 minutes, soar over the Southern Alps, feast your eyes on the 
 
 Then, it's time for the grand leap from the chosen altitude! Experience the heart-pounding thrill of freefalling at 200kph, with the stunning Central Otago landscape as the backdrop. After 25 to 60 seconds of pure, unadulterated thrill, it's time to glide smoothly under the canopy, descending safely back to the drop zone.
 
-Back on terra firma, it's an emotional whirlwind of joy, smiles, hugs and fist pumps. This is not just a skydive, it's an experience that leaves an indelible mark on the heart and soul. Come on in, the sky's the limit!</p>
-          <div class="card-footer">
-            <span class="price">From €275.32</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-skydive-wanaka-up-to-15000ft-p1097744/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Back on terra firma, it's an emotional whirlwind of joy, smiles, hugs and fist pumps. This is not just a skydive, it's an experience that leaves an indelible mark on the heart and soul. Come on in, the sky's the limit!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€275.32</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-skydive-wanaka-up-to-15000ft-p1097744/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

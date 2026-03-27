@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Quseir | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Quseir. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,95 +131,140 @@
     <p>5 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="" alt="Sataya Dolphin House: Day Trip from El Quseir" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sataya Dolphin House: Day Trip from El Quseir</h3>
-          <p class="venue">📍 Quseir Water Activities</p>
-          <p>Venture to the stunning Sataya Dolphin House, a paradise where you're not just observing wildlife but actively engaging with it. Imagine frolicking with joyous Spinner Dolphins in their natural environment, an experience so soul-stirring that it has the power to transform your perspective on life itself. It's not just the dolphins who love this interaction, the stunning coral reefs that surround Sataya on three sides also beckon you. Alive with vibrant colors and hundreds of fish, these reefs are a spectacle to behold.</p>
-          <div class="card-footer">
-            <span class="price">From €84.28</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sataya-dolphin-house-from-el-quseir-p1095072/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>QUSEIR</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">QUSEIR WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Sataya Dolphin House: Day Trip from El Quseir</div>
+        <div class="tq-card-desc">Venture to the stunning Sataya Dolphin House, a paradise where you're not just observing wildlife but actively engaging with it. Imagine frolicking with joyous Spinner Dolphins in their natural environment, an experience so soul-stirring that it has the power to transform your perspective on life itself. It's not just the dolphins who love this interaction, the stunning coral reefs that surround Sataya on three sides also beckon you. Alive with vibrant colors and hundreds of fish, these reefs are a spectacle to behold.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€84.28</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sataya-dolphin-house-from-el-quseir-p1095072/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Cairo: City Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cairo: City Tour</h3>
-          <p class="venue">📍 Quseir City Tours</p>
-          <p>Get ready for a thrilling journey through the annals of Egypt's rich history! This enthralling tour offers a peek into the enigmatic world of the Pharaohs and the mummification process at The Egyptian Museum. Plus, revel in the awe-inspiring sight of the Pyramids of Giza, the Great Sphinx, the Mosque of Muhammed Ali, and Sultan Hassan.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>QUSEIR</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">QUSEIR CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Cairo: City Tour</div>
+        <div class="tq-card-desc">Get ready for a thrilling journey through the annals of Egypt's rich history! This enthralling tour offers a peek into the enigmatic world of the Pharaohs and the mummification process at The Egyptian Museum. Plus, revel in the awe-inspiring sight of the Pyramids of Giza, the Great Sphinx, the Mosque of Muhammed Ali, and Sultan Hassan.
 
 The adventure begins in a top-notch, air-conditioned vehicle, fully equipped to ensure the utmost comfort. The first stop? The magnificent Muhammad Ali Pasha Mosque, where stunning Islamic decorations and ancient architecture await. Here, atop the Mokattam Mountains, guests can feast their eyes on a panoramic view of Greater Cairo from the highest point.
 
 Next, the tour whisks everyone away to the Cairo Museum. This treasure trove houses a plethora of artifacts from Pharaonic, Coptic, and Islamic eras. Don't miss the famous Room of Tutankhamun and discover the intriguing mummification methods of the Egyptians.
 
-Finally, it's time to unravel the secrets hidden within the Pyramids. Marvel at the grandeur of the Pharaohs' architecture and be swept away by the mysteries that these ancient structures hold. Don't wait, book this fascinating experience today!</p>
-          <div class="card-footer">
-            <span class="price">From €143.99</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cairo-city-tour-p1094816/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finally, it's time to unravel the secrets hidden within the Pyramids. Marvel at the grandeur of the Pharaohs' architecture and be swept away by the mysteries that these ancient structures hold. Don't wait, book this fascinating experience today!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€143.99</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cairo-city-tour-p1094816/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="El-Quseir: City Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>El-Quseir: City Tour</h3>
-          <p class="venue">📍 Quseir City Tours</p>
-          <p>Unearth the hidden gems of El Quseir City! Embark on a leisurely saunter through the quaint old neighborhoods, where the warm, welcoming ambiance of narrow cobbled streets awaits. Marvel at the striking terrace architecture of the Ottoman era, a blend of beauty and history that promises to captivate. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>QUSEIR</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">QUSEIR CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">El-Quseir: City Tour</div>
+        <div class="tq-card-desc">Unearth the hidden gems of El Quseir City! Embark on a leisurely saunter through the quaint old neighborhoods, where the warm, welcoming ambiance of narrow cobbled streets awaits. Marvel at the striking terrace architecture of the Ottoman era, a blend of beauty and history that promises to captivate. 
 
 Next, the picturesque old harbor calls, whispering tales of bravery and bygone eras. Listen to the thrilling historical narratives that add a rich layer to this already enthralling experience. 
 
 But the journey doesn't end there! The majestic Ottoman Castle looms next, packed full of intriguing history and curiosities. Climb up to the highest tower, where panoramic views of the shimmering Red Sea will leave you breathless. A collection of priceless antiques further add to the castle's allure. 
 
-Don't miss out on this enchanting experience—book this ticket now for a memorable journey into the heart and soul of El Quseir City!</p>
-          <div class="card-footer">
-            <span class="price">From €44.84</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-el-quseir-city-tour-p1094783/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Don't miss out on this enchanting experience—book this ticket now for a memorable journey into the heart and soul of El Quseir City!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€44.84</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-el-quseir-city-tour-p1094783/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Quseir: Rocky Valley Beach Camp" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Quseir: Rocky Valley Beach Camp</h3>
-          <p class="venue">📍 Quseir Water Activities</p>
-          <p>Just 17 km north of El-Quseir City, Rocky Valley Beach is a perfect getaway that promises a unique experience. Look at multiple fish species in the vibrant coral reefs while snorkeling in the crystal-clear waters. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>QUSEIR</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">QUSEIR WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Quseir: Rocky Valley Beach Camp</div>
+        <div class="tq-card-desc">Just 17 km north of El-Quseir City, Rocky Valley Beach is a perfect getaway that promises a unique experience. Look at multiple fish species in the vibrant coral reefs while snorkeling in the crystal-clear waters. 
 The beach gently slopes into the sea, from a mere 1 meter to a depth of over 40 meters, with no obstacles standing between you and the water. 
-Surrounded by fantastic coral reefs on both sides, the bay boasts colored partitions and abundant marine life. These reefs extend for several kilometers, ensuring endless exploration and adventure.</p>
-          <div class="card-footer">
-            <span class="price">From €39.66</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-quseir-rocky-valley-beach-camp-p1094619/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Surrounded by fantastic coral reefs on both sides, the bay boasts colored partitions and abundant marine life. These reefs extend for several kilometers, ensuring endless exploration and adventure.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.66</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-quseir-rocky-valley-beach-camp-p1094619/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Sharm El-Lole Beach: "Zaina Camp"" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sharm El-Lole Beach: "Zaina Camp"</h3>
-          <p class="venue">📍 Quseir Water Activities</p>
-          <p>Immerse yourself in the soothing symphony of the waves while lounging in cozy seaside huts. This is an experience designed to rejuvenate the mind! Dive into the vibrant underwater world at the famous Nemo House, a treasure trove of colorful fish and unique coral reefs. Known as one of the finest diving spots in the area, the location boasts fascinating caves for divers to explore and a dive map bursting with surprises.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>QUSEIR</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">QUSEIR WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Sharm El-Lole Beach: "Zaina Camp"</div>
+        <div class="tq-card-desc">Immerse yourself in the soothing symphony of the waves while lounging in cozy seaside huts. This is an experience designed to rejuvenate the mind! Dive into the vibrant underwater world at the famous Nemo House, a treasure trove of colorful fish and unique coral reefs. Known as one of the finest diving spots in the area, the location boasts fascinating caves for divers to explore and a dive map bursting with surprises.
 
 After a hearty breakfast at the hotel, a comfortable, air-conditioned car arrives promptly for pick-up. The journey leads you to the enchanting Sharm El-Lole Beach in ElQuseir, a mere 10km south of ElQuseir City. Arrive on the beach by 9:00 am, ready for a day of adventure.
 
 A professional snorkeling guide introduces the beach and its enchanting underwater life. The first snorkeling session plunges you into the heart of the unique coral reef; a world filled with surprises, including the charming Nemo fish. After an hour snorkeling, there's ample time to relax on the beach or indulge in other fun activities.
 
-The second snorkeling session kicks off at around 11:30 am. But the day doesn't end there. You still have plenty of time to unwind, soak in the sun, and serenade your ears with the calming sound of sea waves. Come, join this unforgettable experience!</p>
-          <div class="card-footer">
-            <span class="price">From €39.66</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-zaina-camp-at-sharm-el-lole-beach-p1094266/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The second snorkeling session kicks off at around 11:30 am. But the day doesn't end there. You still have plenty of time to unwind, soak in the sun, and serenade your ears with the calming sound of sea waves. Come, join this unforgettable experience!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.66</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-zaina-camp-at-sharm-el-lole-beach-p1094266/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

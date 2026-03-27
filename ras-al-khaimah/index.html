@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Ras al-Khaimah | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Ras al-Khaimah. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,64 +131,102 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jebel Jais Flight Zipline" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Jebel Jais Flight Zipline</h3>
-          <p class="venue">📍 Jebel Jais</p>
-          <p>Ride the Jebel Jais Flight Zipline – the longest in the world – stretching 2,830 m at an altitude of 1,680 m above sea level in Ras Al Khaimah. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jebel Jais Flight Zipline" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RAS AL-KHAIMAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">JEBEL JAIS</span>
+        </div>
+        <div class="tq-card-title">Jebel Jais Flight Zipline</div>
+        <div class="tq-card-desc">Ride the Jebel Jais Flight Zipline – the longest in the world – stretching 2,830 m at an altitude of 1,680 m above sea level in Ras Al Khaimah. 
 
 Jebel Jais is part of the Hajar mountain range, where you'll find a landscape shaped over millions of years, full of rugged rock faces and winding trails that attract challenge-seekers from across the region. 
 
 The cooler climate encourages native trees and wild herbs, and is home to mountain foxes, goats, as well as ancient stone carvings. 
 
-Glide above this varied terrain and finish your adventure on a transparent suspended platform set within the mountains.</p>
-          <div class="card-footer">
-            <span class="price">From €93.68</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-jebel-jais-zipline-activity-p1126261/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Glide above this varied terrain and finish your adventure on a transparent suspended platform set within the mountains.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€93.68</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-jebel-jais-zipline-activity-p1126261/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ras Al Khaimah: 60-Minute Guided Hot Air Balloon Flight + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ras Al Khaimah: 60-Minute Guided Hot Air Balloon Flight + Transfers</h3>
-          <p class="venue">📍 Ras Al Khaimah Hot Air Balloon Flights</p>
-          <p>See Ras al Khaimah's desert from a hot air balloon at sunrise. View the colors and shapes of the dunes. Spot wildlife in its natural surroundings. Observe the mangroves, mountains, and coastal areas.</p>
-          <div class="card-footer">
-            <span class="price">From €258.02</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ras-al-khaimah-60-minute-guided-hot-air-balloon-flight-transfers-p1110093/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ras Al Khaimah: 60-Minute Guided Hot Air Balloon Flight + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RAS AL-KHAIMAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RAS AL KHAIMAH HOT AIR BALLOON FLIGHTS</span>
+        </div>
+        <div class="tq-card-title">Ras Al Khaimah: 60-Minute Guided Hot Air Balloon Flight + Transfers</div>
+        <div class="tq-card-desc">See Ras al Khaimah's desert from a hot air balloon at sunrise. View the colors and shapes of the dunes. Spot wildlife in its natural surroundings. Observe the mangroves, mountains, and coastal areas.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€258.02</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ras-al-khaimah-60-minute-guided-hot-air-balloon-flight-transfers-p1110093/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ras Al-Khaimah: 20-Minute G-Force Aerobatic Flight" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ras Al-Khaimah: 20-Minute G-Force Aerobatic Flight</h3>
-          <p class="venue">📍 Ras Al Khaimah Airplane Tours</p>
-          <p>Join a flight on the Extra 330 aircraft, the same model used in the Red Bull Air Race. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ras Al-Khaimah: 20-Minute G-Force Aerobatic Flight" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RAS AL-KHAIMAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">RAS AL KHAIMAH AIRPLANE TOURS</span>
+        </div>
+        <div class="tq-card-title">Ras Al-Khaimah: 20-Minute G-Force Aerobatic Flight</div>
+        <div class="tq-card-desc">Join a flight on the Extra 330 aircraft, the same model used in the Red Bull Air Race. 
 
 Fly at speeds up to 400KPH with experienced pilots who can play in extreme maneuvers. Experience rapid rolls and climbs while feeling G-forces from Plus 4G to Minus 2G, based on your comfort. 
 
-Observe views of the Ras Al-Khaimah coastline, mountains, and desert. Feel the power of a competition-grade aircraft built for advanced aerobatics.</p>
-          <div class="card-footer">
-            <span class="price">From €821.49</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ras-al-khaimah-20-minute-g-force-aerobatic-flight-p1110054/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Observe views of the Ras Al-Khaimah coastline, mountains, and desert. Feel the power of a competition-grade aircraft built for advanced aerobatics.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€821.49</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ras-al-khaimah-20-minute-g-force-aerobatic-flight-p1110054/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jebel Jais Zipline" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Jebel Jais Zipline</h3>
-          <p class="venue">📍 Jebel Jais</p>
-          <p>Not content with having the tallest building on Earth, the UAE is also home to another outstanding feat of human engineering: the world's longest zipline.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Jebel Jais Zipline" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>RAS AL-KHAIMAH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">JEBEL JAIS</span>
+        </div>
+        <div class="tq-card-title">Jebel Jais Zipline</div>
+        <div class="tq-card-desc">Not content with having the tallest building on Earth, the UAE is also home to another outstanding feat of human engineering: the world's longest zipline.
 
 Measuring 2,830 meters, you could start singing *Think* by Aretha Franklin at the beginning of your Jebel Jais flight, and finish your sky-high soul performance before reaching the end of the line – all while flying at speeds of up to 150 km/h! Now that's freedom.
 
@@ -103,14 +240,20 @@ This is a true bucket list activity. At the top of the UAE's tallest mountain, J
 
 * Longest zipline in the world, as recorded by Guinness World Records
 
-* 1,680 meters above sea level</p>
-          <div class="card-footer">
-            <span class="price">From €129.13</span>
-            <span class="rating">⭐ 4.5 (16)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-jebel-jais-zipline-p1042056/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+* 1,680 meters above sea level</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.5</strong>
+            <span class="tq-reviews">(16)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€129.13</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-jebel-jais-zipline-p1042056/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

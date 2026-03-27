@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Ayutthaya | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Ayutthaya. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,59 +131,92 @@
     <p>3 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/00badd013e8f499ca85657e1a0e72b95.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ayutthaya: Guided Bike Tour with Lunch + Boat Crossing" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ayutthaya: Guided Bike Tour with Lunch + Boat Crossing</h3>
-          <p class="venue">📍 Ayutthaya City Tours</p>
-          <p>Set off for a pedal-powered adventure through Ayutthaya, weaving through bustling local markets overflowing with mouthwatering Thai treats. The route leads to the imposing reclining Buddha at Luang Phor Lokayasuttha, a sight to behold.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/00badd013e8f499ca85657e1a0e72b95.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ayutthaya: Guided Bike Tour with Lunch + Boat Crossing" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>AYUTTHAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AYUTTHAYA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Ayutthaya: Guided Bike Tour with Lunch + Boat Crossing</div>
+        <div class="tq-card-desc">Set off for a pedal-powered adventure through Ayutthaya, weaving through bustling local markets overflowing with mouthwatering Thai treats. The route leads to the imposing reclining Buddha at Luang Phor Lokayasuttha, a sight to behold.
 
 The trail follows a scenic path along the Chao Phraya River's western bank, culminating at the Wat Chai Wattanaram temple. This astonishing monument, built in 1630 by King Prasat Thong, is a lasting homage to his mother's residence and a symbol of familial love and tradition.
 
-Finally, the journey concludes with a calm riverside ride to the pier before returning to the base.</p>
-          <div class="card-footer">
-            <span class="price">From €57.81</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ayutthaya-guided-bike-tour-with-lunch-boat-crossing-p1087026/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Finally, the journey concludes with a calm riverside ride to the pier before returning to the base.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€57.81</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ayutthaya-guided-bike-tour-with-lunch-boat-crossing-p1087026/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/00badd013e8f499ca85657e1a0e72b95.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ayutthaya: Sunset Bike Tour with Meal + Boat Crossing" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ayutthaya: Sunset Bike Tour with Meal + Boat Crossing</h3>
-          <p class="venue">📍 Ayutthaya City Tours</p>
-          <p>The tour starts with a ferry voyage across the Pa Sak River. Step into a whirlwind of color and energy at Ayutthaya's lively Chao Phrom Market. Feel the rush of wind in your hair as you pedal past the historic walls of the Chankasem Palace National Museum.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/00badd013e8f499ca85657e1a0e72b95.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ayutthaya: Sunset Bike Tour with Meal + Boat Crossing" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>AYUTTHAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AYUTTHAYA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Ayutthaya: Sunset Bike Tour with Meal + Boat Crossing</div>
+        <div class="tq-card-desc">The tour starts with a ferry voyage across the Pa Sak River. Step into a whirlwind of color and energy at Ayutthaya's lively Chao Phrom Market. Feel the rush of wind in your hair as you pedal past the historic walls of the Chankasem Palace National Museum.
 
 As evening falls, the bustling Bang Ian Night Market awakens. Here, a harmonious fusion of compelling flavors, aromas, and local gossip stir together an irresistible cocktail of sensory delight.
 
-Next, go on an exploration of Ayutthaya Historical Park, housing the renowned Wat Mahathat. Once the prestigious seat of the Sangaraja, the head monk, this royal monastery is filled with history. The adventure continues with a visit to a trio of extraordinary temples: Wat Ratchaburana, Wat Phra Ram, and Wat Phra Si Sanphet, each a testament to the rich past of the 15th and 16th centuries.</p>
-          <div class="card-footer">
-            <span class="price">From €44.61</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ayutthaya-sunset-bike-tour-with-meal-boat-crossing-p1087025/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, go on an exploration of Ayutthaya Historical Park, housing the renowned Wat Mahathat. Once the prestigious seat of the Sangaraja, the head monk, this royal monastery is filled with history. The adventure continues with a visit to a trio of extraordinary temples: Wat Ratchaburana, Wat Phra Ram, and Wat Phra Si Sanphet, each a testament to the rich past of the 15th and 16th centuries.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€44.61</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ayutthaya-sunset-bike-tour-with-meal-boat-crossing-p1087025/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/00badd013e8f499ca85657e1a0e72b95.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ayutthaya City Culture Bicycle Ride" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ayutthaya City Culture Bicycle Ride</h3>
-          <p class="venue">📍 Ayutthaya City Tours</p>
-          <p>Take to two wheels and discover the wonders of Ayutthaya the easy way on this 3-hour bicycle tour with an expert guide. The once-mighty capital of Siam will come to life as you uncover its history, from its tiny surrounding towns to temples, food stalls, and more.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/00badd013e8f499ca85657e1a0e72b95.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ayutthaya City Culture Bicycle Ride" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>AYUTTHAYA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">AYUTTHAYA CITY TOURS</span>
+        </div>
+        <div class="tq-card-title">Ayutthaya City Culture Bicycle Ride</div>
+        <div class="tq-card-desc">Take to two wheels and discover the wonders of Ayutthaya the easy way on this 3-hour bicycle tour with an expert guide. The once-mighty capital of Siam will come to life as you uncover its history, from its tiny surrounding towns to temples, food stalls, and more.
 
 Stop at Pom Phet or “Diamond Fortress”, one of the 16 fortresses along the city walls of Ayutthaya. Although partially destroyed, you'll still get the same first impression of the Kingdom of Siam as all those ancient travelers once did. At the world-renowned Ayutthaya Historical Park, a UNESCO World Heritage Site since 1991, check out the ruins of the old temples. 
 
-Then stop at Wat Phra Sri Sanphet and Wat Mahathat, famous for its Buddha’s head entwined within the roots of a tree. Continuing on your Ayutthaya bicycle ride to Chao Phrom Market, try some delicious local foods before taking a ferry back across the Pasak River.</p>
-          <div class="card-footer">
-            <span class="price">From €39.33</span>
-            <span class="rating">⭐ 4.8 (4)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-ayutthaya-city-culture-bicycle-ride-p1018699/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Then stop at Wat Phra Sri Sanphet and Wat Mahathat, famous for its Buddha’s head entwined within the roots of a tree. Continuing on your Ayutthaya bicycle ride to Chao Phrom Market, try some delicious local foods before taking a ferry back across the Pasak River.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.8</strong>
+            <span class="tq-reviews">(4)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€39.33</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-ayutthaya-city-culture-bicycle-ride-p1018699/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Bodrum | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Bodrum. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,178 +131,293 @@
     <p>14 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/aee0e263125644fc86f16bd60bdd62a1.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bodrum Jeep Safari" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bodrum Jeep Safari</h3>
-          <p class="venue">📍 Bodrum Outdoor Activities</p>
-          <p>One of the best things to do in Bodrum – apart from basking in its stunning beaches – is to take in its equally awe-inspiring countryside vistas that stretch for miles in every direction.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/aee0e263125644fc86f16bd60bdd62a1.JPG?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bodrum Jeep Safari" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BODRUM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BODRUM OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Bodrum Jeep Safari</div>
+        <div class="tq-card-desc">One of the best things to do in Bodrum – apart from basking in its stunning beaches – is to take in its equally awe-inspiring countryside vistas that stretch for miles in every direction.
 
-The variety of landscapes huddled together in one epic panorama makes for a scenic road trip. This ticket lets you whizz off on a guided safari adventure through rugged hills, coastal roads, and mountainous hamlets. A delicious BBQ lunch will be the cherry on top, before the journey home.</p>
-          <div class="card-footer">
-            <span class="price">From €50</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bodrum-jeep-safari-p978902/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The variety of landscapes huddled together in one epic panorama makes for a scenic road trip. This ticket lets you whizz off on a guided safari adventure through rugged hills, coastal roads, and mountainous hamlets. A delicious BBQ lunch will be the cherry on top, before the journey home.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bodrum-jeep-safari-p978902/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f3b9a83c90dc459896716813f99c3253.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bodrum ATV Safari" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bodrum ATV Safari</h3>
-          <p class="venue">📍 Bodrum Outdoor Activities</p>
-          <p>Ready for a wild ride? This ATV forest adventure promises to kick up some dirt under your wheels!
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f3b9a83c90dc459896716813f99c3253.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bodrum ATV Safari" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BODRUM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BODRUM OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Bodrum ATV Safari</div>
+        <div class="tq-card-desc">Ready for a wild ride? This ATV forest adventure promises to kick up some dirt under your wheels!
 
 Get picked up from Bodrum and taken to the ATV Safari headquarters, where you'll meet an instructor for a 15-minute briefing. Take a seat in your chosen vehicle and learn the gas braking system, then, rattle on to your muddy safari adventure!
 
-Zoom over mud, streams, grass, and sandy dunes. Don't worry about the dirt – you can wash up at the venue.</p>
-          <div class="card-footer">
-            <span class="price">From €50</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bodrum-atv-safari-p978901/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Zoom over mud, streams, grass, and sandy dunes. Don't worry about the dirt – you can wash up at the venue.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bodrum-atv-safari-p978901/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/9de9a62b0bca4c3dafc261f25e511979.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dedeman Aquapark Bodrum: Roundtrip From Bodrum" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Dedeman Aquapark Bodrum: Roundtrip From Bodrum</h3>
-          <p class="venue">📍 Dedeman Aquapark Bodrum</p>
-          <p>Bodrum plays host to some beautiful beaches, but if it's adrenaline-pumping action you're after, look no further than Dedeman Aquapark.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/9de9a62b0bca4c3dafc261f25e511979.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Dedeman Aquapark Bodrum: Roundtrip From Bodrum" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BODRUM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DEDEMAN AQUAPARK BODRUM</span>
+        </div>
+        <div class="tq-card-title">Dedeman Aquapark Bodrum: Roundtrip From Bodrum</div>
+        <div class="tq-card-desc">Bodrum plays host to some beautiful beaches, but if it's adrenaline-pumping action you're after, look no further than Dedeman Aquapark.
 
-The aqua park is home to some bone-rattling water slides, most of which will make you scream before you even splash out at the bottom! Little kids are well taken care of with splash pools, wave pools, and even a foam party at the end of the day. Soak your worries away in jacuzzis and don't worry about getting home thanks to return transport to Bodrum.</p>
-          <div class="card-footer">
-            <span class="price">From €25</span>
-            <span class="rating">⭐ 2 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-dedeman-aquapark-bodrum-roundtrip-from-bodrum-p978886/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The aqua park is home to some bone-rattling water slides, most of which will make you scream before you even splash out at the bottom! Little kids are well taken care of with splash pools, wave pools, and even a foam party at the end of the day. Soak your worries away in jacuzzis and don't worry about getting home thanks to return transport to Bodrum.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>2</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€25.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-dedeman-aquapark-bodrum-roundtrip-from-bodrum-p978886/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ba1dbc72f01346a7b21cd12e422f51bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kos: Ferryboat Roundtrip from Bodrum" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Kos: Ferryboat Roundtrip from Bodrum</h3>
-          <p class="venue">📍 Bodrum Cruises</p>
-          <p>Dive into the life of the ancient world's most respected doctor, Hippocrates, in Kos, courtesy of these smartphone tickets. They're easy and fast to download, and will save you the stress of buying tickets when you get there. Take the ferry from Bodrum and back again, and see the picturesque Greek and Roman landmarks at your own pace.</p>
-          <div class="card-footer">
-            <span class="price">From €32</span>
-            <span class="rating">⭐ 4 (6)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-kos-ferryboat-roundtrip-from-bodrum-p977883/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ba1dbc72f01346a7b21cd12e422f51bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Kos: Ferryboat Roundtrip from Bodrum" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BODRUM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BODRUM CRUISES</span>
+        </div>
+        <div class="tq-card-title">Kos: Ferryboat Roundtrip from Bodrum</div>
+        <div class="tq-card-desc">Dive into the life of the ancient world's most respected doctor, Hippocrates, in Kos, courtesy of these smartphone tickets. They're easy and fast to download, and will save you the stress of buying tickets when you get there. Take the ferry from Bodrum and back again, and see the picturesque Greek and Roman landmarks at your own pace.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(6)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€32.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-kos-ferryboat-roundtrip-from-bodrum-p977883/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/54a59c4ed03940b1b44c2fd7006d170b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Boat Trip from Bodrum" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Boat Trip from Bodrum</h3>
-          <p class="venue">📍 Bodrum Cruises</p>
-          <p>Take a leaf out of Superman's book, and recharge your batteries in the glorious sunshine. Step aboard a charming sailboat and drift from shore to shore around the sun-drenched coves and breezy bays of Bodrum's coast.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/54a59c4ed03940b1b44c2fd7006d170b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Boat Trip from Bodrum" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BODRUM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BODRUM CRUISES</span>
+        </div>
+        <div class="tq-card-title">Boat Trip from Bodrum</div>
+        <div class="tq-card-desc">Take a leaf out of Superman's book, and recharge your batteries in the glorious sunshine. Step aboard a charming sailboat and drift from shore to shore around the sun-drenched coves and breezy bays of Bodrum's coast.
 
-Jump overboard for a swim around a beautiful sea grotto, snorkel past schools of colorful fish in the vibrant reefs, and tuck into a mouthwatering lunch surrounded by gorgeous maritime scenery.</p>
-          <div class="card-footer">
-            <span class="price">From €23</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-boat-trip-from-bodrum-p977802/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Jump overboard for a swim around a beautiful sea grotto, snorkel past schools of colorful fish in the vibrant reefs, and tuck into a mouthwatering lunch surrounded by gorgeous maritime scenery.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-boat-trip-from-bodrum-p977802/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/3b394d75dd1a437dbc054152b8b7b560.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Boat Trip from Bodrum: All-Inclusive" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Boat Trip from Bodrum: All-Inclusive</h3>
-          <p class="venue">📍 Bodrum Cruises</p>
-          <p>Sometimes, the only thing you need is a luxurious sailboat cruise around the turquoise coast of Turkey, while the blazing sun and a gentle sea breeze compete for your affections. If that sounds like your idea of a good time, get yourself a ticket for this all-inclusive boat trip from Bodrum.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/3b394d75dd1a437dbc054152b8b7b560.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Boat Trip from Bodrum: All-Inclusive" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BODRUM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BODRUM CRUISES</span>
+        </div>
+        <div class="tq-card-title">Boat Trip from Bodrum: All-Inclusive</div>
+        <div class="tq-card-desc">Sometimes, the only thing you need is a luxurious sailboat cruise around the turquoise coast of Turkey, while the blazing sun and a gentle sea breeze compete for your affections. If that sounds like your idea of a good time, get yourself a ticket for this all-inclusive boat trip from Bodrum.
 
-Sail from bay to bay, paddle carefree in a peaceful grotto, snorkel around the reef, tuck into a delicious on-board lunch, crack open a cold drink in the warm salty air – and relax.</p>
-          <div class="card-footer">
-            <span class="price">From €45</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-boat-trip-from-bodrum-all-inclusive-p977799/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Sail from bay to bay, paddle carefree in a peaceful grotto, snorkel around the reef, tuck into a delicious on-board lunch, crack open a cold drink in the warm salty air – and relax.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€45.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-boat-trip-from-bodrum-all-inclusive-p977799/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ba1dbc72f01346a7b21cd12e422f51bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bodrum: Same-Day Roundtrip Ferry to Kos" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bodrum: Same-Day Roundtrip Ferry to Kos</h3>
-          <p class="venue">📍 Bodrum Cruises</p>
-          <p>Visit two countries on the same day. Take a ferry from Bodrum to Kos, which takes about 40 minutes. You'll cross the Aegean Sea and take a mini voyage from Turkey to Greece.</p>
-          <div class="card-footer">
-            <span class="price">From €35</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bodrum-same-day-roundtrip-ferry-to-kos-p1102600/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ba1dbc72f01346a7b21cd12e422f51bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bodrum: Same-Day Roundtrip Ferry to Kos" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BODRUM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BODRUM CRUISES</span>
+        </div>
+        <div class="tq-card-title">Bodrum: Same-Day Roundtrip Ferry to Kos</div>
+        <div class="tq-card-desc">Visit two countries on the same day. Take a ferry from Bodrum to Kos, which takes about 40 minutes. You'll cross the Aegean Sea and take a mini voyage from Turkey to Greece.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€35.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bodrum-same-day-roundtrip-ferry-to-kos-p1102600/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ba1dbc72f01346a7b21cd12e422f51bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bodrum: Pirate Party Boat Trip" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bodrum: Pirate Party Boat Trip</h3>
-          <p class="venue">📍 Bodrum Cruises</p>
-          <p>Sail on a pirate boat through the bays of Bodrum and the Aegean Sea. Participate in activities like sunbathing and swimming during the trip.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ba1dbc72f01346a7b21cd12e422f51bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bodrum: Pirate Party Boat Trip" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BODRUM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BODRUM CRUISES</span>
+        </div>
+        <div class="tq-card-title">Bodrum: Pirate Party Boat Trip</div>
+        <div class="tq-card-desc">Sail on a pirate boat through the bays of Bodrum and the Aegean Sea. Participate in activities like sunbathing and swimming during the trip.
 
-You can also bathe in a cave on Black Island. Remember to enjoy the meal on board; it's part of the experience!</p>
-          <div class="card-footer">
-            <span class="price">From €26</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bodrum-pirate-party-boat-trip-p1102305/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+You can also bathe in a cave on Black Island. Remember to enjoy the meal on board; it's part of the experience!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€26.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bodrum-pirate-party-boat-trip-p1102305/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/ba1dbc72f01346a7b21cd12e422f51bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bodrum: Black (Cleopatra) Island Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bodrum: Black (Cleopatra) Island Tour</h3>
-          <p class="venue">📍 Bodrum Cruises</p>
-          <p>Kick-off at 11 am with a refreshing 30-minute sail to the renowned Black Island (Cleopatra Island), famed for its natural springs gushing from intriguing caves. Next on the agenda is a visit to the dazzling Meteor Bay, the vibrant Aquarium Bay, and the serene Rabbit Bay. These spots offer ample time for a delightful dip in the bays. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/ba1dbc72f01346a7b21cd12e422f51bc.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bodrum: Black (Cleopatra) Island Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BODRUM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BODRUM CRUISES</span>
+        </div>
+        <div class="tq-card-title">Bodrum: Black (Cleopatra) Island Tour</div>
+        <div class="tq-card-desc">Kick-off at 11 am with a refreshing 30-minute sail to the renowned Black Island (Cleopatra Island), famed for its natural springs gushing from intriguing caves. Next on the agenda is a visit to the dazzling Meteor Bay, the vibrant Aquarium Bay, and the serene Rabbit Bay. These spots offer ample time for a delightful dip in the bays. 
 
 As the sun reaches its zenith, a delectable lunch, inclusive in the ticket price, awaits on board. The menu features succulent chicken, fresh salad, and mouthwatering spaghetti. Fear not, vegetarians! There's a special menu just for you. 
 
 The journey back to the port commences at five o'clock, with the setting sun creating a picturesque backdrop. Black Island offers an exclusive bathing experience in a grotto carved out of rocks. In Aquarium Bay, a variety of fish species can be observed swimming in their natural habitat. 
 
-Feel free to kick back on board with a refreshing drink in hand, as the Aegean Sea's hues oscillate between the darkest blue and the palest turquoise. These are only a handful of the spectacular experiences waiting for you on this trip. It's a therapeutic break from life and a paradise for sun and sea lovers waiting to be discovered. So, book your ticket and embark on an unforgettable journey!</p>
-          <div class="card-footer">
-            <span class="price">From €27</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bodrum-black-cleopatra-island-tour-p1097964/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Feel free to kick back on board with a refreshing drink in hand, as the Aegean Sea's hues oscillate between the darkest blue and the palest turquoise. These are only a handful of the spectacular experiences waiting for you on this trip. It's a therapeutic break from life and a paradise for sun and sea lovers waiting to be discovered. So, book your ticket and embark on an unforgettable journey!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bodrum-black-cleopatra-island-tour-p1097964/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/e6785dd1e94b4d00aea23d4407b6fc43.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bodrum: Orak Island Boat Trip" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bodrum: Orak Island Boat Trip</h3>
-          <p class="venue">📍 Bodrum Cruises</p>
-          <p>Embark on an 11AM nautical adventure, gliding through serene seas painted with shades of azure and turquoise, while feasting eyes on the breathtaking shoreline. The first stop? The serene Rabbit Bay, a haven for tranquil dips into the warm, crystal-clear water, brimming with vibrant fish and captivating corals. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/e6785dd1e94b4d00aea23d4407b6fc43.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bodrum: Orak Island Boat Trip" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BODRUM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BODRUM CRUISES</span>
+        </div>
+        <div class="tq-card-title">Bodrum: Orak Island Boat Trip</div>
+        <div class="tq-card-desc">Embark on an 11AM nautical adventure, gliding through serene seas painted with shades of azure and turquoise, while feasting eyes on the breathtaking shoreline. The first stop? The serene Rabbit Bay, a haven for tranquil dips into the warm, crystal-clear water, brimming with vibrant fish and captivating corals. 
 
 The journey continues to the peaceful German Bay, another heavenly spot for an idyllic swim. Orak Island then beckons, where pure white sands hug the island's bay, inviting another invigorating dip into the cool waters. 
 
 As hunger pangs kick in, relish a delightful onboard lunch, featuring succulent chicken, crisp salad, and hearty spaghetti. For our plant-based friends, vegetarian options are happily provided. 
 
-As the day concludes, soak in the wondrous memories of the sea-adventure while making the way back to the port, hearts full and spirits high. This isn't just a ticket, it's an invitation to a day of pure bliss and unforgettable aquatic exploration.</p>
-          <div class="card-footer">
-            <span class="price">From €27</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bodrum-orak-island-boat-trip-p1097289/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As the day concludes, soak in the wondrous memories of the sea-adventure while making the way back to the port, hearts full and spirits high. This isn't just a ticket, it's an invitation to a day of pure bliss and unforgettable aquatic exploration.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€27.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bodrum-orak-island-boat-trip-p1097289/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/54a59c4ed03940b1b44c2fd7006d170b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Halicarnassus: Half Day Walking Tour from Bodrum" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Halicarnassus: Half Day Walking Tour from Bodrum</h3>
-          <p class="venue">📍 Day Trips from Bodrum</p>
-          <p>The trip begins in the ancient city of Halicarnasos to learn about Turkey's culture, history, and delicious cuisine as a friendly local guide shares engaging tales. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/54a59c4ed03940b1b44c2fd7006d170b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Halicarnassus: Half Day Walking Tour from Bodrum" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BODRUM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM BODRUM</span>
+        </div>
+        <div class="tq-card-title">Halicarnassus: Half Day Walking Tour from Bodrum</div>
+        <div class="tq-card-desc">The trip begins in the ancient city of Halicarnasos to learn about Turkey's culture, history, and delicious cuisine as a friendly local guide shares engaging tales. 
 
 Starting from the cruise port, participants will stroll through Bodrum's peaceful, car-free streets.
 
@@ -211,21 +425,32 @@ Visit the impressive Bodrum Castle, home to an underwater archaeology museum. Ex
 
 Climb to the ancient theatre for panoramic views of the city and catch a glimpse of the renowned Mausoleum.
 
-As the afternoon approaches, you'll head back to the port, with plenty of opportunities for traditional Turkish tea or a hearty lunch at local bistros.</p>
-          <div class="card-footer">
-            <span class="price">From €200</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-half-day-bodrum-halicarnassus-walking-tour-p1089258/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+As the afternoon approaches, you'll head back to the port, with plenty of opportunities for traditional Turkish tea or a hearty lunch at local bistros.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€200.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-half-day-bodrum-halicarnassus-walking-tour-p1089258/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/54a59c4ed03940b1b44c2fd7006d170b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Stratonikeia & Lagina: Half-Day Tour from Bodrum" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Stratonikeia & Lagina: Half-Day Tour from Bodrum</h3>
-          <p class="venue">📍 Day Trips from Bodrum</p>
-          <p>After a 10:00 am pick-up from your hotel or port, you head to the ancient ruins of Stratonikeia.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/54a59c4ed03940b1b44c2fd7006d170b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Stratonikeia & Lagina: Half-Day Tour from Bodrum" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BODRUM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM BODRUM</span>
+        </div>
+        <div class="tq-card-title">Stratonikeia & Lagina: Half-Day Tour from Bodrum</div>
+        <div class="tq-card-desc">After a 10:00 am pick-up from your hotel or port, you head to the ancient ruins of Stratonikeia.
 
 After exploring the city, enjoy a refreshing lunch at 1 pm before heading to Lagina. Learn about Hekate, the goddess of magic and witchcraft, as you explore the sacred grounds.
 
@@ -233,48 +458,76 @@ Discover a blend of cultures, where a mosque stands next to a church, and an Ott
 
 Marvel at the grandeur of the Hellenistic, Roman, and Ottoman periods, all within the city limits.
 
-Lunch is a historical rendezvous served amidst natural springs at a local restaurant, offering flavors of times gone by.</p>
-          <div class="card-footer">
-            <span class="price">From €280</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-half-day-tour-to-stratonikeia-and-lagina-from-bodrum-p1089257/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Lunch is a historical rendezvous served amidst natural springs at a local restaurant, offering flavors of times gone by.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€280.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-half-day-tour-to-stratonikeia-and-lagina-from-bodrum-p1089257/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/54a59c4ed03940b1b44c2fd7006d170b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ancient City Iasos: Half Day Tour from Bodrum" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Ancient City Iasos: Half Day Tour from Bodrum</h3>
-          <p class="venue">📍 Day Trips from Bodrum</p>
-          <p>Go on a unique journey that takes you away from the usual tourist spots. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/54a59c4ed03940b1b44c2fd7006d170b.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Ancient City Iasos: Half Day Tour from Bodrum" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BODRUM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM BODRUM</span>
+        </div>
+        <div class="tq-card-title">Ancient City Iasos: Half Day Tour from Bodrum</div>
+        <div class="tq-card-desc">Go on a unique journey that takes you away from the usual tourist spots. 
 
 Nestled by the sea, Iasos offers a peaceful sanctuary away from the busy city. 
 
-Just an hour from Bodrum Centrum, this hidden gem is the perfect pit stop for sea cruisers.</p>
-          <div class="card-footer">
-            <span class="price">From €280</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-half-day-tour-to-the-ancient-city-of-iasos-p1089256/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Just an hour from Bodrum Centrum, this hidden gem is the perfect pit stop for sea cruisers.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€280.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-half-day-tour-to-the-ancient-city-of-iasos-p1089256/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/f3b9a83c90dc459896716813f99c3253.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bodrum: Private Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Bodrum: Private Boat Tour</h3>
-          <p class="venue">📍 Bodrum Outdoor Activities</p>
-          <p>Prepare for a fun-filled and memorable adventure. Explore the clear bays of Bodrum, where the water is as clear as can be.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/f3b9a83c90dc459896716813f99c3253.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Bodrum: Private Boat Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>BODRUM</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BODRUM OUTDOOR ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Bodrum: Private Boat Tour</div>
+        <div class="tq-card-desc">Prepare for a fun-filled and memorable adventure. Explore the clear bays of Bodrum, where the water is as clear as can be.
 
-Jump into the water for snorkeling among vibrant marine life, engaging yourself in the underwater world. On the deck of wooden Gulet boats, feel the refreshing sea breeze and appreciate warm Turkish hospitality.</p>
-          <div class="card-footer">
-            <span class="price">From €650</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-bodrum-private-boat-tour-p1089254/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Jump into the water for snorkeling among vibrant marine life, engaging yourself in the underwater world. On the deck of wooden Gulet boats, feel the refreshing sea breeze and appreciate warm Turkish hospitality.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€650.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-bodrum-private-boat-tour-p1089254/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

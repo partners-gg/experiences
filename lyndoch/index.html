@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Lyndoch | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Lyndoch. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,77 +131,121 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Barossa Valley: 30-Minute Private Helicopter Flight" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Barossa Valley: 30-Minute Private Helicopter Flight</h3>
-          <p class="venue">📍 Barossa Valley Helicopter Flights</p>
-          <p>See lush, serene views and vast plains from the start of your helicopter tour. Fly over the township of Lyndoch, the western ridge of Barossa Valley, and Seppeltsfield.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Barossa Valley: 30-Minute Private Helicopter Flight" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LYNDOCH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BAROSSA VALLEY HELICOPTER FLIGHTS</span>
+        </div>
+        <div class="tq-card-title">Barossa Valley: 30-Minute Private Helicopter Flight</div>
+        <div class="tq-card-desc">See lush, serene views and vast plains from the start of your helicopter tour. Fly over the township of Lyndoch, the western ridge of Barossa Valley, and Seppeltsfield.
 
 Gaze at scenic vineyards, palm tree-lined roads, and the Seppelt Family mausoleum. Continue over Maggie Beer's farm, Wolf Blass winery, and the limestone quarry near Angaston.
 
 From Angaston, take in a 180-degree view of the Barossa Valley. Fly towards Tanunda and see historic sites like Chateau Tanunda and Bethany.
 
-Next, visit Rowland Flat and Jacob's Creek Winery, known for its large wine tanks. Finally, fly to the southern Barossa, over the Barossa Goldfields and the Whispering Wall.</p>
-          <div class="card-footer">
-            <span class="price">From €451</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-barossa-valley-30-minute-private-helicopter-flight-p1098921/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, visit Rowland Flat and Jacob's Creek Winery, known for its large wine tanks. Finally, fly to the southern Barossa, over the Barossa Goldfields and the Whispering Wall.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€451.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-barossa-valley-30-minute-private-helicopter-flight-p1098921/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Western Ridge and Valley Floor: 20-Minute Helicopter Flight" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Western Ridge and Valley Floor: 20-Minute Helicopter Flight</h3>
-          <p class="venue">📍 Barossa Valley Helicopter Flights</p>
-          <p>Join a unique aerial tour of South Australia's wine country. Start in Hoffnungsthal Valley and fly past Lyndoch and the western ridge of Barossa Valley. See the vineyards, rolling hills, and Seppeltsfield Winery.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Western Ridge and Valley Floor: 20-Minute Helicopter Flight" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LYNDOCH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BAROSSA VALLEY HELICOPTER FLIGHTS</span>
+        </div>
+        <div class="tq-card-title">Western Ridge and Valley Floor: 20-Minute Helicopter Flight</div>
+        <div class="tq-card-desc">Join a unique aerial tour of South Australia's wine country. Start in Hoffnungsthal Valley and fly past Lyndoch and the western ridge of Barossa Valley. See the vineyards, rolling hills, and Seppeltsfield Winery.
 
 Continue over Nuriootpa, with views of Maggie Beer's farm and Penfold's Winery. Fly over Tanunda, Chateau Tanunda, and historic churches. Catch a glimpse of Jacob's Winery and its large wine tanks.
 
-The flight ends at the southern Barossa, passing the Barossa Goldfields and the Whispering Wall before returning to Hoffnungsthal Valley.</p>
-          <div class="card-footer">
-            <span class="price">From €300.66</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-western-ridge-and-valley-floor-20-minute-helicopter-flight-p1098400/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+The flight ends at the southern Barossa, passing the Barossa Goldfields and the Whispering Wall before returning to Hoffnungsthal Valley.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€300.66</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-western-ridge-and-valley-floor-20-minute-helicopter-flight-p1098400/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Southern Barossa and Reservoirs: 15-Minute Private Helicopter Flight" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Southern Barossa and Reservoirs: 15-Minute Private Helicopter Flight</h3>
-          <p class="venue">📍 Barossa Valley Helicopter Flights</p>
-          <p>Take off from Hoffnungsthal Valley and enjoy a helicopter flight over South Australia's scenic landscapes. See Rowland Flat, the home of Jacob's Creek Winery, boasting some of Australia's largest wine tanks.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Southern Barossa and Reservoirs: 15-Minute Private Helicopter Flight" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LYNDOCH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BAROSSA VALLEY HELICOPTER FLIGHTS</span>
+        </div>
+        <div class="tq-card-title">Southern Barossa and Reservoirs: 15-Minute Private Helicopter Flight</div>
+        <div class="tq-card-desc">Take off from Hoffnungsthal Valley and enjoy a helicopter flight over South Australia's scenic landscapes. See Rowland Flat, the home of Jacob's Creek Winery, boasting some of Australia's largest wine tanks.
 
-Next, fly over the southern Barossa, including the lovely town of Lyndoch, the Barossa Goldfields, and the Whispering Wall. The tour ends with a descent back to base via Williams, offering a scenic view of South Australia.</p>
-          <div class="card-footer">
-            <span class="price">From €225.5</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-southern-barossa-and-reservoirs-15-minute-private-helicopter-flight-p1098397/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Next, fly over the southern Barossa, including the lovely town of Lyndoch, the Barossa Goldfields, and the Whispering Wall. The tour ends with a descent back to base via Williams, offering a scenic view of South Australia.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€225.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-southern-barossa-and-reservoirs-15-minute-private-helicopter-flight-p1098397/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Southern Barossa: 10-Minute Private Helicopter Flight" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Southern Barossa: 10-Minute Private Helicopter Flight</h3>
-          <p class="venue">📍 Barossa Valley Helicopter Flights</p>
-          <p>Prepare for a helicopter tour starting from Hoffnungsthal Valley, flying northeast over Rowland Flat, the home of Jacob's Creek Winery.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4a0b98cea47048e8a06496d8e4fc574d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Southern Barossa: 10-Minute Private Helicopter Flight" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>LYNDOCH</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">BAROSSA VALLEY HELICOPTER FLIGHTS</span>
+        </div>
+        <div class="tq-card-title">Southern Barossa: 10-Minute Private Helicopter Flight</div>
+        <div class="tq-card-desc">Prepare for a helicopter tour starting from Hoffnungsthal Valley, flying northeast over Rowland Flat, the home of Jacob's Creek Winery.
 
 Enjoy a comfortable ride with scenic views and live narration from the pilot. See the large wine tanks capable of storing 1.4 million liters of wine at Jacob's Creek Winery.
 
-Continue to the southern Barossa, flying over Lyndoch, the Barossa Goldfields, and the Whispering Wall. This wall, boasting genuine acoustic abilities, serves as a protective barrier for the Barossa Reservoir. The tour ends with a gentle descent back to Hoffnungsthal Valley.</p>
-          <div class="card-footer">
-            <span class="price">From €150.33</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-southern-barossa-10-minute-private-helicopter-flight-p1098396/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Continue to the southern Barossa, flying over Lyndoch, the Barossa Goldfields, and the Whispering Wall. This wall, boasting genuine acoustic abilities, serves as a protective barrier for the Barossa Reservoir. The tour ends with a gentle descent back to Hoffnungsthal Valley.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€150.33</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-southern-barossa-10-minute-private-helicopter-flight-p1098396/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

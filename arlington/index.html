@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Arlington | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Arlington. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,59 +131,92 @@
     <p>3 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/86bb74a8ebac454bb29ea668783cc5f8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Globe Life Field: Texas Rangers Baseball Game" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Globe Life Field: Texas Rangers Baseball Game</h3>
-          <p class="venue">📍 Globe Life Field Stadium</p>
-          <p>Feel the excitement of a Texas Rangers baseball game at Globe Life Field in Arlington. Your ticket includes a designated seat where you can enjoy Major League Baseball action up close. The stadium's retractable roof ensures comfort, shielding you from the Texas heat with air conditioning.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/86bb74a8ebac454bb29ea668783cc5f8.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Globe Life Field: Texas Rangers Baseball Game" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ARLINGTON</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">GLOBE LIFE FIELD STADIUM</span>
+        </div>
+        <div class="tq-card-title">Globe Life Field: Texas Rangers Baseball Game</div>
+        <div class="tq-card-desc">Feel the excitement of a Texas Rangers baseball game at Globe Life Field in Arlington. Your ticket includes a designated seat where you can enjoy Major League Baseball action up close. The stadium's retractable roof ensures comfort, shielding you from the Texas heat with air conditioning.
 
-Beyond the baseball game, enjoy other interactive games and activities during breaks, accompanied by lively music throughout the stadium.</p>
-          <div class="card-footer">
-            <span class="price">From €17.44</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-globe-life-field-texas-rangers-baseball-game-p1097811/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Beyond the baseball game, enjoy other interactive games and activities during breaks, accompanied by lively music throughout the stadium.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€17.44</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-globe-life-field-texas-rangers-baseball-game-p1097811/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f7358d09834709a9ceb200bdc2ddc2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Walking Tour of Arlington National Cemetery" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Private Walking Tour of Arlington National Cemetery</h3>
-          <p class="venue">📍 Arlington National Cemetery</p>
-          <p>This privately guided tour of Arlington National Cemetery, with tram tickets included is a history lesson in itself. Join your guide and take the tram tour to the top of the cemetery, where you'll then enjoy a leisurely walking tour downhill. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f7358d09834709a9ceb200bdc2ddc2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Private Walking Tour of Arlington National Cemetery" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ARLINGTON</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ARLINGTON NATIONAL CEMETERY</span>
+        </div>
+        <div class="tq-card-title">Private Walking Tour of Arlington National Cemetery</div>
+        <div class="tq-card-desc">This privately guided tour of Arlington National Cemetery, with tram tickets included is a history lesson in itself. Join your guide and take the tram tour to the top of the cemetery, where you'll then enjoy a leisurely walking tour downhill. 
 
 As you wind your way down through the cemetery, you'll see President John F. Kennedy's gravesite, the Tomb of the Unknown Soldier, U.S. Army Gen. John J. Pershing's gravesite, the U.S. Marine Corps War Memorial, and other notable memorials, including the one to the Columbia and Challenger space shuttles. 
 
-Your tour ends at the exit of the cemetery. However, feel free to continue exploring the historical site in your own time.</p>
-          <div class="card-footer">
-            <span class="price">From €115.97</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-private-walking-tour-of-arlington-national-cemetery-p1029374/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Your tour ends at the exit of the cemetery. However, feel free to continue exploring the historical site in your own time.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€115.97</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-private-walking-tour-of-arlington-national-cemetery-p1029374/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/26f7358d09834709a9ceb200bdc2ddc2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Arlington National Cemetery Guided Walking Tour: Semi-Private" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Arlington National Cemetery Guided Walking Tour: Semi-Private</h3>
-          <p class="venue">📍 Arlington National Cemetery</p>
-          <p>A sobering reminder of the realities of war, but a stunningly beautiful tribute – the Arlington National Cemetery is the final resting place of more than 400,000 service members and their families.  
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/26f7358d09834709a9ceb200bdc2ddc2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Arlington National Cemetery Guided Walking Tour: Semi-Private" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>ARLINGTON</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ARLINGTON NATIONAL CEMETERY</span>
+        </div>
+        <div class="tq-card-title">Arlington National Cemetery Guided Walking Tour: Semi-Private</div>
+        <div class="tq-card-desc">A sobering reminder of the realities of war, but a stunningly beautiful tribute – the Arlington National Cemetery is the final resting place of more than 400,000 service members and their families.  
 
 This private guided walking tour takes you around the grounds that once belonged to General Robert E. Lee. You'll find out more about him, along with other important names who have been laid to rest here.
 
 Your guide will give you more details about famous tombs such as those of President John F. Kennedy and soldier Audie Murphy. You'll also visit a few less known graves, like that of famed boxer Joe Louis. 
 
-Pay your respects at the Tomb of the Unknown Soldier, you might even have the chance to witness a Changing of the Guard ceremony. Before you leave, see the more modern memorials to the victims of the space shuttles Columbia and Challenger while walking these hallowed grounds.</p>
-          <div class="card-footer">
-            <span class="price">From €44.78</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-arlington-national-cemetery-guided-walking-tour-p1026712/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Pay your respects at the Tomb of the Unknown Soldier, you might even have the chance to witness a Changing of the Guard ceremony. Before you leave, see the more modern memorials to the victims of the space shuttles Columbia and Challenger while walking these hallowed grounds.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€44.78</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-arlington-national-cemetery-guided-walking-tour-p1026712/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

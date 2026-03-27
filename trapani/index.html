@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Trapani | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Trapani. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,113 +131,169 @@
     <p>6 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="" alt="Favignana & Levanzo: Boat Tour from Trapani + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Favignana & Levanzo: Boat Tour from Trapani + Lunch</h3>
-          <p class="venue">📍 Sicily - Trapani Cruises & Boat Tours</p>
-          <p>Join a boat tour to Favignana and Levanzo in the Egadi Islands. Spend 8 hours on a 24-seat boat where you'll view several natural locations, where you will have access to the marine protected area.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TRAPANI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SICILY - TRAPANI CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Favignana & Levanzo: Boat Tour from Trapani + Lunch</div>
+        <div class="tq-card-desc">Join a boat tour to Favignana and Levanzo in the Egadi Islands. Spend 8 hours on a 24-seat boat where you'll view several natural locations, where you will have access to the marine protected area.
 
 In Favignana, see the Cala Azzurra, Grotta del Bue Marino, Cala Rossa, and Grotta degli Innamorati. In Levanzo, stop at Cala Dogana, Cala Fredda, and Cala Minnola.
 
-Have lunch featuring local products and wine. Later, enjoy an aperitif by the sea.</p>
-          <div class="card-footer">
-            <span class="price">From €100</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-favignana-levanzo-boat-tour-from-trapani-lunch-p1118724/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Have lunch featuring local products and wine. Later, enjoy an aperitif by the sea.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€100.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-favignana-levanzo-boat-tour-from-trapani-lunch-p1118724/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Favignana & Levanzo: RIB Boat Tour from Trapani + Lunch & Aperitif" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Favignana & Levanzo: RIB Boat Tour from Trapani + Lunch & Aperitif</h3>
-          <p class="venue">📍 Sicily - Trapani Cruises & Boat Tours</p>
-          <p>Take a boat tour to the islands of Favignana and Levanzo in the Egadi archipelago. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TRAPANI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SICILY - TRAPANI CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Favignana & Levanzo: RIB Boat Tour from Trapani + Lunch & Aperitif</div>
+        <div class="tq-card-desc">Take a boat tour to the islands of Favignana and Levanzo in the Egadi archipelago. 
 
 Spend the day on a 24-seat vessel, visiting locations within the marine protected area. On the island of Favignana, visit areas such as Cala Azzurra and Grotta del Bue Marino. 
 
 Over in Levanzo, stop to see Cala Dogana and Cala Fredda, among others. 
 
-A meal featuring local cuisine will be provided along the way, followed by an aperitif in a coastal setting.</p>
-          <div class="card-footer">
-            <span class="price">From €85</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-favignana-levanzo-rib-boat-tour-from-trapani-lunch-aperitif-p1126995/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+A meal featuring local cuisine will be provided along the way, followed by an aperitif in a coastal setting.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€85.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-favignana-levanzo-rib-boat-tour-from-trapani-lunch-aperitif-p1126995/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Sicily Islands: One-Way Ferry Transfer from Trapani to Pantelleria" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Sicily Islands: One-Way Ferry Transfer from Trapani to Pantelleria</h3>
-          <p class="venue">📍 Cruises from Trapani</p>
-          <p>Take a ferry from Trapani directly to the island of Pantelleria. The journey lasts approximately 2 to 3 hours on a fast hydrofoil. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TRAPANI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CRUISES FROM TRAPANI</span>
+        </div>
+        <div class="tq-card-title">Sicily Islands: One-Way Ferry Transfer from Trapani to Pantelleria</div>
+        <div class="tq-card-desc">Take a ferry from Trapani directly to the island of Pantelleria. The journey lasts approximately 2 to 3 hours on a fast hydrofoil. 
 
-Pantelleria is a volcanic island in the Mediterranean with unique geological characteristics. Its coastline is noteworthy for its features and is home to traditional stone buildings known as dammusi.</p>
-          <div class="card-footer">
-            <span class="price">From €40.38</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-sicily-islands-ferry-ticket-from-trapani-to-pantelleria-p1125223/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Pantelleria is a volcanic island in the Mediterranean with unique geological characteristics. Its coastline is noteworthy for its features and is home to traditional stone buildings known as dammusi.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€40.38</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-sicily-islands-ferry-ticket-from-trapani-to-pantelleria-p1125223/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Trapani: Mini-Cruise to Favignana and Levanzo + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Trapani: Mini-Cruise to Favignana and Levanzo + Lunch</h3>
-          <p class="venue">📍 Cruises from Trapani</p>
-          <p>Join the "Favignana and Levanzo" mini cruise to visit the Egadi Islands, rich in nature, history, and Sicilian traditions. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TRAPANI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CRUISES FROM TRAPANI</span>
+        </div>
+        <div class="tq-card-title">Trapani: Mini-Cruise to Favignana and Levanzo + Lunch</div>
+        <div class="tq-card-desc">Join the "Favignana and Levanzo" mini cruise to visit the Egadi Islands, rich in nature, history, and Sicilian traditions. 
 
 Depart from Trapani in the morning and head to Favignana. Explore the village and learn about the tuna fishing heritage. 
 
 Enjoy a coastal boat tour with a swim stop in a scenic cove. 
 
-On board, you will have lunch in Trapani-style. Continue the cruise to Levanzo, an untouched island known for the Faraglione rock and scenic coves.</p>
-          <div class="card-footer">
-            <span class="price">From €41.5</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-trapani-mini-cruise-to-favignana-and-levanzo-p1122012/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+On board, you will have lunch in Trapani-style. Continue the cruise to Levanzo, an untouched island known for the Faraglione rock and scenic coves.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€41.50</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-trapani-mini-cruise-to-favignana-and-levanzo-p1122012/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Favignana & Levanzo: Shuttle Boat from Trapani" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Favignana & Levanzo: Shuttle Boat from Trapani</h3>
-          <p class="venue">📍 Sicily - Trapani Cruises & Boat Tours</p>
-          <p>Depart from Trapani in the morning to explore the Egadi Islands. The first stop is Favignana, with free time to explore the island. Then visit Cala Rossa, Cala Azzurra, and Lido Burrone for clear waters and beaches, ideal for swimming and relaxing.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TRAPANI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">SICILY - TRAPANI CRUISES & BOAT TOURS</span>
+        </div>
+        <div class="tq-card-title">Favignana & Levanzo: Shuttle Boat from Trapani</div>
+        <div class="tq-card-desc">Depart from Trapani in the morning to explore the Egadi Islands. The first stop is Favignana, with free time to explore the island. Then visit Cala Rossa, Cala Azzurra, and Lido Burrone for clear waters and beaches, ideal for swimming and relaxing.
 
-In the afternoon, cruise along Levanzo’s coast, including the Faraglione rock, with a swim stop if the weather allows. There may be a brief stop in Favignana to pick up more passengers. Return to Trapani in the early evening.</p>
-          <div class="card-footer">
-            <span class="price">From €31</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-favignana-and-levanzo-shuttle-boat-from-trapani-p1120694/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In the afternoon, cruise along Levanzo’s coast, including the Faraglione rock, with a swim stop if the weather allows. There may be a brief stop in Favignana to pick up more passengers. Return to Trapani in the early evening.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€31.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-favignana-and-levanzo-shuttle-boat-from-trapani-p1120694/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/79c37034cffc4db18fcdad3d1301d456.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Favignana & Levanzo: Boat Tour from Trapani + Lunch" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Favignana & Levanzo: Boat Tour from Trapani + Lunch</h3>
-          <p class="venue">📍 Trapani Water Activities</p>
-          <p>Begin the tour of Favignana and Levanzo islands from Trapani port. Arrive at Favignana and spend some free time exploring the town, shopping, visiting the Tonnara of Favignana Museum, or swimming at the beach near the port.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/79c37034cffc4db18fcdad3d1301d456.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Favignana & Levanzo: Boat Tour from Trapani + Lunch" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>TRAPANI</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">TRAPANI WATER ACTIVITIES</span>
+        </div>
+        <div class="tq-card-title">Favignana & Levanzo: Boat Tour from Trapani + Lunch</div>
+        <div class="tq-card-desc">Begin the tour of Favignana and Levanzo islands from Trapani port. Arrive at Favignana and spend some free time exploring the town, shopping, visiting the Tonnara of Favignana Museum, or swimming at the beach near the port.
 
 Return to the boat and start the island tour along the coast, noting key spots like Scalo Cavallo, Cala Rossa, Grotta del Bue Marino, and Cala Azzurra Beach. Stop at one of these spots for a swim and enjoy a traditional Trapani lunch on the boat.
 
-After lunch, head to Cala Faraglione of Levanzo for free time to explore. Pass through other spots like Cala Fredda and Cala Minnola. Return to Trapani by evening.</p>
-          <div class="card-footer">
-            <span class="price">From €50</span>
-            <span class="rating">⭐ 4.3 (3)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-favignana-levanzo-boat-tour-from-trapani-lunch-p1118116/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+After lunch, head to Cala Faraglione of Levanzo for free time to explore. Pass through other spots like Cala Fredda and Cala Minnola. Return to Trapani by evening.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4.3</strong>
+            <span class="tq-reviews">(3)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€50.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-favignana-levanzo-boat-tour-from-trapani-lunch-p1118116/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

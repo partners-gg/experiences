@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Cappadocia | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Cappadocia. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,164 +131,257 @@
     <p>9 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/db74b3f1dc4a4cfd983cff508fb965c0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Sand-Brewed Turkish Coffee Workshop + Dessert" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cappadocia: Sand-Brewed Turkish Coffee Workshop + Dessert</h3>
-          <p class="venue">📍 Outdoor Activities in Cappadocia</p>
-          <p>Visit Cappadocia in central Turkey to see its unique landscapes and culture. Try the Turkish coffee that has been made since the 16th century at a sand-brewing workshop.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/db74b3f1dc4a4cfd983cff508fb965c0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Sand-Brewed Turkish Coffee Workshop + Dessert" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAPPADOCIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">OUTDOOR ACTIVITIES IN CAPPADOCIA</span>
+        </div>
+        <div class="tq-card-title">Cappadocia: Sand-Brewed Turkish Coffee Workshop + Dessert</div>
+        <div class="tq-card-desc">Visit Cappadocia in central Turkey to see its unique landscapes and culture. Try the Turkish coffee that has been made since the 16th century at a sand-brewing workshop.
 
-Learn how to brew coffee with a special method using finely ground beans, water, and sugar in a copper pot called a “cezve.” Heat the coffee slowly in hot sand to enhance its flavor.</p>
-          <div class="card-footer">
-            <span class="price">From €8</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-sand-brewed-turkish-coffee-workshop-dessert-p1119914/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Learn how to brew coffee with a special method using finely ground beans, water, and sugar in a copper pot called a “cezve.” Heat the coffee slowly in hot sand to enhance its flavor.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€8.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-sand-brewed-turkish-coffee-workshop-dessert-p1119914/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/db74b3f1dc4a4cfd983cff508fb965c0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Full-Day Scooter Rental" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cappadocia: Full-Day Scooter Rental</h3>
-          <p class="venue">📍 Outdoor Activities in Cappadocia</p>
-          <p>Rent a scooter for a day in Cappadocia. Travel through valleys, see unique rock formations, and visit viewpoints. Reach areas difficult to access by car or on foot. 
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/db74b3f1dc4a4cfd983cff508fb965c0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Full-Day Scooter Rental" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAPPADOCIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">OUTDOOR ACTIVITIES IN CAPPADOCIA</span>
+        </div>
+        <div class="tq-card-title">Cappadocia: Full-Day Scooter Rental</div>
+        <div class="tq-card-desc">Rent a scooter for a day in Cappadocia. Travel through valleys, see unique rock formations, and visit viewpoints. Reach areas difficult to access by car or on foot. 
 
-Scooters are user-friendly and provide a comfortable ride. Helmets and basic gear come with the rental. Use the scooter for the entire day and make your itinerary.</p>
-          <div class="card-footer">
-            <span class="price">From €38.89</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-full-day-scooter-rental-p1119913/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Scooters are user-friendly and provide a comfortable ride. Helmets and basic gear come with the rental. Use the scooter for the entire day and make your itinerary.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€38.89</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-full-day-scooter-rental-p1119913/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/2002face09994fddb43476d07178e0f2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Sunrise & Sunset Guided Jeep Safari + Transfers" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cappadocia: Sunrise & Sunset Guided Jeep Safari + Transfers</h3>
-          <p class="venue">📍 ATV, Quad & Jeep Safari Cappadocia</p>
-          <p>Join a half-day jeep safari in Cappadocia to navigate through various valleys shaped by natural processes over millennia.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/2002face09994fddb43476d07178e0f2.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Sunrise & Sunset Guided Jeep Safari + Transfers" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAPPADOCIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">ATV, QUAD & JEEP SAFARI CAPPADOCIA</span>
+        </div>
+        <div class="tq-card-title">Cappadocia: Sunrise & Sunset Guided Jeep Safari + Transfers</div>
+        <div class="tq-card-desc">Join a half-day jeep safari in Cappadocia to navigate through various valleys shaped by natural processes over millennia.
 
 The activity includes transportation from your hotel to the departure location, followed by necessary safety instructions.
 
 Your guide will ensure a safe drive through notable valleys such as Sword, Rose, Red, and Love Valleys, known for their distinct geographical formations.
 
-Additionally, visit the Çavuşin Ghost Village to understand its past significance. Conclude the trip with a celebration involving refreshments.</p>
-          <div class="card-footer">
-            <span class="price">From €75</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-sunrise-sunset-guided-jeep-safari-transfers-p1126001/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Additionally, visit the Çavuşin Ghost Village to understand its past significance. Conclude the trip with a celebration involving refreshments.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€75.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-sunrise-sunset-guided-jeep-safari-transfers-p1126001/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/4d00513a851443809b7ad3b98aa4924f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Half-Day Guided Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cappadocia: Half-Day Guided Tour</h3>
-          <p class="venue">📍 Cappadocia Day Tours</p>
-          <p>Begin by visiting Love Valley Viewpoint. The valley offers unique rock formations called fairy chimneys.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/4d00513a851443809b7ad3b98aa4924f.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Half-Day Guided Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAPPADOCIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAPPADOCIA DAY TOURS</span>
+        </div>
+        <div class="tq-card-title">Cappadocia: Half-Day Guided Tour</div>
+        <div class="tq-card-desc">Begin by visiting Love Valley Viewpoint. The valley offers unique rock formations called fairy chimneys.
 
 Next, go to Çavuşin, one of Cappadocia's oldest Greek settlements. See St. John the Baptist Church, a large and ancient cave church.
 
 Continue to Pasabag Valley to view more fairy chimneys. Then head to Devrent Valley, where rocks have shapes that resemble animals.
 
-Visit Red Valley Viewpoint for wide views of Cappadocia. Take photos as you explore the area. Finish at Uchisar Castle and walk around the historic site.</p>
-          <div class="card-footer">
-            <span class="price">From €115</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-half-day-guided-tour-p1119333/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Visit Red Valley Viewpoint for wide views of Cappadocia. Take photos as you explore the area. Finish at Uchisar Castle and walk around the historic site.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€115.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-half-day-guided-tour-p1119333/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/db74b3f1dc4a4cfd983cff508fb965c0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Full-Day Guided Green Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cappadocia: Full-Day Guided Green Tour</h3>
-          <p class="venue">📍 Cappadocia Day Tours</p>
-          <p>Join a full-day guided tour through Cappadocia with comfortable hotel pickup and drop-off.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/db74b3f1dc4a4cfd983cff508fb965c0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Full-Day Guided Green Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAPPADOCIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAPPADOCIA DAY TOURS</span>
+        </div>
+        <div class="tq-card-title">Cappadocia: Full-Day Guided Green Tour</div>
+        <div class="tq-card-desc">Join a full-day guided tour through Cappadocia with comfortable hotel pickup and drop-off.
 
 Start at Esentepe for views over Göreme Valley. Next, visit one of Cappadocia’s underground cities, exploring tunnels and chambers.
 
 Then take a 4 km walk along the Melendiz River in Ihlara Valley, passing rock-cut churches and greenery. Have lunch on the riverside with traditional Turkish dishes in Belisirma Village (at your own expense).
 
-In the afternoon, see the scenery and the cliffside monastery at Yaprakhisar, used in Star Wars filming. End the day with a return transfer to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €22</span>
-            <span class="rating">⭐ 5 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-full-day-guided-green-tour-p1117651/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+In the afternoon, see the scenery and the cliffside monastery at Yaprakhisar, used in Star Wars filming. End the day with a return transfer to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>5</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-full-day-guided-green-tour-p1117651/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/db74b3f1dc4a4cfd983cff508fb965c0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Full-Day Guided South Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cappadocia: Full-Day Guided South Tour</h3>
-          <p class="venue">📍 Cappadocia Day Tours</p>
-          <p>Start your day in Cappadocia with a hotel pickup for a smooth start to your adventure.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/db74b3f1dc4a4cfd983cff508fb965c0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Full-Day Guided South Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAPPADOCIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAPPADOCIA DAY TOURS</span>
+        </div>
+        <div class="tq-card-title">Cappadocia: Full-Day Guided South Tour</div>
+        <div class="tq-card-desc">Start your day in Cappadocia with a hotel pickup for a smooth start to your adventure.
 
 Take a 2 km walk in Cavusin Village. See the cliffs and cave dwellings of Red Valley. Then visit Ozkonak Underground City. Learn about the tunnels, stables, and cellars that once sheltered up to 5,000 people.
 
 Have a buffet lunch with traditional dishes from Cappadocia (at your own expense). In the afternoon, check out local artisans at the Onyx Center, then go to Pigeon Valley to see the dovecotes.
 
-Afterward, head to a leather factory and browse handcrafted goods. End your day with a relaxing drive back to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €22</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-full-day-guided-south-tour-p1117531/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Afterward, head to a leather factory and browse handcrafted goods. End your day with a relaxing drive back to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-full-day-guided-south-tour-p1117531/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/a7e568afecb24718910f147bbbf57c68.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Full-Day Guided Red Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cappadocia: Full-Day Guided Red Tour</h3>
-          <p class="venue">📍 Cappadocia Day Tours</p>
-          <p>Start the day in Cappadocia with convenient hotel pickup and head to Devrent Valley. See unique rock formations and fairy chimneys. The location is ideal for walking and taking photos.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/a7e568afecb24718910f147bbbf57c68.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Full-Day Guided Red Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAPPADOCIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAPPADOCIA DAY TOURS</span>
+        </div>
+        <div class="tq-card-title">Cappadocia: Full-Day Guided Red Tour</div>
+        <div class="tq-card-desc">Start the day in Cappadocia with convenient hotel pickup and head to Devrent Valley. See unique rock formations and fairy chimneys. The location is ideal for walking and taking photos.
 
 Visit Pasabag (Monks Valley) to see mushroom-shaped rocks and old hermit dwellings. Then join the Avanos Pottery workshop. Watch artisans make pottery using traditional methods. Try making your own piece or buy a handmade souvenir.
 
 Have a buffet lunch (not included) at a restaurant in Avanos, featuring Turkish dishes.
 
-Afterward, go to the Turkish Carpet Gallery. Learn about the art and symbolism of hand-woven Turkish carpets in a local gallery. End the day with a return drive to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €22</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-full-day-guided-red-tour-p1117526/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Afterward, go to the Turkish Carpet Gallery. Learn about the art and symbolism of hand-woven Turkish carpets in a local gallery. End the day with a return drive to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-full-day-guided-red-tour-p1117526/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/db74b3f1dc4a4cfd983cff508fb965c0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Full-Day Guided North & South Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cappadocia: Full-Day Guided North & South Tour</h3>
-          <p class="venue">📍 Cappadocia Day Tours</p>
-          <p>Begin the day with a pickup from your hotel and visit the abandoned village of Cavusin, known for its rock-cut homes. Continue to Ozkonak Underground City, navigating its tunnels and viewing its ventilation shafts and defense systems.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/db74b3f1dc4a4cfd983cff508fb965c0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Full-Day Guided North & South Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAPPADOCIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAPPADOCIA DAY TOURS</span>
+        </div>
+        <div class="tq-card-title">Cappadocia: Full-Day Guided North & South Tour</div>
+        <div class="tq-card-desc">Begin the day with a pickup from your hotel and visit the abandoned village of Cavusin, known for its rock-cut homes. Continue to Ozkonak Underground City, navigating its tunnels and viewing its ventilation shafts and defense systems.
 
 Visit a pottery workshop in Avanos to watch artisans at work and try shaping clay yourself. Have a buffet lunch with fresh local dishes (at your own expense).
 
 In the afternoon, head to Uchisar and watch carpet weaving in action. Walk through Pigeon Valley, notable for its dovecotes carved into the cliffs.
 
-Then, explore Uchisar Fortress and visit the Göreme Open Air Museum to see ancient churches decorated with vivid frescoes. End the day with a comfortable ride back to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €22</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-full-day-guided-north-south-tour-p1117417/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Then, explore Uchisar Fortress and visit the Göreme Open Air Museum to see ancient churches decorated with vivid frescoes. End the day with a comfortable ride back to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.00</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-full-day-guided-north-south-tour-p1117417/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/db74b3f1dc4a4cfd983cff508fb965c0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Full-Day Guided North Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Cappadocia: Full-Day Guided North Tour</h3>
-          <p class="venue">📍 Cappadocia Day Tours</p>
-          <p>Join a full-day tour through Cappadocia’s unique landscapes and cultural sites.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/db74b3f1dc4a4cfd983cff508fb965c0.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Cappadocia: Full-Day Guided North Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>CAPPADOCIA</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">CAPPADOCIA DAY TOURS</span>
+        </div>
+        <div class="tq-card-title">Cappadocia: Full-Day Guided North Tour</div>
+        <div class="tq-card-desc">Join a full-day tour through Cappadocia’s unique landscapes and cultural sites.
 
 Start with a visit to Devrent Valley. See the fairy chimneys and rock formations in Devrent Valley. Then head to Pasabag (Monks Valley) to view unique rock formations and cave dwellings.
 
@@ -197,14 +389,20 @@ Visit the Avanos Pottery workshop to meet artisans and try traditional clay shap
 
 In the afternoon, visit the Göreme Open Air Museum. See rock-carved churches and Byzantine frescoes at this UNESCO site.
 
-Look at handcrafted carpets and learn about their patterns at the Carpet Gallery before ending the day with a return ride to your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €22</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-full-day-guided-north-tour-p1117384/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Look at handcrafted carpets and learn about their patterns at the Carpet Gallery before ending the day with a return ride to your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€22.00</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-cappadocia-full-day-guided-north-tour-p1117384/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -5,25 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Group Experiences in Patong | Group Getaways</title>
   <meta name="description" content="Discover the best group experiences and activities in Patong. Book tours, tastings, and adventures with Group Getaways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; color: #222; }
-    header { background: #1a1a2e; color: white; padding: 2rem; text-align: center; }
-    header h1 { font-size: 2rem; }
-    header p { margin-top: .5rem; opacity: .8; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
-    .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
-    .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
-    .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
-    .price { font-weight: bold; color: #1a1a2e; }
-    .rating { font-size: .8rem; color: #555; }
-    .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
-    .btn:hover { background: #c1121f; }
-    footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
+    body { font-family: 'PT Serif', serif; background: #f9f9f9; color: #2D2D2A; }
+
+    header {
+      background: #1a1a2e;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Marcellus', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+    }
+    header p { opacity: .8; font-size: 1rem; font-family: 'PT Serif', serif; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: auto;
+    }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px)  { .grid { grid-template-columns: 1fr; } }
+
+    .tq-card {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .tq-card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      transform: translateY(-3px);
+    }
+    .tq-card-img {
+      width: 100%; height: 190px;
+      object-fit: cover; display: block;
+      background: #f5f5f5;
+    }
+    .tq-card-img-placeholder {
+      width: 100%; height: 190px;
+      background: linear-gradient(135deg, #F0CD5F22 0%, #E88E0222 100%);
+      display: flex; align-items: center;
+      justify-content: center;
+      font-size: 36px; color: #E88E02;
+    }
+    .tq-card-body {
+      padding: 20px 24px 16px 24px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .tq-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: #E88E02; font-size: 11px;
+      font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .tq-badge-dot { color: #ccc; font-weight: 400; }
+    .tq-badge-tag { color: #E88E02; }
+    .tq-card-title {
+      font-family: 'Marcellus', serif;
+      font-size: 17px; font-weight: 400;
+      color: #2D2D2A; margin-bottom: 10px;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-desc {
+      font-size: 13px; color: #999;
+      line-height: 1.55; flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .tq-card-footer {
+      display: flex; justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 4px 14px 4px;
+      margin-top: 16px;
+    }
+    .tq-rating {
+      font-size: 13px; color: #555;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .tq-rating strong { color: #2D2D2A; font-size: 14px; }
+    .tq-reviews { color: #bbb; font-size: 12px; }
+    .tq-price-block { text-align: right; }
+    .tq-price-from { font-size: 11px; color: #999; display: block; margin-bottom: 2px; }
+    .tq-price { font-family: 'Marcellus', serif; font-size: 22px; color: #2D2D2A; line-height: 1; }
+    .tq-btn {
+      display: block; margin: 0 0 8px 0;
+      text-align: center; background: #4277B0;
+      color: #fff; padding: 14px 16px;
+      border-radius: 6px; text-decoration: none;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.3px;
+      transition: background 0.2s;
+    }
+    .tq-btn:hover { background: #335f8e; }
+
+    footer {
+      text-align: center; padding: 2rem;
+      color: #888; font-size: .8rem; margin-top: 2rem;
+      font-family: 'PT Serif', serif;
+    }
   </style>
 </head>
 <body>
@@ -32,12 +131,15 @@
     <p>4 activities available for your group</p>
   </header>
   <div class="grid">
-      <div class="card">
-        <img src="" alt="Phuket: Surin Islands Speedboat Tour with Snorkeling" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Phuket: Surin Islands Speedboat Tour with Snorkeling</h3>
-          <p class="venue">📍 Day Trips from Pa Tong</p>
-          <p>05.30 AM - Let the adventure begin! With an early morning hotel pick-up, embark on a thrilling 3-hour journey to the exquisite Baan Nam Kem pier in Phang Nga.
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATONG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">DAY TRIPS FROM PA TONG</span>
+        </div>
+        <div class="tq-card-title">Phuket: Surin Islands Speedboat Tour with Snorkeling</div>
+        <div class="tq-card-desc">05.30 AM - Let the adventure begin! With an early morning hotel pick-up, embark on a thrilling 3-hour journey to the exquisite Baan Nam Kem pier in Phang Nga.
 
 08.30 AM - A warm welcome awaits at the private pier! Here's where the check-in happens and the snorkel gear gets picked up, readying for a day full of breathtaking experiences.
 
@@ -55,21 +157,30 @@
 
 05.00 PM - Back at Baan Nam Kem, the perfect end to a perfect day!
 
-08.15 PM - Arrive back at the hotel in Phuket via a shared minivan, memories of an unforgettable day etched in the heart forever. Book today and dive into an extraordinary adventure!</p>
-          <div class="card-footer">
-            <span class="price">From €113.25</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-from-phuket-surin-islands-speedboat-tour-with-snorkeling-p1094790/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+08.15 PM - Arrive back at the hotel in Phuket via a shared minivan, memories of an unforgettable day etched in the heart forever. Book today and dive into an extraordinary adventure!</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€113.25</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-from-phuket-surin-islands-speedboat-tour-with-snorkeling-p1094790/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Phuket: Private Day Trip to Khao Sok with Longtail Boat Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Phuket: Private Day Trip to Khao Sok with Longtail Boat Tour</h3>
-          <p class="venue">📍 Khao Sok Day Trips from Pa Tong</p>
-          <p>Depart on a day-long adventure to Khao Sok National Park, often hailed as one of Thailand's hidden gems. With a private vehicle from Phuket and a 4-hour longtail boat ride, this tour offers an unforgettable exploration of Khao Sok's best features in one day. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATONG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">KHAO SOK DAY TRIPS FROM PA TONG</span>
+        </div>
+        <div class="tq-card-title">Phuket: Private Day Trip to Khao Sok with Longtail Boat Tour</div>
+        <div class="tq-card-desc">Depart on a day-long adventure to Khao Sok National Park, often hailed as one of Thailand's hidden gems. With a private vehicle from Phuket and a 4-hour longtail boat ride, this tour offers an unforgettable exploration of Khao Sok's best features in one day. 
 
 The day kicks off bright and early at 6:30 AM with a private hotel pickup from any location in Phuket. By 9:45 AM, you'll arrive at Khao Sok and head straight to the Cheow Lan Lake viewpoint. Gaze upon the beautiful vista before diving into your 4-hour private longtail boat tour, complete with a lunch stop at Cheow Lan Lake.
 
@@ -77,48 +188,74 @@ During the experience, you'll spend 1.5 hours cruising through waters, followed 
 
 Guided by a seasoned local, you'll navigate the world's oldest rainforest, finally reaching the raft house.
 
-At 2:15 PM, the private boat tour ends, and you'll return to Phuket by 2:30 PM. By 6:00 PM, you'll be dropped off at your hotel.</p>
-          <div class="card-footer">
-            <span class="price">From €419.72</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-phuket-private-day-trip-to-khao-sok-with-longtail-boat-tour-p1094388/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+At 2:15 PM, the private boat tour ends, and you'll return to Phuket by 2:30 PM. By 6:00 PM, you'll be dropped off at your hotel.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€419.72</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-phuket-private-day-trip-to-khao-sok-with-longtail-boat-tour-p1094388/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="" alt="Froggy's Fun Park: Trampoline, Playground & Rope Park 1-Day Access" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Froggy's Fun Park: Trampoline, Playground & Rope Park 1-Day Access</h3>
-          <p class="venue">📍 Froggy's Fun Park</p>
-          <p>Enjoy a day full of fun at Froggy's Fun Park as you get 1-day unlimited access to the trampoline zone, playground, and rope park. 
+    <div class="tq-card">
+      <div class="tq-card-img-placeholder">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATONG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">FROGGY'S FUN PARK</span>
+        </div>
+        <div class="tq-card-title">Froggy's Fun Park: Trampoline, Playground & Rope Park 1-Day Access</div>
+        <div class="tq-card-desc">Enjoy a day full of fun at Froggy's Fun Park as you get 1-day unlimited access to the trampoline zone, playground, and rope park. 
 
-Bounce, climb, and play without any boundaries. Try out the rope courses, dive into foam pits, or just have a great time with your family.</p>
-          <div class="card-footer">
-            <span class="price">From €23.76</span>
-            <span class="rating">⭐  ()</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-froggy-s-fun-park-trampoline-playground-rope-park-1-day-access-p1093579/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Bounce, climb, and play without any boundaries. Try out the rope courses, dive into foam pits, or just have a great time with your family.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>N/A</strong>
+            
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€23.76</span>
           </div>
         </div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-froggy-s-fun-park-trampoline-playground-rope-park-1-day-access-p1093579/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
       </div>
+    </div>
 
-      <div class="card">
-        <img src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pa Tong: ATV Ride + Big Buddha Tour" loading="lazy" onerror="this.style.display='none'">
-        <div class="card-body">
-          <h3>Pa Tong: ATV Ride + Big Buddha Tour</h3>
-          <p class="venue">📍 Outdoor Activities Pa Tong</p>
-          <p>Prepare for an adventurous ATV tour through Phuket's countryside.
+    <div class="tq-card">
+      <img class="tq-card-img" src="https://aws-tiqets-cdn.imgix.net/images/content/b3f321f3770643ada7b10a1ac63ae6dd.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Pa Tong: ATV Ride + Big Buddha Tour" loading="lazy"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+           <div class="tq-card-img-placeholder" style="display:none">🎟</div>
+      <div class="tq-card-body">
+        <div class="tq-badge">
+          <span>PATONG</span>
+          <span class="tq-badge-dot">·</span><span class="tq-badge-tag">OUTDOOR ACTIVITIES PA TONG</span>
+        </div>
+        <div class="tq-card-title">Pa Tong: ATV Ride + Big Buddha Tour</div>
+        <div class="tq-card-desc">Prepare for an adventurous ATV tour through Phuket's countryside.
 
 Feel the thrill as you explore local villages, farms, and lush plantations on your ATV.
 
-Experience the scenic beauty around and learn about the local culture.</p>
-          <div class="card-footer">
-            <span class="price">From €58.07</span>
-            <span class="rating">⭐ 4 (1)</span>
-            <a href="https://www.tiqets.com/en/checkout/tickets-for-pa-tong-atv-ride-big-buddha-tour-p1092990/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+Experience the scenic beauty around and learn about the local culture.</div>
+        <div class="tq-card-footer">
+          <div class="tq-rating">
+            ⭐ <strong>4</strong>
+            <span class="tq-reviews">(1)</span>
+          </div>
+          <div class="tq-price-block">
+            <span class="tq-price-from">From</span>
+            <span class="tq-price">€58.07</span>
           </div>
         </div>
-      </div></div>
+        <a class="tq-btn" href="https://www.tiqets.com/en/checkout/tickets-for-pa-tong-atv-ride-big-buddha-tour-p1092990/booking_details/?partner=titans_re_ag-184915" target="_blank">Check Availability →</a>
+      </div>
+    </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>
