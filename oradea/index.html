@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,103 +32,101 @@
     <p>6 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/91b5ab46e08c4d628fee4ffc6ac256e5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oradea Zoo: Meet & Greet" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oradea Zoo: Meet & Greet</h3>
-        <p class="venue">📍 Oradea Zoo</p>
-        <p>The child in us seemed to have an unlimited sense of wonder, and there weren't many places you felt it more than at the zoo. Amazing animals you'd only seen before in stories were there right in front of you – Oradea Zoo brings you back to that feeling with their cast of creatures.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/91b5ab46e08c4d628fee4ffc6ac256e5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oradea Zoo: Meet & Greet" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oradea Zoo: Meet & Greet</h3>
+          <p class="venue">📍 Oradea Zoo</p>
+          <p>The child in us seemed to have an unlimited sense of wonder, and there weren't many places you felt it more than at the zoo. Amazing animals you'd only seen before in stories were there right in front of you – Oradea Zoo brings you back to that feeling with their cast of creatures.
 
 If you love the majesty of big cats, then you're in luck. The zoo proudly hosts lions and leopards, Siberian tigers, and lynxes. There's also the chance to see brown bears and wolves. Prepare to be dazzled by mother nature at Oradea Zoo.</p>
-        <div class="card-footer">
-         <span class="price">From €19.99</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oradea-zoo-meet-greet-p1013360/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €19.99</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oradea-zoo-meet-greet-p1013360/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/000c5683524140f9afb29f15d1fd0fe1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Museum of Oradea & Oradea Fortress Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Museum of Oradea & Oradea Fortress Tour</h3>
-        <p class="venue">📍 Museum of Oradea</p>
-        <p>History whispers to you at every turn in Oradea. Nowhere epitomizes this better than the (almost) indomitable Oradea Fortress, the centerpiece of this ancient Romanian city. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/000c5683524140f9afb29f15d1fd0fe1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Museum of Oradea & Oradea Fortress Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Museum of Oradea & Oradea Fortress Tour</h3>
+          <p class="venue">📍 Museum of Oradea</p>
+          <p>History whispers to you at every turn in Oradea. Nowhere epitomizes this better than the (almost) indomitable Oradea Fortress, the centerpiece of this ancient Romanian city. 
 
 This combo ticket gets you skip-the-line access to the Museum of Oradea, which traces the city's many wars, eras of religious turmoil, and even the disco days of the 1970s and 1980s. You'll also join a guided tour of the fortress, with a live host detailing the trials and triumphs of Oradea throughout the centuries.</p>
-        <div class="card-footer">
-         <span class="price">From €19.99</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-museum-of-oradea-oradea-fortress-tour-p1013352/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €19.99</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-museum-of-oradea-oradea-fortress-tour-p1013352/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/33cc55c597234402a08437c5995dc47d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Sion Neolog Synagogue & Jewish History Museum Oradea" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Sion Neolog Synagogue & Jewish History Museum Oradea</h3>
-        <p class="venue">📍 Museum of Jewish History in Oradea</p>
-        <p>In the Museum of Jewish History in Oradea – housed in the Aachvas Rein Orthodox Synagogue, built in 1926 – you can take a chronological journey which tells the tale of the city's Jewish population, from their establishment to the subsequent splitting of the community, and the tragic ghettoization and deportation during World War II.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/33cc55c597234402a08437c5995dc47d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Sion Neolog Synagogue & Jewish History Museum Oradea" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Sion Neolog Synagogue & Jewish History Museum Oradea</h3>
+          <p class="venue">📍 Museum of Jewish History in Oradea</p>
+          <p>In the Museum of Jewish History in Oradea – housed in the Aachvas Rein Orthodox Synagogue, built in 1926 – you can take a chronological journey which tells the tale of the city's Jewish population, from their establishment to the subsequent splitting of the community, and the tragic ghettoization and deportation during World War II.
 
 You'll also get to visit the Sion Neolog Synagogue. Dating back to 1878, it's a simplified, modern replica of the one in Nuremberg and can seat up to 1,000 people inside. The building has a basilica-like spatial arrangement with three naves, and the exterior's central section is reminiscent of the architecture of the Dome of the Rock on the Temple Mount in Jerusalem.</p>
-        <div class="card-footer">
-         <span class="price">From €20.99</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-sion-neolog-synagogue-jewish-history-museum-oradea-meet-and-greet-combo-p1013350/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €20.99</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-sion-neolog-synagogue-jewish-history-museum-oradea-meet-and-greet-combo-p1013350/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/91b5ab46e08c4d628fee4ffc6ac256e5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oradea Zoo: Meet & Greet" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Oradea Zoo: Meet & Greet</h3>
-        <p class="venue">📍 Oradea Zoo</p>
-        <p>The child in us seemed to have an unlimited sense of wonder, and there weren't many places you felt it more than at the zoo. Amazing animals you'd only seen before in stories were there right in front of you – Oradea Zoo brings you back to that feeling with their cast of creatures.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/91b5ab46e08c4d628fee4ffc6ac256e5.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Oradea Zoo: Meet & Greet" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Oradea Zoo: Meet & Greet</h3>
+          <p class="venue">📍 Oradea Zoo</p>
+          <p>The child in us seemed to have an unlimited sense of wonder, and there weren't many places you felt it more than at the zoo. Amazing animals you'd only seen before in stories were there right in front of you – Oradea Zoo brings you back to that feeling with their cast of creatures.
 
 If you love the majesty of big cats, then you're in luck. The zoo proudly hosts lions and leopards, Siberian tigers, and lynxes. There's also the chance to see brown bears and wolves. Prepare to be dazzled by mother nature at Oradea Zoo.</p>
-        <div class="card-footer">
-         <span class="price">From €19.99</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-oradea-zoo-meet-greet-p1013360/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €19.99</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-oradea-zoo-meet-greet-p1013360/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/000c5683524140f9afb29f15d1fd0fe1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Museum of Oradea & Oradea Fortress Tour" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Museum of Oradea & Oradea Fortress Tour</h3>
-        <p class="venue">📍 Museum of Oradea</p>
-        <p>History whispers to you at every turn in Oradea. Nowhere epitomizes this better than the (almost) indomitable Oradea Fortress, the centerpiece of this ancient Romanian city. 
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/000c5683524140f9afb29f15d1fd0fe1.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Museum of Oradea & Oradea Fortress Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Museum of Oradea & Oradea Fortress Tour</h3>
+          <p class="venue">📍 Museum of Oradea</p>
+          <p>History whispers to you at every turn in Oradea. Nowhere epitomizes this better than the (almost) indomitable Oradea Fortress, the centerpiece of this ancient Romanian city. 
 
 This combo ticket gets you skip-the-line access to the Museum of Oradea, which traces the city's many wars, eras of religious turmoil, and even the disco days of the 1970s and 1980s. You'll also join a guided tour of the fortress, with a live host detailing the trials and triumphs of Oradea throughout the centuries.</p>
-        <div class="card-footer">
-         <span class="price">From €19.99</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-museum-of-oradea-oradea-fortress-tour-p1013352/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €19.99</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-museum-of-oradea-oradea-fortress-tour-p1013352/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/33cc55c597234402a08437c5995dc47d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Sion Neolog Synagogue & Jewish History Museum Oradea" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>The Sion Neolog Synagogue & Jewish History Museum Oradea</h3>
-        <p class="venue">📍 Museum of Jewish History in Oradea</p>
-        <p>In the Museum of Jewish History in Oradea – housed in the Aachvas Rein Orthodox Synagogue, built in 1926 – you can take a chronological journey which tells the tale of the city's Jewish population, from their establishment to the subsequent splitting of the community, and the tragic ghettoization and deportation during World War II.
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/33cc55c597234402a08437c5995dc47d.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="The Sion Neolog Synagogue & Jewish History Museum Oradea" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>The Sion Neolog Synagogue & Jewish History Museum Oradea</h3>
+          <p class="venue">📍 Museum of Jewish History in Oradea</p>
+          <p>In the Museum of Jewish History in Oradea – housed in the Aachvas Rein Orthodox Synagogue, built in 1926 – you can take a chronological journey which tells the tale of the city's Jewish population, from their establishment to the subsequent splitting of the community, and the tragic ghettoization and deportation during World War II.
 
 You'll also get to visit the Sion Neolog Synagogue. Dating back to 1878, it's a simplified, modern replica of the one in Nuremberg and can seat up to 1,000 people inside. The building has a basilica-like spatial arrangement with three naves, and the exterior's central section is reminiscent of the architecture of the Dome of the Rock on the Temple Mount in Jerusalem.</p>
-        <div class="card-footer">
-         <span class="price">From €20.99</span>
-         <span class="rating">⭐  ()</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-the-sion-neolog-synagogue-jewish-history-museum-oradea-meet-and-greet-combo-p1013350/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €20.99</span>
+            <span class="rating">⭐  ()</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-the-sion-neolog-synagogue-jewish-history-museum-oradea-meet-and-greet-combo-p1013350/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>

@@ -12,18 +12,18 @@
     header h1 { font-size: 2rem; }
     header p { margin-top: .5rem; opacity: .8; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+    .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); display: flex; flex-direction: column; }
     .card img { width: 100%; height: 200px; object-fit: cover; }
-    .card-body { padding: 1rem; }
+    .card-body { padding: 1rem; display: flex; flex-direction: column; flex: 1; }
     .card-body h3 { font-size: 1rem; margin-bottom: .5rem; }
     .card-body p { font-size: .85rem; color: #555; line-height: 1.4; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; }
+    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 1rem; }
     .price { font-weight: bold; color: #1a1a2e; }
+    .rating { font-size: .8rem; color: #555; }
     .btn { background: #e63946; color: white; padding: .4rem .9rem; border-radius: 6px; text-decoration: none; font-size: .85rem; }
     .btn:hover { background: #c1121f; }
     footer { text-align: center; padding: 2rem; color: #888; font-size: .8rem; }
-    .venue { font-size: .8rem; color: #888; margin-bottom: .4rem; }
-    .rating { font-size: .8rem; color: #555; }
   </style>
 </head>
 <body>
@@ -32,41 +32,39 @@
     <p>2 activities available for your group</p>
   </header>
   <div class="grid">
-    
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/1dd6b409fbb24b839a539980a2575a57.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Saint Paul's Submarine Ride (2 Hours)" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Saint Paul's Submarine Ride (2 Hours)</h3>
-        <p class="venue">📍 Rhodes Water Activities</p>
-        <p>Prepare yourself for an adventure in the crystal-clear waters of the Aegean Sea for two whole hours!  
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1dd6b409fbb24b839a539980a2575a57.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Saint Paul's Submarine Ride (2 Hours)" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Saint Paul's Submarine Ride (2 Hours)</h3>
+          <p class="venue">📍 Rhodes Water Activities</p>
+          <p>Prepare yourself for an adventure in the crystal-clear waters of the Aegean Sea for two whole hours!  
 
 You'll be riding in HiPPO, a semi-submarine boat with an amazing underwater, air-conditioned cabin. Large windows allow you to explore the underwater life of Lindos' coasts while staying bone-dry and comfortable too!
 
 Your ride includes a number of stops, including the ancient Acropolis of Lindos, St. Paul's Bay, and Lion's Head Cove. You'll feel as if you can almost touch the underwater reef from the spacious deck of the vessel. Make sure to bring a camera, the pictures you take offer a whole new take on Greece.
 
 Your ride continues on toward Navarone's Bay where the fish will be awaiting your arrival. Take some time to relax here and enjoy a break to swim in the crystal blue waters of the bay.</p>
-        <div class="card-footer">
-         <span class="price">From €29</span>
-         <span class="rating">⭐ 4.6 (5)</span>
-         <a href="https://www.tiqets.com/en/checkout/tickets-for-saint-pauls-submarine-ride-lindos-p1029335/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          <div class="card-footer">
+            <span class="price">From €29</span>
+            <span class="rating">⭐ 4.6 (5)</span>
+            <a href="https://www.tiqets.com/en/checkout/tickets-for-saint-pauls-submarine-ride-lindos-p1029335/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
       </div>
-     </div>
 
-     <div class="card">
-      <img src="https://aws-tiqets-cdn.imgix.net/images/content/1dd6b409fbb24b839a539980a2575a57.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Navarone Bay: Hippo Submarine Ride with Swim" loading="lazy" onerror="this.style.display='none'">
-       <div class="card-body">
-        <h3>Navarone Bay: Hippo Submarine Ride with Swim</h3>
-        <p class="venue">📍 Rhodes Water Activities</p>
-        <p>Your aquatic adventure starts at the dock of Pallas Beach in Lindos. Hop on board the Hippo Submarine, and pass below the ancient and jaw-dropping Acropolis of Lindos while your expert guide tells you all about its unique history. En route to St. Paul's Bay, you'll learn why this local landmark is so popular, and stop for a quick trip to a cove only accessible by submarine! Take some incredible pictures as you relax on a deck 5 feet under sea level, capturing the watery wildlife in all their underseas glory. Finally, enjoy a stunning swimming stop at your end destination: Navarone Bay.</p>
-        <div class="card-footer">
-         <span class="price">From €29</span>
-         <span class="rating">⭐ 4.2 (8)</span>
-         <a href="https://www.tiqets.com/en/checkout/navarone-bay-hippo-submarine-tickets-p1014538/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+      <div class="card">
+        <img src="https://aws-tiqets-cdn.imgix.net/images/content/1dd6b409fbb24b839a539980a2575a57.jpg?auto=format,compress&fit=crop&w=600&h=400&q=70" alt="Navarone Bay: Hippo Submarine Ride with Swim" loading="lazy" onerror="this.style.display='none'">
+        <div class="card-body">
+          <h3>Navarone Bay: Hippo Submarine Ride with Swim</h3>
+          <p class="venue">📍 Rhodes Water Activities</p>
+          <p>Your aquatic adventure starts at the dock of Pallas Beach in Lindos. Hop on board the Hippo Submarine, and pass below the ancient and jaw-dropping Acropolis of Lindos while your expert guide tells you all about its unique history. En route to St. Paul's Bay, you'll learn why this local landmark is so popular, and stop for a quick trip to a cove only accessible by submarine! Take some incredible pictures as you relax on a deck 5 feet under sea level, capturing the watery wildlife in all their underseas glory. Finally, enjoy a stunning swimming stop at your end destination: Navarone Bay.</p>
+          <div class="card-footer">
+            <span class="price">From €29</span>
+            <span class="rating">⭐ 4.2 (8)</span>
+            <a href="https://www.tiqets.com/en/checkout/navarone-bay-hippo-submarine-tickets-p1014538/booking_details/?partner=titans_re_ag-184915" target="_blank" class="btn">Book Now</a>
+          </div>
         </div>
-      </div>
-     </div>
-  </div>
+      </div></div>
   <footer>© 2026 Group Getaways — All rights reserved</footer>
 </body>
 </html>
